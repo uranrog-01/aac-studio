@@ -1,0 +1,686 @@
+[
+ {
+  "id": "b1",
+  "label": "I",
+  "before": [
+   "twemoji",
+   "1f64b"
+  ],
+  "after": [
+   "communication",
+   "i"
+  ]
+ },
+ {
+  "id": "b2",
+  "label": "you",
+  "before": [
+   "twemoji",
+   "1f449"
+  ],
+  "after": [
+   "communication",
+   "you"
+  ]
+ },
+ {
+  "id": "b3",
+  "label": "my",
+  "before": [
+   "twemoji",
+   "1f590"
+  ],
+  "after": [
+   "communication",
+   "my"
+  ]
+ },
+ {
+  "id": "b4",
+  "label": "it",
+  "before": [
+   "twemoji",
+   "1f4cc"
+  ],
+  "after": [
+   "communication",
+   "it"
+  ]
+ },
+ {
+  "id": "b6",
+  "label": "need",
+  "before": [
+   "twemoji",
+   "2757"
+  ],
+  "after": [
+   "communication",
+   "need"
+  ]
+ },
+ {
+  "id": "b7",
+  "label": "like",
+  "before": [
+   "twemoji",
+   "1f49a"
+  ],
+  "after": [
+   "communication",
+   "like"
+  ]
+ },
+ {
+  "id": "b8",
+  "label": "don't like",
+  "before": [
+   "twemoji",
+   "1f494"
+  ],
+  "after": [
+   "communication",
+   "dont-like"
+  ]
+ },
+ {
+  "id": "b9",
+  "label": "more",
+  "before": [
+   "twemoji",
+   "2795"
+  ],
+  "after": [
+   "mulberry",
+   "more"
+  ]
+ },
+ {
+  "id": "b10",
+  "label": "help",
+  "before": [
+   "twemoji",
+   "1f198"
+  ],
+  "after": [
+   "mulberry",
+   "help_,_to"
+  ]
+ },
+ {
+  "id": "b12",
+  "label": "go",
+  "before": [
+   "twemoji",
+   "25b6"
+  ],
+  "after": [
+   "mulberry",
+   "go_,_to"
+  ]
+ },
+ {
+  "id": "b13",
+  "label": "all done",
+  "before": [
+   "twemoji",
+   "1f3c1"
+  ],
+  "after": [
+   "mulberry",
+   "finish"
+  ]
+ },
+ {
+  "id": "b15",
+  "label": "open",
+  "before": [
+   "twemoji",
+   "1f513"
+  ],
+  "after": [
+   "mulberry",
+   "open_,_to"
+  ]
+ },
+ {
+  "id": "b16",
+  "label": "my turn",
+  "before": [
+   "twemoji",
+   "1f503"
+  ],
+  "after": [
+   "communication",
+   "my-turn"
+  ]
+ },
+ {
+  "id": "b17",
+  "label": "again",
+  "before": [
+   "twemoji",
+   "1f501"
+  ],
+  "after": [
+   "communication",
+   "again"
+  ]
+ },
+ {
+  "id": "b18",
+  "label": "look",
+  "before": [
+   "twemoji",
+   "1f440"
+  ],
+  "after": [
+   "mulberry",
+   "look_,_to"
+  ]
+ },
+ {
+  "id": "b19",
+  "label": "make",
+  "before": [
+   "twemoji",
+   "1f528"
+  ],
+  "after": [
+   "mulberry",
+   "make_,_to"
+  ]
+ },
+ {
+  "id": "b21",
+  "label": "hi",
+  "before": [
+   "twemoji",
+   "1f44b"
+  ],
+  "after": [
+   "mulberry",
+   "hello"
+  ]
+ },
+ {
+  "id": "b23",
+  "label": "thank you",
+  "before": [
+   "twemoji",
+   "1f64f"
+  ],
+  "after": [
+   "communication",
+   "thank-you"
+  ]
+ },
+ {
+  "id": "b24",
+  "label": "please",
+  "before": [
+   "twemoji",
+   "1f91d"
+  ],
+  "after": [
+   "communication",
+   "please"
+  ]
+ },
+ {
+  "id": "fplay",
+  "label": "Play",
+  "before": [
+   "twemoji",
+   "1f388"
+  ],
+  "after": [
+   "mulberry",
+   "play_,_to"
+  ]
+ },
+ {
+  "id": "fplaces",
+  "label": "Places",
+  "before": [
+   "twemoji",
+   "1f697"
+  ],
+  "after": [
+   "communication",
+   "places"
+  ]
+ },
+ {
+  "id": "clearBtn",
+  "label": "Clear",
+  "before": [
+   "twemoji",
+   "1f9f9"
+  ],
+  "after": [
+   "communication",
+   "clear"
+  ]
+ },
+ {
+  "id": "b37",
+  "label": "mom",
+  "before": [
+   "twemoji",
+   "1f469"
+  ],
+  "after": [
+   "mulberry",
+   "mum_parent"
+  ]
+ },
+ {
+  "id": "b38",
+  "label": "dad",
+  "before": [
+   "twemoji",
+   "1f468"
+  ],
+  "after": [
+   "mulberry",
+   "dad_parent"
+  ]
+ },
+ {
+  "id": "b42",
+  "label": "grandma",
+  "before": [
+   "twemoji",
+   "1f475"
+  ],
+  "after": [
+   "mulberry",
+   "grandmother"
+  ]
+ },
+ {
+  "id": "b43",
+  "label": "grandpa",
+  "before": [
+   "twemoji",
+   "1f474"
+  ],
+  "after": [
+   "mulberry",
+   "grandfather"
+  ]
+ },
+ {
+  "id": "b50",
+  "label": "tired",
+  "before": [
+   "twemoji",
+   "1f634"
+  ],
+  "after": [
+   "mulberry",
+   "yawn_,_to"
+  ]
+ },
+ {
+  "id": "b52",
+  "label": "excited",
+  "before": [
+   "twemoji",
+   "1f929"
+  ],
+  "after": [
+   "mulberry",
+   "excited_man"
+  ]
+ },
+ {
+  "id": "b54",
+  "label": "calm",
+  "before": [
+   "twemoji",
+   "1f60c"
+  ],
+  "after": [
+   "mulberry",
+   "relax_,_to"
+  ]
+ },
+ {
+  "id": "b59",
+  "label": "breathe",
+  "before": [
+   "twemoji",
+   "1f343"
+  ],
+  "after": [
+   "communication",
+   "breathe"
+  ]
+ },
+ {
+  "id": "b61",
+  "label": "hug",
+  "before": [
+   "twemoji",
+   "1f917"
+  ],
+  "after": [
+   "mulberry",
+   "hug_,_to"
+  ]
+ },
+ {
+  "id": "b62",
+  "label": "rest",
+  "before": [
+   "twemoji",
+   "1f6cf"
+  ],
+  "after": [
+   "mulberry",
+   "rest_,_to"
+  ]
+ },
+ {
+  "id": "b63",
+  "label": "drink water",
+  "before": [
+   "twemoji",
+   "1f4a7"
+  ],
+  "after": [
+   "mulberry",
+   "drink_,_to"
+  ]
+ },
+ {
+  "id": "b64",
+  "label": "count",
+  "before": [
+   "twemoji",
+   "1f522"
+  ],
+  "after": [
+   "mulberry",
+   "count_,_to"
+  ]
+ },
+ {
+  "id": "b69",
+  "label": "eat",
+  "before": [
+   "twemoji",
+   "1f374"
+  ],
+  "after": [
+   "mulberry",
+   "eat_,_to"
+  ]
+ },
+ {
+  "id": "b85",
+  "label": "play",
+  "before": [
+   "twemoji",
+   "1f388"
+  ],
+  "after": [
+   "mulberry",
+   "play_,_to"
+  ]
+ },
+ {
+  "id": "b93",
+  "label": "sing",
+  "before": [
+   "twemoji",
+   "1f3a4"
+  ],
+  "after": [
+   "mulberry",
+   "sing_,_to"
+  ]
+ },
+ {
+  "id": "b94",
+  "label": "draw",
+  "before": [
+   "twemoji",
+   "1f3a8"
+  ],
+  "after": [
+   "mulberry",
+   "draw_,_to"
+  ]
+ },
+ {
+  "id": "b97",
+  "label": "blocks",
+  "before": [
+   "twemoji",
+   "1f9f1"
+  ],
+  "after": [
+   "mulberry",
+   "lego"
+  ]
+ },
+ {
+  "id": "b101",
+  "label": "park",
+  "before": [
+   "twemoji",
+   "1f333"
+  ],
+  "after": [
+   "communication",
+   "park"
+  ]
+ },
+ {
+  "id": "b106",
+  "label": "bedroom",
+  "before": [
+   "twemoji",
+   "1f6cf"
+  ],
+  "after": [
+   "communication",
+   "bedroom"
+  ]
+ },
+ {
+  "id": "b108",
+  "label": "work",
+  "before": [
+   "twemoji",
+   "270f"
+  ],
+  "after": [
+   "mulberry",
+   "work_,_to"
+  ]
+ },
+ {
+  "id": "b109",
+  "label": "read",
+  "before": [
+   "twemoji",
+   "1f4da"
+  ],
+  "after": [
+   "mulberry",
+   "read_book_,_to"
+  ]
+ },
+ {
+  "id": "b110",
+  "label": "write",
+  "before": [
+   "twemoji",
+   "1f4dd"
+  ],
+  "after": [
+   "mulberry",
+   "write_,_to"
+  ]
+ },
+ {
+  "id": "b115",
+  "label": "listen",
+  "before": [
+   "twemoji",
+   "1f442"
+  ],
+  "after": [
+   "mulberry",
+   "hear_,_to"
+  ]
+ },
+ {
+  "id": "x64",
+  "label": "football",
+  "before": [
+   "mulberry",
+   "football"
+  ],
+  "after": [
+   "twemoji",
+   "1f3c8"
+  ]
+ },
+ {
+  "id": "x76",
+  "label": "ninja star",
+  "before": [
+   "twemoji",
+   "1f9f1"
+  ],
+  "after": [
+   "communication",
+   "ninja-star"
+  ]
+ },
+ {
+  "id": "x148",
+  "label": "rooster",
+  "before": [
+   "twemoji",
+   "1f413"
+  ],
+  "after": [
+   "mulberry",
+   "cockerel"
+  ]
+ },
+ {
+  "id": "x162",
+  "label": "sleep",
+  "before": [
+   "twemoji",
+   "1f634"
+  ],
+  "after": [
+   "mulberry",
+   "sleep_male_,_to"
+  ]
+ },
+ {
+  "id": "x163",
+  "label": "cook",
+  "before": [
+   "twemoji",
+   "1f373"
+  ],
+  "after": [
+   "mulberry",
+   "cook_,_to"
+  ]
+ },
+ {
+  "id": "x166",
+  "label": "high five",
+  "before": [
+   "twemoji",
+   "270b"
+  ],
+  "after": [
+   "communication",
+   "high-five"
+  ]
+ },
+ {
+  "id": "fx_play",
+  "label": "Play",
+  "before": [
+   "twemoji",
+   "1f388"
+  ],
+  "after": [
+   "mulberry",
+   "play_,_to"
+  ]
+ },
+ {
+  "id": "fx_places",
+  "label": "Places",
+  "before": [
+   "twemoji",
+   "1f697"
+  ],
+  "after": [
+   "communication",
+   "places"
+  ]
+ },
+ {
+  "id": "fx_colors",
+  "label": "Colors",
+  "before": [
+   "twemoji",
+   "1f7e5"
+  ],
+  "after": [
+   "communication",
+   "colors"
+  ]
+ },
+ {
+  "id": "fx_toys",
+  "label": "Toys",
+  "before": [
+   "twemoji",
+   "1f9f8"
+  ],
+  "after": [
+   "mulberry",
+   "toys"
+  ]
+ },
+ {
+  "id": "fx_kitchen",
+  "label": "Kitchen",
+  "before": [
+   "twemoji",
+   "1f944"
+  ],
+  "after": [
+   "mulberry",
+   "cooker"
+  ]
+ },
+ {
+  "id": "fx_plants",
+  "label": "Plants",
+  "before": [
+   "mulberry",
+   "tree"
+  ],
+  "after": [
+   "mulberry",
+   "plant"
+  ]
+ }
+]

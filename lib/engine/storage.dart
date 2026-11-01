@@ -75,6 +75,8 @@ enum LabelPosition { below, above, hidden }
 
 class AppSettings {
   double rate, pitch, volume;
+  bool usePiper;
+  String? voiceName, voiceLocale; // chosen device voice (null = default)
   bool restrictionsEnabled;
   String pin;
   bool editMode;
@@ -105,6 +107,9 @@ class AppSettings {
   int arasaacHair; // 0 none..4 dark? (API: none/blond/brown/dark/red/gray)
 
   AppSettings({
+    this.usePiper = true,
+    this.voiceName,
+    this.voiceLocale,
     this.rate = 0.45,
     this.pitch = 1.0,
     this.volume = 1.0,
@@ -133,6 +138,9 @@ class AppSettings {
   });
 
   Map<String, dynamic> toJson() => {
+        'usePiper': usePiper,
+        if (voiceName != null) 'voiceName': voiceName,
+        if (voiceLocale != null) 'voiceLocale': voiceLocale,
         'rate': rate, 'pitch': pitch, 'volume': volume,
         'restrictionsEnabled': restrictionsEnabled, 'pin': pin,
         'editMode': editMode, 'quietBuilder': quietBuilder,
@@ -149,6 +157,9 @@ class AppSettings {
       };
 
   static AppSettings fromJson(Map<String, dynamic>? j) => AppSettings(
+        usePiper: j?['usePiper'] as bool? ?? true,
+        voiceName: j?['voiceName'] as String?,
+        voiceLocale: j?['voiceLocale'] as String?,
         rate: (j?['rate'] as num?)?.toDouble() ?? 0.45,
         pitch: (j?['pitch'] as num?)?.toDouble() ?? 1.0,
         volume: (j?['volume'] as num?)?.toDouble() ?? 1.0,

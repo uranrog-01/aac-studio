@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../engine/prediction.dart';
 import '../../engine/speech.dart';
+import '../../engine/storage.dart';
 import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
 
@@ -30,14 +31,14 @@ class _KeyboardViewState extends State<KeyboardView> {
   late final TextEditingController _controller;
   bool _upper = false;
   static const symbols = {
-    'yes': '2705',
-    'no': '274c',
-    'help': '1f198',
-    'stop': '1f6d1',
-    'water': '1f4a7',
-    'eat': '1f37d',
-    'bathroom': '1f6bd',
-    'rest': '1f6cf',
+    'yes': SymbolRef('✅', pack: 'modern3d', key: 'fluent-check-mark-button'),
+    'no': SymbolRef('❌', pack: 'modern3d', key: 'fluent-cross-mark'),
+    'help': SymbolRef('🆘', pack: 'modern3d', key: 'scene-help'),
+    'stop': SymbolRef('🛑', pack: 'modern3d', key: 'fluent-stop-sign'),
+    'water': SymbolRef('🚰', pack: 'modern3d', key: 'scene-water'),
+    'eat': SymbolRef('🍽', pack: 'modern3d', key: 'scene-eat'),
+    'bathroom': SymbolRef('🚻', pack: 'modern3d', key: 'fluent-restroom'),
+    'rest': SymbolRef('😌', pack: 'modern3d', key: 'fluent-person-in-bed'),
   };
   @override
   void initState() {
@@ -52,10 +53,12 @@ class _KeyboardViewState extends State<KeyboardView> {
   void didUpdateWidget(KeyboardView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.initialText != _controller.text) {
+      _controller.removeListener(_changed);
       _controller.value = TextEditingValue(
           text: widget.initialText,
           selection:
               TextSelection.collapsed(offset: widget.initialText.length));
+      _controller.addListener(_changed);
     }
   }
 
@@ -109,41 +112,36 @@ class _KeyboardViewState extends State<KeyboardView> {
       backgroundColor: const Color(0xFF2B2F36),
       body: SafeArea(
           child: Column(children: [
-        Semantics(
-            button: true,
-            label: 'Speak message',
-            child: Material(
-              color: Colors.white,
-              child: InkWell(
+        Material(
+            color: Colors.white,
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 72),
+              padding: const EdgeInsets.all(16),
+              width: double.infinity,
+              child: TextField(
+                  controller: _controller,
+                  keyboardType: TextInputType.none,
                   onTap: widget.onSpeak,
-                  child: Container(
-                    constraints: const BoxConstraints(minHeight: 72),
-                    padding: const EdgeInsets.all(16),
-                    width: double.infinity,
-                    child: Text(
-                        _controller.text.isEmpty
-                            ? 'Tap keys or symbols'
-                            : _controller.text,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            fontSize: 22, color: Colors.black87)),
-                  )),
+                  minLines: 1,
+                  maxLines: 3,
+                  decoration: const InputDecoration(
+                      hintText: 'Tap keys or symbols',
+                      border: InputBorder.none,
+                      isDense: true,
+                      contentPadding: EdgeInsets.zero),
+                  style: const TextStyle(fontSize: 22, color: Colors.black87)),
             )),
         Row(children: [
           TextButton.icon(
-              onPressed: widget.onClose,
+              onPressed: () {
+                if (_controller.text.trim().isNotEmpty) {
+                  widget.predictor
+                      .learnFrom(_controller.text, defaultAppStorageProvider);
+                }
+                widget.onClose();
+              },
               icon: const Icon(Icons.grid_view),
               label: const Text('Symbols')),
-          Expanded(
-              child: TextField(
-            controller: _controller,
-            keyboardType: TextInputType.none,
-            style: const TextStyle(color: Colors.white),
-            decoration: const InputDecoration(
-                labelText: 'Message',
-                labelStyle: TextStyle(color: Colors.white70)),
-          )),
         ]),
         if (suggestions.isNotEmpty)
           Wrap(children: [
@@ -190,7 +188,7 @@ class _KeyboardViewState extends State<KeyboardView> {
     );
   }
 
-  Widget _key(String label, VoidCallback onTap, {String? image}) => Material(
+  Widget _key(String label, VoidCallback onTap, {SymbolRef? image}) => Material(
         color: const Color(0xFFF3F5F7),
         borderRadius: BorderRadius.circular(10),
         child: InkWell(
@@ -207,9 +205,7 @@ class _KeyboardViewState extends State<KeyboardView> {
                       Flexible(
                           child: Padding(
                               padding: const EdgeInsets.all(4),
-                              child: SymbolLibrary.resolve(
-                                  SymbolRef(label, pack: 'twemoji', key: image),
-                                  size: 36))),
+                              child: SymbolLibrary.resolve(image, size: 36))),
                     Text(label,
                         style: TextStyle(
                             color: Colors.black87,

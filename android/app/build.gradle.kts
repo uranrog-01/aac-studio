@@ -1,7 +1,16 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+// Optional, ignored local signing configuration keeps updates compatible with
+// an existing installation. Never check key.properties or keystores into Git.
+val localSigning = Properties().apply {
+    val propertiesFile = rootProject.file("key.properties")
+    if (propertiesFile.exists()) propertiesFile.inputStream().use { load(it) }
 }
 
 android {
@@ -30,11 +39,21 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        if (localSigning.getProperty("storeFile") != null) {
+            create("localUpdate") {
+                storeFile = file(localSigning.getProperty("storeFile"))
+                storePassword = localSigning.getProperty("storePassword")
+                keyAlias = localSigning.getProperty("keyAlias")
+                keyPassword = localSigning.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("localUpdate")
+                ?: signingConfigs.getByName("debug")
         }
     }
 }

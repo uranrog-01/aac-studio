@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 import '../data/pack_loader.dart';
 import '../models/domain.dart';
@@ -19,7 +20,8 @@ class SettingsController extends ChangeNotifier {
   bool get restrictionsEnabled => settings.restrictionsEnabled;
 
   Future<void> load() async {
-    settings = AppSettings.fromJson(await storage.readJson(storage.settingsFile));
+    settings =
+        AppSettings.fromJson(await storage.readJson(storage.settingsFile));
     notifyListeners();
   }
 
@@ -100,7 +102,7 @@ class PackController extends ChangeNotifier {
     // one, upgrade (keeping a backup of the user's edits) so improvements
     // reach already-installed devices.
     final assetRaw = await loader.loadAsset(assetPath);
-    const kPackVersion = 4;
+    const kPackVersion = 7;
     int storedVersion = 0;
     if (await f.exists()) {
       final stored = await storage.readJson(f);
@@ -116,7 +118,10 @@ class PackController extends ChangeNotifier {
         try {
           final oldJson =
               jsonDecode(await f.readAsString()) as Map<String, dynamic>;
-          final merged = PackUpgrade.merge(oldJson, loader.save(assetRaw));
+          final history = jsonDecode(await rootBundle.loadString(
+              'assets/factory_symbol_history.json')) as Map<String, dynamic>;
+          final merged = PackUpgrade.merge(oldJson, loader.save(assetRaw),
+              factorySymbolHistory: history);
           await storage.writeJson(f, merged);
         } catch (_) {
           await storage.writeJson(f, loader.save(assetRaw));
@@ -132,7 +137,8 @@ class PackController extends ChangeNotifier {
 
   void save() {
     if (vocabulary == null) return;
-    storage.writeJson(storage.packFile('sample_pack'), loader.save(vocabulary!));
+    storage.writeJson(
+        storage.packFile('sample_pack'), loader.save(vocabulary!));
     notifyListeners();
   }
 }

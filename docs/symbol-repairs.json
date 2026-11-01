@@ -31,8 +31,8 @@
     "b5",
     "want",
     "P",
-    "twemoji",
-    "1f932"
+    "mulberry",
+    "want_,_to"
   ],
   [
     "b7",
@@ -101,8 +101,8 @@
     "b20",
     "give",
     "W",
-    "twemoji",
-    "1f381"
+    "mulberry",
+    "give_,_to"
   ],
   [
     "b21",
@@ -116,7 +116,7 @@
     "bye",
     "H",
     "twemoji",
-    "1faf6"
+    "1f44b"
   ],
   [
     "b23",
@@ -606,7 +606,7 @@
     "bedroom",
     "D",
     "twemoji",
-    "1f6aa"
+    "1f6cf"
   ],
   [
     "b107",
@@ -654,8 +654,8 @@
     "b114",
     "line up",
     "C",
-    "twemoji",
-    "1f6b8"
+    "mulberry",
+    "queue_,_to"
   ],
   [
     "b115",
@@ -788,7 +788,7 @@
     "truck",
     "T",
     "twemoji",
-    "2b1b"
+    "1f69a"
   ],
   [
     "x2",
@@ -802,7 +802,7 @@
     "airplane",
     "A",
     "twemoji",
-    "2b1b"
+    "2708"
   ],
   [
     "x4",
@@ -830,7 +830,7 @@
     "fire truck",
     "F",
     "twemoji",
-    "2b1b"
+    "1f692"
   ],
   [
     "x8",
@@ -879,21 +879,21 @@
     "ship",
     "S",
     "twemoji",
-    "2b1b"
+    "1f6a2"
   ],
   [
     "x15",
     "fire truck 2",
     "F",
     "twemoji",
-    "2b1b"
+    "1f692"
   ],
   [
     "x16",
     "t-shirt",
     "T",
     "twemoji",
-    "2b1b"
+    "1f455"
   ],
   [
     "x17",
@@ -914,7 +914,7 @@
     "shoes",
     "A",
     "twemoji",
-    "2b1b"
+    "1f45f"
   ],
   [
     "x20",
@@ -928,7 +928,7 @@
     "hat",
     "B",
     "twemoji",
-    "2b1b"
+    "1f3a9"
   ],
   [
     "x22",
@@ -984,7 +984,7 @@
     "cloud",
     "C",
     "twemoji",
-    "2b1b"
+    "2601"
   ],
   [
     "x30",
@@ -1012,7 +1012,7 @@
     "storm",
     "C",
     "twemoji",
-    "2b1b"
+    "26c8"
   ],
   [
     "x34",
@@ -1026,7 +1026,7 @@
     "wind",
     "W",
     "twemoji",
-    "2b1b"
+    "1f32c"
   ],
   [
     "x36",
@@ -1040,7 +1040,7 @@
     "cold",
     "S",
     "twemoji",
-    "2b1b"
+    "1f976"
   ],
   [
     "x38",
@@ -1082,7 +1082,7 @@
     "orange",
     "O",
     "mulberry",
-    "orange"
+    "orange_2"
   ],
   [
     "x44",
@@ -1116,8 +1116,8 @@
     "x48",
     "gray",
     "G",
-    "twemoji",
-    "2b1b"
+    "mulberry",
+    "grey_light"
   ],
   [
     "x49",
@@ -1131,7 +1131,7 @@
     "violin",
     "V",
     "twemoji",
-    "2b1b"
+    "1f3bb"
   ],
   [
     "x51",
@@ -1145,14 +1145,14 @@
     "trumpet",
     "T",
     "twemoji",
-    "2b1b"
+    "1f3ba"
   ],
   [
     "x53",
     "saxophone",
     "S",
     "twemoji",
-    "2b1b"
+    "1f3b7"
   ],
   [
     "x54",
@@ -1173,7 +1173,7 @@
     "banjo",
     "B",
     "twemoji",
-    "2b1b"
+    "1fa95"
   ],
   [
     "x57",
@@ -1187,14 +1187,14 @@
     "bells",
     "B",
     "twemoji",
-    "2b1b"
+    "1f514"
   ],
   [
     "x59",
     "soccer",
     "S",
     "twemoji",
-    "2b1b"
+    "26bd"
   ],
   [
     "x60",
@@ -1215,7 +1215,7 @@
     "baseball",
     "B",
     "twemoji",
-    "2b1b"
+    "26be"
   ],
   [
     "x63",
@@ -1236,14 +1236,14 @@
     "bike ride",
     "P",
     "twemoji",
-    "2b1b"
+    "1f6b4"
   ],
   [
     "x66",
     "trophy",
     "T",
     "twemoji",
-    "2b1b"
+    "1f3c6"
   ],
   [
     "x67",
@@ -1257,7 +1257,7 @@
     "teddy",
     "T",
     "twemoji",
-    "2b1b"
+    "1f9f8"
   ],
   [
     "x69",
@@ -1271,7 +1271,7 @@
     "yo-yo",
     "Y",
     "twemoji",
-    "2b1b"
+    "1fa80"
   ],
   [
     "x71",
@@ -1285,35 +1285,35 @@
     "gift",
     "W",
     "twemoji",
-    "2b1b"
+    "1f381"
   ],
   [
     "x73",
     "magic",
     "M",
     "twemoji",
-    "2b1b"
+    "1fa84"
   ],
   [
     "x74",
     "drum toy",
     "D",
     "twemoji",
-    "2b1b"
+    "1f941"
   ],
   [
     "x75",
     "dice",
     "G",
     "twemoji",
-    "2b1b"
+    "1f3b2"
   ],
   [
     "x76",
     "ninja star",
     "S",
     "twemoji",
-    "2b1b"
+    "1f9f1"
   ],
   [
     "x77",
@@ -1327,14 +1327,14 @@
     "cup",
     "C",
     "twemoji",
-    "2b1b"
+    "1f964"
   ],
   [
     "x79",
     "mug",
     "H",
     "twemoji",
-    "2b1b"
+    "2615"
   ],
   [
     "x80",
@@ -1348,14 +1348,14 @@
     "bottle",
     "B",
     "twemoji",
-    "2b1b"
+    "1f37c"
   ],
   [
     "x82",
     "pot",
     "C",
     "mulberry",
-    "pot"
+    "saucepan"
   ],
   [
     "x83",
@@ -1376,21 +1376,21 @@
     "chopsticks",
     "C",
     "twemoji",
-    "2b1b"
+    "1f962"
   ],
   [
     "x86",
     "bed",
     "B",
     "twemoji",
-    "2b1b"
+    "1f6cf"
   ],
   [
     "x87",
     "couch",
     "C",
     "twemoji",
-    "2b1b"
+    "1f6cb"
   ],
   [
     "x88",
@@ -1432,7 +1432,7 @@
     "bathtub",
     "B",
     "twemoji",
-    "2b1b"
+    "1f6c1"
   ],
   [
     "x94",
@@ -1460,7 +1460,7 @@
     "pine tree",
     "E",
     "twemoji",
-    "2b1b"
+    "1f332"
   ],
   [
     "x98",
@@ -1488,14 +1488,14 @@
     "sunflower",
     "S",
     "twemoji",
-    "2b1b"
+    "1f33b"
   ],
   [
     "x102",
     "blossom",
     "C",
     "twemoji",
-    "2b1b"
+    "1f33c"
   ],
   [
     "x103",
@@ -1551,7 +1551,7 @@
     "bee",
     "H",
     "twemoji",
-    "2b1b"
+    "1f41d"
   ],
   [
     "x111",
@@ -1565,7 +1565,7 @@
     "ladybug",
     "L",
     "twemoji",
-    "2b1b"
+    "1f41e"
   ],
   [
     "x113",
@@ -1599,29 +1599,29 @@
     "x117",
     "cricket",
     "C",
-    "mulberry",
-    "cricket"
+    "twemoji",
+    "1f997"
   ],
   [
     "x118",
     "tropical fish",
     "T",
     "twemoji",
-    "2b1b"
+    "1f420"
   ],
   [
     "x119",
     "shark",
     "S",
     "twemoji",
-    "2b1b"
+    "1f988"
   ],
   [
     "x120",
     "octopus",
     "O",
     "twemoji",
-    "2b1b"
+    "1f419"
   ],
   [
     "x121",
@@ -1635,7 +1635,7 @@
     "lobster",
     "L",
     "twemoji",
-    "2b1b"
+    "1f99e"
   ],
   [
     "x123",
@@ -1656,7 +1656,7 @@
     "whale",
     "W",
     "twemoji",
-    "2b1b"
+    "1f40b"
   ],
   [
     "x126",
@@ -1712,14 +1712,14 @@
     "rhino",
     "R",
     "twemoji",
-    "2b1b"
+    "1f98f"
   ],
   [
     "x134",
     "hippo",
     "H",
     "twemoji",
-    "2b1b"
+    "1f99b"
   ],
   [
     "x135",
@@ -1782,7 +1782,7 @@
     "eagle",
     "E",
     "twemoji",
-    "2b1b"
+    "1f985"
   ],
   [
     "x144",
@@ -1817,133 +1817,133 @@
     "rooster",
     "R",
     "twemoji",
-    "2b1b"
+    "1f413"
   ],
   [
     "x149",
     "firefighter",
     "F",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f692"
   ],
   [
     "x150",
     "police",
     "P",
     "twemoji",
-    "2b1b"
+    "1f46e"
   ],
   [
     "x151",
     "chef",
     "C",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f373"
   ],
   [
     "x152",
     "farmer",
     "F",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f33e"
   ],
   [
     "x153",
     "pilot",
     "P",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-2708-fe0f"
   ],
   [
     "x154",
     "scientist",
     "S",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f52c"
   ],
   [
     "x155",
     "artist",
     "A",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f3a8"
   ],
   [
     "x156",
     "singer",
     "S",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f3a4"
   ],
   [
     "x157",
     "astronaut",
     "A",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f680"
   ],
   [
     "x158",
     "mechanic",
     "M",
     "twemoji",
-    "2b1b"
+    "1f9d1-200d-1f527"
   ],
   [
     "x159",
     "clap",
     "C",
     "twemoji",
-    "2b1b"
+    "1f44f"
   ],
   [
     "x160",
     "point",
     "I",
     "twemoji",
-    "2b1b"
+    "1f449"
   ],
   [
     "x161",
     "wave",
     "W",
     "twemoji",
-    "2b1b"
+    "1f44b"
   ],
   [
     "x162",
     "sleep",
     "P",
     "twemoji",
-    "2b1b"
+    "1f634"
   ],
   [
     "x163",
     "cook",
     "C",
     "twemoji",
-    "2b1b"
+    "1f373"
   ],
   [
     "x164",
     "brush teeth",
     "T",
-    "twemoji",
-    "2b1b"
+    "mulberry",
+    "brush_teeth_,_to"
   ],
   [
     "x165",
     "think",
     "T",
     "twemoji",
-    "2b1b"
+    "1f914"
   ],
   [
     "x166",
     "high five",
     "R",
     "twemoji",
-    "2b1b"
+    "270b"
   ],
   [
     "x167",
@@ -1957,7 +1957,7 @@
     "cookie",
     "C",
     "twemoji",
-    "2b1b"
+    "1f36a"
   ],
   [
     "x169",
@@ -1971,7 +1971,7 @@
     "donut",
     "D",
     "twemoji",
-    "2b1b"
+    "1f369"
   ],
   [
     "x171",
@@ -1985,7 +1985,7 @@
     "candy",
     "C",
     "twemoji",
-    "2b1b"
+    "1f36c"
   ],
   [
     "x173",
@@ -1999,14 +1999,14 @@
     "cupcake",
     "C",
     "twemoji",
-    "2b1b"
+    "1f9c1"
   ],
   [
     "x175",
     "popcorn",
     "P",
     "twemoji",
-    "2b1b"
+    "1f37f"
   ],
   [
     "x176",
@@ -2034,7 +2034,7 @@
     "tangerine",
     "T",
     "twemoji",
-    "2b1b"
+    "1f34a"
   ],
   [
     "x180",
@@ -2069,7 +2069,7 @@
     "cherries",
     "C",
     "twemoji",
-    "2b1b"
+    "1f352"
   ],
   [
     "x185",
@@ -2097,7 +2097,7 @@
     "corn",
     "E",
     "twemoji",
-    "2b1b"
+    "1f33d"
   ],
   [
     "x189",
@@ -2118,7 +2118,7 @@
     "bandage",
     "A",
     "twemoji",
-    "2b1b"
+    "1fa79"
   ],
   [
     "x192",
@@ -2132,7 +2132,7 @@
     "shot",
     "S",
     "twemoji",
-    "2b1b"
+    "1f489"
   ],
   [
     "x194",
@@ -2160,7 +2160,7 @@
     "hospital",
     "H",
     "twemoji",
-    "2b1b"
+    "1f3e5"
   ],
   [
     "x198",
@@ -2181,7 +2181,7 @@
     "ruler",
     "S",
     "twemoji",
-    "2b1b"
+    "1f4cf"
   ],
   [
     "x201",
@@ -2237,7 +2237,7 @@
     "hotel",
     "H",
     "twemoji",
-    "2b1b"
+    "1f3e8"
   ],
   [
     "x209",
@@ -2251,42 +2251,42 @@
     "factory",
     "F",
     "twemoji",
-    "2b1b"
+    "1f3ed"
   ],
   [
     "x211",
     "tent",
     "T",
     "twemoji",
-    "2b1b"
+    "26fa"
   ],
   [
     "x212",
     "lighthouse",
     "L",
-    "twemoji",
-    "2b1b"
+    "openmoji",
+    "1F6D9"
   ],
   [
     "x213",
     "stadium",
     "S",
     "twemoji",
-    "2b1b"
+    "1f3df"
   ],
   [
     "x214",
     "bridge",
     "B",
     "twemoji",
-    "2b1b"
+    "1f309"
   ],
   [
     "x215",
     "fountain",
     "F",
     "twemoji",
-    "2b1b"
+    "26f2"
   ],
   [
     "x216",
@@ -2300,7 +2300,7 @@
     "alarm",
     "A",
     "twemoji",
-    "2b1b"
+    "23f0"
   ],
   [
     "x218",
@@ -2314,7 +2314,7 @@
     "hourglass",
     "H",
     "twemoji",
-    "2b1b"
+    "23f3"
   ],
   [
     "x220",

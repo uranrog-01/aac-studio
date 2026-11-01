@@ -405,6 +405,7 @@ class _GridScreenState extends State<GridScreen> {
       Semantics(
         button: true,
         label: 'Speak message',
+        excludeSemantics: true,
         child: Material(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -444,61 +445,62 @@ class _GridScreenState extends State<GridScreen> {
       VoidCallback? onTap,
       Color? color,
       bool active = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(10),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
-          decoration: BoxDecoration(
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 2),
+        child: Semantics(
+          button: true,
+          label: label,
+          excludeSemantics: true,
+          child: Material(
             color: active
                 ? Colors.deepOrangeAccent.withValues(alpha: .35)
                 : (color ?? const Color(0xFF3A4049)),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(12),
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: BorderRadius.circular(12),
+              child: Opacity(
+                opacity: onTap == null ? .4 : 1,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Icon(icon, color: Colors.white, size: 26),
+                    FittedBox(
+                      child: Text(label,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600)),
+                    ),
+                  ]),
+                ),
+              ),
+            ),
           ),
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Icon(icon, color: Colors.white, size: 20),
-            Text(label,
-                style: const TextStyle(color: Colors.white70, fontSize: 9)),
-          ]),
         ),
       ),
     );
   }
 
+  /// Seven large controls a communicator uses every day; caregiver and
+  /// occasional tools (recent words, repeat, copy, settings) live in More.
   Widget _toolbar(BuildContext context, String folderLabel, AppSettings s) {
     final session = widget.session;
-    return Container(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
       child: Row(children: [
         _toolbarBtn(
-            icon: Icons.arrow_back_ios_new,
+            icon: Icons.arrow_back,
             label: 'Back',
             onTap: session.canGoBack ? session.back : null),
         _toolbarBtn(
-            icon: Icons.home_outlined, label: 'Home', onTap: session.goHome),
-        // P0: recents + favorites virtual folders
+            icon: Icons.home_rounded, label: 'Home', onTap: session.goHome),
         _toolbarBtn(
-            icon: Icons.history,
-            label: 'Recent',
-            active: session.currentFolderId == GridSession.recentsFolderId,
-            onTap: () => session.pushFolder(GridSession.recentsFolderId)),
-        _toolbarBtn(
-            icon: Icons.star_border,
-            label: 'Starred',
+            icon: Icons.star_rounded,
+            label: 'My words',
             active: session.currentFolderId == GridSession.favoritesFolderId,
             onTap: () => session.pushFolder(GridSession.favoritesFolderId)),
-        Expanded(
-          child: Center(
-            child: Text(folderLabel,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    color: s.cviMode ? Colors.yellow : Colors.white70,
-                    fontWeight: FontWeight.w600)),
-          ),
-        ),
         if (widget.editMode)
           _toolbarBtn(
               icon: Icons.add_box, label: 'Add', onTap: widget.onAddButton),
@@ -513,46 +515,76 @@ class _GridScreenState extends State<GridScreen> {
             label: 'Type',
             onTap: widget.predictor != null ? session.toggleKeyboard : null),
         _toolbarBtn(
-            icon: Icons.copy_all,
-            label: 'Copy',
-            onTap: session.message.isEmpty
-                ? null
-                : () {
-                    Clipboard.setData(ClipboardData(text: session.message));
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Copied'),
-                        duration: Duration(seconds: 1)));
-                  }),
+            icon: Icons.volume_up,
+            label: 'Speak',
+            color: const Color(0xFF2E7D32),
+            onTap: session.speakMessage),
         _toolbarBtn(
-            icon: Icons.replay,
-            label: 'Again',
-            onTap: session.lastSpoken == null
-                ? null
-                : () => session.speech.speak(session.lastSpoken!)),
+            icon: Icons.clear_all, label: 'Clear', onTap: session.clearMessage),
         _toolbarBtn(
-            icon: Icons.volume_up, label: 'Speak', onTap: session.speakMessage),
-        _toolbarBtn(
-            icon: Icons.backspace_outlined,
-            label: 'Del',
-            onTap: session.removeLastWord),
-        _toolbarBtn(
-            icon: Icons.backspace_outlined,
-            label: 'Clear',
-            onTap: session.clearMessage),
-        if (widget.showOptions)
-          _toolbarBtn(
-              icon: Icons.settings_outlined,
-              label: 'Options',
-              onTap: () {
-                SettingsSheet.show(
-                  context,
-                  speech: session.speech,
-                  settings: context.read<SettingsController>().settings,
-                  settingsController: context.read<SettingsController>(),
-                  onChanged: () => context.read<SettingsController>().update(),
-                );
-              }),
+            icon: Icons.more_horiz,
+            label: 'More',
+            onTap: () => _showMore(context)),
       ]),
+    );
+  }
+
+  void _showMore(BuildContext context) {
+    final session = widget.session;
+    final messenger = ScaffoldMessenger.of(context);
+    Widget item(IconData icon, String label, VoidCallback? onTap) => ListTile(
+          leading: Icon(icon, color: Colors.white),
+          title: Text(label,
+              style: const TextStyle(color: Colors.white, fontSize: 16)),
+          enabled: onTap != null,
+          onTap: onTap == null
+              ? null
+              : () {
+                  Navigator.pop(context);
+                  onTap();
+                },
+        );
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF22262D),
+      builder: (_) => SafeArea(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          item(Icons.history, 'Recent words',
+              () => session.pushFolder(GridSession.recentsFolderId)),
+          item(
+              Icons.replay,
+              'Say the last word again',
+              session.lastSpoken == null
+                  ? null
+                  : () => session.speech.speak(session.lastSpoken!)),
+          item(
+              Icons.copy_all,
+              'Copy the message',
+              session.message.isEmpty
+                  ? null
+                  : () {
+                      Clipboard.setData(ClipboardData(text: session.message));
+                      messenger.showSnackBar(const SnackBar(
+                          content: Text('Copied'),
+                          duration: Duration(seconds: 1)));
+                    }),
+          if (widget.showOptions)
+            item(Icons.settings_outlined, 'Settings', () async {
+              final sc = context.read<SettingsController>();
+              if (sc.restrictionsEnabled && !await sc.guardPrivileged(context)) {
+                return;
+              }
+              if (!context.mounted) return;
+              SettingsSheet.show(
+                context,
+                speech: session.speech,
+                settings: context.read<SettingsController>().settings,
+                settingsController: context.read<SettingsController>(),
+                onChanged: () => context.read<SettingsController>().update(),
+              );
+            }),
+        ]),
+      ),
     );
   }
 
@@ -581,24 +613,29 @@ class _GridScreenState extends State<GridScreen> {
       padding: const EdgeInsets.all(8),
       child: LayoutBuilder(builder: (context, cons) {
         final cellW = cons.maxWidth / cols;
-        final cellH = nRows > 0 ? cons.maxHeight / nRows : cellW;
-        return Stack(children: [
-          for (var i = 0; i < visible.length; i++)
-            Positioned(
-              left: (effCol[i] - 1) * cellW + 3,
-              top: (effRow[i] - 1) * cellH + 3,
-              width: (visible[i].span.clamp(1, cols)) * cellW - 6,
-              height: cellH - 6,
-              child: _CellButton(
-                button: visible[i].button,
-                dimmed: visible[i].dimmed,
-                showEditBadge: widget.editMode,
-                settings: settings,
-                scanHighlight: _scanHighlightFor(effCol[i], effRow[i]),
-                onTap: () => _onCellTap(visible[i], settings),
-              ),
-            ),
-        ]);
+        final cellH =
+            (nRows > 0 ? cons.maxHeight / nRows : cellW).clamp(100.0, 180.0);
+        return SingleChildScrollView(
+            child: SizedBox(
+                height: cellH * nRows,
+                width: cons.maxWidth,
+                child: Stack(children: [
+                  for (var i = 0; i < visible.length; i++)
+                    Positioned(
+                      left: (effCol[i] - 1) * cellW + 3,
+                      top: (effRow[i] - 1) * cellH + 3,
+                      width: (visible[i].span.clamp(1, cols)) * cellW - 6,
+                      height: cellH - 6,
+                      child: _CellButton(
+                        button: visible[i].button,
+                        dimmed: visible[i].dimmed,
+                        showEditBadge: widget.editMode,
+                        settings: settings,
+                        scanHighlight: _scanHighlightFor(effCol[i], effRow[i]),
+                        onTap: () => _onCellTap(visible[i], settings),
+                      ),
+                    ),
+                ])));
       }),
     );
   }
@@ -656,6 +693,7 @@ class _GridScreenState extends State<GridScreen> {
 
   /// P2 scanning: toggle automatic row-column scanning for this grid.
   void _toggleScanning(AppSettings settings, int cols, int nRows) {
+    if (nRows == 0 || cols == 0) return;
     if (_scanPhase != 0) {
       _stopScanning();
       setState(() {});
@@ -767,7 +805,9 @@ class _CellButtonState extends State<_CellButton> {
                     fit: BoxFit.contain,
                     errorBuilder: (_, __, ___) =>
                         SymbolLibrary.resolve(sym, size: 48))
-                : SymbolLibrary.resolve(sym, size: 52))
+                : LayoutBuilder(
+                    builder: (_, constraints) => SymbolLibrary.resolve(sym,
+                        size: constraints.biggest.shortestSide)))
             : const SizedBox.shrink(),
       ),
     );

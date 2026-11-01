@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart'
+    show LicenseEntryWithLineBreaks, LicenseRegistry;
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -16,6 +19,10 @@ import 'studio/studio_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  LicenseRegistry.addLicense(() async* {
+    yield LicenseEntryWithLineBreaks(['Piper LJ Speech offline voice'],
+        await rootBundle.loadString('assets/voices/NOTICE.txt'));
+  });
   // SQLite on desktop (P2G Explorer research viewer); mobile uses plugins.
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     sqfliteFfiInit();
@@ -41,11 +48,7 @@ Future<void> main() async {
   // Warm up the TTS engine before the first tap (first-tap silence on
   // Android/Fire otherwise).
   final speech = SpeechEngine();
-  void syncSpeech() {
-    speech.rate = settings.settings.rate;
-    speech.pitch = settings.settings.pitch;
-    speech.volume = settings.settings.volume;
-  }
+  void syncSpeech() => speech.configure(settings.settings);
 
   syncSpeech();
   settings.addListener(syncSpeech);
@@ -100,6 +103,7 @@ class StudioApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
+          splashFactory: NoSplash.splashFactory,
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.deepOrange,
             brightness: Brightness.dark,

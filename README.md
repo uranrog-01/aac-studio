@@ -13,20 +13,20 @@ symbols, voices, or artwork from that app is included.**
 
 | Mode | What it is |
 |---|---|
-| My AAC | The original app: sample vocabulary, folder grid navigation, message window, word-class color coding, platform TTS with per-button voice styles, typing view with word prediction + auto-learn, full button editor with 24k+ symbol search, caregiver restrictions lock. |
+| My AAC | The original app: sample vocabulary, folder grid navigation, message window, word-class color coding, platform TTS with per-button voice styles, typing view with word prediction + auto-learn, full button editor with 20.9k-picture symbol search, caregiver restrictions lock. |
 | P2G Explorer | Research viewer that renders a **locally extracted** Proloquo2Go IPA database (vocabulary, folders, grid layouts, buttons, actions) with locally pre-rendered symbol images. Local study tooling only - nothing is redistributed. |
 
 ### M3 - Voice styles
 Per-button rate/pitch overrides + global speech settings (test voice button).
 
 ### M4 - Typing + prediction
-On-screen QWERTY keyboard (plus hardware keyboard), prediction bar over an
+Unified symbol, alphabet and number keyboard (plus hardware keyboard), prediction bar over an
 open 9.9k-word frequency lexicon, auto-learn: every sentence you send teaches
 the predictor your words.
 
 ### M5 - Editor + restrictions
 Edit mode: tap any button to change label, spoken text, word class, symbol
-(search 24,296 bundled open symbols across 6 packs, or pick an emoji), voice
+(search 20,894 bundled open pictures across 8 packs, or pick an emoji), voice
 overrides, delete; Add button to create new ones. Everything persists to a
 local editable pack. Restrictions: 4-digit PIN gates edit mode.
 
@@ -57,7 +57,7 @@ Android OS floor: **Android 7.0+ (Fire OS 6+)** — the Flutter engine requires 
     +-- data/p2g_loader.dart      # research viewer: reads extracted cache DBs
     +-- engine/speech.dart        # TTS abstraction + per-utterance voice styles
     +-- engine/prediction.dart    # word prediction + auto-learn
-    +-- engine/symbol_library.dart# 24k open symbols: search + render
+    +-- engine/symbol_library.dart# 20.9k open pictures: search + render
     +-- engine/storage.dart       # packs / settings / learned words persistence
     +-- engine/settings_controller.dart
     +-- features/grid/            # grid engine, message window, keyboard view
@@ -65,7 +65,7 @@ Android OS floor: **Android 7.0+ (Fire OS 6+)** — the Flutter engine requires 
     +-- features/settings/        # M3 speech + M5 restrictions sheet
     +-- features/modes.dart       # My AAC + P2G Explorer wiring
     +-- studio/                   # device frames + studio shell
-    assets/                       # sample pack + 24k symbols + prediction lexicon
+    assets/                       # sample pack + 20.9k pictures + prediction lexicon
 
 ## Wireless install (no USB)
 
@@ -76,7 +76,7 @@ Nothing leaves your network.
 
 - **Android**: the served `.apk` installs directly — allow "Install unknown
   apps" for your browser when asked. Build it with `flutter build apk --release`.
-- **iPhone / iPad (iOS 12 → 18+)**: the served `.ipa` is **unsigned**; iOS
+- **iPhone / iPad (iOS/iPadOS 15+)**: the served `.ipa` is **unsigned**; iOS
   will download it but never self-install it (an unsigned file is invisible to
   the installer — this is why a QR scan can appear to "do nothing"). Sideload
   it instead:
@@ -101,7 +101,7 @@ iOS" repos) and the USB install helper: **[docs/IOS_SIGNING.md](docs/IOS_SIGNING
 
 ## Input & access
 
-- **Typing view**: on-screen QWERTY + hardware keyboard; every keystroke goes
+- **Typing view**: one symbol/alphabet/number keyboard + hardware keyboard; every keystroke goes
   live into the message window (no send button); prediction bar + auto-learn;
   **tap the chat banner to speak it**.
 - **Edit mode**: always gated by a code (default **1234**, changeable in
@@ -115,3 +115,32 @@ Symbols: six open packs with their own licenses - see THIRD_PARTY_SYMBOLS.md
 from Unicode CLDR). Symbol packs you add (e.g., ARASAAC) carry their own
 licenses - check before redistribution. The P2G Explorer is a personal study
 tool; do not distribute extracted data or rendered symbols.
+
+## Communication reliability update
+
+See [repair and verification notes](docs/COMMUNICATION_FIXES.md) for speech, keyboard, category and symbol fixes, supported OS limits, and physical-device checks.
+
+See [message and picture corrections](docs/SYMBOL_AND_MESSAGE_FIXES.md) for the single message box, consolidated Clear control, 57 corrected image assignments and SVG color rendering repairs.
+
+Version 1.4.0 replaces all starter artwork with [soft 3D illustrations](docs/MODERN_3D_SYMBOLS.md), enlarges pictures within tiles and prioritizes exact modern symbol matches in search.
+
+## Piper offline speech (1.3.0)
+
+Piper LJ Speech medium (US English, female voice) is bundled and enabled by
+default. No account, server, or voice download is needed after installation.
+The first launch prepares the voice in the background; device speech remains
+available during setup and automatically takes over if Piper fails.
+
+Choose **Speech & restrictions > Piper offline voice** to switch between
+Piper and device speech. Rate and volume work with Piper. Pitch changes use
+the device voice so existing button overrides keep working.
+
+The voice archive is approximately 64 MiB; native libraries and pronunciation
+data add further installation space. [Offline speech notes](docs/PIPER_SPEECH.md)
+cover implementation, checks, licenses, and device limitations. The combined
+build includes a GPL phonemizer; the original code's MIT notice does not
+replace its distribution terms.
+
+## Simpler Home and voice choice (pack v7)
+
+Home has 40 buttons with no duplicates. Settings has five plain groups and a voice picker. See [docs/SIMPLER_HOME_AND_VOICE.md](docs/SIMPLER_HOME_AND_VOICE.md).

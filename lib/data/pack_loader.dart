@@ -97,7 +97,7 @@ class PackLoader {
   Map<String, dynamic> save(Vocabulary v) {
     final buttons = <Map<String, dynamic>>[];
     // keep in sync with PackController.kPackVersion
-    const packVersion = 4;
+    const packVersion = 7;
     final views = <String, dynamic>{};
     for (final e in v.viewsByFolder.entries) {
       views[e.key] = e.value.map((view) {

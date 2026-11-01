@@ -1,0 +1,3523 @@
+{
+ "style": "Soft 3D",
+ "fluentRevision": "1ffb34c752ecf5d402f04cfb4b392c77f57c54bc",
+ "upstream": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/",
+ "assignments": [
+  {
+   "kind": "buttons",
+   "id": "b1",
+   "label": "I",
+   "key": "scene-i"
+  },
+  {
+   "kind": "buttons",
+   "id": "b2",
+   "label": "you",
+   "key": "scene-you"
+  },
+  {
+   "kind": "buttons",
+   "id": "b3",
+   "label": "my",
+   "key": "scene-my"
+  },
+  {
+   "kind": "buttons",
+   "id": "b4",
+   "label": "it",
+   "key": "scene-it"
+  },
+  {
+   "kind": "buttons",
+   "id": "b5",
+   "label": "want",
+   "key": "scene-want"
+  },
+  {
+   "kind": "buttons",
+   "id": "b6",
+   "label": "need",
+   "key": "scene-need"
+  },
+  {
+   "kind": "buttons",
+   "id": "b7",
+   "label": "like",
+   "key": "fluent-thumbs-up"
+  },
+  {
+   "kind": "buttons",
+   "id": "b8",
+   "label": "don't like",
+   "key": "fluent-thumbs-down"
+  },
+  {
+   "kind": "buttons",
+   "id": "b9",
+   "label": "more",
+   "key": "fluent-plus"
+  },
+  {
+   "kind": "buttons",
+   "id": "b10",
+   "label": "help",
+   "key": "scene-help"
+  },
+  {
+   "kind": "buttons",
+   "id": "b11",
+   "label": "stop",
+   "key": "fluent-stop-sign"
+  },
+  {
+   "kind": "buttons",
+   "id": "b12",
+   "label": "go",
+   "key": "fluent-right-arrow"
+  },
+  {
+   "kind": "buttons",
+   "id": "b13",
+   "label": "all done",
+   "key": "fluent-check-mark-button"
+  },
+  {
+   "kind": "buttons",
+   "id": "b14",
+   "label": "not",
+   "key": "fluent-prohibited"
+  },
+  {
+   "kind": "buttons",
+   "id": "b15",
+   "label": "open",
+   "key": "scene-open"
+  },
+  {
+   "kind": "buttons",
+   "id": "b16",
+   "label": "my turn",
+   "key": "scene-my-turn"
+  },
+  {
+   "kind": "buttons",
+   "id": "b17",
+   "label": "again",
+   "key": "fluent-repeat-button"
+  },
+  {
+   "kind": "buttons",
+   "id": "b18",
+   "label": "look",
+   "key": "fluent-eyes"
+  },
+  {
+   "kind": "buttons",
+   "id": "b19",
+   "label": "make",
+   "key": "scene-make"
+  },
+  {
+   "kind": "buttons",
+   "id": "b20",
+   "label": "give",
+   "key": "scene-give"
+  },
+  {
+   "kind": "buttons",
+   "id": "b21",
+   "label": "hi",
+   "key": "fluent-waving-hand"
+  },
+  {
+   "kind": "buttons",
+   "id": "b23",
+   "label": "thank you",
+   "key": "scene-thank-you"
+  },
+  {
+   "kind": "buttons",
+   "id": "b24",
+   "label": "please",
+   "key": "scene-please"
+  },
+  {
+   "kind": "buttons",
+   "id": "fpeople",
+   "label": "People",
+   "key": "scene-friend"
+  },
+  {
+   "kind": "buttons",
+   "id": "ffeelings",
+   "label": "Feelings",
+   "key": "fluent-grinning-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "fcalm",
+   "label": "Calm down",
+   "key": "fluent-person-in-lotus-position"
+  },
+  {
+   "kind": "buttons",
+   "id": "ffood",
+   "label": "Eat & drink",
+   "key": "fluent-fork-and-knife-with-plate"
+  },
+  {
+   "kind": "buttons",
+   "id": "fplay",
+   "label": "Play",
+   "key": "scene-play"
+  },
+  {
+   "kind": "buttons",
+   "id": "fplaces",
+   "label": "Places",
+   "key": "fluent-world-map"
+  },
+  {
+   "kind": "buttons",
+   "id": "fschool",
+   "label": "School",
+   "key": "fluent-school"
+  },
+  {
+   "kind": "buttons",
+   "id": "fanimals",
+   "label": "Animals",
+   "key": "fluent-dog"
+  },
+  {
+   "kind": "buttons",
+   "id": "fbody",
+   "label": "My body",
+   "key": "fluent-person-standing"
+  },
+  {
+   "kind": "buttons",
+   "id": "b37",
+   "label": "mom",
+   "key": "fluent-woman"
+  },
+  {
+   "kind": "buttons",
+   "id": "b38",
+   "label": "dad",
+   "key": "fluent-man"
+  },
+  {
+   "kind": "buttons",
+   "id": "b39",
+   "label": "sister",
+   "key": "fluent-girl"
+  },
+  {
+   "kind": "buttons",
+   "id": "b40",
+   "label": "brother",
+   "key": "fluent-boy"
+  },
+  {
+   "kind": "buttons",
+   "id": "b41",
+   "label": "baby",
+   "key": "fluent-baby"
+  },
+  {
+   "kind": "buttons",
+   "id": "b42",
+   "label": "grandma",
+   "key": "fluent-old-woman"
+  },
+  {
+   "kind": "buttons",
+   "id": "b43",
+   "label": "grandpa",
+   "key": "fluent-old-man"
+  },
+  {
+   "kind": "buttons",
+   "id": "b44",
+   "label": "teacher",
+   "key": "fluent-teacher"
+  },
+  {
+   "kind": "buttons",
+   "id": "b45",
+   "label": "friend",
+   "key": "scene-friend"
+  },
+  {
+   "kind": "buttons",
+   "id": "b46",
+   "label": "doctor",
+   "key": "fluent-health-worker"
+  },
+  {
+   "kind": "buttons",
+   "id": "b47",
+   "label": "happy",
+   "key": "fluent-grinning-face-with-smiling-eyes"
+  },
+  {
+   "kind": "buttons",
+   "id": "b48",
+   "label": "sad",
+   "key": "fluent-crying-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "b49",
+   "label": "angry",
+   "key": "fluent-angry-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "b50",
+   "label": "tired",
+   "key": "fluent-yawning-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "b51",
+   "label": "scared",
+   "key": "fluent-fearful-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "b52",
+   "label": "excited",
+   "key": "fluent-star-struck"
+  },
+  {
+   "kind": "buttons",
+   "id": "b53",
+   "label": "sick",
+   "key": "fluent-face-with-thermometer"
+  },
+  {
+   "kind": "buttons",
+   "id": "b54",
+   "label": "calm",
+   "key": "fluent-relieved-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "b55",
+   "label": "silly",
+   "key": "fluent-zany-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "b56",
+   "label": "worried",
+   "key": "fluent-worried-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "b57",
+   "label": "hurt",
+   "key": "fluent-face-with-head-bandage"
+  },
+  {
+   "kind": "buttons",
+   "id": "b58",
+   "label": "hungry",
+   "key": "scene-hungry"
+  },
+  {
+   "kind": "buttons",
+   "id": "b59",
+   "label": "breathe",
+   "key": "scene-breathe"
+  },
+  {
+   "kind": "buttons",
+   "id": "b60",
+   "label": "quiet",
+   "key": "scene-quiet"
+  },
+  {
+   "kind": "buttons",
+   "id": "b61",
+   "label": "hug",
+   "key": "scene-hug"
+  },
+  {
+   "kind": "buttons",
+   "id": "b62",
+   "label": "rest",
+   "key": "fluent-person-in-bed"
+  },
+  {
+   "kind": "buttons",
+   "id": "b63",
+   "label": "drink water",
+   "key": "scene-drink-water"
+  },
+  {
+   "kind": "buttons",
+   "id": "b64",
+   "label": "count",
+   "key": "scene-count"
+  },
+  {
+   "kind": "buttons",
+   "id": "b65",
+   "label": "music",
+   "key": "fluent-musical-notes"
+  },
+  {
+   "kind": "buttons",
+   "id": "b66",
+   "label": "soft toy",
+   "key": "fluent-teddy-bear"
+  },
+  {
+   "kind": "buttons",
+   "id": "b67",
+   "label": "blanket",
+   "key": "scene-blanket"
+  },
+  {
+   "kind": "buttons",
+   "id": "b68",
+   "label": "headphones",
+   "key": "fluent-headphone"
+  },
+  {
+   "kind": "buttons",
+   "id": "b69",
+   "label": "eat",
+   "key": "scene-eat"
+  },
+  {
+   "kind": "buttons",
+   "id": "b70",
+   "label": "drink",
+   "key": "scene-drink-water"
+  },
+  {
+   "kind": "buttons",
+   "id": "b71",
+   "label": "apple",
+   "key": "fluent-red-apple"
+  },
+  {
+   "kind": "buttons",
+   "id": "b72",
+   "label": "banana",
+   "key": "fluent-banana"
+  },
+  {
+   "kind": "buttons",
+   "id": "b73",
+   "label": "bread",
+   "key": "fluent-bread"
+  },
+  {
+   "kind": "buttons",
+   "id": "b74",
+   "label": "cheese",
+   "key": "fluent-cheese-wedge"
+  },
+  {
+   "kind": "buttons",
+   "id": "b75",
+   "label": "egg",
+   "key": "fluent-egg"
+  },
+  {
+   "kind": "buttons",
+   "id": "b76",
+   "label": "rice",
+   "key": "fluent-cooked-rice"
+  },
+  {
+   "kind": "buttons",
+   "id": "b77",
+   "label": "chicken",
+   "key": "fluent-poultry-leg"
+  },
+  {
+   "kind": "buttons",
+   "id": "b78",
+   "label": "noodles",
+   "key": "fluent-steaming-bowl"
+  },
+  {
+   "kind": "buttons",
+   "id": "b79",
+   "label": "pizza",
+   "key": "fluent-pizza"
+  },
+  {
+   "kind": "buttons",
+   "id": "b81",
+   "label": "yogurt",
+   "key": "scene-yogurt"
+  },
+  {
+   "kind": "buttons",
+   "id": "b82",
+   "label": "water",
+   "key": "scene-water"
+  },
+  {
+   "kind": "buttons",
+   "id": "b83",
+   "label": "juice",
+   "key": "fluent-beverage-box"
+  },
+  {
+   "kind": "buttons",
+   "id": "b84",
+   "label": "milk",
+   "key": "fluent-glass-of-milk"
+  },
+  {
+   "kind": "buttons",
+   "id": "b85",
+   "label": "play",
+   "key": "scene-play"
+  },
+  {
+   "kind": "buttons",
+   "id": "b86",
+   "label": "ball",
+   "key": "fluent-soccer-ball"
+  },
+  {
+   "kind": "buttons",
+   "id": "b87",
+   "label": "swing",
+   "key": "scene-swing"
+  },
+  {
+   "kind": "buttons",
+   "id": "b88",
+   "label": "bike",
+   "key": "fluent-bicycle"
+  },
+  {
+   "kind": "buttons",
+   "id": "b89",
+   "label": "swim",
+   "key": "fluent-person-swimming"
+  },
+  {
+   "kind": "buttons",
+   "id": "b90",
+   "label": "run",
+   "key": "fluent-person-running"
+  },
+  {
+   "kind": "buttons",
+   "id": "b91",
+   "label": "walk",
+   "key": "fluent-person-walking"
+  },
+  {
+   "kind": "buttons",
+   "id": "b92",
+   "label": "dance",
+   "key": "fluent-woman-dancing"
+  },
+  {
+   "kind": "buttons",
+   "id": "b93",
+   "label": "sing",
+   "key": "scene-sing"
+  },
+  {
+   "kind": "buttons",
+   "id": "b94",
+   "label": "draw",
+   "key": "scene-draw"
+  },
+  {
+   "kind": "buttons",
+   "id": "b95",
+   "label": "book",
+   "key": "fluent-open-book"
+  },
+  {
+   "kind": "buttons",
+   "id": "b96",
+   "label": "puzzle",
+   "key": "fluent-puzzle-piece"
+  },
+  {
+   "kind": "buttons",
+   "id": "b97",
+   "label": "blocks",
+   "key": "scene-building-blocks"
+  },
+  {
+   "kind": "buttons",
+   "id": "b99",
+   "label": "home",
+   "key": "fluent-house"
+  },
+  {
+   "kind": "buttons",
+   "id": "b100",
+   "label": "school",
+   "key": "fluent-school"
+  },
+  {
+   "kind": "buttons",
+   "id": "b101",
+   "label": "park",
+   "key": "scene-park"
+  },
+  {
+   "kind": "buttons",
+   "id": "b102",
+   "label": "store",
+   "key": "fluent-convenience-store"
+  },
+  {
+   "kind": "buttons",
+   "id": "b103",
+   "label": "bathroom",
+   "key": "fluent-restroom"
+  },
+  {
+   "kind": "buttons",
+   "id": "b104",
+   "label": "car",
+   "key": "fluent-automobile"
+  },
+  {
+   "kind": "buttons",
+   "id": "b105",
+   "label": "bus",
+   "key": "fluent-bus"
+  },
+  {
+   "kind": "buttons",
+   "id": "b106",
+   "label": "bedroom",
+   "key": "scene-bedroom"
+  },
+  {
+   "kind": "buttons",
+   "id": "b107",
+   "label": "outside",
+   "key": "scene-outside"
+  },
+  {
+   "kind": "buttons",
+   "id": "b108",
+   "label": "work",
+   "key": "fluent-office-worker"
+  },
+  {
+   "kind": "buttons",
+   "id": "b109",
+   "label": "read",
+   "key": "scene-read"
+  },
+  {
+   "kind": "buttons",
+   "id": "b110",
+   "label": "write",
+   "key": "scene-write"
+  },
+  {
+   "kind": "buttons",
+   "id": "b111",
+   "label": "scissors",
+   "key": "fluent-scissors"
+  },
+  {
+   "kind": "buttons",
+   "id": "b112",
+   "label": "backpack",
+   "key": "fluent-backpack"
+  },
+  {
+   "kind": "buttons",
+   "id": "b113",
+   "label": "lunch",
+   "key": "fluent-bento-box"
+  },
+  {
+   "kind": "buttons",
+   "id": "b114",
+   "label": "line up",
+   "key": "scene-line-up"
+  },
+  {
+   "kind": "buttons",
+   "id": "b115",
+   "label": "listen",
+   "key": "scene-listen"
+  },
+  {
+   "kind": "buttons",
+   "id": "b116",
+   "label": "dog",
+   "key": "fluent-dog"
+  },
+  {
+   "kind": "buttons",
+   "id": "b117",
+   "label": "cat",
+   "key": "fluent-cat"
+  },
+  {
+   "kind": "buttons",
+   "id": "b118",
+   "label": "bird",
+   "key": "fluent-bird"
+  },
+  {
+   "kind": "buttons",
+   "id": "b119",
+   "label": "fish",
+   "key": "fluent-fish"
+  },
+  {
+   "kind": "buttons",
+   "id": "b120",
+   "label": "horse",
+   "key": "fluent-horse"
+  },
+  {
+   "kind": "buttons",
+   "id": "b121",
+   "label": "cow",
+   "key": "fluent-cow"
+  },
+  {
+   "kind": "buttons",
+   "id": "b122",
+   "label": "pig",
+   "key": "fluent-pig"
+  },
+  {
+   "kind": "buttons",
+   "id": "b123",
+   "label": "lion",
+   "key": "fluent-lion"
+  },
+  {
+   "kind": "buttons",
+   "id": "b124",
+   "label": "elephant",
+   "key": "fluent-elephant"
+  },
+  {
+   "kind": "buttons",
+   "id": "b125",
+   "label": "monkey",
+   "key": "fluent-monkey"
+  },
+  {
+   "kind": "buttons",
+   "id": "b126",
+   "label": "eyes",
+   "key": "fluent-eyes"
+  },
+  {
+   "kind": "buttons",
+   "id": "b127",
+   "label": "ears",
+   "key": "fluent-ear"
+  },
+  {
+   "kind": "buttons",
+   "id": "b128",
+   "label": "mouth",
+   "key": "fluent-mouth"
+  },
+  {
+   "kind": "buttons",
+   "id": "b129",
+   "label": "nose",
+   "key": "fluent-nose"
+  },
+  {
+   "kind": "buttons",
+   "id": "b130",
+   "label": "hand",
+   "key": "fluent-raised-hand"
+  },
+  {
+   "kind": "buttons",
+   "id": "b131",
+   "label": "teeth",
+   "key": "scene-teeth"
+  },
+  {
+   "kind": "buttons",
+   "id": "b132",
+   "label": "leg",
+   "key": "fluent-leg"
+  },
+  {
+   "kind": "buttons",
+   "id": "x1",
+   "label": "truck",
+   "key": "fluent-delivery-truck"
+  },
+  {
+   "kind": "buttons",
+   "id": "x2",
+   "label": "train",
+   "key": "fluent-train"
+  },
+  {
+   "kind": "buttons",
+   "id": "x3",
+   "label": "airplane",
+   "key": "fluent-airplane"
+  },
+  {
+   "kind": "buttons",
+   "id": "x4",
+   "label": "boat",
+   "key": "fluent-sailboat"
+  },
+  {
+   "kind": "buttons",
+   "id": "x5",
+   "label": "bicycle",
+   "key": "fluent-bicycle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x6",
+   "label": "taxi",
+   "key": "fluent-taxi"
+  },
+  {
+   "kind": "buttons",
+   "id": "x7",
+   "label": "fire truck",
+   "key": "fluent-fire-engine"
+  },
+  {
+   "kind": "buttons",
+   "id": "x8",
+   "label": "police car",
+   "key": "fluent-police-car"
+  },
+  {
+   "kind": "buttons",
+   "id": "x9",
+   "label": "ambulance",
+   "key": "fluent-ambulance"
+  },
+  {
+   "kind": "buttons",
+   "id": "x10",
+   "label": "helicopter",
+   "key": "fluent-helicopter"
+  },
+  {
+   "kind": "buttons",
+   "id": "x11",
+   "label": "tractor",
+   "key": "fluent-tractor"
+  },
+  {
+   "kind": "buttons",
+   "id": "x12",
+   "label": "motorcycle",
+   "key": "fluent-motorcycle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x13",
+   "label": "rocket",
+   "key": "fluent-rocket"
+  },
+  {
+   "kind": "buttons",
+   "id": "x14",
+   "label": "ship",
+   "key": "fluent-ship"
+  },
+  {
+   "kind": "buttons",
+   "id": "x16",
+   "label": "t-shirt",
+   "key": "fluent-t-shirt"
+  },
+  {
+   "kind": "buttons",
+   "id": "x17",
+   "label": "jeans",
+   "key": "fluent-jeans"
+  },
+  {
+   "kind": "buttons",
+   "id": "x18",
+   "label": "dress",
+   "key": "fluent-dress"
+  },
+  {
+   "kind": "buttons",
+   "id": "x19",
+   "label": "shoes",
+   "key": "fluent-running-shoe"
+  },
+  {
+   "kind": "buttons",
+   "id": "x20",
+   "label": "socks",
+   "key": "fluent-socks"
+  },
+  {
+   "kind": "buttons",
+   "id": "x21",
+   "label": "hat",
+   "key": "fluent-top-hat"
+  },
+  {
+   "kind": "buttons",
+   "id": "x22",
+   "label": "coat",
+   "key": "fluent-coat"
+  },
+  {
+   "kind": "buttons",
+   "id": "x23",
+   "label": "scarf",
+   "key": "fluent-scarf"
+  },
+  {
+   "kind": "buttons",
+   "id": "x24",
+   "label": "glasses",
+   "key": "fluent-glasses"
+  },
+  {
+   "kind": "buttons",
+   "id": "x25",
+   "label": "crown",
+   "key": "fluent-crown"
+  },
+  {
+   "kind": "buttons",
+   "id": "x26",
+   "label": "boots",
+   "key": "fluent-hiking-boot"
+  },
+  {
+   "kind": "buttons",
+   "id": "x27",
+   "label": "gloves",
+   "key": "fluent-gloves"
+  },
+  {
+   "kind": "buttons",
+   "id": "x28",
+   "label": "sun",
+   "key": "fluent-sun"
+  },
+  {
+   "kind": "buttons",
+   "id": "x29",
+   "label": "cloud",
+   "key": "fluent-cloud"
+  },
+  {
+   "kind": "buttons",
+   "id": "x30",
+   "label": "rain",
+   "key": "fluent-cloud-with-rain"
+  },
+  {
+   "kind": "buttons",
+   "id": "x31",
+   "label": "snow",
+   "key": "fluent-cloud-with-snow"
+  },
+  {
+   "kind": "buttons",
+   "id": "x32",
+   "label": "rainbow",
+   "key": "fluent-rainbow"
+  },
+  {
+   "kind": "buttons",
+   "id": "x33",
+   "label": "storm",
+   "key": "fluent-cloud-with-lightning-and-rain"
+  },
+  {
+   "kind": "buttons",
+   "id": "x34",
+   "label": "umbrella",
+   "key": "fluent-umbrella"
+  },
+  {
+   "kind": "buttons",
+   "id": "x35",
+   "label": "wind",
+   "key": "fluent-wind-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "x36",
+   "label": "hot",
+   "key": "fluent-hot-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "x37",
+   "label": "cold",
+   "key": "fluent-cold-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "x38",
+   "label": "red",
+   "key": "color-red"
+  },
+  {
+   "kind": "buttons",
+   "id": "x39",
+   "label": "blue",
+   "key": "color-blue"
+  },
+  {
+   "kind": "buttons",
+   "id": "x40",
+   "label": "green",
+   "key": "color-green"
+  },
+  {
+   "kind": "buttons",
+   "id": "x41",
+   "label": "yellow",
+   "key": "color-yellow"
+  },
+  {
+   "kind": "buttons",
+   "id": "x42",
+   "label": "purple",
+   "key": "color-purple"
+  },
+  {
+   "kind": "buttons",
+   "id": "x43",
+   "label": "orange",
+   "key": "color-orange"
+  },
+  {
+   "kind": "buttons",
+   "id": "x44",
+   "label": "pink",
+   "key": "color-pink"
+  },
+  {
+   "kind": "buttons",
+   "id": "x45",
+   "label": "brown",
+   "key": "color-brown"
+  },
+  {
+   "kind": "buttons",
+   "id": "x46",
+   "label": "black",
+   "key": "color-black"
+  },
+  {
+   "kind": "buttons",
+   "id": "x47",
+   "label": "white",
+   "key": "color-white"
+  },
+  {
+   "kind": "buttons",
+   "id": "x48",
+   "label": "gray",
+   "key": "color-gray"
+  },
+  {
+   "kind": "buttons",
+   "id": "x49",
+   "label": "guitar",
+   "key": "fluent-guitar"
+  },
+  {
+   "kind": "buttons",
+   "id": "x50",
+   "label": "violin",
+   "key": "fluent-violin"
+  },
+  {
+   "kind": "buttons",
+   "id": "x51",
+   "label": "drum",
+   "key": "fluent-drum"
+  },
+  {
+   "kind": "buttons",
+   "id": "x52",
+   "label": "trumpet",
+   "key": "fluent-trumpet"
+  },
+  {
+   "kind": "buttons",
+   "id": "x53",
+   "label": "saxophone",
+   "key": "fluent-saxophone"
+  },
+  {
+   "kind": "buttons",
+   "id": "x54",
+   "label": "piano",
+   "key": "scene-piano"
+  },
+  {
+   "kind": "buttons",
+   "id": "x55",
+   "label": "flute",
+   "key": "fluent-flute"
+  },
+  {
+   "kind": "buttons",
+   "id": "x56",
+   "label": "banjo",
+   "key": "fluent-banjo"
+  },
+  {
+   "kind": "buttons",
+   "id": "x57",
+   "label": "microphone",
+   "key": "fluent-microphone"
+  },
+  {
+   "kind": "buttons",
+   "id": "x58",
+   "label": "bells",
+   "key": "fluent-bell"
+  },
+  {
+   "kind": "buttons",
+   "id": "x59",
+   "label": "soccer",
+   "key": "fluent-soccer-ball"
+  },
+  {
+   "kind": "buttons",
+   "id": "x60",
+   "label": "basketball",
+   "key": "fluent-basketball"
+  },
+  {
+   "kind": "buttons",
+   "id": "x61",
+   "label": "tennis",
+   "key": "fluent-tennis"
+  },
+  {
+   "kind": "buttons",
+   "id": "x62",
+   "label": "baseball",
+   "key": "fluent-baseball"
+  },
+  {
+   "kind": "buttons",
+   "id": "x63",
+   "label": "volleyball",
+   "key": "fluent-volleyball"
+  },
+  {
+   "kind": "buttons",
+   "id": "x64",
+   "label": "football",
+   "key": "fluent-american-football"
+  },
+  {
+   "kind": "buttons",
+   "id": "x65",
+   "label": "bike ride",
+   "key": "fluent-person-biking"
+  },
+  {
+   "kind": "buttons",
+   "id": "x66",
+   "label": "trophy",
+   "key": "fluent-trophy"
+  },
+  {
+   "kind": "buttons",
+   "id": "x67",
+   "label": "medal",
+   "key": "fluent-sports-medal"
+  },
+  {
+   "kind": "buttons",
+   "id": "x68",
+   "label": "teddy",
+   "key": "fluent-teddy-bear"
+  },
+  {
+   "kind": "buttons",
+   "id": "x69",
+   "label": "kite",
+   "key": "fluent-kite"
+  },
+  {
+   "kind": "buttons",
+   "id": "x70",
+   "label": "yo-yo",
+   "key": "fluent-yo-yo"
+  },
+  {
+   "kind": "buttons",
+   "id": "x71",
+   "label": "balloon",
+   "key": "fluent-balloon"
+  },
+  {
+   "kind": "buttons",
+   "id": "x72",
+   "label": "gift",
+   "key": "fluent-wrapped-gift"
+  },
+  {
+   "kind": "buttons",
+   "id": "x73",
+   "label": "magic",
+   "key": "fluent-magic-wand"
+  },
+  {
+   "kind": "buttons",
+   "id": "x75",
+   "label": "dice",
+   "key": "fluent-game-die"
+  },
+  {
+   "kind": "buttons",
+   "id": "x76",
+   "label": "ninja star",
+   "key": "scene-ninja-star"
+  },
+  {
+   "kind": "buttons",
+   "id": "x77",
+   "label": "spoon",
+   "key": "fluent-spoon"
+  },
+  {
+   "kind": "buttons",
+   "id": "x78",
+   "label": "cup",
+   "key": "fluent-cup-with-straw"
+  },
+  {
+   "kind": "buttons",
+   "id": "x79",
+   "label": "mug",
+   "key": "fluent-hot-beverage"
+  },
+  {
+   "kind": "buttons",
+   "id": "x80",
+   "label": "teapot",
+   "key": "fluent-teapot"
+  },
+  {
+   "kind": "buttons",
+   "id": "x81",
+   "label": "bottle",
+   "key": "scene-bottle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x82",
+   "label": "pot",
+   "key": "fluent-pot-of-food"
+  },
+  {
+   "kind": "buttons",
+   "id": "x83",
+   "label": "bowl",
+   "key": "fluent-bowl-with-spoon"
+  },
+  {
+   "kind": "buttons",
+   "id": "x84",
+   "label": "plate",
+   "key": "fluent-fork-and-knife-with-plate"
+  },
+  {
+   "kind": "buttons",
+   "id": "x85",
+   "label": "chopsticks",
+   "key": "fluent-chopsticks"
+  },
+  {
+   "kind": "buttons",
+   "id": "x86",
+   "label": "bed",
+   "key": "fluent-bed"
+  },
+  {
+   "kind": "buttons",
+   "id": "x87",
+   "label": "couch",
+   "key": "fluent-couch-and-lamp"
+  },
+  {
+   "kind": "buttons",
+   "id": "x88",
+   "label": "lamp",
+   "key": "scene-lamp"
+  },
+  {
+   "kind": "buttons",
+   "id": "x89",
+   "label": "door",
+   "key": "fluent-door"
+  },
+  {
+   "kind": "buttons",
+   "id": "x90",
+   "label": "window",
+   "key": "fluent-window"
+  },
+  {
+   "kind": "buttons",
+   "id": "x91",
+   "label": "toilet",
+   "key": "fluent-toilet"
+  },
+  {
+   "kind": "buttons",
+   "id": "x92",
+   "label": "shower",
+   "key": "fluent-shower"
+  },
+  {
+   "kind": "buttons",
+   "id": "x93",
+   "label": "bathtub",
+   "key": "fluent-bathtub"
+  },
+  {
+   "kind": "buttons",
+   "id": "x94",
+   "label": "chair",
+   "key": "fluent-chair"
+  },
+  {
+   "kind": "buttons",
+   "id": "x95",
+   "label": "mirror",
+   "key": "fluent-mirror"
+  },
+  {
+   "kind": "buttons",
+   "id": "x96",
+   "label": "tree",
+   "key": "fluent-deciduous-tree"
+  },
+  {
+   "kind": "buttons",
+   "id": "x97",
+   "label": "pine tree",
+   "key": "fluent-evergreen-tree"
+  },
+  {
+   "kind": "buttons",
+   "id": "x98",
+   "label": "flower",
+   "key": "fluent-blossom"
+  },
+  {
+   "kind": "buttons",
+   "id": "x99",
+   "label": "tulip",
+   "key": "fluent-tulip"
+  },
+  {
+   "kind": "buttons",
+   "id": "x100",
+   "label": "rose",
+   "key": "fluent-rose"
+  },
+  {
+   "kind": "buttons",
+   "id": "x101",
+   "label": "sunflower",
+   "key": "fluent-sunflower"
+  },
+  {
+   "kind": "buttons",
+   "id": "x103",
+   "label": "cactus",
+   "key": "fluent-cactus"
+  },
+  {
+   "kind": "buttons",
+   "id": "x104",
+   "label": "leaf",
+   "key": "fluent-leaf-fluttering-in-wind"
+  },
+  {
+   "kind": "buttons",
+   "id": "x105",
+   "label": "clover",
+   "key": "fluent-four-leaf-clover"
+  },
+  {
+   "kind": "buttons",
+   "id": "x106",
+   "label": "seedling",
+   "key": "fluent-seedling"
+  },
+  {
+   "kind": "buttons",
+   "id": "x107",
+   "label": "mushroom",
+   "key": "fluent-mushroom"
+  },
+  {
+   "kind": "buttons",
+   "id": "x108",
+   "label": "plant",
+   "key": "fluent-potted-plant"
+  },
+  {
+   "kind": "buttons",
+   "id": "x109",
+   "label": "butterfly",
+   "key": "fluent-butterfly"
+  },
+  {
+   "kind": "buttons",
+   "id": "x110",
+   "label": "bee",
+   "key": "fluent-honeybee"
+  },
+  {
+   "kind": "buttons",
+   "id": "x111",
+   "label": "ant",
+   "key": "fluent-ant"
+  },
+  {
+   "kind": "buttons",
+   "id": "x112",
+   "label": "ladybug",
+   "key": "fluent-lady-beetle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x113",
+   "label": "spider",
+   "key": "fluent-spider"
+  },
+  {
+   "kind": "buttons",
+   "id": "x114",
+   "label": "snail",
+   "key": "fluent-snail"
+  },
+  {
+   "kind": "buttons",
+   "id": "x115",
+   "label": "caterpillar",
+   "key": "fluent-bug"
+  },
+  {
+   "kind": "buttons",
+   "id": "x116",
+   "label": "beetle",
+   "key": "fluent-beetle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x117",
+   "label": "cricket",
+   "key": "fluent-cricket"
+  },
+  {
+   "kind": "buttons",
+   "id": "x118",
+   "label": "tropical fish",
+   "key": "fluent-tropical-fish"
+  },
+  {
+   "kind": "buttons",
+   "id": "x119",
+   "label": "shark",
+   "key": "fluent-shark"
+  },
+  {
+   "kind": "buttons",
+   "id": "x120",
+   "label": "octopus",
+   "key": "fluent-octopus"
+  },
+  {
+   "kind": "buttons",
+   "id": "x121",
+   "label": "crab",
+   "key": "fluent-crab"
+  },
+  {
+   "kind": "buttons",
+   "id": "x122",
+   "label": "lobster",
+   "key": "fluent-lobster"
+  },
+  {
+   "kind": "buttons",
+   "id": "x123",
+   "label": "shrimp",
+   "key": "fluent-shrimp"
+  },
+  {
+   "kind": "buttons",
+   "id": "x124",
+   "label": "dolphin",
+   "key": "fluent-dolphin"
+  },
+  {
+   "kind": "buttons",
+   "id": "x125",
+   "label": "whale",
+   "key": "fluent-whale"
+  },
+  {
+   "kind": "buttons",
+   "id": "x126",
+   "label": "turtle",
+   "key": "fluent-turtle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x127",
+   "label": "jellyfish",
+   "key": "fluent-jellyfish"
+  },
+  {
+   "kind": "buttons",
+   "id": "x128",
+   "label": "seal",
+   "key": "fluent-seal"
+  },
+  {
+   "kind": "buttons",
+   "id": "x129",
+   "label": "tiger",
+   "key": "fluent-tiger"
+  },
+  {
+   "kind": "buttons",
+   "id": "x130",
+   "label": "gorilla",
+   "key": "fluent-gorilla"
+  },
+  {
+   "kind": "buttons",
+   "id": "x131",
+   "label": "giraffe",
+   "key": "fluent-giraffe"
+  },
+  {
+   "kind": "buttons",
+   "id": "x132",
+   "label": "zebra",
+   "key": "fluent-zebra"
+  },
+  {
+   "kind": "buttons",
+   "id": "x133",
+   "label": "rhino",
+   "key": "fluent-rhinoceros"
+  },
+  {
+   "kind": "buttons",
+   "id": "x134",
+   "label": "hippo",
+   "key": "fluent-hippopotamus"
+  },
+  {
+   "kind": "buttons",
+   "id": "x135",
+   "label": "kangaroo",
+   "key": "fluent-kangaroo"
+  },
+  {
+   "kind": "buttons",
+   "id": "x136",
+   "label": "bear",
+   "key": "fluent-bear"
+  },
+  {
+   "kind": "buttons",
+   "id": "x137",
+   "label": "wolf",
+   "key": "fluent-wolf"
+  },
+  {
+   "kind": "buttons",
+   "id": "x138",
+   "label": "fox",
+   "key": "fluent-fox"
+  },
+  {
+   "kind": "buttons",
+   "id": "x139",
+   "label": "penguin",
+   "key": "fluent-penguin"
+  },
+  {
+   "kind": "buttons",
+   "id": "x140",
+   "label": "camel",
+   "key": "fluent-camel"
+  },
+  {
+   "kind": "buttons",
+   "id": "x141",
+   "label": "owl",
+   "key": "fluent-owl"
+  },
+  {
+   "kind": "buttons",
+   "id": "x142",
+   "label": "duck",
+   "key": "fluent-duck"
+  },
+  {
+   "kind": "buttons",
+   "id": "x143",
+   "label": "eagle",
+   "key": "fluent-eagle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x144",
+   "label": "parrot",
+   "key": "fluent-parrot"
+  },
+  {
+   "kind": "buttons",
+   "id": "x145",
+   "label": "peacock",
+   "key": "fluent-peacock"
+  },
+  {
+   "kind": "buttons",
+   "id": "x146",
+   "label": "flamingo",
+   "key": "fluent-flamingo"
+  },
+  {
+   "kind": "buttons",
+   "id": "x147",
+   "label": "swan",
+   "key": "fluent-swan"
+  },
+  {
+   "kind": "buttons",
+   "id": "x148",
+   "label": "rooster",
+   "key": "fluent-rooster"
+  },
+  {
+   "kind": "buttons",
+   "id": "x149",
+   "label": "firefighter",
+   "key": "fluent-firefighter"
+  },
+  {
+   "kind": "buttons",
+   "id": "x150",
+   "label": "police",
+   "key": "fluent-police-officer"
+  },
+  {
+   "kind": "buttons",
+   "id": "x151",
+   "label": "chef",
+   "key": "fluent-cook"
+  },
+  {
+   "kind": "buttons",
+   "id": "x152",
+   "label": "farmer",
+   "key": "fluent-farmer"
+  },
+  {
+   "kind": "buttons",
+   "id": "x153",
+   "label": "pilot",
+   "key": "fluent-pilot"
+  },
+  {
+   "kind": "buttons",
+   "id": "x154",
+   "label": "scientist",
+   "key": "fluent-scientist"
+  },
+  {
+   "kind": "buttons",
+   "id": "x155",
+   "label": "artist",
+   "key": "fluent-artist"
+  },
+  {
+   "kind": "buttons",
+   "id": "x156",
+   "label": "singer",
+   "key": "fluent-singer"
+  },
+  {
+   "kind": "buttons",
+   "id": "x157",
+   "label": "astronaut",
+   "key": "fluent-astronaut"
+  },
+  {
+   "kind": "buttons",
+   "id": "x158",
+   "label": "mechanic",
+   "key": "fluent-mechanic"
+  },
+  {
+   "kind": "buttons",
+   "id": "x159",
+   "label": "clap",
+   "key": "fluent-clapping-hands"
+  },
+  {
+   "kind": "buttons",
+   "id": "x160",
+   "label": "point",
+   "key": "fluent-backhand-index-pointing-right"
+  },
+  {
+   "kind": "buttons",
+   "id": "x161",
+   "label": "wave",
+   "key": "fluent-waving-hand"
+  },
+  {
+   "kind": "buttons",
+   "id": "x162",
+   "label": "sleep",
+   "key": "fluent-sleeping-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "x163",
+   "label": "cook",
+   "key": "scene-cook"
+  },
+  {
+   "kind": "buttons",
+   "id": "x164",
+   "label": "brush teeth",
+   "key": "scene-brush-teeth"
+  },
+  {
+   "kind": "buttons",
+   "id": "x165",
+   "label": "think",
+   "key": "fluent-thinking-face"
+  },
+  {
+   "kind": "buttons",
+   "id": "x166",
+   "label": "high five",
+   "key": "scene-high-five"
+  },
+  {
+   "kind": "buttons",
+   "id": "x167",
+   "label": "cake",
+   "key": "fluent-shortcake"
+  },
+  {
+   "kind": "buttons",
+   "id": "x168",
+   "label": "cookie",
+   "key": "fluent-cookie"
+  },
+  {
+   "kind": "buttons",
+   "id": "x169",
+   "label": "ice cream",
+   "key": "fluent-ice-cream"
+  },
+  {
+   "kind": "buttons",
+   "id": "x170",
+   "label": "donut",
+   "key": "fluent-doughnut"
+  },
+  {
+   "kind": "buttons",
+   "id": "x171",
+   "label": "chocolate",
+   "key": "fluent-chocolate-bar"
+  },
+  {
+   "kind": "buttons",
+   "id": "x172",
+   "label": "candy",
+   "key": "fluent-candy"
+  },
+  {
+   "kind": "buttons",
+   "id": "x173",
+   "label": "lollipop",
+   "key": "fluent-lollipop"
+  },
+  {
+   "kind": "buttons",
+   "id": "x174",
+   "label": "cupcake",
+   "key": "fluent-cupcake"
+  },
+  {
+   "kind": "buttons",
+   "id": "x175",
+   "label": "popcorn",
+   "key": "fluent-popcorn"
+  },
+  {
+   "kind": "buttons",
+   "id": "x176",
+   "label": "honey",
+   "key": "fluent-honey-pot"
+  },
+  {
+   "kind": "buttons",
+   "id": "x191",
+   "label": "bandage",
+   "key": "fluent-adhesive-bandage"
+  },
+  {
+   "kind": "buttons",
+   "id": "x192",
+   "label": "medicine",
+   "key": "fluent-pill"
+  },
+  {
+   "kind": "buttons",
+   "id": "x193",
+   "label": "shot",
+   "key": "fluent-syringe"
+  },
+  {
+   "kind": "buttons",
+   "id": "x194",
+   "label": "thermometer",
+   "key": "fluent-thermometer"
+  },
+  {
+   "kind": "buttons",
+   "id": "x195",
+   "label": "soap",
+   "key": "fluent-soap"
+  },
+  {
+   "kind": "buttons",
+   "id": "x196",
+   "label": "stethoscope",
+   "key": "fluent-stethoscope"
+  },
+  {
+   "kind": "buttons",
+   "id": "x197",
+   "label": "hospital",
+   "key": "fluent-hospital"
+  },
+  {
+   "kind": "buttons",
+   "id": "x198",
+   "label": "pencil",
+   "key": "fluent-pencil"
+  },
+  {
+   "kind": "buttons",
+   "id": "x199",
+   "label": "pen",
+   "key": "fluent-pen"
+  },
+  {
+   "kind": "buttons",
+   "id": "x200",
+   "label": "ruler",
+   "key": "fluent-straight-ruler"
+  },
+  {
+   "kind": "buttons",
+   "id": "x201",
+   "label": "notebook",
+   "key": "fluent-notebook"
+  },
+  {
+   "kind": "buttons",
+   "id": "x202",
+   "label": "calculator",
+   "key": "scene-calculator"
+  },
+  {
+   "kind": "buttons",
+   "id": "x203",
+   "label": "paper",
+   "key": "fluent-page-facing-up"
+  },
+  {
+   "kind": "buttons",
+   "id": "x204",
+   "label": "glue",
+   "key": "scene-glue"
+  },
+  {
+   "kind": "buttons",
+   "id": "x205",
+   "label": "bell",
+   "key": "fluent-bell"
+  },
+  {
+   "kind": "buttons",
+   "id": "x206",
+   "label": "church",
+   "key": "fluent-church"
+  },
+  {
+   "kind": "buttons",
+   "id": "x207",
+   "label": "castle",
+   "key": "fluent-castle"
+  },
+  {
+   "kind": "buttons",
+   "id": "x208",
+   "label": "hotel",
+   "key": "fluent-hotel"
+  },
+  {
+   "kind": "buttons",
+   "id": "x209",
+   "label": "bank",
+   "key": "fluent-bank"
+  },
+  {
+   "kind": "buttons",
+   "id": "x210",
+   "label": "factory",
+   "key": "fluent-factory"
+  },
+  {
+   "kind": "buttons",
+   "id": "x211",
+   "label": "tent",
+   "key": "fluent-tent"
+  },
+  {
+   "kind": "buttons",
+   "id": "x212",
+   "label": "lighthouse",
+   "key": "scene-lighthouse"
+  },
+  {
+   "kind": "buttons",
+   "id": "x213",
+   "label": "stadium",
+   "key": "fluent-stadium"
+  },
+  {
+   "kind": "buttons",
+   "id": "x214",
+   "label": "bridge",
+   "key": "fluent-bridge-at-night"
+  },
+  {
+   "kind": "buttons",
+   "id": "x215",
+   "label": "fountain",
+   "key": "fluent-fountain"
+  },
+  {
+   "kind": "buttons",
+   "id": "x216",
+   "label": "clock",
+   "key": "fluent-three-oclock"
+  },
+  {
+   "kind": "buttons",
+   "id": "x217",
+   "label": "alarm",
+   "key": "fluent-alarm-clock"
+  },
+  {
+   "kind": "buttons",
+   "id": "x218",
+   "label": "watch",
+   "key": "fluent-watch"
+  },
+  {
+   "kind": "buttons",
+   "id": "x219",
+   "label": "hourglass",
+   "key": "fluent-hourglass-not-done"
+  },
+  {
+   "kind": "buttons",
+   "id": "x220",
+   "label": "calendar",
+   "key": "fluent-calendar"
+  },
+  {
+   "kind": "buttons",
+   "id": "x221",
+   "label": "day",
+   "key": "fluent-sun"
+  },
+  {
+   "kind": "buttons",
+   "id": "x222",
+   "label": "night",
+   "key": "fluent-crescent-moon"
+  },
+  {
+   "kind": "buttons",
+   "id": "x223",
+   "label": "morning",
+   "key": "fluent-sunrise"
+  },
+  {
+   "kind": "buttons",
+   "id": "fx_clothes",
+   "label": "Clothes",
+   "key": "fluent-t-shirt"
+  },
+  {
+   "kind": "buttons",
+   "id": "fx_furniture",
+   "label": "Home things",
+   "key": "fluent-couch-and-lamp"
+  },
+  {
+   "kind": "buttons",
+   "id": "fx_actions",
+   "label": "Actions",
+   "key": "fluent-clapping-hands"
+  },
+  {
+   "kind": "buttons",
+   "id": "fx_time",
+   "label": "Time",
+   "key": "fluent-three-oclock"
+  },
+  {
+   "kind": "buttons",
+   "id": "category_fruits",
+   "label": "Fruits",
+   "key": "scene-fruit"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_0",
+   "label": "apple",
+   "key": "fluent-red-apple"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_1",
+   "label": "green apple",
+   "key": "fluent-green-apple"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_2",
+   "label": "banana",
+   "key": "fluent-banana"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_3",
+   "label": "grapes",
+   "key": "fluent-grapes"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_4",
+   "label": "watermelon",
+   "key": "fluent-watermelon"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_5",
+   "label": "orange",
+   "key": "fluent-tangerine"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_6",
+   "label": "lemon",
+   "key": "fluent-lemon"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_7",
+   "label": "pear",
+   "key": "fluent-pear"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_8",
+   "label": "peach",
+   "key": "fluent-peach"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_9",
+   "label": "cherries",
+   "key": "fluent-cherries"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_10",
+   "label": "strawberry",
+   "key": "fluent-strawberry"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_11",
+   "label": "blueberries",
+   "key": "fluent-blueberries"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_12",
+   "label": "pineapple",
+   "key": "fluent-pineapple"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_13",
+   "label": "mango",
+   "key": "fluent-mango"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_14",
+   "label": "kiwi",
+   "key": "fluent-kiwi-fruit"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_15",
+   "label": "melon",
+   "key": "fluent-melon"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_16",
+   "label": "coconut",
+   "key": "fluent-coconut"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_17",
+   "label": "avocado",
+   "key": "fluent-avocado"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_18",
+   "label": "olive",
+   "key": "fluent-olive"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_19",
+   "label": "apricot",
+   "key": "scene-apricot"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_20",
+   "label": "blackberry",
+   "key": "scene-blackberry"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_22",
+   "label": "date",
+   "key": "scene-date"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_23",
+   "label": "fig",
+   "key": "scene-fig"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_24",
+   "label": "gooseberry",
+   "key": "scene-gooseberry"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_25",
+   "label": "grapefruit",
+   "key": "scene-grapefruit"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_26",
+   "label": "lime",
+   "key": "fluent-lime"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_27",
+   "label": "passion fruit",
+   "key": "scene-passion-fruit"
+  },
+  {
+   "kind": "buttons",
+   "id": "fruits_28",
+   "label": "plum",
+   "key": "scene-plum"
+  },
+  {
+   "kind": "buttons",
+   "id": "category_vegetables",
+   "label": "Vegetables",
+   "key": "fluent-carrot"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_0",
+   "label": "carrot",
+   "key": "fluent-carrot"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_1",
+   "label": "broccoli",
+   "key": "fluent-broccoli"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_2",
+   "label": "corn",
+   "key": "fluent-ear-of-corn"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_3",
+   "label": "potato",
+   "key": "fluent-potato"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_4",
+   "label": "tomato",
+   "key": "fluent-tomato"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_5",
+   "label": "cucumber",
+   "key": "fluent-cucumber"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_6",
+   "label": "eggplant",
+   "key": "fluent-eggplant"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_7",
+   "label": "lettuce",
+   "key": "fluent-leafy-green"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_8",
+   "label": "onion",
+   "key": "fluent-onion"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_9",
+   "label": "garlic",
+   "key": "fluent-garlic"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_10",
+   "label": "bell pepper",
+   "key": "fluent-bell-pepper"
+  },
+  {
+   "kind": "buttons",
+   "id": "vegetables_11",
+   "label": "peas",
+   "key": "fluent-pea-pod"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_0",
+   "label": "A",
+   "key": "type-a"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_1",
+   "label": "B",
+   "key": "type-b"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_2",
+   "label": "C",
+   "key": "type-c"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_3",
+   "label": "D",
+   "key": "type-d"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_4",
+   "label": "E",
+   "key": "type-e"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_5",
+   "label": "F",
+   "key": "type-f"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_6",
+   "label": "G",
+   "key": "type-g"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_7",
+   "label": "H",
+   "key": "type-h"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_8",
+   "label": "I",
+   "key": "type-i"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_9",
+   "label": "J",
+   "key": "type-j"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_10",
+   "label": "K",
+   "key": "type-k"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_11",
+   "label": "L",
+   "key": "type-l"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_12",
+   "label": "M",
+   "key": "type-m"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_13",
+   "label": "N",
+   "key": "type-n"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_14",
+   "label": "O",
+   "key": "type-o"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_15",
+   "label": "P",
+   "key": "type-p"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_16",
+   "label": "Q",
+   "key": "type-q"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_17",
+   "label": "R",
+   "key": "type-r"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_18",
+   "label": "S",
+   "key": "type-s"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_19",
+   "label": "T",
+   "key": "type-t"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_20",
+   "label": "U",
+   "key": "type-u"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_21",
+   "label": "V",
+   "key": "type-v"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_22",
+   "label": "W",
+   "key": "type-w"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_23",
+   "label": "X",
+   "key": "type-x"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_24",
+   "label": "Y",
+   "key": "type-y"
+  },
+  {
+   "kind": "buttons",
+   "id": "alphabet_25",
+   "label": "Z",
+   "key": "type-z"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_0",
+   "label": "0",
+   "key": "type-0"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_1",
+   "label": "1",
+   "key": "type-1"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_2",
+   "label": "2",
+   "key": "type-2"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_3",
+   "label": "3",
+   "key": "type-3"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_4",
+   "label": "4",
+   "key": "type-4"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_5",
+   "label": "5",
+   "key": "type-5"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_6",
+   "label": "6",
+   "key": "type-6"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_7",
+   "label": "7",
+   "key": "type-7"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_8",
+   "label": "8",
+   "key": "type-8"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_9",
+   "label": "9",
+   "key": "type-9"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_10",
+   "label": "10",
+   "key": "type-10"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_11",
+   "label": "11",
+   "key": "type-11"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_12",
+   "label": "12",
+   "key": "type-12"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_13",
+   "label": "13",
+   "key": "type-13"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_14",
+   "label": "14",
+   "key": "type-14"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_15",
+   "label": "15",
+   "key": "type-15"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_16",
+   "label": "16",
+   "key": "type-16"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_17",
+   "label": "17",
+   "key": "type-17"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_18",
+   "label": "18",
+   "key": "type-18"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_19",
+   "label": "19",
+   "key": "type-19"
+  },
+  {
+   "kind": "buttons",
+   "id": "numbers_20",
+   "label": "20",
+   "key": "type-20"
+  },
+  {
+   "kind": "folders",
+   "id": "home",
+   "label": "Home",
+   "key": "fluent-house"
+  },
+  {
+   "kind": "folders",
+   "id": "people",
+   "label": "People",
+   "key": "scene-friend"
+  },
+  {
+   "kind": "folders",
+   "id": "feelings",
+   "label": "Feelings",
+   "key": "fluent-grinning-face"
+  },
+  {
+   "kind": "folders",
+   "id": "calm",
+   "label": "Calm down",
+   "key": "fluent-person-in-lotus-position"
+  },
+  {
+   "kind": "folders",
+   "id": "food",
+   "label": "Eat & drink",
+   "key": "fluent-fork-and-knife-with-plate"
+  },
+  {
+   "kind": "folders",
+   "id": "play",
+   "label": "Play",
+   "key": "scene-play"
+  },
+  {
+   "kind": "folders",
+   "id": "places",
+   "label": "Places",
+   "key": "fluent-world-map"
+  },
+  {
+   "kind": "folders",
+   "id": "school",
+   "label": "School",
+   "key": "fluent-school"
+  },
+  {
+   "kind": "folders",
+   "id": "animals",
+   "label": "Animals",
+   "key": "fluent-dog"
+  },
+  {
+   "kind": "folders",
+   "id": "body",
+   "label": "My body",
+   "key": "fluent-person-standing"
+  },
+  {
+   "kind": "folders",
+   "id": "clothes",
+   "label": "Clothes",
+   "key": "fluent-t-shirt"
+  },
+  {
+   "kind": "folders",
+   "id": "weather",
+   "label": "Weather",
+   "key": "fluent-sun-behind-rain-cloud"
+  },
+  {
+   "kind": "folders",
+   "id": "colors",
+   "label": "Colors",
+   "key": "fluent-artist-palette"
+  },
+  {
+   "kind": "folders",
+   "id": "instruments",
+   "label": "Music",
+   "key": "scene-piano"
+  },
+  {
+   "kind": "folders",
+   "id": "toys",
+   "label": "Toys",
+   "key": "fluent-teddy-bear"
+  },
+  {
+   "kind": "folders",
+   "id": "kitchen",
+   "label": "Kitchen",
+   "key": "fluent-cooking"
+  },
+  {
+   "kind": "folders",
+   "id": "furniture",
+   "label": "Home things",
+   "key": "fluent-couch-and-lamp"
+  },
+  {
+   "kind": "folders",
+   "id": "plants",
+   "label": "Plants",
+   "key": "fluent-potted-plant"
+  },
+  {
+   "kind": "folders",
+   "id": "insects",
+   "label": "Bugs",
+   "key": "fluent-butterfly"
+  },
+  {
+   "kind": "folders",
+   "id": "sea",
+   "label": "Sea animals",
+   "key": "fluent-tropical-fish"
+  },
+  {
+   "kind": "folders",
+   "id": "jobs",
+   "label": "Jobs",
+   "key": "fluent-construction-worker"
+  },
+  {
+   "kind": "folders",
+   "id": "actions",
+   "label": "Actions",
+   "key": "fluent-clapping-hands"
+  },
+  {
+   "kind": "folders",
+   "id": "snacks",
+   "label": "Snacks",
+   "key": "fluent-cookie"
+  },
+  {
+   "kind": "folders",
+   "id": "health",
+   "label": "Health",
+   "key": "fluent-stethoscope"
+  },
+  {
+   "kind": "folders",
+   "id": "school2",
+   "label": "School things",
+   "key": "fluent-books"
+  },
+  {
+   "kind": "folders",
+   "id": "places2",
+   "label": "Buildings",
+   "key": "fluent-office-building"
+  },
+  {
+   "kind": "folders",
+   "id": "time",
+   "label": "Time",
+   "key": "fluent-three-oclock"
+  },
+  {
+   "kind": "folders",
+   "id": "fruits",
+   "label": "Fruits",
+   "key": "scene-fruit"
+  },
+  {
+   "kind": "folders",
+   "id": "vegetables",
+   "label": "Vegetables",
+   "key": "fluent-carrot"
+  },
+  {
+   "kind": "folders",
+   "id": "alphabet",
+   "label": "Alphabet",
+   "key": "type-abc"
+  },
+  {
+   "kind": "folders",
+   "id": "numbers",
+   "label": "Numbers",
+   "key": "type-123"
+  }
+ ],
+ "files": {
+  "color-black": "c39c791373749d1a041975d7a02ebaa14e6f08e80cc4e85bcb7d62e07f8de8c1",
+  "color-blue": "b8b4670d14c29cfc2d1da951d6bbaa223084e8d4dc14466b86912aba23068fad",
+  "color-brown": "e7fce9f88185e0585b9bc7d9815bace3af532cd93094561e437a607d0dcf9ed1",
+  "color-gray": "fa3adab35c3d7bc709b6d42452996ce39336a60545d2ed789d256d7e2f3c6198",
+  "color-green": "0fbd710c6dd6c64389df96b3fd5cd23980321e2fcbb9ddfb51503c97db12f125",
+  "color-orange": "26c6371276c9312bf34928a56a6e6025a38e280ca358b0d7c9e3c1e634b16dde",
+  "color-pink": "4488bd21627754b0d5c2ee1ae63ba2291f5dba6d9392e9f2f3fa4b94e977c69e",
+  "color-purple": "df44047bd01fb7f609ec49dd372627ab27fce82fab63bcb6feb2c62f35f1ade0",
+  "color-red": "fa6bb0da165891aaaddb70100c22935294082c3b0589bbf7697cf083e1c6cf08",
+  "color-white": "d0b776d814ae091febc6713bfce88cf856c70134f3ccb5c45d2382934ffac725",
+  "color-yellow": "eea304d31bae14011798a7a2a32a1ff13372c8605840a976bdc04f2ac60519f4",
+  "fluent-adhesive-bandage": "5bf39721690e65e542572f75eff00e79076437bd4aa3e188130c34aa3f7a2e22",
+  "fluent-airplane": "dda8d8e9ccaca71973f4ee75fcab085dcffbb89f3987a9d2cc5401f186268fa1",
+  "fluent-alarm-clock": "1aa6929e1baa440db535fd321868dc76ddd888bf3e4f4333d37800ff2ec41c74",
+  "fluent-ambulance": "8709daea147cbd1a20c2fe743b47372b3fd5190227732ad07750f0c70b4aa3b8",
+  "fluent-american-football": "c88dfd0fc165b8293cb6fcbe8bc4bf131e021204909418e3944833ee0a749c31",
+  "fluent-angry-face": "7e1ae11f16a882e61391c42d860632525290d11d7e9bb5e8ecab02f63d305414",
+  "fluent-ant": "6c567df5af574862b30ad67f03133546089d4d5ad47db37670e01c62ece6e383",
+  "fluent-artist-palette": "147e62f6523e7e923add4ed5497bf90982d22e04eb2e65ab916b743de2dbe1d2",
+  "fluent-artist": "21768e2173a23aaeda5a5d23e30c044e4c79a3d09c055bae6d91bcebb895d0a0",
+  "fluent-astronaut": "10d50b3d7e191facfd106f192d688f194d203b2483e46a0b866d834ba39b4ace",
+  "fluent-automobile": "0fabb870cfe90fb7ba7cebfa689a0e62012ff5658fd6cab05898573d9d268b73",
+  "fluent-avocado": "526f16895dee591111aa502e6a07e3a8cd6262b4189be7f670c82a76e702f4d2",
+  "fluent-baby": "a9f27d8ae4a277a572ccc3d49d56128cff229fef5ece1a9afe85059c2e97c96c",
+  "fluent-backhand-index-pointing-right": "af6942496976b7e1ccb76da13b307576b83fcfa1c3153462dc190db7c96cee9d",
+  "fluent-backpack": "f4b1256cc163f2102984a34edffd8b3e7b9d833288e838d6f3423695a61953a6",
+  "fluent-balloon": "1f3ae11652b440750cfd3e724888b3827d8e9349367cea80e57e33fd45588215",
+  "fluent-banana": "b82cd3cc7e56e70026b599aeec5d811568b507adc96473bf854096f5e67d92a5",
+  "fluent-banjo": "42a4c222bd9285c95f64d8e477d0b23e4d04568406bd16d06a4e0c55f0498761",
+  "fluent-bank": "0f2cede0a2ec7e6c4463341969fba70a46ab4647e1c4c1a8a9f4c7af28130067",
+  "fluent-baseball": "08ddebb4406f2c243449b344f3e511b0077143e96f3c4d0eff619bf11de7123d",
+  "fluent-basketball": "cdca1c9b81130ab7b1f8da385984bfaba3f577176bb84b927ad70cfe367cecff",
+  "fluent-bathtub": "394c49eb567452afb6cf0c604b344ebf037d2ce940d9f84e2353ae9684c475c2",
+  "fluent-bear": "8f108a036c28d25378e3970eea68d00fbf155228b349707f0456e557013a87c9",
+  "fluent-bed": "cf1bab4ad8cda94825bcc96874cad6b06459097455ea84c22a27d6d84ee510ea",
+  "fluent-beetle": "13c6d2f00417ed5b3dc9a0d232a823ec68c64f568c50dfdc1c70a51b7e9a2d67",
+  "fluent-bell-pepper": "59535d7144cd2ef2f60f58f24181656abf3cc11807d4affa30f2db57f231ee72",
+  "fluent-bell": "e1c9efed838326cb746462b824456ef382742237017871f4d0fe54c407a9d5bf",
+  "fluent-bento-box": "7578704a1f66d8f5bf47c4be398bd3f33c6cbce2c3900703a3eec460994d4946",
+  "fluent-beverage-box": "843391a919872f7bf989de53cbf628ff0e8fdf7f1e685dad2a1a9561d990b55b",
+  "fluent-bicycle": "69f1b75015c8cbdff5fee66ec656e66697657bd56e63f05e0f2e7420cb38d1f7",
+  "fluent-bird": "eeb6e0a3a54f7b5ec2b32995a1062ba3380eebd5f9a00d7158f3cfbb978c31a2",
+  "fluent-blossom": "2ff4c5405a79e81d134fa27e563e9a381a8bcae7e46c014f1ac3401f5342c850",
+  "fluent-blueberries": "8e640a8fd43c2054088d3588de1303dc792ca13f77c90387a98c2500a6e51497",
+  "fluent-books": "36f75eaa1e1a849fc950f43962b447c206d96244858468240a6a81beaa97f7be",
+  "fluent-bowl-with-spoon": "96fd473a66885c7823a2e3138ef714d2f2858a86fbdc00a6c84f4b470b98e094",
+  "fluent-boy": "f117e4341a896dbddd375f2a3e56053a029cbeb9d70836da58fe43ea1911eaf1",
+  "fluent-bread": "648d935809d028ce4b583a77a2206d11c54ff981d392703c7fb68dd5c90f0315",
+  "fluent-bridge-at-night": "1be89a2424b05cf6e565b89f298a3498d0ae16c9724374965b20db407736353c",
+  "fluent-broccoli": "692ef3447f34a427fee05f69581c75ed212ad702127d2e838ad63589d5151ad4",
+  "fluent-bug": "f8fca56bd7f689e758c7de388c343acecf1c40cc09e666e6fcc99c2e38df0031",
+  "fluent-bus": "d34d9d19e0d9f2751f464905561a29e6c0031fb43f24b3af5ed8d56586a6ed5d",
+  "fluent-butterfly": "2ee52f94c6383dafdd29f471d04c17141563d7fff790d33e16781a751f72b397",
+  "fluent-cactus": "29b605a5fe3559f5830192a5d73df0685f7b3961c49a2df1150880444f99f436",
+  "fluent-calendar": "7c377466753d5c5062e60edec0258ac78c512df423add89b2dd359035592d8ef",
+  "fluent-camel": "f7f125c49f7b21f3031d88ec71a82a217ff55fcb606588d8b462fd90e70a9981",
+  "fluent-candy": "79607ed1b5a0b96117723261fb9c79db77e63b154cebbd9af42ee8ddb6776fb9",
+  "fluent-carrot": "add5179377b74ccfb6dc4bcf603aeb80fd8de23e1411bb63ce72db1286cea6a8",
+  "fluent-castle": "4b4444c9397626ecbc6f1503b0ff3859156ded020d71986d0c2a1655e72cf5ca",
+  "fluent-cat": "5d3fcbbfb0be45d9be0ade47fe4eb1b97d33130fe67d46a8db697e434f13289b",
+  "fluent-chair": "6e7dce648deb73ec3ee960a505ad6449fad5c5538808b2c3ffb73e053f0e5c2c",
+  "fluent-check-mark-button": "256e3dd950cf1705ab72511ab242472b4bd7db519aa402a6182c1aaf8c58def9",
+  "fluent-cheese-wedge": "66966a3b1f27f802260988cde7ab2419525300e9747bcb92657c3f544e0568d7",
+  "fluent-cherries": "3ebbdc0c13ab42cdf9b5ed27f444b17e92a01b08eac76a4c893c2210e86bca73",
+  "fluent-chocolate-bar": "cc1d1cf934113021204000db8e42574f243ebd668d5490c8242bb4263e79faee",
+  "fluent-chopsticks": "b40a2c7e85e021de2dc35576d15123c022ee72c1fe8d91fdd51bb11df04d3cf7",
+  "fluent-church": "7a9502c1f7570dc6dfcffade968f9ffbf097dac59c5ca4a81614c6d2fcdfd297",
+  "fluent-clapping-hands": "54075bd39fd3e1860ba39898d73e61096c0e0e633ac5e9840beefddaf1d75113",
+  "fluent-cloud-with-lightning-and-rain": "ed1f207db4824e666055faba6461900d24300332926d72379a53f7d904a2cfbe",
+  "fluent-cloud-with-rain": "75dd1e6fc5f6b92cbc222ab0b9c10e60f889af2b82453ba784ba0517ffd690b4",
+  "fluent-cloud-with-snow": "24d8b8eaf2123f475b7ca32f8dbb702cb26418621c1c1dab7c3a56fa6506e4fd",
+  "fluent-cloud": "a4d4629711661a80f6b6b0081c0f84e65352518b2bf23f4c1bec55e297a9fafc",
+  "fluent-coat": "36b2c4951a94dbe7a39b88bcceabcd925eec2b40ca65675f9897acc29980705b",
+  "fluent-coconut": "20c84fde8e98b14987700e37cdacf5056f0f281a9989d2c056d412d00108dcfa",
+  "fluent-cold-face": "0196625191a24519055a6eec8526b4c6b215197a93dc477a1f51657fa5486bad",
+  "fluent-construction-worker": "477d29d4d933fc0b6aa0e20457d1d9635bde9f599d51f890d016385b825d4d60",
+  "fluent-convenience-store": "cdc2ef03afe122787dda924fc1a2fbaeb114afe4372bb28aef68a61d915d61c5",
+  "fluent-cook": "4e0341d915cd1998326eee6ef51d942ebf577aff28858c1c0339a144bd94cee0",
+  "fluent-cooked-rice": "8fb8d0a253eec06e8f0bc7cea6f77cbe16454d689d29609349da33f18d04bf56",
+  "fluent-cookie": "d3c5f5e2864d3178bf2033074c0cf679b067192fa9b5e1aa136267c7ac95d376",
+  "fluent-cooking": "bb6b8501b89493b8bf29209b87f14bfc0a347750ab693ce21fe81741c2128fe4",
+  "fluent-couch-and-lamp": "8b1cd45d95963e750c58f5a97c15a9d2cc6e30794a94ba5fdbffa259c689350f",
+  "fluent-cow": "38ab704ca4ffc464f7ac13ab05fe525c2e0e628d2a3e1fb12d51af4114b7d110",
+  "fluent-crab": "5dab35d6ebc98078d272885769d6621976582003886911a040c608b52c548177",
+  "fluent-crescent-moon": "0a5b5192390983789d430e37582dfda343be19bf8246feda73108484771ba09d",
+  "fluent-cricket": "3cae5a736de663323a0a2c0595faac80bf0c4f51b2c5828e8ece8141cdda3d71",
+  "fluent-cross-mark": "2753b89dcd790c7f25fa3c5fd5641821860257364163abd87a2f57bb268466b9",
+  "fluent-crown": "817095bb1423468afa155317ba04ca333957d51757a8d3326856ee8707c0edd6",
+  "fluent-crying-face": "9fb63e831445543e063c675ea3d428feedfe4c66a6630ae0f9223c6f9b17653f",
+  "fluent-cucumber": "fd7298b145e399a927b84eebe591f3268c4528268cc06178eba946ee0b27a228",
+  "fluent-cup-with-straw": "7005731a952d0043c604fea15f3286c704e2eef599530e910ef125f9f3ebcf0f",
+  "fluent-cupcake": "1d39177c541e5a3253922f88fc8c33aae4e8ad26d13a4f2272f830d168c02289",
+  "fluent-deciduous-tree": "3c13998c6b866d824703327296c0317de5f079c2b31a6c22defd49d819d6e7f9",
+  "fluent-delivery-truck": "98c0b6e596c7182890fe72bce725f3d9291040dd262b562a514307c5d1aec94e",
+  "fluent-dog": "27ce5eadb088d9c7a5658b6c3b6aa4484c7a75983e8e1a9988845a54f90f1bcb",
+  "fluent-dolphin": "03ba3937393cf760b90a3d20fc2ca36fa1219713b54838088c2b1bbe67c11181",
+  "fluent-door": "4c00d6d74d289a4e8689087eb809ab724bcde422b12a800e23a926dff2a657c8",
+  "fluent-doughnut": "5527fa6a366ad366a45f84b71432e8a54aa502debea3b53d3926c2823fcdf986",
+  "fluent-dress": "f1faa6bfe0c2b741110065d53f57d2d142d3ba758e827fc8fe410f230865b72f",
+  "fluent-drum": "490d2d2c795508b7059a73bf308dce18018155527f95ed2643546c60e6664549",
+  "fluent-duck": "c45934c5d609fc03e9713d66ada5e08034b0b27bf29a37a39c726633b5c2d2e4",
+  "fluent-eagle": "4ba56f4a18d6e9425809b67eaccd4133baca7bf388f0f36b4d3d6a301960c2d1",
+  "fluent-ear-of-corn": "ed99feeaf391a301ed16480b0e6bf8bbe8e470d9e036a7fe77b4a5e19af2b696",
+  "fluent-ear": "5a99f0962b459724734eb244201949122c29a4ab8f07cbbcd33f1264c3251d78",
+  "fluent-egg": "efc307f317a1b758eb43152e1354fb407b3cb587f849db15c9ac0f9fcb025400",
+  "fluent-eggplant": "a590fa4249e50a3fd9f10e6d808109457a62d9d908f19409fc374d1be486d159",
+  "fluent-elephant": "d3046f53f45dc20b818484dec97f53634d5c71b277015fc96aebcdc0d49a8f91",
+  "fluent-evergreen-tree": "4a510cfc89722a73bbb79e2148ae0719a49bdc62eb67bccc0f9b475e354f87f2",
+  "fluent-eyes": "b3049f399cb0947b423610f5876077efa86bc640fba5cb9d138b149773d4c793",
+  "fluent-face-with-head-bandage": "96e9f68e689712a5617dad35cafe69b4b2ac5459f771be3469202855e9f502ee",
+  "fluent-face-with-thermometer": "d3277e8900f877a16725314505f380075eb8588e073c410dd487d26491a38322",
+  "fluent-factory": "4b2d8cb50ffd54b8958d33dc19c4a0164e0fba762384d108e3863bfa91633b22",
+  "fluent-farmer": "2058c6cc22ba1bc6603d9055e064ca0c4800e5de01a2e2b71c1f1944cb2cd5ec",
+  "fluent-fearful-face": "e43d899dc37816bb0f130c5b26d0f927a1d612fda6f1da3a3457027c0f000346",
+  "fluent-fire-engine": "23b4f5d37b3af3b22573c884bd9a0142b1ae1b38c3d75b7b74e02cd282b94a58",
+  "fluent-firefighter": "7435898921fd3ed257f47eb3094241b307efcac70651a2d24cb343ca733060dc",
+  "fluent-fish": "d219342f1f416f2a89b5f6d412743bc809ac75d3be3d8cff0bc0cf5af5e288fa",
+  "fluent-flamingo": "cda1374b5f4ad9aee904ce92af77b0279ffdf1aa438cb6123540811fa9d8781e",
+  "fluent-flute": "8b7ab7ab9c6fa7410a4bafa4e19c1289ec6b3976982b4a23c681a7f780016cb2",
+  "fluent-fork-and-knife-with-plate": "fa0516ce35666517a49daf7a62183c053dc5e99e9232f1bf5f7fbfb08d6ef0af",
+  "fluent-fountain": "9a613229a07f66effc8a32d950b9c02cdf063e7a67d9b011caf642e24166fc6c",
+  "fluent-four-leaf-clover": "37b310abbb0914050cb033ffcb99fe25b09c4e47d1d0ef93988f60f6fd849d07",
+  "fluent-fox": "1a3bc43212405fb03d8d2bcc709c7f39c99d4a19af06d406cae4724e5fe2b0ad",
+  "fluent-game-die": "454d51562973cf3af447db64832905d8f3fc3bbc7508c5a8bf79d2771edbbe4c",
+  "fluent-garlic": "7abbfd71d59838c2f0ff385bb75b457c41a0ee2c456e8efaaab1215bae4df40f",
+  "fluent-giraffe": "bfe23a59e8b7f25b691403763f972f3da030edf199cb0665b21e01d1d1f6079c",
+  "fluent-girl": "8149bb3e93cde0f2ba17f0f802debc03fead3bd20301bd7e99ecab78a01bb719",
+  "fluent-glass-of-milk": "7ee5292b46edaa06d94bf719b02ffae4c96e95a8ae7f960cb90f24f1ccd99320",
+  "fluent-glasses": "10a5cfe48753130cf73ec5248d2fdec3199d768124ba3eed52db2c8804e97497",
+  "fluent-gloves": "fe00785b8204bad28c84700d07cfec0f3946d9f9f12329519d8ca8308b06a368",
+  "fluent-gorilla": "58ecf7f91ac90a0a1b998693bd9235aa1e42bc93aec119f47e4a400a874fcf33",
+  "fluent-grapes": "862ea99e063a228682b5b2da59613ddb2e64d7ad0144712125eb34d9cd2fa36d",
+  "fluent-green-apple": "24c8ae85882b158d84cd9da16e87f62dc60f2c36e451b45a04f3f3601e1eb002",
+  "fluent-grinning-face-with-smiling-eyes": "4661c4c7f43fc3aeb2e452d4be40782b1957b3ca944b2620886cd22c102dfdcf",
+  "fluent-grinning-face": "175d214df45fe18f6f106a9a094b695689d98abe6f343295fcbd690a7ee4f0ab",
+  "fluent-guitar": "a993e9066855f890c1c89eaa0295e75fbc5a1accb17db41fcb3b05c888fb9b27",
+  "fluent-headphone": "e7c26d433340b1706f20c733558da412cbf70b1a95048d51a80eb0ed2c0a02c9",
+  "fluent-health-worker": "7e43d4d110dd44e650223229de337a027f1bc302124a76a2d185eb393b916fc7",
+  "fluent-helicopter": "0899940cc72b6833a8bbfa0ffafd1d0590f40cafa29f7398885f3717bab4f438",
+  "fluent-hiking-boot": "cdcf337be36e1430398611d610344134dc1a4ce8901b566729ad6f36683446a6",
+  "fluent-hippopotamus": "207bed240fcc3ed1f47ca0a65d3978be75e29c8e10dcd470d70cc2a95eb4d15c",
+  "fluent-honey-pot": "cbaaf7c2e53ff4c1ad4100dce96438f947131cf458dcd4472ed3333d6d3269d5",
+  "fluent-honeybee": "7769854974b0fe9d75ccf16943f7f01773c87a1b1f2f84feb16327be46c69ef2",
+  "fluent-horse": "ff0729b37bc624b02e115e2e5b52c1e92461a3764751a65ce676f4ee26cef72d",
+  "fluent-hospital": "efdd62ac17fe3d726f82c67fe22b08d14138402648409ef4fe48d3e89f80d837",
+  "fluent-hot-beverage": "edeaa3fca5eace5f2546efcd3b3e42ef1fd389a0c51d374dbf7863731db8f314",
+  "fluent-hot-face": "6266103d439cfbe33857199b407d16b108bd68b452cb594f477167b7ff9a7059",
+  "fluent-hotel": "c96882c404d9ee6240eab2c3ddbf6189fc7c68f53224643a72283ac84015cd20",
+  "fluent-hourglass-not-done": "ab4183328a0ec7a0440a6fb48113fdb9145f51235e960c7f17097ebb9f13af97",
+  "fluent-house": "0279b073321551b55c86a10dc2fff5bf66c8dec895672004da43482c5a1de87c",
+  "fluent-ice-cream": "cbe49b092b8e38d86e353595c8c1ccfc8d7b9803307e893b43cfb970c113275f",
+  "fluent-jeans": "fee54f83199aaefcd30b7cd61c835c4d0bce21b00a99ec82eb0c30801129aeba",
+  "fluent-jellyfish": "b807bb54d0cffcf81ad27d8943fc03f2161e9359c7c24632c45fb24622a4962e",
+  "fluent-kangaroo": "48ee57cc6778f0a586d53fd0647173ae8ef45f3f775fe47adb476f1c2c385f8e",
+  "fluent-kite": "db6f1dd0e65c214c4708f8db14acc8cf4359752cdf0d6c07a436e82c477a0b61",
+  "fluent-kiwi-fruit": "e9aa7668a2839b866ee74b7c37a3987121827348f2e47adbd52ded0cf66febc1",
+  "fluent-lady-beetle": "2aaf2b3e1147a19237fd0350d094e8260023a2d3058ee8872f48f716c694bca1",
+  "fluent-leaf-fluttering-in-wind": "5a7dfcacc94c57166dc2d7b0e7517981a35fcc6ed231eafa6719aee642c1d166",
+  "fluent-leafy-green": "168df98bd3237324bc40e3bb3808448ba488e1841b441fe120196c380891ace0",
+  "fluent-leg": "78a17199adfe93a6a3ade2c5923828c5b985084a9a003973f1b1dc294d26aab1",
+  "fluent-lemon": "b0919ced1b7ae879f8900af4a71a001491280dbd9a6592eca808ee4801c673dc",
+  "fluent-lime": "710576d0da17da713cb282a6c46d07127e7ee2ef7a530b0802166776165ea960",
+  "fluent-lion": "1f1cf0d0dd94915f3c9f10c3415c5efbd4b8725adfa44a5d564098547076b34b",
+  "fluent-lobster": "af70bf7c7983bccb4c72c9bae7dc769df39125b42d6a5622006c99de6261b7c2",
+  "fluent-lollipop": "7ef53e6ecee64e3f032d4a6dca45f4ab6ee32df95c8d2911f934cc9d53767ee0",
+  "fluent-magic-wand": "ba15c729deed09fc6d51114ab14356135e08e8562cb82d040dfe601594138308",
+  "fluent-man": "2b9d1eee644cae73e3194251e5403d910110e085ba7e8f212a2bbdb66ed32b1c",
+  "fluent-mango": "d2909468f97397a84ddf4cd476a49186c6b16f3d140302de5e58da5ae8bd18fd",
+  "fluent-mechanic": "24123b1d730f596eff0e023c9c0815a4f42381373f4939fdb8911f5882d477f8",
+  "fluent-melon": "72de7056826fc7854b311da62d11df2fdbd294b4650efc87d567f7e28000c268",
+  "fluent-microphone": "99ccf1ae9f0df5a0449441da687cd5337581c029f452db8ed135f14c6a6e0121",
+  "fluent-mirror": "7d3522d8a521298bc218f106e92ca58c1241810e4d72dcd24e03cccefbf9ffd8",
+  "fluent-monkey": "614fe6d45b2af454d767ec632b1dd209c8d9d8e911eded35e27086939fe869c2",
+  "fluent-motorcycle": "b1d42d17357d5480ad92b92942a550d870601dbdd3cac66a300dbcc582eb0619",
+  "fluent-mouth": "96fcfe41b70fd1f536cf5ff3f9eeb376c9c1448d06d9bf6d7b3979a92f000237",
+  "fluent-mushroom": "cd3d240093294db7a66b3aa9570b558405d0d31dc31604fe1be46c9b4e0f836a",
+  "fluent-musical-notes": "72bd5c2870b7bcad31bb591a789107c92825b7dd844006366e6fc4e1fa31ab36",
+  "fluent-nose": "14b9677b78b05af0b617513887e6aea2013e229c68e19a87b03088f595d20c1c",
+  "fluent-notebook": "952630c06051a7fab117f9487a7e7fba349f9dd1be5eafd6e0e0c637469ea17a",
+  "fluent-octopus": "4dfd49959bc303d641dca3b36c35c3d4d3c4b248c9394aa5879fe2c5edfeb089",
+  "fluent-office-building": "a7bb5b154e6ea40eb22c2221333d51522c65ae0021320801383fe50ae32b0649",
+  "fluent-office-worker": "f74f2bc64a4a9b9ec332cf688cf8025ba44acd263a987bff32fd0146dde229d3",
+  "fluent-old-man": "2ec0e2e1e4ef60792f2c1d0096982d8476c57e21da30801455a1186393e07e6c",
+  "fluent-old-woman": "aab879a853726886f35d7d5530f72d235665ac6905a01a2d730ae149fff6387f",
+  "fluent-olive": "21554473f6bd7b38011fc68e5f2bc8ab299fde6466faa06fb961bacf576d2792",
+  "fluent-onion": "48716cb9e88ecfede29dfd55932bf4eb0a2b1b6688621bbf75305d7e042a0efd",
+  "fluent-open-book": "c6b7de9724d8ca47f900238d8cb34c2ac7346a12c8cea91c176b30f8a39d628d",
+  "fluent-owl": "7dfcdcdebd599787719d98f3057b0822522678e6752369ca3498a780ca7ba443",
+  "fluent-page-facing-up": "f212d11ed09cfef2ca9cfd3b6b35b29ad7a57eb677aa6611fe284763303a1c57",
+  "fluent-parrot": "458f758fd9ac7578259f5981fa903c0ecd2da0802a827889a7f7a25cf3603921",
+  "fluent-pea-pod": "b93f6c05d0db4b8d35ba2fd4d381506ecba5d154c5dd18f64efae5c8c067de43",
+  "fluent-peach": "16c8580f3d7e81234fb8dc0e2a56853efc2735d851ad26f55fba94d13341753a",
+  "fluent-peacock": "26b8b6d4430e47ba212c2af2b90ecf9f99bb7b72cb21e6e64b8496f016847cd6",
+  "fluent-pear": "1bf8e3a7dce44a916fdb8977ec52fcf456dd5ed3581db37f5b4fadae00aa882d",
+  "fluent-pen": "7e451c9e33e6bd58553e1fed7dd578f45c840281286be51fba1ffccd75806146",
+  "fluent-pencil": "c33b52acc157fe010851709a6ba06ee7b9e107f9e421436c97fd4404c25dec3f",
+  "fluent-penguin": "c513a326631f3758e3ef9729ed2aa3bba46432340657ae63f32fd0332f648341",
+  "fluent-person-biking": "1533ac7a513cfd0b001a0b6753072130579b5c4bef003e9b4e04e199763cfc16",
+  "fluent-person-in-bed": "1c57ff64285b37d55dd903ee8d1137162be93a345afaa967d6af097ab08d7c46",
+  "fluent-person-in-lotus-position": "b276bcb327082025d5aecb16dfb3d56a32ba35a80b72adc02cbcdc41815c2209",
+  "fluent-person-running": "7fb8f896fee354034305c2c202859b1a1bbfdfead8e9ebb63d4675806e75c960",
+  "fluent-person-standing": "1388e0f9fe7fcb37caf52198c603b7f554ee1b9ded985ff35a300ca685064df1",
+  "fluent-person-swimming": "41ab0f7ae63a833ca887dfff61b5057e227752f2a2ac568125c8c0cade4f001f",
+  "fluent-person-walking": "9e5dc4f30210bc45592f31bdccd602865f560e5a0a59b4a738a368b784f63364",
+  "fluent-pig": "a99ba267149dd19533d06385704da9961b8b1079bb45ae580d7f405f41c958b6",
+  "fluent-pill": "39fea3b43ec3fcd7f42cd014f69fb145b2f87540ad823ac99f6c64b3288a76b4",
+  "fluent-pilot": "63852941d7e15f3137e64a87aebcc9d248642cdb13a5b7d8e72631cdc75f9480",
+  "fluent-pineapple": "428706e3eb27e9c34a4740f7264a75f8bc0be6aac3f7d8999dc3746c7afefef0",
+  "fluent-pizza": "beb2d1ac000003d96711ea8364815641442523285fa59007dd5b589059c74b9a",
+  "fluent-plus": "d3e169258dd3e0d90886c6adb89fbcf79d5094c47a9cba8dfdc877296a696856",
+  "fluent-police-car": "709f851b70776b9be6667a236bb79fb0c68da9871cb5429aee6ce00f2d439911",
+  "fluent-police-officer": "d325c1ea8c6d592cc43111ef47cac29dbdc129c500235290e6f1b786203d04be",
+  "fluent-popcorn": "28ef7634d377bd78856b9ce45ba252e4455bf82988ce7e468a89042a4d805f6c",
+  "fluent-pot-of-food": "6cd6e6d2a80107bb017e385c40d2ac3281aff24fa6bf2ab1a912650c38c6ee8d",
+  "fluent-potato": "0994a09ce69d258dedba2264ff5ef8ee4c3cffe72306f5a202fa7acf96ae1e18",
+  "fluent-potted-plant": "c7356d6e738b2267ba1c6eb862ed4d46ddea9f5e786e07eb129b0cf9ad4e7516",
+  "fluent-poultry-leg": "b2edc05ff8a3b2fd21c87f884cc5e0062b276f23f6ecdb025002fc3ad2096293",
+  "fluent-prohibited": "20d8e0eba08431ab2df0cf16b20780cf0edbfe54043890b0e4c5d5412af3af2e",
+  "fluent-puzzle-piece": "c0f47e02e87bd61118985d8ab7b5f40fe302c82e6bb7ae6a7b7add2eefc6de7a",
+  "fluent-rainbow": "81c60a96369047dd287b9fb54d02d29fe1e9b7fe3f00924330037e861b1fbd81",
+  "fluent-raised-hand": "70a05b72094c836ffc45fce31b551cb939daecf36526ad745f844fa7bc98f2ff",
+  "fluent-red-apple": "7e37f4ad4d227d283f9afad0605fcddf67406bf8c6c4964419efbd23de7ad60c",
+  "fluent-relieved-face": "847ffd80565cb5762d524f86c93a75ddd91cb32de5e0992b7f8507855fcf1ab5",
+  "fluent-repeat-button": "1c33a4d05ad83f57c2f43771c22c791eff5c6bcb6281dd65416dd057d9b68ea7",
+  "fluent-restroom": "e61872184a2c37d1477a9e977369567a846c7ad1ffc3d5c1c6e884f9d0195223",
+  "fluent-rhinoceros": "4294c81d62ab0cc7822f8b98cc0249b384dd08071750907daf7e77b5cc32118a",
+  "fluent-right-arrow": "499ad6a8d1327d60c756134fff21fc879cebd43e478a1b1d99fc07e83adca2d6",
+  "fluent-rocket": "4636925a1dfc76a45dc83c08b983699d39143a0978f794a4e2dfb6cbffdcd7ab",
+  "fluent-rooster": "c17448ec2b1e094f062e19f186c17747582b0980faab5852a24155920edc8198",
+  "fluent-rose": "24a9794f108eb27d8d51ac8fc1898f8cee20e19f1b4e8c063efec5215d28d947",
+  "fluent-running-shoe": "33cdf4673e2a909e096dd6301ba50903e0d3507429bb4bc8e219211a825ca2c6",
+  "fluent-sailboat": "afac9f137599084a542bb68f11a7c56af4adc479ff2326b1184a0ea1af38276d",
+  "fluent-saxophone": "3ee61258ef1bf10ca0eaf4a1804a65788566b47c3b0153043c5a9a4f57cde1db",
+  "fluent-scarf": "f04c375910a91e6c6108837b75b5b105225638324c2c922eaf43f1ba7701a626",
+  "fluent-school": "fdbd89cc0e4e7a80b776fd12275bb1c7867e364b3017aee7e5a0b736e332ec24",
+  "fluent-scientist": "f485cc9a3492e185b993a05a715fcb929fc4ec9bc64137ae73466a372f6e5604",
+  "fluent-scissors": "0e256f6c048e438cefd0bccdbd77ac9c58e3a0921aebb3c273ac402a31b97a5e",
+  "fluent-seal": "c7d66e414fca2f014e2a0333e75cff1b6aa636f18223d2f226799d514a8d93b7",
+  "fluent-seedling": "b16c51b1b36c68b87bc05b92841d3cbd25d93919911057bb0eb3648717615cc1",
+  "fluent-shark": "a60ab98d8fe5ee118fab6a3cdad32efbb6613aae35aa758604f901e9e5d1cac2",
+  "fluent-ship": "efa326a1a8be1ff81010877213bb81fbc953b5af58b78719960387b25a5dcbe4",
+  "fluent-shortcake": "0acebe0de7e4d5393c8825ee1a233ea8780e52bfec71ab52dd3e0135e8a9fb37",
+  "fluent-shower": "e8466deb371f82d91844d0cbbc5e768dbb3cd1cf93ccefe35261327d850db606",
+  "fluent-shrimp": "8eb4957b0e2605afc8e9798eb0ff24ef462e380e048ef9608238a9ca08307fd5",
+  "fluent-singer": "ab08e70230004561355098a6827be8d6f5ca1592721af4c36e776d28577e2604",
+  "fluent-sleeping-face": "c7d1cd5d04ae7214b6ae92b9802b6c860729c755da0020ccec22c7c8171f18fa",
+  "fluent-snail": "4520e1a8ab0d83d7a42d7dddf8529be7d5c3b31bb0f7f4d79a44279748da2d9d",
+  "fluent-soap": "bbdb3c63535807bf09b134c71fc97c5ac1b652886d305b7539d4ea6715567a96",
+  "fluent-soccer-ball": "bf8597110e987c13b8a3ac0c317d6903cef29499faa04de695b5fc37dbb5a053",
+  "fluent-socks": "6087c12587efdc65ddb4906227f715facf881f1f3ba4167c812ed25ffcf2ab71",
+  "fluent-speaker-high-volume": "fd343b44a0fd2de6019a24a061d7954b2f9efcc6c2fc805895fec132e09beb71",
+  "fluent-spider": "1314ba0e99860d8f241cb263365d75af622f243b5cd4b66f0a407cef17b86826",
+  "fluent-spoon": "d9e9bf6e9bce8672625dc841bf0ce6f3c545a5212d893ac24558c8a9cd811433",
+  "fluent-sports-medal": "7d62249a2978fb4be1bb6286d6dbd569e8cf1013d760ae89e7a38c63801c0f5c",
+  "fluent-stadium": "e8951b5815f54244377e690941865e73197fe428e5b2fcb00479f540234876f2",
+  "fluent-star-struck": "89a14e242892cbe067095b75eb51cd55692841bceb384a45a90f8f3f8b9b2e9b",
+  "fluent-steaming-bowl": "753c2250ef9f60fe4933e21ee1d53e6820413486f75bffc29ef092957bae583b",
+  "fluent-stethoscope": "5396b7ca1ffa1a040b260f2dc900fdfba087500ed2b51e8920ce45d745b5192e",
+  "fluent-stop-sign": "0f4ee16d06621100accaf48b082137fffb481cb5ba435178cfe200fdc6f11f79",
+  "fluent-straight-ruler": "874ba44c52745cef96ce499b62e0953dd75ad5621b20e6da53bde5e97c9aea91",
+  "fluent-strawberry": "446d640c24e146d03e8382c61ae52862848b11aadf74e7b47d200bc44d2f0223",
+  "fluent-sun-behind-rain-cloud": "4e9aaa34703f42dcde99a32eef923ab0fa196d250260339259477a7c045ba03e",
+  "fluent-sun": "c9bb15d03d4b1e6151d97e12119ac93bbd2bcb5e713a49c1fcfc11ece54caec1",
+  "fluent-sunflower": "14eb41f2cb9afa1387e9b925a9458d8fc768be3bd32210e3064fb7f320e123ca",
+  "fluent-sunrise": "c0c29c2c4d095cd4cd1a8bafbc8a21ad375db82e6b0f11b6d521a994e8343067",
+  "fluent-swan": "a8ce2500d1b52d6343ff6866bcdb8af561c90a4321e618c3ab1db7668088d933",
+  "fluent-syringe": "e0c3e61d61f380fc6e25dfdf715735a316d2efc1d4307e77cd3fd548d1824434",
+  "fluent-t-shirt": "e343973ae02fc0cb537413d0ddaf7bd45f41acf22854898321367567909375d7",
+  "fluent-tangerine": "dd21b66eb226ea4598141bd598eeb7ed037493b028fa1736712f8768009d3d89",
+  "fluent-taxi": "25f830e2bb1967f9560de8d313f69b5c24acd2ebad13f801a39fac1128266c02",
+  "fluent-teacher": "34ed464f8c14f4def83face7cf0260bdbbf8ad5b0ca96032ea55d9781ea85ca9",
+  "fluent-teapot": "2784c6fdf222b0304e9a09bb7e53f9ec8183e7dcac58cbaf79b1cfbde1455d8d",
+  "fluent-teddy-bear": "149fc51d489ec22d2054576293a1135d5c86efcd7cbc262b55cdb94d569d0a23",
+  "fluent-tennis": "48991f754eda621e8f84c9769189bb43cf707729bc3474b94f0adf75203fb67f",
+  "fluent-tent": "358343b871e0feb95ffa66db96cf41b1332469c89fcc5d6d3904055c81e84511",
+  "fluent-thermometer": "5bde254ad0f29e3b3280b25e52c036e7a3fbb37c0e2ac3d1e9803dd4abb83c42",
+  "fluent-thinking-face": "cd29da5c3886e1e25726d3cf6ff79faa2f0d631b1c0873b115be287d358fc4be",
+  "fluent-three-oclock": "030747cb8b0abfd961841730ee01973412bfd2a07aba608fbf4bfabe4ea3d734",
+  "fluent-thumbs-down": "12020dc8a616138d0ab3daa94008b97d0ed35dbdb1f0d80d5f17657e8aee492f",
+  "fluent-thumbs-up": "a48dbe89a1a16969593db76f5bec45e9e537e0f090e7609caa8d9a3ff598d1d2",
+  "fluent-tiger": "ebea0cb7d52cd5f16c053f05dce3fffd81275481bc44bc2d95812d3dc30a502a",
+  "fluent-toilet": "9dbbd9a171b8a8778cc00f80178f37e76b7d011f518613da54fce7e0940a874f",
+  "fluent-tomato": "563f6a0c3b5f7bc614689ecb724a169eab3cfc8fff9c866654529d0692b8033e",
+  "fluent-top-hat": "8e8cbb3755a0165960b048250e768a3783a9d91352313a48022c3f2cf9ddfd14",
+  "fluent-tractor": "3cfef58f89c14cced7ff9afe08990486e5587789996a75320e4c19bb06a1fc73",
+  "fluent-train": "26a6eeb706ae0ebeb7026b65f9df22a24321ea408e8a40fd10e28d411fdd91a3",
+  "fluent-trophy": "7c4a9805f354eb2aec35063a95a4043306efc726324c0d128883f24497857bbc",
+  "fluent-tropical-fish": "6179b36bbd40d25863d2dc7e9680a2e6d922f354fdada4fb707c5ebfae845808",
+  "fluent-trumpet": "78496ef4bc77bb188f7f49ca5c89db9a68c19589d9da874a0e73c99a18ad29a6",
+  "fluent-tulip": "dbf0252b8c748da89c3436e109926979167ce9225c0b999823ef32b5a973bda5",
+  "fluent-turtle": "86486ad9e55664aad9e28af70a8b35dbbadd0678be5f0d1f0b1b5baba616649c",
+  "fluent-umbrella": "2c5f9e611931a759211f0d1879a229f577936c5830ec88cbbc5626f3706e79a4",
+  "fluent-video-game": "4b01e22089defe553717d49624e673cb5492ecdd9c6a8eddb7e6ba12d400c0da",
+  "fluent-violin": "8539f986974efb1e9fa7cfba61e9e9be91756058766f63822ca77347598d2e3f",
+  "fluent-volleyball": "684b85d6e0db2180ea0f337328ec39597a3141d7c6d504f44aa72b5eaa8d46a7",
+  "fluent-wastebasket": "3aa2d93f1d14e504675da7952e3d10114036004f458d617f5f46b744235b328c",
+  "fluent-watch": "0df0cdf7cd6675d1cc3f716a26a846fb646b300caeaa20b55337785b8c9c21b2",
+  "fluent-watermelon": "00bacc111ae855cf0621d35ba987d519c07fb4103500edc4af2152fa6d27177e",
+  "fluent-waving-hand": "fd8d684a2dd4bca71b53eea530ffa226fdd9a17a50b9bebec2788447477f0d39",
+  "fluent-whale": "f5c6da4e8e26ffff443017efec37f881b41c81f08320488ffa62bcbd1031b9ce",
+  "fluent-wind-face": "15725deaeed9ba043402f676670daff2720f09c145b815140cb160b16e98317d",
+  "fluent-window": "6826ed43d4c2ec8071f7384048eee5c0bc9080ee85f46947002681dc3eb225c4",
+  "fluent-wolf": "6e4f1a171cecc2ef682b41209e72677535741a88d78838a5de13f6696d2d821b",
+  "fluent-woman-dancing": "e6298b83f881971b754d7cbc95108b0318f0affa0f8ec3dca99d6f7925c500be",
+  "fluent-woman": "92083a355b38b6a54f43ad124e2f8abdcece7da9d0fab7d28947d236e80caf4e",
+  "fluent-world-map": "f170580a2a2f70662e1de8c76d8263c33202f66f4002e57ad89c997a1b3dc488",
+  "fluent-worried-face": "64d09ae71fdb180c563b929ce7f352019ebb9ad797e3510873dabc6e7d022cf5",
+  "fluent-wrapped-gift": "fc9c446401c9fb347f4e9f47e6023247208126047d9ec32059d5e14e127fb562",
+  "fluent-yawning-face": "3a6f9f61b703d0a21c67eeabde6771fd8916ed18e3c49f96942675b76e566a7a",
+  "fluent-yo-yo": "974e4d17241a6987774dac63f9fe4bf7635a8961ed078f433a68bdbe373a7894",
+  "fluent-zany-face": "3d7805655cb653c12dc4662a58dc447fadae80b29ffc2f5a28e3dbabba2f81da",
+  "fluent-zebra": "0048ee247960f872952293d6baf6fcc833de4b126db2131d8df9d1f07f1da619",
+  "scene-apricot": "5769e181690371b6f036b29910c9fffc5002be135a53815232046809266940b2",
+  "scene-bedroom": "534e835fc67eadf3907955a6a8122287e7b4ae173f82bb1fe0e32c84c3dd524a",
+  "scene-blackberry": "d80aa03c19f61c385b234fb149ae3b36823270168ac191ee089c20d96418700f",
+  "scene-blanket": "4b97d17743a2c158a4416aec537a0713d183693087a931b9658620a474f7ab52",
+  "scene-bottle": "8f904f3db67bf9dc95a767979fe7313fb2281a7ce92cd3af31aff2e9e9b09a48",
+  "scene-breathe": "c5ed8cdbe02b56d15304f7da1d953617a71e3129a416f752a32b7bc8247abcf9",
+  "scene-brush-teeth": "b04f3a8d2a9a56a21ea773268d527d8c44dd95fbef2d78774a0403a1abb935e8",
+  "scene-building-blocks": "5c85744420bcba9891e7746c65c266a476cecee6b5ae24ce7a7179fc4b3fc836",
+  "scene-calculator": "e153cb800d8d6929b5cc48a42126d45312f8015dda566ce10d0dc14e2997ea54",
+  "scene-cook": "03756c38a9a4874997f9a957ba7619b4e637f17562ad8962b574222e7c05dcb9",
+  "scene-count": "d8209ddd9c1249deb36e322f800d6847c81d202283082e1f5008ebf604640d6a",
+  "scene-date": "8f05c5d388f656879e68468b98c8a66216d48ad8df0f14af8622a00b9f54dcc3",
+  "scene-draw": "744429e4d8e79a16b0364c699eeb70510b6eac2879d273d75ff411b32836a527",
+  "scene-drink-water": "97d95c66761a1c1aafc3579ebdbab77b1cd2fd2d0aa8cb32df8903626a644cac",
+  "scene-eat": "2bcf3a8f11eba93ff4603c2ed10cbdff97c39338d1aae0fc295582796511c0d0",
+  "scene-fig": "b7afe1e4c3e681612e2af26d8a5cf75dfc709f8f16f6a1a1658363c331b6d057",
+  "scene-friend": "d7fd753815c699c9247375c074f683ec8e526208eeb35935b25ff972f8c4de36",
+  "scene-fruit": "9c97edaac8ce4affb055813474582e46994bbe242e080ba402fb188d6d5120f5",
+  "scene-give": "d55651135c0acf337e3dd653d7147155a7533dcafe4d9d799c195eec421250f0",
+  "scene-glue": "84d39a010d97414f51c4247fcdc1aef683a3274f00e7ac692cb0ae7e7537c126",
+  "scene-gooseberry": "5f4a3ca505b3757968f1b046d2f732c86fc8f1803995d1ba11ba37994cb9ba02",
+  "scene-grapefruit": "3894ba5bf404232bc8f81f6ec828316bca2e43ccf6b0800e7bb6beb99b9a7a44",
+  "scene-help": "d79f1b9bc12eb5be94dda57ba1b932f49ebec8fb5afb03cc1b8c2339e9290c9f",
+  "scene-high-five": "457603c4672627ebdf099aa1f133a49ef2736a77a32087902e428029979d02e4",
+  "scene-hug": "17078ab6b2366ae5f69149c00a93da0ab732b2e30bff684b9e979fdec76fd99b",
+  "scene-hungry": "8fe8d6a897352011a1e72047f0073f66169ef2fdca31741575baf2097574aed1",
+  "scene-i": "e37e04825f0cd709a291d07a1bf09d454425b27c9787e09ff0a546213d559917",
+  "scene-it": "547007fed6ef28002cb4d8d0d30ff1ef20db5dc42b9962938bca775f4a64521f",
+  "scene-lamp": "246597f052988e87e2d917237801bcd161c07dea525e9e63be9efe9bf913471f",
+  "scene-lighthouse": "c030631aa6f145829017ac66301762c3c6ca53d85c8890339ebddf01b76c5cd6",
+  "scene-line-up": "358887494b9353a7c8e63e509b7a2ac3c87e986b318d047697952e4345e3e26e",
+  "scene-listen": "3294d4c313119c737ef071169496e8c4b39cc1b1815e9c974aa10be66c13aaf2",
+  "scene-make": "d8a0d0b7b57357b2eed7630646b73a2dd68d05ca930f04af9af5cf695607ae09",
+  "scene-my-turn": "a77e47a4c86ae5cd08df826d0f4c7e7a3dc5bf8924041b4e287990e3d382dad6",
+  "scene-my": "665d361ac757e71b037c2aaae9debaf15428a6fb1472fbc1b941e98ea35a2dda",
+  "scene-need": "44d0c53c4aeea16c4e6da36895b0ff010f1fbcf63dc1032a035c2d12890f7d2e",
+  "scene-ninja-star": "d2c7d7654d38126f2423afc178e544538bb4ef9a056784684ceb3f72edd84e47",
+  "scene-open": "3e7c9c445cc043a07815fc3c6ddf4a191d39ed13463b0f701e7de31491c1e277",
+  "scene-outside": "829630a604f4c193886231bf07ad1f4c2dbba12080d8e0c75c6728c7b522d6c6",
+  "scene-park": "1b406a908485138cb6bd64f7711f42cfce0fd6900f0b0f492ee598e6ee0045d8",
+  "scene-passion-fruit": "3a73e017d3bf73157f1bd874fea5c6ba426bcd903ca22abd6c2bb3f2c078f5f5",
+  "scene-piano": "fbf0d05043008e07baed80c820bf9ad9c6c40a220ebd978be6973982341befaa",
+  "scene-play": "8c43f4c2fb9efad4b12b0ee56257393890cd814d10b6bd9119749b90675e2d78",
+  "scene-please": "45f58459a374f7db8e65740b82c7e47629376d8ddc8571aefe5bbff23257ce8b",
+  "scene-plum": "33efd516110dd299ac56d1911280b1b9b45a799009c86a8ffe20e8da228e3fee",
+  "scene-quiet": "c2cd71551cbf81a114201027809e10af3b698acab607d04f472ca4b6bdbb6d46",
+  "scene-read": "eed5ab954d2ef58a7dd5952632861c586481cc3b4fc6b076f6c2848e2b042f3e",
+  "scene-sing": "7c920d9c42e3877303acb9a84814a6cac0132d683c1fbfd69ffecc5f54d10294",
+  "scene-swing": "9344a8e9d7c2a164c2f7053fec550e01f7bf25261a45e8f415b98d9866c7c172",
+  "scene-teeth": "7eb436d44d504856df7428104f95f6ef80e741fff8f72beec08252042fc96199",
+  "scene-thank-you": "a2c7cc562f0840a515ec93c65b8472bceebfec6c600447ea1f8140a59e58dbfa",
+  "scene-want": "aa638a9faecb5872988d9208bcb6ada0b9f3d3ed762c746b444e1d6f6a183c2c",
+  "scene-water": "bca7e0d7e8164d52bec3d91909172b22726302d7bf524b34393745ff615d7eee",
+  "scene-write": "aa07e288f8a6e1cdf54411a4dad30e86ff70ec9ec8675a8a9576a08c2179c6e7",
+  "scene-yogurt": "667c3f3240025ca41817ccf814c4c6aa047e2722b362a8f4f7a3197f0cef8f81",
+  "scene-you": "38a3f6e3085bd144776c9c5ef4ed82b5e9ba13664cc6b1bff79bca0026bb2220",
+  "type-0": "a5c7af25ea0360be3a3384823ceee25dba902969c87005de7d5148e7ec80a1f6",
+  "type-1": "b4fdd72124c175a43f76c543d9850262c02f70f17b1e8c96eba05c9d68cb3e43",
+  "type-10": "7e36bff9bf5b540fed67d8a90bc66e9e02cbf2e70eecbd52ad2d7f47f1e07062",
+  "type-11": "c7cebd3397a218f3dbdc4f8ae7f2179d4979ccb769db1d9d0eb93bf6a596d2e2",
+  "type-12": "3584675e675100246285197691da5f00608ad8c28104f7ad71cb0089cbd2bbb8",
+  "type-123": "baa67111f3b1bd2985141972c4940609d67339c8dda81b2b7ec51a0776d75e07",
+  "type-13": "df47dd847ba27a8710103726002016ff3e925c0f7f60af2f5ca19b79a6283662",
+  "type-14": "65e64a4be4148ba4d065c398fcd6a1d0189fff9c59e779ea2ac4936311267b0d",
+  "type-15": "41c419083d324b39406403a95e5773f12162e8098d12f0558d1885481ed787ff",
+  "type-16": "dc507039881f367e41f24acc28ee4546b55c560b9265e68898f89c503eea9835",
+  "type-17": "3722615591c285abde10c24717923c9b09c04a1f533fe27280301718d64e81d3",
+  "type-18": "57af6deeb801b95e313b360659e12d067c373afce4410ca2809a1ba1d4179e04",
+  "type-19": "6d6f1951d580bc251ebe9a314cbe910db57c906223d61930c1e3d354a0b0ade1",
+  "type-2": "7d5338486387731cc5b278654bd9fa13f78cdecf4d2dd5f577e3b0a9af9a446c",
+  "type-20": "b41cad4beec2f61d904746b512d2adfda1defc6f7f727c07a6aa451fc797eb6a",
+  "type-3": "ebe73b8ca23b65d369a13d3ec980d97c219a75512c90f221f1d54f96457a9f36",
+  "type-4": "085bdd497b5e9e6c804f68437e7bf4e6782eab791f6d09870c3b04a85f986c36",
+  "type-5": "94ecd33119e2b3c489bc575312be6c7e54d1bf6c1bae7f45241a1b111f3f0fce",
+  "type-6": "a606a2d6e7b97b66915d761f407fc82e9abcd2df46a1333aaf66db9e08938977",
+  "type-7": "0816c12a9fd3531353f47a30a6cc7948785e175868a51f3e9f81419c6528d9ae",
+  "type-8": "edf835c2994a80f62ec99960f8c465d8ffde3005f231b9e8dfe8635982724cd1",
+  "type-9": "08a84f1227f612543cbbc276ffe446432e5c96b157ca415e60b2dd365421675f",
+  "type-a": "48542790e7bdf7a8c7e9eb0395cb914104445f4ba53d9a6e87a7cb7b69b0b558",
+  "type-abc": "9e5c391760d0d4842496ae742c3a4ac784172ba87a55264387be14d0c17d2d4d",
+  "type-b": "a7921cbdf66eae70ab8204c59de238a884e6f8c76079b52eac31f63c8d933a5e",
+  "type-c": "2dd52989b22322fc7e438014d8074cc914fc81e38a3b2972f2997ef8ce9aeb88",
+  "type-d": "f3032c98f34c66c0f0ce692630c7d1d9aad83ff631f23253ebd2240965a88f28",
+  "type-e": "39067f27c97ceb2e3426013e0aeb805141121091ea572c64b7f1a9708c5223f8",
+  "type-f": "a564251bdc408ca0354cc760bc302570fd541e8b6cba28648e1e71eb24c256e6",
+  "type-g": "65ddc5aa0d7737418b78821b943513d1839823792738effd4e01f5621b341413",
+  "type-h": "6cf1dc6c913bd8faa287a9fc75c388ab35dcfed4addc9ef5c92d3a844860fdc7",
+  "type-i": "4dc7f9b96e86a72a8e3ab9457ae831ca204d6517359ffd8cb4160984b5e4393d",
+  "type-j": "b087760c5377f11bf655513e90e42e37b2bcc56d4228f729f5c98bdf2820a8e3",
+  "type-k": "cfdf90ae95c241c0cd028d9ee77801a22b82981b249665cb89052e468247ecfd",
+  "type-l": "b2323317861cc906e432e44af4d2c6717f79147faf7fdbcf210cffa5610fe3e5",
+  "type-m": "0e6fca9daa7f01879ac2d5d731b3b08344aaba7ea4031456b67340e3d4d35bd9",
+  "type-n": "f0ee606afd1f6f1660c0ff373410d07eaf308b599b7c9a5162ed597a15ad3ce1",
+  "type-o": "bb5126dccf031313224409ef5cde1c92c0fbfb68e9dc1a06a40ba3891952f89e",
+  "type-p": "f5772c0654b18589bb9cdcf3d8e71e1d0364c5c1583a144ebfff714e9260d0b7",
+  "type-q": "e1f48fdbd60b1a87e816c1de2a264e3db9a3b0c788ee9c1a74f7b9e4c72362b7",
+  "type-r": "c9cf685c208523f05557c595289c3ffce0362f5ee0ad284d01deb6931094f625",
+  "type-s": "6051596c7bf7b36b99ec125b3cc20e2eef836d545ab40c3e66379b18f3d36ef1",
+  "type-t": "584fe1c82c3321389373d4c57ff2a94b0f319c6c7690e18390d8abbb3fa0d506",
+  "type-u": "885602cb15f2d7a534da4541986343d61543b05e2367c8e9b01d5163ef61634d",
+  "type-v": "7fd1b64f1b6a93c4a68f4fd2d850cad84c348e7fa9e336fe9ee735c03c4aa65b",
+  "type-w": "52f8c92a9ac59e293df2bd9df6254f91cbff1784e8e309fc4ab68d7517894a3d",
+  "type-x": "b73f6fcc0f3e12c97626ff72d0e638e71e9cfee89660d5edd639e22b372221a7",
+  "type-y": "36332461a53adf71cdf4213f95ebf80ccf109515dbccc5a5c73699983c1596a6",
+  "type-z": "7784f7331d5a69456b90866e7768f39715ce00b677864d70e77dd11da4537cda"
+ },
+ "fluentSources": {
+  "fluent-house": "assets/House/3D/house_3d.png",
+  "fluent-grinning-face": "assets/Grinning face/3D/grinning_face_3d.png",
+  "fluent-person-in-lotus-position": "assets/Person in lotus position/Default/3D/person_in_lotus_position_3d_default.png",
+  "fluent-fork-and-knife-with-plate": "assets/Fork and knife with plate/3D/fork_and_knife_with_plate_3d.png",
+  "fluent-world-map": "assets/World map/3D/world_map_3d.png",
+  "fluent-school": "assets/School/3D/school_3d.png",
+  "fluent-dog": "assets/Dog/3D/dog_3d.png",
+  "fluent-person-standing": "assets/Person standing/Default/3D/person_standing_3d_default.png",
+  "fluent-automobile": "assets/Automobile/3D/automobile_3d.png",
+  "fluent-t-shirt": "assets/T-shirt/3D/t-shirt_3d.png",
+  "fluent-sun-behind-rain-cloud": "assets/Sun behind rain cloud/3D/sun_behind_rain_cloud_3d.png",
+  "fluent-artist-palette": "assets/Artist palette/3D/artist_palette_3d.png",
+  "fluent-soccer-ball": "assets/Soccer ball/3D/soccer_ball_3d.png",
+  "fluent-teddy-bear": "assets/Teddy bear/3D/teddy_bear_3d.png",
+  "fluent-cooking": "assets/Cooking/3D/cooking_3d.png",
+  "fluent-couch-and-lamp": "assets/Couch and lamp/3D/couch_and_lamp_3d.png",
+  "fluent-potted-plant": "assets/Potted plant/3D/potted_plant_3d.png",
+  "fluent-butterfly": "assets/Butterfly/3D/butterfly_3d.png",
+  "fluent-tropical-fish": "assets/Tropical fish/3D/tropical_fish_3d.png",
+  "fluent-lion": "assets/Lion/3D/lion_3d.png",
+  "fluent-bird": "assets/Bird/3D/bird_3d.png",
+  "fluent-construction-worker": "assets/Construction worker/Default/3D/construction_worker_3d_default.png",
+  "fluent-clapping-hands": "assets/Clapping hands/Default/3D/clapping_hands_3d_default.png",
+  "fluent-cookie": "assets/Cookie/3D/cookie_3d.png",
+  "fluent-stethoscope": "assets/Stethoscope/3D/stethoscope_3d.png",
+  "fluent-books": "assets/Books/3D/books_3d.png",
+  "fluent-office-building": "assets/Office building/3D/office_building_3d.png",
+  "fluent-three-oclock": "assets/Three oclock/3D/three_oclock_3d.png",
+  "fluent-carrot": "assets/Carrot/3D/carrot_3d.png",
+  "fluent-cross-mark": "assets/Cross mark/3D/cross_mark_3d.png",
+  "fluent-thumbs-up": "assets/Thumbs up/Default/3D/thumbs_up_3d_default.png",
+  "fluent-thumbs-down": "assets/Thumbs down/Default/3D/thumbs_down_3d_default.png",
+  "fluent-plus": "assets/Plus/3D/plus_3d.png",
+  "fluent-stop-sign": "assets/Stop sign/3D/stop_sign_3d.png",
+  "fluent-right-arrow": "assets/Right arrow/3D/right_arrow_3d.png",
+  "fluent-check-mark-button": "assets/Check mark button/3D/check_mark_button_3d.png",
+  "fluent-prohibited": "assets/Prohibited/3D/prohibited_3d.png",
+  "fluent-repeat-button": "assets/Repeat button/3D/repeat_button_3d.png",
+  "fluent-eyes": "assets/Eyes/3D/eyes_3d.png",
+  "fluent-waving-hand": "assets/Waving hand/Default/3D/waving_hand_3d_default.png",
+  "fluent-speaker-high-volume": "assets/Speaker high volume/3D/speaker_high_volume_3d.png",
+  "fluent-wastebasket": "assets/Wastebasket/3D/wastebasket_3d.png",
+  "fluent-video-game": "assets/Video game/3D/video_game_3d.png",
+  "fluent-woman": "assets/Woman/Default/3D/woman_3d_default.png",
+  "fluent-man": "assets/Man/Default/3D/man_3d_default.png",
+  "fluent-girl": "assets/Girl/Default/3D/girl_3d_default.png",
+  "fluent-boy": "assets/Boy/Default/3D/boy_3d_default.png",
+  "fluent-baby": "assets/Baby/Default/3D/baby_3d_default.png",
+  "fluent-old-woman": "assets/Old woman/Default/3D/old_woman_3d_default.png",
+  "fluent-old-man": "assets/Old man/Default/3D/old_man_3d_default.png",
+  "fluent-teacher": "assets/Teacher/Default/3D/teacher_3d_default.png",
+  "fluent-health-worker": "assets/Health worker/Default/3D/health_worker_3d_default.png",
+  "fluent-grinning-face-with-smiling-eyes": "assets/Grinning face with smiling eyes/3D/grinning_face_with_smiling_eyes_3d.png",
+  "fluent-crying-face": "assets/Crying face/3D/crying_face_3d.png",
+  "fluent-angry-face": "assets/Angry face/3D/angry_face_3d.png",
+  "fluent-yawning-face": "assets/Yawning face/3D/yawning_face_3d.png",
+  "fluent-fearful-face": "assets/Fearful face/3D/fearful_face_3d.png",
+  "fluent-star-struck": "assets/Star-struck/3D/star-struck_3d.png",
+  "fluent-face-with-thermometer": "assets/Face with thermometer/3D/face_with_thermometer_3d.png",
+  "fluent-relieved-face": "assets/Relieved face/3D/relieved_face_3d.png",
+  "fluent-zany-face": "assets/Zany face/3D/zany_face_3d.png",
+  "fluent-worried-face": "assets/Worried face/3D/worried_face_3d.png",
+  "fluent-face-with-head-bandage": "assets/Face with head-bandage/3D/face_with_head-bandage_3d.png",
+  "fluent-person-in-bed": "assets/Person in bed/Default/3D/person_in_bed_3d_default.png",
+  "fluent-musical-notes": "assets/Musical notes/3D/musical_notes_3d.png",
+  "fluent-headphone": "assets/Headphone/3D/headphone_3d.png",
+  "fluent-red-apple": "assets/Red apple/3D/red_apple_3d.png",
+  "fluent-banana": "assets/Banana/3D/banana_3d.png",
+  "fluent-bread": "assets/Bread/3D/bread_3d.png",
+  "fluent-cheese-wedge": "assets/Cheese wedge/3D/cheese_wedge_3d.png",
+  "fluent-egg": "assets/Egg/3D/egg_3d.png",
+  "fluent-cooked-rice": "assets/Cooked rice/3D/cooked_rice_3d.png",
+  "fluent-poultry-leg": "assets/Poultry leg/3D/poultry_leg_3d.png",
+  "fluent-steaming-bowl": "assets/Steaming bowl/3D/steaming_bowl_3d.png",
+  "fluent-pizza": "assets/Pizza/3D/pizza_3d.png",
+  "fluent-beverage-box": "assets/Beverage box/3D/beverage_box_3d.png",
+  "fluent-glass-of-milk": "assets/Glass of milk/3D/glass_of_milk_3d.png",
+  "fluent-bicycle": "assets/Bicycle/3D/bicycle_3d.png",
+  "fluent-person-swimming": "assets/Person swimming/Default/3D/person_swimming_3d_default.png",
+  "fluent-person-running": "assets/Person running/Default/3D/person_running_3d_default.png",
+  "fluent-person-walking": "assets/Person walking/Default/3D/person_walking_3d_default.png",
+  "fluent-woman-dancing": "assets/Woman dancing/Default/3D/woman_dancing_3d_default.png",
+  "fluent-open-book": "assets/Open book/3D/open_book_3d.png",
+  "fluent-puzzle-piece": "assets/Puzzle piece/3D/puzzle_piece_3d.png",
+  "fluent-convenience-store": "assets/Convenience store/3D/convenience_store_3d.png",
+  "fluent-restroom": "assets/Restroom/3D/restroom_3d.png",
+  "fluent-bus": "assets/Bus/3D/bus_3d.png",
+  "fluent-office-worker": "assets/Office worker/Default/3D/office_worker_3d_default.png",
+  "fluent-scissors": "assets/Scissors/3D/scissors_3d.png",
+  "fluent-backpack": "assets/Backpack/3D/backpack_3d.png",
+  "fluent-bento-box": "assets/Bento box/3D/bento_box_3d.png",
+  "fluent-cat": "assets/Cat/3D/cat_3d.png",
+  "fluent-fish": "assets/Fish/3D/fish_3d.png",
+  "fluent-horse": "assets/Horse/3D/horse_3d.png",
+  "fluent-cow": "assets/Cow/3D/cow_3d.png",
+  "fluent-pig": "assets/Pig/3D/pig_3d.png",
+  "fluent-elephant": "assets/Elephant/3D/elephant_3d.png",
+  "fluent-monkey": "assets/Monkey/3D/monkey_3d.png",
+  "fluent-ear": "assets/Ear/Default/3D/ear_3d_default.png",
+  "fluent-mouth": "assets/Mouth/3D/mouth_3d.png",
+  "fluent-nose": "assets/Nose/Default/3D/nose_3d_default.png",
+  "fluent-raised-hand": "assets/Raised hand/Default/3D/raised_hand_3d_default.png",
+  "fluent-leg": "assets/Leg/Default/3D/leg_3d_default.png",
+  "fluent-delivery-truck": "assets/Delivery truck/3D/delivery_truck_3d.png",
+  "fluent-train": "assets/Train/3D/train_3d.png",
+  "fluent-airplane": "assets/Airplane/3D/airplane_3d.png",
+  "fluent-sailboat": "assets/Sailboat/3D/sailboat_3d.png",
+  "fluent-taxi": "assets/Taxi/3D/taxi_3d.png",
+  "fluent-fire-engine": "assets/Fire engine/3D/fire_engine_3d.png",
+  "fluent-police-car": "assets/Police car/3D/police_car_3d.png",
+  "fluent-ambulance": "assets/Ambulance/3D/ambulance_3d.png",
+  "fluent-helicopter": "assets/Helicopter/3D/helicopter_3d.png",
+  "fluent-tractor": "assets/Tractor/3D/tractor_3d.png",
+  "fluent-motorcycle": "assets/Motorcycle/3D/motorcycle_3d.png",
+  "fluent-rocket": "assets/Rocket/3D/rocket_3d.png",
+  "fluent-ship": "assets/Ship/3D/ship_3d.png",
+  "fluent-jeans": "assets/Jeans/3D/jeans_3d.png",
+  "fluent-dress": "assets/Dress/3D/dress_3d.png",
+  "fluent-running-shoe": "assets/Running shoe/3D/running_shoe_3d.png",
+  "fluent-socks": "assets/Socks/3D/socks_3d.png",
+  "fluent-top-hat": "assets/Top hat/3D/top_hat_3d.png",
+  "fluent-coat": "assets/Coat/3D/coat_3d.png",
+  "fluent-scarf": "assets/Scarf/3D/scarf_3d.png",
+  "fluent-glasses": "assets/Glasses/3D/glasses_3d.png",
+  "fluent-crown": "assets/Crown/3D/crown_3d.png",
+  "fluent-hiking-boot": "assets/Hiking boot/3D/hiking_boot_3d.png",
+  "fluent-gloves": "assets/Gloves/3D/gloves_3d.png",
+  "fluent-sun": "assets/Sun/3D/sun_3d.png",
+  "fluent-cloud": "assets/Cloud/3D/cloud_3d.png",
+  "fluent-cloud-with-rain": "assets/Cloud with rain/3D/cloud_with_rain_3d.png",
+  "fluent-cloud-with-snow": "assets/Cloud with snow/3D/cloud_with_snow_3d.png",
+  "fluent-rainbow": "assets/Rainbow/3D/rainbow_3d.png",
+  "fluent-cloud-with-lightning-and-rain": "assets/Cloud with lightning and rain/3D/cloud_with_lightning_and_rain_3d.png",
+  "fluent-umbrella": "assets/Umbrella/3D/umbrella_3d.png",
+  "fluent-wind-face": "assets/Wind face/3D/wind_face_3d.png",
+  "fluent-hot-face": "assets/Hot face/3D/hot_face_3d.png",
+  "fluent-cold-face": "assets/Cold face/3D/cold_face_3d.png",
+  "fluent-guitar": "assets/Guitar/3D/guitar_3d.png",
+  "fluent-violin": "assets/Violin/3D/violin_3d.png",
+  "fluent-drum": "assets/Drum/3D/drum_3d.png",
+  "fluent-trumpet": "assets/Trumpet/3D/trumpet_3d.png",
+  "fluent-saxophone": "assets/Saxophone/3D/saxophone_3d.png",
+  "fluent-flute": "assets/Flute/3D/flute_3d.png",
+  "fluent-banjo": "assets/Banjo/3D/banjo_3d.png",
+  "fluent-microphone": "assets/Microphone/3D/microphone_3d.png",
+  "fluent-bell": "assets/Bell/3D/bell_3d.png",
+  "fluent-basketball": "assets/Basketball/3D/basketball_3d.png",
+  "fluent-tennis": "assets/Tennis/3D/tennis_3d.png",
+  "fluent-baseball": "assets/Baseball/3D/baseball_3d.png",
+  "fluent-volleyball": "assets/Volleyball/3D/volleyball_3d.png",
+  "fluent-american-football": "assets/American football/3D/american_football_3d.png",
+  "fluent-person-biking": "assets/Person biking/Default/3D/person_biking_3d_default.png",
+  "fluent-trophy": "assets/Trophy/3D/trophy_3d.png",
+  "fluent-sports-medal": "assets/Sports medal/3D/sports_medal_3d.png",
+  "fluent-kite": "assets/Kite/3D/kite_3d.png",
+  "fluent-yo-yo": "assets/Yo-yo/3D/yo-yo_3d.png",
+  "fluent-balloon": "assets/Balloon/3D/balloon_3d.png",
+  "fluent-wrapped-gift": "assets/Wrapped gift/3D/wrapped_gift_3d.png",
+  "fluent-magic-wand": "assets/Magic wand/3D/magic_wand_3d.png",
+  "fluent-game-die": "assets/Game die/3D/game_die_3d.png",
+  "fluent-spoon": "assets/Spoon/3D/spoon_3d.png",
+  "fluent-cup-with-straw": "assets/Cup with straw/3D/cup_with_straw_3d.png",
+  "fluent-hot-beverage": "assets/Hot beverage/3D/hot_beverage_3d.png",
+  "fluent-teapot": "assets/Teapot/3D/teapot_3d.png",
+  "fluent-pot-of-food": "assets/Pot of food/3D/pot_of_food_3d.png",
+  "fluent-bowl-with-spoon": "assets/Bowl with spoon/3D/bowl_with_spoon_3d.png",
+  "fluent-chopsticks": "assets/Chopsticks/3D/chopsticks_3d.png",
+  "fluent-bed": "assets/Bed/3D/bed_3d.png",
+  "fluent-door": "assets/Door/3D/door_3d.png",
+  "fluent-window": "assets/Window/3D/window_3d.png",
+  "fluent-toilet": "assets/Toilet/3D/toilet_3d.png",
+  "fluent-shower": "assets/Shower/3D/shower_3d.png",
+  "fluent-bathtub": "assets/Bathtub/3D/bathtub_3d.png",
+  "fluent-chair": "assets/Chair/3D/chair_3d.png",
+  "fluent-mirror": "assets/Mirror/3D/mirror_3d.png",
+  "fluent-deciduous-tree": "assets/Deciduous tree/3D/deciduous_tree_3d.png",
+  "fluent-evergreen-tree": "assets/Evergreen tree/3D/evergreen_tree_3d.png",
+  "fluent-blossom": "assets/Blossom/3D/blossom_3d.png",
+  "fluent-tulip": "assets/Tulip/3D/tulip_3d.png",
+  "fluent-rose": "assets/Rose/3D/rose_3d.png",
+  "fluent-sunflower": "assets/Sunflower/3D/sunflower_3d.png",
+  "fluent-cactus": "assets/Cactus/3D/cactus_3d.png",
+  "fluent-leaf-fluttering-in-wind": "assets/Leaf fluttering in wind/3D/leaf_fluttering_in_wind_3d.png",
+  "fluent-four-leaf-clover": "assets/Four leaf clover/3D/four_leaf_clover_3d.png",
+  "fluent-seedling": "assets/Seedling/3D/seedling_3d.png",
+  "fluent-mushroom": "assets/Mushroom/3D/mushroom_3d.png",
+  "fluent-honeybee": "assets/Honeybee/3D/honeybee_3d.png",
+  "fluent-ant": "assets/Ant/3D/ant_3d.png",
+  "fluent-lady-beetle": "assets/Lady beetle/3D/lady_beetle_3d.png",
+  "fluent-spider": "assets/Spider/3D/spider_3d.png",
+  "fluent-snail": "assets/Snail/3D/snail_3d.png",
+  "fluent-bug": "assets/Bug/3D/bug_3d.png",
+  "fluent-beetle": "assets/Beetle/3D/beetle_3d.png",
+  "fluent-cricket": "assets/Cricket/3D/cricket_3d.png",
+  "fluent-shark": "assets/Shark/3D/shark_3d.png",
+  "fluent-octopus": "assets/Octopus/3D/octopus_3d.png",
+  "fluent-crab": "assets/Crab/3D/crab_3d.png",
+  "fluent-lobster": "assets/Lobster/3D/lobster_3d.png",
+  "fluent-shrimp": "assets/Shrimp/3D/shrimp_3d.png",
+  "fluent-dolphin": "assets/Dolphin/3D/dolphin_3d.png",
+  "fluent-whale": "assets/Whale/3D/whale_3d.png",
+  "fluent-turtle": "assets/Turtle/3D/turtle_3d.png",
+  "fluent-jellyfish": "assets/Jellyfish/3D/jellyfish_3d.png",
+  "fluent-seal": "assets/Seal/3D/seal_3d.png",
+  "fluent-tiger": "assets/Tiger/3D/tiger_3d.png",
+  "fluent-gorilla": "assets/Gorilla/3D/gorilla_3d.png",
+  "fluent-giraffe": "assets/Giraffe/3D/giraffe_3d.png",
+  "fluent-zebra": "assets/Zebra/3D/zebra_3d.png",
+  "fluent-rhinoceros": "assets/Rhinoceros/3D/rhinoceros_3d.png",
+  "fluent-hippopotamus": "assets/Hippopotamus/3D/hippopotamus_3d.png",
+  "fluent-kangaroo": "assets/Kangaroo/3D/kangaroo_3d.png",
+  "fluent-bear": "assets/Bear/3D/bear_3d.png",
+  "fluent-wolf": "assets/Wolf/3D/wolf_3d.png",
+  "fluent-fox": "assets/Fox/3D/fox_3d.png",
+  "fluent-penguin": "assets/Penguin/3D/penguin_3d.png",
+  "fluent-camel": "assets/Camel/3D/camel_3d.png",
+  "fluent-owl": "assets/Owl/3D/owl_3d.png",
+  "fluent-duck": "assets/Duck/3D/duck_3d.png",
+  "fluent-eagle": "assets/Eagle/3D/eagle_3d.png",
+  "fluent-parrot": "assets/Parrot/3D/parrot_3d.png",
+  "fluent-peacock": "assets/Peacock/3D/peacock_3d.png",
+  "fluent-flamingo": "assets/Flamingo/3D/flamingo_3d.png",
+  "fluent-swan": "assets/Swan/3D/swan_3d.png",
+  "fluent-rooster": "assets/Rooster/3D/rooster_3d.png",
+  "fluent-firefighter": "assets/Firefighter/Default/3D/firefighter_3d_default.png",
+  "fluent-police-officer": "assets/Police officer/Default/3D/police_officer_3d_default.png",
+  "fluent-cook": "assets/Cook/Default/3D/cook_3d_default.png",
+  "fluent-farmer": "assets/Farmer/Default/3D/farmer_3d_default.png",
+  "fluent-pilot": "assets/Pilot/Default/3D/pilot_3d_default.png",
+  "fluent-scientist": "assets/Scientist/Default/3D/scientist_3d_default.png",
+  "fluent-artist": "assets/Artist/Default/3D/artist_3d_default.png",
+  "fluent-singer": "assets/Singer/Default/3D/singer_3d_default.png",
+  "fluent-astronaut": "assets/Astronaut/Default/3D/astronaut_3d_default.png",
+  "fluent-mechanic": "assets/Mechanic/Default/3D/mechanic_3d_default.png",
+  "fluent-backhand-index-pointing-right": "assets/Backhand index pointing right/Default/3D/backhand_index_pointing_right_3d_default.png",
+  "fluent-sleeping-face": "assets/Sleeping face/3D/sleeping_face_3d.png",
+  "fluent-thinking-face": "assets/Thinking face/3D/thinking_face_3d.png",
+  "fluent-shortcake": "assets/Shortcake/3D/shortcake_3d.png",
+  "fluent-ice-cream": "assets/Ice cream/3D/ice_cream_3d.png",
+  "fluent-doughnut": "assets/Doughnut/3D/doughnut_3d.png",
+  "fluent-chocolate-bar": "assets/Chocolate bar/3D/chocolate_bar_3d.png",
+  "fluent-candy": "assets/Candy/3D/candy_3d.png",
+  "fluent-lollipop": "assets/Lollipop/3D/lollipop_3d.png",
+  "fluent-cupcake": "assets/Cupcake/3D/cupcake_3d.png",
+  "fluent-popcorn": "assets/Popcorn/3D/popcorn_3d.png",
+  "fluent-honey-pot": "assets/Honey pot/3D/honey_pot_3d.png",
+  "fluent-grapes": "assets/Grapes/3D/grapes_3d.png",
+  "fluent-watermelon": "assets/Watermelon/3D/watermelon_3d.png",
+  "fluent-tangerine": "assets/Tangerine/3D/tangerine_3d.png",
+  "fluent-lemon": "assets/Lemon/3D/lemon_3d.png",
+  "fluent-pineapple": "assets/Pineapple/3D/pineapple_3d.png",
+  "fluent-mango": "assets/Mango/3D/mango_3d.png",
+  "fluent-peach": "assets/Peach/3D/peach_3d.png",
+  "fluent-cherries": "assets/Cherries/3D/cherries_3d.png",
+  "fluent-avocado": "assets/Avocado/3D/avocado_3d.png",
+  "fluent-broccoli": "assets/Broccoli/3D/broccoli_3d.png",
+  "fluent-ear-of-corn": "assets/Ear of corn/3D/ear_of_corn_3d.png",
+  "fluent-tomato": "assets/Tomato/3D/tomato_3d.png",
+  "fluent-potato": "assets/Potato/3D/potato_3d.png",
+  "fluent-adhesive-bandage": "assets/Adhesive bandage/3D/adhesive_bandage_3d.png",
+  "fluent-pill": "assets/Pill/3D/pill_3d.png",
+  "fluent-syringe": "assets/Syringe/3D/syringe_3d.png",
+  "fluent-thermometer": "assets/Thermometer/3D/thermometer_3d.png",
+  "fluent-soap": "assets/Soap/3D/soap_3d.png",
+  "fluent-hospital": "assets/Hospital/3D/hospital_3d.png",
+  "fluent-pencil": "assets/Pencil/3D/pencil_3d.png",
+  "fluent-pen": "assets/Pen/3D/pen_3d.png",
+  "fluent-straight-ruler": "assets/Straight ruler/3D/straight_ruler_3d.png",
+  "fluent-notebook": "assets/Notebook/3D/notebook_3d.png",
+  "fluent-page-facing-up": "assets/Page facing up/3D/page_facing_up_3d.png",
+  "fluent-church": "assets/Church/3D/church_3d.png",
+  "fluent-castle": "assets/Castle/3D/castle_3d.png",
+  "fluent-hotel": "assets/Hotel/3D/hotel_3d.png",
+  "fluent-bank": "assets/Bank/3D/bank_3d.png",
+  "fluent-factory": "assets/Factory/3D/factory_3d.png",
+  "fluent-tent": "assets/Tent/3D/tent_3d.png",
+  "fluent-stadium": "assets/Stadium/3D/stadium_3d.png",
+  "fluent-bridge-at-night": "assets/Bridge at night/3D/bridge_at_night_3d.png",
+  "fluent-fountain": "assets/Fountain/3D/fountain_3d.png",
+  "fluent-alarm-clock": "assets/Alarm clock/3D/alarm_clock_3d.png",
+  "fluent-watch": "assets/Watch/3D/watch_3d.png",
+  "fluent-hourglass-not-done": "assets/Hourglass not done/3D/hourglass_not_done_3d.png",
+  "fluent-calendar": "assets/Calendar/3D/calendar_3d.png",
+  "fluent-crescent-moon": "assets/Crescent moon/3D/crescent_moon_3d.png",
+  "fluent-sunrise": "assets/Sunrise/3D/sunrise_3d.png",
+  "fluent-green-apple": "assets/Green apple/3D/green_apple_3d.png",
+  "fluent-pear": "assets/Pear/3D/pear_3d.png",
+  "fluent-strawberry": "assets/Strawberry/3D/strawberry_3d.png",
+  "fluent-blueberries": "assets/Blueberries/3D/blueberries_3d.png",
+  "fluent-kiwi-fruit": "assets/Kiwi fruit/3D/kiwi_fruit_3d.png",
+  "fluent-melon": "assets/Melon/3D/melon_3d.png",
+  "fluent-coconut": "assets/Coconut/3D/coconut_3d.png",
+  "fluent-olive": "assets/Olive/3D/olive_3d.png",
+  "fluent-lime": "assets/Lime/3D/lime_3d.png",
+  "fluent-cucumber": "assets/Cucumber/3D/cucumber_3d.png",
+  "fluent-eggplant": "assets/Eggplant/3D/eggplant_3d.png",
+  "fluent-leafy-green": "assets/Leafy green/3D/leafy_green_3d.png",
+  "fluent-onion": "assets/Onion/3D/onion_3d.png",
+  "fluent-garlic": "assets/Garlic/3D/garlic_3d.png",
+  "fluent-bell-pepper": "assets/Bell pepper/3D/bell_pepper_3d.png",
+  "fluent-pea-pod": "assets/Pea pod/3D/pea_pod_3d.png"
+ },
+ "generatedScenes": {
+  "hug": "HUG: two friendly people giving each other a warm gentle chest-to-chest hug, with both people's arms naturally wrapped around the other person's upper back and shoulders. The embrace is unmistakable. Calm warm smiles. Waist-up view, no hearts or unrelated objects.",
+  "give": "GIVE: an apple handoff between two people.",
+  "play": "PLAY: one friendly child actively pushing a colorful toy car along a small play surface beside two toy blocks. Clearly show the hand moving the car. The child and action fill the composition.",
+  "piano": "PIANO: a beautiful small upright acoustic piano with a clearly visible black-and-white keyboard and simple matching stool. No person and no electronic keyboard substitute.",
+  "it": "IT / THAT OBJECT: a natural pointing hand pointing clearly at a separate simple red ball. The ball is the focus of the pointing gesture. No face or person is needed.",
+  "want": "WANT: one friendly person looking toward a desirable red toy ball, extending both open hands toward it to request it. The ball is a short distance away, not held. Clear reaching/requesting pose.",
+  "fruit": "FRUIT: a small compact bowl containing a red apple, a yellow banana, a bunch of purple grapes and one orange. Each fruit is recognizable, no vegetables or text.",
+  "help": "HELP: two friendly people, one standing person supporting the other by the forearm to rise from a small simple chair. The supportive helping gesture is the unmistakable focus. No medical emergency.",
+  "need": "NEED: one friendly person with a serious but calm requesting expression, one open hand held on their chest and the other open hand extended toward the viewer to ask for something essential. No tears, no cup or unrelated prop.",
+  "i": "SELF / I: one friendly person in a blue shirt facing the viewer, pointing their own index finger clearly at their own chest. No other person and no prop.",
+  "open": "OPEN: two natural hands clearly opening the hinged lid of a small simple box, with the lid lifted and the empty interior visible. Focus on the open lid and opening action. No lock or key.",
+  "you": "YOU: one friendly person facing the viewer, clearly pointing an index finger outward toward the viewer. Show face, torso, arm and natural pointing hand.",
+  "my-turn": "MY TURN: two friendly people at a tiny tabletop board game with a single large die; one person points to their own chest and reaches toward the die while the other waits with resting hands. The self-indicating turn-taking gesture is the focus.",
+  "friend": "FRIEND: two friendly people standing happily side by side with one arm gently around the other person's shoulder, smiling at each other. Clear friendly companionship, no romance or heart. Waist-up view.",
+  "my": "MY / MINE: one friendly person hugging their own closed blue book securely to their own chest with both arms, a warm proud expression showing personal possession.",
+  "make": "MAKE: one friendly person actively fitting two colorful toy building blocks together with both hands. The assembly action is the unmistakable focus. Waist-up view.",
+  "hungry": "HUNGRY: one friendly person resting a hand on their tummy with a mild hungry expression, looking toward a small thought bubble containing a sandwich. Clear hunger, not illness or stomach pain. Waist-up view.",
+  "breathe": "BREATHE: one calm friendly person with gently closed eyes, one hand on the upper chest and one on the belly, taking a slow deliberate breath. Two subtle pale-blue curved airflow strokes near the mouth communicate exhaling. No lungs floating outside the body, no leaf.",
+  "quiet": "QUIET: one friendly calm person facing the viewer with one index finger held gently vertically in front of their closed lips, the familiar shushing gesture. No angry expression, no other prop.",
+  "thank-you": "THANK YOU: one friendly person facing the viewer with a warm grateful smile and a hand extending gently forward from just below their chin in an appreciative gesture. No kissing lips, no heart or unrelated object.",
+  "drink-water": "DRINK WATER: one friendly person holding a clear glass half-full of light-blue water against their lips, gently tilting it to drink. No straw, no bottle and no milk. Waist-up view.",
+  "please": "PLEASE: one friendly person in a blue shirt, smiling gently, one open hand placed flat over their chest and the other hand open in a polite request. Clear single polite requesting pose. No praying hands.",
+  "count": "COUNT: one friendly person counting three clearly separated colorful balls on a small tabletop, pointing at one ball while holding up three fingers on the other hand. The counting action is the focus, no written numerals.",
+  "water": "WATER: one clear drinking glass containing clean light-blue water, with a visible water surface and tiny highlight. No milk, no straw, no ice and no other drink.",
+  "blanket": "BLANKET: a soft folded blue fabric blanket, with a small turned-over corner and subtle fabric thickness. No bed, no pillow, no person. A blanket is the only object.",
+  "swing": "SWING: one playground swing with a sturdy simple A-frame, two hanging ropes or chains and a single empty blue seat. Entire structure visible, no child and no background.",
+  "sing": "SING: one friendly person with open singing mouth, relaxed expressive posture and two simple colorful musical notes next to the face. No microphone covering the mouth. Waist-up view.",
+  "eat": "EAT: one friendly person bringing a spoonful of food to their open mouth while holding a small bowl in the other hand. Focus on spoon entering the mouth, with natural hands. Waist-up view.",
+  "draw": "DRAW: one friendly person using a colored pencil to draw a simple flower on a sheet of paper on a small tabletop. The hand, pencil contact and colored drawing are clearly visible. Compact three-quarter waist-up view.",
+  "yogurt": "YOGURT: a small open yogurt cup showing smooth white yogurt, with a partially peeled plain foil lid and a simple spoon beside it. No fruit, no branding and no letters.",
+  "outside": "OUTSIDE: a friendly person standing visibly outside a small house beside its front door, with a little grass and a small sun above. Clearly outside the house, not inside a room.",
+  "building-blocks": "BUILDING BLOCKS: three colorful toy construction bricks with visible round connecting studs, one red, one blue, one yellow, arranged in a compact stack. No masonry brick, no text or branding.",
+  "read": "READ: one friendly person holding an open book in both hands, eyes directed down toward the pages, clearly reading it. Simple visible page lines but no readable words. Waist-up view.",
+  "park": "PARK: a small inviting green park with one leafy tree, one simple park bench, a short curved footpath and a patch of grass. No people, no text and no buildings.",
+  "write": "WRITE: close-up of one natural hand holding a blue pencil, actively writing three short neat lines on a white sheet of paper. Show clear pencil-paper contact. The lines are not readable letters or words.",
+  "teeth": "TEETH: a clean friendly gently curved row of white upper and lower human teeth, with a small amount of healthy pink gum visible. Focus on multiple teeth, no lips and no face. Educational and non-frightening.",
+  "bedroom": "BEDROOM: a compact room vignette with one neatly made bed with a blue blanket and pillow, one small bedside table and one window. No person. The whole bedroom arrangement is clear and uncluttered.",
+  "line-up": "LINE UP: three friendly people standing one behind another in a clearly spaced single-file queue, facing the same direction. Full bodies visible, compact three-quarter perspective. No crowd, no overlapping bodies.",
+  "ninja-star": "NINJA STAR: one small silver four-pointed throwing-star object with a round central hole, balanced symmetrical polished-metal shape. Isolated object only, no person, no hand, no motion and no violent scene.",
+  "cook": "COOK: one friendly person actively stirring a cooking pot on a small simple cooktop with a spoon, one hand on the spoon and one steadying the pot. Compact waist-up scene. No flames or dangerous action.",
+  "listen": "LISTEN: one friendly person cupping a hand behind one ear and inclining their head toward that side attentively. Add two small subtle sound curves beside that ear. The listening gesture is clear.",
+  "bottle": "BOTTLE: one clear reusable water bottle filled with light-blue water and fitted with a simple blue screw cap. No baby nipple, no alcohol, no branding.",
+  "calculator": "CALCULATOR: one modern compact blue handheld calculator with a pale display showing a simple zero and a neat grid of rounded number and math keys. Clearly a calculator, not a phone. Single isolated object.",
+  "brush-teeth": "BRUSH TEETH: one friendly person brushing their visible front teeth with a blue toothbrush held in one natural hand. A very small amount of white toothpaste foam. Clear mouth and brush contact. Waist-up portrait.",
+  "lamp": "LAMP: one modern bedside table lamp with a warm cream fabric lampshade, a blue rounded base and a small visible switch. No table or couch. Single isolated object.",
+  "high-five": "HIGH FIVE: two friendly people facing each other and touching their raised open palms together at head height. Both people, their raised arms and the exact palm-to-palm contact are clearly visible.",
+  "glue": "GLUE: one small white school-glue squeeze bottle with a bright orange nozzle cap and a tiny visible white glue droplet beside it. Blank blue label without text, no branding.",
+  "date": "DATE FRUIT: two brown ripe dried date fruits with natural elongated wrinkled surfaces, one cut open lengthwise to show a single long narrow stone. No calendar, no numbers, no leaves or other fruit.",
+  "lighthouse": "LIGHTHOUSE: one compact red-and-white striped coastal lighthouse with a small dark lantern room on top and a warm yellow light beam, standing on a tiny rocky base. No scenery or text.",
+  "fig": "FIG: one ripe purple fig with its small green stem and one cut fig half showing a pink-red interior densely dotted with tiny seeds. Both the whole fruit and interior are unmistakable.",
+  "apricot": "APRICOT: one ripe small golden-orange apricot with a green leaf beside one cut apricot half showing the single brown stone. Smooth lightly blushed skin. No peach fuzz or peach leaf.",
+  "gooseberry": "GOOSEBERRY: three ripe pale-green round gooseberries with subtle vertical translucent stripes and small dried flower tips, beside one small lobed green leaf. Not grapes.",
+  "passion-fruit": "PASSION FRUIT: one round dark-purple passion fruit beside a cut half exposing yellow-gold jelly pulp filled with many black seeds and a thick pale inner rind.",
+  "grapefruit": "GRAPEFRUIT: one large round pale-yellow grapefruit beside a cut half showing pink-red citrus segments, a white pith rim and a few tiny seeds. Not an orange or lemon.",
+  "blackberry": "BLACKBERRY: two ripe dark purple-black blackberries, clearly made of plump small connected drupelets, with a small green leaf. Not grapes or blueberries.",
+  "plum": "PLUM: two ripe deep-purple plums with smooth skin, subtle natural center seams, short brown stems and a small green leaf. Not grapes or cherries."
+ }
+}

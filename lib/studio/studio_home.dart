@@ -83,19 +83,22 @@ class _StudioHomeState extends State<StudioHome> {
             child: Row(children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: Image.asset('assets/app_icon.png', width: 40, height: 40),
+                child:
+                    Image.asset('assets/app_icon.png', width: 40, height: 40),
               ),
               const SizedBox(width: 10),
-              const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('AAC STUDIO',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 18,
-                        letterSpacing: 1.2)),
-                Text('v1.0.0 · open source',
-                    style: TextStyle(color: Colors.white38, fontSize: 10)),
-              ]),
+              const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('AAC STUDIO',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 18,
+                            letterSpacing: 1.2)),
+                    Text('v1.5.0 · simpler Home + voice choice',
+                        style: TextStyle(color: Colors.white38, fontSize: 10)),
+                  ]),
             ]),
           ),
           const Padding(
@@ -108,13 +111,14 @@ class _StudioHomeState extends State<StudioHome> {
             _RadioTile(
               selected: device.spec == d,
               title: '${d.emoji}  ${d.name}',
-              subtitle: '${d.logical.width.toInt()}×${d.logical.height.toInt()} · ≤${d.maxGridColumns} cols',
-              onTap: () => _setDevice(DeviceMode(d, landscape: device.landscape)),
+              subtitle:
+                  '${d.logical.width.toInt()}×${d.logical.height.toInt()} · ≤${d.maxGridColumns} cols',
+              onTap: () =>
+                  _setDevice(DeviceMode(d, landscape: device.landscape)),
             ),
           SwitchListTile(
             value: device.landscape,
-            onChanged: (v) =>
-                _setDevice(DeviceMode(device.spec, landscape: v)),
+            onChanged: (v) => _setDevice(DeviceMode(device.spec, landscape: v)),
             title: const Text('Landscape',
                 style: TextStyle(color: Colors.white70, fontSize: 13)),
           ),
@@ -151,7 +155,7 @@ class _StudioHomeState extends State<StudioHome> {
           ListTile(
             dense: true,
             leading: const Icon(Icons.tune, color: Colors.white54, size: 18),
-            title: const Text('⚙️ Speech & restrictions',
+            title: const Text('⚙️ Settings',
                 style: TextStyle(color: Colors.white70, fontSize: 13)),
             onTap: () => SettingsSheet.show(
               context,
@@ -159,11 +163,7 @@ class _StudioHomeState extends State<StudioHome> {
               settings: context.read<SettingsController>().settings,
               onChanged: () {
                 final sc = context.read<SettingsController>();
-                final speech = context.read<SpeechEngine>();
-                speech
-                  ..rate = sc.settings.rate
-                  ..pitch = sc.settings.pitch
-                  ..volume = sc.settings.volume;
+                context.read<SpeechEngine>().configure(sc.settings);
                 sc.update();
               },
             ),
@@ -191,8 +191,7 @@ class _StudioHomeState extends State<StudioHome> {
   /// Desktop-only studio features (Wi-Fi install server, P2G Explorer) need
   /// local file paths and a server socket — hidden on phones/tablets where
   /// the app runs standalone.
-  static bool get _isDesktop =>
-      !Platform.isAndroid && !Platform.isIOS;
+  static bool get _isDesktop => !Platform.isAndroid && !Platform.isIOS;
 
   /// 📲 Wireless install: serves the built APK over the LAN and shows a QR
   /// code — scan with the phone/tablet to download and install, no USB.
@@ -220,16 +219,14 @@ class _StudioHomeState extends State<StudioHome> {
                 setState(() {});
                 return;
               }
-              final server = InstallServer(
-                  apkPath: apk ?? ipa!, ipaPath: ipa);
+              final server = InstallServer(apkPath: apk ?? ipa!, ipaPath: ipa);
               try {
                 await server.start();
                 // PC may be on several networks (Wi-Fi + hotspot + …):
                 // let the user pick the IP that matches the phone's network.
                 s._lanIps = await InstallServer.lanIps();
-                s._selectedIp = s._lanIps.isNotEmpty
-                    ? s._lanIps.first.address
-                    : null;
+                s._selectedIp =
+                    s._lanIps.isNotEmpty ? s._lanIps.first.address : null;
                 server.urlOverride = s._selectedIp;
                 s._installServer = server;
                 s._installUrl = server.url;
@@ -254,7 +251,8 @@ class _StudioHomeState extends State<StudioHome> {
           Padding(
             padding: const EdgeInsets.only(top: 6),
             child: Text(s._installError!,
-                style: const TextStyle(color: Colors.orangeAccent, fontSize: 11)),
+                style:
+                    const TextStyle(color: Colors.orangeAccent, fontSize: 11)),
           ),
         if ((s._installServer?.running ?? false) && s._lanIps.isNotEmpty) ...[
           Padding(
@@ -283,17 +281,19 @@ class _StudioHomeState extends State<StudioHome> {
                               ? Colors.deepOrangeAccent
                               : Colors.white12),
                     ),
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                      Text(e.address,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 11.5,
-                              fontWeight: FontWeight.w600)),
-                      Text(e.adapter,
-                          style: const TextStyle(
-                              color: Colors.white38, fontSize: 9)),
-                    ]),
+                          Text(e.address,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11.5,
+                                  fontWeight: FontWeight.w600)),
+                          Text(e.adapter,
+                              style: const TextStyle(
+                                  color: Colors.white38, fontSize: 9)),
+                        ]),
                   ),
                 ),
             ]),
@@ -320,7 +320,8 @@ class _StudioHomeState extends State<StudioHome> {
             child: SelectableText(
               s._installUrl!,
               style: const TextStyle(
-                  color: Colors.white70, fontSize: 12,
+                  color: Colors.white70,
+                  fontSize: 12,
                   fontWeight: FontWeight.w600),
             ),
           ),
@@ -364,7 +365,8 @@ class _StudioHomeState extends State<StudioHome> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: QrImageView(
-                    data: kCloudApkUrl, size: 150,
+                    data: kCloudApkUrl,
+                    size: 150,
                     backgroundColor: Colors.white),
               ),
             ),
@@ -461,7 +463,9 @@ class _Section extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(8, 8, 8, 4),
         child: Text(t.toUpperCase(),
             style: const TextStyle(
-                color: Colors.white38, fontSize: 11, fontWeight: FontWeight.w700)),
+                color: Colors.white38,
+                fontSize: 11,
+                fontWeight: FontWeight.w700)),
       );
 }
 
@@ -470,7 +474,11 @@ class _RadioTile extends StatelessWidget {
   final String title;
   final String? subtitle;
   final VoidCallback onTap;
-  const _RadioTile({required this.selected, required this.title, this.subtitle, required this.onTap});
+  const _RadioTile(
+      {required this.selected,
+      required this.title,
+      this.subtitle,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -480,7 +488,8 @@ class _RadioTile extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         decoration: BoxDecoration(
-          color: selected ? Colors.deepOrangeAccent.withValues(alpha: .18) : null,
+          color:
+              selected ? Colors.deepOrangeAccent.withValues(alpha: .18) : null,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
               color: selected ? Colors.deepOrangeAccent : Colors.white10),
@@ -492,7 +501,8 @@ class _RadioTile extends StatelessWidget {
                   fontSize: 13.5,
                   fontWeight: FontWeight.w600)),
           if (subtitle != null)
-            Text(subtitle!, style: const TextStyle(color: Colors.white38, fontSize: 10.5)),
+            Text(subtitle!,
+                style: const TextStyle(color: Colors.white38, fontSize: 10.5)),
         ]),
       ),
     );

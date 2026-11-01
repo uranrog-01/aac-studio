@@ -4,7 +4,7 @@ import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
 
 /// M5 editor: edit an existing button or create a new one.
-/// Fields: label, spoken text, word class, symbol (search ~15k open symbols
+/// Fields: label, spoken text, word class, symbol (search ~21k open symbols
 /// or custom emoji), voice style overrides, delete.
 class ButtonEditorDialog extends StatefulWidget {
   final VocabButton? existing; // null = create

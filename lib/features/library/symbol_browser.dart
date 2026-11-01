@@ -11,7 +11,7 @@ import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
 import '../modes.dart' show SpeechEngineProvider;
 
-/// Browse ALL bundled symbols (24,296) + optional ARASAAC online
+/// Browse ALL bundled symbols (~21k entries, 20,894 pictures) + optional ARASAAC online
 /// pictograms. Tap to hear; add any symbol as a button to Home.
 class SymbolBrowser extends StatefulWidget {
   const SymbolBrowser({super.key});
