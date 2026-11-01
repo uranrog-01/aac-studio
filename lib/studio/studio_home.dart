@@ -28,6 +28,14 @@ class _StudioHomeState extends State<StudioHome> {
   String? _installError;
   List<({String address, String adapter})> _lanIps = const [];
   String? _selectedIp;
+  bool _showCloudQr = false;
+
+  /// Cloud install: stable GitHub Releases URL — always points at the newest
+  /// published APK, so this QR keeps working for future versions and works
+  /// on ANY network (the device only needs internet).
+  static const kCloudApkUrl =
+      'https://github.com/uranrog-01/aac-studio/releases/latest/download/'
+      'AACStudio-1.0.0-android.apk';
 
   DeviceMode get device =>
       context.watch<ValueNotifier<DeviceMode?>>().value ??
@@ -336,6 +344,45 @@ class _StudioHomeState extends State<StudioHome> {
               label: const Text('Fix firewall (allow port 8770-8789)'),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
+            child: OutlinedButton.icon(
+              onPressed: () => setState(() => _showCloudQr = !_showCloudQr),
+              icon: const Icon(Icons.cloud_download, size: 16),
+              label: Text(_showCloudQr
+                  ? 'Hide internet QR'
+                  : '☁ Internet install (any network)'),
+            ),
+          ),
+          if (_showCloudQr) ...[
+            const SizedBox(height: 8),
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: QrImageView(
+                    data: kCloudApkUrl, size: 150,
+                    backgroundColor: Colors.white),
+              ),
+            ),
+            const SizedBox(height: 6),
+            const Center(
+              child: Text('Downloads the newest release from GitHub.',
+                  style: TextStyle(color: Colors.white38, fontSize: 10)),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 4, left: 4, right: 4),
+              child: Text(
+                'Works from ANY network — the tablet only needs internet '
+                '(no same-Wi-Fi requirement, no firewall issues). The same '
+                'QR serves every future version.',
+                style: TextStyle(color: Colors.white30, fontSize: 10),
+              ),
+            ),
+          ],
         ] else ...[
           const Padding(
             padding: EdgeInsets.only(top: 6, left: 4),
