@@ -1,0 +1,113 @@
+{
+  "id": "studio.sample.basics",
+  "label": "Basics Vocabulary (original sample)",
+  "rootFolder": "home",
+  "folders": [
+    { "id": "home", "label": "Home", "symbol": "🏠" },
+    { "id": "food", "label": "Food & Drink", "symbol": "🍎" },
+    { "id": "feelings", "label": "Feelings", "symbol": "😀" },
+    { "id": "actions", "label": "Actions", "symbol": "🏃" },
+    { "id": "social", "label": "Social", "symbol": "👋" }
+  ],
+  "buttons": [
+    { "id": "b_i", "kind": "item", "label": "I", "class": "pronoun", "symbol": "🙋", "actions": [{ "kind": "addText", "data": "I" }] },
+    { "id": "b_you", "kind": "item", "label": "you", "class": "pronoun", "symbol": "👉", "actions": [{ "kind": "addText", "data": "you" }] },
+    { "id": "b_my", "kind": "item", "label": "my", "class": "pronoun", "symbol": "🫱", "actions": [{ "kind": "addText", "data": "my" }] },
+    { "id": "b_it", "kind": "item", "label": "it", "class": "pronoun", "symbol": "📌", "actions": [{ "kind": "addText", "data": "it" }] },
+    { "id": "b_want", "kind": "item", "label": "want", "class": "verb", "symbol": "🤲", "actions": [{ "kind": "addText", "data": "want" }] },
+    { "id": "b_need", "kind": "item", "label": "need", "class": "verb", "symbol": "❗", "actions": [{ "kind": "addText", "data": "need" }] },
+    { "id": "b_like", "kind": "item", "label": "like", "class": "verb", "symbol": "💚", "actions": [{ "kind": "addText", "data": "like" }] },
+    { "id": "b_dontlike", "kind": "item", "label": "don't like", "class": "verb", "symbol": "💔", "actions": [{ "kind": "addText", "data": "don't like" }] },
+    { "id": "b_can", "kind": "item", "label": "can", "class": "verb", "symbol": "💪", "actions": [{ "kind": "addText", "data": "can" }] },
+    { "id": "b_is", "kind": "item", "label": "is", "class": "verb", "symbol": "🔗", "actions": [{ "kind": "addText", "data": "is" }] },
+    { "id": "b_go", "kind": "item", "label": "go", "class": "verb", "symbol": "🚶", "actions": [{ "kind": "addText", "data": "go" }] },
+    { "id": "b_stop", "kind": "item", "label": "stop", "class": "verb", "symbol": "✋", "actions": [{ "kind": "addText", "data": "stop" }] },
+    { "id": "b_more", "kind": "item", "label": "more", "class": "adjective", "symbol": "➕", "actions": [{ "kind": "addText", "data": "more" }] },
+    { "id": "b_alldone", "kind": "item", "label": "all done", "class": "phrase", "symbol": "🏁", "actions": [{ "kind": "addText", "data": "all done" }] },
+    { "id": "b_turn", "kind": "item", "label": "my turn", "class": "phrase", "symbol": "🔄", "actions": [{ "kind": "addText", "data": "my turn" }] },
+    { "id": "b_help", "kind": "item", "label": "help", "class": "noun", "symbol": "🆘", "actions": [{ "kind": "addText", "data": "help" }] },
+    { "id": "b_open", "kind": "item", "label": "open", "class": "verb", "symbol": "🔓", "actions": [{ "kind": "addText", "data": "open" }] },
+    { "id": "b_play", "kind": "item", "label": "play", "class": "verb", "symbol": "🎮", "actions": [{ "kind": "addText", "data": "play" }] },
+    { "id": "b_again", "kind": "item", "label": "again", "class": "adverb", "symbol": "🔁", "actions": [{ "kind": "addText", "data": "again" }] },
+    { "id": "b_bathroom", "kind": "item", "label": "bathroom", "class": "noun", "symbol": "🚻", "actions": [{ "kind": "addText", "data": "bathroom" }] },
+    { "id": "b_pain", "kind": "item", "label": "hurts", "class": "verb", "symbol": "🤕", "actions": [{ "kind": "addText", "data": "hurts" }] },
+
+    { "id": "b_food", "kind": "folder", "label": "Food & Drink", "symbol": "🍎", "actions": [{ "kind": "gotoFolder", "data": "food" }] },
+    { "id": "b_feel", "kind": "folder", "label": "Feelings", "symbol": "😀", "actions": [{ "kind": "gotoFolder", "data": "feelings" }] },
+    { "id": "b_actions", "kind": "folder", "label": "Actions", "symbol": "🏃", "actions": [{ "kind": "gotoFolder", "data": "actions" }] },
+    { "id": "b_social", "kind": "folder", "label": "Social", "symbol": "👋", "actions": [{ "kind": "gotoFolder", "data": "social" }] },
+
+    { "id": "b_apple", "kind": "item", "label": "apple", "class": "noun", "symbol": "🍎", "actions": [{ "kind": "addText", "data": "apple" }] },
+    { "id": "b_banana", "kind": "item", "label": "banana", "class": "noun", "symbol": "🍌", "actions": [{ "kind": "addText", "data": "banana" }] },
+    { "id": "b_water", "kind": "item", "label": "water", "class": "noun", "symbol": "💧", "actions": [{ "kind": "addText", "data": "water" }] },
+    { "id": "b_milk", "kind": "item", "label": "milk", "class": "noun", "symbol": "🥛", "actions": [{ "kind": "addText", "data": "milk" }] },
+    { "id": "b_juice", "kind": "item", "label": "juice", "class": "noun", "symbol": "🧃", "actions": [{ "kind": "addText", "data": "juice" }] },
+    { "id": "b_bread", "kind": "item", "label": "bread", "class": "noun", "symbol": "🍞", "actions": [{ "kind": "addText", "data": "bread" }] },
+    { "id": "b_cheese", "kind": "item", "label": "cheese", "class": "noun", "symbol": "🧀", "actions": [{ "kind": "addText", "data": "cheese" }] },
+    { "id": "b_cookie", "kind": "item", "label": "cookie", "class": "noun", "symbol": "🍪", "actions": [{ "kind": "addText", "data": "cookie" }] },
+    { "id": "b_eggs", "kind": "item", "label": "eggs", "class": "noun", "symbol": "🥚", "actions": [{ "kind": "addText", "data": "eggs" }] },
+    { "id": "b_rice", "kind": "item", "label": "rice", "class": "noun", "symbol": "🍚", "actions": [{ "kind": "addText", "data": "rice" }] },
+    { "id": "b_soup", "kind": "item", "label": "soup", "class": "noun", "symbol": "🍲", "actions": [{ "kind": "addText", "data": "soup" }] },
+    { "id": "b_moreplease", "kind": "item", "label": "more please", "class": "phrase", "symbol": "🙏", "actions": [{ "kind": "addText", "data": "more please" }] },
+
+    { "id": "b_happy", "kind": "item", "label": "happy", "class": "adjective", "symbol": "😄", "actions": [{ "kind": "addText", "data": "happy" }] },
+    { "id": "b_sad", "kind": "item", "label": "sad", "class": "adjective", "symbol": "😢", "actions": [{ "kind": "addText", "data": "sad" }] },
+    { "id": "b_tired", "kind": "item", "label": "tired", "class": "adjective", "symbol": "😴", "actions": [{ "kind": "addText", "data": "tired" }] },
+    { "id": "b_angry", "kind": "item", "label": "angry", "class": "adjective", "symbol": "😠", "actions": [{ "kind": "addText", "data": "angry" }] },
+    { "id": "b_excited", "kind": "item", "label": "excited", "class": "adjective", "symbol": "🤩", "actions": [{ "kind": "addText", "data": "excited" }] },
+    { "id": "b_scared", "kind": "item", "label": "scared", "class": "adjective", "symbol": "😨", "actions": [{ "kind": "addText", "data": "scared" }] },
+    { "id": "b_sick", "kind": "item", "label": "sick", "class": "adjective", "symbol": "🤒", "actions": [{ "kind": "addText", "data": "sick" }] },
+    { "id": "b_okay", "kind": "item", "label": "okay", "class": "adjective", "symbol": "👌", "actions": [{ "kind": "addText", "data": "okay" }] },
+
+    { "id": "b_run", "kind": "item", "label": "run", "class": "verb", "symbol": "🏃", "actions": [{ "kind": "addText", "data": "run" }] },
+    { "id": "b_walk", "kind": "item", "label": "walk", "class": "verb", "symbol": "🚶", "actions": [{ "kind": "addText", "data": "walk" }] },
+    { "id": "b_jump", "kind": "item", "label": "jump", "class": "verb", "symbol": "🦘", "actions": [{ "kind": "addText", "data": "jump" }] },
+    { "id": "b_sleep", "kind": "item", "label": "sleep", "class": "verb", "symbol": "🛏️", "actions": [{ "kind": "addText", "data": "sleep" }] },
+    { "id": "b_read", "kind": "item", "label": "read", "class": "verb", "symbol": "📖", "actions": [{ "kind": "addText", "data": "read" }] },
+    { "id": "b_draw", "kind": "item", "label": "draw", "class": "verb", "symbol": "🖍️", "actions": [{ "kind": "addText", "data": "draw" }] },
+    { "id": "b_listen", "kind": "item", "label": "listen", "class": "verb", "symbol": "👂", "actions": [{ "kind": "addText", "data": "listen" }] },
+    { "id": "b_watch", "kind": "item", "label": "watch", "class": "verb", "symbol": "👀", "actions": [{ "kind": "addText", "data": "watch" }] },
+
+    { "id": "b_hi", "kind": "item", "label": "hi", "class": "social", "symbol": "👋", "actions": [{ "kind": "addText", "data": "hi" }, { "kind": "speakNow", "data": "hi!" }] },
+    { "id": "b_bye", "kind": "item", "label": "bye", "class": "social", "symbol": "🫶", "actions": [{ "kind": "addText", "data": "bye" }, { "kind": "speakNow", "data": "bye!" }] },
+    { "id": "b_thanks", "kind": "item", "label": "thank you", "class": "social", "symbol": "🙏", "actions": [{ "kind": "addText", "data": "thank you" }, { "kind": "speakNow", "data": "thank you!" }] },
+    { "id": "b_please", "kind": "item", "label": "please", "class": "social", "symbol": "🤝", "actions": [{ "kind": "addText", "data": "please" }] },
+    { "id": "b_sorry", "kind": "item", "label": "sorry", "class": "social", "symbol": "😔", "actions": [{ "kind": "addText", "data": "sorry" }] },
+    { "id": "b_yes", "kind": "item", "label": "yes", "class": "social", "symbol": "✅", "actions": [{ "kind": "addText", "data": "yes" }, { "kind": "speakNow", "data": "yes" }] },
+    { "id": "b_no", "kind": "item", "label": "no", "class": "social", "symbol": "❌", "actions": [{ "kind": "addText", "data": "no" }, { "kind": "speakNow", "data": "no" }] },
+    { "id": "b_speakbtn", "kind": "action", "label": "Speak", "class": "other", "symbol": "🔊", "actions": [{ "kind": "speakMessage" }] },
+    { "id": "b_clearbtn", "kind": "action", "label": "Clear", "class": "other", "symbol": "🧹", "actions": [{ "kind": "clearMessage" }] }
+  ],
+  "views": {
+    "home": [
+      {
+        "columns": 5,
+        "cells": [
+          { "btn": "b_i" }, { "btn": "b_want" }, { "btn": "b_more" }, { "btn": "b_help" }, { "btn": "b_alldone" },
+          { "btn": "b_food" }, { "btn": "b_feel" }, { "btn": "b_actions" }, { "btn": "b_social" }, { "btn": "b_my" },
+          { "btn": "b_you" }, { "btn": "b_it" }, { "btn": "b_like" }, { "btn": "b_dontlike" }, { "btn": "b_can" },
+          { "btn": "b_is" }, { "btn": "b_go" }, { "btn": "b_stop" }, { "btn": "b_open" }, { "btn": "b_play" },
+          { "btn": "b_again" }, { "btn": "b_turn" }, { "btn": "b_need" }, { "btn": "b_bathroom" }, { "btn": "b_pain" },
+          { "btn": "b_speakbtn" }, { "btn": "b_clearbtn" }
+        ]
+      }
+    ],
+    "food": [{ "columns": 4, "cells": [
+      { "btn": "b_apple" }, { "btn": "b_banana" }, { "btn": "b_water" }, { "btn": "b_milk" },
+      { "btn": "b_juice" }, { "btn": "b_bread" }, { "btn": "b_cheese" }, { "btn": "b_cookie" },
+      { "btn": "b_eggs" }, { "btn": "b_rice" }, { "btn": "b_soup" }, { "btn": "b_moreplease" }
+    ] }],
+    "feelings": [{ "columns": 4, "cells": [
+      { "btn": "b_happy" }, { "btn": "b_sad" }, { "btn": "b_tired" }, { "btn": "b_angry" },
+      { "btn": "b_excited" }, { "btn": "b_scared" }, { "btn": "b_sick" }, { "btn": "b_okay" }
+    ] }],
+    "actions": [{ "columns": 4, "cells": [
+      { "btn": "b_run" }, { "btn": "b_walk" }, { "btn": "b_jump" }, { "btn": "b_sleep" },
+      { "btn": "b_read" }, { "btn": "b_draw" }, { "btn": "b_listen" }, { "btn": "b_watch" }
+    ] }],
+    "social": [{ "columns": 4, "cells": [
+      { "btn": "b_hi" }, { "btn": "b_bye" }, { "btn": "b_thanks" }, { "btn": "b_please" },
+      { "btn": "b_sorry" }, { "btn": "b_yes" }, { "btn": "b_no" }, { "btn": "b_speakbtn" }, { "btn": "b_clearbtn" }
+    ] }]
+  }
+}

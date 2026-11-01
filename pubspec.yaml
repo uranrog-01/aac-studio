@@ -1,0 +1,29 @@
+name: aac_studio
+description: >-
+  AAC Studio — original open-source AAC app builder with a live preview
+  studio. Includes a research viewer that renders locally extracted IPA
+  vocabulary data for study. No copyrighted assets ship with this repo.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  flutter_tts: ^4.2.0
+  sqflite_common_ffi: ^2.3.3
+  sqlite3_flutter_libs: ^0.5.24
+  path: ^1.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/sample_pack.json
