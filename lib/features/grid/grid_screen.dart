@@ -162,6 +162,7 @@ class GridScreen extends StatelessWidget {
 
   /// M4 collaborators + M5 edit mode (only provided in My AAC mode).
   final Predictor? predictor;
+  final SymbolLibrary? library;
   final bool editMode;
   final void Function(VocabButton updated)? onEditButton;
   final VoidCallback? onAddButton;
@@ -172,6 +173,7 @@ class GridScreen extends StatelessWidget {
     required this.maxColumns,
     this.titleOverride,
     this.predictor,
+    this.library,
     this.editMode = false,
     this.onEditButton,
     this.onAddButton,
@@ -185,6 +187,7 @@ class GridScreen extends StatelessWidget {
         if (session.showKeyboard && predictor != null) {
           return KeyboardView(
             predictor: predictor!,
+            library: library,
             speech: session.speech,
             initialText: session.message,
             onTextChanged: session.setMessageLive,

@@ -32,6 +32,7 @@ flutter:
     - assets/sample_pack.json
     - assets/symbol_index.json
     - assets/prediction_en_top10k.txt
+    - assets/app_icon.png
     - assets/symbols/twemoji/
     - assets/symbols/noto/
     - assets/symbols/openmoji/

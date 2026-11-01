@@ -34,6 +34,7 @@ class MyAppHome extends StatelessWidget {
       maxColumns: device.value?.spec.maxGridColumns ?? 6,
       titleOverride: pack.vocabulary!.label,
       predictor: context.watch<Predictor>(),
+      library: library,
       editMode: settings.editMode,
       onEditButton: (b) => _edit(context, session, pack, library, b),
       onAddButton: () => _add(context, session, pack, library),
@@ -108,6 +109,7 @@ class P2gExplorer extends StatelessWidget {
           session: session,
           maxColumns: maxCols,
           predictor: context.watch<Predictor>(),
+          library: context.watch<SymbolLibrary>(),
         );
       },
     );

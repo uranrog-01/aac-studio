@@ -68,14 +68,25 @@ class _StudioHomeState extends State<StudioHome> {
       child: ListView(
         padding: const EdgeInsets.all(12),
         children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text('AAC STUDIO',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 18,
-                    letterSpacing: 1.2)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset('assets/app_icon.png', width: 40, height: 40),
+              ),
+              const SizedBox(width: 10),
+              const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text('AAC STUDIO',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 18,
+                        letterSpacing: 1.2)),
+                Text('v1.0.0 · open source',
+                    style: TextStyle(color: Colors.white38, fontSize: 10)),
+              ]),
+            ]),
           ),
           const Padding(
             padding: EdgeInsets.only(left: 8, bottom: 10),

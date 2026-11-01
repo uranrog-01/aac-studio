@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../engine/prediction.dart';
 import '../../engine/speech.dart';
+import '../../engine/symbol_library.dart';
+import '../../models/domain.dart';
 import '../../engine/storage.dart';
 
 /// M4 (revised): typing view — hardware + on-screen keyboard, prediction bar,
@@ -10,6 +12,7 @@ import '../../engine/storage.dart';
 class KeyboardView extends StatefulWidget {
   final Predictor predictor;
   final SpeechEngine speech;
+  final SymbolLibrary? library; // symbols-typing pack (24k+)
   final String initialText;
   final ValueChanged<String> onTextChanged; // live, every keystroke
   final VoidCallback onClose;
@@ -19,6 +22,7 @@ class KeyboardView extends StatefulWidget {
     super.key,
     required this.predictor,
     required this.speech,
+    this.library,
     this.initialText = '',
     required this.onTextChanged,
     required this.onClose,
@@ -29,10 +33,14 @@ class KeyboardView extends StatefulWidget {
   State<KeyboardView> createState() => _KeyboardViewState();
 }
 
+enum _KbMode { abc, symbols }
+
 class _KeyboardViewState extends State<KeyboardView> {
   late final TextEditingController _controller;
   final FocusNode _focus = FocusNode();
   String _currentWord = '';
+  _KbMode _mode = _KbMode.abc;
+  String _symQuery = '';
 
   @override
   void initState() {
@@ -147,6 +155,10 @@ class _KeyboardViewState extends State<KeyboardView> {
             ),
             Row(children: [
               _actionBtn(Icons.grid_view, 'Grid', widget.onClose),
+              _actionBtn(Icons.text_fields, 'ABC',
+                  () => setState(() => _mode = _KbMode.abc)),
+              _actionBtn(Icons.extension, 'Symbols',
+                  () => setState(() => _mode = _KbMode.symbols)),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -163,44 +175,127 @@ class _KeyboardViewState extends State<KeyboardView> {
                 ),
               ),
             ]),
-            // prediction bar
-            Container(
-              height: 44,
-              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              child: Row(children: [
-                for (final s in suggestions)
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
-                      child: Material(
-                        color: const Color(0xFF3A4049),
-                        borderRadius: BorderRadius.circular(8),
-                        child: InkWell(
-                          onTap: () => _applySuggestion(s),
-                          child: Center(
-                            child: Text(s,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 13)),
+            if (_mode == _KbMode.abc) ...[
+              // prediction bar
+              Container(
+                height: 44,
+                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                child: Row(children: [
+                  for (final s in suggestions)
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2),
+                        child: Material(
+                          color: const Color(0xFF3A4049),
+                          borderRadius: BorderRadius.circular(8),
+                          child: InkWell(
+                            onTap: () => _applySuggestion(s),
+                            child: Center(
+                              child: Text(s,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 13)),
+                            ),
                           ),
                         ),
                       ),
                     ),
+                  if (suggestions.isEmpty)
+                    const Expanded(
+                      child: Center(
+                          child: Text('predictions…',
+                              style: TextStyle(color: Colors.white24))),
+                    ),
+                ]),
+              ),
+              Expanded(child: _keyboard()),
+            ] else ...[
+              // M4b: symbols typing — search the open symbol library and
+              // insert the word straight into the banner
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 6, 10, 0),
+                child: TextField(
+                  autofocus: true,
+                  style: const TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: widget.library == null
+                        ? 'symbol library unavailable'
+                        : 'Search ${widget.library!.size} symbols — tap to insert…',
+                    hintStyle: const TextStyle(color: Colors.white38),
+                    prefixIcon:
+                        const Icon(Icons.search, color: Colors.white38),
+                    border: const OutlineInputBorder(),
                   ),
-                if (suggestions.isEmpty)
-                  const Expanded(
-                    child: Center(
-                        child: Text('predictions…',
-                            style: TextStyle(color: Colors.white24))),
-                  ),
-              ]),
-            ),
-            Expanded(child: _keyboard()),
+                  onChanged: (q) => setState(() => _symQuery = q),
+                ),
+              ),
+              Expanded(
+                child: widget.library == null
+                    ? const SizedBox.shrink()
+                    : GridView.builder(
+                        padding: const EdgeInsets.all(8),
+                        gridDelegate:
+                            const SliverGridDelegateWithMaxCrossAxisExtent(
+                                maxCrossAxisExtent: 86,
+                                mainAxisSpacing: 6,
+                                crossAxisSpacing: 6),
+                        itemCount: widget.library!.search(_symQuery, limit: 120).length,
+                        itemBuilder: (context, i) {
+                          final e = widget.library!
+                              .search(_symQuery, limit: 120)[i];
+                          return Material(
+                            color: const Color(0xFF3A4049),
+                            borderRadius: BorderRadius.circular(10),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(10),
+                              onTap: () => _insertWord(e.name),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(6),
+                                      child: SymbolLibrary.resolve(
+                                          SymbolRef(e.name,
+                                              pack: e.pack, key: e.key),
+                                          size: 44),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 4, left: 2, right: 2),
+                                    child: Text(
+                                      e.name,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: Colors.white70,
+                                          fontSize: 9.5),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+              ),
+            ],
           ],
         ),
       ),
     );
+  }
+
+  /// Symbols typing: append the symbol's word to the message (live).
+  void _insertWord(String word) {
+    final t = _controller.text;
+    final needsSpace = t.isNotEmpty && !t.endsWith(' ');
+    _controller.text = needsSpace ? '$t $word ' : '$t$word ';
+    _controller.selection = TextSelection.collapsed(
+        offset: _controller.text.length);
   }
 
   Widget _actionBtn(IconData icon, String label, VoidCallback? onTap) =>
