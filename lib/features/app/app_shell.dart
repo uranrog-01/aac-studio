@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../engine/prediction.dart';
 import '../../engine/settings_controller.dart';
 import '../../engine/speech.dart';
+import '../../engine/storage.dart';
 import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
 import '../editor/editor_dialog.dart';
 import '../grid/grid_screen.dart';
 import '../modes.dart' show SpeechEngineProvider;
-import '../settings/settings_sheet.dart';
 import '../sensory/sensory_games.dart';
 
 /// The REAL app (mobile): like the studied original — launch straight into
@@ -29,6 +30,8 @@ class AppShell extends StatefulWidget {
 class _AppShellState extends State<AppShell> {
   GridSession? _session;
   Vocabulary? _builtFor;
+  int _backAttempts = 0;
+  DateTime _firstBack = DateTime.fromMillisecondsSinceEpoch(0);
 
   GridSession? _sessionFor(Vocabulary vocab, SpeechEngine speech) {
     if (_session == null || _builtFor != vocab) {
@@ -40,7 +43,8 @@ class _AppShellState extends State<AppShell> {
 
   @override
   Widget build(BuildContext context) {
-    final settings = context.watch<SettingsController>();
+    final controller = context.watch<SettingsController>();
+    final settings = controller.settings;
     final pack = context.watch<PackController>();
     if (pack.vocabulary == null) {
       return const Scaffold(
@@ -48,8 +52,19 @@ class _AppShellState extends State<AppShell> {
         body: Center(child: CircularProgressIndicator()),
       );
     }
-    final session = _sessionFor(
-        pack.vocabulary!, SpeechEngineProvider.of(context))!;
+    final grid = _gridBody(context, settings, pack);
+    // P0 kiosk mode: when preventExit is on, require 3 quick back presses.
+    return PopScope(
+      canPop: !settings.preventExit,
+      onPopInvokedWithResult: _handleBack,
+      child: grid,
+    );
+  }
+
+  Widget _gridBody(
+      BuildContext context, AppSettings settings, PackController pack) {
+    final session =
+        _sessionFor(pack.vocabulary!, SpeechEngineProvider.of(context))!;
     return GridScreen(
       session: session,
       // Auto-fit the grid to the real screen (phone vs tablet).
@@ -63,6 +78,26 @@ class _AppShellState extends State<AppShell> {
       onEditButton: (b) => _edit(context, session, pack, b),
       onAddButton: () => _add(context, session, pack),
     );
+  }
+
+  /// P0 kiosk mode: require 3 quick back presses to leave the app.
+  void _handleBack(bool didPop, Object? result) {
+    if (didPop) return;
+    final now = DateTime.now();
+    if (now.difference(_firstBack).inMilliseconds > 2000) {
+      _backAttempts = 0;
+    }
+    _firstBack = now;
+    _backAttempts++;
+    HapticFeedback.selectionClick();
+    if (_backAttempts >= 3) {
+      SystemNavigator.pop();
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('Press back ${3 - _backAttempts} more times to exit'),
+      duration: const Duration(milliseconds: 800),
+    ));
   }
 
   int _autoColumns(BuildContext context) {
@@ -84,7 +119,8 @@ class _AppShellState extends State<AppShell> {
       library: context.read<SymbolLibrary>(),
       existing: b,
       onSave: (updated) {
-        session.replaceButton(updated, persist: pack.save);
+        session.replaceButton(
+            updated.copyWith(userEdited: true), persist: pack.save);
         final s = updated.voice;
         if (s != null) {
           SpeechEngineProvider.of(context).speak(updated.speakText, style: s);
@@ -98,7 +134,8 @@ class _AppShellState extends State<AppShell> {
     ButtonEditorDialog.show(
       context,
       library: context.read<SymbolLibrary>(),
-      onSave: (b) => session.addButton(b, persist: pack.save),
+      onSave: (b) =>
+          session.addButton(b.copyWith(userEdited: true), persist: pack.save),
     );
   }
 }

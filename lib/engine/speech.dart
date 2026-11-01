@@ -1,95 +1,90 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-
 import '../models/domain.dart';
 
-/// M3 speech engine — platform TTS abstraction, hardened for Android/Fire:
-/// - warm-up at app start (engine init is slow; first-tap silence otherwise)
-/// - language availability fallback (some engines reject 'en-US')
-/// - one retry on failure
+/// Shared initialization and serialized requests keep first and rapid taps reliable.
 class SpeechEngine {
   final FlutterTts _tts = FlutterTts();
-  bool _ready = false;
-  bool _speaking = false;
+  final ValueNotifier<String?> error = ValueNotifier(null);
+  Future<void>? _initializing;
+  Future<void> _pending = Future.value();
+  int _generation = 0;
   double rate = 0.45;
   double pitch = 1.0;
   double volume = 1.0;
 
-  Future<void> ensure() async {
-    if (_ready) return;
-    _ready = true; // guard re-entry; failures retried per-speak
-    try {
-      _tts.setStartHandler(() {});
-      _tts.setCancelHandler(() {});
-      _tts.setErrorHandler((m) {
-        if (kDebugMode) debugPrint('TTS error: $m');
-      });
-      await _tts.setLanguage(await _bestLanguage());
-      await _tts.setSpeechRate(rate);
-      await _tts.setPitch(pitch);
-      await _tts.setVolume(volume);
-      await _tts.setQueueMode(0);
-    } catch (e) {
-      if (kDebugMode) debugPrint('TTS init failed: $e');
-      _ready = false;
-    }
-  }
+  Future<void> ensure() => _initializing ??= _initialize();
 
-  /// Some Android engines (Fire OS variants) reject 'en-US'; probe a few
-  /// candidates and pick the first available.
-  Future<String> _bestLanguage() async {
-    const candidates = ['en-US', 'en_US', 'eng', 'en'];
-    for (final l in candidates) {
-      try {
-        final ok = await _tts.isLanguageAvailable(l);
-        if (ok == true) return l;
-      } catch (_) {}
+  Future<void> _initialize() async {
+    _tts.setErrorHandler((message) {
+      error.value =
+          'Speech unavailable. Check media volume and installed English voices in device settings.';
+      _initializing = null;
+    });
+    try {
+      if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+        await _tts.setQueueMode(0);
+      }
+      if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
+        await _tts.setSharedInstance(true);
+        await _tts.setIosAudioCategory(
+          IosTextToSpeechAudioCategory.playback,
+          [IosTextToSpeechAudioCategoryOptions.duckOthers],
+          IosTextToSpeechAudioMode.defaultMode,
+        );
+      }
+      for (final language in ['en-US', 'en-GB', 'en']) {
+        try {
+          if (await _tts.isLanguageAvailable(language) == true) {
+            await _tts.setLanguage(language);
+            break;
+          }
+        } catch (_) {
+          // Windows does not implement language availability; retain its default.
+        }
+      }
+      await _tts.awaitSpeakCompletion(false);
+    } catch (_) {
+      _initializing = null;
+      rethrow;
     }
-    return 'en-US';
   }
 
   Future<void> applyDefaults() async {
-    await ensure();
-    try {
-      await _tts.setSpeechRate(rate);
-      await _tts.setPitch(pitch);
-      await _tts.setVolume(volume);
-    } catch (_) {}
+    // Applied with each utterance, so updates cannot race a button voice style.
   }
 
-  /// Speak [text] with optional per-button [style]; one retry on failure.
-  Future<void> speak(String text, {VoiceStyle? style}) async {
-    final t = text.trim();
-    if (t.isEmpty || _speaking) return;
-    _speaking = true;
-    try {
+  Future<void> speak(String text, {VoiceStyle? style}) {
+    if (text.trim().isEmpty) return Future.value();
+    final generation = _generation;
+    _pending = _pending.then((_) async {
+      if (generation != _generation) return;
       for (var attempt = 0; attempt < 2; attempt++) {
         try {
           await ensure();
-          await _tts.setSpeechRate(style?.rate ?? rate);
-          await _tts.setPitch(style?.pitch ?? pitch);
-          await _tts.setVolume(style?.volume ?? volume);
-          final res = await _tts.speak(t);
-          final failed = (res is num && res != 1) || res == false;
-          if (!failed) break;
-          if (attempt == 0) {
-            _ready = false;
-            await Future.delayed(const Duration(milliseconds: 120));
+          if (generation != _generation) return;
+          await _tts.setSpeechRate((style?.rate ?? rate).clamp(0.0, 1.0));
+          await _tts.setPitch((style?.pitch ?? pitch).clamp(0.5, 2.0));
+          await _tts.setVolume((style?.volume ?? volume).clamp(0.0, 1.0));
+          if (generation != _generation) return;
+          final result = await _tts.speak(text.trim());
+          if (result == false || (result is num && result != 1)) {
+            throw StateError('Speech engine rejected request');
           }
-        } catch (e) {
-          if (kDebugMode) debugPrint('TTS speak failed: $e');
-          if (attempt == 0) {
-            _ready = false;
-            await Future.delayed(const Duration(milliseconds: 120));
-          }
+          error.value = null;
+          return;
+        } catch (_) {
+          _initializing = null;
         }
       }
-    } finally {
-      _speaking = false;
-    }
+      error.value =
+          'Speech unavailable. Check media volume and installed English voices in device settings.';
+    });
+    return _pending;
   }
 
   Future<void> stop() async {
+    _generation++;
     try {
       await _tts.stop();
     } catch (_) {}

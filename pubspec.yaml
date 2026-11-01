@@ -4,7 +4,7 @@ description: >-
   studio. Includes a research viewer that renders locally extracted IPA
   vocabulary data for study. No copyrighted assets ship with this repo.
 publish_to: "none"
-version: 1.0.4+5
+version: 1.2.0+7
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
@@ -38,3 +38,4 @@ flutter:
     - assets/symbols/openmoji/
     - assets/symbols/openmoji_black/
     - assets/symbols/mulberry/
+    - assets/symbols/learning/

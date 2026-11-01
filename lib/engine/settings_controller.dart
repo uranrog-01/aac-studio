@@ -1,9 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 
 import '../data/pack_loader.dart';
 import '../models/domain.dart';
+import 'arasaac.dart';
 import 'storage.dart';
 
 /// M5: settings state (speech defaults + restrictions) persisted to JSON.
@@ -98,7 +100,7 @@ class PackController extends ChangeNotifier {
     // one, upgrade (keeping a backup of the user's edits) so improvements
     // reach already-installed devices.
     final assetRaw = await loader.loadAsset(assetPath);
-    const kPackVersion = 3;
+    const kPackVersion = 4;
     int storedVersion = 0;
     if (await f.exists()) {
       final stored = await storage.readJson(f);
@@ -109,8 +111,19 @@ class PackController extends ChangeNotifier {
         final backup = File(
             '${f.path}.backup-${DateTime.now().millisecondsSinceEpoch}.json');
         await f.copy(backup.path);
+        // Soft-delete merge (Vocable pattern): user additions + user edits
+        // survive the factory upgrade.
+        try {
+          final oldJson =
+              jsonDecode(await f.readAsString()) as Map<String, dynamic>;
+          final merged = PackUpgrade.merge(oldJson, loader.save(assetRaw));
+          await storage.writeJson(f, merged);
+        } catch (_) {
+          await storage.writeJson(f, loader.save(assetRaw));
+        }
+      } else {
+        await storage.writeJson(f, loader.save(assetRaw));
       }
-      await storage.writeJson(f, loader.save(assetRaw));
     }
     vocabulary = await loader.loadFile(f.path);
     packId = vocabulary!.id;

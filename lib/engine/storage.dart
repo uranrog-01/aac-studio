@@ -67,11 +67,43 @@ class StorageProviderAdapter implements AppStorageProvider {
 }
 
 /// App settings persisted as JSON: M3 speech defaults + M5 restrictions.
+/// View mode for grid buttons (P0 accessibility set).
+enum ButtonView { symbolText, symbolOnly, textOnly }
+
+/// Label position on grid buttons.
+enum LabelPosition { below, above, hidden }
+
 class AppSettings {
   double rate, pitch, volume;
   bool restrictionsEnabled;
   String pin;
   bool editMode;
+
+  // P0 accessibility / behavior settings
+  bool quietBuilder; // build silently; tap banner to speak
+  bool vocalizeFolders; // speak folder name when entering
+  int inputDebounceMs; // ignore taps faster than this (0 = off)
+  bool preventExit; // quick-exit guard (3 backs within 2s)
+  bool clearOnSpeak; // clear message after speaking it
+  bool goHomeOnPress; // return home after a spoken sentence
+  ButtonView buttonView; // symbol/text/both
+  LabelPosition labelPosition; // below/above/hidden
+  bool messageWindowTop; // message window top vs bottom
+
+  // P2 scanning / dwell / CVI / feedback
+  bool scanningEnabled;
+  int scanDelayMs; // auto-advance delay
+  bool dwellEnabled;
+  double dwellSeconds;
+  bool cviMode; // high-contrast cortical-visual-impairment theme
+  bool haptics;
+  bool audioCues;
+
+  // P2 ARASAAC online symbols
+  bool arasaacEnabled;
+  int arasaacSkin; // 0 none..3 dark
+  int arasaacHair; // 0 none..4 dark? (API: none/blond/brown/dark/red/gray)
+
   AppSettings({
     this.rate = 0.45,
     this.pitch = 1.0,
@@ -79,15 +111,41 @@ class AppSettings {
     this.restrictionsEnabled = false,
     this.pin = '1234',
     this.editMode = false,
+    this.quietBuilder = false,
+    this.vocalizeFolders = true,
+    this.inputDebounceMs = 0,
+    this.preventExit = false,
+    this.clearOnSpeak = false,
+    this.goHomeOnPress = false,
+    this.buttonView = ButtonView.symbolText,
+    this.labelPosition = LabelPosition.below,
+    this.messageWindowTop = true,
+    this.scanningEnabled = false,
+    this.scanDelayMs = 1200,
+    this.dwellEnabled = false,
+    this.dwellSeconds = 1.0,
+    this.cviMode = false,
+    this.haptics = true,
+    this.audioCues = false,
+    this.arasaacEnabled = true,
+    this.arasaacSkin = 0,
+    this.arasaacHair = 0,
   });
 
   Map<String, dynamic> toJson() => {
-        'rate': rate,
-        'pitch': pitch,
-        'volume': volume,
-        'restrictionsEnabled': restrictionsEnabled,
-        'pin': pin,
-        'editMode': editMode,
+        'rate': rate, 'pitch': pitch, 'volume': volume,
+        'restrictionsEnabled': restrictionsEnabled, 'pin': pin,
+        'editMode': editMode, 'quietBuilder': quietBuilder,
+        'vocalizeFolders': vocalizeFolders,
+        'inputDebounceMs': inputDebounceMs, 'preventExit': preventExit,
+        'clearOnSpeak': clearOnSpeak, 'goHomeOnPress': goHomeOnPress,
+        'buttonView': buttonView.name, 'labelPosition': labelPosition.name,
+        'messageWindowTop': messageWindowTop,
+        'scanningEnabled': scanningEnabled, 'scanDelayMs': scanDelayMs,
+        'dwellEnabled': dwellEnabled, 'dwellSeconds': dwellSeconds,
+        'cviMode': cviMode, 'haptics': haptics, 'audioCues': audioCues,
+        'arasaacEnabled': arasaacEnabled, 'arasaacSkin': arasaacSkin,
+        'arasaacHair': arasaacHair,
       };
 
   static AppSettings fromJson(Map<String, dynamic>? j) => AppSettings(
@@ -97,6 +155,29 @@ class AppSettings {
         restrictionsEnabled: j?['restrictionsEnabled'] as bool? ?? false,
         pin: (j?['pin'] as String?) ?? '1234',
         editMode: j?['editMode'] as bool? ?? false,
+        quietBuilder: j?['quietBuilder'] as bool? ?? false,
+        vocalizeFolders: j?['vocalizeFolders'] as bool? ?? true,
+        inputDebounceMs: (j?['inputDebounceMs'] as num?)?.toInt() ?? 0,
+        preventExit: j?['preventExit'] as bool? ?? false,
+        clearOnSpeak: j?['clearOnSpeak'] as bool? ?? false,
+        goHomeOnPress: j?['goHomeOnPress'] as bool? ?? false,
+        buttonView: ButtonView.values.firstWhere(
+            (v) => v.name == j?['buttonView'],
+            orElse: () => ButtonView.symbolText),
+        labelPosition: LabelPosition.values.firstWhere(
+            (v) => v.name == j?['labelPosition'],
+            orElse: () => LabelPosition.below),
+        messageWindowTop: j?['messageWindowTop'] as bool? ?? true,
+        scanningEnabled: j?['scanningEnabled'] as bool? ?? false,
+        scanDelayMs: (j?['scanDelayMs'] as num?)?.toInt() ?? 1200,
+        dwellEnabled: j?['dwellEnabled'] as bool? ?? false,
+        dwellSeconds: (j?['dwellSeconds'] as num?)?.toDouble() ?? 1.0,
+        cviMode: j?['cviMode'] as bool? ?? false,
+        haptics: j?['haptics'] as bool? ?? true,
+        audioCues: j?['audioCues'] as bool? ?? false,
+        arasaacEnabled: j?['arasaacEnabled'] as bool? ?? true,
+        arasaacSkin: (j?['arasaacSkin'] as num?)?.toInt() ?? 0,
+        arasaacHair: (j?['arasaacHair'] as num?)?.toInt() ?? 0,
       );
 }
 

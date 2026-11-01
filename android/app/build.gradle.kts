@@ -19,7 +19,7 @@ android {
         applicationId = "com.aacstudio.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        // API 21 (Android 5.0) so older tablets (incl. Fire OS 5 = API 22) install
+        // Flutter engine floor: API 24 (Android 7.0 / Fire OS 6).
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION

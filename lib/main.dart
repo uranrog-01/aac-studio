@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
+import 'engine/arasaac.dart';
 import 'engine/prediction.dart';
 import 'engine/settings_controller.dart';
 import 'engine/speech.dart';
@@ -35,12 +36,25 @@ Future<void> main() async {
   final pack = PackController(storage);
   await pack.load();
 
+  final arasaac = ArasaacService(storage);
+
   // Warm up the TTS engine before the first tap (first-tap silence on
   // Android/Fire otherwise).
   final speech = SpeechEngine();
-  await speech.ensure();
+  void syncSpeech() {
+    speech.rate = settings.settings.rate;
+    speech.pitch = settings.settings.pitch;
+    speech.volume = settings.settings.volume;
+  }
+
+  syncSpeech();
+  settings.addListener(syncSpeech);
+  try {
+    await speech.ensure().timeout(const Duration(seconds: 8));
+  } catch (_) {/* Retry on first speech request. */}
 
   runApp(StudioApp(
+    arasaac: arasaac,
     speech: speech,
     settings: settings,
     predictor: predictor,
@@ -55,9 +69,11 @@ class StudioApp extends StatelessWidget {
   final SymbolLibrary library;
   final PackController pack;
   final SpeechEngine speech;
+  final ArasaacService arasaac;
 
   const StudioApp({
     super.key,
+    required this.arasaac,
     required this.speech,
     required this.settings,
     required this.predictor,
@@ -70,6 +86,7 @@ class StudioApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<SpeechEngine>.value(value: speech),
+        Provider<ArasaacService>.value(value: arasaac),
         ChangeNotifierProvider<ValueNotifier<DeviceMode?>>(
           create: (_) => ValueNotifier<DeviceMode?>(DeviceMode(kDevices[0])),
         ),

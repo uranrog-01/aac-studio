@@ -13,7 +13,7 @@ import '../models/domain.dart';
 ///   "folders": [{"id","label","symbol"}],
 ///   "buttons": [{"id","kind":"item/folder/action","label","spoken","class",
 ///                "symbol","actions":[{"kind","data"}]}],
-///   "views": {"<folderId>": [{"columns": n, "cells":[{"btn","col","row","span"}]}]}
+///   "views": {"folderId": [{"columns": n, "cells":[{"btn","col","row","span"}]}]}
 /// }
 class PackLoader {
   Future<Vocabulary> loadAsset(String assetPath) async {
@@ -29,8 +29,12 @@ class PackLoader {
     final folders = <String, VocabFolder>{};
     for (final f in (m['folders'] as List).cast<Map>()) {
       final id = f['id'] as String;
-      folders[id] = VocabFolder(id, f['label'] as String,
-          SymbolRef(f['symbol'] as String? ?? '📁'));
+      folders[id] = VocabFolder(
+          id,
+          f['label'] as String,
+          SymbolRef(f['symbol'] as String? ?? '📁',
+              pack: f['symbolPack'] as String?,
+              key: f['symbolKey'] as String?));
     }
     final buttons = <String, VocabButton>{};
     for (final b in (m['buttons'] as List).cast<Map>()) {
@@ -52,8 +56,11 @@ class PackLoader {
           'emoji': b['symbol'] ?? '⬛',
           'pack': b['symbolPack'],
           'key': b['symbolKey'],
+          'imagePath': b['imagePath'],
         }),
         actions: actions,
+        favorite: b['favorite'] == true,
+        userEdited: b['userEdited'] == true,
         voice: VoiceStyle.fromJson(b['voice'] as Map<String, dynamic>?),
       );
     }
@@ -90,7 +97,7 @@ class PackLoader {
   Map<String, dynamic> save(Vocabulary v) {
     final buttons = <Map<String, dynamic>>[];
     // keep in sync with PackController.kPackVersion
-    const packVersion = 3;
+    const packVersion = 4;
     final views = <String, dynamic>{};
     for (final e in v.viewsByFolder.entries) {
       views[e.key] = e.value.map((view) {
@@ -126,7 +133,11 @@ class PackLoader {
           _ => 'item',
         },
         'label': b.label,
-        if (b.spokenText != null && b.spokenText != b.label) 'spoken': b.spokenText,
+        'favorite': b.favorite,
+        'userEdited': b.userEdited,
+        if (b.symbol.imagePath != null) 'imagePath': b.symbol.imagePath,
+        if (b.spokenText != null && b.spokenText != b.label)
+          'spoken': b.spokenText,
         'class': b.wordClass.name,
         'symbol': b.symbol.pack == null ? b.symbol.emoji : b.symbol.emoji,
         if (b.symbol.pack != null) ...{
@@ -159,7 +170,8 @@ class PackLoader {
           .map((f) => {
                 'id': f.id,
                 'label': f.label,
-                'symbol': f.symbol.pack == null ? f.symbol.emoji : f.symbol.emoji,
+                'symbol':
+                    f.symbol.pack == null ? f.symbol.emoji : f.symbol.emoji,
                 if (f.symbol.pack != null) ...{
                   'symbolPack': f.symbol.pack,
                   'symbolKey': f.symbol.key,

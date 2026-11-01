@@ -62,6 +62,7 @@ class SymbolLibrary {
     switch (ref.pack) {
       case 'twemoji':
       case 'noto':
+      case 'learning':
         return Image.asset('assets/symbols/${ref.pack}/${ref.key}.png',
             width: s, height: s, fit: BoxFit.contain,
             errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));

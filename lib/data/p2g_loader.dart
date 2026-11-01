@@ -2,7 +2,6 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import '../models/domain.dart';
 
-import 'dart:io';
 
 /// Research-viewer loader: reads a locally extracted Proloquo2Go cache DB
 /// (v2.3 vocabulary *.cache.sqlite) and maps it onto the studio domain model.
@@ -17,7 +16,7 @@ import 'dart:io';
 ///   folder label via goto_folder action)
 /// - button_action: 1=Add Text, 2=add_string, 4=Speak Immediate, 5=speak_string,
 ///   7=Speak Message Window, 8=Clear, 11=goto_folder (target in `data` as text)
-/// - symbol(id,label,filename) → '<pngDir>/<filename>.png' pre-rendered PNGs
+/// - symbol(id,label,filename) → `pngDir/filename.png` pre-rendered PNGs
 
 /// Tolerant int coercion — P2G 2.3 databases store several id columns as
 /// TEXT in some rows and INTEGER in others.

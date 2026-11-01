@@ -28,7 +28,7 @@ enum WordClass {
   unknown;
 
   static WordClass fromName(String? n) => WordClass.values.firstWhere(
-        (w) => w.name == (n ?? '').toLowerCase(),
+        (w) => w.name.toLowerCase() == (n ?? '').toLowerCase(),
         orElse: () => WordClass.unknown,
       );
 }
@@ -62,10 +62,19 @@ const Map<WordClass, Color> kWordClassColors = {
 
 /// Action verbs behind buttons (studied: 18 P2G action types) + our sensory
 /// games extension (autism regulation feature).
-enum ActionKind { addText, speakNow, speakMessage, clearMessage, gotoFolder, launchUrl, sensoryGames }
+enum ActionKind {
+  addText,
+  speakNow,
+  speakMessage,
+  clearMessage,
+  gotoFolder,
+  launchUrl,
+  sensoryGames
+}
 
 class VocabAction {
   final ActionKind kind;
+
   /// Text for addText/speakNow; folder id (as int-as-string) for gotoFolder;
   /// URL for launchUrl.
   final String data;
@@ -79,7 +88,8 @@ class VoiceStyle {
   final double? volume;
   const VoiceStyle({this.rate, this.pitch, this.volume});
 
-  VoiceStyle copyWith({double? rate, double? pitch, double? volume, bool clear = false}) =>
+  VoiceStyle copyWith(
+          {double? rate, double? pitch, double? volume, bool clear = false}) =>
       VoiceStyle(
         rate: clear ? null : rate ?? this.rate,
         pitch: clear ? null : pitch ?? this.pitch,
@@ -92,12 +102,13 @@ class VoiceStyle {
         if (volume != null) 'volume': volume,
       };
 
-  static VoiceStyle? fromJson(Map<String, dynamic>? j) =>
-      j == null ? null : VoiceStyle(
-        rate: (j['rate'] as num?)?.toDouble(),
-        pitch: (j['pitch'] as num?)?.toDouble(),
-        volume: (j['volume'] as num?)?.toDouble(),
-      );
+  static VoiceStyle? fromJson(Map<String, dynamic>? j) => j == null
+      ? null
+      : VoiceStyle(
+          rate: (j['rate'] as num?)?.toDouble(),
+          pitch: (j['pitch'] as num?)?.toDouble(),
+          volume: (j['volume'] as num?)?.toDouble(),
+        );
 }
 
 /// What a button shows.
@@ -107,6 +118,7 @@ class SymbolRef {
   final String? imagePath; // absolute file path (explorer PNG symbols)
   /// Bundled open symbol pack: 'twemoji' | 'noto' | 'openmoji' | 'mulberry'.
   final String? pack;
+
   /// Key within the pack (codepoint hex for emoji packs, filename for mulberry).
   final String? key;
   const SymbolRef(this.emoji, {this.imagePath, this.pack, this.key});
@@ -135,6 +147,8 @@ class VocabButton {
   final SymbolRef symbol;
   final List<VocabAction> actions;
   final VoiceStyle? voice;
+  final bool favorite;
+  final bool userEdited;
   const VocabButton({
     required this.id,
     required this.label,
@@ -144,9 +158,12 @@ class VocabButton {
     this.spokenText,
     this.actions = const [],
     this.voice,
+    this.favorite = false,
+    this.userEdited = false,
   });
 
-  String get speakText => (spokenText != null && spokenText!.isNotEmpty) ? spokenText! : label;
+  String get speakText =>
+      (spokenText != null && spokenText!.isNotEmpty) ? spokenText! : label;
 
   VocabButton copyWith({
     String? label,
@@ -156,6 +173,8 @@ class VocabButton {
     List<VocabAction>? actions,
     VoiceStyle? voice,
     bool clearVoice = false,
+    bool? favorite,
+    bool? userEdited,
   }) =>
       VocabButton(
         id: id,
@@ -166,6 +185,8 @@ class VocabButton {
         symbol: symbol ?? this.symbol,
         actions: actions ?? this.actions,
         voice: clearVoice ? null : voice ?? this.voice,
+        favorite: favorite ?? this.favorite,
+        userEdited: userEdited ?? this.userEdited,
       );
 }
 
@@ -178,7 +199,11 @@ class VocabView {
   final String folderId;
   final int columns; // column_grid width; 0 = auto
   final List<GridCell> cells;
-  const VocabView({required this.id, required this.folderId, required this.columns, required this.cells});
+  const VocabView(
+      {required this.id,
+      required this.folderId,
+      required this.columns,
+      required this.cells});
 }
 
 class GridCell {
@@ -188,7 +213,12 @@ class GridCell {
   final int span; // cells wide (default 1)
   final bool hidden;
   final bool dimmed;
-  const GridCell(this.button, {this.col, this.row, this.span = 1, this.hidden = false, this.dimmed = false});
+  const GridCell(this.button,
+      {this.col,
+      this.row,
+      this.span = 1,
+      this.hidden = false,
+      this.dimmed = false});
 }
 
 class VocabFolder {

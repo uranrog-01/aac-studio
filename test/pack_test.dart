@@ -5,7 +5,7 @@ import 'package:aac_studio/data/pack_loader.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   test('sample pack loads into a valid vocabulary', () async {
-    final v = await PackLoader().loadAsset('assets/sample_pack.json');
+    final v = await PackLoader().loadFile('assets/sample_pack.json');
     expect(v.folders.containsKey(v.rootFolderId), isTrue);
     expect(v.viewsByFolder[v.rootFolderId], isNotEmpty);
     final home = v.viewsByFolder[v.rootFolderId]!.first;

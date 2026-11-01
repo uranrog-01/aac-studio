@@ -223,7 +223,7 @@ class _StudioHomeState extends State<StudioHome> {
               final server = InstallServer(
                   apkPath: apk ?? ipa!, ipaPath: ipa);
               try {
-                final url = await server.start();
+                await server.start();
                 // PC may be on several networks (Wi-Fi + hotspot + …):
                 // let the user pick the IP that matches the phone's network.
                 s._lanIps = await InstallServer.lanIps();
