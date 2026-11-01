@@ -4,7 +4,9 @@ description: >-
   studio. Includes a research viewer that renders locally extracted IPA
   vocabulary data for study. No copyrighted assets ship with this repo.
 publish_to: "none"
-version: 1.5.0+10
+# Build number stays above every per-CPU APK ever shipped (they used
+# 1000/2000/4000 + n), so the single universal APK always installs as an update.
+version: 1.5.1+5001
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
