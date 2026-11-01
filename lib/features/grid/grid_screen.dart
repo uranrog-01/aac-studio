@@ -2,8 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../engine/prediction.dart';
 import '../../engine/speech.dart';
+import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
+import 'keyboard_view.dart';
 
 /// M2 grid engine: session controller + shared grid renderer used by both the
 /// original app mode and the P2G research viewer.
@@ -13,6 +16,7 @@ class GridSession extends ChangeNotifier {
   final SpeechEngine speech;
   final List<String> _stack; // folder ids
   String _message = '';
+  bool showKeyboard = false;
 
   GridSession({required this.vocabulary, required this.speech})
       : _stack = [vocabulary.rootFolderId];
@@ -56,7 +60,7 @@ class GridSession extends ChangeNotifier {
           _append(a.data.isNotEmpty ? a.data : b.speakText);
           break;
         case ActionKind.speakNow:
-          speech.speak(a.data.isNotEmpty ? a.data : b.speakText);
+          speech.speak(a.data.isNotEmpty ? a.data : b.speakText, style: b.voice);
           break;
         case ActionKind.speakMessage:
           speech.speak(_message);
@@ -73,6 +77,7 @@ class GridSession extends ChangeNotifier {
     }
     if (b.kind == ButtonKind.item && !b.actions.any((a) => a.kind == ActionKind.addText)) {
       _append(b.speakText);
+      if (b.voice != null) speech.speak(b.speakText, style: b.voice);
     }
     notifyListeners();
   }
@@ -80,6 +85,52 @@ class GridSession extends ChangeNotifier {
   void _append(String text) {
     if (text.isEmpty) return;
     _message = _message.isEmpty ? text : '$_message $text';
+  }
+
+  /// M4: typed text from the keyboard view joins the message window.
+  void addTyped(String text) {
+    _append(text);
+    notifyListeners();
+  }
+
+  void toggleKeyboard() {
+    showKeyboard = !showKeyboard;
+    notifyListeners();
+  }
+
+  /// M5: replace a button (by id) in the current view and persist via callback.
+  void replaceButton(VocabButton updated, {VoidCallback? persist}) {
+    final view = viewFor(currentFolderId, maxColumns: 99);
+    if (view == null) return;
+    final cells = view.cells;
+    for (var i = 0; i < cells.length; i++) {
+      if (cells[i].button.id == updated.id) {
+        cells[i] = GridCell(updated,
+            col: cells[i].col, row: cells[i].row,
+            span: cells[i].span, hidden: cells[i].hidden, dimmed: cells[i].dimmed);
+        break;
+      }
+    }
+    persist?.call();
+    notifyListeners();
+  }
+
+  /// M5: append a new button cell to the current view.
+  void addButton(VocabButton b, {VoidCallback? persist}) {
+    final view = viewFor(currentFolderId, maxColumns: 99);
+    if (view == null) return;
+    view.cells.add(GridCell(b));
+    persist?.call();
+    notifyListeners();
+  }
+
+  /// M5: remove a button from the current view.
+  void removeButton(String id, {VoidCallback? persist}) {
+    final view = viewFor(currentFolderId, maxColumns: 99);
+    if (view == null) return;
+    view.cells.removeWhere((c) => c.button.id == id);
+    persist?.call();
+    notifyListeners();
   }
 
   void back() {
@@ -108,11 +159,21 @@ class GridScreen extends StatelessWidget {
   final int maxColumns;
   final String? titleOverride;
 
+  /// M4 collaborators + M5 edit mode (only provided in My AAC mode).
+  final Predictor? predictor;
+  final bool editMode;
+  final void Function(VocabButton updated)? onEditButton;
+  final VoidCallback? onAddButton;
+
   const GridScreen({
     super.key,
     required this.session,
     required this.maxColumns,
     this.titleOverride,
+    this.predictor,
+    this.editMode = false,
+    this.onEditButton,
+    this.onAddButton,
   });
 
   @override
@@ -120,6 +181,18 @@ class GridScreen extends StatelessWidget {
     return AnimatedBuilder(
       animation: session,
       builder: (context, _) {
+        if (session.showKeyboard && predictor != null) {
+          return KeyboardView(
+            predictor: predictor!,
+            speech: session.speech,
+            initialText: session.message,
+            onSend: (t) {
+              session.addTyped(t);
+              session.toggleKeyboard();
+            },
+            onClose: session.toggleKeyboard,
+          );
+        }
         final view = session.viewFor(session.currentFolderId, maxColumns: maxColumns);
         final folder = session.currentFolder;
         final cols = view?.columns.clamp(1, 12) ?? maxColumns;
@@ -217,6 +290,13 @@ class GridScreen extends StatelessWidget {
               ),
             ),
           ),
+          if (editMode) ...[
+            _toolbarBtn(icon: Icons.add_box, label: 'Add', onTap: onAddButton),
+          ],
+          _toolbarBtn(
+              icon: Icons.keyboard_alt_outlined,
+              label: 'Type',
+              onTap: predictor != null ? session.toggleKeyboard : null),
           _toolbarBtn(icon: Icons.volume_up, label: 'Speak', onTap: session.speakMessage),
           _toolbarBtn(icon: Icons.backspace_outlined, label: 'Clear', onTap: session.clearMessage),
         ],
@@ -258,8 +338,14 @@ class GridScreen extends StatelessWidget {
               child: _CellButton(
                 button: visible[i].button,
                 dimmed: visible[i].dimmed,
-                onTap: () =>
-                    session.tap(visible[i].button, maxColumns: maxColumns),
+                showEditBadge: editMode,
+                onTap: () {
+                  if (editMode && onEditButton != null) {
+                    onEditButton!(visible[i].button);
+                  } else {
+                    session.tap(visible[i].button, maxColumns: maxColumns);
+                  }
+                },
               ),
             ),
         ]);
@@ -271,8 +357,14 @@ class GridScreen extends StatelessWidget {
 class _CellButton extends StatelessWidget {
   final VocabButton button;
   final bool dimmed;
+  final bool showEditBadge;
   final VoidCallback onTap;
-  const _CellButton({required this.button, required this.onTap, this.dimmed = false});
+  const _CellButton({
+    required this.button,
+    required this.onTap,
+    this.dimmed = false,
+    this.showEditBadge = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -291,38 +383,48 @@ class _CellButton extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.black26),
+              border: Border.all(
+                  color: showEditBadge ? Colors.deepOrange : Colors.black26,
+                  width: showEditBadge ? 2 : 1),
             ),
             padding: const EdgeInsets.all(4),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(2),
-                    child: sym.imagePath != null
-                        ? Image.file(
-                            File(sym.imagePath!),
-                            fit: BoxFit.contain,
-                            errorBuilder: (_, __, ___) =>
-                                FittedBox(child: Text(sym.emoji)),
-                          )
-                        : FittedBox(child: Text(sym.emoji)),
+            child: Stack(children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(2),
+                      child: sym.imagePath != null
+                          ? Image.file(
+                              File(sym.imagePath!),
+                              fit: BoxFit.contain,
+                              errorBuilder: (_, __, ___) =>
+                                  FittedBox(child: Text(sym.emoji)),
+                            )
+                          : SymbolLibrary.resolve(sym, size: 56),
+                    ),
                   ),
+                  Text(
+                    button.label,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontSize: 12.5,
+                        height: 1.05,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+              if (showEditBadge)
+                const Positioned(
+                  right: 0,
+                  top: 0,
+                  child: Icon(Icons.edit, size: 13, color: Colors.deepOrange),
                 ),
-                Text(
-                  button.label,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontSize: 12.5,
-                      height: 1.05,
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
+            ]),
           ),
         ),
       ),

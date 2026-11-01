@@ -14,9 +14,11 @@ dependencies:
     sdk: flutter
   provider: ^6.1.2
   flutter_tts: ^4.2.0
+  flutter_svg: ^2.0.10
   sqflite_common_ffi: ^2.3.3
   sqlite3_flutter_libs: ^0.5.24
   path: ^1.9.0
+  path_provider: ^2.1.4
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +29,10 @@ flutter:
   uses-material-design: true
   assets:
     - assets/sample_pack.json
+    - assets/symbol_index.json
+    - assets/prediction_en_top10k.txt
+    - assets/symbols/twemoji/
+    - assets/symbols/noto/
+    - assets/symbols/openmoji/
+    - assets/symbols/openmoji_black/
+    - assets/symbols/mulberry/

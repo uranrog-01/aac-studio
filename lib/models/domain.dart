@@ -66,12 +66,58 @@ class VocabAction {
   const VocabAction(this.kind, {this.data = ''});
 }
 
+/// M3: optional per-button voice override (null = app default).
+class VoiceStyle {
+  final double? rate;
+  final double? pitch;
+  final double? volume;
+  const VoiceStyle({this.rate, this.pitch, this.volume});
+
+  VoiceStyle copyWith({double? rate, double? pitch, double? volume, bool clear = false}) =>
+      VoiceStyle(
+        rate: clear ? null : rate ?? this.rate,
+        pitch: clear ? null : pitch ?? this.pitch,
+        volume: clear ? null : volume ?? this.volume,
+      );
+
+  Map<String, dynamic> toJson() => {
+        if (rate != null) 'rate': rate,
+        if (pitch != null) 'pitch': pitch,
+        if (volume != null) 'volume': volume,
+      };
+
+  static VoiceStyle? fromJson(Map<String, dynamic>? j) =>
+      j == null ? null : VoiceStyle(
+        rate: (j['rate'] as num?)?.toDouble(),
+        pitch: (j['pitch'] as num?)?.toDouble(),
+        volume: (j['volume'] as num?)?.toDouble(),
+      );
+}
+
 /// What a button shows.
 class SymbolRef {
   /// Emoji, or key resolved by a symbol provider (PNG path in explorer mode).
   final String emoji;
   final String? imagePath; // absolute file path (explorer PNG symbols)
-  const SymbolRef(this.emoji, {this.imagePath});
+  /// Bundled open symbol pack: 'twemoji' | 'noto' | 'openmoji' | 'mulberry'.
+  final String? pack;
+  /// Key within the pack (codepoint hex for emoji packs, filename for mulberry).
+  final String? key;
+  const SymbolRef(this.emoji, {this.imagePath, this.pack, this.key});
+
+  Map<String, dynamic> toJson() => {
+        'emoji': emoji,
+        if (imagePath != null) 'imagePath': imagePath,
+        if (pack != null) 'pack': pack,
+        if (key != null) 'key': key,
+      };
+
+  static SymbolRef fromJson(Map<String, dynamic>? j) => j == null
+      ? const SymbolRef('⬛')
+      : SymbolRef((j['emoji'] ?? '⬛') as String,
+          imagePath: j['imagePath'] as String?,
+          pack: j['pack'] as String?,
+          key: j['key'] as String?);
 }
 
 class VocabButton {
@@ -82,6 +128,7 @@ class VocabButton {
   final WordClass wordClass;
   final SymbolRef symbol;
   final List<VocabAction> actions;
+  final VoiceStyle? voice;
   const VocabButton({
     required this.id,
     required this.label,
@@ -90,9 +137,30 @@ class VocabButton {
     required this.symbol,
     this.spokenText,
     this.actions = const [],
+    this.voice,
   });
 
   String get speakText => (spokenText != null && spokenText!.isNotEmpty) ? spokenText! : label;
+
+  VocabButton copyWith({
+    String? label,
+    String? spokenText,
+    WordClass? wordClass,
+    SymbolRef? symbol,
+    List<VocabAction>? actions,
+    VoiceStyle? voice,
+    bool clearVoice = false,
+  }) =>
+      VocabButton(
+        id: id,
+        label: label ?? this.label,
+        spokenText: spokenText ?? this.spokenText,
+        kind: kind,
+        wordClass: wordClass ?? this.wordClass,
+        symbol: symbol ?? this.symbol,
+        actions: actions ?? this.actions,
+        voice: clearVoice ? null : voice ?? this.voice,
+      );
 }
 
 enum ButtonKind { item, folder, action }

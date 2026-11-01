@@ -1,7 +1,8 @@
 import 'package:flutter_tts/flutter_tts.dart';
 
-/// M2 speech engine — platform TTS abstraction (Windows SAPI voices on the
-/// desktop preview, AVSpeechSynthesizer on iOS, engine TTS on Android).
+import '../models/domain.dart';
+
+/// M3 speech engine — platform TTS abstraction with per-utterance overrides.
 class SpeechEngine {
   final FlutterTts _tts = FlutterTts();
   bool _ready = false;
@@ -21,12 +22,28 @@ class SpeechEngine {
     _ready = true;
   }
 
-  Future<void> speak(String text) async {
+  Future<void> applyDefaults() async {
+    await ensure();
+    try {
+      await _tts.setSpeechRate(rate);
+      await _tts.setPitch(pitch);
+      await _tts.setVolume(volume);
+    } catch (_) {}
+  }
+
+  /// Speak [text]; [style] temporarily overrides rate/pitch/volume (M3).
+  Future<void> speak(String text, {VoiceStyle? style}) async {
     if (text.trim().isEmpty) return;
     await ensure();
-    await _tts.setSpeechRate(rate);
     try {
+      await _tts.setSpeechRate(style?.rate ?? rate);
+      await _tts.setPitch(style?.pitch ?? pitch);
+      await _tts.setVolume(style?.volume ?? volume);
       await _tts.speak(text);
+      // restore defaults for the next utterance
+      await _tts.setSpeechRate(rate);
+      await _tts.setPitch(pitch);
+      await _tts.setVolume(volume);
     } catch (_) {}
   }
 

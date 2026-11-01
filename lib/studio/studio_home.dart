@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../engine/settings_controller.dart';
+import '../engine/speech.dart';
 import '../features/modes.dart';
+import '../features/settings/settings_sheet.dart';
 import 'device_frame.dart';
 
-/// M0 studio shell: device picker, mode picker, live preview.
+/// M0 studio shell: device picker, mode picker, live preview, M3/M5 controls.
 class StudioHome extends StatefulWidget {
   const StudioHome({super.key});
 
@@ -100,6 +103,41 @@ class _StudioHomeState extends State<StudioHome> {
             title: '🔬 P2G Explorer',
             subtitle: 'Live render of extracted IPA data (research)',
             onTap: () => setState(() => mode = _Mode.p2gExplorer),
+          ),
+          const Divider(color: Colors.white12),
+          const _Section('Controls'),
+          // M5 edit mode (PIN-gated when restrictions are on)
+          SwitchListTile(
+            value: context.watch<SettingsController>().editMode,
+            onChanged: (v) async {
+              final sc = context.read<SettingsController>();
+              await sc.setEditMode(v, context);
+            },
+            title: const Text('✏️ Edit mode',
+                style: TextStyle(color: Colors.white70, fontSize: 13)),
+            subtitle: const Text('tap a button to edit it',
+                style: TextStyle(color: Colors.white30, fontSize: 10.5)),
+          ),
+          // M3 speech settings + M5 restrictions
+          ListTile(
+            dense: true,
+            leading: const Icon(Icons.tune, color: Colors.white54, size: 18),
+            title: const Text('⚙️ Speech & restrictions',
+                style: TextStyle(color: Colors.white70, fontSize: 13)),
+            onTap: () => SettingsSheet.show(
+              context,
+              speech: context.read<SpeechEngine>(),
+              settings: context.read<SettingsController>().settings,
+              onChanged: () {
+                final sc = context.read<SettingsController>();
+                final speech = context.read<SpeechEngine>();
+                speech
+                  ..rate = sc.settings.rate
+                  ..pitch = sc.settings.pitch
+                  ..volume = sc.settings.volume;
+                sc.update();
+              },
+            ),
           ),
           const Divider(color: Colors.white12),
           const Padding(

@@ -48,8 +48,13 @@ class PackLoader {
         spokenText: b['spoken'] as String?,
         kind: _buttonKind(b['kind'] as String),
         wordClass: WordClass.fromName(b['class'] as String?),
-        symbol: SymbolRef(b['symbol'] as String? ?? '⬛'),
+        symbol: SymbolRef.fromJson({
+          'emoji': b['symbol'] ?? '⬛',
+          'pack': b['symbolPack'],
+          'key': b['symbolKey'],
+        }),
         actions: actions,
+        voice: VoiceStyle.fromJson(b['voice'] as Map<String, dynamic>?),
       );
     }
     final views = <String, List<VocabView>>{};
@@ -79,6 +84,87 @@ class PackLoader {
       folders: folders,
       viewsByFolder: views,
     );
+  }
+
+  /// Serialize a vocabulary back to the pack JSON schema (M5 persistence).
+  Map<String, dynamic> save(Vocabulary v) {
+    final buttons = <Map<String, dynamic>>[];
+    final views = <String, dynamic>{};
+    for (final e in v.viewsByFolder.entries) {
+      views[e.key] = e.value.map((view) {
+        return {
+          'columns': view.columns,
+          'cells': view.cells.map((c) {
+            final b = c.button;
+            return {
+              'btn': b.id,
+              if (c.col != null) 'col': c.col,
+              if (c.row != null) 'row': c.row,
+              if (c.span != 1) 'span': c.span,
+            };
+          }).toList(),
+        };
+      }).toList();
+    }
+    // collect buttons from views + folders
+    final allButtons = <VocabButton>{};
+    for (final list in v.viewsByFolder.values) {
+      for (final view in list) {
+        for (final c in view.cells) {
+          allButtons.add(c.button);
+        }
+      }
+    }
+    for (final b in allButtons) {
+      buttons.add({
+        'id': b.id,
+        'kind': switch (b.kind) {
+          ButtonKind.folder => 'folder',
+          ButtonKind.action => 'action',
+          _ => 'item',
+        },
+        'label': b.label,
+        if (b.spokenText != null && b.spokenText != b.label) 'spoken': b.spokenText,
+        'class': b.wordClass.name,
+        'symbol': b.symbol.pack == null ? b.symbol.emoji : b.symbol.emoji,
+        if (b.symbol.pack != null) ...{
+          'symbolPack': b.symbol.pack,
+          'symbolKey': b.symbol.key,
+        },
+        'actions': b.actions
+            .map((a) => {
+                  'kind': switch (a.kind) {
+                    ActionKind.addText => 'addText',
+                    ActionKind.speakNow => 'speakNow',
+                    ActionKind.speakMessage => 'speakMessage',
+                    ActionKind.clearMessage => 'clearMessage',
+                    ActionKind.gotoFolder => 'gotoFolder',
+                    ActionKind.launchUrl => 'launchUrl',
+                  },
+                  if (a.data.isNotEmpty) 'data': a.data,
+                })
+            .toList(),
+        if (b.voice != null) 'voice': b.voice!.toJson(),
+      });
+    }
+    return {
+      'id': v.id,
+      'label': v.label,
+      'rootFolder': v.rootFolderId,
+      'folders': v.folders.values
+          .map((f) => {
+                'id': f.id,
+                'label': f.label,
+                'symbol': f.symbol.pack == null ? f.symbol.emoji : f.symbol.emoji,
+                if (f.symbol.pack != null) ...{
+                  'symbolPack': f.symbol.pack,
+                  'symbolKey': f.symbol.key,
+                },
+              })
+          .toList(),
+      'buttons': buttons,
+      'views': views,
+    };
   }
 
   ButtonKind _buttonKind(String s) => switch (s) {

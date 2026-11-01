@@ -1,41 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/pack_loader.dart';
-import '../../data/p2g_loader.dart';
-import '../../engine/speech.dart';
-import '../../models/domain.dart';
+import '../data/p2g_loader.dart';
+import '../engine/prediction.dart';
+import '../engine/settings_controller.dart';
+import '../engine/speech.dart';
+import '../engine/symbol_library.dart';
+import '../models/domain.dart';
 import '../studio/device_frame.dart';
+import 'editor/editor_dialog.dart';
 import 'grid/grid_screen.dart';
 
-/// M2: the ORIGINAL sample vocabulary running in the studio.
+/// M2+M3+M5: the ORIGINAL sample vocabulary running in the studio, with
+/// persisted edits and voice styles.
 class MyAppHome extends StatelessWidget {
   const MyAppHome({super.key});
 
   @override
   Widget build(BuildContext context) {
     final device = context.watch<ValueNotifier<DeviceMode?>>();
-    return FutureBuilder<Vocabulary>(
-      future: PackLoader().loadAsset('assets/sample_pack.json'),
-      builder: (context, snap) {
-        if (!snap.hasData) {
-          return const Center(child: CircularProgressIndicator());
+    final settings = context.watch<SettingsController>();
+    final library = context.watch<SymbolLibrary>();
+    final pack = context.watch<PackController>();
+    if (pack.vocabulary == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    final session = GridSession(
+      vocabulary: pack.vocabulary!,
+      speech: SpeechEngineProvider.of(context),
+    );
+    return GridScreen(
+      session: session,
+      maxColumns: device.value?.spec.maxGridColumns ?? 6,
+      titleOverride: pack.vocabulary!.label,
+      predictor: context.watch<Predictor>(),
+      editMode: settings.editMode,
+      onEditButton: (b) => _edit(context, session, pack, library, b),
+      onAddButton: () => _add(context, session, pack, library),
+    );
+  }
+
+  void _edit(BuildContext context, GridSession session, PackController pack,
+      SymbolLibrary library, VocabButton b) {
+    ButtonEditorDialog.show(
+      context,
+      library: library,
+      existing: b,
+      onSave: (updated) {
+        session.replaceButton(updated, persist: pack.save);
+        final s = updated.voice;
+        if (s != null) {
+          SpeechEngineProvider.of(context).speak(updated.speakText, style: s);
         }
-        final session = GridSession(
-          vocabulary: snap.data!,
-          speech: SpeechEngineProvider.of(context),
-        );
-        return GridScreen(
-          session: session,
-          maxColumns: device.value?.spec.maxGridColumns ?? 6,
-          titleOverride: snap.data!.label,
-        );
+      },
+      onDelete: () {
+        session.removeButton(b.id, persist: pack.save);
+      },
+    );
+  }
+
+  void _add(BuildContext context, GridSession session, PackController pack,
+      SymbolLibrary library) {
+    ButtonEditorDialog.show(
+      context,
+      library: library,
+      onSave: (b) {
+        session.addButton(b, persist: pack.save);
       },
     );
   }
 }
 
-/// P2G Explorer: renders the locally extracted IPA vocabulary data.
+/// P2G Explorer: renders the locally extracted IPA vocabulary data
+/// (research viewer; editing disabled).
 class P2gExplorer extends StatelessWidget {
   final P2gConfig config;
   const P2gExplorer({super.key, required this.config});
@@ -67,7 +104,11 @@ class P2gExplorer extends StatelessWidget {
           vocabulary: snap.data!,
           speech: SpeechEngineProvider.of(context),
         );
-        return GridScreen(session: session, maxColumns: maxCols);
+        return GridScreen(
+          session: session,
+          maxColumns: maxCols,
+          predictor: context.watch<Predictor>(),
+        );
       },
     );
   }
