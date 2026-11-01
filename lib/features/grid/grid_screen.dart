@@ -87,9 +87,10 @@ class GridSession extends ChangeNotifier {
     _message = _message.isEmpty ? text : '$_message $text';
   }
 
-  /// M4: typed text from the keyboard view joins the message window.
-  void addTyped(String text) {
-    _append(text);
+  /// M4 (revised): live typing — replaces the message window contents
+  /// on every keystroke; no send step.
+  void setMessageLive(String text) {
+    _message = text;
     notifyListeners();
   }
 
@@ -186,10 +187,8 @@ class GridScreen extends StatelessWidget {
             predictor: predictor!,
             speech: session.speech,
             initialText: session.message,
-            onSend: (t) {
-              session.addTyped(t);
-              session.toggleKeyboard();
-            },
+            onTextChanged: session.setMessageLive,
+            onSpeak: session.speakMessage,
             onClose: session.toggleKeyboard,
           );
         }

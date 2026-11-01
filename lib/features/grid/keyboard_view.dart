@@ -4,22 +4,25 @@ import '../../engine/prediction.dart';
 import '../../engine/speech.dart';
 import '../../engine/storage.dart';
 
-/// M4: typing view — hardware + on-screen keyboard, prediction bar, and
-/// auto-learn on send. Sends the composed text back to the message window.
+/// M4 (revised): typing view — hardware + on-screen keyboard, prediction bar,
+/// auto-learn on close. Every keystroke goes **live** into the message window
+/// (no send button); tapping the chat banner speaks it.
 class KeyboardView extends StatefulWidget {
   final Predictor predictor;
   final SpeechEngine speech;
   final String initialText;
-  final ValueChanged<String> onSend;
+  final ValueChanged<String> onTextChanged; // live, every keystroke
   final VoidCallback onClose;
+  final VoidCallback onSpeak; // banner tap
 
   const KeyboardView({
     super.key,
     required this.predictor,
     required this.speech,
     this.initialText = '',
-    required this.onSend,
+    required this.onTextChanged,
     required this.onClose,
+    required this.onSpeak,
   });
 
   @override
@@ -35,31 +38,42 @@ class _KeyboardViewState extends State<KeyboardView> {
   void initState() {
     super.initState();
     _controller = TextEditingController(text: widget.initialText);
-    _controller.addListener(_syncCurrentWord);
+    _controller.addListener(_changed);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _changed());
   }
 
   @override
   void dispose() {
-    _controller.removeListener(_syncCurrentWord);
+    _learnAll();
+    _controller.removeListener(_changed);
     _controller.dispose();
     _focus.dispose();
     super.dispose();
   }
 
-  void _syncCurrentWord() {
+  void _changed() {
+    // push text live to the message window (no send button)
+    widget.onTextChanged(_controller.text);
     final text = _controller.text;
-    final i = text.length;
+    final i = _controller.selection.baseOffset < 0 ? text.length : _controller.selection.baseOffset;
     var start = i;
     while (start > 0 && !_isSep(text[start - 1])) {
       start--;
     }
     final w = text.substring(start, i);
-    if (w != _currentWord) {
+    if (w != _currentWord && mounted) {
       setState(() => _currentWord = w);
     }
   }
 
-  static bool _isSep(String ch) => ch == ' ' || ch == '\n' || '.,!?;:\'"'.contains(ch);
+  /// Learn every word in the composed text (called when leaving the view).
+  void _learnAll() {
+    final t = _controller.text.trim();
+    if (t.isNotEmpty) widget.predictor.learnFrom(t, defaultAppStorageProvider);
+  }
+
+  static bool _isSep(String ch) =>
+      ch == ' ' || ch == '\n' || '.,!?;:\'"'.contains(ch);
 
   void _insert(String s) {
     final sel = _controller.selection;
@@ -97,14 +111,6 @@ class _KeyboardViewState extends State<KeyboardView> {
     );
   }
 
-  Future<void> _send({bool speak = false}) async {
-    final text = _controller.text.trim();
-    if (text.isEmpty) return;
-    await widget.predictor.learnFrom(text, defaultAppStorageProvider);
-    if (speak) await widget.speech.speak(text);
-    if (mounted) widget.onSend(text);
-  }
-
   @override
   Widget build(BuildContext context) {
     final suggestions = widget.predictor.suggest(_currentWord);
@@ -113,26 +119,34 @@ class _KeyboardViewState extends State<KeyboardView> {
       body: SafeArea(
         child: Column(
           children: [
-            // message preview + send row
-            Container(
-              margin: const EdgeInsets.fromLTRB(10, 10, 10, 4),
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-              constraints: const BoxConstraints(minHeight: 64),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Text(
-                _controller.text.isEmpty ? '…' : _controller.text,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontSize: 20, color: Colors.black87),
+            // chat banner — taps speak (M4 revised)
+            GestureDetector(
+              onTap: widget.onSpeak,
+              child: Container(
+                margin: const EdgeInsets.fromLTRB(10, 10, 10, 4),
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                constraints: const BoxConstraints(minHeight: 64),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.black26),
+                ),
+                child: Row(children: [
+                  Expanded(
+                    child: Text(
+                      _controller.text.isEmpty ? '… (tap to speak)' : _controller.text,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 20, color: Colors.black87),
+                    ),
+                  ),
+                  const Icon(Icons.volume_up, color: Colors.black38),
+                ]),
               ),
             ),
             Row(children: [
               _actionBtn(Icons.grid_view, 'Grid', widget.onClose),
-              _actionBtn(Icons.volume_up, 'Speak', () => _send(speak: true)),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -142,14 +156,12 @@ class _KeyboardViewState extends State<KeyboardView> {
                     autofocus: true,
                     decoration: const InputDecoration(
                       isDense: true,
-                      hintText: 'Type here…',
+                      hintText: 'Type here — goes straight to the banner…',
                       border: OutlineInputBorder(),
                     ),
-                    onSubmitted: (_) => _send(),
                   ),
                 ),
               ),
-              _actionBtn(Icons.send, 'Add', () => _send()),
             ]),
             // prediction bar
             Container(

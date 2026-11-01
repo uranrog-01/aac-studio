@@ -74,7 +74,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
             ),
           ]),
           const Divider(color: Colors.white12, height: 28),
-          // M5 restrictions
+          // M5 restrictions — PIN defaults to 1234, changeable here
           Row(children: [
             const Icon(Icons.lock_outline, color: Colors.white54, size: 18),
             const SizedBox(width: 8),
@@ -86,27 +86,39 @@ class _SettingsSheetState extends State<SettingsSheet> {
               value: s.restrictionsEnabled,
               onChanged: (v) async {
                 if (v) {
-                  final pin = await _askPin('Set a 4-digit PIN');
-                  if (pin == null) return;
                   s.restrictionsEnabled = true;
-                  s.pin = pin;
                 } else {
-                  if (s.pin != null) {
-                    final ok = await _verifyPin(s.pin!);
-                    if (!ok) return;
-                  }
+                  final ok = await _verifyPin(s.pin);
+                  if (!ok) return;
                   s.restrictionsEnabled = false;
+                  s.editMode = false;
                 }
                 _changed();
               },
+            ),
+          ]),
+          Row(children: [
+            const SizedBox(width: 26),
+            Text('Edit-mode code: ${s.pin}',
+                style: const TextStyle(color: Colors.white38, fontSize: 12)),
+            const SizedBox(width: 12),
+            TextButton.icon(
+              onPressed: () async {
+                final pin = await _askPin('Set a new 4-digit code',
+                    current: s.pin);
+                if (pin == null) return;
+                s.pin = pin;
+                _changed();
+              },
+              icon: const Icon(Icons.password, size: 16),
+              label: const Text('Change code'),
             ),
           ]),
           if (s.restrictionsEnabled)
             const Padding(
               padding: EdgeInsets.only(left: 26),
               child: Text(
-                  'Edit mode and settings now require the PIN. '
-                  'Enter edit mode from the studio panel.',
+                  'Edit mode and turning restrictions off now require the code.',
                   style: TextStyle(color: Colors.white38, fontSize: 11)),
             ),
           const SizedBox(height: 10),
@@ -139,8 +151,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
     ]);
   }
 
-  Future<String?> _askPin(String title) async {
-    final c = TextEditingController();
+  Future<String?> _askPin(String title, {String? current}) async {
+    final c = TextEditingController(text: current ?? '');
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(

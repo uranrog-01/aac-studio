@@ -66,6 +66,22 @@ Android: SDK with platform 35 + build-tools 35 (see android/local.properties).
     +-- studio/                   # device frames + studio shell
     assets/                       # sample pack + 24k symbols + prediction lexicon
 
+## Wireless install (no USB)
+
+The studio panel has an **Install on device** section: click *Start Wi-Fi
+install* — the studio serves the built APK over your LAN and shows a QR code.
+Scan it with the phone/tablet (same Wi-Fi), open the link, download, install.
+Android asks to allow "Install unknown apps" for your browser — normal for
+sideloading. Nothing leaves your network.
+
+## Input & access
+
+- **Typing view**: on-screen QWERTY + hardware keyboard; every keystroke goes
+  live into the message window (no send button); prediction bar + auto-learn;
+  **tap the chat banner to speak it**.
+- **Edit mode**: always gated by a code (default **1234**, changeable in
+  Speech & restrictions settings).
+
 ## Licensing
 
 Code: MIT (see LICENSE). Sample vocabulary content: original, MIT.

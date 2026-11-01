@@ -24,9 +24,8 @@ class SettingsController extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Returns true when the action is allowed (no restrictions or PIN ok).
+  /// Always prompts for the edit-mode code (default 1234).
   Future<bool> guardPrivileged(BuildContext context) async {
-    if (!settings.restrictionsEnabled) return true;
     final s = await showDialog<_PinResult>(
       context: context,
       builder: (ctx) => _PinDialog(),
@@ -34,8 +33,10 @@ class SettingsController extends ChangeNotifier {
     return s != null && s.ok && s.pin == settings.pin;
   }
 
+  /// Edit mode always requires the code (default 1234, changeable in
+  /// settings) when enabling it.
   Future<void> setEditMode(bool on, BuildContext context) async {
-    if (on && settings.restrictionsEnabled) {
+    if (on) {
       final allowed = await guardPrivileged(context);
       if (!allowed) return;
     }

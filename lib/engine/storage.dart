@@ -70,14 +70,14 @@ class StorageProviderAdapter implements AppStorageProvider {
 class AppSettings {
   double rate, pitch, volume;
   bool restrictionsEnabled;
-  String? pin;
+  String pin;
   bool editMode;
   AppSettings({
     this.rate = 0.45,
     this.pitch = 1.0,
     this.volume = 1.0,
     this.restrictionsEnabled = false,
-    this.pin,
+    this.pin = '1234',
     this.editMode = false,
   });
 
@@ -95,7 +95,7 @@ class AppSettings {
         pitch: (j?['pitch'] as num?)?.toDouble() ?? 1.0,
         volume: (j?['volume'] as num?)?.toDouble() ?? 1.0,
         restrictionsEnabled: j?['restrictionsEnabled'] as bool? ?? false,
-        pin: j?['pin'] as String?,
+        pin: (j?['pin'] as String?) ?? '1234',
         editMode: j?['editMode'] as bool? ?? false,
       );
 }
