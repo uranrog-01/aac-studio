@@ -116,12 +116,13 @@ class _StudioHomeState extends State<StudioHome> {
             subtitle: 'M0–M2 sample vocabulary, emoji symbols',
             onTap: () => setState(() => mode = _Mode.myApp),
           ),
-          _RadioTile(
-            selected: mode == _Mode.p2gExplorer,
-            title: '🔬 P2G Explorer',
-            subtitle: 'Live render of extracted IPA data (research)',
-            onTap: () => setState(() => mode = _Mode.p2gExplorer),
-          ),
+          if (_isDesktop)
+            _RadioTile(
+              selected: mode == _Mode.p2gExplorer,
+              title: '🔬 P2G Explorer',
+              subtitle: 'Live render of extracted IPA data (research)',
+              onTap: () => setState(() => mode = _Mode.p2gExplorer),
+            ),
           const Divider(color: Colors.white12),
           const _Section('Controls'),
           // M5 edit mode (PIN-gated when restrictions are on)
@@ -157,23 +158,31 @@ class _StudioHomeState extends State<StudioHome> {
               },
             ),
           ),
-          const Divider(color: Colors.white12),
-          const _Section('Install on device'),
-          _installSection(),
-          const Divider(color: Colors.white12),
-          const Padding(
-            padding: EdgeInsets.all(8),
-            child: Text(
-              'Explorer reads the extracted IPA databases and pre-rendered '
-              'symbols from this machine only. Study tooling — the app\'s '
-              'code, symbols and voices remain copyrighted.',
-              style: TextStyle(color: Colors.white30, fontSize: 10),
+          if (_isDesktop) ...[
+            const Divider(color: Colors.white12),
+            const _Section('Install on device'),
+            _installSection(),
+            const Divider(color: Colors.white12),
+            const Padding(
+              padding: EdgeInsets.all(8),
+              child: Text(
+                'Explorer reads the extracted IPA databases and pre-rendered '
+                'symbols from this machine only. Study tooling — the app\'s '
+                'code, symbols and voices remain copyrighted.',
+                style: TextStyle(color: Colors.white30, fontSize: 10),
+              ),
             ),
-          ),
+          ],
         ],
       ),
     );
   }
+
+  /// Desktop-only studio features (Wi-Fi install server, P2G Explorer) need
+  /// local file paths and a server socket — hidden on phones/tablets where
+  /// the app runs standalone.
+  static bool get _isDesktop =>
+      !Platform.isAndroid && !Platform.isIOS;
 
   /// 📲 Wireless install: serves the built APK over the LAN and shows a QR
   /// code — scan with the phone/tablet to download and install, no USB.
@@ -193,13 +202,16 @@ class _StudioHomeState extends State<StudioHome> {
                 return;
               }
               final apk = _findApk();
-              if (apk == null) {
+              final ipa = _findIpa();
+              if (apk == null && ipa == null) {
                 s._installError =
-                    'APK not found. Run:  flutter build apk --release';
+                    'No build found. Run:  flutter build apk --release  '
+                    '(Android) — or get AACStudio-unsigned.ipa from Codemagic (iOS).';
                 setState(() {});
                 return;
               }
-              final server = InstallServer(apkPath: apk);
+              final server = InstallServer(
+                  apkPath: apk ?? ipa!, ipaPath: ipa);
               try {
                 final url = await server.start();
                 s._installServer = server;
@@ -277,6 +289,21 @@ class _StudioHomeState extends State<StudioHome> {
     // Project root = 5 levels up from the Windows exe dir
     // (build/windows/x64/runner/Release); direct path when run via flutter run.
     const rel = 'build\\app\\outputs\\flutter-apk\\app-release.apk';
+    final candidates = <String>[
+      rel, // running from project dir (flutter run)
+      '..\\..\\..\\..\\..\\$rel', // built exe in build/windows/x64/runner/Release
+      'C:\\Users\\zer0ne_LP_Local\\Desktop\\Proloquo2Go\\studio\\$rel',
+    ];
+    for (final c in candidates) {
+      final f = File(c);
+      if (f.existsSync()) return f.absolute.path;
+    }
+    return null;
+  }
+
+  /// Finds a packaged unsigned iOS IPA, if one was copied into dist/.
+  String? _findIpa() {
+    const rel = 'dist\\AACStudio-unsigned.ipa';
     final candidates = <String>[
       rel, // running from project dir (flutter run)
       '..\\..\\..\\..\\..\\$rel', // built exe in build/windows/x64/runner/Release

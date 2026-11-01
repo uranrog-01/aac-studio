@@ -69,10 +69,34 @@ Android: SDK with platform 35 + build-tools 35 (see android/local.properties).
 ## Wireless install (no USB)
 
 The studio panel has an **Install on device** section: click *Start Wi-Fi
-install* — the studio serves the built APK over your LAN and shows a QR code.
-Scan it with the phone/tablet (same Wi-Fi), open the link, download, install.
-Android asks to allow "Install unknown apps" for your browser — normal for
-sideloading. Nothing leaves your network.
+install* — the studio serves your built packages over your LAN and shows a QR
+code. Scan it with the phone/tablet (same Wi-Fi), open the link, download.
+Nothing leaves your network.
+
+- **Android**: the served `.apk` installs directly — allow "Install unknown
+  apps" for your browser when asked. Build it with `flutter build apk --release`.
+- **iPhone / iPad (iOS 12 → 18+)**: the served `.ipa` is **unsigned**; iOS
+  will download it but never self-install it (an unsigned file is invisible to
+  the installer — this is why a QR scan can appear to "do nothing"). Sideload
+  it instead:
+  1. Get `AACStudio-unsigned.ipa` from the Codemagic **iOS (unsigned IPA)**
+     workflow (it also lands in `dist/`), or build on a Mac with
+     `flutter build ios --release --no-codesign` and zip `Runner.app` into a
+     `Payload/` folder.
+  2. On Windows: install [Sideloadly](https://sideloadly.io) (or
+     [AltStore](https://altstore.io)), plug the iPhone in via USB, load the
+     IPA, sign with a free Apple ID, install. The app is native **arm64** and
+     runs on any modern iOS; free accounts need a re-sign every 7 days.
+  3. Trust the developer profile under Settings → General → VPN & Device
+     Management on first launch.
+- **True tap-to-install OTA** (the `itms-services://` QR style): requires a
+  **paid** Apple Developer account ($99/yr) — signed IPA + HTTPS-hosted
+  manifest with a trusted certificate. Self-signed HTTP QRs fail silently on
+  iOS by design. Add a signing group in Codemagic's UI to go this route.
+
+Full decision tree (TrollStore on old iOS, Sideloadly + free Apple ID,
+on-device SideStore/ESign bootstrap, security warnings about fake "ESign
+iOS" repos) and the USB install helper: **[docs/IOS_SIGNING.md](docs/IOS_SIGNING.md)**.
 
 ## Input & access
 

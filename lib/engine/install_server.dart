@@ -1,19 +1,27 @@
 import 'dart:async';
 import 'dart:io';
 
-/// Wireless install server: serves the built Android APK over the local
-/// network so a phone/tablet can download it by scanning a QR code —
-/// no USB needed. Same concept as the studied app's embedded web server.
+/// Wireless install server: serves the built Android APK (and optionally a
+/// packaged iOS IPA) over the local network so a phone/tablet can download
+/// them by scanning a QR code — no USB needed. Same concept as the studied
+/// app's embedded web server.
+///
+/// iOS note: Safari can download the .ipa, but it cannot self-install it —
+/// the file still needs signing via Sideloadly/AltStore (free Apple ID) or
+/// TestFlight (paid). True OTA install (itms-services) requires a paid
+/// Apple Developer account with a trusted HTTPS certificate.
 class InstallServer {
   HttpServer? _server;
   final String apkPath;
+  final String? ipaPath;
   int port = 8770;
 
-  InstallServer({required this.apkPath});
+  InstallServer({required this.apkPath, this.ipaPath});
 
   bool get running => _server != null;
   String? get url => _server == null ? null : 'http://$_lanIp:$port';
   String? get apkUrl => url == null ? null : '$url/apk';
+  String? get ipaUrl => (url == null || ipaPath == null) ? null : '$url/ipa';
 
   static String? _lanIp;
 
@@ -70,6 +78,25 @@ class InstallServer {
   void _handle(HttpRequest req) async {
     try {
       final path = req.uri.path;
+      if (path == '/ipa') {
+        final f = File(ipaPath ?? '');
+        if (ipaPath == null || !await f.exists()) {
+          req.response.statusCode = 404;
+          req.response.write(
+              'IPA not found. Package it first: see codemagic.yaml ios-ipa-unsigned.');
+          await req.response.close();
+          return;
+        }
+        final len = await f.length();
+        req.response.headers
+          ..contentType = ContentType('application', 'octet-stream')
+          ..contentLength = len
+          ..set('Content-Disposition',
+              'attachment; filename="AACStudio-unsigned.ipa"');
+        await f.openRead().pipe(req.response);
+        await req.response.close();
+        return;
+      }
       if (path == '/apk' || path == '/app-release.apk') {
         final f = File(apkPath);
         if (!await f.exists()) {
@@ -89,8 +116,17 @@ class InstallServer {
         await req.response.close();
         return;
       }
-      // download page
-      const html = '''
+      // download page (adapts to what has actually been built)
+      final apkExists = await File(apkPath).exists();
+      final ipa = ipaPath;
+      final ipaExists = ipa != null && await File(ipa).exists();
+      final apkBtn = apkExists
+          ? '<a class="btn green" href="/apk">⬇ Download for Android (.apk)</a>'
+          : '';
+      final ipaBtn = ipaExists
+          ? '<a class="btn" href="/ipa">⬇ Download for iPhone (.ipa)</a>'
+          : '';
+      final html = '''
 <!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AAC Studio install</title>
@@ -99,15 +135,19 @@ min-height:100vh;align-items:center;justify-content:center;margin:0}
 .c{max-width:420px;padding:28px;text-align:center}
 a.btn{display:block;background:#ff7043;color:#fff;text-decoration:none;
 font-size:20px;font-weight:700;padding:18px;border-radius:14px;margin:18px 0}
-ol{text-align:left;color:#ccc;line-height:1.6;font-size:14px}</style></head>
+a.btn.green{background:#43a047}
+ol{text-align:left;color:#ccc;line-height:1.6;font-size:14px}
+.note{color:#999;font-size:12px;line-height:1.5}</style></head>
 <body><div class="c"><h1>AAC Studio</h1><p>Open-source AAC app</p>
-<a class="btn" href="/apk">⬇ Download app (.apk)</a>
-<ol><li>Open this page on your Android device.</li>
-<li>Tap Download, then open the file.</li>
-<li>Allow "Install unknown apps" for your browser when asked.</li>
-<li>Install and open AAC Studio.</li></ol>
-<p style="color:#666;font-size:12px">Same-Wi-Fi transfer — nothing leaves
-your network.</p></div></body></html>''';
+$apkBtn
+$ipaBtn
+<ol><li><b>Android:</b> tap Download, open the file, allow
+"Install unknown apps" when asked.</li>
+<li><b>iPhone/iPad:</b> the .ipa downloads but will not self-install —
+sideload it with Sideloadly or AltStore (free Apple ID), or TestFlight
+(paid developer account).</li></ol>
+<p class="note">Same-Wi-Fi transfer — nothing leaves your network.</p>
+</div></body></html>''';
       req.response.headers.contentType = ContentType.html;
       req.response.write(html);
       await req.response.close();
