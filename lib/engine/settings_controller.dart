@@ -98,7 +98,7 @@ class PackController extends ChangeNotifier {
     // one, upgrade (keeping a backup of the user's edits) so improvements
     // reach already-installed devices.
     final assetRaw = await loader.loadAsset(assetPath);
-    const kPackVersion = 2;
+    const kPackVersion = 3;
     int storedVersion = 0;
     if (await f.exists()) {
       final stored = await storage.readJson(f);

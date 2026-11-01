@@ -5,6 +5,7 @@ import '../../engine/settings_controller.dart';
 import '../../engine/speech.dart';
 import '../../engine/storage.dart';
 import '../../models/domain.dart';
+import '../library/symbol_browser.dart';
 
 /// M3 + M5 settings sheet: speech defaults (rate/pitch/volume), the
 /// restrictions lock, and (in app mode) the PIN-gated edit-mode toggle.
@@ -54,6 +55,26 @@ class _SettingsSheetState extends State<SettingsSheet> {
         padding: const EdgeInsets.all(20),
         child: Column(mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start, children: [
+          // Symbol browser: all 24k bundled symbols, tap to hear / add.
+          if (widget.settingsController != null) ...[
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading:
+                  const Icon(Icons.grid_view, color: Colors.white70),
+              title: const Text('🔍 Browse all symbols',
+                  style: TextStyle(color: Colors.white70, fontSize: 14)),
+              subtitle: const Text(
+                  'tap to hear a word, add it to your vocabulary',
+                  style: TextStyle(color: Colors.white38, fontSize: 11)),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context, rootNavigator: true).push(
+                    MaterialPageRoute(
+                        builder: (_) => const SymbolBrowser()));
+              },
+            ),
+            const Divider(color: Colors.white12, height: 20),
+          ],
           // App mode: edit-mode toggle lives inside the app (PIN-gated).
           if (widget.settingsController != null) ...[
             SwitchListTile(
