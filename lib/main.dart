@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -7,14 +9,17 @@ import 'engine/settings_controller.dart';
 import 'engine/speech.dart';
 import 'engine/storage.dart';
 import 'engine/symbol_library.dart';
+import 'features/app/app_shell.dart';
 import 'studio/device_frame.dart';
 import 'studio/studio_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Desktop SQLite (needed by the P2G Explorer research viewer).
-  sqfliteFfiInit();
-  databaseFactory = databaseFactoryFfi;
+  // SQLite on desktop (P2G Explorer research viewer); mobile uses plugins.
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
 
   final storage = await initDefaultStorage();
   final settings = SettingsController(storage);
@@ -75,8 +80,12 @@ class StudioApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
         ),
-        home: const StudioHome(),
+        home: _isMobile ? const AppShell() : const StudioHome(),
       ),
     );
   }
+
+  /// Phones/tablets run the real AAC app full-screen (like the studied
+  /// original); desktops run the developer Studio with previews and tools.
+  static bool get _isMobile => Platform.isAndroid || Platform.isIOS;
 }

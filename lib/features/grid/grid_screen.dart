@@ -1,11 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../engine/prediction.dart';
+import '../../engine/settings_controller.dart';
 import '../../engine/speech.dart';
 import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
+import '../settings/settings_sheet.dart';
 import 'keyboard_view.dart';
 
 /// M2 grid engine: session controller + shared grid renderer used by both the
@@ -181,6 +184,9 @@ class GridScreen extends StatelessWidget {
   final void Function(VocabButton updated)? onEditButton;
   final VoidCallback? onAddButton;
 
+  /// App mode: show the in-app ⚙ Options button (speech, restrictions, edit).
+  final bool showOptions;
+
   const GridScreen({
     super.key,
     required this.session,
@@ -191,6 +197,7 @@ class GridScreen extends StatelessWidget {
     this.editMode = false,
     this.onEditButton,
     this.onAddButton,
+    this.showOptions = false,
   });
 
   @override
@@ -315,6 +322,16 @@ class GridScreen extends StatelessWidget {
               onTap: predictor != null ? session.toggleKeyboard : null),
           _toolbarBtn(icon: Icons.volume_up, label: 'Speak', onTap: session.speakMessage),
           _toolbarBtn(icon: Icons.backspace_outlined, label: 'Clear', onTap: session.clearMessage),
+          if (showOptions)
+            _toolbarBtn(icon: Icons.settings_outlined, label: 'Options', onTap: () {
+              SettingsSheet.show(
+                context,
+                speech: session.speech,
+                settings: context.read<SettingsController>().settings,
+                settingsController: context.read<SettingsController>(),
+                onChanged: () => context.read<SettingsController>().update(),
+              );
+            }),
         ],
       ),
     );

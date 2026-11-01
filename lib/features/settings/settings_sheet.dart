@@ -1,34 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../engine/settings_controller.dart';
 import '../../engine/speech.dart';
 import '../../engine/storage.dart';
 import '../../models/domain.dart';
 
-/// M3 + M5 settings sheet: speech defaults (rate/pitch/volume) and the
-/// restrictions lock (PIN-gated edit mode).
+/// M3 + M5 settings sheet: speech defaults (rate/pitch/volume), the
+/// restrictions lock, and (in app mode) the PIN-gated edit-mode toggle.
 class SettingsSheet extends StatefulWidget {
   final SpeechEngine speech;
   final AppSettings settings;
   final VoidCallback onChanged;
+  final SettingsController? settingsController; // app mode: edit toggle
 
   const SettingsSheet({
     super.key,
     required this.speech,
     required this.settings,
     required this.onChanged,
+    this.settingsController,
   });
 
   static Future<void> show(BuildContext context,
       {required SpeechEngine speech,
       required AppSettings settings,
-      required VoidCallback onChanged}) {
+      required VoidCallback onChanged,
+      SettingsController? settingsController}) {
     return showModalBottomSheet(
       context: context,
       backgroundColor: const Color(0xFF22262D),
       isScrollControlled: true,
       builder: (_) => SettingsSheet(
-          speech: speech, settings: settings, onChanged: onChanged),
+          speech: speech,
+          settings: settings,
+          onChanged: onChanged,
+          settingsController: settingsController),
     );
   }
 
@@ -47,6 +54,27 @@ class _SettingsSheetState extends State<SettingsSheet> {
         padding: const EdgeInsets.all(20),
         child: Column(mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start, children: [
+          // App mode: edit-mode toggle lives inside the app (PIN-gated).
+          if (widget.settingsController != null) ...[
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              value: widget.settingsController!.editMode,
+              onChanged: (v) async {
+                final sc = widget.settingsController!;
+                if (v) {
+                  final ok = await sc.guardPrivileged(context);
+                  if (!ok) return;
+                }
+                sc.settings.editMode = v;
+                await sc.update();
+              },
+              title: const Text('✏️ Edit mode',
+                  style: TextStyle(color: Colors.white70, fontSize: 14)),
+              subtitle: const Text('tap any button on the grid to edit it',
+                  style: TextStyle(color: Colors.white38, fontSize: 11)),
+            ),
+            const Divider(color: Colors.white12, height: 20),
+          ],
           const Text('Speech settings',
               style: TextStyle(
                   color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16)),
