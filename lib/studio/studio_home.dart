@@ -31,11 +31,11 @@ class _StudioHomeState extends State<StudioHome> {
   bool _showCloudQr = false;
 
   /// Cloud install: stable GitHub Releases URL — always points at the newest
-  /// published APK, so this QR keeps working for future versions and works
-  /// on ANY network (the device only needs internet).
+  /// published APK (asset name is version-independent: AACStudio-android.apk),
+  /// so this QR keeps working for future versions and works on ANY network.
   static const kCloudApkUrl =
       'https://github.com/uranrog-01/aac-studio/releases/latest/download/'
-      'AACStudio-1.0.0-android.apk';
+      'AACStudio-android.apk';
 
   DeviceMode get device =>
       context.watch<ValueNotifier<DeviceMode?>>().value ??
