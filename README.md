@@ -47,6 +47,7 @@ local editable pack. Restrictions: 4-digit PIN gates edit mode.
 Requirements: Flutter 3.24+, Windows: VS Build Tools with the C++ workload,
 Developer Mode enabled (plugin symlinks), nuget.exe on PATH (flutter_tts).
 Android: SDK with platform 35 + build-tools 35 (see android/local.properties).
+Android OS floor: **Android 7.0+ (Fire OS 6+)** — the Flutter engine requires API 24; older 2015-2018 Fire tablets (Fire OS 5) are below that floor. Slim per-CPU APKs ship alongside the universal one in each GitHub release.
 
 ## Project layout
 
