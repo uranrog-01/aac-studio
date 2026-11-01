@@ -35,7 +35,13 @@ Future<void> main() async {
   final pack = PackController(storage);
   await pack.load();
 
+  // Warm up the TTS engine before the first tap (first-tap silence on
+  // Android/Fire otherwise).
+  final speech = SpeechEngine();
+  await speech.ensure();
+
   runApp(StudioApp(
+    speech: speech,
     settings: settings,
     predictor: predictor,
     library: library,
@@ -48,9 +54,11 @@ class StudioApp extends StatelessWidget {
   final Predictor predictor;
   final SymbolLibrary library;
   final PackController pack;
+  final SpeechEngine speech;
 
   const StudioApp({
     super.key,
+    required this.speech,
     required this.settings,
     required this.predictor,
     required this.library,
@@ -61,7 +69,7 @@ class StudioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<SpeechEngine>(create: (_) => SpeechEngine()),
+        Provider<SpeechEngine>.value(value: speech),
         ChangeNotifierProvider<ValueNotifier<DeviceMode?>>(
           create: (_) => ValueNotifier<DeviceMode?>(DeviceMode(kDevices[0])),
         ),

@@ -4,7 +4,7 @@ description: >-
   studio. Includes a research viewer that renders locally extracted IPA
   vocabulary data for study. No copyrighted assets ship with this repo.
 publish_to: "none"
-version: 1.0.2+3
+version: 1.0.3+4
 
 environment:
   sdk: ">=3.4.0 <4.0.0"

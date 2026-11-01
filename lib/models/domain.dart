@@ -33,30 +33,36 @@ enum WordClass {
       );
 }
 
-/// Approximate P2G-style color coding per word class (study approximation).
+/// Modified Fitzgerald Key (Goossens, Crain & Elder 1992) — the color system
+/// used by mainstream AAC vocabularies (Super Core, Avaz, …):
+/// yellow=pronouns, green=verbs, orange=nouns, blue=descriptors,
+/// pink=social, white=prepositions/conjunctions, purple=questions.
+/// Consistency across the vocabulary supports motor planning for minimally
+/// verbal autistic learners.
 const Map<WordClass, Color> kWordClassColors = {
-  WordClass.pronoun: Color(0xFFFFFF66), // yellow
-  WordClass.verb: Color(0xFF66DD66), // green
-  WordClass.noun: Color(0xFFFF9955), // orange
-  WordClass.adjective: Color(0xFF5599FF), // blue
-  WordClass.adverb: Color(0xFFCC99FF), // purple
-  WordClass.social: Color(0xFFFF6666), // red
-  WordClass.question: Color(0xFF66EEEE), // cyan
-  WordClass.preposition: Color(0xFF88CC66), // lime
-  WordClass.article: Color(0xFFCCCCCC), // gray
-  WordClass.conjunction: Color(0xFFDD9955), // tan
-  WordClass.number: Color(0xFF44DDAA), // teal
-  WordClass.interjection: Color(0xFFFFAA88), // peach
+  WordClass.pronoun: Color(0xFFFFF176), // yellow — pronouns
+  WordClass.verb: Color(0xFF81C784), // green — verbs
+  WordClass.noun: Color(0xFFFFB74D), // orange — nouns
+  WordClass.properNoun: Color(0xFFFFB74D), // orange — nouns
+  WordClass.adjective: Color(0xFF64B5F6), // blue — descriptors
+  WordClass.adverb: Color(0xFF64B5F6), // blue — descriptors
+  WordClass.social: Color(0xFFF8BBD0), // pink — social words
+  WordClass.interjection: Color(0xFFF8BBD0), // pink — social
+  WordClass.question: Color(0xFFCE93D8), // purple — questions
+  WordClass.preposition: Color(0xFFF5F5F5), // white — the rest of speech
+  WordClass.conjunction: Color(0xFFF5F5F5),
+  WordClass.article: Color(0xFFF5F5F5),
+  WordClass.number: Color(0xFFF5F5F5),
+  WordClass.phrase: Color(0xFFFFE0B2), // light orange — phrases
   WordClass.other: Color(0xFFEEEEEE),
-  WordClass.unknown: Color(0xFFEEEEEE),
-  WordClass.phrase: Color(0xFFEEEEEE),
   WordClass.letter: Color(0xFFEEEEEE),
   WordClass.punctuation: Color(0xFFEEEEEE),
-  WordClass.properNoun: Color(0xFFEEEEEE),
+  WordClass.unknown: Color(0xFFEEEEEE),
 };
 
-/// Action verbs behind buttons (studied: 18 P2G action types).
-enum ActionKind { addText, speakNow, speakMessage, clearMessage, gotoFolder, launchUrl }
+/// Action verbs behind buttons (studied: 18 P2G action types) + our sensory
+/// games extension (autism regulation feature).
+enum ActionKind { addText, speakNow, speakMessage, clearMessage, gotoFolder, launchUrl, sensoryGames }
 
 class VocabAction {
   final ActionKind kind;

@@ -1,113 +1,2525 @@
 {
-  "id": "studio.sample.basics",
-  "label": "Basics Vocabulary (original sample)",
-  "rootFolder": "home",
-  "folders": [
-    { "id": "home", "label": "Home", "symbol": "🏠" },
-    { "id": "food", "label": "Food & Drink", "symbol": "🍎" },
-    { "id": "feelings", "label": "Feelings", "symbol": "😀" },
-    { "id": "actions", "label": "Actions", "symbol": "🏃" },
-    { "id": "social", "label": "Social", "symbol": "👋" }
-  ],
-  "buttons": [
-    { "id": "b_i", "kind": "item", "label": "I", "class": "pronoun", "symbol": "🙋", "actions": [{ "kind": "addText", "data": "I" }] },
-    { "id": "b_you", "kind": "item", "label": "you", "class": "pronoun", "symbol": "👉", "actions": [{ "kind": "addText", "data": "you" }] },
-    { "id": "b_my", "kind": "item", "label": "my", "class": "pronoun", "symbol": "🫱", "actions": [{ "kind": "addText", "data": "my" }] },
-    { "id": "b_it", "kind": "item", "label": "it", "class": "pronoun", "symbol": "📌", "actions": [{ "kind": "addText", "data": "it" }] },
-    { "id": "b_want", "kind": "item", "label": "want", "class": "verb", "symbol": "🤲", "actions": [{ "kind": "addText", "data": "want" }] },
-    { "id": "b_need", "kind": "item", "label": "need", "class": "verb", "symbol": "❗", "actions": [{ "kind": "addText", "data": "need" }] },
-    { "id": "b_like", "kind": "item", "label": "like", "class": "verb", "symbol": "💚", "actions": [{ "kind": "addText", "data": "like" }] },
-    { "id": "b_dontlike", "kind": "item", "label": "don't like", "class": "verb", "symbol": "💔", "actions": [{ "kind": "addText", "data": "don't like" }] },
-    { "id": "b_can", "kind": "item", "label": "can", "class": "verb", "symbol": "💪", "actions": [{ "kind": "addText", "data": "can" }] },
-    { "id": "b_is", "kind": "item", "label": "is", "class": "verb", "symbol": "🔗", "actions": [{ "kind": "addText", "data": "is" }] },
-    { "id": "b_go", "kind": "item", "label": "go", "class": "verb", "symbol": "🚶", "actions": [{ "kind": "addText", "data": "go" }] },
-    { "id": "b_stop", "kind": "item", "label": "stop", "class": "verb", "symbol": "✋", "actions": [{ "kind": "addText", "data": "stop" }] },
-    { "id": "b_more", "kind": "item", "label": "more", "class": "adjective", "symbol": "➕", "actions": [{ "kind": "addText", "data": "more" }] },
-    { "id": "b_alldone", "kind": "item", "label": "all done", "class": "phrase", "symbol": "🏁", "actions": [{ "kind": "addText", "data": "all done" }] },
-    { "id": "b_turn", "kind": "item", "label": "my turn", "class": "phrase", "symbol": "🔄", "actions": [{ "kind": "addText", "data": "my turn" }] },
-    { "id": "b_help", "kind": "item", "label": "help", "class": "noun", "symbol": "🆘", "actions": [{ "kind": "addText", "data": "help" }] },
-    { "id": "b_open", "kind": "item", "label": "open", "class": "verb", "symbol": "🔓", "actions": [{ "kind": "addText", "data": "open" }] },
-    { "id": "b_play", "kind": "item", "label": "play", "class": "verb", "symbol": "🎮", "actions": [{ "kind": "addText", "data": "play" }] },
-    { "id": "b_again", "kind": "item", "label": "again", "class": "adverb", "symbol": "🔁", "actions": [{ "kind": "addText", "data": "again" }] },
-    { "id": "b_bathroom", "kind": "item", "label": "bathroom", "class": "noun", "symbol": "🚻", "actions": [{ "kind": "addText", "data": "bathroom" }] },
-    { "id": "b_pain", "kind": "item", "label": "hurts", "class": "verb", "symbol": "🤕", "actions": [{ "kind": "addText", "data": "hurts" }] },
-
-    { "id": "b_food", "kind": "folder", "label": "Food & Drink", "symbol": "🍎", "actions": [{ "kind": "gotoFolder", "data": "food" }] },
-    { "id": "b_feel", "kind": "folder", "label": "Feelings", "symbol": "😀", "actions": [{ "kind": "gotoFolder", "data": "feelings" }] },
-    { "id": "b_actions", "kind": "folder", "label": "Actions", "symbol": "🏃", "actions": [{ "kind": "gotoFolder", "data": "actions" }] },
-    { "id": "b_social", "kind": "folder", "label": "Social", "symbol": "👋", "actions": [{ "kind": "gotoFolder", "data": "social" }] },
-
-    { "id": "b_apple", "kind": "item", "label": "apple", "class": "noun", "symbol": "🍎", "actions": [{ "kind": "addText", "data": "apple" }] },
-    { "id": "b_banana", "kind": "item", "label": "banana", "class": "noun", "symbol": "🍌", "actions": [{ "kind": "addText", "data": "banana" }] },
-    { "id": "b_water", "kind": "item", "label": "water", "class": "noun", "symbol": "💧", "actions": [{ "kind": "addText", "data": "water" }] },
-    { "id": "b_milk", "kind": "item", "label": "milk", "class": "noun", "symbol": "🥛", "actions": [{ "kind": "addText", "data": "milk" }] },
-    { "id": "b_juice", "kind": "item", "label": "juice", "class": "noun", "symbol": "🧃", "actions": [{ "kind": "addText", "data": "juice" }] },
-    { "id": "b_bread", "kind": "item", "label": "bread", "class": "noun", "symbol": "🍞", "actions": [{ "kind": "addText", "data": "bread" }] },
-    { "id": "b_cheese", "kind": "item", "label": "cheese", "class": "noun", "symbol": "🧀", "actions": [{ "kind": "addText", "data": "cheese" }] },
-    { "id": "b_cookie", "kind": "item", "label": "cookie", "class": "noun", "symbol": "🍪", "actions": [{ "kind": "addText", "data": "cookie" }] },
-    { "id": "b_eggs", "kind": "item", "label": "eggs", "class": "noun", "symbol": "🥚", "actions": [{ "kind": "addText", "data": "eggs" }] },
-    { "id": "b_rice", "kind": "item", "label": "rice", "class": "noun", "symbol": "🍚", "actions": [{ "kind": "addText", "data": "rice" }] },
-    { "id": "b_soup", "kind": "item", "label": "soup", "class": "noun", "symbol": "🍲", "actions": [{ "kind": "addText", "data": "soup" }] },
-    { "id": "b_moreplease", "kind": "item", "label": "more please", "class": "phrase", "symbol": "🙏", "actions": [{ "kind": "addText", "data": "more please" }] },
-
-    { "id": "b_happy", "kind": "item", "label": "happy", "class": "adjective", "symbol": "😄", "actions": [{ "kind": "addText", "data": "happy" }] },
-    { "id": "b_sad", "kind": "item", "label": "sad", "class": "adjective", "symbol": "😢", "actions": [{ "kind": "addText", "data": "sad" }] },
-    { "id": "b_tired", "kind": "item", "label": "tired", "class": "adjective", "symbol": "😴", "actions": [{ "kind": "addText", "data": "tired" }] },
-    { "id": "b_angry", "kind": "item", "label": "angry", "class": "adjective", "symbol": "😠", "actions": [{ "kind": "addText", "data": "angry" }] },
-    { "id": "b_excited", "kind": "item", "label": "excited", "class": "adjective", "symbol": "🤩", "actions": [{ "kind": "addText", "data": "excited" }] },
-    { "id": "b_scared", "kind": "item", "label": "scared", "class": "adjective", "symbol": "😨", "actions": [{ "kind": "addText", "data": "scared" }] },
-    { "id": "b_sick", "kind": "item", "label": "sick", "class": "adjective", "symbol": "🤒", "actions": [{ "kind": "addText", "data": "sick" }] },
-    { "id": "b_okay", "kind": "item", "label": "okay", "class": "adjective", "symbol": "👌", "actions": [{ "kind": "addText", "data": "okay" }] },
-
-    { "id": "b_run", "kind": "item", "label": "run", "class": "verb", "symbol": "🏃", "actions": [{ "kind": "addText", "data": "run" }] },
-    { "id": "b_walk", "kind": "item", "label": "walk", "class": "verb", "symbol": "🚶", "actions": [{ "kind": "addText", "data": "walk" }] },
-    { "id": "b_jump", "kind": "item", "label": "jump", "class": "verb", "symbol": "🦘", "actions": [{ "kind": "addText", "data": "jump" }] },
-    { "id": "b_sleep", "kind": "item", "label": "sleep", "class": "verb", "symbol": "🛏️", "actions": [{ "kind": "addText", "data": "sleep" }] },
-    { "id": "b_read", "kind": "item", "label": "read", "class": "verb", "symbol": "📖", "actions": [{ "kind": "addText", "data": "read" }] },
-    { "id": "b_draw", "kind": "item", "label": "draw", "class": "verb", "symbol": "🖍️", "actions": [{ "kind": "addText", "data": "draw" }] },
-    { "id": "b_listen", "kind": "item", "label": "listen", "class": "verb", "symbol": "👂", "actions": [{ "kind": "addText", "data": "listen" }] },
-    { "id": "b_watch", "kind": "item", "label": "watch", "class": "verb", "symbol": "👀", "actions": [{ "kind": "addText", "data": "watch" }] },
-
-    { "id": "b_hi", "kind": "item", "label": "hi", "class": "social", "symbol": "👋", "actions": [{ "kind": "addText", "data": "hi" }, { "kind": "speakNow", "data": "hi!" }] },
-    { "id": "b_bye", "kind": "item", "label": "bye", "class": "social", "symbol": "🫶", "actions": [{ "kind": "addText", "data": "bye" }, { "kind": "speakNow", "data": "bye!" }] },
-    { "id": "b_thanks", "kind": "item", "label": "thank you", "class": "social", "symbol": "🙏", "actions": [{ "kind": "addText", "data": "thank you" }, { "kind": "speakNow", "data": "thank you!" }] },
-    { "id": "b_please", "kind": "item", "label": "please", "class": "social", "symbol": "🤝", "actions": [{ "kind": "addText", "data": "please" }] },
-    { "id": "b_sorry", "kind": "item", "label": "sorry", "class": "social", "symbol": "😔", "actions": [{ "kind": "addText", "data": "sorry" }] },
-    { "id": "b_yes", "kind": "item", "label": "yes", "class": "social", "symbol": "✅", "actions": [{ "kind": "addText", "data": "yes" }, { "kind": "speakNow", "data": "yes" }] },
-    { "id": "b_no", "kind": "item", "label": "no", "class": "social", "symbol": "❌", "actions": [{ "kind": "addText", "data": "no" }, { "kind": "speakNow", "data": "no" }] },
-    { "id": "b_speakbtn", "kind": "action", "label": "Speak", "class": "other", "symbol": "🔊", "actions": [{ "kind": "speakMessage" }] },
-    { "id": "b_clearbtn", "kind": "action", "label": "Clear", "class": "other", "symbol": "🧹", "actions": [{ "kind": "clearMessage" }] }
-  ],
-  "views": {
-    "home": [
-      {
-        "columns": 5,
-        "cells": [
-          { "btn": "b_i" }, { "btn": "b_want" }, { "btn": "b_more" }, { "btn": "b_help" }, { "btn": "b_alldone" },
-          { "btn": "b_food" }, { "btn": "b_feel" }, { "btn": "b_actions" }, { "btn": "b_social" }, { "btn": "b_my" },
-          { "btn": "b_you" }, { "btn": "b_it" }, { "btn": "b_like" }, { "btn": "b_dontlike" }, { "btn": "b_can" },
-          { "btn": "b_is" }, { "btn": "b_go" }, { "btn": "b_stop" }, { "btn": "b_open" }, { "btn": "b_play" },
-          { "btn": "b_again" }, { "btn": "b_turn" }, { "btn": "b_need" }, { "btn": "b_bathroom" }, { "btn": "b_pain" },
-          { "btn": "b_speakbtn" }, { "btn": "b_clearbtn" }
-        ]
-      }
-    ],
-    "food": [{ "columns": 4, "cells": [
-      { "btn": "b_apple" }, { "btn": "b_banana" }, { "btn": "b_water" }, { "btn": "b_milk" },
-      { "btn": "b_juice" }, { "btn": "b_bread" }, { "btn": "b_cheese" }, { "btn": "b_cookie" },
-      { "btn": "b_eggs" }, { "btn": "b_rice" }, { "btn": "b_soup" }, { "btn": "b_moreplease" }
-    ] }],
-    "feelings": [{ "columns": 4, "cells": [
-      { "btn": "b_happy" }, { "btn": "b_sad" }, { "btn": "b_tired" }, { "btn": "b_angry" },
-      { "btn": "b_excited" }, { "btn": "b_scared" }, { "btn": "b_sick" }, { "btn": "b_okay" }
-    ] }],
-    "actions": [{ "columns": 4, "cells": [
-      { "btn": "b_run" }, { "btn": "b_walk" }, { "btn": "b_jump" }, { "btn": "b_sleep" },
-      { "btn": "b_read" }, { "btn": "b_draw" }, { "btn": "b_listen" }, { "btn": "b_watch" }
-    ] }],
-    "social": [{ "columns": 4, "cells": [
-      { "btn": "b_hi" }, { "btn": "b_bye" }, { "btn": "b_thanks" }, { "btn": "b_please" },
-      { "btn": "b_sorry" }, { "btn": "b_yes" }, { "btn": "b_no" }, { "btn": "b_speakbtn" }, { "btn": "b_clearbtn" }
-    ] }]
+ "id": "studio.basics.autism",
+ "label": "My Words",
+ "rootFolder": "home",
+ "packVersion": 2,
+ "folders": [
+  {
+   "id": "home",
+   "label": "Home",
+   "symbol": "🏠",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f3e0"
+  },
+  {
+   "id": "people",
+   "label": "People",
+   "symbol": "👥",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f465"
+  },
+  {
+   "id": "feelings",
+   "label": "Feelings",
+   "symbol": "😀",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f600"
+  },
+  {
+   "id": "calm",
+   "label": "Calm down",
+   "symbol": "🧘",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f9d8"
+  },
+  {
+   "id": "food",
+   "label": "Eat & drink",
+   "symbol": "🍽",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f37d"
+  },
+  {
+   "id": "play",
+   "label": "Play",
+   "symbol": "🎈",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f388"
+  },
+  {
+   "id": "places",
+   "label": "Places",
+   "symbol": "🚗",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f697"
+  },
+  {
+   "id": "school",
+   "label": "School",
+   "symbol": "🏫",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f3eb"
+  },
+  {
+   "id": "animals",
+   "label": "Animals",
+   "symbol": "🐕",
+   "symbolPack": "twemoji",
+   "symbolKey": "1f415"
+  },
+  {
+   "id": "body",
+   "label": "My body",
+   "symbol": "🫵",
+   "symbolPack": "twemoji",
+   "symbolKey": "1faf5"
   }
+ ],
+ "buttons": [
+  {
+   "id": "b1",
+   "kind": "item",
+   "label": "I",
+   "class": "pronoun",
+   "symbol": "🙋",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "I"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b2",
+   "kind": "item",
+   "label": "you",
+   "class": "pronoun",
+   "symbol": "👉",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "you"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b3",
+   "kind": "item",
+   "label": "my",
+   "class": "pronoun",
+   "symbol": "🖐",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "my"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "R"
+  },
+  {
+   "id": "b4",
+   "kind": "item",
+   "label": "it",
+   "class": "pronoun",
+   "symbol": "📌",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "it"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b5",
+   "kind": "item",
+   "label": "want",
+   "class": "verb",
+   "symbol": "🤲",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "want"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b6",
+   "kind": "item",
+   "label": "need",
+   "class": "verb",
+   "symbol": "❗",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "need"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "2757"
+  },
+  {
+   "id": "b7",
+   "kind": "item",
+   "label": "like",
+   "class": "verb",
+   "symbol": "💚",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "like"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "G"
+  },
+  {
+   "id": "b8",
+   "kind": "item",
+   "label": "don't like",
+   "class": "verb",
+   "symbol": "💔",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "don't like"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b9",
+   "kind": "item",
+   "label": "more",
+   "class": "adverb",
+   "symbol": "➕",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "more"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "2795"
+  },
+  {
+   "id": "b10",
+   "kind": "item",
+   "label": "help",
+   "class": "verb",
+   "symbol": "🆘",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "help"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b11",
+   "kind": "item",
+   "label": "stop",
+   "class": "verb",
+   "symbol": "🛑",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "stop"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b12",
+   "kind": "item",
+   "label": "go",
+   "class": "verb",
+   "symbol": "▶️",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "go"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b13",
+   "kind": "item",
+   "label": "all done",
+   "class": "phrase",
+   "symbol": "🏁",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "all done"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b14",
+   "kind": "item",
+   "label": "not",
+   "class": "adverb",
+   "symbol": "🚫",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "not"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b15",
+   "kind": "item",
+   "label": "open",
+   "class": "verb",
+   "symbol": "🔓",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "open"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f513"
+  },
+  {
+   "id": "b16",
+   "kind": "item",
+   "label": "my turn",
+   "class": "phrase",
+   "symbol": "🔄",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "my turn"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f503"
+  },
+  {
+   "id": "b17",
+   "kind": "item",
+   "label": "again",
+   "class": "adverb",
+   "symbol": "🔁",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "again"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f501"
+  },
+  {
+   "id": "b18",
+   "kind": "item",
+   "label": "look",
+   "class": "verb",
+   "symbol": "👀",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "look"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "E"
+  },
+  {
+   "id": "b19",
+   "kind": "item",
+   "label": "make",
+   "class": "verb",
+   "symbol": "🔨",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "make"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "H"
+  },
+  {
+   "id": "b20",
+   "kind": "item",
+   "label": "give",
+   "class": "verb",
+   "symbol": "🎁",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "give"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "W"
+  },
+  {
+   "id": "b21",
+   "kind": "item",
+   "label": "hi",
+   "class": "social",
+   "symbol": "👋",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "hi"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "W"
+  },
+  {
+   "id": "b22",
+   "kind": "item",
+   "label": "bye",
+   "class": "social",
+   "symbol": "🫶",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "bye"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "H"
+  },
+  {
+   "id": "b23",
+   "kind": "item",
+   "label": "thank you",
+   "class": "social",
+   "symbol": "🙏",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "thank you"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "F"
+  },
+  {
+   "id": "b24",
+   "kind": "item",
+   "label": "please",
+   "class": "social",
+   "symbol": "🤝",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "please"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "H"
+  },
+  {
+   "id": "fpeople",
+   "label": "People",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "👥",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "people"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f465"
+  },
+  {
+   "id": "ffeelings",
+   "label": "Feelings",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "😀",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "feelings"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f600"
+  },
+  {
+   "id": "fcalm",
+   "label": "Calm down",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "🧘",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "calm"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f9d8"
+  },
+  {
+   "id": "ffood",
+   "label": "Eat & drink",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "🍽",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "food"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f37d"
+  },
+  {
+   "id": "fplay",
+   "label": "Play",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "🎈",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "play"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f388"
+  },
+  {
+   "id": "fplaces",
+   "label": "Places",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "🚗",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "places"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f697"
+  },
+  {
+   "id": "fschool",
+   "label": "School",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "🏫",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "school"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f3eb"
+  },
+  {
+   "id": "fanimals",
+   "label": "Animals",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "🐕",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "animals"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f415"
+  },
+  {
+   "id": "fbody",
+   "label": "My body",
+   "kind": "folder",
+   "class": "other",
+   "symbol": "🫵",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "body"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1faf5"
+  },
+  {
+   "id": "speakBtn",
+   "label": "Speak",
+   "kind": "action",
+   "class": "other",
+   "symbol": "🔊",
+   "actions": [
+    {
+     "kind": "speakMessage"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f50a"
+  },
+  {
+   "id": "clearBtn",
+   "label": "Clear",
+   "kind": "action",
+   "class": "other",
+   "symbol": "🧹",
+   "actions": [
+    {
+     "kind": "clearMessage"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f9f9"
+  },
+  {
+   "id": "sensoryBtn",
+   "label": "Sensory",
+   "kind": "action",
+   "class": "other",
+   "symbol": "🎮",
+   "actions": [
+    {
+     "kind": "sensoryGames"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f3ae"
+  },
+  {
+   "id": "b37",
+   "kind": "item",
+   "label": "mom",
+   "class": "noun",
+   "symbol": "👩",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "mom"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "W"
+  },
+  {
+   "id": "b38",
+   "kind": "item",
+   "label": "dad",
+   "class": "noun",
+   "symbol": "👨",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "dad"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b39",
+   "kind": "item",
+   "label": "sister",
+   "class": "noun",
+   "symbol": "👧",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "sister"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "G"
+  },
+  {
+   "id": "b40",
+   "kind": "item",
+   "label": "brother",
+   "class": "noun",
+   "symbol": "👦",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "brother"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b41",
+   "kind": "item",
+   "label": "baby",
+   "class": "noun",
+   "symbol": "👶",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "baby"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b42",
+   "kind": "item",
+   "label": "grandma",
+   "class": "noun",
+   "symbol": "👵",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "grandma"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "O"
+  },
+  {
+   "id": "b43",
+   "kind": "item",
+   "label": "grandpa",
+   "class": "noun",
+   "symbol": "👴",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "grandpa"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "O"
+  },
+  {
+   "id": "b44",
+   "kind": "item",
+   "label": "teacher",
+   "class": "noun",
+   "symbol": "👩‍🏫",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "teacher"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "W"
+  },
+  {
+   "id": "b45",
+   "kind": "item",
+   "label": "friend",
+   "class": "noun",
+   "symbol": "🧑‍🤝‍🧑",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "friend"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b46",
+   "kind": "item",
+   "label": "doctor",
+   "class": "noun",
+   "symbol": "🧑‍⚕️",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "doctor"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "H"
+  },
+  {
+   "id": "b47",
+   "kind": "item",
+   "label": "happy",
+   "class": "adjective",
+   "symbol": "😄",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "happy"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "G"
+  },
+  {
+   "id": "b48",
+   "kind": "item",
+   "label": "sad",
+   "class": "adjective",
+   "symbol": "😢",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "sad"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b49",
+   "kind": "item",
+   "label": "angry",
+   "class": "adjective",
+   "symbol": "😠",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "angry"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "A"
+  },
+  {
+   "id": "b50",
+   "kind": "item",
+   "label": "tired",
+   "class": "adjective",
+   "symbol": "😴",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "tired"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b51",
+   "kind": "item",
+   "label": "scared",
+   "class": "adjective",
+   "symbol": "😨",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "scared"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "F"
+  },
+  {
+   "id": "b52",
+   "kind": "item",
+   "label": "excited",
+   "class": "adjective",
+   "symbol": "🤩",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "excited"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b53",
+   "kind": "item",
+   "label": "sick",
+   "class": "adjective",
+   "symbol": "🤒",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "sick"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "F"
+  },
+  {
+   "id": "b54",
+   "kind": "item",
+   "label": "calm",
+   "class": "adjective",
+   "symbol": "😌",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "calm"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "R"
+  },
+  {
+   "id": "b55",
+   "kind": "item",
+   "label": "silly",
+   "class": "adjective",
+   "symbol": "🤪",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "silly"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "Z"
+  },
+  {
+   "id": "b56",
+   "kind": "item",
+   "label": "worried",
+   "class": "adjective",
+   "symbol": "😟",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "worried"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "W"
+  },
+  {
+   "id": "b57",
+   "kind": "item",
+   "label": "hurt",
+   "class": "adjective",
+   "symbol": "🤕",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "hurt"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f915"
+  },
+  {
+   "id": "b58",
+   "kind": "item",
+   "label": "hungry",
+   "class": "adjective",
+   "symbol": "🍽",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "hungry"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "F"
+  },
+  {
+   "id": "b59",
+   "kind": "item",
+   "label": "breathe",
+   "class": "verb",
+   "symbol": "🍃",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "breathe"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "L"
+  },
+  {
+   "id": "b60",
+   "kind": "item",
+   "label": "quiet",
+   "class": "adjective",
+   "symbol": "🔇",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "quiet"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b61",
+   "kind": "item",
+   "label": "hug",
+   "class": "verb",
+   "symbol": "🤗",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "hug"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b62",
+   "kind": "item",
+   "label": "rest",
+   "class": "verb",
+   "symbol": "🛏",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "rest"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b63",
+   "kind": "item",
+   "label": "drink water",
+   "class": "phrase",
+   "symbol": "💧",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "drink water"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "D"
+  },
+  {
+   "id": "b64",
+   "kind": "item",
+   "label": "count",
+   "class": "verb",
+   "symbol": "🔢",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "count"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "I"
+  },
+  {
+   "id": "b65",
+   "kind": "item",
+   "label": "music",
+   "class": "noun",
+   "symbol": "🎵",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "music"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b66",
+   "kind": "item",
+   "label": "soft toy",
+   "class": "noun",
+   "symbol": "🧸",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "soft toy"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "T"
+  },
+  {
+   "id": "b67",
+   "kind": "item",
+   "label": "blanket",
+   "class": "noun",
+   "symbol": "🛌",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "blanket"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b68",
+   "kind": "item",
+   "label": "headphones",
+   "class": "noun",
+   "symbol": "🎧",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "headphones"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "H"
+  },
+  {
+   "id": "b69",
+   "kind": "item",
+   "label": "eat",
+   "class": "verb",
+   "symbol": "🍴",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "eat"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "F"
+  },
+  {
+   "id": "b70",
+   "kind": "item",
+   "label": "drink",
+   "class": "verb",
+   "symbol": "🥤",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "drink"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b71",
+   "kind": "item",
+   "label": "apple",
+   "class": "noun",
+   "symbol": "🍎",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "apple"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "R"
+  },
+  {
+   "id": "b72",
+   "kind": "item",
+   "label": "banana",
+   "class": "noun",
+   "symbol": "🍌",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "banana"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b73",
+   "kind": "item",
+   "label": "bread",
+   "class": "noun",
+   "symbol": "🍞",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "bread"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b74",
+   "kind": "item",
+   "label": "cheese",
+   "class": "noun",
+   "symbol": "🧀",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "cheese"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b75",
+   "kind": "item",
+   "label": "egg",
+   "class": "noun",
+   "symbol": "🥚",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "egg"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "E"
+  },
+  {
+   "id": "b76",
+   "kind": "item",
+   "label": "rice",
+   "class": "noun",
+   "symbol": "🍚",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "rice"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b77",
+   "kind": "item",
+   "label": "chicken",
+   "class": "noun",
+   "symbol": "🍗",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "chicken"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b78",
+   "kind": "item",
+   "label": "noodles",
+   "class": "noun",
+   "symbol": "🍜",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "noodles"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b79",
+   "kind": "item",
+   "label": "pizza",
+   "class": "noun",
+   "symbol": "🍕",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "pizza"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b80",
+   "kind": "item",
+   "label": "fruit",
+   "class": "noun",
+   "symbol": "🍓",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "fruit"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b81",
+   "kind": "item",
+   "label": "yogurt",
+   "class": "noun",
+   "symbol": "🥛",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "yogurt"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "G"
+  },
+  {
+   "id": "b82",
+   "kind": "item",
+   "label": "water",
+   "class": "noun",
+   "symbol": "💧",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "water"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "D"
+  },
+  {
+   "id": "b83",
+   "kind": "item",
+   "label": "juice",
+   "class": "noun",
+   "symbol": "🧃",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "juice"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b84",
+   "kind": "item",
+   "label": "milk",
+   "class": "noun",
+   "symbol": "🍼",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "milk"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b85",
+   "kind": "item",
+   "label": "play",
+   "class": "verb",
+   "symbol": "🎈",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "play"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b86",
+   "kind": "item",
+   "label": "ball",
+   "class": "noun",
+   "symbol": "⚽",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "ball"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b87",
+   "kind": "item",
+   "label": "swing",
+   "class": "noun",
+   "symbol": "🛝",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "swing"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b88",
+   "kind": "item",
+   "label": "bike",
+   "class": "noun",
+   "symbol": "🚲",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "bike"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b89",
+   "kind": "item",
+   "label": "swim",
+   "class": "verb",
+   "symbol": "🏊",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "swim"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b90",
+   "kind": "item",
+   "label": "run",
+   "class": "verb",
+   "symbol": "🏃",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "run"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b91",
+   "kind": "item",
+   "label": "walk",
+   "class": "verb",
+   "symbol": "🚶",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "walk"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b92",
+   "kind": "item",
+   "label": "dance",
+   "class": "verb",
+   "symbol": "💃",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "dance"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "W"
+  },
+  {
+   "id": "b93",
+   "kind": "item",
+   "label": "sing",
+   "class": "verb",
+   "symbol": "🎤",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "sing"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b94",
+   "kind": "item",
+   "label": "draw",
+   "class": "verb",
+   "symbol": "🎨",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "draw"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "A"
+  },
+  {
+   "id": "b95",
+   "kind": "item",
+   "label": "book",
+   "class": "noun",
+   "symbol": "📖",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "book"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "O"
+  },
+  {
+   "id": "b96",
+   "kind": "item",
+   "label": "puzzle",
+   "class": "noun",
+   "symbol": "🧩",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "puzzle"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b97",
+   "kind": "item",
+   "label": "blocks",
+   "class": "noun",
+   "symbol": "🧱",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "blocks"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b98",
+   "kind": "item",
+   "label": "music play",
+   "class": "phrase",
+   "symbol": "🎹",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "music play"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b99",
+   "kind": "item",
+   "label": "home",
+   "class": "noun",
+   "symbol": "🏠",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "home"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f3e0"
+  },
+  {
+   "id": "b100",
+   "kind": "item",
+   "label": "school",
+   "class": "noun",
+   "symbol": "🏫",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "school"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b101",
+   "kind": "item",
+   "label": "park",
+   "class": "noun",
+   "symbol": "🌳",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "park"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "D"
+  },
+  {
+   "id": "b102",
+   "kind": "item",
+   "label": "store",
+   "class": "noun",
+   "symbol": "🏪",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "store"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b103",
+   "kind": "item",
+   "label": "bathroom",
+   "class": "noun",
+   "symbol": "🚻",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "bathroom"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "R"
+  },
+  {
+   "id": "b104",
+   "kind": "item",
+   "label": "car",
+   "class": "noun",
+   "symbol": "🚗",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "car"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "A"
+  },
+  {
+   "id": "b105",
+   "kind": "item",
+   "label": "bus",
+   "class": "noun",
+   "symbol": "🚌",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "bus"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b106",
+   "kind": "item",
+   "label": "bedroom",
+   "class": "noun",
+   "symbol": "🚪",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "bedroom"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "D"
+  },
+  {
+   "id": "b107",
+   "kind": "item",
+   "label": "outside",
+   "class": "adverb",
+   "symbol": "⛅",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "outside"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b108",
+   "kind": "item",
+   "label": "work",
+   "class": "verb",
+   "symbol": "✏",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "work"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b109",
+   "kind": "item",
+   "label": "read",
+   "class": "verb",
+   "symbol": "📚",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "read"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b110",
+   "kind": "item",
+   "label": "write",
+   "class": "verb",
+   "symbol": "📝",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "write"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b111",
+   "kind": "item",
+   "label": "scissors",
+   "class": "noun",
+   "symbol": "✂",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "scissors"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "S"
+  },
+  {
+   "id": "b112",
+   "kind": "item",
+   "label": "backpack",
+   "class": "noun",
+   "symbol": "🎒",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "backpack"
+    }
+   ],
+   "symbolPack": "twemoji",
+   "symbolKey": "1f392"
+  },
+  {
+   "id": "b113",
+   "kind": "item",
+   "label": "lunch",
+   "class": "noun",
+   "symbol": "🍱",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "lunch"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b114",
+   "kind": "item",
+   "label": "line up",
+   "class": "phrase",
+   "symbol": "🚸",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "line up"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b115",
+   "kind": "item",
+   "label": "listen",
+   "class": "verb",
+   "symbol": "👂",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "listen"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "E"
+  },
+  {
+   "id": "b116",
+   "kind": "item",
+   "label": "dog",
+   "class": "noun",
+   "symbol": "🐕",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "dog"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "D"
+  },
+  {
+   "id": "b117",
+   "kind": "item",
+   "label": "cat",
+   "class": "noun",
+   "symbol": "🐈",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "cat"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b118",
+   "kind": "item",
+   "label": "bird",
+   "class": "noun",
+   "symbol": "🐦",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "bird"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "B"
+  },
+  {
+   "id": "b119",
+   "kind": "item",
+   "label": "fish",
+   "class": "noun",
+   "symbol": "🐟",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "fish"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "F"
+  },
+  {
+   "id": "b120",
+   "kind": "item",
+   "label": "horse",
+   "class": "noun",
+   "symbol": "🐎",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "horse"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "H"
+  },
+  {
+   "id": "b121",
+   "kind": "item",
+   "label": "cow",
+   "class": "noun",
+   "symbol": "🐄",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "cow"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "C"
+  },
+  {
+   "id": "b122",
+   "kind": "item",
+   "label": "pig",
+   "class": "noun",
+   "symbol": "🐖",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "pig"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "P"
+  },
+  {
+   "id": "b123",
+   "kind": "item",
+   "label": "lion",
+   "class": "noun",
+   "symbol": "🦁",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "lion"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "L"
+  },
+  {
+   "id": "b124",
+   "kind": "item",
+   "label": "elephant",
+   "class": "noun",
+   "symbol": "🐘",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "elephant"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "E"
+  },
+  {
+   "id": "b125",
+   "kind": "item",
+   "label": "monkey",
+   "class": "noun",
+   "symbol": "🐵",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "monkey"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b126",
+   "kind": "item",
+   "label": "eyes",
+   "class": "noun",
+   "symbol": "👁",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "eyes"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "E"
+  },
+  {
+   "id": "b127",
+   "kind": "item",
+   "label": "ears",
+   "class": "noun",
+   "symbol": "👂",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "ears"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "E"
+  },
+  {
+   "id": "b128",
+   "kind": "item",
+   "label": "mouth",
+   "class": "noun",
+   "symbol": "👄",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "mouth"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "M"
+  },
+  {
+   "id": "b129",
+   "kind": "item",
+   "label": "nose",
+   "class": "noun",
+   "symbol": "👃",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "nose"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "N"
+  },
+  {
+   "id": "b130",
+   "kind": "item",
+   "label": "hand",
+   "class": "noun",
+   "symbol": "✋",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "hand"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "R"
+  },
+  {
+   "id": "b131",
+   "kind": "item",
+   "label": "teeth",
+   "class": "noun",
+   "symbol": "🦷",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "teeth"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "T"
+  },
+  {
+   "id": "b132",
+   "kind": "item",
+   "label": "leg",
+   "class": "noun",
+   "symbol": "🦵",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "leg"
+    }
+   ],
+   "symbolPack": "mulberry",
+   "symbolKey": "L"
+  }
+ ],
+ "views": {
+  "home": [
+   {
+    "columns": 5,
+    "cells": [
+     {
+      "btn": "b1"
+     },
+     {
+      "btn": "b2"
+     },
+     {
+      "btn": "b3"
+     },
+     {
+      "btn": "b4"
+     },
+     {
+      "btn": "b5"
+     },
+     {
+      "btn": "b6"
+     },
+     {
+      "btn": "b7"
+     },
+     {
+      "btn": "b8"
+     },
+     {
+      "btn": "b9"
+     },
+     {
+      "btn": "b10"
+     },
+     {
+      "btn": "b11"
+     },
+     {
+      "btn": "b12"
+     },
+     {
+      "btn": "b13"
+     },
+     {
+      "btn": "b14"
+     },
+     {
+      "btn": "b15"
+     },
+     {
+      "btn": "b16"
+     },
+     {
+      "btn": "b17"
+     },
+     {
+      "btn": "b18"
+     },
+     {
+      "btn": "b19"
+     },
+     {
+      "btn": "b20"
+     },
+     {
+      "btn": "b21"
+     },
+     {
+      "btn": "b22"
+     },
+     {
+      "btn": "b23"
+     },
+     {
+      "btn": "b24"
+     },
+     {
+      "btn": "fpeople"
+     },
+     {
+      "btn": "ffeelings"
+     },
+     {
+      "btn": "fcalm"
+     },
+     {
+      "btn": "ffood"
+     },
+     {
+      "btn": "fplay"
+     },
+     {
+      "btn": "fplaces"
+     },
+     {
+      "btn": "fschool"
+     },
+     {
+      "btn": "fanimals"
+     },
+     {
+      "btn": "fbody"
+     },
+     {
+      "btn": "speakBtn"
+     },
+     {
+      "btn": "clearBtn"
+     },
+     {
+      "btn": "sensoryBtn"
+     }
+    ]
+   }
+  ],
+  "people": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b37"
+     },
+     {
+      "btn": "b38"
+     },
+     {
+      "btn": "b39"
+     },
+     {
+      "btn": "b40"
+     },
+     {
+      "btn": "b41"
+     },
+     {
+      "btn": "b42"
+     },
+     {
+      "btn": "b43"
+     },
+     {
+      "btn": "b44"
+     },
+     {
+      "btn": "b45"
+     },
+     {
+      "btn": "b46"
+     }
+    ]
+   }
+  ],
+  "feelings": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b47"
+     },
+     {
+      "btn": "b48"
+     },
+     {
+      "btn": "b49"
+     },
+     {
+      "btn": "b50"
+     },
+     {
+      "btn": "b51"
+     },
+     {
+      "btn": "b52"
+     },
+     {
+      "btn": "b53"
+     },
+     {
+      "btn": "b54"
+     },
+     {
+      "btn": "b55"
+     },
+     {
+      "btn": "b56"
+     },
+     {
+      "btn": "b57"
+     },
+     {
+      "btn": "b58"
+     }
+    ]
+   }
+  ],
+  "calm": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b59"
+     },
+     {
+      "btn": "b60"
+     },
+     {
+      "btn": "b61"
+     },
+     {
+      "btn": "b62"
+     },
+     {
+      "btn": "b63"
+     },
+     {
+      "btn": "b64"
+     },
+     {
+      "btn": "b65"
+     },
+     {
+      "btn": "b66"
+     },
+     {
+      "btn": "b67"
+     },
+     {
+      "btn": "b68"
+     }
+    ]
+   }
+  ],
+  "food": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b69"
+     },
+     {
+      "btn": "b70"
+     },
+     {
+      "btn": "b71"
+     },
+     {
+      "btn": "b72"
+     },
+     {
+      "btn": "b73"
+     },
+     {
+      "btn": "b74"
+     },
+     {
+      "btn": "b75"
+     },
+     {
+      "btn": "b76"
+     },
+     {
+      "btn": "b77"
+     },
+     {
+      "btn": "b78"
+     },
+     {
+      "btn": "b79"
+     },
+     {
+      "btn": "b80"
+     },
+     {
+      "btn": "b81"
+     },
+     {
+      "btn": "b82"
+     },
+     {
+      "btn": "b83"
+     },
+     {
+      "btn": "b84"
+     }
+    ]
+   }
+  ],
+  "play": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b85"
+     },
+     {
+      "btn": "b86"
+     },
+     {
+      "btn": "b87"
+     },
+     {
+      "btn": "b88"
+     },
+     {
+      "btn": "b89"
+     },
+     {
+      "btn": "b90"
+     },
+     {
+      "btn": "b91"
+     },
+     {
+      "btn": "b92"
+     },
+     {
+      "btn": "b93"
+     },
+     {
+      "btn": "b94"
+     },
+     {
+      "btn": "b95"
+     },
+     {
+      "btn": "b96"
+     },
+     {
+      "btn": "b97"
+     },
+     {
+      "btn": "b98"
+     }
+    ]
+   }
+  ],
+  "places": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b99"
+     },
+     {
+      "btn": "b100"
+     },
+     {
+      "btn": "b101"
+     },
+     {
+      "btn": "b102"
+     },
+     {
+      "btn": "b103"
+     },
+     {
+      "btn": "b104"
+     },
+     {
+      "btn": "b105"
+     },
+     {
+      "btn": "b106"
+     },
+     {
+      "btn": "b107"
+     }
+    ]
+   }
+  ],
+  "school": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b108"
+     },
+     {
+      "btn": "b109"
+     },
+     {
+      "btn": "b110"
+     },
+     {
+      "btn": "b111"
+     },
+     {
+      "btn": "b112"
+     },
+     {
+      "btn": "b113"
+     },
+     {
+      "btn": "b114"
+     },
+     {
+      "btn": "b115"
+     }
+    ]
+   }
+  ],
+  "animals": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b116"
+     },
+     {
+      "btn": "b117"
+     },
+     {
+      "btn": "b118"
+     },
+     {
+      "btn": "b119"
+     },
+     {
+      "btn": "b120"
+     },
+     {
+      "btn": "b121"
+     },
+     {
+      "btn": "b122"
+     },
+     {
+      "btn": "b123"
+     },
+     {
+      "btn": "b124"
+     },
+     {
+      "btn": "b125"
+     }
+    ]
+   }
+  ],
+  "body": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "b126"
+     },
+     {
+      "btn": "b127"
+     },
+     {
+      "btn": "b128"
+     },
+     {
+      "btn": "b129"
+     },
+     {
+      "btn": "b130"
+     },
+     {
+      "btn": "b131"
+     },
+     {
+      "btn": "b132"
+     }
+    ]
+   }
+  ]
+ }
 }

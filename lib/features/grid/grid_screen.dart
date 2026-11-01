@@ -80,6 +80,8 @@ class GridSession extends ChangeNotifier {
           break;
         case ActionKind.launchUrl:
           break; // explorer: no-op
+        case ActionKind.sensoryGames:
+          break; // handled by the screen (opens the calm corner)
         case ActionKind.gotoFolder:
           if (vocabulary.folders.containsKey(a.data)) _stack.add(a.data);
           break;
@@ -187,6 +189,9 @@ class GridScreen extends StatelessWidget {
   /// App mode: show the in-app ⚙ Options button (speech, restrictions, edit).
   final bool showOptions;
 
+  /// Opens the sensory regulation games (autism feature).
+  final VoidCallback? onSensoryGames;
+
   const GridScreen({
     super.key,
     required this.session,
@@ -198,6 +203,7 @@ class GridScreen extends StatelessWidget {
     this.onEditButton,
     this.onAddButton,
     this.showOptions = false,
+    this.onSensoryGames,
   });
 
   @override
@@ -373,11 +379,17 @@ class GridScreen extends StatelessWidget {
                 dimmed: visible[i].dimmed,
                 showEditBadge: editMode,
                 onTap: () {
+                  final btn = visible[i].button;
                   if (editMode && onEditButton != null) {
-                    onEditButton!(visible[i].button);
-                  } else {
-                    session.tap(visible[i].button, maxColumns: maxColumns);
+                    onEditButton!(btn);
+                    return;
                   }
+                  if (btn.actions
+                      .any((a) => a.kind == ActionKind.sensoryGames)) {
+                    onSensoryGames?.call();
+                    return;
+                  }
+                  session.tap(btn, maxColumns: maxColumns);
                 },
               ),
             ),

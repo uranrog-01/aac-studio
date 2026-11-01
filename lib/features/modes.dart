@@ -10,11 +10,29 @@ import '../models/domain.dart';
 import '../studio/device_frame.dart';
 import 'editor/editor_dialog.dart';
 import 'grid/grid_screen.dart';
+import 'sensory/sensory_games.dart';
 
 /// M2+M3+M5: the ORIGINAL sample vocabulary running in the studio, with
-/// persisted edits and voice styles.
-class MyAppHome extends StatelessWidget {
+/// persisted edits and voice styles. StatefulWidget so the GridSession
+/// survives rebuilds (keyboard open/close, device switches).
+class MyAppHome extends StatefulWidget {
   const MyAppHome({super.key});
+
+  @override
+  State<MyAppHome> createState() => _MyAppHomeState();
+}
+
+class _MyAppHomeState extends State<MyAppHome> {
+  GridSession? _session;
+  Vocabulary? _builtFor;
+
+  GridSession? _sessionFor(Vocabulary vocab, SpeechEngine speech) {
+    if (_session == null || _builtFor != vocab) {
+      _session = GridSession(vocabulary: vocab, speech: speech);
+      _builtFor = vocab;
+    }
+    return _session;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +43,8 @@ class MyAppHome extends StatelessWidget {
     if (pack.vocabulary == null) {
       return const Center(child: CircularProgressIndicator());
     }
-    final session = GridSession(
-      vocabulary: pack.vocabulary!,
-      speech: SpeechEngineProvider.of(context),
-    );
+    final session = _sessionFor(
+        pack.vocabulary!, SpeechEngineProvider.of(context))!;
     return GridScreen(
       session: session,
       maxColumns: device.value?.spec.maxGridColumns ?? 6,
@@ -36,6 +52,10 @@ class MyAppHome extends StatelessWidget {
       predictor: context.watch<Predictor>(),
       library: library,
       editMode: settings.editMode,
+      onSensoryGames: () => Navigator.of(context, rootNavigator: true).push(
+          MaterialPageRoute(
+              fullscreenDialog: true,
+              builder: (_) => const SensoryGamesScreen())),
       onEditButton: (b) => _edit(context, session, pack, library, b),
       onAddButton: () => _add(context, session, pack, library),
     );

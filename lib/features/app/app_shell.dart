@@ -10,12 +10,33 @@ import '../editor/editor_dialog.dart';
 import '../grid/grid_screen.dart';
 import '../modes.dart' show SpeechEngineProvider;
 import '../settings/settings_sheet.dart';
+import '../sensory/sensory_games.dart';
 
 /// The REAL app (mobile): like the studied original — launch straight into
 /// the full-screen vocabulary grid. No studio chrome, no device frames.
 /// Settings + edit mode live inside the app behind the ⚙ button (PIN-gated).
-class AppShell extends StatelessWidget {
+///
+/// Stateful on purpose: the GridSession must survive parent rebuilds
+/// (keyboard open/close, MediaQuery changes) — recreating it in build()
+/// reset navigation and closed the keyboard instantly on Android.
+class AppShell extends StatefulWidget {
   const AppShell({super.key});
+
+  @override
+  State<AppShell> createState() => _AppShellState();
+}
+
+class _AppShellState extends State<AppShell> {
+  GridSession? _session;
+  Vocabulary? _builtFor;
+
+  GridSession? _sessionFor(Vocabulary vocab, SpeechEngine speech) {
+    if (_session == null || _builtFor != vocab) {
+      _session = GridSession(vocabulary: vocab, speech: speech);
+      _builtFor = vocab;
+    }
+    return _session;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +48,8 @@ class AppShell extends StatelessWidget {
         body: Center(child: CircularProgressIndicator()),
       );
     }
-    final session = GridSession(
-      vocabulary: pack.vocabulary!,
-      speech: SpeechEngineProvider.of(context),
-    );
+    final session = _sessionFor(
+        pack.vocabulary!, SpeechEngineProvider.of(context))!;
     return GridScreen(
       session: session,
       // Auto-fit the grid to the real screen (phone vs tablet).
@@ -40,6 +59,7 @@ class AppShell extends StatelessWidget {
       library: context.watch<SymbolLibrary>(),
       editMode: settings.editMode,
       showOptions: true,
+      onSensoryGames: () => _openSensory(context),
       onEditButton: (b) => _edit(context, session, pack, b),
       onAddButton: () => _add(context, session, pack),
     );
@@ -48,6 +68,13 @@ class AppShell extends StatelessWidget {
   int _autoColumns(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     return (w ~/ 95).clamp(4, 9);
+  }
+
+  void _openSensory(BuildContext context) {
+    Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+      fullscreenDialog: true,
+      builder: (_) => const SensoryGamesScreen(),
+    ));
   }
 
   void _edit(BuildContext context, GridSession session, PackController pack,

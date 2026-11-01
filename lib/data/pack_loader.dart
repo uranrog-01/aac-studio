@@ -46,7 +46,7 @@ class PackLoader {
         id: id,
         label: b['label'] as String,
         spokenText: b['spoken'] as String?,
-        kind: _buttonKind(b['kind'] as String),
+        kind: _buttonKind((b['kind'] ?? 'item') as String),
         wordClass: WordClass.fromName(b['class'] as String?),
         symbol: SymbolRef.fromJson({
           'emoji': b['symbol'] ?? '⬛',
@@ -89,6 +89,8 @@ class PackLoader {
   /// Serialize a vocabulary back to the pack JSON schema (M5 persistence).
   Map<String, dynamic> save(Vocabulary v) {
     final buttons = <Map<String, dynamic>>[];
+    // keep in sync with PackController.kPackVersion
+    const packVersion = 2;
     final views = <String, dynamic>{};
     for (final e in v.viewsByFolder.entries) {
       views[e.key] = e.value.map((view) {
@@ -140,6 +142,7 @@ class PackLoader {
                     ActionKind.clearMessage => 'clearMessage',
                     ActionKind.gotoFolder => 'gotoFolder',
                     ActionKind.launchUrl => 'launchUrl',
+                    ActionKind.sensoryGames => 'sensoryGames',
                   },
                   if (a.data.isNotEmpty) 'data': a.data,
                 })
@@ -148,6 +151,7 @@ class PackLoader {
       });
     }
     return {
+      'packVersion': packVersion,
       'id': v.id,
       'label': v.label,
       'rootFolder': v.rootFolderId,
@@ -180,6 +184,7 @@ class PackLoader {
         'clearMessage' => ActionKind.clearMessage,
         'gotoFolder' => ActionKind.gotoFolder,
         'launchUrl' => ActionKind.launchUrl,
+        'sensoryGames' => ActionKind.sensoryGames,
         _ => ActionKind.addText,
       };
 }

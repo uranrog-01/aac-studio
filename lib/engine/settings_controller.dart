@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../data/pack_loader.dart';
@@ -92,10 +94,23 @@ class PackController extends ChangeNotifier {
 
   Future<void> load({String assetPath = 'assets/sample_pack.json'}) async {
     final f = storage.packFile('sample_pack');
-    if (!await f.exists()) {
-      // first run: copy the bundled asset into the editable pack
-      final raw = await loader.loadAsset(assetPath);
-      await storage.writeJson(f, loader.save(raw));
+    // Bundled pack version: when the shipped pack is newer than the stored
+    // one, upgrade (keeping a backup of the user's edits) so improvements
+    // reach already-installed devices.
+    final assetRaw = await loader.loadAsset(assetPath);
+    const kPackVersion = 2;
+    int storedVersion = 0;
+    if (await f.exists()) {
+      final stored = await storage.readJson(f);
+      storedVersion = (stored?['packVersion'] as num?)?.toInt() ?? 0;
+    }
+    if (!await f.exists() || storedVersion < kPackVersion) {
+      if (await f.exists()) {
+        final backup = File(
+            '${f.path}.backup-${DateTime.now().millisecondsSinceEpoch}.json');
+        await f.copy(backup.path);
+      }
+      await storage.writeJson(f, loader.save(assetRaw));
     }
     vocabulary = await loader.loadFile(f.path);
     packId = vocabulary!.id;
