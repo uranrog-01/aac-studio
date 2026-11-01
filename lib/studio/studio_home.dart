@@ -26,6 +26,8 @@ class _StudioHomeState extends State<StudioHome> {
   InstallServer? _installServer;
   String? _installUrl;
   String? _installError;
+  List<({String address, String adapter})> _lanIps = const [];
+  String? _selectedIp;
 
   DeviceMode get device =>
       context.watch<ValueNotifier<DeviceMode?>>().value ??
@@ -214,9 +216,19 @@ class _StudioHomeState extends State<StudioHome> {
                   apkPath: apk ?? ipa!, ipaPath: ipa);
               try {
                 final url = await server.start();
+                // PC may be on several networks (Wi-Fi + hotspot + …):
+                // let the user pick the IP that matches the phone's network.
+                s._lanIps = await InstallServer.lanIps();
+                s._selectedIp = s._lanIps.isNotEmpty
+                    ? s._lanIps.first.address
+                    : null;
+                server.urlOverride = s._selectedIp;
                 s._installServer = server;
-                s._installUrl = url;
-                s._installError = null;
+                s._installUrl = server.url;
+                s._installError = s._lanIps.length > 1
+                    ? 'PC is on ${s._lanIps.length} networks — pick the one '
+                        'your phone/tablet is using:'
+                    : null;
               } catch (e) {
                 s._installError = 'Server failed: $e';
               }
@@ -236,6 +248,49 @@ class _StudioHomeState extends State<StudioHome> {
             child: Text(s._installError!,
                 style: const TextStyle(color: Colors.orangeAccent, fontSize: 11)),
           ),
+        if ((s._installServer?.running ?? false) && s._lanIps.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+            child: Wrap(spacing: 6, runSpacing: 6, children: [
+              for (final e in s._lanIps)
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      s._selectedIp = e.address;
+                      s._installServer!.urlOverride = e.address;
+                      s._installUrl = s._installServer!.url;
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: s._selectedIp == e.address
+                          ? Colors.deepOrangeAccent.withValues(alpha: .25)
+                          : const Color(0xFF3A4049),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                          color: s._selectedIp == e.address
+                              ? Colors.deepOrangeAccent
+                              : Colors.white12),
+                    ),
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                      Text(e.address,
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 11.5,
+                              fontWeight: FontWeight.w600)),
+                      Text(e.adapter,
+                          style: const TextStyle(
+                              color: Colors.white38, fontSize: 9)),
+                    ]),
+                  ),
+                ),
+            ]),
+          ),
+        ],
         if (s._installUrl != null) ...[
           const SizedBox(height: 8),
           Center(
@@ -264,11 +319,21 @@ class _StudioHomeState extends State<StudioHome> {
           const Padding(
             padding: EdgeInsets.only(top: 6, left: 4, right: 4),
             child: Text(
-              'Scan with the phone/tablet camera (same Wi-Fi), open the link, '
-              'download the APK and install it. Android may ask to allow '
-              '"Install unknown apps" for your browser — that is normal for '
+              'Pick the network your phone/tablet is on (above), then scan. '
+              'Both devices must be on the SAME network. If the page says '
+              '"offline", allow AAC Studio through Windows Firewall '
+              '(there is a "Fix firewall" button below) and rescan. Android '
+              'may ask to allow "Install unknown apps" — normal for '
               'sideloading. Nothing leaves your network.',
               style: TextStyle(color: Colors.white30, fontSize: 10),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 6, 4, 0),
+            child: OutlinedButton.icon(
+              onPressed: _fixFirewall,
+              icon: const Icon(Icons.security, size: 16),
+              label: const Text('Fix firewall (allow port 8770-8789)'),
             ),
           ),
         ] else ...[
@@ -283,6 +348,29 @@ class _StudioHomeState extends State<StudioHome> {
         ],
       ]),
     );
+  }
+
+  /// Adds a Windows Firewall inbound rule for the install server's ports.
+  /// Requires one UAC approval (the elevation dialog is shown to the user).
+  Future<void> _fixFirewall() async {
+    const ps = "Start-Process netsh -ArgumentList "
+        "'advfirewall firewall add rule name=\"AAC Studio Install Server\" "
+        "dir=in action=allow protocol=TCP localport=8770-8789 "
+        "profile=any' -Verb RunAs -Wait";
+    try {
+      final r = await Process.run('powershell', ['-NoProfile', '-Command', ps]);
+      final ok = r.exitCode == 0;
+      setState(() {
+        _installError = ok
+            ? null
+            : 'Firewall rule was not added (exit ${r.exitCode}). '
+                'Add it manually: run PowerShell as Administrator and:\n'
+                'netsh advfirewall firewall add rule name="AAC Studio Install '
+                'Server" dir=in action=allow protocol=TCP localport=8770-8789';
+      });
+    } catch (e) {
+      setState(() => _installError = 'Firewall fix failed: $e');
+    }
   }
 
   String? _findApk() {

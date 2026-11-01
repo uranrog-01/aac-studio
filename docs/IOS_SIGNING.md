@@ -1,5 +1,53 @@
 # Installing AAC Studio (or any IPA) on an iPhone — no paid developer account
 
+## The passwordless local pipeline (built, tested)
+
+`tools\sign_and_install.ps1` signs and installs any IPA **entirely locally and
+open source** — zsign (compiled from source in WSL) + pymobiledevice3. The
+only credential it ever touches is the passphrase of **your own certificate
+file**. No Apple ID, no account password, no third-party service, ever.
+
+```
+tools\certs\cert.p12              <- your signing certificate (one-time mint)
+tools\certs\cert.mobileprovision  <- matching provisioning profile
+        |
+        v
+tools\sign_and_install.ps1  =  zsign (WSL)  ->  pymobiledevice3 (USB install)
+```
+
+The pipeline is mechanically verified end-to-end on this machine (signed the
+112 MB `AACStudio-unsigned.ipa` with a locally generated test CA chain in
+under 2 seconds). An iOS device would reject the *test* certificate — that is
+expected; what it proves is that every mechanical step (p12 parsing, CMS
+signature, Mach-O re-signing, repack) works.
+
+### The one unavoidable step
+
+Minting a certificate requires **one** Apple ID authentication — Apple's
+servers issue certificates only to authenticated accounts, and iOS installs
+nothing without a certificate. This is true for every tool that has ever
+existed on stock iOS (TrollStore excepted, and it needs iOS ≤ 17.0; your
+iPhone Air runs 26.7.2). What you can control is *where* that one
+authentication happens and *how long* the credential lives:
+
+| Mint route | Credential exposure | After the mint |
+|---|---|---|
+| **Paid Apple Developer** ($99/yr) — create cert in the Apple portal in a browser, download `.p12` + `.mobileprovision` | Apple ID used in Apple's own website only | **Zero credentials forever.** Drop both files in `tools\certs\`, run `tools\sign_and_install.ps1`. Profiles last months, not 7 days. |
+| **Free Apple ID via open-source clients** (AltServer / SideStore — source-auditable, credentials go directly to Apple) | Typed once into an open-source tool | 7-day certs; re-mint weekly (or use SideStore's on-device refresh). |
+| **Free Apple ID via Sideloadly** with an **app-specific password** | A revocable, signing-only password (not your account password) — delete it any time at account.apple.com → App-Specific Passwords | 7-day certs. |
+
+If you export/obtain the `.p12` + `.mobileprovision` pair by any of these
+routes, everything after that is passwordless:
+
+```powershell
+tools\sign_and_install.ps1                     # signs dist\AACStudio-unsigned.ipa and installs
+tools\sign_and_install.ps1 -IpaPath C:\any.ipa # works for ANY ipa, same certs
+```
+
+---
+
+# Background: why unsigned files "do nothing"
+
 iOS refuses to install any IPA that is not code-signed with a certificate
 Apple trusts. Unsigned files are silently ignored by the installer — a QR
 scan or Safari download of one "does nothing" by design. So every route

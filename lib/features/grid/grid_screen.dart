@@ -44,6 +44,8 @@ class GridSession extends ChangeNotifier {
 
   void tap(VocabButton b, {int maxColumns = 6}) {
     if (b.kind == ButtonKind.folder) {
+      // Auto-speak: folders announce their label when entered (P2G-style).
+      if (b.speakText.isNotEmpty) speech.speak(b.speakText, style: b.voice);
       for (final a in b.actions) {
         if (a.kind == ActionKind.gotoFolder &&
             vocabulary.folders.containsKey(a.data)) {
@@ -54,16 +56,21 @@ class GridSession extends ChangeNotifier {
       }
       return;
     }
+    var spoke = false;
+    String appended = '';
     for (final a in b.actions) {
       switch (a.kind) {
         case ActionKind.addText:
-          _append(a.data.isNotEmpty ? a.data : b.speakText);
+          appended = a.data.isNotEmpty ? a.data : b.speakText;
+          _append(appended);
           break;
         case ActionKind.speakNow:
           speech.speak(a.data.isNotEmpty ? a.data : b.speakText, style: b.voice);
+          spoke = true;
           break;
         case ActionKind.speakMessage:
           speech.speak(_message);
+          spoke = true;
           break;
         case ActionKind.clearMessage:
           _message = '';
@@ -75,9 +82,16 @@ class GridSession extends ChangeNotifier {
           break;
       }
     }
-    if (b.kind == ButtonKind.item && !b.actions.any((a) => a.kind == ActionKind.addText)) {
-      _append(b.speakText);
-      if (b.voice != null) speech.speak(b.speakText, style: b.voice);
+    if (b.kind == ButtonKind.item) {
+      if (!b.actions.any((a) => a.kind == ActionKind.addText)) {
+        appended = b.speakText;
+        _append(appended);
+      }
+      // Auto-speak: tapping a symbol always says its word, unless an
+      // action above already spoke (speakNow / speakMessage).
+      if (!spoke && appended.isNotEmpty) {
+        speech.speak(appended, style: b.voice);
+      }
     }
     notifyListeners();
   }

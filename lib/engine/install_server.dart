@@ -19,33 +19,63 @@ class InstallServer {
   InstallServer({required this.apkPath, this.ipaPath});
 
   bool get running => _server != null;
-  String? get url => _server == null ? null : 'http://$_lanIp:$port';
+  /// URL override: when the PC is on several networks, the UI picks the IP
+  /// matching the phone's network; the server itself binds all interfaces.
+  String? urlOverride;
+  String? get url {
+    if (_server == null) return null;
+    final ip = (urlOverride != null && urlOverride!.isNotEmpty)
+        ? urlOverride!
+        : _lanIp;
+    return ip == null ? null : 'http://$ip:$port';
+  }
+
   String? get apkUrl => url == null ? null : '$url/apk';
   String? get ipaUrl => (url == null || ipaPath == null) ? null : '$url/ipa';
 
   static String? _lanIp;
 
-  static Future<String?> lanIp() async {
+  /// A LAN IPv4 + the adapter it belongs to, so the user can pick the
+  /// network their phone is actually on (PCs often have several).
+  static Future<List<({String address, String adapter})>> lanIps() async {
     final ifs = await NetworkInterface.list(
         type: InternetAddressType.IPv4, includeLoopback: false);
-    // prefer private-range addresses (192.168 / 10. / 172.16-31)
-    String? fallback;
+    final out = <({String address, String adapter})>[];
     for (final i in ifs) {
       for (final a in i.addresses) {
         if (a.isLoopback) continue;
         final o = a.address.split('.');
-        if (o.length == 4) {
-          final first = int.tryParse(o[0]) ?? 0;
-          final second = int.tryParse(o[1]) ?? 0;
-          final isPrivate = (first == 192 && second == 168) ||
-              first == 10 ||
-              (first == 172 && second >= 16 && second <= 31);
-          if (isPrivate) return a.address;
-          fallback ??= a.address;
+        if (o.length != 4) continue;
+        final first = int.tryParse(o[0]) ?? 0;
+        final second = int.tryParse(o[1]) ?? 0;
+        final isPrivate = (first == 192 && second == 168) ||
+            first == 10 ||
+            (first == 172 && second >= 16 && second <= 31);
+        if (isPrivate) {
+          out.add((address: a.address, adapter: i.name));
         }
       }
     }
-    return fallback;
+    // Virtual adapters (Hyper-V/WSL "vEthernet", loopbacks) are never the
+    // right choice for a phone — sort them to the end.
+    int rank(String adapter) =>
+        adapter.toLowerCase().contains('vethernet') ||
+                adapter.toLowerCase().contains('virtual') ||
+                adapter.toLowerCase().contains('loopback')
+            ? 1
+            : 0;
+    out.sort((a, b) => rank(a.adapter).compareTo(rank(b.adapter)));
+    return out;
+  }
+
+  static Future<String?> lanIp() async {
+    final ips = await lanIps();
+    if (ips.isEmpty) return null;
+    // prefer a home-style 192.168.x when several networks exist
+    for (final e in ips) {
+      if (e.address.startsWith('192.168.')) return e.address;
+    }
+    return ips.first.address;
   }
 
   Future<String> start() async {
