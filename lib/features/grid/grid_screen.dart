@@ -190,10 +190,15 @@ class GridSession extends ChangeNotifier {
   }
 
   void _speakMessage(TapFlags? f) {
-    if (_message.isEmpty) return;
+    if (_message.trim().isEmpty) return;
     speech.speak(_message);
     lastSpoken = _message;
     if (f?.clearOnSpeak ?? false) _message = '';
+    if (f?.goHomeOnPress ?? false) {
+      _stack
+        ..clear()
+        ..add(vocabulary.rootFolderId);
+    }
   }
 
   void _stampRecent(VocabButton b) {
@@ -248,19 +253,22 @@ class GridSession extends ChangeNotifier {
 
   /// M5: replace a button (by id) in the current view and persist.
   void replaceButton(VocabButton updated, {VoidCallback? persist}) {
-    final view = viewFor(currentFolderId, maxColumns: 99);
-    if (view == null) return;
-    final cells = view.cells;
-    for (var i = 0; i < cells.length; i++) {
-      if (cells[i].button.id == updated.id) {
-        cells[i] = GridCell(updated.copyWith(userEdited: true),
-            col: cells[i].col,
-            row: cells[i].row,
-            span: cells[i].span,
-            hidden: cells[i].hidden,
-            dimmed: cells[i].dimmed);
-        break;
+    for (final views in vocabulary.viewsByFolder.values) {
+      for (final view in views) {
+        for (var i = 0; i < view.cells.length; i++) {
+          final cell = view.cells[i];
+          if (cell.button.id != updated.id) continue;
+          view.cells[i] = GridCell(updated.copyWith(userEdited: true),
+              col: cell.col,
+              row: cell.row,
+              span: cell.span,
+              hidden: cell.hidden,
+              dimmed: cell.dimmed);
+        }
       }
+    }
+    for (var i = 0; i < _recents.length; i++) {
+      if (_recents[i].id == updated.id) _recents[i] = updated;
     }
     persist?.call();
     notifyListeners();
@@ -271,15 +279,20 @@ class GridSession extends ChangeNotifier {
     final view = viewFor(currentFolderId, maxColumns: 99);
     if (view == null) return;
     view.cells.add(GridCell(b));
+    vocabulary.removedIds.remove(b.id);
     persist?.call();
     notifyListeners();
   }
 
   /// M5: remove a button from the current view.
   void removeButton(String id, {VoidCallback? persist}) {
-    final view = viewFor(currentFolderId, maxColumns: 99);
-    if (view == null) return;
-    view.cells.removeWhere((c) => c.button.id == id);
+    for (final views in vocabulary.viewsByFolder.values) {
+      for (final view in views) {
+        view.cells.removeWhere((cell) => cell.button.id == id);
+      }
+    }
+    _recents.removeWhere((button) => button.id == id);
+    vocabulary.removedIds.add(id);
     persist?.call();
     notifyListeners();
   }
@@ -304,7 +317,10 @@ class GridSession extends ChangeNotifier {
     notifyListeners();
   }
 
-  void speakMessage() => _speakMessage(null);
+  void speakMessage({TapFlags? flags}) {
+    _speakMessage(flags);
+    notifyListeners();
+  }
 }
 
 /// Shared grid screen used by the mobile app AND the studio preview.
@@ -361,7 +377,8 @@ class _GridScreenState extends State<GridScreen> {
             speech: widget.session.speech,
             initialText: widget.session.message,
             onTextChanged: widget.session.setMessageLive,
-            onSpeak: widget.session.speakMessage,
+            onSpeak: () =>
+                widget.session.speakMessage(flags: _tapFlags(settings)),
             onClose: widget.session.toggleKeyboard,
           );
         }
@@ -408,7 +425,7 @@ class _GridScreenState extends State<GridScreen> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           child: InkWell(
-            onTap: session.speakMessage,
+            onTap: () => session.speakMessage(flags: _tapFlags(settings)),
             borderRadius: BorderRadius.circular(12),
             child: Container(
               width: double.infinity,
@@ -449,6 +466,7 @@ class _GridScreenState extends State<GridScreen> {
         child: Semantics(
           button: true,
           label: label,
+          enabled: onTap != null,
           excludeSemantics: true,
           child: Material(
             color: active
@@ -481,7 +499,7 @@ class _GridScreenState extends State<GridScreen> {
     );
   }
 
-  /// Seven large controls a communicator uses every day; caregiver and
+  /// Six large controls a communicator uses every day; caregiver and
   /// occasional tools (recent words, repeat, copy, settings) live in More.
   Widget _toolbar(BuildContext context, String folderLabel, AppSettings s) {
     final session = widget.session;
@@ -494,11 +512,6 @@ class _GridScreenState extends State<GridScreen> {
             onTap: session.canGoBack ? session.back : null),
         _toolbarBtn(
             icon: Icons.home_rounded, label: 'Home', onTap: session.goHome),
-        _toolbarBtn(
-            icon: Icons.star_rounded,
-            label: 'My words',
-            active: session.currentFolderId == GridSession.favoritesFolderId,
-            onTap: () => session.pushFolder(GridSession.favoritesFolderId)),
         if (widget.editMode)
           _toolbarBtn(
               icon: Icons.add_box, label: 'Add', onTap: widget.onAddButton),
@@ -516,7 +529,7 @@ class _GridScreenState extends State<GridScreen> {
             icon: Icons.volume_up,
             label: 'Speak',
             color: const Color(0xFF2E7D32),
-            onTap: session.speakMessage),
+            onTap: () => session.speakMessage(flags: _tapFlags(s))),
         _toolbarBtn(
             icon: Icons.clear_all, label: 'Clear', onTap: session.clearMessage),
         _toolbarBtn(
@@ -665,16 +678,18 @@ class _GridScreenState extends State<GridScreen> {
 
   GridCell? _findCell(GridCell c) => c;
 
+  TapFlags _tapFlags(AppSettings settings) => TapFlags(
+        quietBuilder: settings.quietBuilder,
+        vocalizeFolders: settings.vocalizeFolders,
+        clearOnSpeak: settings.clearOnSpeak,
+        goHomeOnPress: settings.goHomeOnPress,
+        inputDebounceMs: settings.inputDebounceMs,
+        haptics: settings.haptics,
+        audioCues: settings.audioCues,
+      );
+
   void _onCellTapExecute(GridCell c, AppSettings settings) {
-    final flags = TapFlags(
-      quietBuilder: settings.quietBuilder,
-      vocalizeFolders: settings.vocalizeFolders,
-      clearOnSpeak: settings.clearOnSpeak,
-      goHomeOnPress: settings.goHomeOnPress,
-      inputDebounceMs: settings.inputDebounceMs,
-      haptics: settings.haptics,
-      audioCues: settings.audioCues,
-    );
+    final flags = _tapFlags(settings);
     if (!widget.session.allowTap(flags)) return;
     if (settings.haptics) HapticFeedback.selectionClick();
     if (settings.audioCues) SystemSound.play(SystemSoundType.click);

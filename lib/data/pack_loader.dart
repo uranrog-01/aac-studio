@@ -34,7 +34,8 @@ class PackLoader {
           f['label'] as String,
           SymbolRef(f['symbol'] as String? ?? '📁',
               pack: f['symbolPack'] as String?,
-              key: f['symbolKey'] as String?));
+              key: f['symbolKey'] as String?,
+              imagePath: f['imagePath'] as String?));
     }
     final buttons = <String, VocabButton>{};
     for (final b in (m['buttons'] as List).cast<Map>()) {
@@ -79,6 +80,8 @@ class PackLoader {
               col: cm['col'] != null ? (cm['col'] as num).toInt() : null,
               row: cm['row'] != null ? (cm['row'] as num).toInt() : null,
               span: cm['span'] != null ? (cm['span'] as num).toInt() : 1,
+              hidden: cm['hidden'] == true,
+              dimmed: cm['dimmed'] == true,
             );
           }).toList(),
         );
@@ -90,6 +93,7 @@ class PackLoader {
       rootFolderId: m['rootFolder'] as String,
       folders: folders,
       viewsByFolder: views,
+      removedIds: (m['removedIds'] as List? ?? []).cast<String>().toSet(),
     );
   }
 
@@ -110,21 +114,23 @@ class PackLoader {
               if (c.col != null) 'col': c.col,
               if (c.row != null) 'row': c.row,
               if (c.span != 1) 'span': c.span,
+              if (c.hidden) 'hidden': true,
+              if (c.dimmed) 'dimmed': true,
             };
           }).toList(),
         };
       }).toList();
     }
     // collect buttons from views + folders
-    final allButtons = <VocabButton>{};
+    final allButtons = <String, VocabButton>{};
     for (final list in v.viewsByFolder.values) {
       for (final view in list) {
         for (final c in view.cells) {
-          allButtons.add(c.button);
+          allButtons[c.button.id] = c.button;
         }
       }
     }
-    for (final b in allButtons) {
+    for (final b in allButtons.values) {
       buttons.add({
         'id': b.id,
         'kind': switch (b.kind) {
@@ -170,6 +176,7 @@ class PackLoader {
           .map((f) => {
                 'id': f.id,
                 'label': f.label,
+                if (f.symbol.imagePath != null) 'imagePath': f.symbol.imagePath,
                 'symbol':
                     f.symbol.pack == null ? f.symbol.emoji : f.symbol.emoji,
                 if (f.symbol.pack != null) ...{
@@ -179,6 +186,7 @@ class PackLoader {
               })
           .toList(),
       'buttons': buttons,
+      'removedIds': v.removedIds.toList(),
       'views': views,
     };
   }
