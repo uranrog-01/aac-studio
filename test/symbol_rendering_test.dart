@@ -26,6 +26,38 @@ void main() {
     expect(paths[2].getAttribute('fill'), '#ff0000');
   });
 
+  test('every WebP symbol decodes at full size and every Twemoji SVG parses',
+      () async {
+    for (final pack in ['modern3d', 'noto', 'learning']) {
+      final files = Directory('assets/symbols/$pack')
+          .listSync()
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.webp'))
+          .toList();
+      expect(files, isNotEmpty, reason: pack);
+      for (final f in files) {
+        final codec = await ui.instantiateImageCodec(f.readAsBytesSync());
+        final frame = await codec.getNextFrame();
+        expect(frame.image.width, greaterThanOrEqualTo(64), reason: f.path);
+        frame.image.dispose();
+      }
+    }
+    final twemoji = Directory('assets/symbols/twemoji')
+        .listSync()
+        .whereType<File>()
+        .toList();
+    expect(twemoji.where((f) => f.path.endsWith('.png')), isEmpty);
+    const shapes = {'path', 'circle', 'ellipse', 'rect', 'polygon', 'polyline'};
+    for (final f in twemoji) {
+      expect(
+          XmlDocument.parse(f.readAsStringSync())
+              .descendantElements
+              .where((e) => shapes.contains(e.localName)),
+          isNotEmpty,
+          reason: f.path);
+    }
+  });
+
   test('every bundled Mulberry SVG normalizes without losing its paths', () {
     var styled = 0;
     for (final file

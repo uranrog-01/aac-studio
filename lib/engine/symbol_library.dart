@@ -83,22 +83,25 @@ class SymbolLibrary {
           errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
     }
     switch (ref.pack) {
+      // Raster packs ship as lossless WebP (tools/compress_symbols.py).
       case 'modern3d':
-        return Image.asset('assets/symbols/modern3d/${ref.key}.png',
+        return Image.asset('assets/symbols/modern3d/${ref.key}.webp',
             width: s,
             height: s,
             cacheWidth: 512,
             filterQuality: FilterQuality.high,
             fit: BoxFit.contain,
             errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
-      case 'twemoji':
       case 'noto':
       case 'learning':
-        return Image.asset('assets/symbols/${ref.pack}/${ref.key}.png',
+        return Image.asset('assets/symbols/${ref.pack}/${ref.key}.webp',
             width: s,
             height: s,
+            filterQuality: FilterQuality.medium,
             fit: BoxFit.contain,
             errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
+      // Twemoji draws from its SVG: sharp at every size.
+      case 'twemoji':
       case 'twemoji_svg':
         return SvgPicture.asset('assets/symbols/twemoji/${ref.key}.svg',
             width: s,

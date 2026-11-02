@@ -50,6 +50,15 @@ android {
         }
     }
 
+    // One APK for every phone/tablet CPU (arm64 + arm32). Plugins (Piper/onnx,
+    // sqlite) also bundle x86_64 libraries that cannot run without Flutter's
+    // own x86_64 engine, which arm-only release builds leave out.
+    packaging {
+        jniLibs {
+            excludes += setOf("lib/x86_64/**", "lib/x86/**")
+        }
+    }
+
     buildTypes {
         release {
             signingConfig = signingConfigs.findByName("localUpdate")

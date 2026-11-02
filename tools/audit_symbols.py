@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 
 def asset(pack, key):
-    extension = 'png' if pack in ('twemoji', 'noto', 'learning', 'modern3d') else 'svg'
+    extension = 'webp' if pack in ('noto', 'learning', 'modern3d') else 'svg'
     folder = 'twemoji' if pack == 'twemoji_svg' else pack
     return ROOT / 'assets' / 'symbols' / folder / f'{key}.{extension}'
 
@@ -26,8 +26,8 @@ def main():
             ET.parse(path)
         else:
             raw = path.read_bytes()
-            assert raw[:8] == b'\x89PNG\r\n\x1a\n', path
-            assert all(struct.unpack('>II', raw[16:24])), path
+            assert raw[:4] == b'RIFF' and raw[8:12] == b'WEBP', path
+            assert struct.unpack('<I', raw[4:8])[0] + 8 == len(raw), path
     buttons = {b['id']: b for b in pack['buttons']}
     assert len(buttons) == len(pack['buttons']), 'Duplicate button IDs'
     folders = {f['id'] for f in pack['folders']}

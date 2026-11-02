@@ -219,7 +219,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
           Align(
             alignment: Alignment.centerLeft,
             child: TextButton(onPressed: () => showLicensePage(context: context,
-                applicationName: 'AAC Studio', applicationVersion: '1.5.1'),
+                applicationName: 'AAC Studio', applicationVersion: '1.5.2'),
                 child: const Text('Voice and software licenses')),
           ),
         ]),

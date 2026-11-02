@@ -83,9 +83,8 @@ void main() {
         jsonDecode(await File('assets/sample_pack.json').readAsString())
             as Map<String, dynamic>;
     for (final item in [...pack['buttons'], ...pack['folders']]) {
-      final ext = ['twemoji', 'noto', 'learning', 'modern3d']
-              .contains(item['symbolPack'])
-          ? 'png'
+      final ext = ['noto', 'learning', 'modern3d'].contains(item['symbolPack'])
+          ? 'webp'
           : 'svg';
       expect(
           File('assets/symbols/${item['symbolPack']}/${item['symbolKey']}.$ext')
