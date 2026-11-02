@@ -1,0 +1,58 @@
+{
+  "name": "AAC Studio",
+  "subtitle": "Picture-based communication for non-verbal children",
+  "description": "Open-source AAC (Augmentative and Alternative Communication) app: tap pictures to build sentences and speak them aloud. Modern flat pictures, offline voice, daily routines, skin tone choice.",
+  "iconURL": "https://raw.githubusercontent.com/uranrog-01/aac-studio/main/assets/app_icon.png",
+  "website": "https://github.com/uranrog-01/aac-studio",
+  "tintColor": "#FF6E40",
+  "nsfw": false,
+  "featuredApps": [
+    "com.aacstudio.aacStudio"
+  ],
+  "apps": [
+    {
+      "name": "AAC Studio",
+      "bundleIdentifier": "com.aacstudio.aacStudio",
+      "developerName": "AAC Studio",
+      "subtitle": "Tap pictures, build sentences, speak them aloud.",
+      "localizedDescription": "AAC Studio helps children who cannot speak, or speak little, to communicate. Tap picture buttons to build a message and the app speaks it. Includes core words (I, want, help, yes, no, wait), categories, Daily routines, a calm-down page, a typing keyboard with word prediction and an offline voice. Caregivers can edit buttons and lock settings with a code.",
+      "iconURL": "https://raw.githubusercontent.com/uranrog-01/aac-studio/main/assets/app_icon.png",
+      "tintColor": "#FF6E40",
+      "category": "lifestyle",
+      "screenshots": [
+        "https://raw.githubusercontent.com/uranrog-01/aac-studio/main/docs/web-webkit-phone.png",
+        {
+          "imageURL": "https://raw.githubusercontent.com/uranrog-01/aac-studio/main/docs/flat-symbol-preview.png",
+          "width": 1200,
+          "height": 900
+        }
+      ],
+      "versions": [
+        {
+          "version": "1.8.0",
+          "buildVersion": "5005",
+          "date": "2026-11-02",
+          "localizedDescription": "Modern flat pictures, skin tone choice for people, Daily routines category, smaller download.",
+          "downloadURL": "https://github.com/uranrog-01/aac-studio/releases/download/v1.8.0/AACStudio-unsigned.ipa",
+          "size": 155397913,
+          "minOSVersion": "15.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    }
+  ],
+  "news": [
+    {
+      "title": "AAC Studio 1.8.0",
+      "identifier": "release-v1-8-0",
+      "caption": "Modern flat pictures, skin tone choice for people, Daily routines category, smaller download.",
+      "date": "2026-11-02",
+      "tintColor": "#FF6E40",
+      "notify": true,
+      "appID": "com.aacstudio.aacStudio"
+    }
+  ]
+}
