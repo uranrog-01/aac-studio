@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -22,6 +22,7 @@ class SettingsController extends ChangeNotifier {
   Future<void> load() async {
     settings =
         AppSettings.fromJson(await storage.readJson(storage.settingsFile));
+    if (kIsWeb) settings.usePiper = false;
     notifyListeners();
   }
 
@@ -102,7 +103,7 @@ class PackController extends ChangeNotifier {
     // one, upgrade (keeping a backup of the user's edits) so improvements
     // reach already-installed devices.
     final assetRaw = await loader.loadAsset(assetPath);
-    const kPackVersion = 7;
+    const kPackVersion = 9;
     int storedVersion = 0;
     if (await f.exists()) {
       final stored = await storage.readJson(f);
@@ -110,9 +111,8 @@ class PackController extends ChangeNotifier {
     }
     if (!await f.exists() || storedVersion < kPackVersion) {
       if (await f.exists()) {
-        final backup = File(
+        await f.copy(
             '${f.path}.backup-${DateTime.now().millisecondsSinceEpoch}.json');
-        await f.copy(backup.path);
         // Soft-delete merge (Vocable pattern): user additions + user edits
         // survive the factory upgrade.
         try {
@@ -130,7 +130,7 @@ class PackController extends ChangeNotifier {
         await storage.writeJson(f, loader.save(assetRaw));
       }
     }
-    vocabulary = await loader.loadFile(f.path);
+    vocabulary = loader.loadString(await f.readAsString());
     packId = vocabulary!.id;
     notifyListeners();
   }

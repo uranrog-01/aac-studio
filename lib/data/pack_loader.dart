@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import '../engine/read_text.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -22,7 +22,7 @@ class PackLoader {
   }
 
   Future<Vocabulary> loadFile(String path) async =>
-      loadString(await File(path).readAsString());
+      loadString(await readTextFile(path));
 
   Vocabulary loadString(String raw) {
     final m = json.decode(raw) as Map<String, dynamic>;
@@ -97,7 +97,7 @@ class PackLoader {
   Map<String, dynamic> save(Vocabulary v) {
     final buttons = <Map<String, dynamic>>[];
     // keep in sync with PackController.kPackVersion
-    const packVersion = 7;
+    const packVersion = 9;
     final views = <String, dynamic>{};
     for (final e in v.viewsByFolder.entries) {
       views[e.key] = e.value.map((view) {

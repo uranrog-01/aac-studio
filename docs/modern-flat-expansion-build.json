@@ -1,0 +1,45 @@
+{
+  "version": "1.7.0",
+  "buildNumber": 5004,
+  "testsPassed": 33,
+  "flutterAnalyze": "No issues found",
+  "allWebPFiles": 23869,
+  "modernFlatArtworks": 3374,
+  "newReviewedArtworks": 110,
+  "newGeneratorCounts": {
+    "built-in image_gen": 107,
+    "Repo-native SVG; app MIT license": 3
+  },
+  "maximumDimensions": [
+    340,
+    340
+  ],
+  "target": 10000,
+  "targetComplete": false,
+  "remaining": 6626,
+  "generationLimitResetNewYork": "2026-11-02 14:35 EST",
+  "paidApiFallbackStarted": false,
+  "androidSignatureVerified": [
+    "v2",
+    "v3"
+  ],
+  "packagedAssets": "Every Android and Windows WebP SHA256 matches source; original 3D/source collections excluded",
+  "artifacts": {
+    "AACStudio-1.7.0-android.apk": {
+      "bytes": 413430627,
+      "sha256": "061d111fff2d2e092fd71b98ec5e4dbde585437248fdbef03481d27058f4dc50"
+    },
+    "AACStudio-1.7.0-windows-x64.zip": {
+      "bytes": 349454673,
+      "sha256": "342dcb9a5b1b87f54c2dff9f1a152fff9049cd5ec486ceceac6229f7f75ac2fe"
+    },
+    "AACStudio-modern-flat-3374-WebP.zip": {
+      "bytes": 43059998,
+      "sha256": "bee57f450f2424795d2e8f12ce94df43266900c4387eceaab46f9c82acde70a2"
+    },
+    "AACStudio-new-110-modern-flat-WebP.zip": {
+      "bytes": 2688198,
+      "sha256": "cf0713fc6bb5e621994fdb1c8a4c6840189b0a536d21e50a78912f29996c7b7d"
+    }
+  }
+}

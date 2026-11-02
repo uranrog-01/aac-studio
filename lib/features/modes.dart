@@ -5,6 +5,8 @@ import '../data/p2g_loader.dart';
 import '../engine/prediction.dart';
 import '../engine/settings_controller.dart';
 import '../engine/speech.dart';
+import '../engine/speech_provider.dart';
+export '../engine/speech_provider.dart';
 import '../engine/symbol_library.dart';
 import '../models/domain.dart';
 import '../studio/device_frame.dart';
@@ -43,8 +45,8 @@ class _MyAppHomeState extends State<MyAppHome> {
     if (pack.vocabulary == null) {
       return const Center(child: CircularProgressIndicator());
     }
-    final session = _sessionFor(
-        pack.vocabulary!, SpeechEngineProvider.of(context))!;
+    final session =
+        _sessionFor(pack.vocabulary!, SpeechEngineProvider.of(context))!;
     return GridScreen(
       session: session,
       maxColumns: device.value?.spec.maxGridColumns ?? 6,
@@ -153,7 +155,8 @@ class P2gConfig {
   final String dbPath;
   final String typesPath;
   final String pngDir;
-  const P2gConfig({required this.dbPath, required this.typesPath, required this.pngDir});
+  const P2gConfig(
+      {required this.dbPath, required this.typesPath, required this.pngDir});
 
   /// Defaults resolved relative to this project on disk (research viewer).
   static P2gConfig localDefault() {
@@ -161,14 +164,9 @@ class P2gConfig {
     return P2gConfig(
       dbPath: '$base\\extracted\\Payload\\Proloquo2Go.app\\Databases\\'
           'com.assistiveware.proloquo2go.vocabulary.coreword.cache.sqlite',
-      typesPath: '$base\\extracted\\Payload\\Proloquo2Go.app\\Databases\\p2g_types.sqlite',
+      typesPath:
+          '$base\\extracted\\Payload\\Proloquo2Go.app\\Databases\\p2g_types.sqlite',
       pngDir: '$base\\p2g_symbols_png',
     );
   }
-}
-
-/// Tiny service locator for the speech engine.
-class SpeechEngineProvider {
-  static SpeechEngine of(BuildContext context) =>
-      Provider.of<SpeechEngine>(context, listen: false);
 }

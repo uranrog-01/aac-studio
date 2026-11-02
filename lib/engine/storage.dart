@@ -1,54 +1,6 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
-
+import 'storage_native.dart' if (dart.library.js_interop) 'storage_web.dart';
+export 'storage_native.dart' if (dart.library.js_interop) 'storage_web.dart';
 import 'prediction.dart';
-
-/// M5 persistence: packs, settings and learned words under the app's
-/// application-support directory (Windows + Android + iOS).
-class AppStorage {
-  late final Directory root;
-  late final Directory packsDir;
-
-  AppStorage._();
-  static AppStorage? _instance;
-
-  static Future<AppStorage> instance() async {
-    if (_instance != null) return _instance!;
-    final s = AppStorage._();
-    if (Platform.isAndroid || Platform.isIOS) {
-      final base = await getApplicationSupportDirectory();
-      s.root = Directory(p.join(base.path, 'data'));
-    } else {
-      final home = Platform.environment['USERPROFILE'] ??
-          Platform.environment['HOME'] ??
-          '.';
-      s.root = Directory(p.join(home, '.aac_studio'));
-    }
-    s.packsDir = Directory(p.join(s.root.path, 'packs'));
-    await s.packsDir.create(recursive: true);
-    _instance = s;
-    return s;
-  }
-
-  File packFile(String id) => File(p.join(packsDir.path, '$id.json'));
-  File get settingsFile => File(p.join(root.path, 'settings.json'));
-  File get learnedFile => File(p.join(root.path, 'learned_words.json'));
-
-  Future<void> writeJson(File f, Object json) async =>
-      f.writeAsString(const JsonEncoder.withIndent('  ').convert(json));
-
-  Future<Map<String, dynamic>?> readJson(File f) async {
-    if (!await f.exists()) return null;
-    try {
-      return jsonDecode(await f.readAsString()) as Map<String, dynamic>;
-    } catch (_) {
-      return null;
-    }
-  }
-}
 
 /// AppStorage as the Predictor's storage contract (M4 auto-learn).
 class StorageProviderAdapter implements AppStorageProvider {
@@ -98,6 +50,7 @@ class AppSettings {
   bool dwellEnabled;
   double dwellSeconds;
   bool cviMode; // high-contrast cortical-visual-impairment theme
+  String skinTone; // people pictures: '' default or a SymbolLibrary.skinTones value
   bool haptics;
   bool audioCues;
 
@@ -130,6 +83,7 @@ class AppSettings {
     this.dwellEnabled = false,
     this.dwellSeconds = 1.0,
     this.cviMode = false,
+    this.skinTone = '',
     this.haptics = true,
     this.audioCues = false,
     this.arasaacEnabled = true,
@@ -141,18 +95,31 @@ class AppSettings {
         'usePiper': usePiper,
         if (voiceName != null) 'voiceName': voiceName,
         if (voiceLocale != null) 'voiceLocale': voiceLocale,
-        'rate': rate, 'pitch': pitch, 'volume': volume,
-        'restrictionsEnabled': restrictionsEnabled, 'pin': pin,
-        'editMode': editMode, 'quietBuilder': quietBuilder,
+        'rate': rate,
+        'pitch': pitch,
+        'volume': volume,
+        'restrictionsEnabled': restrictionsEnabled,
+        'pin': pin,
+        'editMode': editMode,
+        'quietBuilder': quietBuilder,
         'vocalizeFolders': vocalizeFolders,
-        'inputDebounceMs': inputDebounceMs, 'preventExit': preventExit,
-        'clearOnSpeak': clearOnSpeak, 'goHomeOnPress': goHomeOnPress,
-        'buttonView': buttonView.name, 'labelPosition': labelPosition.name,
+        'inputDebounceMs': inputDebounceMs,
+        'preventExit': preventExit,
+        'clearOnSpeak': clearOnSpeak,
+        'goHomeOnPress': goHomeOnPress,
+        'buttonView': buttonView.name,
+        'labelPosition': labelPosition.name,
         'messageWindowTop': messageWindowTop,
-        'scanningEnabled': scanningEnabled, 'scanDelayMs': scanDelayMs,
-        'dwellEnabled': dwellEnabled, 'dwellSeconds': dwellSeconds,
-        'cviMode': cviMode, 'haptics': haptics, 'audioCues': audioCues,
-        'arasaacEnabled': arasaacEnabled, 'arasaacSkin': arasaacSkin,
+        'scanningEnabled': scanningEnabled,
+        'scanDelayMs': scanDelayMs,
+        'dwellEnabled': dwellEnabled,
+        'dwellSeconds': dwellSeconds,
+        'cviMode': cviMode,
+        'skinTone': skinTone,
+        'haptics': haptics,
+        'audioCues': audioCues,
+        'arasaacEnabled': arasaacEnabled,
+        'arasaacSkin': arasaacSkin,
         'arasaacHair': arasaacHair,
       };
 
@@ -184,6 +151,7 @@ class AppSettings {
         dwellEnabled: j?['dwellEnabled'] as bool? ?? false,
         dwellSeconds: (j?['dwellSeconds'] as num?)?.toDouble() ?? 1.0,
         cviMode: j?['cviMode'] as bool? ?? false,
+        skinTone: j?['skinTone'] as String? ?? '',
         haptics: j?['haptics'] as bool? ?? true,
         audioCues: j?['audioCues'] as bool? ?? false,
         arasaacEnabled: j?['arasaacEnabled'] as bool? ?? true,
@@ -193,7 +161,8 @@ class AppSettings {
 }
 
 AppStorage? _defaultStorage;
-AppStorageProvider get defaultAppStorageProvider => StorageProviderAdapter(_defaultStorage!);
+AppStorageProvider get defaultAppStorageProvider =>
+    StorageProviderAdapter(_defaultStorage!);
 
 Future<AppStorage> initDefaultStorage() async {
   _defaultStorage ??= await AppStorage.instance();

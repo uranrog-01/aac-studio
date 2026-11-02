@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'image_reference.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -15,14 +15,27 @@ class SymbolEntry {
   SymbolEntry(this.pack, this.key, this.name);
 }
 
-/// Search + render across bundled open symbol packs (20,894 pictures: Twemoji,
-/// Noto Emoji, OpenMoji, Mulberry — see THIRD_PARTY_SYMBOLS.md).
+/// Modern flat is the picture style; Mulberry (SVG) covers AAC words not yet
+/// drawn and Twemoji supplies country flags. See THIRD_PARTY_SYMBOLS.md.
 class SymbolLibrary {
   static final _svgSources = <String, Future<String>>{};
+
+  /// Saved references to retired emoji sets -> same concept in modern flat.
+  static final Map<String, String> _aliases = {};
+
+  /// Modern flat keys that exist, for skin-tone variants.
+  static final Set<String> _modernKeys = {};
+
+  /// Caregiver's choice for people pictures: '' (default yellow), 'light',
+  /// 'medium-light', 'medium', 'medium-dark' or 'dark'.
+  static String skinTone = '';
+  static const skinTones = ['light', 'medium-light', 'medium', 'medium-dark', 'dark'];
+
   final List<SymbolEntry> _entries = [];
+  final Set<(String, String)> _pictures = {};
   bool loaded = false;
 
-  int get size => _entries.length;
+  int get size => _pictures.length;
 
   Future<void> load() async {
     if (loaded) return;
@@ -32,9 +45,25 @@ class SymbolLibrary {
       for (final e in list) {
         _entries.add(
             SymbolEntry(e['p'] as String, e['k'] as String, e['n'] as String));
+        _pictures.add((e['p'] as String, e['k'] as String));
+        if (e['p'] == 'modernflat') _modernKeys.add(e['k'] as String);
       }
+      final aliases = jsonDecode(
+              await rootBundle.loadString('assets/symbol_aliases.json'))
+          as Map<String, dynamic>;
+      _aliases.addAll(aliases.cast<String, String>());
     } catch (_) {}
     loaded = true;
+  }
+
+  /// Skin-tone variants are one picture in search; the chosen tone is drawn.
+  static bool _isToneVariant(String key) =>
+      skinTones.any((t) => key.endsWith('-$t'));
+
+  static String _toned(String key) {
+    if (skinTone.isEmpty || _isToneVariant(key)) return key;
+    final variant = '$key-$skinTone';
+    return _modernKeys.contains(variant) ? variant : key;
   }
 
   List<SymbolEntry> search(String query, {int limit = 60}) {
@@ -42,6 +71,7 @@ class SymbolLibrary {
     if (q.isEmpty) return const [];
     final matches = <({SymbolEntry entry, int rank, int order})>[];
     for (final e in _entries) {
+      if (e.pack == 'modernflat' && _isToneVariant(e.key)) continue;
       final n = e.name.toLowerCase();
       final rank = n == q
           ? 0
@@ -55,7 +85,7 @@ class SymbolLibrary {
       if (rank != null) {
         matches.add((
           entry: e,
-          rank: rank + (e.pack == 'modern3d' ? 0 : 10),
+          rank: rank + (e.pack == 'modernflat' ? 0 : 10),
           order: matches.length
         ));
       }
@@ -76,50 +106,27 @@ class SymbolLibrary {
   static Widget resolve(SymbolRef ref, {double? size, Color? color}) {
     final s = size ?? 48;
     if (ref.imagePath != null) {
-      return Image.file(File(ref.imagePath!),
+      return referenceImage(ref.imagePath!,
           width: s,
           height: s,
           fit: BoxFit.contain,
           errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
     }
-    switch (ref.pack) {
-      // Raster packs ship as lossless WebP (tools/compress_symbols.py).
-      case 'modern3d':
-        return Image.asset('assets/symbols/modern3d/${ref.key}.webp',
-            width: s,
-            height: s,
-            cacheWidth: 512,
-            filterQuality: FilterQuality.high,
-            fit: BoxFit.contain,
-            errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
-      case 'noto':
-      case 'learning':
-        return Image.asset('assets/symbols/${ref.pack}/${ref.key}.webp',
-            width: s,
-            height: s,
-            filterQuality: FilterQuality.medium,
-            fit: BoxFit.contain,
-            errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
-      // Twemoji draws from its SVG: sharp at every size.
-      case 'twemoji':
-      case 'twemoji_svg':
-        return SvgPicture.asset('assets/symbols/twemoji/${ref.key}.svg',
-            width: s,
-            height: s,
-            fit: BoxFit.contain,
-            placeholderBuilder: (_) => _emoji(ref.emoji, s),
-            errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
-      case 'openmoji':
-      case 'openmoji_black':
-      case 'communication':
-        return SvgPicture.asset('assets/symbols/${ref.pack}/${ref.key}.svg',
-            width: s,
-            height: s,
-            fit: BoxFit.contain,
-            placeholderBuilder: (_) => _emoji(ref.emoji, s),
-            errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
+    var pack = ref.pack == 'modern3d'
+        ? 'modernflat'
+        : ref.pack == 'twemoji_svg'
+            ? 'twemoji'
+            : ref.pack;
+    var key = ref.key ?? '';
+    // Retired emoji sets: show the same concept in modern flat.
+    final alias = _aliases['$pack/$key'];
+    if (alias != null) {
+      pack = 'modernflat';
+      key = alias;
+    }
+    switch (pack) {
       case 'mulberry':
-        final path = 'assets/symbols/mulberry/${ref.key}.svg';
+        final path = 'assets/symbols/mulberry/$key.svg';
         return FutureBuilder<String>(
             future: _svgSources.putIfAbsent(path,
                 () async => inlineSvgStyles(await rootBundle.loadString(path))),
@@ -131,6 +138,17 @@ class SymbolLibrary {
                     placeholderBuilder: (_) => _emoji(ref.emoji, s),
                     errorBuilder: (_, __, ___) => _emoji(ref.emoji, s))
                 : _emoji(ref.emoji, s));
+      case 'modernflat':
+      case 'learning':
+      case 'twemoji':
+      case 'communication':
+        final file = pack == 'modernflat' ? _toned(key) : key;
+        return Image.asset('assets/flat_symbols/$pack/$file.webp',
+            width: s,
+            height: s,
+            filterQuality: FilterQuality.high,
+            fit: BoxFit.contain,
+            errorBuilder: (_, __, ___) => _emoji(ref.emoji, s));
       default:
         return _emoji(ref.emoji, s);
     }

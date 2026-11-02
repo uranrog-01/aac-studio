@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:io';
+import '../../engine/image_reference.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,9 +9,9 @@ import '../../engine/settings_controller.dart';
 import '../../engine/storage.dart';
 import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
-import '../modes.dart' show SpeechEngineProvider;
+import '../../engine/speech_provider.dart';
 
-/// Browse ALL bundled symbols (~21k entries, 20,894 pictures) + optional ARASAAC online
+/// Browse all bundled flat symbols and optional ARASAAC online
 /// pictograms. Tap to hear; add any symbol as a button to Home.
 class SymbolBrowser extends StatefulWidget {
   const SymbolBrowser({super.key});
@@ -41,8 +41,7 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
     _debounce = Timer(const Duration(milliseconds: 350), () async {
       setState(() => _arasaacLoading = true);
       try {
-        final res =
-            await context.read<ArasaacService>().search(q.trim());
+        final res = await context.read<ArasaacService>().search(q.trim());
         if (mounted) setState(() => _arasaac = res.take(20).toList());
       } catch (_) {
         if (mounted) setState(() => _arasaac = const []);
@@ -91,63 +90,59 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
         if (_arasaac.isNotEmpty || _arasaacLoading)
           SizedBox(
             height: 116,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10, bottom: 2),
-                    child: Text(
-                        _arasaacLoading
-                            ? 'ARASAAC (online)…'
-                            : 'ARASAAC pictograms (online)',
-                        style:
-                            const TextStyle(color: Colors.white38, fontSize: 10)),
-                  ),
-                  Expanded(
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      children: [
-                        for (final r in _arasaac)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8),
-                            child: InkWell(
-                              onTap: () =>
-                                  _openArasaac(context, r, settings),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10, bottom: 2),
+                child: Text(
+                    _arasaacLoading
+                        ? 'ARASAAC (online)…'
+                        : 'ARASAAC pictograms (online)',
+                    style:
+                        const TextStyle(color: Colors.white38, fontSize: 10)),
+              ),
+              Expanded(
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  children: [
+                    for (final r in _arasaac)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: InkWell(
+                          onTap: () => _openArasaac(context, r, settings),
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            width: 92,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF31383F),
                               borderRadius: BorderRadius.circular(10),
-                              child: Container(
-                                width: 92,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFF31383F),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                padding: const EdgeInsets.all(6),
-                                child: Column(children: [
-                                  Expanded(
-                                    child: Image.network(
-                                        ArasaacService.pictogramUrl(r.id,
-                                            skin: settings.arasaacSkin,
-                                            hair: settings.arasaacHair),
-                                        fit: BoxFit.contain,
-                                        errorBuilder: (_, __, ___) =>
-                                            const Icon(
-                                                Icons.image_not_supported,
-                                                color: Colors.white24)),
-                                  ),
-                                  Text(r.name,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 9)),
-                                ]),
-                              ),
                             ),
+                            padding: const EdgeInsets.all(6),
+                            child: Column(children: [
+                              Expanded(
+                                child: Image.network(
+                                    ArasaacService.pictogramUrl(r.id,
+                                        skin: settings.arasaacSkin,
+                                        hair: settings.arasaacHair),
+                                    fit: BoxFit.contain,
+                                    errorBuilder: (_, __, ___) => const Icon(
+                                        Icons.image_not_supported,
+                                        color: Colors.white24)),
+                              ),
+                              Text(r.name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                      color: Colors.white70, fontSize: 9)),
+                            ]),
                           ),
-                      ],
-                    ),
-                  ),
-                ]),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ]),
           ),
         Expanded(
           child: GridView.builder(
@@ -164,8 +159,8 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
     );
   }
 
-  Future<void> _openArasaac(BuildContext context,
-      ({int id, String name}) r, AppSettings settings) async {
+  Future<void> _openArasaac(BuildContext context, ({int id, String name}) r,
+      AppSettings settings) async {
     final arasaac = context.read<ArasaacService>();
     final path = await arasaac.cachePictogram(r.id,
         skin: settings.arasaacSkin, hair: settings.arasaacHair);
@@ -179,8 +174,7 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
         padding: const EdgeInsets.all(20),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           SizedBox(
-              height: 110,
-              child: Image.file(File(path), fit: BoxFit.contain)),
+              height: 110, child: referenceImage(path, fit: BoxFit.contain)),
           const SizedBox(height: 8),
           Text(r.name,
               style: const TextStyle(

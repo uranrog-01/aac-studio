@@ -10,7 +10,7 @@ import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
 import '../editor/editor_dialog.dart';
 import '../grid/grid_screen.dart';
-import '../modes.dart' show SpeechEngineProvider;
+import '../../engine/speech_provider.dart';
 import '../sensory/sensory_games.dart';
 
 /// The REAL app (mobile): like the studied original — launch straight into
@@ -119,8 +119,8 @@ class _AppShellState extends State<AppShell> {
       library: context.read<SymbolLibrary>(),
       existing: b,
       onSave: (updated) {
-        session.replaceButton(
-            updated.copyWith(userEdited: true), persist: pack.save);
+        session.replaceButton(updated.copyWith(userEdited: true),
+            persist: pack.save);
         final s = updated.voice;
         if (s != null) {
           SpeechEngineProvider.of(context).speak(updated.speakText, style: s);

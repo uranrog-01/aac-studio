@@ -83,11 +83,9 @@ void main() {
         jsonDecode(await File('assets/sample_pack.json').readAsString())
             as Map<String, dynamic>;
     for (final item in [...pack['buttons'], ...pack['folders']]) {
-      final ext = ['noto', 'learning', 'modern3d'].contains(item['symbolPack'])
-          ? 'webp'
-          : 'svg';
+      const ext = 'webp';
       expect(
-          File('assets/symbols/${item['symbolPack']}/${item['symbolKey']}.$ext')
+          File('assets/flat_symbols/${item['symbolPack']}/${item['symbolKey']}.$ext')
               .existsSync(),
           isTrue,
           reason: '${item['id']}: ${item['label']}');
@@ -179,17 +177,29 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       var text = '';
       var spoken = '';
+      var closed = false;
       await tester.pumpWidget(MaterialApp(
           theme: ThemeData(splashFactory: NoSplash.splashFactory),
           home: KeyboardView(
               predictor: Predictor(),
               speech: SpeechEngine(),
               onTextChanged: (value) => text = value,
-              onClose: () {},
+              onClose: () => closed = true,
               onSpeak: () => spoken = text)));
       expect(find.byType(TextField), findsOneWidget);
       expect(tester.widget<TextField>(find.byType(TextField)).keyboardType,
           TextInputType.none);
+      await tester.tap(find.text('Back'));
+      await tester.pump();
+      expect(closed, isTrue);
+      expect(find.text('a'), findsNothing);
+      expect(find.text('Numbers'), findsOneWidget);
+      expect(tester.getTopLeft(find.text('Numbers')).dy,
+          lessThan(tester.getTopLeft(find.text('Symbols')).dy));
+      expect(tester.getSize(find.bySemanticsLabel('Space')).width,
+          greaterThan(tester.getSize(find.bySemanticsLabel('Delete')).width));
+      await tester.ensureVisible(find.bySemanticsLabel('help'));
+      await tester.pumpAndSettle();
       await tester.tap(find.bySemanticsLabel('help'));
       await tester.pump();
       expect(text, 'help ');
@@ -205,6 +215,9 @@ void main() {
       await tester.tap(find.text('0'));
       await tester.pump();
       expect(text, 'help 0');
+      await tester.tap(find.bySemanticsLabel('Space'));
+      await tester.pump();
+      expect(text, 'help 0 ');
       expect(tester.takeException(), isNull);
     });
   }
@@ -243,7 +256,7 @@ void main() {
     old['views']['home'][0]['cells'].insert(0, firstCell);
     final merged = PackUpgrade.merge(old, fresh, factorySymbolHistory: history);
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
-    expect(merged['packVersion'], 7);
+    expect(merged['packVersion'], 9);
     expect(buttons['b1']['symbolKey'], 'scene-i');
     expect(buttons['b1']['favorite'], true);
     expect(buttons['b2']['symbolKey'], '1f431');
@@ -311,8 +324,7 @@ void main() {
     expect(keys.toSet().length, keys.length);
   });
 
-  test('v7 upgrade removes duplicate factory buttons from installed packs',
-      () {
+  test('v7 upgrade removes duplicate factory buttons from installed packs', () {
     final fresh = jsonDecode(File('assets/sample_pack.json').readAsStringSync())
         as Map<String, dynamic>;
     final history = jsonDecode(
@@ -367,8 +379,8 @@ void main() {
   test('chosen device voice is applied once and a missing voice still speaks',
       () async {
     final engine = SpeechEngine()
-      ..configure(
-          AppSettings(usePiper: false, voiceName: 'Zira', voiceLocale: 'en-US'));
+      ..configure(AppSettings(
+          usePiper: false, voiceName: 'Zira', voiceLocale: 'en-US'));
     await engine.speak('hi');
     await engine.speak('bye');
     final setVoice = calls.where((c) => c.method == 'setVoice').toList();
@@ -400,6 +412,76 @@ void main() {
     expect([saved.voiceName, saved.voiceLocale], ['Zira', 'en-US']);
   });
 
+  test('version 7 factory pictures upgrade to flat without losing voice edits',
+      () {
+    final fresh = jsonDecode(File('assets/sample_pack.json').readAsStringSync())
+        as Map<String, dynamic>;
+    final history = jsonDecode(
+            File('assets/factory_symbol_history.json').readAsStringSync())
+        as Map<String, dynamic>;
+    final old = jsonDecode(jsonEncode(fresh)) as Map<String, dynamic>;
+    old['packVersion'] = 7;
+    final before = (old['buttons'] as List).first as Map;
+    before['symbolPack'] = 'modern3d';
+    before['userEdited'] = true;
+    before['voice'] = {'rate': 0.8};
+    final merged = PackUpgrade.merge(old, fresh, factorySymbolHistory: history);
+    final after = (merged['buttons'] as List).first as Map;
+    expect(after['symbolPack'], 'modernflat');
+    expect(after['symbolKey'], before['symbolKey']);
+    expect(after['voice'], {'rate': 0.8});
+    expect(merged['packVersion'], 9);
+  });
+
+  test('library is child-safe and routines are reachable', () async {
+    final index =
+        jsonDecode(File('assets/symbol_index.json').readAsStringSync()) as List;
+    final names = {for (final e in index) (e['n'] as String).toLowerCase()};
+    final keys = {for (final e in index) e['k'] as String};
+    expect(keys, isNot(contains('vocab-rifle')));
+    for (final word in ['cervix', 'pharynx', 'fe', 'hebdomad', 'pall', 'blow']) {
+      expect(names, isNot(contains(word)), reason: word);
+    }
+    expect({for (final e in index) e['p']},
+        {'modernflat', 'mulberry', 'twemoji', 'communication'});
+    final pack =
+        jsonDecode(File('assets/sample_pack.json').readAsStringSync()) as Map;
+    final routines = (pack['views']['routines'] as List).first['cells'] as List;
+    expect(routines.length, 24);
+    for (final parent in ['actions', 'body']) {
+      expect(
+          ((pack['views'][parent] as List).first['cells'] as List)
+              .map((c) => c['btn']),
+          contains('sub_routines'));
+    }
+  });
+
+  test('new flat vocabulary resolves to its reviewed picture and meaning',
+      () async {
+    final library = SymbolLibrary();
+    await library.load();
+    for (final expected in {
+      'wash hands': 'vocab-wash-hands',
+      'get dressed': 'vocab-get-dressed',
+      'put on shoes': 'vocab-put-on-shoes',
+      'take off shoes': 'vocab-take-off-shoes',
+      'whisk': 'vocab-whisk',
+      'hurry': 'vocab-hurry',
+      'zip coat': 'vocab-zip-coat',
+      'brush hair': 'vocab-brush-hair',
+      'plane': 'fluent-airplane',
+      'plane (geometry)': 'vocab-plane',
+      'iron (metal)': 'vocab-iron',
+      'dishwashing worker': 'vocab-dishwasher',
+      'today': 'vocab-today',
+      'now': 'vocab-now',
+    }.entries) {
+      final result = library.search(expected.key, limit: 1).single;
+      expect(result.pack, 'modernflat', reason: expected.key);
+      expect(result.key, expected.value, reason: expected.key);
+    }
+  });
+
   test('modern symbol search prefers exact meanings over partial names',
       () async {
     final library = SymbolLibrary();
@@ -411,7 +493,7 @@ void main() {
       'no': 'fluent-cross-mark',
     }.entries) {
       final result = library.search(expected.key, limit: 1).single;
-      expect(result.pack, 'modern3d');
+      expect(result.pack, 'modernflat');
       expect(result.key, expected.value);
     }
     final pack =

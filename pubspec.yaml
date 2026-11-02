@@ -6,7 +6,7 @@ description: >-
 publish_to: "none"
 # Build number stays above every per-CPU APK ever shipped (they used
 # 1000/2000/4000 + n), so the single universal APK always installs as an update.
-version: 1.5.2+5002
+version: 1.8.0+5005
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
@@ -14,6 +14,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^1.6.0
   provider: ^6.1.2
   flutter_tts: ^4.2.0
   sherpa_onnx: 2.0.1
@@ -44,11 +45,10 @@ flutter:
     - assets/voices/piper-en-us-ljspeech-medium.tar.bz2
     - assets/voices/NOTICE.txt
     - assets/voices/GPL-3.0.txt
-    - assets/symbols/twemoji/
-    - assets/symbols/noto/
-    - assets/symbols/openmoji/
-    - assets/symbols/openmoji_black/
+    - assets/symbol_aliases.json
+    - assets/flat_symbols/
+    - assets/flat_symbols/modernflat/
+    - assets/flat_symbols/twemoji/
+    - assets/flat_symbols/learning/
+    - assets/flat_symbols/communication/
     - assets/symbols/mulberry/
-    - assets/symbols/learning/
-    - assets/symbols/communication/
-    - assets/symbols/modern3d/

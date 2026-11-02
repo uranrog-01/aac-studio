@@ -1,17 +1,6 @@
 {
- "pictures": 20891,
- "artwork_problems": [
-  {
-   "pack": "twemoji",
-   "key": "1f7e8",
-   "problem": "solid box placeholder"
-  },
-  {
-   "pack": "twemoji",
-   "key": "2b1c",
-   "problem": "no visible drawing"
-  }
- ],
+ "pictures": 7090,
+ "artwork_problems": [],
  "code_names": [
   {
    "pack": "mulberry",

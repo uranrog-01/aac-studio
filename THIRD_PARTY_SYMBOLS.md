@@ -1,37 +1,55 @@
 # Third-party symbol packs (bundled open-licensed assets)
 
-Third-party collections under `assets/symbols/` retain their own licenses.
+Third-party source collections under `assets/symbols/` and their WebP exports under
+`assets/flat_symbols/` retain their own licenses. Source SVG/PNG/3D files are not
+bundled. Every symbol exported for the app is WebP no larger than 340 × 340 pixels.
 The original `communication/*.svg` pictograms and `learning/*.png` letter/number
 cards are covered by AAC Studio's MIT license. Communication pictogram sources
 are in `tools/repair_symbol_meanings.py`.
 Index names come from Unicode CLDR English annotations (Unicode License).
 
-The `modern3d/` starter set combines Microsoft Fluent Emoji 3D PNGs (MIT;
+The `flat_symbols/modernflat/` set combines Microsoft Fluent Emoji Flat artwork (MIT;
 Copyright Microsoft Corporation, pinned revision
-`1ffb34c752ecf5d402f04cfb4b392c77f57c54bc`) with 56 original generated action
+`1ffb34c752ecf5d402f04cfb4b392c77f57c54bc`) with 166 original generated action
 and object illustrations, plus original rendered letter/number and color cards.
-Microsoft's complete notice is bundled as `modern3d/LICENSE-Microsoft.txt`.
+Microsoft's complete notice is bundled as `flat_symbols/LICENSE-Microsoft.txt`.
 The original illustrations and cards use the app's MIT license. Source paths,
 generation briefs, assignments and checksums are in
-`docs/modern-symbol-manifest.json`; importer: `tools/modernize_symbols.py`.
+`docs/flat-symbol-manifest.json`; exporter: `tools/flatten_symbols.py`.
 The original letter/number cards are rendered with the Windows Segoe UI font;
 no font software is redistributed.
 
-| Pack | Directory | Source | Count | License | Attribution requirement |
-|---|---|---|---|---|---|
-| Twemoji (PNG 72) | `twemoji/*.png` | github.com/jdecked/twemoji v15.1.0 | 3,838 | CC-BY 4.0 | Keep this file; credit "Twemoji by Twitter, maintained by jdecked" |
-| Twemoji (SVG) | `twemoji/*.svg` | same | 3,838 | CC-BY 4.0 | same |
-| Noto Emoji | `noto/*.png` | github.com/googlefonts/noto-emoji | 4,054 | Apache-2.0 | Keep this file |
-| OpenMoji (color) | `openmoji/*.svg` | github.com/hfg-gmuend/openmoji | 4,565 | CC BY-SA 4.0 | Credit "OpenMoji"; share-alike applies to the pack |
-| OpenMoji (black) | `openmoji_black/*.svg` | same | 4,565 | CC BY-SA 4.0 | same |
-| Mulberry | `mulberry/*.svg` | github.com/mulberrysymbols/mulberry-symbols | 3,436 | CC BY-SA 3.0 | Credit "Mulberry Symbols by Paul Beerr"; share-alike applies to the pack |
-| CLDR names index | `symbol_index.json` | unicode.org/cldr (annotations en) | names | Unicode License | — |
+| Collection | WebP exports | Source | License |
+|---|---:|---|---|
+| Twemoji | 3,838 | github.com/jdecked/twemoji v15.1.0 | CC BY 4.0; credit Twemoji by Twitter, maintained by jdecked |
+| Noto Emoji | 4,054 | github.com/googlefonts/noto-emoji | Apache-2.0 |
+| OpenMoji color | 4,564 | github.com/hfg-gmuend/openmoji | CC BY-SA 4.0; credit OpenMoji; retain share-alike terms |
+| OpenMoji black | 4,563 | same | CC BY-SA 4.0 |
+| Mulberry | 3,436 | github.com/mulberrysymbols/mulberry-symbols | CC BY-SA 3.0; credit Mulberry Symbols by Paul Beerr |
+| Fluent Flat | 3,145 | github.com/microsoft/fluentui-emoji; pinned revision above | MIT; complete notice bundled |
+| Original flat scenes | 166 | Individually generated illustrations | App MIT license |
+| Original cards, colors and native icons | 63 | Code-native flat shapes and Segoe UI text rendering | App MIT license; no font software redistributed |
+| Legacy communication / learning | 40 | Original app pictograms / number cards | App MIT license |
+| CLDR names index | names | unicode.org/cldr (annotations en) | Unicode License |
+
+The existing flat packs are converted from their source artwork; conversion is
+not described as newly drawing every picture. Exact Fluent Flat concept and
+skin-tone variants replace the corresponding 3D sources. Generated flat scene
+briefs, starter assignments and every exported image checksum are recorded in
+`docs/flat-symbol-manifest.json`.
 
 **Not bundled (license or provenance reasons):**
-- SymbolStix / Proloquo2Go assets — proprietary (N2Y LLC); never include them.
-- ARASAAC pictograms — CC BY-NC-SA (non-commercial): add them as an optional
-  runtime-downloaded pack for non-commercial use only; do not commit them here.
+- SymbolStix / Proloquo2Go assets are proprietary and are not included.
+- ARASAAC remains an optional online collection governed by its own license;
+  it is not part of the bundled flat export set.
 
-Totals: 24,898 searchable symbol names, including aliases. The modern starter
-set uses 417 unique PNGs: 301 Fluent Emoji, 56 generated illustrations, 49
-letter/number cards and 11 color indicators. Legacy packs remain available.
+See `docs/FLAT_SYMBOLS.md` for generation and export details. The app bundles
+23,869 WebP pictures; the searchable inventory includes 23,848 distinct picture
+references. The remaining 21 exports retain compatibility with legacy number
+cards. Search aliases are counted separately from pictures in the manifest.
+
+The 1.7.0 expansion contributes 107 accepted built-in generated illustrations
+and three original repo-native SVG graphics. Its full prompt and review record
+is `docs/modern-flat-expansion-assets.json`. WordNet 3.0 definitions from the
+NLTK corpus help disambiguate meanings; the complete WordNet notice is bundled
+as `flat_symbols/LICENSE-WordNet.txt`. WordNet is not an image source.

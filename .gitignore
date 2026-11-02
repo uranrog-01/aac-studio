@@ -50,5 +50,6 @@ app.*.map.json
 # distributable artifacts
 build/
 dist/
+/sites/aac-studio-iphone/
 *.apk
 *.zip

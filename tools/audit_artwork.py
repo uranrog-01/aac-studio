@@ -17,15 +17,10 @@ SVG_PACKS = {'openmoji', 'openmoji_black', 'mulberry', 'communication', 'twemoji
 
 
 def asset(pack, key):
-    folder = 'twemoji' if pack == 'twemoji_svg' else pack
-    ext = 'svg' if pack in SVG_PACKS else None
-    base = ROOT / 'assets' / 'symbols' / folder
-    if ext:
-        return base / f'{key}.svg'
-    for e in ('webp', 'png', 'svg'):
-        if (base / f'{key}.{e}').exists():
-            return base / f'{key}.{e}'
-    return base / f'{key}.png'
+    if pack == 'mulberry':
+        return ROOT / 'assets/symbols/mulberry' / f'{key}.svg'
+    folder = 'twemoji' if pack == 'twemoji_svg' else 'modernflat' if pack == 'modern3d' else pack
+    return ROOT / 'assets/flat_symbols' / folder / f'{key}.webp'
 
 
 def check(item):

@@ -96,7 +96,7 @@ class _StudioHomeState extends State<StudioHome> {
                             fontWeight: FontWeight.w800,
                             fontSize: 18,
                             letterSpacing: 1.2)),
-                    Text('v1.5.2 · smaller download',
+                    Text('v1.8.0 · modern flat',
                         style: TextStyle(color: Colors.white38, fontSize: 10)),
                   ]),
             ]),

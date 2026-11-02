@@ -26,39 +26,83 @@ void main() {
     expect(paths[2].getAttribute('fill'), '#ff0000');
   });
 
-  test('every WebP symbol decodes at full size and every Twemoji SVG parses',
+  test('all bundled WebP symbols decode at no more than 340 pixels',
       () async {
-    for (final pack in ['modern3d', 'noto', 'learning']) {
-      final files = Directory('assets/symbols/$pack')
-          .listSync()
-          .whereType<File>()
-          .where((f) => f.path.endsWith('.webp'))
-          .toList();
-      expect(files, isNotEmpty, reason: pack);
-      for (final f in files) {
-        final codec = await ui.instantiateImageCodec(f.readAsBytesSync());
-        final frame = await codec.getNextFrame();
-        expect(frame.image.width, greaterThanOrEqualTo(64), reason: f.path);
-        frame.image.dispose();
-      }
+    final manifest =
+        jsonDecode(File('docs/flat-symbol-manifest.json').readAsStringSync())
+            as Map;
+    final files = (manifest['files'] as Map).keys.cast<String>();
+    // Modern flat, flags, numbers and communication; Mulberry ships as SVG.
+    expect(files.length, greaterThan(3600));
+    expect(files.where((f) => f.startsWith('modernflat/')).length,
+        greaterThan(3300));
+    for (final relative in files) {
+      final f = File('assets/flat_symbols/$relative');
+      final bytes = f.readAsBytesSync();
+      expect(ascii.decode(bytes.sublist(0, 4)), 'RIFF', reason: f.path);
+      expect(ascii.decode(bytes.sublist(8, 12)), 'WEBP', reason: f.path);
+      final codec = await ui.instantiateImageCodec(bytes);
+      final frame = await codec.getNextFrame();
+      expect(frame.image.width, inInclusiveRange(1, 340), reason: f.path);
+      expect(frame.image.height, inInclusiveRange(1, 340), reason: f.path);
+      frame.image.dispose();
+      codec.dispose();
     }
-    final twemoji = Directory('assets/symbols/twemoji')
-        .listSync()
-        .whereType<File>()
-        .toList();
-    expect(twemoji.where((f) => f.path.endsWith('.png')), isEmpty);
-    const shapes = {'path', 'circle', 'ellipse', 'rect', 'polygon', 'polyline'};
-    for (final f in twemoji) {
-      expect(
-          XmlDocument.parse(f.readAsStringSync())
-              .descendantElements
-              .where((e) => shapes.contains(e.localName)),
-          isNotEmpty,
-          reason: f.path);
+  }, timeout: const Timeout(Duration(minutes: 5)));
+
+  String assetOf(SymbolRef ref) =>
+      ((SymbolLibrary.resolve(ref) as Image).image as AssetImage).assetName;
+
+  test('saved picture references resolve to bundled modern flat pictures',
+      () async {
+    await SymbolLibrary().load();
+    for (final entry in {
+      'modern3d': 'modernflat',
+      'twemoji_svg': 'twemoji',
+    }.entries) {
+      expect(assetOf(SymbolRef('test', pack: entry.key, key: 'example')),
+          'assets/flat_symbols/${entry.value}/example.webp');
     }
+    // Retired emoji sets show the same concept in modern flat.
+    expect(
+        assetOf(const SymbolRef('0',
+            pack: 'noto', key: 'emoji_u0030_20e3')),
+        'assets/flat_symbols/modernflat/fluent-keycap-0.webp');
+    final aliases =
+        jsonDecode(File('assets/symbol_aliases.json').readAsStringSync())
+            as Map<String, dynamic>;
+    for (final target in aliases.values.toSet()) {
+      expect(File('assets/flat_symbols/modernflat/$target.webp').existsSync(),
+          isTrue,
+          reason: target as String);
+    }
+    expect(SymbolLibrary.resolve(
+            const SymbolRef('help', pack: 'mulberry', key: 'help_,_to')),
+        isA<FutureBuilder<String>>());
   });
 
-  test('every bundled Mulberry SVG normalizes without losing its paths', () {
+  test('chosen skin tone is drawn and variants are one search result',
+      () async {
+    final library = SymbolLibrary();
+    await library.load();
+    const hand = SymbolRef('wave', pack: 'modernflat', key: 'fluent-waving-hand');
+    expect(assetOf(hand), 'assets/flat_symbols/modernflat/fluent-waving-hand.webp');
+    SymbolLibrary.skinTone = 'dark';
+    try {
+      expect(assetOf(hand),
+          'assets/flat_symbols/modernflat/fluent-waving-hand-dark.webp');
+      // Pictures without people keep their only version.
+      expect(
+          assetOf(const SymbolRef('car', pack: 'modernflat', key: 'fluent-automobile')),
+          'assets/flat_symbols/modernflat/fluent-automobile.webp');
+    } finally {
+      SymbolLibrary.skinTone = '';
+    }
+    final results = library.search('waving hand', limit: 20);
+    expect(results.where((e) => e.key.startsWith('fluent-waving-hand')).length, 1);
+  });
+
+  test('every source Mulberry SVG normalizes without losing its paths', () {
     var styled = 0;
     for (final file
         in Directory('assets/symbols/mulberry').listSync().whereType<File>()) {
@@ -82,6 +126,9 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMessageHandler('flutter/assets', (message) async {
       final path = utf8.decode(message!.buffer.asUint8List());
+      if (path == 'AssetManifest.bin') {
+        return const StandardMessageCodec().encodeMessage(<String, Object>{});
+      }
       final file = File(path);
       if (!file.existsSync()) return null;
       return ByteData.sublistView(file.readAsBytesSync());
@@ -97,6 +144,7 @@ void main() {
                         const SymbolRef('help',
                             pack: 'mulberry', key: 'help_,_to'),
                         size: 128))))));
+    await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 300)));
     await tester.pumpAndSettle();
     await tester.runAsync(() async {
       final boundary =

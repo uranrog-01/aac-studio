@@ -13,7 +13,7 @@ symbols, voices, or artwork from that app is included.**
 
 | Mode | What it is |
 |---|---|
-| My AAC | The original app: sample vocabulary, folder grid navigation, message window, word-class color coding, platform TTS with per-button voice styles, typing view with word prediction + auto-learn, full button editor with 20.9k-picture symbol search, caregiver restrictions lock. |
+| My AAC | The original app: sample vocabulary, folder grid navigation, message window, word-class color coding, platform TTS with per-button voice styles, typing view with word prediction + auto-learn, full button editor with 23.8k-picture symbol search, caregiver restrictions lock. |
 | P2G Explorer | Research viewer that renders a **locally extracted** Proloquo2Go IPA database (vocabulary, folders, grid layouts, buttons, actions) with locally pre-rendered symbol images. Local study tooling only - nothing is redistributed. |
 
 ### M3 - Voice styles
@@ -26,7 +26,7 @@ the predictor your words.
 
 ### M5 - Editor + restrictions
 Edit mode: tap any button to change label, spoken text, word class, symbol
-(search 20,894 bundled open pictures across 8 packs, or pick an emoji), voice
+(search 23,848 bundled open pictures across 8 packs, or pick an emoji), voice
 overrides, delete; Add button to create new ones. Everything persists to a
 local editable pack. Restrictions: 4-digit PIN gates edit mode.
 
@@ -57,7 +57,7 @@ Android OS floor: **Android 7.0+ (Fire OS 6+)** — the Flutter engine requires 
     +-- data/p2g_loader.dart      # research viewer: reads extracted cache DBs
     +-- engine/speech.dart        # TTS abstraction + per-utterance voice styles
     +-- engine/prediction.dart    # word prediction + auto-learn
-    +-- engine/symbol_library.dart# 20.9k open pictures: search + render
+    +-- engine/symbol_library.dart# 23.8k open pictures: search + render
     +-- engine/storage.dart       # packs / settings / learned words persistence
     +-- engine/settings_controller.dart
     +-- features/grid/            # grid engine, message window, keyboard view
@@ -65,7 +65,7 @@ Android OS floor: **Android 7.0+ (Fire OS 6+)** — the Flutter engine requires 
     +-- features/settings/        # M3 speech + M5 restrictions sheet
     +-- features/modes.dart       # My AAC + P2G Explorer wiring
     +-- studio/                   # device frames + studio shell
-    assets/                       # sample pack + 20.9k pictures + prediction lexicon
+    assets/                       # sample pack + 23.8k pictures + prediction lexicon
 
 ## Wireless install (no USB)
 
@@ -122,7 +122,11 @@ See [repair and verification notes](docs/COMMUNICATION_FIXES.md) for speech, key
 
 See [message and picture corrections](docs/SYMBOL_AND_MESSAGE_FIXES.md) for the single message box, consolidated Clear control, 57 corrected image assignments and SVG color rendering repairs.
 
-Version 1.4.0 replaces all starter artwork with [soft 3D illustrations](docs/MODERN_3D_SYMBOLS.md), enlarges pictures within tiles and prioritizes exact modern symbol matches in search.
+Version 1.6.0 uses [flat illustrations and WebP throughout the symbol library](docs/FLAT_SYMBOLS.md), with a maximum size of 340 × 340 pixels. It supersedes the 1.4.0 soft 3D starter artwork.
+
+Version 1.7.0 adds 110 reviewed modern flat pictures, bringing that collection to
+3,374. The [10,000-symbol expansion](docs/MODERN_FLAT_10000.md) remains in progress;
+queued concepts are not counted as finished images.
 
 ## Piper offline speech (1.3.0)
 

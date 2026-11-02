@@ -1,121 +1,79 @@
-# Installing AAC Studio (or any IPA) on an iPhone — no paid developer account
+# Installing AAC Studio on iPhone
 
-## The passwordless local pipeline (built, tested)
+Checked November 1, 2026. The requested setup is **Windows only, no paid
+Apple Developer membership, and no Apple Account password entered into any
+third-party app**. The device is an iPhone Air; its installed iOS version
+has not been supplied.
 
-`tools\sign_and_install.ps1` signs and installs any IPA **entirely locally and
-open source** — zsign (compiled from source in WSL) + pymobiledevice3. The
-only credential it ever touches is the passphrase of **your own certificate
-file**. No Apple ID, no account password, no third-party service, ever.
+## Route that fits these requirements: a home-screen web app
 
-```
-tools\certs\cert.p12              <- your signing certificate (one-time mint)
-tools\certs\cert.mobileprovision  <- matching provisioning profile
-        |
-        v
-tools\sign_and_install.ps1  =  zsign (WSL)  ->  pymobiledevice3 (USB install)
-```
+An HTTPS web version can be opened in Safari and added using Share → Add
+to Home Screen → Open as Web App → Add. This does not require an Apple
+Developer membership or signing credentials.
 
-The pipeline is mechanically verified end-to-end on this machine (signed the
-112 MB `AACStudio-unsigned.ipa` with a locally generated test CA chain in
-under 2 seconds). An iOS device would reject the *test* certificate — that is
-expected; what it proves is that every mechanical step (p12 parsing, CMS
-signature, Mach-O re-signing, repack) works.
+[Apple's home-screen web app instructions](https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/27/ios/27)
 
-### The one unavoidable step
+**AAC Studio is not currently ready for this route.** There is no Flutter
+`web/` platform directory. Native file access, SQLite storage and Piper
+speech need web-compatible implementations. Browser speech and offline
+storage must be tested on the actual iPhone before claiming feature parity.
+A web version must be built and served before these installation steps work.
 
-Minting a certificate requires **one** Apple ID authentication — Apple's
-servers issue certificates only to authenticated accounts, and iOS installs
-nothing without a certificate. This is true for every tool that has ever
-existed on stock iOS (TrollStore excepted, and it needs iOS ≤ 17.0; your
-iPhone Air runs 26.7.2). What you can control is *where* that one
-authentication happens and *how long* the credential lives:
+## Native installation and free Apple signing
 
-| Mint route | Credential exposure | After the mint |
-|---|---|---|
-| **Paid Apple Developer** ($99/yr) — create cert in the Apple portal in a browser, download `.p12` + `.mobileprovision` | Apple ID used in Apple's own website only | **Zero credentials forever.** Drop both files in `tools\certs\`, run `tools\sign_and_install.ps1`. Profiles last months, not 7 days. |
-| **Free Apple ID via open-source clients** (AltServer / SideStore — source-auditable, credentials go directly to Apple) | Typed once into an open-source tool | 7-day certs; re-mint weekly (or use SideStore's on-device refresh). |
-| **Free Apple ID via Sideloadly** with an **app-specific password** | A revocable, signing-only password (not your account password) — delete it any time at account.apple.com → App-Specific Passwords | 7-day certs. |
+Apple's official free route uses a Personal Team in **Xcode on a Mac**.
+The Apple Account is entered in Apple's own software. Profiles expire
+after seven days, requiring the app to be rebuilt and reinstalled. This
+does not provide a Windows-only solution.
 
-If you export/obtain the `.p12` + `.mobileprovision` pair by any of these
-routes, everything after that is passwordless:
+[Apple's Personal Team rules](https://developer.apple.com/help/account/basics/about-your-developer-account)
 
-```powershell
-tools\sign_and_install.ps1                     # signs dist\AACStudio-unsigned.ipa and installs
-tools\sign_and_install.ps1 -IpaPath C:\any.ipa # works for ANY ipa, same certs
-```
+Windows sideloaders that ask for an Apple Account password do not satisfy
+the stated requirement, even if they say they send it only to Apple.
+An app-specific password is not a free-account workaround for Sideloadly:
+its official FAQ restricts that mode to a paid developer account with
+anisette disabled.
 
----
+[Sideloadly's official FAQ](https://sideloadly.io/faq)
 
-# Background: why unsigned files "do nothing"
+A TestFlight release from a publisher with the required developer
+membership would let the user install through Apple's TestFlight app.
+No such release or publisher membership has been established for this
+project.
 
-iOS refuses to install any IPA that is not code-signed with a certificate
-Apple trusts. Unsigned files are silently ignored by the installer — a QR
-scan or Safari download of one "does nothing" by design. So every route
-below is about getting a valid signature, from cheapest to most flexible.
+## Current local IPA and helpers
 
-## Decision tree
+Inspection of `dist/AACStudio-unsigned.ipa` found version **1.0.0 (1)** and
+no embedded provisioning profile. It is not the current 1.7.0 app and is
+not an installable signed release. Downloading or transferring it does
+not supply Apple-trusted signing.
 
-```
-What iOS version is the iPhone on?
-│
-├─ iOS 14.0 – 16.6.1, 16.7 RC, or 17.0
-│    → TrollStore: permanent installs, NO Apple ID, no 7-day limits.
-│      (https://github.com/opa334/TrollStore — check your exact build
-│       against its compatibility table.)
-│
-└─ iOS 16.7+ / 17.1+ / 18.x / 26.x  (TrollStore not available)
-     → Sideloadly with a FREE Apple ID (one-time per week):
-         1. Get dist/AACStudio-unsigned.ipa from the Codemagic
-            "iOS (unsigned IPA)" workflow (or the studio QR transfer).
-         2. Install Sideloadly (https://sideloadly.io), plug the iPhone
-            in via USB, drop the IPA in, enter your Apple ID, Start.
-         3. On the phone: Settings → General → VPN & Device Management →
-            trust your Apple ID profile. Enable Developer Mode if asked
-            (iOS 16+).
-         4. `tools\install_ipa_windows.ps1 <any-signed.ipa>` can then
-            re-install signed IPAs over USB without Sideloadly.
-     → After that first bootstrap you can move signing on-device:
-         - SideStore (https://sidestore.io) — refreshes your own apps
-           wirelessly without the PC.
-         - ESign / Feather — on-device signer; import the free
-           certificate you generated with Sideloadly and sign further
-           IPAs on the phone.
-```
+`tools/sign_and_install.ps1` is intended to combine local signing and USB
+installation. It still requires a valid Apple-issued signing certificate,
+its corresponding private key and a matching provisioning profile that
+permits the target device and app. None were found in `tools/certs` during
+this check. The certificate-file passphrase is separate from an Apple
+Account password. Certificates and profiles expire or can be revoked;
+having them once does not confer permanent signing access.
 
-## Limits of a free Apple ID (personal team)
+The earlier test using a self-generated certificate established only
+local signing/repackaging mechanics. It did **not** establish successful
+installation or launch on a real iPhone. A self-generated certificate is
+not a substitute for Apple-trusted provisioning.
 
-| Limit | Value |
-|---|---|
-| Signature validity | 7 days, then re-sign |
-| Active signed apps per device | 3 |
-| New App IDs per week | 10 |
+`tools/install_ipa_windows.ps1` transfers an **already validly signed** IPA
+over USB. It does not obtain signing credentials or bypass iOS signature
+validation. Do not use the unsigned IPA as an example of an installable
+input.
 
-These are Apple's server-side rules for free accounts — no sideloading tool
-changes them. Signing with the same Apple ID on the phone (SideStore/ESign)
-obeys the same limits.
+The existing Codemagic workflow builds an unsigned iOS artifact on macOS;
+that build step does not solve distribution signing.
 
-## Security notes — read before using "no-PC" repos
+## TrollStore compatibility
 
-- Repos named like "ESign iOS 26" that contain no source code and route you
-  to a download site are SEO bait. **iOS26Tools/Esign-iOS** is one: it has no
-  buildable code and instructs you to install a DNS content-filter profile
-  and trust an unknown enterprise certificate. Both are real risks (traffic
-  interception, arbitrary app trust). Do not install such profiles.
-- "Community" / shared certificates used by many people get revoked within
-  hours and are a supply-chain risk. Only use certificates generated from
-  **your own** Apple ID.
-- Prefer open-source, reviewed tools: TrollStore, Sideloadly, AltStore,
-  SideStore, Feather.
+The official TrollStore project lists supported older iOS builds through
+17.0, not the iOS 26 generation introduced with iPhone Air. It is not an
+installation route for this device.
 
-## Windows USB helper
-
-`tools\install_ipa_windows.ps1` installs a **signed** IPA over USB with
-open-source tooling (pymobiledevice3) — handy for the weekly re-sign cycle:
-
-```powershell
-# first run (one time): sets up its own venv
-tools\install_ipa_windows.ps1 dist\AACStudio-unsigned.ipa
-```
-
-If the IPA is unsigned the install fails with a provisioning error — sign it
-with Sideloadly first, then re-run this script for subsequent installs.
+[Official TrollStore compatibility](https://github.com/opa334/TrollStore)
+[Apple's iPhone Air announcement](https://www.apple.com/newsroom/2025/09/introducing-iphone-air-a-powerful-new-iphone-with-a-breakthrough-design/)

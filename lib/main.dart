@@ -1,11 +1,15 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart'
-    show LicenseEntryWithLineBreaks, LicenseRegistry;
+    show
+        LicenseEntryWithLineBreaks,
+        LicenseRegistry,
+        kIsWeb,
+        defaultTargetPlatform,
+        TargetPlatform;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:provider/provider.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'engine/desktop_native.dart'
+    if (dart.library.js_interop) 'engine/desktop_web.dart' as desktop;
 
 import 'engine/arasaac.dart';
 import 'engine/prediction.dart';
@@ -15,19 +19,36 @@ import 'engine/storage.dart';
 import 'engine/symbol_library.dart';
 import 'features/app/app_shell.dart';
 import 'studio/device_frame.dart';
-import 'studio/studio_home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await _start();
+  } catch (_) {
+    runApp(MaterialApp(
+        home: Scaffold(
+            body: SafeArea(
+                child: Center(
+      child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            const Text(
+                'AAC Studio could not open saved boards. Check available storage and your connection, then retry. Your saved data has not been cleared.',
+                textAlign: TextAlign.center),
+            const SizedBox(height: 16),
+            FilledButton(onPressed: main, child: const Text('Retry')),
+          ])),
+    )))));
+  }
+}
+
+Future<void> _start() async {
   LicenseRegistry.addLicense(() async* {
     yield LicenseEntryWithLineBreaks(['Piper LJ Speech offline voice'],
         await rootBundle.loadString('assets/voices/NOTICE.txt'));
   });
   // SQLite on desktop (P2G Explorer research viewer); mobile uses plugins.
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    sqfliteFfiInit();
-    databaseFactory = databaseFactoryFfi;
-  }
+  desktop.initialize();
 
   final storage = await initDefaultStorage();
   final settings = SettingsController(storage);
@@ -48,7 +69,10 @@ Future<void> main() async {
   // Warm up the TTS engine before the first tap (first-tap silence on
   // Android/Fire otherwise).
   final speech = SpeechEngine();
-  void syncSpeech() => speech.configure(settings.settings);
+  void syncSpeech() {
+    speech.configure(settings.settings);
+    SymbolLibrary.skinTone = settings.settings.skinTone;
+  }
 
   syncSpeech();
   settings.addListener(syncSpeech);
@@ -109,12 +133,15 @@ class StudioApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
         ),
-        home: _isMobile ? const AppShell() : const StudioHome(),
+        home: _isMobile ? const AppShell() : desktop.studioHome(),
       ),
     );
   }
 
   /// Phones/tablets run the real AAC app full-screen (like the studied
   /// original); desktops run the developer Studio with previews and tools.
-  static bool get _isMobile => Platform.isAndroid || Platform.isIOS;
+  static bool get _isMobile =>
+      kIsWeb ||
+      defaultTargetPlatform == TargetPlatform.android ||
+      defaultTargetPlatform == TargetPlatform.iOS;
 }

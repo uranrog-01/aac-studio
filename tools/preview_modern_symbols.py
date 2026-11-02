@@ -14,15 +14,15 @@ draw = ImageDraw.Draw(canvas)
 font_path = 'C:/Windows/Fonts/segoeuib.ttf'
 heading = ImageFont.truetype(font_path,30)
 label_font = ImageFont.truetype(font_path,19)
-draw.text((30,18),'Soft 3D · My Words',font=heading,fill='#18324D')
+draw.text((30,18),'Flat illustrations · My Words',font=heading,fill='#18324D')
 for i, key in enumerate(ids):
     b = buttons[key]
     x,y = (i%6)*200+10,(i//6)*204+70
     draw.rounded_rectangle((x,y,x+180,y+191),radius=18,fill='white',outline='#E0E6EF',width=2)
-    picture = Image.open(root/f'assets/symbols/modern3d/{b["symbolKey"]}.png').convert('RGBA')
+    picture = Image.open(root/f'assets/flat_symbols/modernflat/{b["symbolKey"]}.webp').convert('RGBA')
     picture.thumbnail((154,150),Image.Resampling.LANCZOS)
     canvas.paste(picture,(x+(180-picture.width)//2,y+8+(150-picture.height)//2),picture)
     box = draw.textbbox((0,0),b['label'],font=label_font)
     draw.text((x+(180-box[2]+box[0])//2,y+160),b['label'],font=label_font,fill='#18324D')
-canvas.save(root/'docs/modern-3d-preview.png')
-print('Created docs/modern-3d-preview.png')
+canvas.save(root/'docs/flat-symbol-preview.png')
+print('Created docs/flat-symbol-preview.png')

@@ -1,0 +1,102 @@
+import 'dart:js_interop';
+import 'package:flutter/foundation.dart';
+import '../models/domain.dart';
+import 'storage.dart' show AppSettings;
+
+@JS('aacSpeech.available')
+external bool get _available;
+@JS('aacSpeech.voices')
+external JSArray<_BrowserVoice> _voices();
+@JS('aacSpeech.speak')
+external void _speak(JSString text, double rate, double pitch, double volume,
+    JSString name, JSString locale);
+@JS('aacSpeech.stop')
+external void _stop();
+@JS('aacSpeech.onError')
+external set _onError(JSFunction callback);
+
+extension type _BrowserVoice(JSObject _) implements JSObject {
+  external String get name;
+  external String get lang;
+  external bool get localService;
+}
+
+class DeviceVoice {
+  final String name;
+  final String locale;
+  final bool needsInternet;
+  const DeviceVoice(this.name, this.locale, {this.needsInternet = false});
+  bool get isEnglish => locale.toLowerCase().startsWith('en');
+}
+
+/// Call speechSynthesis synchronously from the tap handler. In particular,
+/// Safari must retain the user's activation when starting the utterance.
+class SpeechEngine {
+  final ValueNotifier<String?> error = ValueNotifier(null);
+  final ValueNotifier<String> status = ValueNotifier('Browser voice');
+  double rate = .45, pitch = 1, volume = 1;
+  DeviceVoice? voice;
+  bool get usePiper => false;
+  set usePiper(bool value) {}
+
+  Future<void> ensure() async {
+    if (!_available) {
+      error.value = 'Speech is unavailable in this browser. Open in Safari.';
+      return;
+    }
+    _onError = ((JSString message) {
+      error.value = 'Speech unavailable. Check your device voices and volume.';
+    }).toJS;
+  }
+
+  void configure(AppSettings settings) {
+    rate = settings.rate;
+    pitch = settings.pitch;
+    volume = settings.volume;
+    voice = settings.voiceName == null
+        ? null
+        : DeviceVoice(settings.voiceName!, settings.voiceLocale ?? '');
+  }
+
+  Future<void> warmOfflineVoice() async {}
+  Future<void> applyDefaults() async {}
+  Future<List<DeviceVoice>> deviceVoices() async {
+    final voices = _voices()
+        .toDart
+        .map((v) => DeviceVoice(v.name, v.lang, needsInternet: !v.localService))
+        .toList();
+    voices.sort((a, b) => a.isEnglish != b.isEnglish
+        ? (a.isEnglish ? -1 : 1)
+        : a.name.compareTo(b.name));
+    return voices;
+  }
+
+  Future<void> speak(String text, {VoiceStyle? style}) {
+    if (text.trim().isEmpty) return Future.value();
+    try {
+      if (!_available) throw StateError('No browser speech');
+      _speak(
+          text.trim().toJS,
+          (style?.rate ?? rate).clamp(0, 1),
+          (style?.pitch ?? pitch).clamp(.5, 2),
+          (style?.volume ?? volume).clamp(0, 1),
+          (voice?.name ?? '').toJS,
+          (voice?.locale ?? '').toJS);
+      error.value = null;
+    } catch (_) {
+      error.value =
+          'Speech unavailable. Open in Safari and check device voices.';
+    }
+    return Future.value();
+  }
+
+  Future<void> stop() async {
+    if (_available) _stop();
+  }
+
+  Future<void> dispose() async {
+    await stop();
+    error.dispose();
+    status.dispose();
+  }
+}

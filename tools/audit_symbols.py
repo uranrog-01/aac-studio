@@ -9,9 +9,10 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 
 def asset(pack, key):
-    extension = 'webp' if pack in ('noto', 'learning', 'modern3d') else 'svg'
-    folder = 'twemoji' if pack == 'twemoji_svg' else pack
-    return ROOT / 'assets' / 'symbols' / folder / f'{key}.{extension}'
+    if pack == 'mulberry':  # bundled as its original small SVGs
+        return ROOT / 'assets' / 'symbols' / 'mulberry' / f'{key}.svg'
+    folder = 'twemoji' if pack == 'twemoji_svg' else 'modernflat' if pack == 'modern3d' else pack
+    return ROOT / 'assets' / 'flat_symbols' / folder / f'{key}.webp'
 
 def main():
     parser = argparse.ArgumentParser()
@@ -45,22 +46,40 @@ def main():
                     assert action['data'] == b['label'], f'Message/label mismatch: {b["id"]}'
         for action in b.get('actions', []):
             if action['kind'] == 'gotoFolder': assert action['data'] in folders
-    if pack.get('packVersion', 0) >= 6:
-        manifest = json.loads((ROOT / 'docs/modern-symbol-manifest.json').read_text(encoding='utf8'))
+    if pack.get('packVersion', 0) >= 8:
+        manifest = json.loads((ROOT / 'docs/flat-symbol-manifest.json').read_text(encoding='utf8'))
         import hashlib
         for entry in manifest['assignments']:
             items = buttons if entry['kind'] == 'buttons' else {f['id']:f for f in pack['folders']}
             b = items[entry['id']]
             assert b['label'] == entry['label']
-            assert b['symbolPack'] == 'modern3d' and b['symbolKey'] == entry['key'], entry
+            assert b['symbolPack'] == entry['pack'] and b['symbolKey'] == entry['key'], entry
         from PIL import Image
+        paths = set()
         for key, expected in manifest['files'].items():
-            path = asset('modern3d', key)
+            path = ROOT / 'assets/flat_symbols' / key
+            paths.add(path)
             assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, key
             image = Image.open(path)
-            assert min(image.size) >= 256, (key, image.size)
-            assert image.mode == 'RGBA', (key, image.mode)
-            assert image.getchannel('A').getextrema() == (0,255), key
+            image.load()
+            assert image.format == 'WEBP' and 0 < min(image.size) <= max(image.size) <= 340, (key, image.size)
+            if path.parent.name == 'noto':
+                with Image.open(ROOT/'assets/symbols/noto'/path.name) as original:
+                    side = min(340, max(original.size))
+                    assert image.size == (side,side), f'Extra raster padding: {key}'
+            assert image.convert('RGBA').getchannel('A').getbbox(), key
+        assert {f for f in files if f.suffix == '.webp'} <= paths, 'Indexed file omitted from manifest'
+        assert paths == set((ROOT/'assets/flat_symbols').glob('*/*.webp')), 'Untracked artwork'
+        expansion_path = ROOT/'docs/modern-flat-expansion-assets.json'
+        if expansion_path.exists():
+            expansion = json.loads(expansion_path.read_text(encoding='utf8'))
+            progress = json.loads((ROOT/'docs/modern-flat-expansion-progress.json').read_text(encoding='utf8'))
+            modern_count = len(list((ROOT/'assets/flat_symbols/modernflat').glob('*.webp')))
+            assert modern_count == progress['modernFlatArtworks'] == 3264 + len(expansion)
+            for key, entry in expansion.items():
+                assert entry['status'] == 'visually reviewed and approved', key
+                assert entry['sha256'] == manifest['files']['modernflat/'+key+'.webp'], key
+                assert any(e['p']=='modernflat' and e['k']==key and e['n']==entry['label'] for e in index), key
     else:
         repairs = json.loads((ROOT / 'docs/symbol-meaning-repairs.json').read_text(encoding='utf8'))
         for repair in repairs:

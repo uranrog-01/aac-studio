@@ -2,252 +2,259 @@
  "id": "studio.basics.autism",
  "label": "My Words",
  "rootFolder": "home",
- "packVersion": 7,
+ "packVersion": 9,
  "folders": [
   {
    "id": "home",
    "label": "Home",
    "symbol": "🏠",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-house"
   },
   {
    "id": "people",
    "label": "People",
    "symbol": "👥",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-friend"
   },
   {
    "id": "feelings",
    "label": "Feelings",
    "symbol": "😀",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-grinning-face"
   },
   {
    "id": "calm",
    "label": "Calm down",
    "symbol": "🧘",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-in-lotus-position"
   },
   {
    "id": "food",
    "label": "Eat & drink",
    "symbol": "🍽",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fork-and-knife-with-plate"
   },
   {
    "id": "play",
    "label": "Play",
    "symbol": "🎈",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-play"
   },
   {
    "id": "places",
    "label": "Places",
    "symbol": "🚗",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-world-map"
   },
   {
    "id": "school",
    "label": "School",
    "symbol": "🏫",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-school"
   },
   {
    "id": "animals",
    "label": "Animals",
    "symbol": "🐕",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-dog"
   },
   {
    "id": "body",
    "label": "My body",
    "symbol": "🫵",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-standing"
   },
   {
    "id": "vehicles",
    "label": "Vehicles",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-train"
   },
   {
    "id": "clothes",
    "label": "Clothes",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-t-shirt"
   },
   {
    "id": "weather",
    "label": "Weather",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sun-behind-rain-cloud"
   },
   {
    "id": "colors",
    "label": "Colors",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-artist-palette"
   },
   {
    "id": "instruments",
    "label": "Music",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-piano"
   },
   {
    "id": "sports",
    "label": "Sports",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sports-medal"
   },
   {
    "id": "toys",
    "label": "Toys",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-teddy-bear"
   },
   {
    "id": "kitchen",
    "label": "Kitchen",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cooking"
   },
   {
    "id": "furniture",
    "label": "Home things",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-couch-and-lamp"
   },
   {
    "id": "plants",
    "label": "Plants",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-potted-plant"
   },
   {
    "id": "insects",
    "label": "Bugs",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-butterfly"
   },
   {
    "id": "sea",
    "label": "Sea animals",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tropical-fish"
   },
   {
    "id": "wild",
    "label": "Wild animals",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-giraffe"
   },
   {
    "id": "birds",
    "label": "Birds",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-parrot"
   },
   {
    "id": "jobs",
    "label": "Jobs",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-construction-worker"
   },
   {
    "id": "actions",
    "label": "Actions",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-clapping-hands"
   },
   {
    "id": "snacks",
    "label": "Snacks",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cookie"
   },
   {
    "id": "health",
    "label": "Health",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-stethoscope"
   },
   {
    "id": "school2",
    "label": "School things",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-books"
   },
   {
    "id": "places2",
    "label": "Buildings",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-office-building"
   },
   {
    "id": "time",
    "label": "Time",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-three-oclock"
   },
   {
    "id": "fruits",
    "label": "Fruits",
    "symbol": "🍎",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-fruit"
   },
   {
    "id": "vegetables",
    "label": "Vegetables",
    "symbol": "🥕",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-carrot"
   },
   {
    "id": "alphabet",
    "label": "Alphabet",
    "symbol": "🔤",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-abc"
   },
   {
    "id": "numbers",
    "label": "Numbers",
    "symbol": "🔢",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-123"
+  },
+  {
+   "id": "routines",
+   "label": "Daily routines",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wash-hands"
   }
  ],
  "buttons": [
@@ -263,7 +270,7 @@
      "data": "I"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-i"
   },
   {
@@ -278,7 +285,7 @@
      "data": "you"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-you"
   },
   {
@@ -293,7 +300,7 @@
      "data": "my"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-my"
   },
   {
@@ -308,7 +315,7 @@
      "data": "it"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-it"
   },
   {
@@ -323,7 +330,7 @@
      "data": "want"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-want"
   },
   {
@@ -338,7 +345,7 @@
      "data": "need"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-need"
   },
   {
@@ -353,7 +360,7 @@
      "data": "like"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-thumbs-up"
   },
   {
@@ -368,7 +375,7 @@
      "data": "don't like"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-thumbs-down"
   },
   {
@@ -383,7 +390,7 @@
      "data": "more"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-plus"
   },
   {
@@ -398,7 +405,7 @@
      "data": "help"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-help"
   },
   {
@@ -413,7 +420,7 @@
      "data": "stop"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-stop-sign"
   },
   {
@@ -428,7 +435,7 @@
      "data": "go"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-right-arrow"
   },
   {
@@ -443,7 +450,7 @@
      "data": "all done"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-check-mark-button"
   },
   {
@@ -458,7 +465,7 @@
      "data": "not"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-prohibited"
   },
   {
@@ -473,7 +480,7 @@
      "data": "open"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-open"
   },
   {
@@ -488,7 +495,7 @@
      "data": "my turn"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-my-turn"
   },
   {
@@ -503,7 +510,7 @@
      "data": "again"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-repeat-button"
   },
   {
@@ -518,7 +525,7 @@
      "data": "look"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-eyes"
   },
   {
@@ -533,7 +540,7 @@
      "data": "make"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-make"
   },
   {
@@ -548,7 +555,7 @@
      "data": "give"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-give"
   },
   {
@@ -563,7 +570,7 @@
      "data": "hi"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-waving-hand"
   },
   {
@@ -578,8 +585,8 @@
      "data": "bye"
     }
    ],
-   "symbolPack": "mulberry",
-   "symbolKey": "go_through_door_,_to"
+   "symbolPack": "modernflat",
+   "symbolKey": "scene-bye"
   },
   {
    "id": "b23",
@@ -593,7 +600,7 @@
      "data": "thank you"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-thank-you"
   },
   {
@@ -608,7 +615,7 @@
      "data": "please"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-please"
   },
   {
@@ -623,7 +630,7 @@
      "data": "people"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-friend"
   },
   {
@@ -638,7 +645,7 @@
      "data": "feelings"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-grinning-face"
   },
   {
@@ -653,7 +660,7 @@
      "data": "calm"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-in-lotus-position"
   },
   {
@@ -668,7 +675,7 @@
      "data": "food"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fork-and-knife-with-plate"
   },
   {
@@ -683,7 +690,7 @@
      "data": "play"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-play"
   },
   {
@@ -698,7 +705,7 @@
      "data": "places"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-world-map"
   },
   {
@@ -713,7 +720,7 @@
      "data": "school"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-school"
   },
   {
@@ -728,7 +735,7 @@
      "data": "animals"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-dog"
   },
   {
@@ -743,7 +750,7 @@
      "data": "body"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-standing"
   },
   {
@@ -758,7 +765,7 @@
      "data": "mom"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-woman"
   },
   {
@@ -773,7 +780,7 @@
      "data": "dad"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-man"
   },
   {
@@ -788,7 +795,7 @@
      "data": "sister"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-girl"
   },
   {
@@ -803,7 +810,7 @@
      "data": "brother"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-boy"
   },
   {
@@ -818,7 +825,7 @@
      "data": "baby"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-baby"
   },
   {
@@ -833,7 +840,7 @@
      "data": "grandma"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-old-woman"
   },
   {
@@ -848,7 +855,7 @@
      "data": "grandpa"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-old-man"
   },
   {
@@ -863,7 +870,7 @@
      "data": "teacher"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-teacher"
   },
   {
@@ -878,7 +885,7 @@
      "data": "friend"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-friend"
   },
   {
@@ -893,7 +900,7 @@
      "data": "doctor"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-health-worker"
   },
   {
@@ -908,7 +915,7 @@
      "data": "happy"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-grinning-face-with-smiling-eyes"
   },
   {
@@ -923,7 +930,7 @@
      "data": "sad"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-crying-face"
   },
   {
@@ -938,7 +945,7 @@
      "data": "angry"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-angry-face"
   },
   {
@@ -953,7 +960,7 @@
      "data": "tired"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-yawning-face"
   },
   {
@@ -968,7 +975,7 @@
      "data": "scared"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fearful-face"
   },
   {
@@ -983,7 +990,7 @@
      "data": "excited"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-star-struck"
   },
   {
@@ -998,7 +1005,7 @@
      "data": "sick"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-face-with-thermometer"
   },
   {
@@ -1013,7 +1020,7 @@
      "data": "calm"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-relieved-face"
   },
   {
@@ -1028,7 +1035,7 @@
      "data": "silly"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-zany-face"
   },
   {
@@ -1043,7 +1050,7 @@
      "data": "worried"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-worried-face"
   },
   {
@@ -1058,7 +1065,7 @@
      "data": "hurt"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-face-with-head-bandage"
   },
   {
@@ -1073,7 +1080,7 @@
      "data": "hungry"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-hungry"
   },
   {
@@ -1088,7 +1095,7 @@
      "data": "breathe"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-breathe"
   },
   {
@@ -1103,7 +1110,7 @@
      "data": "quiet"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-quiet"
   },
   {
@@ -1118,7 +1125,7 @@
      "data": "hug"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-hug"
   },
   {
@@ -1133,7 +1140,7 @@
      "data": "rest"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-in-bed"
   },
   {
@@ -1148,7 +1155,7 @@
      "data": "drink water"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-drink-water"
   },
   {
@@ -1163,7 +1170,7 @@
      "data": "count"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-count"
   },
   {
@@ -1178,7 +1185,7 @@
      "data": "music"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-musical-notes"
   },
   {
@@ -1193,7 +1200,7 @@
      "data": "soft toy"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-teddy-bear"
   },
   {
@@ -1208,7 +1215,7 @@
      "data": "blanket"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-blanket"
   },
   {
@@ -1223,7 +1230,7 @@
      "data": "headphones"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-headphone"
   },
   {
@@ -1238,7 +1245,7 @@
      "data": "eat"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-eat"
   },
   {
@@ -1253,7 +1260,7 @@
      "data": "drink"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-drink-water"
   },
   {
@@ -1268,7 +1275,7 @@
      "data": "apple"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-red-apple"
   },
   {
@@ -1283,7 +1290,7 @@
      "data": "banana"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-banana"
   },
   {
@@ -1298,7 +1305,7 @@
      "data": "bread"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bread"
   },
   {
@@ -1313,7 +1320,7 @@
      "data": "cheese"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cheese-wedge"
   },
   {
@@ -1328,7 +1335,7 @@
      "data": "egg"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-egg"
   },
   {
@@ -1343,7 +1350,7 @@
      "data": "rice"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cooked-rice"
   },
   {
@@ -1358,7 +1365,7 @@
      "data": "chicken"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-poultry-leg"
   },
   {
@@ -1373,7 +1380,7 @@
      "data": "noodles"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-steaming-bowl"
   },
   {
@@ -1388,7 +1395,7 @@
      "data": "pizza"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pizza"
   },
   {
@@ -1403,7 +1410,7 @@
      "data": "yogurt"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-yogurt"
   },
   {
@@ -1418,7 +1425,7 @@
      "data": "water"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-water"
   },
   {
@@ -1433,7 +1440,7 @@
      "data": "juice"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-beverage-box"
   },
   {
@@ -1448,7 +1455,7 @@
      "data": "milk"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-glass-of-milk"
   },
   {
@@ -1463,7 +1470,7 @@
      "data": "play"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-play"
   },
   {
@@ -1478,7 +1485,7 @@
      "data": "ball"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-soccer-ball"
   },
   {
@@ -1493,7 +1500,7 @@
      "data": "swing"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-swing"
   },
   {
@@ -1508,7 +1515,7 @@
      "data": "bike"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bicycle"
   },
   {
@@ -1523,7 +1530,7 @@
      "data": "swim"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-swimming"
   },
   {
@@ -1538,7 +1545,7 @@
      "data": "run"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-running"
   },
   {
@@ -1553,7 +1560,7 @@
      "data": "walk"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-walking"
   },
   {
@@ -1568,7 +1575,7 @@
      "data": "dance"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-woman-dancing"
   },
   {
@@ -1583,7 +1590,7 @@
      "data": "sing"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-sing"
   },
   {
@@ -1598,7 +1605,7 @@
      "data": "draw"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-draw"
   },
   {
@@ -1613,7 +1620,7 @@
      "data": "book"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-open-book"
   },
   {
@@ -1628,7 +1635,7 @@
      "data": "puzzle"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-puzzle-piece"
   },
   {
@@ -1643,7 +1650,7 @@
      "data": "blocks"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-building-blocks"
   },
   {
@@ -1658,7 +1665,7 @@
      "data": "home"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-house"
   },
   {
@@ -1673,7 +1680,7 @@
      "data": "school"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-school"
   },
   {
@@ -1688,7 +1695,7 @@
      "data": "park"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-park"
   },
   {
@@ -1703,7 +1710,7 @@
      "data": "store"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-convenience-store"
   },
   {
@@ -1718,7 +1725,7 @@
      "data": "bathroom"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-restroom"
   },
   {
@@ -1733,7 +1740,7 @@
      "data": "car"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-automobile"
   },
   {
@@ -1748,7 +1755,7 @@
      "data": "bus"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bus"
   },
   {
@@ -1763,7 +1770,7 @@
      "data": "bedroom"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-bedroom"
   },
   {
@@ -1778,7 +1785,7 @@
      "data": "outside"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-outside"
   },
   {
@@ -1793,7 +1800,7 @@
      "data": "work"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-office-worker"
   },
   {
@@ -1808,7 +1815,7 @@
      "data": "read"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-read"
   },
   {
@@ -1823,7 +1830,7 @@
      "data": "write"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-write"
   },
   {
@@ -1838,7 +1845,7 @@
      "data": "scissors"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-scissors"
   },
   {
@@ -1853,7 +1860,7 @@
      "data": "backpack"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-backpack"
   },
   {
@@ -1868,7 +1875,7 @@
      "data": "lunch"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bento-box"
   },
   {
@@ -1883,7 +1890,7 @@
      "data": "line up"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-line-up"
   },
   {
@@ -1898,7 +1905,7 @@
      "data": "listen"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-listen"
   },
   {
@@ -1913,7 +1920,7 @@
      "data": "dog"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-dog"
   },
   {
@@ -1928,7 +1935,7 @@
      "data": "cat"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cat"
   },
   {
@@ -1943,7 +1950,7 @@
      "data": "bird"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bird"
   },
   {
@@ -1958,7 +1965,7 @@
      "data": "fish"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fish"
   },
   {
@@ -1973,7 +1980,7 @@
      "data": "horse"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-horse"
   },
   {
@@ -1988,7 +1995,7 @@
      "data": "cow"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cow"
   },
   {
@@ -2003,7 +2010,7 @@
      "data": "pig"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pig"
   },
   {
@@ -2018,7 +2025,7 @@
      "data": "lion"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-lion"
   },
   {
@@ -2033,7 +2040,7 @@
      "data": "elephant"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-elephant"
   },
   {
@@ -2048,7 +2055,7 @@
      "data": "monkey"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-monkey"
   },
   {
@@ -2063,7 +2070,7 @@
      "data": "eyes"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-eyes"
   },
   {
@@ -2078,7 +2085,7 @@
      "data": "ears"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-ear"
   },
   {
@@ -2093,7 +2100,7 @@
      "data": "mouth"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-mouth"
   },
   {
@@ -2108,7 +2115,7 @@
      "data": "nose"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-nose"
   },
   {
@@ -2123,7 +2130,7 @@
      "data": "hand"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-raised-hand"
   },
   {
@@ -2138,7 +2145,7 @@
      "data": "teeth"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-teeth"
   },
   {
@@ -2153,7 +2160,7 @@
      "data": "leg"
     }
    ],
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-leg"
   },
   {
@@ -2162,7 +2169,7 @@
    "label": "truck",
    "class": "noun",
    "symbol": "truck",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-delivery-truck",
    "actions": [
     {
@@ -2177,7 +2184,7 @@
    "label": "train",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-train",
    "actions": [
     {
@@ -2192,7 +2199,7 @@
    "label": "airplane",
    "class": "noun",
    "symbol": "airplane",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-airplane",
    "actions": [
     {
@@ -2207,7 +2214,7 @@
    "label": "boat",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sailboat",
    "actions": [
     {
@@ -2222,7 +2229,7 @@
    "label": "bicycle",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bicycle",
    "actions": [
     {
@@ -2237,7 +2244,7 @@
    "label": "taxi",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-taxi",
    "actions": [
     {
@@ -2252,7 +2259,7 @@
    "label": "fire truck",
    "class": "noun",
    "symbol": "fire truck",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fire-engine",
    "actions": [
     {
@@ -2267,7 +2274,7 @@
    "label": "police car",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-police-car",
    "actions": [
     {
@@ -2282,7 +2289,7 @@
    "label": "ambulance",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-ambulance",
    "actions": [
     {
@@ -2297,7 +2304,7 @@
    "label": "helicopter",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-helicopter",
    "actions": [
     {
@@ -2312,7 +2319,7 @@
    "label": "tractor",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tractor",
    "actions": [
     {
@@ -2327,7 +2334,7 @@
    "label": "motorcycle",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-motorcycle",
    "actions": [
     {
@@ -2342,7 +2349,7 @@
    "label": "rocket",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-rocket",
    "actions": [
     {
@@ -2357,7 +2364,7 @@
    "label": "ship",
    "class": "noun",
    "symbol": "ship",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-ship",
    "actions": [
     {
@@ -2372,7 +2379,7 @@
    "label": "t-shirt",
    "class": "noun",
    "symbol": "t-shirt",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-t-shirt",
    "actions": [
     {
@@ -2387,7 +2394,7 @@
    "label": "jeans",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-jeans",
    "actions": [
     {
@@ -2402,7 +2409,7 @@
    "label": "dress",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-dress",
    "actions": [
     {
@@ -2417,7 +2424,7 @@
    "label": "shoes",
    "class": "noun",
    "symbol": "shoes",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-running-shoe",
    "actions": [
     {
@@ -2432,7 +2439,7 @@
    "label": "socks",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-socks",
    "actions": [
     {
@@ -2447,7 +2454,7 @@
    "label": "hat",
    "class": "noun",
    "symbol": "hat",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-top-hat",
    "actions": [
     {
@@ -2462,7 +2469,7 @@
    "label": "coat",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-coat",
    "actions": [
     {
@@ -2477,7 +2484,7 @@
    "label": "scarf",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-scarf",
    "actions": [
     {
@@ -2492,7 +2499,7 @@
    "label": "glasses",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-glasses",
    "actions": [
     {
@@ -2507,7 +2514,7 @@
    "label": "crown",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-crown",
    "actions": [
     {
@@ -2522,7 +2529,7 @@
    "label": "boots",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-hiking-boot",
    "actions": [
     {
@@ -2537,7 +2544,7 @@
    "label": "gloves",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-gloves",
    "actions": [
     {
@@ -2552,7 +2559,7 @@
    "label": "sun",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sun",
    "actions": [
     {
@@ -2567,7 +2574,7 @@
    "label": "cloud",
    "class": "noun",
    "symbol": "cloud",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cloud",
    "actions": [
     {
@@ -2582,7 +2589,7 @@
    "label": "rain",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cloud-with-rain",
    "actions": [
     {
@@ -2597,7 +2604,7 @@
    "label": "snow",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cloud-with-snow",
    "actions": [
     {
@@ -2612,7 +2619,7 @@
    "label": "rainbow",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-rainbow",
    "actions": [
     {
@@ -2627,7 +2634,7 @@
    "label": "storm",
    "class": "noun",
    "symbol": "storm",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cloud-with-lightning-and-rain",
    "actions": [
     {
@@ -2642,7 +2649,7 @@
    "label": "umbrella",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-umbrella",
    "actions": [
     {
@@ -2657,7 +2664,7 @@
    "label": "wind",
    "class": "noun",
    "symbol": "wind",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-wind-face",
    "actions": [
     {
@@ -2672,7 +2679,7 @@
    "label": "hot",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-hot-face",
    "actions": [
     {
@@ -2687,7 +2694,7 @@
    "label": "cold",
    "class": "adjective",
    "symbol": "cold",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cold-face",
    "actions": [
     {
@@ -2702,7 +2709,7 @@
    "label": "red",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-red",
    "actions": [
     {
@@ -2717,7 +2724,7 @@
    "label": "blue",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-blue",
    "actions": [
     {
@@ -2732,7 +2739,7 @@
    "label": "green",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-green",
    "actions": [
     {
@@ -2747,7 +2754,7 @@
    "label": "yellow",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-yellow",
    "actions": [
     {
@@ -2762,7 +2769,7 @@
    "label": "purple",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-purple",
    "actions": [
     {
@@ -2777,7 +2784,7 @@
    "label": "orange",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-orange",
    "actions": [
     {
@@ -2792,7 +2799,7 @@
    "label": "pink",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-pink",
    "actions": [
     {
@@ -2807,7 +2814,7 @@
    "label": "brown",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-brown",
    "actions": [
     {
@@ -2822,7 +2829,7 @@
    "label": "black",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-black",
    "actions": [
     {
@@ -2837,7 +2844,7 @@
    "label": "white",
    "class": "adjective",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-white",
    "actions": [
     {
@@ -2852,7 +2859,7 @@
    "label": "gray",
    "class": "adjective",
    "symbol": "gray",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "color-gray",
    "actions": [
     {
@@ -2867,7 +2874,7 @@
    "label": "guitar",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-guitar",
    "actions": [
     {
@@ -2882,7 +2889,7 @@
    "label": "violin",
    "class": "noun",
    "symbol": "violin",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-violin",
    "actions": [
     {
@@ -2897,7 +2904,7 @@
    "label": "drum",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-drum",
    "actions": [
     {
@@ -2912,7 +2919,7 @@
    "label": "trumpet",
    "class": "noun",
    "symbol": "trumpet",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-trumpet",
    "actions": [
     {
@@ -2927,7 +2934,7 @@
    "label": "saxophone",
    "class": "noun",
    "symbol": "saxophone",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-saxophone",
    "actions": [
     {
@@ -2942,7 +2949,7 @@
    "label": "piano",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-piano",
    "actions": [
     {
@@ -2957,7 +2964,7 @@
    "label": "flute",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-flute",
    "actions": [
     {
@@ -2972,7 +2979,7 @@
    "label": "banjo",
    "class": "noun",
    "symbol": "banjo",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-banjo",
    "actions": [
     {
@@ -2987,7 +2994,7 @@
    "label": "microphone",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-microphone",
    "actions": [
     {
@@ -3002,7 +3009,7 @@
    "label": "bells",
    "class": "noun",
    "symbol": "bells",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bell",
    "actions": [
     {
@@ -3017,7 +3024,7 @@
    "label": "soccer",
    "class": "noun",
    "symbol": "soccer",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-soccer-ball",
    "actions": [
     {
@@ -3032,7 +3039,7 @@
    "label": "basketball",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-basketball",
    "actions": [
     {
@@ -3047,7 +3054,7 @@
    "label": "tennis",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tennis",
    "actions": [
     {
@@ -3062,7 +3069,7 @@
    "label": "baseball",
    "class": "noun",
    "symbol": "baseball",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-baseball",
    "actions": [
     {
@@ -3077,7 +3084,7 @@
    "label": "volleyball",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-volleyball",
    "actions": [
     {
@@ -3092,7 +3099,7 @@
    "label": "football",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-american-football",
    "actions": [
     {
@@ -3107,7 +3114,7 @@
    "label": "bike ride",
    "class": "noun",
    "symbol": "bike ride",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-person-biking",
    "actions": [
     {
@@ -3122,7 +3129,7 @@
    "label": "trophy",
    "class": "noun",
    "symbol": "trophy",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-trophy",
    "actions": [
     {
@@ -3137,7 +3144,7 @@
    "label": "medal",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sports-medal",
    "actions": [
     {
@@ -3152,7 +3159,7 @@
    "label": "teddy",
    "class": "noun",
    "symbol": "teddy",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-teddy-bear",
    "actions": [
     {
@@ -3167,7 +3174,7 @@
    "label": "kite",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-kite",
    "actions": [
     {
@@ -3182,7 +3189,7 @@
    "label": "yo-yo",
    "class": "noun",
    "symbol": "yo-yo",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-yo-yo",
    "actions": [
     {
@@ -3197,7 +3204,7 @@
    "label": "balloon",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-balloon",
    "actions": [
     {
@@ -3212,7 +3219,7 @@
    "label": "gift",
    "class": "noun",
    "symbol": "gift",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-wrapped-gift",
    "actions": [
     {
@@ -3227,7 +3234,7 @@
    "label": "magic",
    "class": "noun",
    "symbol": "magic",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-magic-wand",
    "actions": [
     {
@@ -3242,7 +3249,7 @@
    "label": "dice",
    "class": "noun",
    "symbol": "dice",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-game-die",
    "actions": [
     {
@@ -3257,7 +3264,7 @@
    "label": "ninja star",
    "class": "noun",
    "symbol": "✦",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-ninja-star",
    "actions": [
     {
@@ -3273,7 +3280,7 @@
    "label": "spoon",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-spoon",
    "actions": [
     {
@@ -3288,7 +3295,7 @@
    "label": "cup",
    "class": "noun",
    "symbol": "cup",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cup-with-straw",
    "actions": [
     {
@@ -3303,7 +3310,7 @@
    "label": "mug",
    "class": "noun",
    "symbol": "mug",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-hot-beverage",
    "actions": [
     {
@@ -3318,7 +3325,7 @@
    "label": "teapot",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-teapot",
    "actions": [
     {
@@ -3333,7 +3340,7 @@
    "label": "bottle",
    "class": "noun",
    "symbol": "bottle",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-bottle",
    "actions": [
     {
@@ -3348,7 +3355,7 @@
    "label": "pot",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pot-of-food",
    "actions": [
     {
@@ -3363,7 +3370,7 @@
    "label": "bowl",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bowl-with-spoon",
    "actions": [
     {
@@ -3378,7 +3385,7 @@
    "label": "plate",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fork-and-knife-with-plate",
    "actions": [
     {
@@ -3393,7 +3400,7 @@
    "label": "chopsticks",
    "class": "noun",
    "symbol": "chopsticks",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-chopsticks",
    "actions": [
     {
@@ -3408,7 +3415,7 @@
    "label": "bed",
    "class": "noun",
    "symbol": "bed",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bed",
    "actions": [
     {
@@ -3423,7 +3430,7 @@
    "label": "couch",
    "class": "noun",
    "symbol": "couch",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-couch-and-lamp",
    "actions": [
     {
@@ -3438,7 +3445,7 @@
    "label": "lamp",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-lamp",
    "actions": [
     {
@@ -3453,7 +3460,7 @@
    "label": "door",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-door",
    "actions": [
     {
@@ -3468,7 +3475,7 @@
    "label": "window",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-window",
    "actions": [
     {
@@ -3483,7 +3490,7 @@
    "label": "toilet",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-toilet",
    "actions": [
     {
@@ -3498,7 +3505,7 @@
    "label": "shower",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-shower",
    "actions": [
     {
@@ -3513,7 +3520,7 @@
    "label": "bathtub",
    "class": "noun",
    "symbol": "bathtub",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bathtub",
    "actions": [
     {
@@ -3528,7 +3535,7 @@
    "label": "chair",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-chair",
    "actions": [
     {
@@ -3543,7 +3550,7 @@
    "label": "mirror",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-mirror",
    "actions": [
     {
@@ -3558,7 +3565,7 @@
    "label": "tree",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-deciduous-tree",
    "actions": [
     {
@@ -3573,7 +3580,7 @@
    "label": "pine tree",
    "class": "noun",
    "symbol": "pine tree",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-evergreen-tree",
    "actions": [
     {
@@ -3588,7 +3595,7 @@
    "label": "flower",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-blossom",
    "actions": [
     {
@@ -3603,7 +3610,7 @@
    "label": "tulip",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tulip",
    "actions": [
     {
@@ -3618,7 +3625,7 @@
    "label": "rose",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-rose",
    "actions": [
     {
@@ -3633,7 +3640,7 @@
    "label": "sunflower",
    "class": "noun",
    "symbol": "sunflower",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sunflower",
    "actions": [
     {
@@ -3648,7 +3655,7 @@
    "label": "cactus",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cactus",
    "actions": [
     {
@@ -3663,7 +3670,7 @@
    "label": "leaf",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-leaf-fluttering-in-wind",
    "actions": [
     {
@@ -3678,7 +3685,7 @@
    "label": "clover",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-four-leaf-clover",
    "actions": [
     {
@@ -3693,7 +3700,7 @@
    "label": "seedling",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-seedling",
    "actions": [
     {
@@ -3708,7 +3715,7 @@
    "label": "mushroom",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-mushroom",
    "actions": [
     {
@@ -3723,7 +3730,7 @@
    "label": "plant",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-potted-plant",
    "actions": [
     {
@@ -3738,7 +3745,7 @@
    "label": "butterfly",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-butterfly",
    "actions": [
     {
@@ -3753,7 +3760,7 @@
    "label": "bee",
    "class": "noun",
    "symbol": "bee",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-honeybee",
    "actions": [
     {
@@ -3768,7 +3775,7 @@
    "label": "ant",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-ant",
    "actions": [
     {
@@ -3783,7 +3790,7 @@
    "label": "ladybug",
    "class": "noun",
    "symbol": "ladybug",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-lady-beetle",
    "actions": [
     {
@@ -3798,7 +3805,7 @@
    "label": "spider",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-spider",
    "actions": [
     {
@@ -3813,7 +3820,7 @@
    "label": "snail",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-snail",
    "actions": [
     {
@@ -3828,7 +3835,7 @@
    "label": "caterpillar",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bug",
    "actions": [
     {
@@ -3843,7 +3850,7 @@
    "label": "beetle",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-beetle",
    "actions": [
     {
@@ -3858,7 +3865,7 @@
    "label": "cricket",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cricket",
    "actions": [
     {
@@ -3873,7 +3880,7 @@
    "label": "tropical fish",
    "class": "noun",
    "symbol": "tropical fish",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tropical-fish",
    "actions": [
     {
@@ -3888,7 +3895,7 @@
    "label": "shark",
    "class": "noun",
    "symbol": "shark",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-shark",
    "actions": [
     {
@@ -3903,7 +3910,7 @@
    "label": "octopus",
    "class": "noun",
    "symbol": "octopus",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-octopus",
    "actions": [
     {
@@ -3918,7 +3925,7 @@
    "label": "crab",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-crab",
    "actions": [
     {
@@ -3933,7 +3940,7 @@
    "label": "lobster",
    "class": "noun",
    "symbol": "lobster",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-lobster",
    "actions": [
     {
@@ -3948,7 +3955,7 @@
    "label": "shrimp",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-shrimp",
    "actions": [
     {
@@ -3963,7 +3970,7 @@
    "label": "dolphin",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-dolphin",
    "actions": [
     {
@@ -3978,7 +3985,7 @@
    "label": "whale",
    "class": "noun",
    "symbol": "whale",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-whale",
    "actions": [
     {
@@ -3993,7 +4000,7 @@
    "label": "turtle",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-turtle",
    "actions": [
     {
@@ -4008,7 +4015,7 @@
    "label": "jellyfish",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-jellyfish",
    "actions": [
     {
@@ -4023,7 +4030,7 @@
    "label": "seal",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-seal",
    "actions": [
     {
@@ -4038,7 +4045,7 @@
    "label": "tiger",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tiger",
    "actions": [
     {
@@ -4053,7 +4060,7 @@
    "label": "gorilla",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-gorilla",
    "actions": [
     {
@@ -4068,7 +4075,7 @@
    "label": "giraffe",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-giraffe",
    "actions": [
     {
@@ -4083,7 +4090,7 @@
    "label": "zebra",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-zebra",
    "actions": [
     {
@@ -4098,7 +4105,7 @@
    "label": "rhino",
    "class": "noun",
    "symbol": "rhino",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-rhinoceros",
    "actions": [
     {
@@ -4113,7 +4120,7 @@
    "label": "hippo",
    "class": "noun",
    "symbol": "hippo",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-hippopotamus",
    "actions": [
     {
@@ -4128,7 +4135,7 @@
    "label": "kangaroo",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-kangaroo",
    "actions": [
     {
@@ -4143,7 +4150,7 @@
    "label": "bear",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bear",
    "actions": [
     {
@@ -4158,7 +4165,7 @@
    "label": "wolf",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-wolf",
    "actions": [
     {
@@ -4173,7 +4180,7 @@
    "label": "fox",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fox",
    "actions": [
     {
@@ -4188,7 +4195,7 @@
    "label": "penguin",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-penguin",
    "actions": [
     {
@@ -4203,7 +4210,7 @@
    "label": "camel",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-camel",
    "actions": [
     {
@@ -4218,7 +4225,7 @@
    "label": "owl",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-owl",
    "actions": [
     {
@@ -4233,7 +4240,7 @@
    "label": "duck",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-duck",
    "actions": [
     {
@@ -4248,7 +4255,7 @@
    "label": "eagle",
    "class": "noun",
    "symbol": "eagle",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-eagle",
    "actions": [
     {
@@ -4263,7 +4270,7 @@
    "label": "parrot",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-parrot",
    "actions": [
     {
@@ -4278,7 +4285,7 @@
    "label": "peacock",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-peacock",
    "actions": [
     {
@@ -4293,7 +4300,7 @@
    "label": "flamingo",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-flamingo",
    "actions": [
     {
@@ -4308,7 +4315,7 @@
    "label": "swan",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-swan",
    "actions": [
     {
@@ -4323,7 +4330,7 @@
    "label": "rooster",
    "class": "noun",
    "symbol": "rooster",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-rooster",
    "actions": [
     {
@@ -4338,7 +4345,7 @@
    "label": "firefighter",
    "class": "noun",
    "symbol": "firefighter",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-firefighter",
    "actions": [
     {
@@ -4353,7 +4360,7 @@
    "label": "police",
    "class": "noun",
    "symbol": "police",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-police-officer",
    "actions": [
     {
@@ -4368,7 +4375,7 @@
    "label": "chef",
    "class": "noun",
    "symbol": "chef",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cook",
    "actions": [
     {
@@ -4383,7 +4390,7 @@
    "label": "farmer",
    "class": "noun",
    "symbol": "farmer",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-farmer",
    "actions": [
     {
@@ -4398,7 +4405,7 @@
    "label": "pilot",
    "class": "noun",
    "symbol": "pilot",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pilot",
    "actions": [
     {
@@ -4413,7 +4420,7 @@
    "label": "scientist",
    "class": "noun",
    "symbol": "scientist",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-scientist",
    "actions": [
     {
@@ -4428,7 +4435,7 @@
    "label": "artist",
    "class": "noun",
    "symbol": "artist",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-artist",
    "actions": [
     {
@@ -4443,7 +4450,7 @@
    "label": "singer",
    "class": "noun",
    "symbol": "singer",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-singer",
    "actions": [
     {
@@ -4458,7 +4465,7 @@
    "label": "astronaut",
    "class": "noun",
    "symbol": "astronaut",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-astronaut",
    "actions": [
     {
@@ -4473,7 +4480,7 @@
    "label": "mechanic",
    "class": "noun",
    "symbol": "mechanic",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-mechanic",
    "actions": [
     {
@@ -4488,7 +4495,7 @@
    "label": "clap",
    "class": "verb",
    "symbol": "clap",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-clapping-hands",
    "actions": [
     {
@@ -4503,7 +4510,7 @@
    "label": "point",
    "class": "verb",
    "symbol": "point",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-backhand-index-pointing-right",
    "actions": [
     {
@@ -4518,7 +4525,7 @@
    "label": "wave",
    "class": "verb",
    "symbol": "wave",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-waving-hand",
    "actions": [
     {
@@ -4533,7 +4540,7 @@
    "label": "sleep",
    "class": "verb",
    "symbol": "sleep",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sleeping-face",
    "actions": [
     {
@@ -4548,7 +4555,7 @@
    "label": "cook",
    "class": "verb",
    "symbol": "cook",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-cook",
    "actions": [
     {
@@ -4563,7 +4570,7 @@
    "label": "brush teeth",
    "class": "verb",
    "symbol": "brush teeth",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-brush-teeth",
    "actions": [
     {
@@ -4578,7 +4585,7 @@
    "label": "think",
    "class": "verb",
    "symbol": "think",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-thinking-face",
    "actions": [
     {
@@ -4593,7 +4600,7 @@
    "label": "high five",
    "class": "verb",
    "symbol": "high five",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-high-five",
    "actions": [
     {
@@ -4608,7 +4615,7 @@
    "label": "cake",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-shortcake",
    "actions": [
     {
@@ -4623,7 +4630,7 @@
    "label": "cookie",
    "class": "noun",
    "symbol": "cookie",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cookie",
    "actions": [
     {
@@ -4638,7 +4645,7 @@
    "label": "ice cream",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-ice-cream",
    "actions": [
     {
@@ -4653,7 +4660,7 @@
    "label": "donut",
    "class": "noun",
    "symbol": "donut",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-doughnut",
    "actions": [
     {
@@ -4668,7 +4675,7 @@
    "label": "chocolate",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-chocolate-bar",
    "actions": [
     {
@@ -4683,7 +4690,7 @@
    "label": "candy",
    "class": "noun",
    "symbol": "candy",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-candy",
    "actions": [
     {
@@ -4698,7 +4705,7 @@
    "label": "lollipop",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-lollipop",
    "actions": [
     {
@@ -4713,7 +4720,7 @@
    "label": "cupcake",
    "class": "noun",
    "symbol": "cupcake",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cupcake",
    "actions": [
     {
@@ -4728,7 +4735,7 @@
    "label": "popcorn",
    "class": "noun",
    "symbol": "popcorn",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-popcorn",
    "actions": [
     {
@@ -4743,7 +4750,7 @@
    "label": "honey",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-honey-pot",
    "actions": [
     {
@@ -4758,7 +4765,7 @@
    "label": "bandage",
    "class": "noun",
    "symbol": "bandage",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-adhesive-bandage",
    "actions": [
     {
@@ -4773,7 +4780,7 @@
    "label": "medicine",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pill",
    "actions": [
     {
@@ -4788,7 +4795,7 @@
    "label": "shot",
    "class": "noun",
    "symbol": "shot",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-syringe",
    "actions": [
     {
@@ -4803,7 +4810,7 @@
    "label": "thermometer",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-thermometer",
    "actions": [
     {
@@ -4818,7 +4825,7 @@
    "label": "soap",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-soap",
    "actions": [
     {
@@ -4833,7 +4840,7 @@
    "label": "stethoscope",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-stethoscope",
    "actions": [
     {
@@ -4848,7 +4855,7 @@
    "label": "hospital",
    "class": "noun",
    "symbol": "hospital",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-hospital",
    "actions": [
     {
@@ -4863,7 +4870,7 @@
    "label": "pencil",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pencil",
    "actions": [
     {
@@ -4878,7 +4885,7 @@
    "label": "pen",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pen",
    "actions": [
     {
@@ -4893,7 +4900,7 @@
    "label": "ruler",
    "class": "noun",
    "symbol": "ruler",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-straight-ruler",
    "actions": [
     {
@@ -4908,7 +4915,7 @@
    "label": "notebook",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-notebook",
    "actions": [
     {
@@ -4923,7 +4930,7 @@
    "label": "calculator",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-calculator",
    "actions": [
     {
@@ -4938,7 +4945,7 @@
    "label": "paper",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-page-facing-up",
    "actions": [
     {
@@ -4953,7 +4960,7 @@
    "label": "glue",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-glue",
    "actions": [
     {
@@ -4968,7 +4975,7 @@
    "label": "bell",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bell",
    "actions": [
     {
@@ -4983,7 +4990,7 @@
    "label": "church",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-church",
    "actions": [
     {
@@ -4998,7 +5005,7 @@
    "label": "castle",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-castle",
    "actions": [
     {
@@ -5013,7 +5020,7 @@
    "label": "hotel",
    "class": "noun",
    "symbol": "hotel",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-hotel",
    "actions": [
     {
@@ -5028,7 +5035,7 @@
    "label": "bank",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bank",
    "actions": [
     {
@@ -5043,7 +5050,7 @@
    "label": "factory",
    "class": "noun",
    "symbol": "factory",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-factory",
    "actions": [
     {
@@ -5058,7 +5065,7 @@
    "label": "tent",
    "class": "noun",
    "symbol": "tent",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tent",
    "actions": [
     {
@@ -5073,7 +5080,7 @@
    "label": "lighthouse",
    "class": "noun",
    "symbol": "lighthouse",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-lighthouse",
    "actions": [
     {
@@ -5088,7 +5095,7 @@
    "label": "stadium",
    "class": "noun",
    "symbol": "stadium",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-stadium",
    "actions": [
     {
@@ -5103,7 +5110,7 @@
    "label": "bridge",
    "class": "noun",
    "symbol": "bridge",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bridge-at-night",
    "actions": [
     {
@@ -5118,7 +5125,7 @@
    "label": "fountain",
    "class": "noun",
    "symbol": "fountain",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-fountain",
    "actions": [
     {
@@ -5133,7 +5140,7 @@
    "label": "clock",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-three-oclock",
    "actions": [
     {
@@ -5148,7 +5155,7 @@
    "label": "alarm",
    "class": "noun",
    "symbol": "alarm",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-alarm-clock",
    "actions": [
     {
@@ -5163,7 +5170,7 @@
    "label": "watch",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-watch",
    "actions": [
     {
@@ -5178,7 +5185,7 @@
    "label": "hourglass",
    "class": "noun",
    "symbol": "hourglass",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-hourglass-not-done",
    "actions": [
     {
@@ -5193,7 +5200,7 @@
    "label": "calendar",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-calendar",
    "actions": [
     {
@@ -5208,7 +5215,7 @@
    "label": "day",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sun",
    "actions": [
     {
@@ -5223,7 +5230,7 @@
    "label": "night",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-crescent-moon",
    "actions": [
     {
@@ -5238,7 +5245,7 @@
    "label": "morning",
    "class": "noun",
    "symbol": "⬛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sunrise",
    "actions": [
     {
@@ -5253,7 +5260,7 @@
    "label": "Clothes",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-t-shirt",
    "actions": [
     {
@@ -5268,7 +5275,7 @@
    "label": "Home things",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-couch-and-lamp",
    "actions": [
     {
@@ -5283,7 +5290,7 @@
    "label": "Actions",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-clapping-hands",
    "actions": [
     {
@@ -5298,7 +5305,7 @@
    "label": "Time",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-three-oclock",
    "actions": [
     {
@@ -5312,7 +5319,7 @@
    "kind": "folder",
    "label": "Fruits",
    "symbol": "🍎",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-fruit",
    "actions": [
     {
@@ -5328,7 +5335,7 @@
    "label": "apple",
    "class": "noun",
    "symbol": "🍎",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-red-apple",
    "actions": [
     {
@@ -5343,7 +5350,7 @@
    "label": "green apple",
    "class": "noun",
    "symbol": "🍏",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-green-apple",
    "actions": [
     {
@@ -5358,7 +5365,7 @@
    "label": "banana",
    "class": "noun",
    "symbol": "🍌",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-banana",
    "actions": [
     {
@@ -5373,7 +5380,7 @@
    "label": "grapes",
    "class": "noun",
    "symbol": "🍇",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-grapes",
    "actions": [
     {
@@ -5388,7 +5395,7 @@
    "label": "watermelon",
    "class": "noun",
    "symbol": "🍉",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-watermelon",
    "actions": [
     {
@@ -5403,7 +5410,7 @@
    "label": "orange",
    "class": "noun",
    "symbol": "🍊",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tangerine",
    "actions": [
     {
@@ -5418,7 +5425,7 @@
    "label": "lemon",
    "class": "noun",
    "symbol": "🍋",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-lemon",
    "actions": [
     {
@@ -5433,7 +5440,7 @@
    "label": "pear",
    "class": "noun",
    "symbol": "🍐",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pear",
    "actions": [
     {
@@ -5448,7 +5455,7 @@
    "label": "peach",
    "class": "noun",
    "symbol": "🍑",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-peach",
    "actions": [
     {
@@ -5463,7 +5470,7 @@
    "label": "cherries",
    "class": "noun",
    "symbol": "🍒",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cherries",
    "actions": [
     {
@@ -5478,7 +5485,7 @@
    "label": "strawberry",
    "class": "noun",
    "symbol": "🍓",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-strawberry",
    "actions": [
     {
@@ -5493,7 +5500,7 @@
    "label": "blueberries",
    "class": "noun",
    "symbol": "🫐",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-blueberries",
    "actions": [
     {
@@ -5508,7 +5515,7 @@
    "label": "pineapple",
    "class": "noun",
    "symbol": "🍍",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pineapple",
    "actions": [
     {
@@ -5523,7 +5530,7 @@
    "label": "mango",
    "class": "noun",
    "symbol": "🥭",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-mango",
    "actions": [
     {
@@ -5538,7 +5545,7 @@
    "label": "kiwi",
    "class": "noun",
    "symbol": "🥝",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-kiwi-fruit",
    "actions": [
     {
@@ -5553,7 +5560,7 @@
    "label": "melon",
    "class": "noun",
    "symbol": "🍈",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-melon",
    "actions": [
     {
@@ -5568,7 +5575,7 @@
    "label": "coconut",
    "class": "noun",
    "symbol": "🥥",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-coconut",
    "actions": [
     {
@@ -5583,7 +5590,7 @@
    "label": "avocado",
    "class": "noun",
    "symbol": "🥑",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-avocado",
    "actions": [
     {
@@ -5598,7 +5605,7 @@
    "label": "olive",
    "class": "noun",
    "symbol": "🫒",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-olive",
    "actions": [
     {
@@ -5613,7 +5620,7 @@
    "label": "apricot",
    "class": "noun",
    "symbol": "apricot",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-apricot",
    "actions": [
     {
@@ -5628,7 +5635,7 @@
    "label": "blackberry",
    "class": "noun",
    "symbol": "blackberry",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-blackberry",
    "actions": [
     {
@@ -5643,7 +5650,7 @@
    "label": "date",
    "class": "noun",
    "symbol": "date",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-date",
    "actions": [
     {
@@ -5658,7 +5665,7 @@
    "label": "fig",
    "class": "noun",
    "symbol": "fig",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-fig",
    "actions": [
     {
@@ -5673,7 +5680,7 @@
    "label": "gooseberry",
    "class": "noun",
    "symbol": "gooseberry",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-gooseberry",
    "actions": [
     {
@@ -5688,7 +5695,7 @@
    "label": "grapefruit",
    "class": "noun",
    "symbol": "grapefruit",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-grapefruit",
    "actions": [
     {
@@ -5703,7 +5710,7 @@
    "label": "lime",
    "class": "noun",
    "symbol": "lime",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-lime",
    "actions": [
     {
@@ -5718,7 +5725,7 @@
    "label": "passion fruit",
    "class": "noun",
    "symbol": "passion fruit",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-passion-fruit",
    "actions": [
     {
@@ -5733,7 +5740,7 @@
    "label": "plum",
    "class": "noun",
    "symbol": "plum",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-plum",
    "actions": [
     {
@@ -5747,7 +5754,7 @@
    "kind": "folder",
    "label": "Vegetables",
    "symbol": "🥕",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-carrot",
    "actions": [
     {
@@ -5763,7 +5770,7 @@
    "label": "carrot",
    "class": "noun",
    "symbol": "🥕",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-carrot",
    "actions": [
     {
@@ -5778,7 +5785,7 @@
    "label": "broccoli",
    "class": "noun",
    "symbol": "🥦",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-broccoli",
    "actions": [
     {
@@ -5793,7 +5800,7 @@
    "label": "corn",
    "class": "noun",
    "symbol": "🌽",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-ear-of-corn",
    "actions": [
     {
@@ -5808,7 +5815,7 @@
    "label": "potato",
    "class": "noun",
    "symbol": "🥔",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-potato",
    "actions": [
     {
@@ -5823,7 +5830,7 @@
    "label": "tomato",
    "class": "noun",
    "symbol": "🍅",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tomato",
    "actions": [
     {
@@ -5838,7 +5845,7 @@
    "label": "cucumber",
    "class": "noun",
    "symbol": "🥒",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cucumber",
    "actions": [
     {
@@ -5853,7 +5860,7 @@
    "label": "eggplant",
    "class": "noun",
    "symbol": "🍆",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-eggplant",
    "actions": [
     {
@@ -5868,7 +5875,7 @@
    "label": "lettuce",
    "class": "noun",
    "symbol": "🥬",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-leafy-green",
    "actions": [
     {
@@ -5883,7 +5890,7 @@
    "label": "onion",
    "class": "noun",
    "symbol": "🧅",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-onion",
    "actions": [
     {
@@ -5898,7 +5905,7 @@
    "label": "garlic",
    "class": "noun",
    "symbol": "🧄",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-garlic",
    "actions": [
     {
@@ -5913,7 +5920,7 @@
    "label": "bell pepper",
    "class": "noun",
    "symbol": "🫑",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-bell-pepper",
    "actions": [
     {
@@ -5928,7 +5935,7 @@
    "label": "peas",
    "class": "noun",
    "symbol": "🫛",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-pea-pod",
    "actions": [
     {
@@ -5943,7 +5950,7 @@
    "label": "A",
    "class": "letter",
    "symbol": "A",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-a",
    "actions": [
     {
@@ -5958,7 +5965,7 @@
    "label": "B",
    "class": "letter",
    "symbol": "B",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-b",
    "actions": [
     {
@@ -5973,7 +5980,7 @@
    "label": "C",
    "class": "letter",
    "symbol": "C",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-c",
    "actions": [
     {
@@ -5988,7 +5995,7 @@
    "label": "D",
    "class": "letter",
    "symbol": "D",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-d",
    "actions": [
     {
@@ -6003,7 +6010,7 @@
    "label": "E",
    "class": "letter",
    "symbol": "E",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-e",
    "actions": [
     {
@@ -6018,7 +6025,7 @@
    "label": "F",
    "class": "letter",
    "symbol": "F",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-f",
    "actions": [
     {
@@ -6033,7 +6040,7 @@
    "label": "G",
    "class": "letter",
    "symbol": "G",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-g",
    "actions": [
     {
@@ -6048,7 +6055,7 @@
    "label": "H",
    "class": "letter",
    "symbol": "H",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-h",
    "actions": [
     {
@@ -6063,7 +6070,7 @@
    "label": "I",
    "class": "letter",
    "symbol": "I",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-i",
    "actions": [
     {
@@ -6078,7 +6085,7 @@
    "label": "J",
    "class": "letter",
    "symbol": "J",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-j",
    "actions": [
     {
@@ -6093,7 +6100,7 @@
    "label": "K",
    "class": "letter",
    "symbol": "K",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-k",
    "actions": [
     {
@@ -6108,7 +6115,7 @@
    "label": "L",
    "class": "letter",
    "symbol": "L",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-l",
    "actions": [
     {
@@ -6123,7 +6130,7 @@
    "label": "M",
    "class": "letter",
    "symbol": "M",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-m",
    "actions": [
     {
@@ -6138,7 +6145,7 @@
    "label": "N",
    "class": "letter",
    "symbol": "N",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-n",
    "actions": [
     {
@@ -6153,7 +6160,7 @@
    "label": "O",
    "class": "letter",
    "symbol": "O",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-o",
    "actions": [
     {
@@ -6168,7 +6175,7 @@
    "label": "P",
    "class": "letter",
    "symbol": "P",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-p",
    "actions": [
     {
@@ -6183,7 +6190,7 @@
    "label": "Q",
    "class": "letter",
    "symbol": "Q",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-q",
    "actions": [
     {
@@ -6198,7 +6205,7 @@
    "label": "R",
    "class": "letter",
    "symbol": "R",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-r",
    "actions": [
     {
@@ -6213,7 +6220,7 @@
    "label": "S",
    "class": "letter",
    "symbol": "S",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-s",
    "actions": [
     {
@@ -6228,7 +6235,7 @@
    "label": "T",
    "class": "letter",
    "symbol": "T",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-t",
    "actions": [
     {
@@ -6243,7 +6250,7 @@
    "label": "U",
    "class": "letter",
    "symbol": "U",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-u",
    "actions": [
     {
@@ -6258,7 +6265,7 @@
    "label": "V",
    "class": "letter",
    "symbol": "V",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-v",
    "actions": [
     {
@@ -6273,7 +6280,7 @@
    "label": "W",
    "class": "letter",
    "symbol": "W",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-w",
    "actions": [
     {
@@ -6288,7 +6295,7 @@
    "label": "X",
    "class": "letter",
    "symbol": "X",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-x",
    "actions": [
     {
@@ -6303,7 +6310,7 @@
    "label": "Y",
    "class": "letter",
    "symbol": "Y",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-y",
    "actions": [
     {
@@ -6318,7 +6325,7 @@
    "label": "Z",
    "class": "letter",
    "symbol": "Z",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-z",
    "actions": [
     {
@@ -6333,7 +6340,7 @@
    "label": "0",
    "class": "number",
    "symbol": "0",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-0",
    "actions": [
     {
@@ -6348,7 +6355,7 @@
    "label": "1",
    "class": "number",
    "symbol": "1",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-1",
    "actions": [
     {
@@ -6363,7 +6370,7 @@
    "label": "2",
    "class": "number",
    "symbol": "2",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-2",
    "actions": [
     {
@@ -6378,7 +6385,7 @@
    "label": "3",
    "class": "number",
    "symbol": "3",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-3",
    "actions": [
     {
@@ -6393,7 +6400,7 @@
    "label": "4",
    "class": "number",
    "symbol": "4",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-4",
    "actions": [
     {
@@ -6408,7 +6415,7 @@
    "label": "5",
    "class": "number",
    "symbol": "5",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-5",
    "actions": [
     {
@@ -6423,7 +6430,7 @@
    "label": "6",
    "class": "number",
    "symbol": "6",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-6",
    "actions": [
     {
@@ -6438,7 +6445,7 @@
    "label": "7",
    "class": "number",
    "symbol": "7",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-7",
    "actions": [
     {
@@ -6453,7 +6460,7 @@
    "label": "8",
    "class": "number",
    "symbol": "8",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-8",
    "actions": [
     {
@@ -6468,7 +6475,7 @@
    "label": "9",
    "class": "number",
    "symbol": "9",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-9",
    "actions": [
     {
@@ -6483,7 +6490,7 @@
    "label": "10",
    "class": "number",
    "symbol": "10",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-10",
    "actions": [
     {
@@ -6498,7 +6505,7 @@
    "label": "11",
    "class": "number",
    "symbol": "11",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-11",
    "actions": [
     {
@@ -6513,7 +6520,7 @@
    "label": "12",
    "class": "number",
    "symbol": "12",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-12",
    "actions": [
     {
@@ -6528,7 +6535,7 @@
    "label": "13",
    "class": "number",
    "symbol": "13",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-13",
    "actions": [
     {
@@ -6543,7 +6550,7 @@
    "label": "14",
    "class": "number",
    "symbol": "14",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-14",
    "actions": [
     {
@@ -6558,7 +6565,7 @@
    "label": "15",
    "class": "number",
    "symbol": "15",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-15",
    "actions": [
     {
@@ -6573,7 +6580,7 @@
    "label": "16",
    "class": "number",
    "symbol": "16",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-16",
    "actions": [
     {
@@ -6588,7 +6595,7 @@
    "label": "17",
    "class": "number",
    "symbol": "17",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-17",
    "actions": [
     {
@@ -6603,7 +6610,7 @@
    "label": "18",
    "class": "number",
    "symbol": "18",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-18",
    "actions": [
     {
@@ -6618,7 +6625,7 @@
    "label": "19",
    "class": "number",
    "symbol": "19",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-19",
    "actions": [
     {
@@ -6633,7 +6640,7 @@
    "label": "20",
    "class": "number",
    "symbol": "20",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-20",
    "actions": [
     {
@@ -6648,8 +6655,8 @@
    "label": "yes",
    "class": "social",
    "symbol": "🙆",
-   "symbolPack": "noto",
-   "symbolKey": "emoji_u1f646",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-person-gesturing-ok",
    "actions": [
     {
      "kind": "addText",
@@ -6663,8 +6670,8 @@
    "label": "no",
    "class": "social",
    "symbol": "🙅",
-   "symbolPack": "noto",
-   "symbolKey": "emoji_u1f645",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-person-gesturing-no",
    "actions": [
     {
      "kind": "addText",
@@ -6678,8 +6685,8 @@
    "label": "wait",
    "class": "verb",
    "symbol": "⏳",
-   "symbolPack": "noto",
-   "symbolKey": "emoji_u23f3",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-hourglass-not-done",
    "actions": [
     {
      "kind": "addText",
@@ -6693,8 +6700,8 @@
    "label": "break",
    "class": "noun",
    "symbol": "⏸",
-   "symbolPack": "mulberry",
-   "symbolKey": "break_time_1",
+   "symbolPack": "modernflat",
+   "symbolKey": "scene-break",
    "actions": [
     {
      "kind": "addText",
@@ -6708,8 +6715,8 @@
    "label": "too loud",
    "class": "adjective",
    "symbol": "🔊",
-   "symbolPack": "mulberry",
-   "symbolKey": "loud",
+   "symbolPack": "modernflat",
+   "symbolKey": "scene-too-loud",
    "actions": [
     {
      "kind": "addText",
@@ -6723,7 +6730,7 @@
    "label": "Sensory games",
    "class": "other",
    "symbol": "🎮",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-video-game",
    "actions": [
     {
@@ -6737,7 +6744,7 @@
    "label": "Snacks",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cookie",
    "actions": [
     {
@@ -6752,7 +6759,7 @@
    "label": "Kitchen",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-cooking",
    "actions": [
     {
@@ -6767,7 +6774,7 @@
    "label": "Toys",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-teddy-bear",
    "actions": [
     {
@@ -6782,7 +6789,7 @@
    "label": "Sports",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sports-medal",
    "actions": [
     {
@@ -6797,7 +6804,7 @@
    "label": "Music",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "scene-piano",
    "actions": [
     {
@@ -6812,7 +6819,7 @@
    "label": "Wild animals",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-giraffe",
    "actions": [
     {
@@ -6827,7 +6834,7 @@
    "label": "Sea animals",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-tropical-fish",
    "actions": [
     {
@@ -6842,7 +6849,7 @@
    "label": "Birds",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-parrot",
    "actions": [
     {
@@ -6857,7 +6864,7 @@
    "label": "Bugs",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-butterfly",
    "actions": [
     {
@@ -6872,7 +6879,7 @@
    "label": "Buildings",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-office-building",
    "actions": [
     {
@@ -6887,7 +6894,7 @@
    "label": "Vehicles",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-train",
    "actions": [
     {
@@ -6902,7 +6909,7 @@
    "label": "Weather",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-sun-behind-rain-cloud",
    "actions": [
     {
@@ -6917,7 +6924,7 @@
    "label": "Plants",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-potted-plant",
    "actions": [
     {
@@ -6932,7 +6939,7 @@
    "label": "School things",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-books",
    "actions": [
     {
@@ -6947,7 +6954,7 @@
    "label": "Colors",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-artist-palette",
    "actions": [
     {
@@ -6962,7 +6969,7 @@
    "label": "Alphabet",
    "class": "other",
    "symbol": "🔤",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-abc",
    "actions": [
     {
@@ -6977,7 +6984,7 @@
    "label": "Numbers",
    "class": "other",
    "symbol": "🔢",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "type-123",
    "actions": [
     {
@@ -6992,7 +6999,7 @@
    "label": "Jobs",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-construction-worker",
    "actions": [
     {
@@ -7007,12 +7014,387 @@
    "label": "Health",
    "class": "other",
    "symbol": "📁",
-   "symbolPack": "modern3d",
+   "symbolPack": "modernflat",
    "symbolKey": "fluent-stethoscope",
    "actions": [
     {
      "kind": "gotoFolder",
      "data": "health"
+    }
+   ]
+  },
+  {
+   "id": "routine_wash-hands",
+   "kind": "item",
+   "label": "wash hands",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wash-hands",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "wash hands"
+    }
+   ]
+  },
+  {
+   "id": "routine_dry-hands",
+   "kind": "item",
+   "label": "dry hands",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-dry-hands",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "dry hands"
+    }
+   ]
+  },
+  {
+   "id": "routine_wash-face",
+   "kind": "item",
+   "label": "wash face",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wash-face",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "wash face"
+    }
+   ]
+  },
+  {
+   "id": "routine_wipe-face",
+   "kind": "item",
+   "label": "wipe face",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wipe-face",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "wipe face"
+    }
+   ]
+  },
+  {
+   "id": "routine_blow-nose",
+   "kind": "item",
+   "label": "blow nose",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-blow-nose",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "blow nose"
+    }
+   ]
+  },
+  {
+   "id": "routine_brush-hair",
+   "kind": "item",
+   "label": "brush hair",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-brush-hair",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "brush hair"
+    }
+   ]
+  },
+  {
+   "id": "routine_wash-hair",
+   "kind": "item",
+   "label": "wash hair",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wash-hair",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "wash hair"
+    }
+   ]
+  },
+  {
+   "id": "routine_get-dressed",
+   "kind": "item",
+   "label": "get dressed",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-get-dressed",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "get dressed"
+    }
+   ]
+  },
+  {
+   "id": "routine_put-on-socks",
+   "kind": "item",
+   "label": "put on socks",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-put-on-socks",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "put on socks"
+    }
+   ]
+  },
+  {
+   "id": "routine_put-on-shoes",
+   "kind": "item",
+   "label": "put on shoes",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-put-on-shoes",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "put on shoes"
+    }
+   ]
+  },
+  {
+   "id": "routine_take-off-shoes",
+   "kind": "item",
+   "label": "take off shoes",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-take-off-shoes",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "take off shoes"
+    }
+   ]
+  },
+  {
+   "id": "routine_zip-coat",
+   "kind": "item",
+   "label": "zip coat",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-zip-coat",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "zip coat"
+    }
+   ]
+  },
+  {
+   "id": "routine_put-clothes-away",
+   "kind": "item",
+   "label": "put clothes away",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-put-clothes-away",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "put clothes away"
+    }
+   ]
+  },
+  {
+   "id": "routine_fold-clothes",
+   "kind": "item",
+   "label": "fold clothes",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-fold-clothes",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "fold clothes"
+    }
+   ]
+  },
+  {
+   "id": "routine_hang-clothes",
+   "kind": "item",
+   "label": "hang clothes",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-hang-clothes",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "hang clothes"
+    }
+   ]
+  },
+  {
+   "id": "routine_wipe-table",
+   "kind": "item",
+   "label": "wipe table",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wipe-table",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "wipe table"
+    }
+   ]
+  },
+  {
+   "id": "routine_wash-dishes",
+   "kind": "item",
+   "label": "wash dishes",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wash-dishes",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "wash dishes"
+    }
+   ]
+  },
+  {
+   "id": "routine_sweep-floor",
+   "kind": "item",
+   "label": "sweep floor",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-sweep-floor",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "sweep floor"
+    }
+   ]
+  },
+  {
+   "id": "routine_mop-floor",
+   "kind": "item",
+   "label": "mop floor",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-mop-floor",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "mop floor"
+    }
+   ]
+  },
+  {
+   "id": "routine_vacuum-floor",
+   "kind": "item",
+   "label": "vacuum floor",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-vacuum-floor",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "vacuum floor"
+    }
+   ]
+  },
+  {
+   "id": "routine_take-out-trash",
+   "kind": "item",
+   "label": "take out trash",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-take-out-trash",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "take out trash"
+    }
+   ]
+  },
+  {
+   "id": "routine_cut-paper",
+   "kind": "item",
+   "label": "cut paper",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-cut-paper",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "cut paper"
+    }
+   ]
+  },
+  {
+   "id": "routine_erase",
+   "kind": "item",
+   "label": "erase",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-erase",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "erase"
+    }
+   ]
+  },
+  {
+   "id": "routine_paint-picture",
+   "kind": "item",
+   "label": "paint picture",
+   "class": "verb",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-paint-picture",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "paint picture"
+    }
+   ]
+  },
+  {
+   "id": "sub_routines",
+   "kind": "folder",
+   "label": "Daily routines",
+   "class": "other",
+   "symbol": "🧼",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-wash-hands",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "routines"
     }
    ]
   }
@@ -7558,6 +7940,9 @@
      },
      {
       "btn": "sub_health"
+     },
+     {
+      "btn": "sub_routines"
      }
     ]
    }
@@ -8159,6 +8544,9 @@
      },
      {
       "btn": "x166"
+     },
+     {
+      "btn": "sub_routines"
      }
     ]
    }
@@ -8612,6 +9000,85 @@
      },
      {
       "btn": "numbers_20"
+     }
+    ]
+   }
+  ],
+  "routines": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "routine_wash-hands"
+     },
+     {
+      "btn": "routine_dry-hands"
+     },
+     {
+      "btn": "routine_wash-face"
+     },
+     {
+      "btn": "routine_wipe-face"
+     },
+     {
+      "btn": "routine_blow-nose"
+     },
+     {
+      "btn": "routine_brush-hair"
+     },
+     {
+      "btn": "routine_wash-hair"
+     },
+     {
+      "btn": "routine_get-dressed"
+     },
+     {
+      "btn": "routine_put-on-socks"
+     },
+     {
+      "btn": "routine_put-on-shoes"
+     },
+     {
+      "btn": "routine_take-off-shoes"
+     },
+     {
+      "btn": "routine_zip-coat"
+     },
+     {
+      "btn": "routine_put-clothes-away"
+     },
+     {
+      "btn": "routine_fold-clothes"
+     },
+     {
+      "btn": "routine_hang-clothes"
+     },
+     {
+      "btn": "routine_wipe-table"
+     },
+     {
+      "btn": "routine_wash-dishes"
+     },
+     {
+      "btn": "routine_sweep-floor"
+     },
+     {
+      "btn": "routine_mop-floor"
+     },
+     {
+      "btn": "routine_vacuum-floor"
+     },
+     {
+      "btn": "routine_take-out-trash"
+     },
+     {
+      "btn": "routine_cut-paper"
+     },
+     {
+      "btn": "routine_erase"
+     },
+     {
+      "btn": "routine_paint-picture"
      }
     ]
    }

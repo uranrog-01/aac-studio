@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import '../web/web_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -59,171 +61,256 @@ class _SettingsSheetState extends State<SettingsSheet> {
   Widget build(BuildContext context) {
     final s = widget.settings;
     return Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-      child: ListView(controller: widget.scrollController, padding: const EdgeInsets.fromLTRB(12, 8, 12, 20), children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(8, 4, 8, 8),
-          child: Text('Settings',
-              style: TextStyle(
-                  color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700)),
-        ),
-        _group(Icons.record_voice_over, 'Voice', 'Choose who speaks, speed and loudness',
-            initiallyExpanded: true, children: [
-          _VoicePicker(
-              speech: widget.speech,
-              settings: s,
-              onPicked: () {
-                _changed();
-                _test();
-              }),
-          ValueListenableBuilder<String>(
-            valueListenable: widget.speech.status,
-            builder: (context, status, _) => Padding(
-              padding: const EdgeInsets.only(top: 6, bottom: 4),
-              child: Text(status,
-                  style: const TextStyle(color: Colors.white54, fontSize: 12)),
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: ListView(
+          controller: widget.scrollController,
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 20),
+          children: [
+            const Padding(
+              padding: EdgeInsets.fromLTRB(8, 4, 8, 8),
+              child: Text('Settings',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700)),
             ),
-          ),
-          _slider('Speed', 'Slow', 'Fast', 0.1, 1.0, s.rate,
-              (v) { s.rate = v; _changed(); }),
-          _slider('Pitch', 'Low', 'High', 0.5, 2.0, s.pitch,
-              (v) { s.pitch = v; _changed(); }),
-          if (s.usePiper && s.pitch != 1.0)
-            const Text('The offline voice cannot change pitch, so the device '
-                'voice is used while pitch is not in the middle.',
-                style: TextStyle(color: Colors.amberAccent, fontSize: 12)),
-          _slider('Volume', 'Quiet', 'Loud', 0.0, 1.0, s.volume,
-              (v) { s.volume = v; _changed(); }),
-          Wrap(spacing: 8, children: [
-            FilledButton.icon(
-              onPressed: _test,
-              icon: const Icon(Icons.play_arrow),
-              label: const Text('Test voice'),
-            ),
-            TextButton(onPressed: () {
-              s.rate = 0.45; s.pitch = 1.0; s.volume = 1.0; _changed();
-            }, child: const Text('Reset speed, pitch, volume')),
-            if (s.usePiper)
-              TextButton(onPressed: () => widget.speech.warmOfflineVoice(),
-                  child: const Text('Retry offline voice')),
+            _group(Icons.record_voice_over, 'Voice',
+                'Choose who speaks, speed and loudness',
+                initiallyExpanded: true,
+                children: [
+                  _VoicePicker(
+                      speech: widget.speech,
+                      settings: s,
+                      onPicked: () {
+                        _changed();
+                        _test();
+                      }),
+                  ValueListenableBuilder<String>(
+                    valueListenable: widget.speech.status,
+                    builder: (context, status, _) => Padding(
+                      padding: const EdgeInsets.only(top: 6, bottom: 4),
+                      child: Text(status,
+                          style: const TextStyle(
+                              color: Colors.white54, fontSize: 12)),
+                    ),
+                  ),
+                  _slider('Speed', 'Slow', 'Fast', 0.1, 1.0, s.rate, (v) {
+                    s.rate = v;
+                    _changed();
+                  }),
+                  _slider('Pitch', 'Low', 'High', 0.5, 2.0, s.pitch, (v) {
+                    s.pitch = v;
+                    _changed();
+                  }),
+                  if (s.usePiper && s.pitch != 1.0)
+                    const Text(
+                        'The offline voice cannot change pitch, so the device '
+                        'voice is used while pitch is not in the middle.',
+                        style:
+                            TextStyle(color: Colors.amberAccent, fontSize: 12)),
+                  _slider('Volume', 'Quiet', 'Loud', 0.0, 1.0, s.volume, (v) {
+                    s.volume = v;
+                    _changed();
+                  }),
+                  Wrap(spacing: 8, children: [
+                    FilledButton.icon(
+                      onPressed: _test,
+                      icon: const Icon(Icons.play_arrow),
+                      label: const Text('Test voice'),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          s.rate = 0.45;
+                          s.pitch = 1.0;
+                          s.volume = 1.0;
+                          _changed();
+                        },
+                        child: const Text('Reset speed, pitch, volume')),
+                    if (s.usePiper)
+                      TextButton(
+                          onPressed: () => widget.speech.warmOfflineVoice(),
+                          child: const Text('Retry offline voice')),
+                  ]),
+                ]),
+            _group(Icons.touch_app, 'When a button is tapped',
+                'Speaking, going home, vibration',
+                children: [
+                  _switch(
+                      'Say each word when tapped',
+                      !s.quietBuilder,
+                      (v) => s.quietBuilder = !v,
+                      'Off: words are added silently; tap the message to speak'),
+                  _switch('Say the category name when opened',
+                      s.vocalizeFolders, (v) => s.vocalizeFolders = v),
+                  _switch('Go back to Home after a word', s.goHomeOnPress,
+                      (v) => s.goHomeOnPress = v),
+                  _switch('Clear the message after speaking it', s.clearOnSpeak,
+                      (v) => s.clearOnSpeak = v),
+                  _switch('Vibrate', s.haptics, (v) => s.haptics = v),
+                  _switch('Click sound', s.audioCues, (v) => s.audioCues = v),
+                ]),
+            _group(Icons.grid_view, 'Buttons & screen',
+                'Pictures, words, contrast',
+                children: [
+                  _choice<ButtonView>('Buttons show', s.buttonView, {
+                    ButtonView.symbolText: 'Picture + word',
+                    ButtonView.symbolOnly: 'Picture only',
+                    ButtonView.textOnly: 'Word only',
+                  }, (v) {
+                    s.buttonView = v;
+                    _changed();
+                  }),
+                  if (s.buttonView == ButtonView.symbolText)
+                    _choice<LabelPosition>('Word position', s.labelPosition, {
+                      LabelPosition.below: 'Under picture',
+                      LabelPosition.above: 'Over picture',
+                    }, (v) {
+                      s.labelPosition = v;
+                      _changed();
+                    }),
+                  _choice<String>('Skin tone for people', s.skinTone, {
+                    '': 'Default',
+                    'light': 'Light',
+                    'medium-light': 'Medium light',
+                    'medium': 'Medium',
+                    'medium-dark': 'Medium dark',
+                    'dark': 'Dark',
+                  }, (v) {
+                    s.skinTone = v;
+                    _changed();
+                  }),
+                  _switch('Message bar at the top', s.messageWindowTop,
+                      (v) => s.messageWindowTop = v),
+                  _switch(
+                      'High contrast (CVI)',
+                      s.cviMode,
+                      (v) => s.cviMode = v,
+                      'Black background, yellow buttons, bold words'),
+                ]),
+            _group(Icons.accessibility_new, 'Access',
+                'Hold to select, switch scanning, extra taps',
+                children: [
+                  _switch(
+                      'Hold to select',
+                      s.dwellEnabled,
+                      (v) => s.dwellEnabled = v,
+                      'Press and hold a button until the circle fills'),
+                  if (s.dwellEnabled)
+                    _stepper('Hold time', 0.5, 5.0, s.dwellSeconds, 0.5, (v) {
+                      s.dwellSeconds = v;
+                      _changed();
+                    }, 's'),
+                  _switch(
+                      'Switch scanning',
+                      s.scanningEnabled,
+                      (v) => s.scanningEnabled = v,
+                      'Adds a Scan button: tap once for a row, again for a button'),
+                  if (s.scanningEnabled)
+                    _stepper('Scan speed', 0.4, 4.0, s.scanDelayMs / 1000, 0.2,
+                        (v) {
+                      s.scanDelayMs = (v * 1000).round();
+                      _changed();
+                    }, 's'),
+                  _stepper('Ignore extra taps for', 0, 2.0,
+                      s.inputDebounceMs / 1000, 0.25, (v) {
+                    s.inputDebounceMs = (v * 1000).round();
+                    _changed();
+                  }, 's'),
+                  _switch(
+                      'Stay in the app',
+                      s.preventExit,
+                      (v) => s.preventExit = v,
+                      'Press Back 3 times quickly to leave'),
+                ]),
+            if (kIsWeb) const WebTools(),
+            _group(Icons.lock_outline, 'Caregiver',
+                'Edit buttons, symbols, lock code',
+                children: [
+                  if (widget.settingsController != null) ...[
+                    _asyncSwitch(
+                        'Edit mode',
+                        widget.settingsController!.editMode,
+                        'Tap any button to change it', (v) async {
+                      final sc = widget.settingsController!;
+                      if (v && !await sc.guardPrivileged(context)) return;
+                      sc.settings.editMode = v;
+                      await sc.update();
+                      setState(() {});
+                    }),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading:
+                          const Icon(Icons.image_search, color: Colors.white70),
+                      title: const Text('Browse all pictures',
+                          style: TextStyle(color: Colors.white, fontSize: 15)),
+                      subtitle: const Text('Hear a word, add it to Home',
+                          style:
+                              TextStyle(color: Colors.white54, fontSize: 12)),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.of(context, rootNavigator: true).push(
+                            MaterialPageRoute(
+                                builder: (_) => const SymbolBrowser()));
+                      },
+                    ),
+                  ],
+                  _asyncSwitch('Lock settings with a code',
+                      s.restrictionsEnabled, 'Code: ${s.pin}', (v) async {
+                    if (!v && !await _verifyPin(s.pin)) return;
+                    s.restrictionsEnabled = v;
+                    if (!v) s.editMode = false;
+                    _changed();
+                  }),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      onPressed: () async {
+                        final pin = await _askPin('Set a new 4-digit code',
+                            current: s.pin);
+                        if (pin == null) return;
+                        s.pin = pin;
+                        _changed();
+                      },
+                      icon: const Icon(Icons.password, size: 18),
+                      label: const Text('Change code'),
+                    ),
+                  ),
+                  _switch('Online ARASAAC pictures in search', s.arasaacEnabled,
+                      (v) => s.arasaacEnabled = v),
+                  if (s.arasaacEnabled) ...[
+                    _choice<int>('Skin', s.arasaacSkin, {
+                      0: 'Original',
+                      1: 'White',
+                      2: 'Black',
+                      3: 'Asian',
+                    }, (v) {
+                      s.arasaacSkin = v;
+                      _changed();
+                    }),
+                    _choice<int>('Hair', s.arasaacHair, {
+                      0: 'Original',
+                      1: 'Blond',
+                      2: 'Brown',
+                      3: 'Dark',
+                      4: 'Red',
+                      5: 'Gray',
+                    }, (v) {
+                      s.arasaacHair = v;
+                      _changed();
+                    }),
+                  ],
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton(
+                        onPressed: () => showLicensePage(
+                            context: context,
+                            applicationName: 'AAC Studio',
+                            applicationVersion: '1.8.0'),
+                        child: const Text('Voice and software licenses')),
+                  ),
+                ]),
           ]),
-        ]),
-
-        _group(Icons.touch_app, 'When a button is tapped',
-            'Speaking, going home, vibration', children: [
-          _switch('Say each word when tapped', !s.quietBuilder,
-              (v) => s.quietBuilder = !v,
-              'Off: words are added silently; tap the message to speak'),
-          _switch('Say the category name when opened', s.vocalizeFolders,
-              (v) => s.vocalizeFolders = v),
-          _switch('Go back to Home after a word', s.goHomeOnPress,
-              (v) => s.goHomeOnPress = v),
-          _switch('Clear the message after speaking it', s.clearOnSpeak,
-              (v) => s.clearOnSpeak = v),
-          _switch('Vibrate', s.haptics, (v) => s.haptics = v),
-          _switch('Click sound', s.audioCues, (v) => s.audioCues = v),
-        ]),
-
-        _group(Icons.grid_view, 'Buttons & screen',
-            'Pictures, words, contrast', children: [
-          _choice<ButtonView>('Buttons show', s.buttonView, {
-            ButtonView.symbolText: 'Picture + word',
-            ButtonView.symbolOnly: 'Picture only',
-            ButtonView.textOnly: 'Word only',
-          }, (v) { s.buttonView = v; _changed(); }),
-          if (s.buttonView == ButtonView.symbolText)
-            _choice<LabelPosition>('Word position', s.labelPosition, {
-              LabelPosition.below: 'Under picture',
-              LabelPosition.above: 'Over picture',
-            }, (v) { s.labelPosition = v; _changed(); }),
-          _switch('Message bar at the top', s.messageWindowTop,
-              (v) => s.messageWindowTop = v),
-          _switch('High contrast (CVI)', s.cviMode, (v) => s.cviMode = v,
-              'Black background, yellow buttons, bold words'),
-        ]),
-
-        _group(Icons.accessibility_new, 'Access',
-            'Hold to select, switch scanning, extra taps', children: [
-          _switch('Hold to select', s.dwellEnabled, (v) => s.dwellEnabled = v,
-              'Press and hold a button until the circle fills'),
-          if (s.dwellEnabled)
-            _stepper('Hold time', 0.5, 5.0, s.dwellSeconds, 0.5,
-                (v) { s.dwellSeconds = v; _changed(); }, 's'),
-          _switch('Switch scanning', s.scanningEnabled,
-              (v) => s.scanningEnabled = v,
-              'Adds a Scan button: tap once for a row, again for a button'),
-          if (s.scanningEnabled)
-            _stepper('Scan speed', 0.4, 4.0, s.scanDelayMs / 1000, 0.2,
-                (v) { s.scanDelayMs = (v * 1000).round(); _changed(); }, 's'),
-          _stepper('Ignore extra taps for', 0, 2.0, s.inputDebounceMs / 1000, 0.25,
-              (v) { s.inputDebounceMs = (v * 1000).round(); _changed(); }, 's'),
-          _switch('Stay in the app', s.preventExit, (v) => s.preventExit = v,
-              'Press Back 3 times quickly to leave'),
-        ]),
-
-        _group(Icons.lock_outline, 'Caregiver', 'Edit buttons, symbols, lock code',
-            children: [
-          if (widget.settingsController != null) ...[
-            _asyncSwitch('Edit mode', widget.settingsController!.editMode,
-                'Tap any button to change it', (v) async {
-              final sc = widget.settingsController!;
-              if (v && !await sc.guardPrivileged(context)) return;
-              sc.settings.editMode = v;
-              await sc.update();
-              setState(() {});
-            }),
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              leading: const Icon(Icons.image_search, color: Colors.white70),
-              title: const Text('Browse all pictures',
-                  style: TextStyle(color: Colors.white, fontSize: 15)),
-              subtitle: const Text('Hear a word, add it to Home',
-                  style: TextStyle(color: Colors.white54, fontSize: 12)),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context, rootNavigator: true).push(
-                    MaterialPageRoute(builder: (_) => const SymbolBrowser()));
-              },
-            ),
-          ],
-          _asyncSwitch('Lock settings with a code', s.restrictionsEnabled,
-              'Code: ${s.pin}', (v) async {
-            if (!v && !await _verifyPin(s.pin)) return;
-            s.restrictionsEnabled = v;
-            if (!v) s.editMode = false;
-            _changed();
-          }),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton.icon(
-              onPressed: () async {
-                final pin = await _askPin('Set a new 4-digit code', current: s.pin);
-                if (pin == null) return;
-                s.pin = pin;
-                _changed();
-              },
-              icon: const Icon(Icons.password, size: 18),
-              label: const Text('Change code'),
-            ),
-          ),
-          _switch('Online ARASAAC pictures in search', s.arasaacEnabled,
-              (v) => s.arasaacEnabled = v),
-          if (s.arasaacEnabled) ...[
-            _choice<int>('Skin', s.arasaacSkin, {
-              0: 'Original', 1: 'White', 2: 'Black', 3: 'Asian',
-            }, (v) { s.arasaacSkin = v; _changed(); }),
-            _choice<int>('Hair', s.arasaacHair, {
-              0: 'Original', 1: 'Blond', 2: 'Brown', 3: 'Dark', 4: 'Red', 5: 'Gray',
-            }, (v) { s.arasaacHair = v; _changed(); }),
-          ],
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton(onPressed: () => showLicensePage(context: context,
-                applicationName: 'AAC Studio', applicationVersion: '1.5.2'),
-                child: const Text('Voice and software licenses')),
-          ),
-        ]),
-      ]),
     );
   }
 
@@ -251,7 +338,9 @@ class _SettingsSheetState extends State<SettingsSheet> {
           leading: Icon(icon, color: Colors.deepOrangeAccent, size: 28),
           title: Text(title,
               style: const TextStyle(
-                  color: Colors.white, fontSize: 17, fontWeight: FontWeight.w600)),
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600)),
           subtitle: Text(subtitle,
               style: const TextStyle(color: Colors.white54, fontSize: 12)),
           iconColor: Colors.white70,
@@ -275,7 +364,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
         contentPadding: EdgeInsets.zero,
         value: value,
         onChanged: onChanged,
-        title: Text(title, style: const TextStyle(color: Colors.white, fontSize: 15)),
+        title: Text(title,
+            style: const TextStyle(color: Colors.white, fontSize: 15)),
         subtitle: subtitle == null
             ? null
             : Text(subtitle,
@@ -314,9 +404,13 @@ class _SettingsSheetState extends State<SettingsSheet> {
 
   Widget _stepper(String label, double min, double max, double value,
       double step, ValueChanged<double> onChanged, String suffix) {
-    final shown = value <= 0 ? 'Off' : '${value.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')} $suffix';
+    final shown = value <= 0
+        ? 'Off'
+        : '${value.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')} $suffix';
     return Row(children: [
-      Expanded(child: Text(label, style: const TextStyle(color: Colors.white, fontSize: 15))),
+      Expanded(
+          child: Text(label,
+              style: const TextStyle(color: Colors.white, fontSize: 15))),
       IconButton(
           onPressed: value > min + 1e-9
               ? () => onChanged((value - step).clamp(min, max))
@@ -341,7 +435,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 4),
-        child: Text(label, style: const TextStyle(color: Colors.white, fontSize: 15)),
+        child: Text(label,
+            style: const TextStyle(color: Colors.white, fontSize: 15)),
       ),
       Wrap(
         spacing: 6,
@@ -364,7 +459,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: const Color(0xFF2A2E35),
-        title: Text(title, style: const TextStyle(color: Colors.white, fontSize: 16)),
+        title: Text(title,
+            style: const TextStyle(color: Colors.white, fontSize: 16)),
         content: TextField(
           controller: c,
           autofocus: true,
@@ -455,11 +551,16 @@ class _VoicePickerState extends State<_VoicePicker> {
         final english = all.where((v) => v.isEnglish).toList();
         final shown = _allLanguages || english.isEmpty ? all : english;
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          _option('Offline voice', 'US English · works without internet',
-              Icons.offline_bolt, s.usePiper,
-              () => _pick(piper: true)),
-          _option('Device voice', 'This phone or tablet\'s default voice',
-              Icons.smartphone, !s.usePiper && s.voiceName == null,
+          if (!kIsWeb)
+            _option('Offline voice', 'US English · works without internet',
+                Icons.offline_bolt, s.usePiper, () => _pick(piper: true)),
+          _option(
+              'Device voice',
+              kIsWeb
+                  ? 'Safari voices; offline availability depends on your device'
+                  : 'This phone or tablet\'s default voice',
+              Icons.smartphone,
+              !s.usePiper && s.voiceName == null,
               () => _pick(piper: false)),
           if (snapshot.connectionState != ConnectionState.done)
             const Padding(

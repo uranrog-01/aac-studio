@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -571,7 +569,8 @@ class _GridScreenState extends State<GridScreen> {
           if (widget.showOptions)
             item(Icons.settings_outlined, 'Settings', () async {
               final sc = context.read<SettingsController>();
-              if (sc.restrictionsEnabled && !await sc.guardPrivileged(context)) {
+              if (sc.restrictionsEnabled &&
+                  !await sc.guardPrivileged(context)) {
                 return;
               }
               if (!context.mounted) return;
@@ -800,14 +799,9 @@ class _CellButtonState extends State<_CellButton> {
       child: Padding(
         padding: const EdgeInsets.all(2),
         child: showSymbol
-            ? (sym.imagePath != null
-                ? Image.file(File(sym.imagePath!),
-                    fit: BoxFit.contain,
-                    errorBuilder: (_, __, ___) =>
-                        SymbolLibrary.resolve(sym, size: 48))
-                : LayoutBuilder(
-                    builder: (_, constraints) => SymbolLibrary.resolve(sym,
-                        size: constraints.biggest.shortestSide)))
+            ? LayoutBuilder(
+                builder: (_, constraints) => SymbolLibrary.resolve(sym,
+                    size: constraints.biggest.shortestSide))
             : const SizedBox.shrink(),
       ),
     );
