@@ -3,9 +3,11 @@ import '../../engine/prediction.dart';
 import '../../engine/speech.dart';
 import '../../engine/storage.dart';
 import '../../engine/symbol_library.dart';
-import '../../models/domain.dart';
+import 'message_bar.dart';
 
-/// Picture words and numbers, with no system keyboard overlay.
+/// On-screen letters, numbers and editing keys without a second keyboard.
+/// The top is the same message bar and toolbar as Home: tap the message to
+/// hear it again, the red button removes the last word.
 class KeyboardView extends StatefulWidget {
   final Predictor predictor;
   final SpeechEngine speech;
@@ -14,6 +16,10 @@ class KeyboardView extends StatefulWidget {
   final ValueChanged<String> onTextChanged;
   final VoidCallback onClose;
   final VoidCallback onSpeak;
+
+  /// 'letters': say each letter and each finished word; 'words': only
+  /// finished words; 'off'.
+  final String typingSpeech;
   const KeyboardView(
       {super.key,
       required this.predictor,
@@ -22,249 +28,264 @@ class KeyboardView extends StatefulWidget {
       this.initialText = '',
       required this.onTextChanged,
       required this.onClose,
-      required this.onSpeak});
+      required this.onSpeak,
+      this.typingSpeech = 'letters'});
   @override
   State<KeyboardView> createState() => _KeyboardViewState();
 }
 
 class _KeyboardViewState extends State<KeyboardView> {
-  late final TextEditingController _controller;
-  static const symbols = {
-    'yes': SymbolRef('✅', pack: 'modernflat', key: 'fluent-check-mark-button'),
-    'no': SymbolRef('❌', pack: 'modernflat', key: 'fluent-cross-mark'),
-    'help': SymbolRef('🆘', pack: 'modernflat', key: 'scene-help'),
-    'stop': SymbolRef('🛑', pack: 'modernflat', key: 'fluent-stop-sign'),
-    'water': SymbolRef('🚰', pack: 'modernflat', key: 'scene-water'),
-    'eat': SymbolRef('🍽', pack: 'modernflat', key: 'scene-eat'),
-    'bathroom': SymbolRef('🚻', pack: 'modernflat', key: 'fluent-restroom'),
-    'rest': SymbolRef('😌', pack: 'modernflat', key: 'fluent-person-in-bed'),
-  };
+  late String _text;
+  bool _uppercase = false;
+
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: widget.initialText);
-    _controller.selection =
-        TextSelection.collapsed(offset: _controller.text.length);
-    _controller.addListener(_changed);
+    // Typing after picture words starts a new word ("want it" + "hi").
+    final start = widget.initialText;
+    _text = start.isEmpty || start.endsWith(' ') ? start : '$start ';
   }
 
   @override
   void didUpdateWidget(KeyboardView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.initialText != _controller.text) {
-      _controller.removeListener(_changed);
-      _controller.value = TextEditingValue(
-          text: widget.initialText,
-          selection:
-              TextSelection.collapsed(offset: widget.initialText.length));
-      _controller.addListener(_changed);
+    // The message can change outside (e.g. cleared after speaking).
+    if (widget.initialText.trimRight() != _text.trimRight()) {
+      _text = widget.initialText;
     }
   }
 
-  void _changed() {
-    widget.onTextChanged(_controller.text);
-    setState(() {});
+  void _set(String text) {
+    setState(() => _text = text);
+    widget.onTextChanged(text);
   }
 
-  @override
-  void dispose() {
-    _controller.removeListener(_changed);
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void _insert(String text) {
-    final selection = _controller.selection;
-    final start = selection.isValid ? selection.start : _controller.text.length;
-    final end = selection.isValid ? selection.end : start;
-    _controller.value = TextEditingValue(
-        text: _controller.text.replaceRange(start, end, text),
-        selection: TextSelection.collapsed(offset: start + text.length));
-  }
+  void _insert(String text) => _set(_text + text);
 
   void _backspace() {
-    final selection = _controller.selection;
-    if (selection.isValid && !selection.isCollapsed) {
-      _insert('');
-      return;
+    if (_text.isEmpty) return;
+    _set(_text.substring(0, _text.length - _text.characters.last.length));
+  }
+
+  /// Message bar button: removes the last whole word.
+  void _deleteWord() {
+    final words = _text.trimRight().split(' ')..removeWhere((w) => w.isEmpty);
+    if (words.isNotEmpty) words.removeLast();
+    _set(words.isEmpty ? '' : '${words.join(' ')} ');
+  }
+
+  void _typeKey(String key) {
+    final typed = _uppercase
+        ? (key == ','
+            ? '?'
+            : key == '.'
+                ? '!'
+                : key.toUpperCase())
+        : key;
+    _insert(typed);
+    if (_uppercase && !RegExp(r'^[0-9]$').hasMatch(key)) {
+      setState(() => _uppercase = false);
     }
-    final end = selection.isValid ? selection.start : _controller.text.length;
-    if (end == 0) return;
-    final prefix = _controller.text.substring(0, end);
-    final start = end - prefix.characters.last.length;
-    _controller.value = TextEditingValue(
-        text: _controller.text.replaceRange(start, end, ''),
-        selection: TextSelection.collapsed(offset: start));
+    if (RegExp(r'^[a-zA-Z0-9]$').hasMatch(typed)) {
+      // Upper case so the voice says the letter's name ("A", not "uh").
+      if (widget.typingSpeech == 'letters') {
+        widget.speech.speak(typed.toUpperCase(), interrupt: true);
+      }
+    } else if (typed != "'") {
+      _sayFinishedWord();
+    }
+  }
+
+  void _space() {
+    _insert(' ');
+    _sayFinishedWord();
+  }
+
+  /// Says the last word once it is finished (space, punctuation or a picked
+  /// suggestion), straight from the key tap so Safari allows the speech.
+  void _sayFinishedWord() {
+    if (widget.typingSpeech == 'off') return;
+    final word =
+        RegExp(r"([A-Za-z0-9']+)[^A-Za-z0-9']*$").firstMatch(_text)?.group(1);
+    if (word != null) widget.speech.speak(word, interrupt: true);
+  }
+
+  void _close() {
+    if (_text.trim().isNotEmpty) {
+      widget.predictor.learnFrom(_text, defaultAppStorageProvider);
+    }
+    widget.onClose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final cursor = _controller.selection.isValid
-        ? _controller.selection.start
-        : _controller.text.length;
-    final prefix =
-        _controller.text.substring(0, cursor).split(RegExp(r'\s+')).last;
+    final prefix = RegExp(r"[a-zA-Z']+$").firstMatch(_text)?.group(0) ?? '';
     final suggestions = prefix.isEmpty
         ? <String>[]
-        : widget.predictor.suggest(prefix).take(3).toList();
+        : widget.predictor
+            .suggest(prefix)
+            .take(3)
+            .map((word) => prefix[0] == prefix[0].toUpperCase()
+                ? '${word[0].toUpperCase()}${word.substring(1)}'
+                : word)
+            .toList();
     return Scaffold(
       backgroundColor: const Color(0xFF2B2F36),
       body: SafeArea(
           child: Column(children: [
-        Material(
-            color: Colors.white,
-            child: Container(
-              constraints: const BoxConstraints(minHeight: 72),
-              padding: const EdgeInsets.all(16),
-              width: double.infinity,
-              child: TextField(
-                  controller: _controller,
-                  keyboardType: TextInputType.none,
-                  onTap: widget.onSpeak,
-                  minLines: 1,
-                  maxLines: 3,
-                  decoration: const InputDecoration(
-                      hintText: 'Tap keys or symbols',
-                      border: InputBorder.none,
-                      isDense: true,
-                      contentPadding: EdgeInsets.zero),
-                  style: const TextStyle(fontSize: 22, color: Colors.black87)),
-            )),
-        Row(children: [
-          TextButton.icon(
-              onPressed: () {
-                if (_controller.text.trim().isNotEmpty) {
-                  widget.predictor
-                      .learnFrom(_controller.text, defaultAppStorageProvider);
-                }
-                widget.onClose();
-              },
-              style: TextButton.styleFrom(foregroundColor: Colors.white),
-              icon: const Icon(Icons.arrow_back_rounded),
-              label: const Text('Back')),
-        ]),
-        if (suggestions.isNotEmpty)
-          Wrap(children: [
-            for (final word in suggestions)
-              TextButton(
-                  onPressed: () {
-                    _controller.selection = TextSelection(
-                        baseOffset: cursor - prefix.length,
-                        extentOffset: cursor);
-                    _insert('$word ');
-                  },
-                  child: Text(word)),
+        MessageBar(
+          message: _text,
+          placeholder: 'Type your message',
+          showCursor: true,
+          onSpeak: widget.onSpeak,
+          onDeleteWord: _deleteWord,
+        ),
+        ValueListenableBuilder<String?>(
+          valueListenable: widget.speech.error,
+          builder: (context, error, _) => error == null
+              ? const SizedBox.shrink()
+              : Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(error,
+                      style: const TextStyle(color: Colors.white))),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+          child: Row(children: [
+            ToolbarButton(icon: Icons.arrow_back, label: 'Back', onTap: _close),
+            ToolbarButton(
+                icon: Icons.volume_up,
+                label: 'Speak',
+                onTap: widget.onSpeak,
+                color: const Color(0xFF2E7D32)),
+            ToolbarButton(
+                icon: Icons.clear_all,
+                label: 'Clear',
+                onTap: _text.isEmpty ? null : () => _set('')),
           ]),
+        ),
+        if (suggestions.isNotEmpty)
+          SizedBox(
+              height: 44,
+              child: Row(children: [
+                for (final word in suggestions)
+                  Expanded(
+                      child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 3),
+                    child: _key(word, () {
+                      _set('${_text.substring(0, _text.length - prefix.length)}'
+                          '$word ');
+                      _sayFinishedWord();
+                    }, suggestion: true),
+                  )),
+              ])),
         Expanded(child: LayoutBuilder(builder: (context, constraints) {
-          final columns = (constraints.maxWidth / 100).floor().clamp(3, 6);
-          return SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _heading('Numbers'),
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: constraints.maxWidth >= 600 ? 10 : 5,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  mainAxisExtent: 56,
-                  children: [
-                    for (final number in '1234567890'.split(''))
-                      _key(number, () => _insert(number)),
-                  ],
-                ),
-                _heading('Symbols'),
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: columns,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  mainAxisExtent: 108,
-                  children: [
-                    for (final symbol in symbols.entries)
-                      _key(symbol.key, () {
-                        final cursor = _controller.selection.isValid
-                            ? _controller.selection.start
-                            : _controller.text.length;
-                        final before = _controller.text.substring(0, cursor);
-                        final separator = before.isNotEmpty &&
-                                !RegExp(r'\s$').hasMatch(before)
-                            ? ' '
-                            : '';
-                        _insert('$separator${symbol.key} ');
-                      }, image: symbol.value),
-                  ],
-                ),
-              ],
-            ),
-          );
+          // Bigger keys on tall phones: easier to hit.
+          final height = ((constraints.maxHeight - 24) / 4).clamp(44.0, 84.0);
+          return Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Column(children: [
+                    for (final row in [
+                      '1234567890',
+                      'qwertyuiop',
+                      "asdfghjkl'",
+                      'zxcvbnm,.'
+                    ])
+                      Padding(
+                          padding: const EdgeInsets.only(bottom: 6),
+                          child: SizedBox(
+                              height: height,
+                              child: Row(children: [
+                                if (row.startsWith('z'))
+                                  Expanded(
+                                      child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 2),
+                                          child: _key(
+                                              'Shift',
+                                              () => setState(() =>
+                                                  _uppercase = !_uppercase),
+                                              icon: Icons.keyboard_arrow_up,
+                                              selected: _uppercase))),
+                                for (final letter in row.split(''))
+                                  Expanded(
+                                      child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 2),
+                                          child: _key(
+                                              _uppercase
+                                                  ? (letter == ','
+                                                      ? '?'
+                                                      : letter == '.'
+                                                          ? '!'
+                                                          : letter
+                                                              .toUpperCase())
+                                                  : letter,
+                                              () => _typeKey(letter)))),
+                              ]))),
+                  ])));
         })),
         Padding(
-          padding: const EdgeInsets.fromLTRB(8, 6, 8, 8),
-          child: SizedBox(
-            height: 56,
-            child: Row(children: [
-              Expanded(flex: 4, child: _key('Space', () => _insert(' '))),
-              const SizedBox(width: 8),
-              Expanded(flex: 2, child: _key('Delete', _backspace)),
-            ]),
-          ),
-        ),
+            padding: const EdgeInsets.fromLTRB(6, 4, 6, 6),
+            child: SizedBox(
+                height: 52,
+                child: Row(children: [
+                  Expanded(
+                      flex: 2,
+                      child: _key('Speak', widget.onSpeak,
+                          icon: Icons.volume_up)),
+                  const SizedBox(width: 6),
+                  Expanded(flex: 3, child: _key('Space', _space)),
+                  const SizedBox(width: 6),
+                  Expanded(
+                      flex: 2,
+                      child: _key('Delete', _backspace,
+                          icon: Icons.backspace_outlined)),
+                ]))),
       ])),
     );
   }
 
-  Widget _heading(String label) => Padding(
-        padding: const EdgeInsets.fromLTRB(4, 12, 4, 8),
-        child: Text(label,
-            style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w600)),
-      );
-
-  Widget _key(String label, VoidCallback onTap, {SymbolRef? image}) => Material(
-        color: label == 'Space'
-            ? const Color(0xFFD8EBFF)
-            : const Color(0xFFF3F5F7),
-        borderRadius: BorderRadius.circular(12),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: onTap,
-          child: Semantics(
-            button: true,
-            label: label,
-            excludeSemantics: true,
-            child: Padding(
-              padding: const EdgeInsets.all(6),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (image != null) ...[
-                    Expanded(
-                      child: Center(
-                        child: SymbolLibrary.resolve(image, size: 64),
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                  ],
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(label,
-                        maxLines: 1,
-                        style: TextStyle(
-                            color: const Color(0xFF202832),
-                            fontWeight: FontWeight.w600,
-                            fontSize:
-                                image == null && label.length == 1 ? 26 : 16)),
-                  ),
-                ],
-              ),
-            ),
-          ),
+  Widget _key(String label, VoidCallback onTap,
+          {IconData? icon, bool selected = false, bool suggestion = false}) =>
+      Semantics(
+        button: true,
+        label: label,
+        toggled: label == 'Shift' ? selected : null,
+        excludeSemantics: true,
+        child: Material(
+          color: selected
+              ? const Color(0xFF90CAF9)
+              : suggestion
+                  ? const Color(0xFFFFF59D)
+                  : label == 'Speak'
+                      ? const Color(0xFF2E7D32)
+                      : label == 'Space'
+                          ? const Color(0xFFD8EBFF)
+                          : const Color(0xFFF3F5F7),
+          borderRadius: BorderRadius.circular(8),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+              onTap: onTap,
+              child: Center(
+                  child: Padding(
+                padding: const EdgeInsets.all(3),
+                child: icon != null
+                    ? Icon(icon,
+                        size: 28,
+                        color: label == 'Speak'
+                            ? Colors.white
+                            : const Color(0xFF202832))
+                    : FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(label,
+                            style: TextStyle(
+                                color: const Color(0xFF202832),
+                                fontWeight: FontWeight.w600,
+                                fontSize: label.length == 1 ? 24 : 17))),
+              ))),
         ),
       );
 }

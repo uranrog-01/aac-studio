@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../engine/photo_picker.dart';
 import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
 
@@ -50,6 +51,7 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
   VoiceStyle? _voice;
   String _query = '';
   String _packFilter = 'all';
+  bool _pickingPhoto = false;
 
   @override
   void initState() {
@@ -64,7 +66,11 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final results = widget.library.search(_query, limit: 60);
+    final results = widget.library
+        .search(_query, limit: 600)
+        .where((e) => _packFilter == 'all' || e.pack == _packFilter)
+        .take(60)
+        .toList();
     return AlertDialog(
       backgroundColor: const Color(0xFF2A2E35),
       title: Text(widget.existing == null ? 'Add button' : 'Edit button',
@@ -119,6 +125,8 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                     const SizedBox(height: 8),
                     DropdownButtonFormField<WordClass>(
                       initialValue: _wordClass,
+                      // Fits narrow phones: long names shorten, no overflow.
+                      isExpanded: true,
                       dropdownColor: const Color(0xFF2A2E35),
                       items: [
                         for (final w in WordClass.values)
@@ -154,13 +162,13 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                   value: _packFilter,
                   dropdownColor: const Color(0xFF2A2E35),
                   style: const TextStyle(color: Colors.white70),
+                  // The picture sets bundled with the app.
                   items: const [
-                    DropdownMenuItem(value: 'all', child: Text('all packs')),
-                    DropdownMenuItem(value: 'twemoji', child: Text('Twemoji')),
-                    DropdownMenuItem(value: 'twemoji_svg', child: Text('Twemoji SVG')),
-                    DropdownMenuItem(value: 'noto', child: Text('Noto')),
-                    DropdownMenuItem(value: 'openmoji', child: Text('OpenMoji')),
+                    DropdownMenuItem(value: 'all', child: Text('All pictures')),
+                    DropdownMenuItem(
+                        value: 'modernflat', child: Text('Modern flat')),
                     DropdownMenuItem(value: 'mulberry', child: Text('Mulberry')),
+                    DropdownMenuItem(value: 'twemoji', child: Text('Flags')),
                   ],
                   onChanged: (p) => setState(() => _packFilter = p ?? 'all'),
                 ),
@@ -181,9 +189,6 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                             itemCount: results.length,
                             itemBuilder: (_, i) {
                               final e = results[i];
-                              if (_packFilter != 'all' && e.pack != _packFilter) {
-                                return const SizedBox.shrink();
-                              }
                               final ref = SymbolRef(e.name,
                                   pack: e.pack, key: e.key);
                               return InkWell(
@@ -208,6 +213,25 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                           ),
               ),
               const SizedBox(height: 10),
+              Wrap(spacing: 8, children: [
+                OutlinedButton.icon(
+                  onPressed: _pickingPhoto ? null : _usePhoto,
+                  icon: _pickingPhoto
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2))
+                      : const Icon(Icons.photo_library_outlined),
+                  label: const Text('Use a photo'),
+                ),
+                if (_symbol.imagePath != null)
+                  TextButton(
+                    onPressed: () => setState(
+                        () => _symbol = SymbolRef(_symbol.emoji)),
+                    child: const Text('Remove photo'),
+                  ),
+              ]),
+              const SizedBox(height: 10),
               // emoji quick set + clear
               Wrap(spacing: 6, children: [
                 for (final e in ['⬛', '🙋', '👍', '❤️', '⭐', '🍎', '🚗', '🎯'])
@@ -227,8 +251,11 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
               Wrap(spacing: 14, crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                 const Text('Voice:', style: TextStyle(color: Colors.white54)),
-                _slider('rate', _voice?.rate, (v) => _applyVoice(rate: v)),
-                _slider('pitch', _voice?.pitch, (v) => _applyVoice(pitch: v)),
+                // Speech rate is 0-1 on every platform (0.45 = normal).
+                _slider('speed', _voice?.rate, 0.45, 0.1, 1.0,
+                    (v) => _applyVoice(rate: v)),
+                _slider('pitch', _voice?.pitch, 1.0, 0.5, 2.0,
+                    (v) => _applyVoice(pitch: v)),
                 TextButton(
                   onPressed: () => setState(() => _voice = null),
                   child: const Text('reset voice',
@@ -242,7 +269,7 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
       actions: [
         if (widget.onDelete != null)
           TextButton(
-            onPressed: widget.onDelete,
+            onPressed: _confirmDelete,
             child: const Text('Delete', style: TextStyle(color: Colors.redAccent)),
           ),
         TextButton(
@@ -264,6 +291,8 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
               actions: widget.existing?.actions ??
                   const [VocabAction(ActionKind.addText)],
               voice: _voice,
+              // Editing must not drop the star (My words).
+              favorite: widget.existing?.favorite ?? false,
             ));
             Navigator.pop(context);
           },
@@ -273,6 +302,48 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
     );
   }
 
+  Future<void> _confirmDelete() async {
+    final label = widget.existing?.label ?? '';
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Delete "$label"?'),
+        content: const Text('The button is removed from this board. '
+            'Save a backup first if you may want it back.'),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancel')),
+          FilledButton(
+              style: FilledButton.styleFrom(backgroundColor: Colors.red),
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Delete')),
+        ],
+      ),
+    );
+    if (ok != true || !mounted) return;
+    widget.onDelete?.call();
+    Navigator.pop(context);
+  }
+
+  Future<void> _usePhoto() async {
+    final messenger = ScaffoldMessenger.maybeOf(context);
+    setState(() => _pickingPhoto = true);
+    try {
+      final path = await PhotoPicker.pick();
+      if (path != null && mounted) {
+        setState(() => _symbol = SymbolRef(
+            _label.text.trim().isEmpty ? '📷' : _label.text.trim(),
+            imagePath: path));
+      }
+    } catch (_) {
+      messenger?.showSnackBar(const SnackBar(
+          content: Text('That photo could not be used. Try another one.')));
+    } finally {
+      if (mounted) setState(() => _pickingPhoto = false);
+    }
+  }
+
   void _applyVoice({double? rate, double? pitch}) {
     setState(() {
       _voice = (_voice ?? const VoiceStyle())
@@ -280,17 +351,22 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
     });
   }
 
-  Widget _slider(String label, double? value, ValueChanged<double> onChanged) {
-    final v = value ?? 1.0;
+  Widget _slider(String label, double? value, double normal, double min,
+      double max, ValueChanged<double> onChanged) {
+    final v = (value ?? normal).clamp(min, max);
     return Row(mainAxisSize: MainAxisSize.min, children: [
       Text(label, style: const TextStyle(color: Colors.white38, fontSize: 11)),
-      Slider(
-        value: v.clamp(0.1, 2.0),
-        min: 0.1,
-        max: 2.0,
-        divisions: 38,
-        label: v.toStringAsFixed(2),
-        onChanged: onChanged,
+      // A fixed width: an unbounded slider overflowed phone screens.
+      SizedBox(
+        width: 150,
+        child: Slider(
+          value: v,
+          min: min,
+          max: max,
+          divisions: ((max - min) * 20).round(),
+          label: v.toStringAsFixed(2),
+          onChanged: onChanged,
+        ),
       ),
     ]);
   }

@@ -169,10 +169,13 @@ class SpeechEngine {
     // Applied with each utterance, so updates cannot race a button voice style.
   }
 
-  Future<void> speak(String text, {VoiceStyle? style}) {
+  /// Picture taps queue, so two quick taps ("I", "want") are both heard.
+  /// [interrupt] (typing) cuts off what is playing instead, so letters
+  /// typed quickly do not pile up and fall behind.
+  Future<void> speak(String text, {VoiceStyle? style, bool interrupt = false}) {
     if (text.trim().isEmpty) return Future.value();
     // Piper synthesis takes time: a newer tap replaces queued/stale speech.
-    if (_usePiper) _generation++;
+    if (_usePiper || interrupt) _generation++;
     final generation = _generation;
     final requestedRate = (style?.rate ?? rate).clamp(0.0, 1.0);
     final requestedPitch = (style?.pitch ?? pitch).clamp(0.5, 2.0);
@@ -216,6 +219,12 @@ class SpeechEngine {
           await _tts.setPitch(requestedPitch);
           await _tts.setVolume(requestedVolume);
           if (generation != _generation) return;
+          if (interrupt) {
+            try {
+              await _tts.stop(); // cut off the previous letter
+            } catch (_) {/* Nothing playing. */}
+            if (generation != _generation) return;
+          }
           final result = await _tts.speak(text.trim());
           if (result == false || (result is num && result != 1)) {
             throw StateError('Speech engine rejected request');

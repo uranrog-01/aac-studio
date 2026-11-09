@@ -31,6 +31,7 @@ class _AppShellState extends State<AppShell> {
   GridSession? _session;
   Vocabulary? _builtFor;
   int _backAttempts = 0;
+  bool _toldRecovery = false;
   DateTime _firstBack = DateTime.fromMillisecondsSinceEpoch(0);
 
   GridSession? _sessionFor(Vocabulary vocab, SpeechEngine speech) {
@@ -52,19 +53,58 @@ class _AppShellState extends State<AppShell> {
         body: Center(child: CircularProgressIndicator()),
       );
     }
-    final grid = _gridBody(context, settings, pack);
-    // P0 kiosk mode: when preventExit is on, require 3 quick back presses.
-    return PopScope(
-      canPop: !settings.preventExit,
-      onPopInvokedWithResult: _handleBack,
+    if (pack.recoveredFromDamage && !_toldRecovery) {
+      _toldRecovery = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          duration: Duration(seconds: 10),
+          content: Text('The saved board could not be opened, so the starter '
+              'board is shown. A copy of the damaged file was kept. Restore '
+              'a backup in Settings > Caregiver.'),
+        ));
+      });
+    }
+    final session =
+        _sessionFor(pack.vocabulary!, SpeechEngineProvider.of(context))!;
+    Widget grid = _gridBody(context, settings, pack, session);
+    if (pack.saveFailed) {
+      grid = Column(children: [
+        Material(
+          color: const Color(0xFFB71C1C),
+          child: SafeArea(
+            bottom: false,
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              child: Text(
+                  'Changes could not be saved. Check free storage space.',
+                  style: TextStyle(color: Colors.white)),
+            ),
+          ),
+        ),
+        Expanded(child: grid),
+      ]);
+    }
+    // The system Back button (Android, iPad keyboards, browser) first closes
+    // Type/Find, then goes back one category; only on Home does it leave
+    // the app. Kiosk mode (preventExit) needs 3 quick presses on Home.
+    return AnimatedBuilder(
+      animation: session,
+      builder: (context, child) => PopScope(
+        canPop: !settings.preventExit &&
+            !session.canGoBack &&
+            !session.showKeyboard &&
+            !session.showSearch,
+        onPopInvokedWithResult: (didPop, result) =>
+            _handleBack(didPop, session, settings),
+        child: child!,
+      ),
       child: grid,
     );
   }
 
-  Widget _gridBody(
-      BuildContext context, AppSettings settings, PackController pack) {
-    final session =
-        _sessionFor(pack.vocabulary!, SpeechEngineProvider.of(context))!;
+  Widget _gridBody(BuildContext context, AppSettings settings,
+      PackController pack, GridSession session) {
     return GridScreen(
       session: session,
       // Auto-fit the grid to the real screen (phone vs tablet).
@@ -80,9 +120,23 @@ class _AppShellState extends State<AppShell> {
     );
   }
 
-  /// P0 kiosk mode: require 3 quick back presses to leave the app.
-  void _handleBack(bool didPop, Object? result) {
+  void _handleBack(bool didPop, GridSession session, AppSettings settings) {
     if (didPop) return;
+    if (session.showKeyboard) {
+      session.toggleKeyboard();
+    } else if (session.showSearch) {
+      session.toggleSearch();
+    } else if (session.canGoBack) {
+      session.back();
+    } else if (!settings.preventExit) {
+      SystemNavigator.pop();
+    } else {
+      _kioskBack();
+    }
+  }
+
+  void _kioskBack() {
+    // P0 kiosk mode: require 3 quick back presses to leave the app.
     final now = DateTime.now();
     if (now.difference(_firstBack).inMilliseconds > 2000) {
       _backAttempts = 0;

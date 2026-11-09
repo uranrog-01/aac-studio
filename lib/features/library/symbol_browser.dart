@@ -25,6 +25,7 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
   List<({int id, String name})> _arasaac = const [];
   bool _arasaacLoading = false;
   Timer? _debounce;
+  int _searchGeneration = 0;
 
   @override
   void dispose() {
@@ -33,20 +34,30 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
   }
 
   void _searchArasaac(String q, AppSettings settings) {
+    final generation = ++_searchGeneration;
+    _debounce?.cancel();
     if (!settings.arasaacEnabled || q.trim().length < 2) {
-      if (_arasaac.isNotEmpty) setState(() => _arasaac = const []);
+      setState(() {
+        _arasaac = const [];
+        _arasaacLoading = false;
+      });
       return;
     }
-    _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 350), () async {
       setState(() => _arasaacLoading = true);
       try {
         final res = await context.read<ArasaacService>().search(q.trim());
-        if (mounted) setState(() => _arasaac = res.take(20).toList());
+        if (mounted && generation == _searchGeneration) {
+          setState(() => _arasaac = res.take(20).toList());
+        }
       } catch (_) {
-        if (mounted) setState(() => _arasaac = const []);
+        if (mounted && generation == _searchGeneration) {
+          setState(() => _arasaac = const []);
+        }
       } finally {
-        if (mounted) setState(() => _arasaacLoading = false);
+        if (mounted && generation == _searchGeneration) {
+          setState(() => _arasaacLoading = false);
+        }
       }
     });
   }

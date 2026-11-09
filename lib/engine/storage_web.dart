@@ -38,8 +38,29 @@ class AppStorage {
   BrowserStorageFile get learnedFile =>
       BrowserStorageFile('learned_words.json');
 
-  Future<void> writeJson(BrowserStorageFile file, Object json) =>
-      file.writeAsString(jsonEncode(json));
+  // Browser boards keep pictures as data URLs; paths need no rewriting.
+  String storedPicturePath(String path) => path;
+  String resolvePicturePath(String path) => path;
+
+  // IndexedDB replaces a record atomically; saves to one key stay in order.
+  final Map<String, Future<void>> _writes = {};
+  Future<void> writeJson(BrowserStorageFile file, Object json) {
+    final text = jsonEncode(json);
+    final earlier = _writes[file.path] ?? Future.value();
+    final next =
+        earlier.catchError((_) {}).then((_) => file.writeAsString(text));
+    _writes[file.path] = next;
+    return next;
+  }
+
+  Future<void> flush() async {
+    for (final pending in List.of(_writes.values)) {
+      try {
+        await pending;
+      } catch (_) {}
+    }
+  }
+
   Future<Map<String, dynamic>?> readJson(BrowserStorageFile file) async {
     if (!await file.exists()) return null;
     // Let invalid JSON/storage failures surface instead of replacing user edits.

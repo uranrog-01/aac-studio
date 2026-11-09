@@ -71,7 +71,9 @@ class SpeechEngine {
     return voices;
   }
 
-  Future<void> speak(String text, {VoiceStyle? style}) {
+  /// The browser always cuts off what is playing (Safari's speech queue can
+  /// stall), so [interrupt] is the behaviour here either way.
+  Future<void> speak(String text, {VoiceStyle? style, bool interrupt = false}) {
     if (text.trim().isEmpty) return Future.value();
     try {
       if (!_available) throw StateError('No browser speech');

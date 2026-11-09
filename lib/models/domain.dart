@@ -234,13 +234,21 @@ class Vocabulary {
   final String rootFolderId;
   final Map<String, VocabFolder> folders;
   final Map<String, List<VocabView>> viewsByFolder; // in priority order
-  const Vocabulary({
+  final Set<String> removedIds;
+
+  /// Version of the board file this was read from (null: not a pack file).
+  /// Saved back unchanged, so a board is only marked as upgraded by the
+  /// upgrade itself, never by the app's own version number.
+  final int? packVersion;
+  Vocabulary({
     required this.id,
     required this.label,
     required this.rootFolderId,
     required this.folders,
     required this.viewsByFolder,
-  });
+    Set<String>? removedIds,
+    this.packVersion,
+  }) : removedIds = removedIds ?? <String>{};
 
   VocabFolder? folderOf(String id) => folders[id];
 }

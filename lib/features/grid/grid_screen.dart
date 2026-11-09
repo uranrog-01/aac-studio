@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +12,8 @@ import '../../engine/symbol_library.dart';
 import '../../models/domain.dart';
 import '../settings/settings_sheet.dart';
 import 'keyboard_view.dart';
+import 'message_bar.dart';
+import 'word_search_view.dart';
 
 /// P0/P2 behavior flags read from settings at tap time.
 class TapFlags {
@@ -150,6 +154,7 @@ class GridSession extends ChangeNotifier {
           break;
         case ActionKind.clearMessage:
           _message = '';
+          _pieces.clear();
           break;
         case ActionKind.launchUrl:
         case ActionKind.sensoryGames:
@@ -181,7 +186,10 @@ class GridSession extends ChangeNotifier {
     speech.speak(text, style: b.voice);
     lastSpoken = text;
     _stampRecent(b);
-    if (f?.clearOnSpeak ?? false) _message = '';
+    if (f?.clearOnSpeak ?? false) {
+      _message = '';
+      _pieces.clear();
+    }
     if (f?.goHomeOnPress ?? false) {
       _stack
         ..clear()
@@ -190,10 +198,18 @@ class GridSession extends ChangeNotifier {
   }
 
   void _speakMessage(TapFlags? f) {
-    if (_message.isEmpty) return;
+    if (_message.trim().isEmpty) return;
     speech.speak(_message);
     lastSpoken = _message;
-    if (f?.clearOnSpeak ?? false) _message = '';
+    if (f?.clearOnSpeak ?? false) {
+      _message = '';
+      _pieces.clear();
+    }
+    if (f?.goHomeOnPress ?? false) {
+      _stack
+        ..clear()
+        ..add(vocabulary.rootFolderId);
+    }
   }
 
   void _stampRecent(VocabButton b) {
@@ -205,22 +221,35 @@ class GridSession extends ChangeNotifier {
     }
   }
 
+  /// What each symbol tap added, so Delete removes "thank you" as one.
+  final List<String> _pieces = [];
+
   void _append(String text) {
     if (text.isEmpty) return;
     _message = _message.isEmpty ? text : '$_message $text';
+    _pieces.add(text);
   }
 
   /// M4: live typing — replaces the message window contents on every
   /// keystroke (no send step).
   void setMessageLive(String text) {
     _message = text;
+    _pieces.clear();
     notifyListeners();
   }
 
+  /// Removes the last symbol's words (or the last typed word).
   void removeLastWord() {
-    final words = _message.trim().split(' ')..removeWhere((w) => w.isEmpty);
-    if (words.isNotEmpty) words.removeLast();
-    _message = words.join(' ').trim();
+    final text = _message.trimRight();
+    if (_pieces.isNotEmpty && text.endsWith(_pieces.last)) {
+      _message =
+          text.substring(0, text.length - _pieces.removeLast().length).trim();
+    } else {
+      _pieces.clear();
+      final words = text.split(' ')..removeWhere((w) => w.isEmpty);
+      if (words.isNotEmpty) words.removeLast();
+      _message = words.join(' ');
+    }
     notifyListeners();
   }
 
@@ -233,7 +262,80 @@ class GridSession extends ChangeNotifier {
 
   void toggleKeyboard() {
     showKeyboard = !showKeyboard;
+    showSearch = false;
     notifyListeners();
+  }
+
+  /// "Find a word" screen.
+  bool showSearch = false;
+
+  void toggleSearch() {
+    showSearch = !showSearch;
+    showKeyboard = false;
+    notifyListeners();
+  }
+
+  /// Every reachable button with the page it is on, nearest to Home first
+  /// (pages in the order a person reaches them). Built once per session.
+  List<({VocabButton button, String folderId})>? _searchIndex;
+
+  List<({VocabButton button, String folderId})> _buildSearchIndex() {
+    final out = <({VocabButton button, String folderId})>[];
+    final seen = <String>{vocabulary.rootFolderId};
+    final queue = [vocabulary.rootFolderId];
+    while (queue.isNotEmpty) {
+      final folderId = queue.removeAt(0);
+      for (final view in vocabulary.viewsByFolder[folderId] ?? const []) {
+        for (final cell in view.cells) {
+          if (cell.hidden) continue;
+          out.add((button: cell.button, folderId: folderId));
+          for (final a in cell.button.actions) {
+            if (a.kind == ActionKind.gotoFolder && seen.add(a.data)) {
+              queue.add(a.data);
+            }
+          }
+        }
+      }
+    }
+    return out;
+  }
+
+  /// Words (and categories) whose label matches [query]: exact first, then
+  /// starts-with, then a word inside starts-with, then anywhere. One result
+  /// per word; it shows the page nearest to Home.
+  List<({VocabButton button, String folderId})> findWords(String query,
+      {int limit = 80}) {
+    final q = query.trim().toLowerCase().replaceAll(RegExp(r'\s+'), ' ');
+    if (q.isEmpty) return const [];
+    final index = _searchIndex ??= _buildSearchIndex();
+    final ranked = <(int, int, int, ({VocabButton button, String folderId}))>[];
+    final labels = <String>{};
+    for (var i = 0; i < index.length; i++) {
+      final entry = index[i];
+      final button = entry.button;
+      if (button.kind == ButtonKind.action) continue;
+      final label = button.label.toLowerCase();
+      final key = button.kind == ButtonKind.folder ? 'folder:$label' : label;
+      if (labels.contains(key)) continue;
+      final rank = label == q
+          ? 0
+          : label.startsWith(q)
+              ? 1
+              : label.split(RegExp(r"[^a-z0-9']+")).any((w) => w.startsWith(q))
+                  ? 2
+                  : label.contains(q)
+                      ? 3
+                      : null;
+      if (rank == null) continue;
+      labels.add(key);
+      ranked.add((rank, label.length, i, entry));
+    }
+    ranked.sort((a, b) => a.$1 != b.$1
+        ? a.$1.compareTo(b.$1)
+        : a.$2 != b.$2
+            ? a.$2.compareTo(b.$2)
+            : a.$3.compareTo(b.$3));
+    return [for (final r in ranked.take(limit)) r.$4];
   }
 
   /// Debounce guard (P0 accessibility): returns true when the tap passes.
@@ -248,19 +350,23 @@ class GridSession extends ChangeNotifier {
 
   /// M5: replace a button (by id) in the current view and persist.
   void replaceButton(VocabButton updated, {VoidCallback? persist}) {
-    final view = viewFor(currentFolderId, maxColumns: 99);
-    if (view == null) return;
-    final cells = view.cells;
-    for (var i = 0; i < cells.length; i++) {
-      if (cells[i].button.id == updated.id) {
-        cells[i] = GridCell(updated.copyWith(userEdited: true),
-            col: cells[i].col,
-            row: cells[i].row,
-            span: cells[i].span,
-            hidden: cells[i].hidden,
-            dimmed: cells[i].dimmed);
-        break;
+    _searchIndex = null;
+    for (final views in vocabulary.viewsByFolder.values) {
+      for (final view in views) {
+        for (var i = 0; i < view.cells.length; i++) {
+          final cell = view.cells[i];
+          if (cell.button.id != updated.id) continue;
+          view.cells[i] = GridCell(updated.copyWith(userEdited: true),
+              col: cell.col,
+              row: cell.row,
+              span: cell.span,
+              hidden: cell.hidden,
+              dimmed: cell.dimmed);
+        }
       }
+    }
+    for (var i = 0; i < _recents.length; i++) {
+      if (_recents[i].id == updated.id) _recents[i] = updated;
     }
     persist?.call();
     notifyListeners();
@@ -268,18 +374,25 @@ class GridSession extends ChangeNotifier {
 
   /// M5: append a new button cell to the current view.
   void addButton(VocabButton b, {VoidCallback? persist}) {
+    _searchIndex = null;
     final view = viewFor(currentFolderId, maxColumns: 99);
     if (view == null) return;
     view.cells.add(GridCell(b));
+    vocabulary.removedIds.remove(b.id);
     persist?.call();
     notifyListeners();
   }
 
   /// M5: remove a button from the current view.
   void removeButton(String id, {VoidCallback? persist}) {
-    final view = viewFor(currentFolderId, maxColumns: 99);
-    if (view == null) return;
-    view.cells.removeWhere((c) => c.button.id == id);
+    _searchIndex = null;
+    for (final views in vocabulary.viewsByFolder.values) {
+      for (final view in views) {
+        view.cells.removeWhere((cell) => cell.button.id == id);
+      }
+    }
+    _recents.removeWhere((button) => button.id == id);
+    vocabulary.removedIds.add(id);
     persist?.call();
     notifyListeners();
   }
@@ -301,10 +414,14 @@ class GridSession extends ChangeNotifier {
 
   void clearMessage() {
     _message = '';
+    _pieces.clear();
     notifyListeners();
   }
 
-  void speakMessage() => _speakMessage(null);
+  void speakMessage({TapFlags? flags}) {
+    _speakMessage(flags);
+    notifyListeners();
+  }
 }
 
 /// Shared grid screen used by the mobile app AND the studio preview.
@@ -339,18 +456,53 @@ class GridScreen extends StatefulWidget {
   State<GridScreen> createState() => _GridScreenState();
 }
 
+/// One thing switch scanning can pick: a grid cell or a toolbar button.
+class _ScanTarget {
+  final String key;
+  final VoidCallback activate;
+  const _ScanTarget(this.key, this.activate);
+}
+
+/// A toolbar control, shared by the drawn toolbar and the scan order.
+class _ToolEntry {
+  final IconData icon;
+  final String label;
+  final VoidCallback? onTap;
+  final Color? color;
+  final bool active;
+  const _ToolEntry(this.icon, this.label, this.onTap,
+      {this.color, this.active = false});
+}
+
 class _GridScreenState extends State<GridScreen> {
-  // P2 scanning state: phase 0=off, 1=row scan, 2=cell scan
-  int _scanPhase = 0;
-  int? _scanRow;
-  int? _scanCol;
-  int _scanCellsInRow = 0;
-  int _gridCols = 6;
-  int _gridRows = 4;
+  // Switch scanning: groups are the grid rows (top to bottom) followed by
+  // the toolbar. First a whole group is highlighted; a select opens it and
+  // its items are highlighted one by one; a second select activates the
+  // highlighted item. Scanning keeps running afterwards so a switch user is
+  // never left without a way to continue.
+  bool _scanning = false;
+  int _scanGroup = 0;
+  int? _scanItem; // null = group phase
+  int _scanItemSteps = 0;
+  Timer? _scanTimer;
+  final FocusNode _scanFocus = FocusNode(debugLabel: 'switch scanning');
+  List<({int col, int row, GridCell cell})> _layout = const [];
+  List<_ToolEntry> _tools = const [];
+  late AppSettings _settings;
+
+  @override
+  void dispose() {
+    _scanTimer?.cancel();
+    _scanFocus.dispose();
+    _gridScroll.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final settings = context.watch<SettingsController>().settings;
+    _settings = settings;
+    if (_scanning && !settings.scanningEnabled) _stopScanning();
     return AnimatedBuilder(
       animation: widget.session,
       builder: (context, _) {
@@ -361,9 +513,42 @@ class _GridScreenState extends State<GridScreen> {
             speech: widget.session.speech,
             initialText: widget.session.message,
             onTextChanged: widget.session.setMessageLive,
-            onSpeak: widget.session.speakMessage,
+            onSpeak: () =>
+                widget.session.speakMessage(flags: _tapFlags(settings)),
             onClose: widget.session.toggleKeyboard,
+            typingSpeech: settings.typingSpeech,
           );
+        }
+        if (widget.session.showSearch) {
+          final session = widget.session;
+          return WordSearchView(
+            message: session.message,
+            search: session.findWords,
+            pageName: (id) => session.vocabulary.folders[id]?.label ?? '',
+            columns: widget.maxColumns.clamp(3, 5),
+            onSpeak: () => session.speakMessage(flags: _tapFlags(settings)),
+            onDeleteWord: session.removeLastWord,
+            onClear: session.clearMessage,
+            onClose: session.toggleSearch,
+            tileBuilder: (button) => _CellButton(
+              button: button,
+              settings: settings,
+              showEditBadge: widget.editMode,
+              onTap: () {
+                // A category result opens that category.
+                if (button.kind == ButtonKind.folder) session.toggleSearch();
+                _onCellTapExecute(GridCell(button), settings);
+              },
+            ),
+          );
+        }
+        // A newly opened category starts at its top, not at the previous
+        // page's scroll position.
+        if (_shownFolder != widget.session.currentFolderId) {
+          _shownFolder = widget.session.currentFolderId;
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (_gridScroll.hasClients) _gridScroll.jumpTo(0);
+          });
         }
         final view = widget.session.viewFor(widget.session.currentFolderId,
             maxColumns: widget.maxColumns);
@@ -377,22 +562,59 @@ class _GridScreenState extends State<GridScreen> {
                         color:
                             settings.cviMode ? Colors.white : Colors.white54)))
             : _grid(view, cols, settings);
+        if (view == null) _layout = const [];
 
         final messageWindow = _messageWindow(context, settings);
         final toolbar = _toolbar(
             context, folder?.label ?? widget.titleOverride ?? '', settings);
 
-        final children = settings.messageWindowTop
-            ? [messageWindow, toolbar, Expanded(child: body)]
-            : [Expanded(child: body), toolbar, messageWindow];
+        // While scanning, a touch anywhere on the grid is the "select"
+        // switch (switch-adapted touch), so it can never pick the wrong cell.
+        final gridArea = _scanning
+            ? Stack(children: [
+                Positioned.fill(child: body),
+                Positioned.fill(
+                  child: Semantics(
+                    button: true,
+                    label: 'Select highlighted',
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: _scanSelect,
+                    ),
+                  ),
+                ),
+              ])
+            : body;
 
-        return Scaffold(
-          backgroundColor:
-              settings.cviMode ? Colors.black : const Color(0xFF2B2F36),
-          body: SafeArea(child: Column(children: children)),
+        final children = settings.messageWindowTop
+            ? [messageWindow, toolbar, Expanded(child: gridArea)]
+            : [Expanded(child: gridArea), toolbar, messageWindow];
+
+        return Focus(
+          focusNode: _scanFocus,
+          onKeyEvent: _onScanKey,
+          child: Scaffold(
+            backgroundColor:
+                settings.cviMode ? Colors.black : const Color(0xFF2B2F36),
+            body: SafeArea(child: Column(children: children)),
+          ),
         );
       },
     );
+  }
+
+  /// Bluetooth/USB switch interfaces send Space or Enter.
+  KeyEventResult _onScanKey(FocusNode node, KeyEvent event) {
+    if (!_scanning || event is! KeyDownEvent) return KeyEventResult.ignored;
+    final key = event.logicalKey;
+    if (key == LogicalKeyboardKey.space ||
+        key == LogicalKeyboardKey.enter ||
+        key == LogicalKeyboardKey.numpadEnter ||
+        key == LogicalKeyboardKey.select) {
+      _scanSelect();
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
   }
 
   // ---------------- message window (P0 upgrades) ----------------
@@ -400,30 +622,13 @@ class _GridScreenState extends State<GridScreen> {
   Widget _messageWindow(BuildContext context, AppSettings settings) {
     final session = widget.session;
     return Column(children: [
-      Semantics(
-        button: true,
-        label: 'Speak message',
-        excludeSemantics: true,
-        child: Material(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          child: InkWell(
-            onTap: session.speakMessage,
-            borderRadius: BorderRadius.circular(12),
-            child: Container(
-              width: double.infinity,
-              constraints: const BoxConstraints(minHeight: 72),
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                  session.message.isEmpty
-                      ? 'Tap symbols to build a message'
-                      : session.message,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 22, color: Colors.black87)),
-            ),
-          ),
-        ),
+      MessageBar(
+        message: session.message,
+        placeholder: 'Tap symbols to build a message',
+        onSpeak: () => session.speakMessage(flags: _tapFlags(settings)),
+        // Removes the last word (a whole symbol, e.g. "thank you").
+        onDeleteWord: session.removeLastWord,
+        deleteHighlight: _scanHighlightFor('msg:delete'),
       ),
       ValueListenableBuilder<String?>(
         valueListenable: session.speech.error,
@@ -437,92 +642,39 @@ class _GridScreenState extends State<GridScreen> {
     ]);
   }
 
-  Widget _toolbarBtn(
-      {required IconData icon,
-      required String label,
-      VoidCallback? onTap,
-      Color? color,
-      bool active = false}) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2),
-        child: Semantics(
-          button: true,
-          label: label,
-          excludeSemantics: true,
-          child: Material(
-            color: active
-                ? Colors.deepOrangeAccent.withValues(alpha: .35)
-                : (color ?? const Color(0xFF3A4049)),
-            borderRadius: BorderRadius.circular(12),
-            child: InkWell(
-              onTap: onTap,
-              borderRadius: BorderRadius.circular(12),
-              child: Opacity(
-                opacity: onTap == null ? .4 : 1,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
-                  child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    Icon(icon, color: Colors.white, size: 26),
-                    FittedBox(
-                      child: Text(label,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600)),
-                    ),
-                  ]),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  /// Seven large controls a communicator uses every day; caregiver and
+  /// Six large controls a communicator uses every day; caregiver and
   /// occasional tools (recent words, repeat, copy, settings) live in More.
   Widget _toolbar(BuildContext context, String folderLabel, AppSettings s) {
     final session = widget.session;
+    _tools = [
+      _ToolEntry(
+          Icons.arrow_back, 'Back', session.canGoBack ? session.back : null),
+      _ToolEntry(Icons.home_rounded, 'Home', session.goHome),
+      if (widget.editMode) _ToolEntry(Icons.add_box, 'Add', widget.onAddButton),
+      if (s.scanningEnabled)
+        _ToolEntry(Icons.accessibility_new, _scanning ? 'Stop scan' : 'Scan',
+            _toggleScanning,
+            active: _scanning),
+      _ToolEntry(Icons.keyboard_alt_outlined, 'Type',
+          widget.predictor != null ? session.toggleKeyboard : null),
+      _ToolEntry(Icons.search, 'Find', session.toggleSearch),
+      _ToolEntry(Icons.volume_up, 'Speak',
+          () => session.speakMessage(flags: _tapFlags(s)),
+          color: const Color(0xFF2E7D32)),
+      _ToolEntry(Icons.clear_all, 'Clear', session.clearMessage),
+      _ToolEntry(Icons.more_horiz, 'More', () => _showMore(context)),
+    ];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
       child: Row(children: [
-        _toolbarBtn(
-            icon: Icons.arrow_back,
-            label: 'Back',
-            onTap: session.canGoBack ? session.back : null),
-        _toolbarBtn(
-            icon: Icons.home_rounded, label: 'Home', onTap: session.goHome),
-        _toolbarBtn(
-            icon: Icons.star_rounded,
-            label: 'My words',
-            active: session.currentFolderId == GridSession.favoritesFolderId,
-            onTap: () => session.pushFolder(GridSession.favoritesFolderId)),
-        if (widget.editMode)
-          _toolbarBtn(
-              icon: Icons.add_box, label: 'Add', onTap: widget.onAddButton),
-        if (s.scanningEnabled)
-          _toolbarBtn(
-              icon: Icons.accessibility_new,
-              label: 'Scan',
-              active: _scanPhase != 0,
-              onTap: () => _toggleScanning(s, _gridCols, _gridRows)),
-        _toolbarBtn(
-            icon: Icons.keyboard_alt_outlined,
-            label: 'Type',
-            onTap: widget.predictor != null ? session.toggleKeyboard : null),
-        _toolbarBtn(
-            icon: Icons.volume_up,
-            label: 'Speak',
-            color: const Color(0xFF2E7D32),
-            onTap: session.speakMessage),
-        _toolbarBtn(
-            icon: Icons.clear_all, label: 'Clear', onTap: session.clearMessage),
-        _toolbarBtn(
-            icon: Icons.more_horiz,
-            label: 'More',
-            onTap: () => _showMore(context)),
+        for (final t in _tools)
+          ToolbarButton(
+              icon: t.icon,
+              label: t.label,
+              onTap: t.onTap,
+              color: t.color,
+              active: t.active,
+              scanHighlight: _scanHighlightFor('tool:${t.label}')),
       ]),
     );
   }
@@ -605,8 +757,10 @@ class _GridScreenState extends State<GridScreen> {
       }
     }
     final nRows = effRow.fold<int>(0, (m, r) => r > m ? r : m);
-    _gridCols = cols;
-    _gridRows = nRows;
+    _layout = [
+      for (var i = 0; i < visible.length; i++)
+        (col: effCol[i], row: effRow[i], cell: visible[i]),
+    ];
 
     return Padding(
       padding: const EdgeInsets.all(8),
@@ -614,7 +768,9 @@ class _GridScreenState extends State<GridScreen> {
         final cellW = cons.maxWidth / cols;
         final cellH =
             (nRows > 0 ? cons.maxHeight / nRows : cellW).clamp(100.0, 180.0);
+        _cellHeight = cellH;
         return SingleChildScrollView(
+            controller: _gridScroll,
             child: SizedBox(
                 height: cellH * nRows,
                 width: cons.maxWidth,
@@ -630,8 +786,9 @@ class _GridScreenState extends State<GridScreen> {
                         dimmed: visible[i].dimmed,
                         showEditBadge: widget.editMode,
                         settings: settings,
-                        scanHighlight: _scanHighlightFor(effCol[i], effRow[i]),
-                        onTap: () => _onCellTap(visible[i], settings),
+                        scanHighlight:
+                            _scanHighlightFor('cell:${effCol[i]}:${effRow[i]}'),
+                        onTap: () => _onCellTapExecute(visible[i], settings),
                       ),
                     ),
                 ])));
@@ -639,43 +796,170 @@ class _GridScreenState extends State<GridScreen> {
     );
   }
 
-  int _scanHighlightFor(int col, int row) {
-    if (_scanPhase == 1 && _scanRow == row) return 1;
-    if (_scanPhase == 2 && _scanRow == row && _scanCol == col) return 2;
-    return 0;
+  final ScrollController _gridScroll = ScrollController();
+  double _cellHeight = 100;
+  String? _shownFolder;
+
+  // ---------------- switch scanning ----------------
+
+  /// Scan groups in order: each grid row that has buttons, then the
+  /// toolbar's usable controls.
+  List<List<_ScanTarget>> _scanGroups() {
+    final rows = <int, List<({int col, int row, GridCell cell})>>{};
+    for (final e in _layout) {
+      rows.putIfAbsent(e.row, () => []).add(e);
+    }
+    final groups = <List<_ScanTarget>>[];
+    for (final row in rows.keys.toList()..sort()) {
+      final cells = rows[row]!..sort((a, b) => a.col.compareTo(b.col));
+      groups.add([
+        for (final e in cells)
+          _ScanTarget('cell:${e.col}:${e.row}',
+              () => _onCellTapExecute(e.cell, _settings)),
+      ]);
+    }
+    final tools = [
+      if (widget.session.message.trim().isNotEmpty)
+        _ScanTarget('msg:delete', widget.session.removeLastWord),
+      for (final t in _tools)
+        if (t.onTap != null) _ScanTarget('tool:${t.label}', t.onTap!),
+    ];
+    if (tools.isNotEmpty) groups.add(tools);
+    return groups;
   }
 
-  void _onCellTap(GridCell c, AppSettings settings) {
-    // scanning: a tap selects the currently highlighted row/cell
-    if (settings.scanningEnabled && _scanPhase > 0) {
-      if (_scanPhase == 1) {
-        setState(() {
-          _scanPhase = 2;
-          _scanCol = 1;
-        });
-      } else {
-        final cell = _findCell(c);
-        _stopScanning();
-        if (cell != null) _onCellTapExecute(cell, settings);
-      }
+  /// 0 none, 1 its group is highlighted, 2 it is the highlighted item.
+  int _scanHighlightFor(String key) {
+    if (!_scanning) return 0;
+    final groups = _scanGroups();
+    if (groups.isEmpty) return 0;
+    final group = groups[_scanGroup.clamp(0, groups.length - 1)];
+    final item = _scanItem;
+    if (item == null) {
+      return group.any((t) => t.key == key) ? 1 : 0;
+    }
+    return group[item.clamp(0, group.length - 1)].key == key ? 2 : 0;
+  }
+
+  void _toggleScanning() {
+    if (_scanning) {
+      setState(_stopScanning);
       return;
     }
-    _onCellTapExecute(c, settings);
+    setState(() {
+      _scanning = true;
+      _scanGroup = 0;
+      _scanItem = null;
+      _scanItemSteps = 0;
+    });
+    _scanFocus.requestFocus();
+    _restartScanTimer();
   }
 
-  GridCell? _findCell(GridCell c) => c;
+  void _restartScanTimer() {
+    _scanTimer?.cancel();
+    _scanTimer = Timer.periodic(
+        Duration(milliseconds: _settings.scanDelayMs.clamp(200, 10000)),
+        (_) => _scanStep());
+  }
+
+  void _scanStep() {
+    if (!mounted || !_scanning) return;
+    if (widget.session.showKeyboard) return; // paused while typing
+    final groups = _scanGroups();
+    if (groups.isEmpty) return;
+    setState(() {
+      _scanGroup = _scanGroup.clamp(0, groups.length - 1);
+      final item = _scanItem;
+      if (item == null) {
+        _scanGroup = (_scanGroup + 1) % groups.length;
+      } else {
+        final size = groups[_scanGroup].length;
+        _scanItemSteps++;
+        if (_scanItemSteps >= size * 2) {
+          // Two passes without a choice: back to choosing a group.
+          _scanItem = null;
+          _scanItemSteps = 0;
+        } else {
+          _scanItem = (item + 1) % size;
+        }
+      }
+    });
+    _revealScannedRow();
+  }
+
+  /// Keeps the highlighted grid row on screen when the grid scrolls.
+  void _revealScannedRow() {
+    if (!_gridScroll.hasClients) return;
+    final groups = _scanGroups();
+    if (_scanGroup >= groups.length) return;
+    final first = groups[_scanGroup].first.key;
+    if (!first.startsWith('cell:')) return;
+    final row = int.parse(first.split(':')[2]);
+    final top = (row - 1) * _cellHeight;
+    final position = _gridScroll.position;
+    if (top < position.pixels ||
+        top + _cellHeight > position.pixels + position.viewportDimension) {
+      _gridScroll.jumpTo(top.clamp(0.0, position.maxScrollExtent));
+    }
+  }
+
+  /// The single switch: opens the highlighted group, or activates the
+  /// highlighted item and starts again from the top.
+  void _scanSelect() {
+    if (!_scanning) return;
+    if (!widget.session.allowTap(_tapFlags(_settings))) return;
+    final groups = _scanGroups();
+    if (groups.isEmpty) return;
+    final group = groups[_scanGroup.clamp(0, groups.length - 1)];
+    final item = _scanItem;
+    if (item == null && group.length > 1) {
+      setState(() {
+        _scanItem = 0;
+        _scanItemSteps = 0;
+      });
+      _restartScanTimer();
+      return;
+    }
+    final target = group[(item ?? 0).clamp(0, group.length - 1)];
+    setState(() {
+      _scanGroup = 0;
+      _scanItem = null;
+      _scanItemSteps = 0;
+    });
+    target.activate();
+    if (_scanning) {
+      _restartScanTimer();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _gridScroll.hasClients) _gridScroll.jumpTo(0);
+      });
+    }
+  }
+
+  /// Safe to call during build (no setState).
+  void _stopScanning() {
+    _scanTimer?.cancel();
+    _scanTimer = null;
+    _scanning = false;
+    _scanItem = null;
+    _scanGroup = 0;
+    _scanItemSteps = 0;
+  }
+
+  TapFlags _tapFlags(AppSettings settings) => TapFlags(
+        quietBuilder: settings.quietBuilder,
+        vocalizeFolders: settings.vocalizeFolders,
+        clearOnSpeak: settings.clearOnSpeak,
+        goHomeOnPress: settings.goHomeOnPress,
+        inputDebounceMs: settings.inputDebounceMs,
+        haptics: settings.haptics,
+        audioCues: settings.audioCues,
+      );
 
   void _onCellTapExecute(GridCell c, AppSettings settings) {
-    final flags = TapFlags(
-      quietBuilder: settings.quietBuilder,
-      vocalizeFolders: settings.vocalizeFolders,
-      clearOnSpeak: settings.clearOnSpeak,
-      goHomeOnPress: settings.goHomeOnPress,
-      inputDebounceMs: settings.inputDebounceMs,
-      haptics: settings.haptics,
-      audioCues: settings.audioCues,
-    );
-    if (!widget.session.allowTap(flags)) return;
+    final flags = _tapFlags(settings);
+    // Scan selections already passed the debounce check.
+    if (!_scanning && !widget.session.allowTap(flags)) return;
     if (settings.haptics) HapticFeedback.selectionClick();
     if (settings.audioCues) SystemSound.play(SystemSoundType.click);
     final btn = c.button;
@@ -688,37 +972,6 @@ class _GridScreenState extends State<GridScreen> {
       return;
     }
     widget.session.tap(btn, maxColumns: widget.maxColumns, flags: flags);
-  }
-
-  /// P2 scanning: toggle automatic row-column scanning for this grid.
-  void _toggleScanning(AppSettings settings, int cols, int nRows) {
-    if (nRows == 0 || cols == 0) return;
-    if (_scanPhase != 0) {
-      _stopScanning();
-      setState(() {});
-      return;
-    }
-    _scanPhase = 1;
-    _scanRow = 1;
-    _scanCol = null;
-    _scanCellsInRow = cols;
-    Stream.periodic(Duration(milliseconds: settings.scanDelayMs))
-        .takeWhile((_) => mounted && _scanPhase != 0)
-        .listen((_) {
-      setState(() {
-        if (_scanPhase == 1) {
-          _scanRow = (_scanRow! % nRows) + 1;
-        } else if (_scanPhase == 2) {
-          _scanCol = (_scanCol! % _scanCellsInRow) + 1;
-        }
-      });
-    });
-  }
-
-  void _stopScanning() {
-    _scanPhase = 0;
-    _scanRow = null;
-    _scanCol = null;
   }
 }
 
@@ -745,27 +998,44 @@ class _CellButton extends StatefulWidget {
 class _CellButtonState extends State<_CellButton> {
   double _dwellProgress = 0; // 0..1
 
+  Timer? _dwellTimer;
+  Offset _dwellOrigin = Offset.zero;
+
+  /// Hold to select: the circle starts filling the moment the finger lands
+  /// and the button fires only when it is full. Lifting early does nothing,
+  /// so brushes and accidental taps are ignored.
   void _startDwell() {
     if (!widget.settings.dwellEnabled) return;
-    final total = widget.settings.dwellSeconds;
-    const tick = Duration(milliseconds: 40);
-    var elapsed = 0.0;
-    Future.doWhile(() async {
-      await Future.delayed(tick);
-      if (!mounted || _dwellProgress == 0 && elapsed > 0.05) return false;
-      elapsed += tick.inMilliseconds / 1000.0;
-      setState(() => _dwellProgress = (elapsed / total).clamp(0.0, 1.0));
-      if (_dwellProgress >= 1.0) {
-        widget.onTap();
-        if (mounted) setState(() => _dwellProgress = 0);
-        return false;
+    _dwellTimer?.cancel();
+    final totalMs = (widget.settings.dwellSeconds * 1000).clamp(100.0, 10000.0);
+    const tickMs = 30;
+    _dwellTimer = Timer.periodic(const Duration(milliseconds: tickMs), (timer) {
+      if (!mounted) {
+        timer.cancel();
+        return;
       }
-      return true;
+      final progress = (timer.tick * tickMs / totalMs).clamp(0.0, 1.0);
+      if (progress >= 1.0) {
+        timer.cancel();
+        _dwellTimer = null;
+        setState(() => _dwellProgress = 0);
+        widget.onTap();
+        return;
+      }
+      setState(() => _dwellProgress = progress);
     });
   }
 
   void _cancelDwell() {
-    if (mounted) setState(() => _dwellProgress = 0);
+    _dwellTimer?.cancel();
+    _dwellTimer = null;
+    if (mounted && _dwellProgress != 0) setState(() => _dwellProgress = 0);
+  }
+
+  @override
+  void dispose() {
+    _dwellTimer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -857,7 +1127,8 @@ class _CellButtonState extends State<_CellButton> {
       color: bg,
       borderRadius: BorderRadius.circular(10),
       child: InkWell(
-        onTap: widget.onTap,
+        // With hold-to-select on, a quick tap must not activate the button.
+        onTap: s.dwellEnabled ? null : widget.onTap,
         borderRadius: BorderRadius.circular(10),
         child: Container(
           decoration: BoxDecoration(
@@ -871,12 +1142,27 @@ class _CellButtonState extends State<_CellButton> {
     );
 
     if (s.dwellEnabled) {
-      // Dwell-to-activate: press-and-hold for the configured duration.
-      cell = GestureDetector(
-        onLongPressStart: (_) => _startDwell(),
-        onLongPressEnd: (_) => _cancelDwell(),
-        onLongPressCancel: _cancelDwell,
-        child: cell,
+      // Dwell-to-activate: press and hold for the configured duration.
+      // A raw Listener starts at once (no long-press delay first) and is
+      // cancelled when the finger lifts or the gesture is taken away.
+      cell = Semantics(
+        button: true,
+        label: widget.button.label,
+        hint: 'Hold to select',
+        onTap: widget.onTap, // screen readers still activate directly
+        child: Listener(
+          onPointerDown: (e) {
+            _dwellOrigin = e.position;
+            _startDwell();
+          },
+          // Sliding the finger (e.g. to scroll) cancels the hold.
+          onPointerMove: (e) {
+            if ((e.position - _dwellOrigin).distance > 18) _cancelDwell();
+          },
+          onPointerUp: (_) => _cancelDwell(),
+          onPointerCancel: (_) => _cancelDwell(),
+          child: cell,
+        ),
       );
     }
 
