@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show MethodChannel;
 import 'package:flutter_tts/flutter_tts.dart';
 import '../models/domain.dart';
 import 'piper_voice.dart';
@@ -77,6 +78,28 @@ class SpeechEngine {
   DeviceVoice? voice;
   DeviceVoice? _appliedVoice;
 
+  /// iOS: speak through the call-capable voice (see ios/Runner/CallSpeech.swift).
+  bool callSpeech = false;
+  static const _callChannel = MethodChannel('aac/call_speech');
+
+  Future<bool> _speakIntoCalls(String text, double rate, double pitch,
+      double volume, bool interrupt) async {
+    try {
+      final result = await _callChannel.invokeMethod('speak', {
+        'text': text,
+        'rate': rate,
+        'pitch': pitch,
+        'volume': volume,
+        'voiceName': voice?.name ?? '',
+        'locale': voice?.locale ?? language.voiceLocales.first,
+        'interrupt': interrupt,
+      });
+      return result == 1;
+    } catch (_) {
+      return false; // fall back to the normal voice
+    }
+  }
+
   /// Language the device voice speaks when no voice is chosen.
   AppLanguage language = kLanguages.first;
   String? _appliedLanguage;
@@ -86,6 +109,10 @@ class SpeechEngine {
   /// Copies the saved speech settings onto the engine.
   void configure(AppSettings s) {
     language = languageFor(s.language);
+    // iPhone/iPad only: speech also goes into phone and FaceTime calls.
+    callSpeech = s.callSpeech &&
+        !kIsWeb &&
+        defaultTargetPlatform == TargetPlatform.iOS;
     // The offline voice speaks English only.
     usePiper = s.usePiper && language.code == 'en';
     rate = s.rate;
@@ -206,6 +233,12 @@ class SpeechEngine {
     final requestedVolume = (style?.volume ?? volume).clamp(0.0, 1.0);
     _pending = _pending.then((_) async {
       if (generation != _generation) return;
+      if (callSpeech &&
+          await _speakIntoCalls(text.trim(), requestedRate, requestedPitch,
+              requestedVolume, interrupt)) {
+        error.value = null;
+        return;
+      }
       if (_usePiper && _offlineReady && requestedPitch == 1.0) {
         try {
           // Native speech may still be playing from setup/fallback.
@@ -268,6 +301,11 @@ class SpeechEngine {
 
   Future<void> stop() async {
     _generation++;
+    if (callSpeech) {
+      try {
+        await _callChannel.invokeMethod('stop');
+      } catch (_) {}
+    }
     try {
       await _offlineVoice.stop();
     } catch (_) {}

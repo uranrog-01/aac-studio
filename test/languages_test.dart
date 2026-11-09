@@ -72,6 +72,12 @@ void main() {
         .firstWhere((c) => c.button.label == 'want')
         .button;
     expect(want.shownLabel, 'vouloir');
+    final pronoun = v.viewsByFolder['home']!.first.cells.first.button;
+    expect(pronoun.shownLabel, 'je');
+    final letterI = v.viewsByFolder['alphabet']!.first.cells
+        .firstWhere((c) => c.button.label == 'I')
+        .button;
+    expect(letterI.shownLabel, 'I', reason: 'letters are never translated');
     session.tap(want);
     expect(session.message, 'vouloir');
     expect(PackLoader().save(v).toString(), contains("label: want"),

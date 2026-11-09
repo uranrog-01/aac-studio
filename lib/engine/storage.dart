@@ -54,6 +54,9 @@ class AppSettings {
   bool haptics;
   bool audioCues;
   String language; // app and board language code (see kLanguages)
+  bool fullScreen; // hide system bars / browser bars where possible
+  bool callSpeech; // iPhone/iPad: speech also goes into phone/FaceTime calls
+  List<String> phrases; // saved messages (Type > Save)
   String typingSpeech; // Type screen: 'letters' (and words), 'words' or 'off'
 
   // P2 ARASAAC online symbols
@@ -89,11 +92,14 @@ class AppSettings {
     this.haptics = true,
     this.audioCues = false,
     this.language = 'en',
+    this.fullScreen = true,
+    this.callSpeech = false,
+    List<String>? phrases,
     this.typingSpeech = 'letters',
     this.arasaacEnabled = true,
     this.arasaacSkin = 0,
     this.arasaacHair = 0,
-  });
+  }) : phrases = phrases ?? [];
 
   Map<String, dynamic> toJson() => {
         'usePiper': usePiper,
@@ -123,6 +129,9 @@ class AppSettings {
         'haptics': haptics,
         'audioCues': audioCues,
         'language': language,
+        'fullScreen': fullScreen,
+        'callSpeech': callSpeech,
+        'phrases': phrases,
         // Saved under a new name: v10 saved 'words' as the default, and
         // typing now speaks each letter unless a caregiver turns it down.
         'typingSpeak': typingSpeech,
@@ -163,6 +172,12 @@ class AppSettings {
         haptics: j?['haptics'] as bool? ?? true,
         audioCues: j?['audioCues'] as bool? ?? false,
         language: j?['language'] as String? ?? 'en',
+        fullScreen: j?['fullScreen'] as bool? ?? true,
+        callSpeech: j?['callSpeech'] as bool? ?? false,
+        phrases: [
+          for (final p in (j?['phrases'] as List? ?? const []))
+            if (p is String && p.trim().isNotEmpty) p
+        ],
         typingSpeech: const ['words', 'letters', 'off']
                 .contains(j?['typingSpeak'])
             ? j!['typingSpeak'] as String

@@ -679,3 +679,2433 @@ yucky|qué asco
 yummy|qué rico
 zebra|cebra
 zip coat|abrochar el abrigo
+1st place medal|medalla de oro
+2nd place medal|medalla de plata
+3rd place medal|medalla de bronce
+abacus|ábaco
+above|encima
+absent|ausente
+accordion|acordeón
+acne spots|granos
+acorn|bellota
+across|al otro lado
+activity centre|centro de actividades
+add|sumar
+admission tickets|entradas
+advent|Adviento
+advent calendar|calendario de Adviento
+aerial tramway|teleférico
+aerobics dance|aeróbic
+aeroplane|avión
+afraid|asustado
+after|después
+aftershave|loción para después del afeitado
+against|contra
+ahead|delante
+air person|auxiliar de vuelo
+air steward|azafato
+airplane arrival|llegada
+airplane departure|salida
+airways|vías respiratorias
+alembic|alambique
+algebra class|clase de álgebra
+algebra formula|fórmula
+almond|almendra
+amphora|ánfora
+anatomical heart|corazón
+anchor|ancla
+ankle|tobillo
+ant eater|oso hormiguero
+antelope|antílope
+apple juice|zumo de manzana
+aquarium|acuario
+arch lever file|archivador
+archery|tiro con arco
+archery target|diana
+arm chair|sillón
+arms|brazos
+armwrestle|pulso
+around|alrededor
+arrest|arrestar
+art|arte
+art class|clase de arte
+art room|aula de arte
+artichoke|alcachofa
+articulated lorry|tráiler
+artist palette|paleta de pintor
+ash wednesday|Miércoles de Ceniza
+ask|preguntar
+asparagus|espárragos
+assembly|asamblea
+atom|átomo
+attract|atraer
+aubergine|berenjena
+aunt maternal|tía (de mamá)
+aunt paternal|tía (de papá)
+auroscope|otoscopio
+auto rickshaw|mototaxi
+autumn|otoño
+awake|despierto
+away|lejos
+axe|hacha
+baby angel|angelito
+baby chick|pollito
+baby oil|aceite de bebé
+baby powder|polvos de talco
+back ache|dolor de espalda
+back garden|jardín
+backstop|receptor
+backwards|hacia atrás
+badger|tejón
+badminton|bádminton
+badminton racket|raqueta de bádminton
+baguette bread|barra de pan
+bake|hornear
+baked beans|alubias con tomate
+baker|panadero
+baking powder|levadura en polvo
+baking tray|bandeja de horno
+balance scale|balanza
+ballet shoes|zapatillas de ballet
+banana bunch|racimo de plátanos
+bank card|tarjeta del banco
+banquet buffet|bufé
+bap|panecillo
+bar chart|gráfico de barras
+barbeque|barbacoa
+barber pole|barbería
+base rock|roca
+baseball base|base
+baseball bat|bate de béisbol
+baseball game|partido de béisbol
+baseball glove|guante de béisbol
+baseball player|jugador de béisbol
+basket|cesta
+basketball ball|balón de baloncesto
+basketball game|partido de baloncesto
+bat|murciélago
+bath|bañera
+bath animal|bañar al animal
+bath mat|alfombrilla de baño
+bathe|bañarse
+battery|pila
+beach bag|bolsa de playa
+beach towel|toalla de playa
+beach with umbrella|playa
+beads|cuentas
+beak|pico
+beaker|vaso de precipitados
+beanbag|puf
+beans on toast|tostada con alubias
+beansprouts|brotes de soja
+beaver|castor
+bed time|hora de dormir
+beehive|colmena
+beer|cerveza
+beer mug|jarra de cerveza
+bees nest|nido de abejas
+beetroot|remolacha
+before|antes
+behind|detrás
+bellhop bell|timbre de recepción
+below|debajo
+belt|cinturón
+bench|banco
+bend|doblar
+bendy|flexible
+berry|baya
+between|entre
+bib|babero
+big wheel|noria
+bikini|biquini
+billed cap|gorra
+bin bag|bolsa de basura
+bin bags|bolsas de basura
+bingo|bingo
+bingo marker|rotulador de bingo
+bird bath|bebedero de pájaros
+bird cage|jaula de pájaros
+bird feeder|comedero de pájaros
+bird seed|alpiste
+birthday cake|tarta de cumpleaños
+birthday card|tarjeta de cumpleaños
+biscuits|galletas
+bison|bisonte
+bite|morder
+biting lip|morderse el labio
+black cat|gato negro
+black nib|bolígrafo negro
+blackboard|pizarra
+blackcurrant juice|zumo de grosella
+blackcurrants|grosellas negras
+bladder|vejiga
+bladder kidneys|riñones y vejiga
+blanket chest|baúl
+blender drinks|batidora
+bless|bendecir
+blind|ciego
+blinds|persiana
+blink|parpadear
+blood pressure|tensión arterial
+blouse|blusa
+blow|soplar
+blow kiss|lanzar un beso
+blowfish|pez globo
+blue book|cuaderno azul
+blusher|colorete
+boar|jabalí
+bobble hat|gorro de lana
+boccia|boccia
+boccia chute|rampa de boccia
+body outline|cuerpo
+bolt|tornillo
+bomb|bomba
+bone|hueso
+bonfire|hoguera
+bonfire night|noche de las hogueras
+book end|sujetalibros
+book ends|sujetalibros (par)
+book shelf|estantería
+bookcase|librería
+bookmark|marcapáginas
+bookmark tabs|marcadores adhesivos
+boomerang|bumerán
+bootees|patucos
+both|los dos
+bottom|abajo
+bounce|botar
+bounce ball|botar la pelota
+bouncing ball|pelota saltarina
+bouquet|ramo de flores
+bow|lazo
+bow tie|pajarita
+bowler|lanzador
+bowling|bolos
+bowling ball|bola de bolos
+bowling gutter|canal
+bowling pins|bolos
+bowling spare|semipleno
+bowling strike|pleno
+box|boxear
+boxer shorts|calzoncillos
+boxing day|San Esteban
+boxing glove|guante de boxeo
+bra|sujetador
+bracelet|pulsera
+branch|rama
+brazil nut|nuez de Brasil
+bread crumbs|pan rallado
+bread roll|bollo de pan
+bread slice|rebanada de pan
+break egg|cascar un huevo
+break time|recreo
+breakfast time|hora del desayuno
+brick|ladrillo
+bricks|bloques
+bridle|brida
+briefcase|maletín
+bright|brillante
+bright room|habitación luminosa
+bring|traer
+broad beans|habas
+broken|roto
+broken bone|hueso roto
+broken chain|cadena rota
+brooch|broche
+broom|escoba
+broomstick|escoba de bruja
+brown mushroom|champiñón
+brush animal|cepillar al animal
+brussel sprouts|coles de Bruselas
+bubble bath|baño de espuma
+bubble mixture|líquido de pompas
+bubble wand|varita de pompas
+bubble wrap|plástico de burbujas
+bucket|cubo
+buckle|hebilla
+bud|capullo
+budgie|periquito
+buffalo|búfalo
+build|construir
+building construction|obra
+bulb holder|portalámparas
+bullet train|tren bala
+bullseye|diana
+bumpy|rugoso
+bunk beds|litera
+burn|quemadura
+bus stop|parada de autobús
+bush|arbusto
+busy|ocupado
+butternut squash|calabaza
+cabbage|col
+cable tv|televisión por cable
+cafe|cafetería
+cage|jaula
+cake bar|bizcocho
+cake case|cápsula de magdalena
+cake mix|preparado para bizcocho
+cake slice|trozo de tarta
+cake tin|molde
+calendar month|mes
+calf|pantorrilla
+call out|llamar
+camera|cámara
+camera with flash|cámara con flash
+camp|acampar
+camping|camping
+can opener|abrelatas
+candle|vela
+candy cane|bastón de caramelo
+candy floss|algodón de azúcar
+candy hearts|caramelos de corazón
+canned food|lata de comida
+canoe|canoa
+cap|gorra
+car boot|maletero
+car bumper|parachoques
+car mechanic|mecánico
+car transporter|camión portacoches
+caravan|caravana
+carbohydrates|hidratos de carbono
+card|tarjeta
+card file box|fichero
+card index|fichas
+card index dividers|separadores
+cardboard|cartón
+care assistant|cuidador
+caretaker|conserje
+carousel horse|tiovivo
+carp streamer|cometa de carpa
+carpenter|carpintero
+carpentry saw|serrucho
+carry|llevar
+carry books|llevar libros
+cart|carro
+carton|brik
+cartwheeling|hacer la rueda
+carve meat|trinchar la carne
+carve wood|tallar madera
+cash point|cajero
+cashew|anacardo
+casserole|cazuela
+cassette tape|casete
+castor sugar|azúcar glas
+cat bed|cama de gato
+cat biscuits|pienso de gato
+cat food|comida de gato
+catch|atrapar
+catherine wheel|rueda de fuego
+cauliflower|coliflor
+cctv|cámara de seguridad
+ceiling|techo
+ceiling light|lámpara de techo
+celebrate|celebrar
+celebrate birthday|celebrar el cumpleaños
+celebration|fiesta
+celeriac|apio nabo
+celery|apio
+cement mixer|hormigonera
+centipede|ciempiés
+cereal|cereales
+cereal bowl|tazón de cereales
+cereal bran|salvado
+cereal museli|muesli
+certificate|diploma
+chains|cadenas
+chaise lounge|diván
+chalk|tiza
+chameleon|camaleón
+champagne|champán
+chandelier|lámpara de araña
+change|cambiar
+change clothes|cambiarse de ropa
+change mind|cambiar de idea
+change nappy|cambiar el pañal
+change tv channel|cambiar de canal
+channel bbc|BBC
+charge|cargar
+chart decreasing|gráfico que baja
+chart increasing|gráfico que sube
+chase|perseguir
+chapatti|pan chapati
+cheat|hacer trampa
+cheek|mejilla
+cheese burger|hamburguesa con queso
+cheese slices|lonchas de queso
+cheetah|guepardo
+cheque book|talonario
+cherry blossom|flor de cerezo
+chess pawn|peón de ajedrez
+chest of drawers|cómoda
+chestnut|castaña
+chestnuts|castañas
+chew|masticar
+chewing gum|chicle
+chewy tube|mordedor
+chick|pollito
+chicken breast|pechuga de pollo
+chicken house|gallinero
+chicken leg|muslo de pollo
+chicken nuggets|nuggets de pollo
+chicken pieces|trozos de pollo
+chicken run|corral
+childrens tv|tele para niños
+chilli pepper|guindilla
+chimney|chimenea
+chimpanzee|chimpancé
+chin|barbilla
+chinese cabbage|col china
+chinese food|comida china
+chip and pin device|datáfono
+chipmunk|ardilla listada
+chips|patatas fritas
+chips packet|bolsa de patatas fritas
+chisel|cincel
+chocolate box|caja de bombones
+chocolate chips|pepitas de chocolate
+chocolate egg|huevo de chocolate
+chocolate log|tronco de chocolate
+choke|atragantarse
+chop|picar
+chop wood|cortar leña
+chopping board|tabla de cortar
+christian|cristiano
+christmas|Navidad
+christmas bauble|bola de Navidad
+christmas bell|campana de Navidad
+christmas cake|pastel de Navidad
+christmas day|día de Navidad
+christmas decorations|adornos de Navidad
+christmas eve|Nochebuena
+christmas lights|luces de Navidad
+christmas pudding|pudin de Navidad
+christmas sock|calcetín de Navidad
+christmas tree|árbol de Navidad
+christmas wreath|corona de Navidad
+cigarette|cigarrillo
+circle|círculo
+circle time|asamblea
+circuit|circuito
+circus tent|carpa de circo
+cityscape|ciudad
+cityscape at dusk|ciudad al atardecer
+clamp|abrazadera
+clap hands|dar palmadas
+clapper board|claqueta
+class room|aula
+classical building|edificio clásico
+claw|garra
+clay|arcilla
+clean dishes|platos limpios
+clean hands|limpiarse las manos
+clean room|habitación limpia
+clean shoes|limpiar los zapatos
+clean window|limpiar la ventana
+cleaner|limpiador
+cleaner spray|espray limpiador
+cleaning box|caja de limpieza
+clear|transparente
+climb down|bajar
+climb tree|trepar al árbol
+climb up|subir
+climbing|escalar
+climbing rock|escalada
+climbing wall|rocódromo
+clingfilm|film transparente
+clinking beer mugs|brindar con cerveza
+clinking glasses|brindar
+clip nails|cortarse las uñas
+clipboard|carpeta con pinza
+clock radio|radio despertador
+close door|cerrar la puerta
+close to|cerca
+closed|cerrado
+closed book|libro cerrado
+closed shop|tienda cerrada
+closed umbrella|paraguas cerrado
+clothes hanger|percha
+clothes peg|pinza de la ropa
+cloud with lightning|tormenta
+cloudy|nublado
+club suit|tréboles
+clutch bag|bolso de mano
+coach|autocar
+coated spoon|cuchara recubierta
+cockatiel|cacatúa ninfa
+cockerel|gallo
+cockroach|cucaracha
+cocktail glass|copa de cóctel
+coffee|café
+coffee maker|cafetera
+coffee table|mesa de centro
+coin|moneda
+colander|colador
+collar|cuello
+collect|recoger
+colour|color
+coloured paper|papel de colores
+colouring book|libro para colorear
+comb|peine
+comb animal|peinar al animal
+come|venir
+comedy tv|comedia
+comet|cometa
+communicate|comunicarse
+compass|brújula
+computer art|dibujo en el ordenador
+computer cable|cable
+computer disk|disquete
+computer game|videojuego
+computer keyboard|teclado
+computer monitor|pantalla
+computer mouse|ratón
+computer programme|programa
+computer speaker|altavoz
+concentrating|concentrado
+confetti ball|confeti
+conical flask|matraz
+connection|conexión
+construction|vehículo de obra
+control knobs|botones
+cooker|cocina
+cooking oil|aceite
+coral|coral
+corned beef|carne en conserva
+corner cabinet|rinconera
+cornet|cucurucho
+cornflakes|copos de maíz
+correct|correcto
+correct thought|buena idea
+cot|cuna
+cottage cheese|requesón
+cotton bud|bastoncillo
+counters|monedas de juguete
+courgette|calabacín
+cover food|tapar la comida
+cow shed|establo
+cracker|petardo sorpresa
+craft table|mesa de manualidades
+cranberries|arándanos rojos
+cranberry juice|zumo de arándanos
+crane|grúa
+crane fly|típula
+crawl|gatear
+crayon|cera
+cream|crema
+credit card|tarjeta de crédito
+creme fraiche|nata agria
+cricket ball|pelota de críquet
+cricket bowler|lanzador de críquet
+cricket game|críquet
+crisp bread|pan crujiente
+crisps|patatas fritas de bolsa
+crocodile|cocodrilo
+crooked|torcido
+cross|cruz
+cross fingers|cruzar los dedos
+crossed swords|espadas
+crouch|agacharse
+crown of thorns|corona de espinas
+crucifixion|crucifixión
+cruiser|crucero
+crumple paper|arrugar papel
+crunchy|crujiente
+crush|aplastar
+crush garlic|machacar ajo
+crutch|muleta
+crutches|muletas
+crystal ball|bola de cristal
+cupboard|armario
+curling stone|piedra de curling
+curly|rizado
+curly hair|pelo rizado
+currants|pasas de Corinto
+curry|curry
+curry rice|arroz al curry
+curtains|cortinas
+cushion|cojín
+cut and paste|recortar y pegar
+cut with scissors|cortar con tijeras
+cycle|ciclismo
+cyclone|ciclón
+cymbals hand|platillos
+daffodil|narciso
+dagger|daga
+dairy products|lácteos
+daisy|margarita
+dango|dango
+danish pastry|bollo danés
+darts|dardos
+dates|dátiles
+daughter|hija
+daydream|soñar despierto
+dead|muerto
+dead plant|planta muerta
+decorate|pintar la pared
+decorate cake|decorar la tarta
+decorate tree|decorar el árbol
+deep|profundo
+deep fat fryer|freidora
+deer|ciervo
+delicious drink|bebida rica
+delicious food|comida rica
+deliver|entregar
+delivery person|repartidor
+delivery trolley|carretilla
+dental floss|hilo dental
+dentist|dentista
+deodorant|desodorante
+deodorant spray|desodorante en espray
+department store|grandes almacenes
+derelict house|casa en ruinas
+desert|desierto
+desert island|isla desierta
+desiring|desear
+desk|escritorio
+desktop computer|ordenador
+dessert|postre
+dessert menu|carta de postres
+detective|detective
+dial|marcar
+diamond|rombo
+diamond suit|diamantes
+dictionary|diccionario
+die|morir
+dig|cavar
+dining table|mesa de comedor
+dinner lady|monitora de comedor
+dinner time|hora de cenar
+dinosaur|dinosaurio
+dip food|mojar
+dirty|sucio
+dirty dishes|platos sucios
+disabled toilet|baño adaptado
+disgusted|asqueado
+dish|plato
+dish cloth|bayeta
+dishes|platos
+dishwasher|lavavajillas
+dishwasher powder|detergente para lavavajillas
+dive|bucear
+divide|dividir
+diving mask|gafas de buceo
+diya lamp|lámpara de aceite
+dna|ADN
+dodo|dodo
+dog basket|cesta del perro
+dog bed|cama del perro
+dog biscuits|galletas para perro
+dog chew|hueso para perro
+dog coat|abrigo del perro
+dog food|comida de perro
+dog kennel|caseta del perro
+doidy cup|vaso inclinado
+doll|muñeca
+dollar banknote|billete de dólar
+donkey|burro
+double bed|cama de matrimonio
+doughnut|dónut
+dove|paloma
+dragon|dragón
+dragonfly|libélula
+draining board|escurridor
+drama|teatro
+drama class|clase de teatro
+drawer|cajón
+drawing pin|chincheta
+dream|soñar
+dresser|aparador
+dressing gown|bata
+dressing table|tocador
+dribble football|regatear
+drill bit|broca
+drink consistency firm spoon|espeso (cuchara)
+drink consistency honey cup|como miel (vaso)
+drink consistency juice straw|líquido (pajita)
+drinking glass|vaso
+drip|gotear
+drive|conducir
+drop of blood|gota de sangre
+dropper pipette|cuentagotas
+drown|ahogarse
+drumsticks|baquetas
+dry|seco
+dry hair|secarse el pelo
+dumper truck|volquete
+dust|quitar el polvo
+dvd|DVD
+dvd player|reproductor de DVD
+dysphagia cup|vaso adaptado
+e-mail|correo electrónico
+ear muffs|orejeras
+earrings|pendientes
+earth|Tierra
+earth crust|corteza terrestre
+earth inner core|núcleo interno
+earth mantle|manto terrestre
+earth outer core|núcleo externo
+earths atmosphere|atmósfera
+earthworm|lombriz
+earwig|tijereta
+east|este
+easter egg|huevo de Pascua
+easter egg hunt|búsqueda de huevos de Pascua
+egg cup|huevera
+egg on toast|huevo con tostada
+egg white|clara de huevo
+egg yolk|yema de huevo
+eggs|huevos
+eight|ocho
+eighteen|dieciocho
+eighth|octavo
+eighty|ochenta
+either|cualquiera de los dos
+elbow|codo
+elearning|aprendizaje en línea
+electric plug|enchufe
+elevator|ascensor
+eleven|once
+elf|elfo
+emagazine|revista digital
+emery board|lima de uñas
+empty|vacío
+empty nest|nido vacío
+energy monitor|medidor de energía
+engine|motor
+english|inglés
+english class|clase de inglés
+enough|suficiente
+enter|entrar
+enter door|entrar por la puerta
+envelope|sobre
+escalator|escalera mecánica
+escape|escapar
+euro banknote|billete de euro
+even|par
+every|cada
+ewe|oveja
+exercise|hacer ejercicio
+exit|salida
+exit door|salir por la puerta
+extension lead|alargador
+extra|extra
+extra large|extragrande
+eye|ojo
+eye drops|gotas para los ojos
+eye shadow|sombra de ojos
+eyebrow|ceja
+eyebrow pencil|lápiz de cejas
+eyelash|pestaña
+eyelash curler|rizador de pestañas
+fabric|tela
+factory worker|obrero
+fairy|hada
+falafel|faláfel
+fall off|caerse de
+fall over|caerse
+fallen leaf|hoja caída
+family|familia
+fancy|elegante
+fangs|colmillos
+fast|rápido
+fasten|abrochar
+fat|gordo
+father christmas|Papá Noel
+father christmas sack|saco de Papá Noel
+fats|grasas
+favourite|favorito
+fax machine|fax
+feather|pluma
+feed cat|dar de comer al gato
+feed dog|dar de comer al perro
+feed someone|dar de comer
+feeding baby|dar de comer al bebé
+feet|pies
+felt tips|rotuladores
+female body|cuerpo de mujer
+fencing|esgrima
+fennel|hinojo
+ferret|hurón
+ferris wheel|noria
+ferry|ferri
+fibre optic lamp|lámpara de fibra óptica
+field|campo
+field hockey|hockey
+fifteen|quince
+fifty|cincuenta
+fifty percent|cincuenta por ciento
+fight|pelear
+file|lima
+file cabinet|archivador
+file folder|carpeta
+file metal|limar metal
+file nails|limarse las uñas
+file wood|limar madera
+filing cabinet|archivador de oficina
+fill|llenar
+film frames|película
+film projector|proyector
+filter paper|papel de filtro
+fin|aleta
+find|encontrar
+finger painting|pintar con los dedos
+finger puppet|títere de dedo
+fingernail|uña
+fingernails|uñas
+fingers|dedos
+finish|meta
+fir tree|abeto
+fire|fuego
+fire extinguisher|extintor
+fire helmet|casco de bombero
+fire hose|manguera
+firecracker|petardo
+fireplace|chimenea (salón)
+fireworks|fuegos artificiales
+first|primero
+first aid box|botiquín
+first base|primera base
+first quarter moon|cuarto creciente
+fish and chips|pescado con patatas
+fish burger|hamburguesa de pescado
+fish food|comida para peces
+fish tank|pecera
+fishing pole|caña de pescar
+fist|puño
+five|cinco
+flame|llama
+flannel|manopla
+flashlight|linterna
+flat|plano
+flat shoe|zapato plano
+flat tyre|rueda pinchada
+flatbread|pan plano
+flatscreen tv|televisión plana
+flexed biceps|músculos
+flip|dar la vuelta
+flip coin|lanzar una moneda
+flipper|aleta (foca)
+float|flotar
+floor|suelo
+floppy disk|disquete (antiguo)
+florist|florista
+flour plain|harina
+flower playing cards|cartas de flores
+flush toilet|tirar de la cadena
+fly|mosca
+flying disc|disco volador
+flying saucer|platillo volante
+fog|niebla
+foggy|con niebla
+folding hand fan|abanico
+fondue|fondue
+food|comida
+food blender|batidora de vaso
+food cold|comida fría
+food hot|comida caliente
+football kit arsenal|camiseta del Arsenal
+football kit aston villa|camiseta del Aston Villa
+football kit barnsley|camiseta del Barnsley
+football kit birmingham|camiseta del Birmingham
+football kit blackburn rovers|camiseta del Blackburn Rovers
+football kit blackpool|camiseta del Blackpool
+football kit blank|camiseta de fútbol
+football kit bolton wanderers|camiseta del Bolton Wanderers
+football kit bristol city|camiseta del Bristol City
+football kit burnley|camiseta del Burnley
+football kit cardiff|camiseta del Cardiff
+football kit chelsea|camiseta del Chelsea
+football kit coventry|camiseta del Coventry
+football kit crystal palace|camiseta del Crystal Palace
+football kit derby|camiseta del Derby
+football kit doncaster|camiseta del Doncaster
+football kit everton|camiseta del Everton
+football kit fulham|camiseta del Fulham
+football kit hull city|camiseta del Hull City
+football kit ipswich|camiseta del Ipswich
+football kit leicester|camiseta del Leicester
+football kit liverpool|camiseta del Liverpool
+football kit manchester city|camiseta del Manchester City
+football kit manchester united|camiseta del Manchester United
+football kit middlesbrough|camiseta del Middlesbrough
+football kit newcastle united|camiseta del Newcastle United
+football kit nottingham forest|camiseta del Nottingham Forest
+football kit peterborough|camiseta del Peterborough
+football kit plymouth argyle|camiseta del Plymouth Argyle
+football kit portsmouth|camiseta del Portsmouth
+football kit preston|camiseta del Preston
+football kit qpr|camiseta del QPR
+football kit reading|camiseta del Reading
+football kit scunthorpe|camiseta del Scunthorpe
+football kit sheffield united|camiseta del Sheffield United
+football kit sheffield weds|camiseta del Sheffield Wednesday
+football kit spurs|camiseta del Tottenham
+football kit stoke city|camiseta del Stoke City
+football kit sunderland|camiseta del Sunderland
+football kit swansea|camiseta del Swansea
+football kit watford|camiseta del Watford
+football kit west bromwich|camiseta del West Bromwich
+football kit west ham united|camiseta del West Ham
+football kit wigan athletic|camiseta del Wigan Athletic
+football kit wolves|camiseta del Wolverhampton
+forearm|antebrazo
+fork|tenedor
+fork lift truck|carretilla elevadora
+fortune cookie|galleta de la fortuna
+forty|cuarenta
+forward|adelante
+forwards|hacia delante
+fountain pen|pluma estilográfica
+four|cuatro
+fourteen|catorce
+framed picture|cuadro
+frankincense|incienso
+freckles|pecas
+freezer|congelador
+french stick|barra de pan francés
+friction|fricción
+fried breakfast|desayuno inglés
+fried shrimp|gambas fritas
+frog|rana
+fromage frais|queso fresco
+front|parte de delante
+front door|puerta de casa
+front-facing baby chick|pollito de frente
+frozen chips|patatas congeladas
+frozen fish fingers|palitos de pescado
+frozen food box|caja de congelados
+frozen pizza|pizza congelada
+fruit|fruta
+fruit tree|árbol frutal
+fry|freír
+frying pan|sartén
+fuel pump|surtidor
+full|lleno
+full moon|luna llena
+funnel|embudo
+funny laugh|gracioso
+furniture|muebles
+future|futuro
+fuzzy|peludito
+garden clippers|tijeras de podar
+gardener|jardinero
+garlic bread|pan de ajo
+garlic crusher|prensa de ajos
+gear|engranaje
+gem stone|piedra preciosa
+geography|geografía
+geography class|clase de geografía
+get|coger
+get off bus|bajar del autobús
+get on bus|subir al autobús
+get out of chair|levantarse de la silla
+get up|levantarse
+ghost|fantasma
+ginger root|jengibre
+give up cake|dejar el pastel
+give up foods|dejar de comer
+glass|vidrio
+glitter|purpurina
+globe|globo terráqueo
+globe with meridians|mundo
+glowing star|estrella brillante
+glue stick|barra de pegamento
+gnat|mosquito
+go in|entrar
+go out|salir
+go outside|salir fuera
+go through door|pasar por la puerta
+go to the toilet|ir al baño
+goal|gol
+goal net|portería
+goat|cabra
+goggles|gafas de natación
+gold bar|lingote de oro
+goldfish|pez de colores
+goldfish bowl|pecera redonda
+golf|golf
+golf club|palo de golf
+golfing|jugar al golf
+good person|buena persona
+good to drink|se puede beber
+good to eat|se puede comer
+goose|ganso
+goose roast|ganso asado
+grab|agarrar
+graduation cap|birrete
+grains|cereales (granos)
+grandfather|abuelo
+grandmother|abuela
+grandparents|abuelos
+grape juice|zumo de uva
+grapefruit juice|zumo de pomelo
+graph column|gráfico de columnas
+grass|hierba
+grate|rallar
+grater|rallador
+gravity|gravedad
+gravy boat|salsera
+great|genial
+green beans|judías verdes
+green book|cuaderno verde
+greengrocer|frutero
+grill|asar a la parrilla
+grill pan|plancha
+ground|tierra
+group work|trabajo en grupo
+grow|crecer
+grow hair|dejarse crecer el pelo
+guard|guardia
+guess|adivinar
+guide dog|perro guía
+guinea pig|cobaya
+gum|encía
+guy|muñeco de Guy Fawkes
+guy fawkes|Guy Fawkes
+gym|gimnasio
+hair bunches|coletas
+hair conditioner|suavizante para el pelo
+hair curler|rulo
+hair curling tongs|tenacillas
+hair dye|tinte para el pelo
+hair pick|peine afro
+hair plaits|trenzas
+hair ponytail|coleta
+hairbrush|cepillo de pelo
+haircut|cortarse el pelo
+hairdryer|secador de pelo
+hairspray|laca
+half|mitad
+halloween|Halloween
+ham|jamón
+ham packet|paquete de jamón
+hamburger|hamburguesa
+hamburger carton|caja de hamburguesa
+hammer|martillo
+hammer and pick|martillo y pico
+hammer and wrench|martillo y llave inglesa
+hamster|hámster
+hamster food|comida para hámster
+hamster maze|laberinto de hámster
+hand bag|bolso pequeño
+hand cream|crema de manos
+hand mixer|batidora de varillas
+hand punch|perforadora
+handbag|bolso
+handcuffs|esposas
+handle bars|manillar
+handsome|guapo
+hang|colgar
+hang coat|colgar el abrigo
+hangar|hangar
+hangul syllable bbegs|letra coreana
+hangul syllable jjwaelm|signo coreano
+hankerchief|pañuelo
+hard|duro
+hard hat|casco de obra
+hare|liebre
+harvest|cosecha
+harvest festival|fiesta de la cosecha
+hat too big|sombrero demasiado grande
+hatch|salir del huevo
+hatching chick|pollito saliendo del huevo
+haunted house|casa encantada
+hazelnut|avellana
+head teacher|director
+headache|dolor de cabeza
+headband|diadema
+headboard|cabecero
+headlamp|faro
+healthy|sano
+hear|oír
+hearing aid|audífono
+heart|corazón (cuerpo)
+heart shape|forma de corazón
+heart suit|corazones
+heat|calentar
+heavy|pesado
+hedge|seto
+hedge cutters|cortasetos
+hedgehog|erizo
+heel|talón
+heel of shoe|tacón
+hello|hola
+helmet|casco
+heptagon|heptágono
+herb|hierba aromática
+heron|garza
+hexagon|hexágono
+hibiscus|hibisco
+high|alto
+high chair|trona
+high voltage|alto voltaje
+high-heeled shoe|zapato de tacón
+high-speed train|tren de alta velocidad
+highest|el más alto
+hike|hacer senderismo
+hindu temple|templo hindú
+hip|cadera
+hippopotamus|hipopótamo
+hips|caderas
+history|historia
+history class|clase de historia
+hit|golpear
+hit something|pegar
+hoe|azada
+hoist|grúa de paciente
+hold|sujetar
+hold hands|darse la mano
+hold sledge hammer|mazo
+holdall|bolsa de viaje
+hole punch|taladradora
+hollow|hueco
+holly|acebo
+hooded top|sudadera con capucha
+hoof|pezuña
+hook|gancho
+hoover|pasar la aspiradora
+hop|saltar a la pata coja
+horns|cuernos
+horse racing|carrera de caballos
+hose|manguera de jardín
+hot air balloon|globo aerostático
+hot brush|cepillo eléctrico
+hot pepper|pimiento picante
+hot person|tengo calor
+hot springs|aguas termales
+hourglass done|reloj de arena
+house|casa
+houses|casas
+how|cómo
+how many|cuántos
+hundred|cien
+hunt|cazar
+hut|cabaña
+hyacinth|jacinto
+ice cream tub|tarrina de helado
+ice hockey|hockey sobre hielo
+ice lolly|polo
+ice skate|patín de hielo
+in|dentro
+in front|delante de
+inbox tray|bandeja
+incoming envelope|carta recibida
+index cards|tarjetas
+ingredients|ingredientes
+inhaler|inhalador
+inside out|del revés
+inside room|dentro de la habitación
+intestine|intestino
+iphone|iPhone
+ipod|iPod
+iron|plancha (ropa)
+ironing board|tabla de planchar
+is this enough|¿es suficiente?
+it assistant|técnico informático
+it class|clase de informática
+it room|aula de informática
+itch|picor
+ivy|hiedra
+jack in box|caja sorpresa
+jack-o-lantern|calabaza de Halloween
+jacket|chaqueta
+jacket potato|patata asada
+jam|mermelada
+jam tart|tartaleta de mermelada
+jar|tarro
+jealous|celoso
+jeep|todoterreno
+jelly|gelatina
+jelly beans|gominolas
+jet plane|avión a reacción
+jewellery|joyas
+jigsaw puzzle|puzle
+jigsaw puzzle piece|pieza de puzle
+jog|correr
+join|unir
+joker|comodín
+judge|juez
+judo|judo
+judo belt|cinturón de judo
+juggling|hacer malabares
+jump|saltar
+jumper|jersey
+jungle gym|estructura para trepar
+jupiter|Júpiter
+kaaba|Kaaba
+kebab|kebab
+kennel|perrera
+kettle|hervidor
+keyboard|teclado (ordenador)
+kick ball|chutar la pelota
+kick person|dar una patada
+kick scooter|patinete
+kick swimming|patada de natación
+kidneys|riñones
+kill|matar
+killer whale|orca
+kimono|kimono
+kitchen knife|cuchillo de cocina
+kneeling|arrodillarse
+kneeling facing right|de rodillas
+knickers|bragas
+knife|cuchillo
+knit|tejer
+knock|llamar a la puerta
+knock down|derribar
+knot|nudo
+koala|koala
+koosh ball|pelota sensorial
+lab coat|bata de laboratorio
+label|etiqueta
+labels|etiquetas
+lacrosse|lacrosse
+ladder|escalera de mano
+ladies toilet|baño de mujeres
+ladle|cucharón
+lager|cerveza rubia
+lamb|cordero
+lampshade|pantalla de lámpara
+lantern|farol
+laptop|portátil
+large|grande
+lasagne|lasaña
+last|último
+last month|el mes pasado
+last quarter moon|cuarto menguante
+last supper|Última Cena
+laundry basket|cesto de la ropa
+lava lamp|lámpara de lava
+lawnmower|cortacésped
+lead|correa
+leaves|hojas
+ledger|libro de cuentas
+leek|puerro
+left|izquierda
+left click|clic izquierdo
+left hand|mano izquierda
+leg warmers|calentadores
+lego|Lego
+legs|piernas
+lemon squash|refresco de limón
+lemonade|limonada
+lens|lente
+lent|Cuaresma
+lentils|lentejas
+leopard|leopardo
+letter|carta
+level slider|control deslizante
+lid|tapa
+lie on back|tumbarse boca arriba
+lift|ascensor (edificio)
+lifting weights|levantar pesas
+light|ligero
+light bulb|bombilla
+light rail|tranvía
+lightbulb|bombilla (luz)
+lily|lirio
+link|eslabón
+linked paperclips|clips enganchados
+lip balm|bálsamo labial
+lips|labios
+lipstick|pintalabios
+liquid soap|jabón líquido
+little|poco
+lizard|lagartija
+llama|llama (animal)
+locked|cerrado con llave
+locked with key|candado con llave
+locked with pen|candado con bolígrafo
+locker|taquilla
+locomotive|locomotora
+log|tronco
+long|largo
+long drum|tambor largo
+long hair|pelo largo
+long johns|calzoncillos largos
+look in mirror|mirarse al espejo
+lorry|camión
+lost|perdido
+lotion|loción
+lotion bottle|bote de crema
+lots more|mucho más
+lotus|flor de loto
+loud|fuerte
+love hotel|love hotel
+low battery|batería baja
+low fat|bajo en grasa
+lowest|el más bajo
+lucky|con suerte
+luggage|equipaje
+lump|bulto
+lunch box|fiambrera
+lunch time|hora de comer
+lungs|pulmones
+macadamias|nueces de macadamia
+macaroni|macarrones
+macaroni cheese|macarrones con queso
+magnet|imán
+magnetic|magnético
+mahjong red dragon|ficha de mahjong
+main course|plato principal
+mains socket|enchufe de pared
+make the bed|hacer la cama
+make up|maquillaje
+male body|cuerpo de hombre
+mammoth|mamut
+mange tout|tirabeques
+manger|pesebre
+mantelpiece clock|reloj de chimenea
+manual wheelchair|silla de ruedas
+maple leaf|hoja de arce
+maracas|maracas
+marbles|canicas
+margarine|margarina
+marmite|crema de levadura
+married|casados
+marrow|calabacín grande
+mars|Marte
+marshmallows|nubes
+martial arts uniform|kimono de artes marciales
+mascara|rímel
+mash|machacar
+mash potato|puré de patatas
+masher|pasapurés
+masking tape|cinta de carrocero
+mate|mate
+maths|matemáticas
+maths class|clase de matemáticas
+mauve|malva
+mayonnaise|mayonesa
+measuring cups|tazas medidoras
+measuring jug|jarra medidora
+measuring spoons|cucharas medidoras
+meat on bone|carne con hueso
+meatballs and spaghetti|espaguetis con albóndigas
+mechanical arm|brazo ortopédico
+mechanical leg|pierna ortopédica
+medicine cabinet|botiquín de pared
+meet|quedar
+melt|derretir
+melted cheese on toast|tostada con queso fundido
+memo|nota
+memory card|tarjeta de memoria
+mend|arreglar
+mens toilet|baño de hombres
+menu|menú
+mercury|Mercurio
+meringues|merengues
+merry go round|carrusel
+messy clothes|ropa desordenada
+messy room|habitación desordenada
+metro|metro
+microbe|microbio
+microscope|microscopio
+microwave|microondas
+middle|en medio
+military helmet|casco militar
+military medal|medalla militar
+milk bottle|botella de leche
+milk carton|cartón de leche
+milk litre|litro de leche
+milk person|lechero
+milkshake|batido
+milky way|Vía Láctea
+mince pie|pastelito de Navidad
+minced meat|carne picada
+mini bus|minibús
+minibus|microbús
+mints|caramelos de menta
+minute|minuto
+mirror ball|bola de discoteca
+miss bus|perder el autobús
+mistletoe|muérdago
+mittens|manoplas
+mixer|batidora
+mobile phone|móvil
+mobile phone camera|cámara del móvil
+mobile phone case|funda del móvil
+mobile phone cover|carcasa del móvil
+mobile phone number|número de móvil
+mobile phone ring tone|tono de llamada
+mobile phone silent|silencio
+mobile phone text message|mensaje
+mobile phone video|vídeo del móvil
+mole|lunar
+money|dinero
+money bag|bolsa de dinero
+money with wings|dinero que vuela
+monorail|monorraíl
+monster|monstruo
+moon|luna
+moon cake|pastel de luna
+moon viewing ceremony|fiesta de la luna
+moose|alce
+mop|fregona
+moped|ciclomotor
+mosque|mezquita
+mosquito|mosquito (picador)
+most|lo más
+moth|polilla
+motor boat|lancha
+motor home|autocaravana
+motor scooter|escúter
+motorized wheelchair|silla de ruedas eléctrica
+motorway|autopista
+mountain|montaña
+mountain biking|bicicleta de montaña
+mountain cableway|telecabina
+mountain railway|tren de montaña
+mountains|montañas
+mouse|ratón (animal)
+mouse mat|alfombrilla de ratón
+mouse trap|ratonera
+mouthwash|enjuague bucal
+move|mover
+movie camera|cámara de cine
+muesli|muesli (bol)
+multi media|multimedia
+multiply|multiplicar
+muscles|músculos (cuerpo)
+music class|clase de música
+music room|aula de música
+musical instruments|instrumentos musicales
+musical keyboard|teclado musical
+musical note|nota musical
+musical score|partitura
+musician|músico
+mussel|mejillón
+mx claus|personaje navideño
+nail|clavo
+nail care|cuidado de uñas
+nail clippers|cortaúñas
+nail file|lima de uñas (metal)
+nail polish|esmalte de uñas
+nail polish remover|quitaesmalte
+nappy|pañal
+national park|parque nacional
+nativity|belén
+near|cerca de
+necklace|collar
+necktie|corbata
+need toilet|necesito ir al baño
+neither|ninguno de los dos
+neptune|Neptuno
+nest|nido
+nest of tables|mesas nido
+nest with eggs|nido con huevos
+new moon|luna nueva
+newspaper|periódico
+newspaper person|repartidor de periódicos
+next|siguiente
+next month|el mes que viene
+next week|la semana que viene
+night with stars|noche estrellada
+nightgown|camisón
+nine|nueve
+nineteen|diecinueve
+ninety|noventa
+ninja|ninja
+no class|no hay clase
+nod|asentir
+noisy|ruidoso
+non permeable|impermeable
+non speaking|no habla
+north|norte
+north east|noreste
+north west|noroeste
+nosey cup|vaso recortado
+nostril|fosa nasal
+notepad|bloc de notas
+nut and bolt|tuerca y tornillo
+nuts|frutos secos
+oak leaf|hoja de roble
+occupational therapist|terapeuta ocupacional
+octagon|octógono
+oden|oden
+off|apagado
+office block|edificio de oficinas
+oil drum|bidón
+old key|llave antigua
+old object|viejo
+old person|persona mayor
+olive oil|aceite de oliva
+olives|aceitunas
+olympic games|Juegos Olímpicos
+olympic rings|aros olímpicos
+olympic torch|antorcha olímpica
+omelette|tortilla francesa
+on|encima de
+oncoming automobile|coche de frente
+oncoming bus|autobús de frente
+oncoming police car|coche de policía de frente
+oncoming taxi|taxi de frente
+one|uno
+one hour|una hora
+one third|un tercio
+onion rings|aros de cebolla
+opaque|opaco
+open door|abrir la puerta
+open file folder|carpeta abierta
+open shop|tienda abierta
+open tin|abrir la lata
+operating theatre|quirófano
+operation|operación
+opposite|enfrente
+optical disk|CD
+orange book|cuaderno naranja
+orange fizzy drink|refresco de naranja
+orange juice|zumo de naranja
+orange squash|refresco de naranja concentrado
+orangutan|orangután
+order|pedir
+ostrich|avestruz
+otter|nutria
+out|fuera
+outbox tray|bandeja de salida
+oval|óvalo
+over|por encima
+ox|buey
+oxygen mask|mascarilla de oxígeno
+oyster|ostra
+ozone layer|capa de ozono
+pack suitcase|hacer la maleta
+package|paquete
+packed lunch|comida para llevar
+paddles|remos
+page with curl|página
+pager|busca
+paint box|caja de pinturas
+paint brush|brocha
+paint childs|pintura para niños
+paintbrush|pincel
+palm|palma
+palm sunday|Domingo de Ramos
+palm tree|palmera
+pancake|tortita
+panda|panda
+pants|calzoncillos (slip)
+paper towel|papel de cocina
+paper towels|toallas de papel
+paperclip|clip
+para olympic games|Juegos Paralímpicos
+parachute|paracaídas
+parade|desfile
+parallelogram|paralelogramo
+paramedic|paramédico
+parents|padres
+parsnip|chirivía
+part|parte
+partner|pareja
+party celebration|fiesta (celebración)
+party popper|lanzador de confeti
+passenger ship|barco de pasajeros
+passion flower|pasionaria
+passport|pasaporte
+past|pasado
+pasta|pasta
+pasta sauce|salsa para pasta
+pastie|empanada
+pastry|hojaldre
+pat dog|acariciar al perro
+patch on clothes|parche
+pate|paté
+paw|pata
+paw prints|huellas
+pe|educación física
+pe class|clase de educación física
+pea|guisante
+peanut|cacahuete
+peanut butter|crema de cacahuete
+pecan|nuez pecana
+peel|pelar
+peel orange|pelar la naranja
+peeler|pelador
+pelican|pelícano
+pen and paper|boli y papel
+pencil and paper|lápiz y papel
+pencil box|caja de lápices
+pencil case|estuche
+pencil sharpener|sacapuntas
+penis|pene
+pentagon|pentágono
+pepper|pimienta
+pepper mill|molinillo de pimienta
+percent|por ciento
+performing arts|artes escénicas
+perfume|perfume
+perm|permanente
+permeable|permeable
+pestle and mortar|mortero
+pet blanket|manta para mascota
+pet brush|cepillo para mascota
+pet carrier|transportín
+pet carrying basket|cesta de transporte
+pet comb|peine para mascota
+petal|pétalo
+petri dish|placa de Petri
+petrol tanker|camión cisterna
+petticoat|enagua
+phone picture video|móvil foto vídeo
+photocopier|fotocopiadora
+photographs|fotos
+physio therapist|fisioterapeuta
+pick|pico
+pick and mix|chuches a granel
+pick up|recoger del suelo
+pickup truck|camioneta
+picnic|pícnic
+picture|cuadro (pared)
+picture frame|marco de fotos
+pie chart|gráfico circular
+pig nose|hocico de cerdo
+piglet|cerdito
+pine cone|piña (de pino)
+pine decoration|adorno de pino
+pine nut|piñón
+pineapple juice|zumo de piña
+ping pong|ping-pong
+pint|pinta
+pistachios|pistachos
+pizza cutter|cortapizzas
+piñata|piñata
+place mat|mantel individual
+place setting|cubiertos puestos
+plane|cepillo de carpintero
+plane landing|aterrizaje
+plane take off|despegue
+planets|planetas
+plaster|tirita
+plastic|plástico
+plastic bag|bolsa de plástico
+plastic pocket|funda de plástico
+plate guard|reborde para plato
+play area|zona de juegos
+playdough|plastilina
+playing card picture|carta con figura
+playing cards|cartas
+playing cards clubs|cartas de tréboles
+playing cards diamonds|cartas de diamantes
+playing cards hearts|cartas de corazones
+playing cards patience|solitario
+playing cards spades|cartas de picas
+playing handball|jugar al balonmano
+playing water polo|jugar al waterpolo
+playstation|PlayStation
+pliers|alicates
+plough|arado
+pluck|depilarse las cejas
+plug|clavija
+plum tomato|tomate pera
+plunger|desatascador
+pluto|Plutón
+pocket|bolsillo
+pointed|puntiagudo
+polar bear|oso polar
+police helmet|casco de policía
+police radio|radio de policía
+polish nails|pintarse las uñas
+pond|estanque
+poodle|caniche
+pool 8 ball|bola de billar
+pool snooker|billar
+pop champagne cork|descorchar el champán
+pop socks|medias cortas
+poppadoms|papadum
+porcupine|puercoespín
+pork chop|chuleta de cerdo
+porridge|gachas de avena
+porter hospital|celador
+post it|pósit
+post letter|echar una carta
+post office|correos
+post person|cartero
+post van|furgoneta de correos
+postbox|buzón
+pot noodle|fideos instantáneos
+pottery|cerámica
+potty chair|orinal
+poultry|aves de corral
+pound banknote|billete de libra
+pour|echar
+pour cake mixture|echar la masa
+pour custard|echar natillas
+pouring liquid|servir bebida
+powder puff|borla de polvos
+power switch|interruptor
+prawn|gamba
+pray|rezar
+prayer|oración
+prayer beads|rosario
+pregnant man|hombre embarazado
+pregnant person|persona embarazada
+pregnant woman|mujer embarazada
+present|regalo
+pretty|bonito
+prickles|púas
+prince|príncipe
+princess|princesa
+printer|impresora
+prism hexagonal|prisma hexagonal
+prism triangular|prisma triangular
+prop up|apoyar
+protect|proteger
+protein|proteínas
+puffin|frailecillo
+pull|tirar
+pull along toy|juguete de arrastre
+pumice stone|piedra pómez
+pumpkin|calabaza (huerto)
+pumpkin lantern|farol de calabaza
+pumpkin pie|tarta de calabaza
+pupil|pupila
+puppet|marioneta
+pureed food|puré
+purse|monedero
+push|empujar
+push down|apretar
+pushpin|chincheta de colores
+put|poner
+put away|guardar
+put in|meter
+put in bin|tirar a la basura
+put in cassette tape|poner la casete
+put in cd dvd|poner el CD
+put in contact lens|ponerse las lentillas
+put on cap|ponerse la gorra
+put on coat|ponerse el abrigo
+put on helmet|ponerse el casco
+put on lid|poner la tapa
+put out rubbish|sacar la basura
+pyjamas|pijama
+pyramid square base|pirámide
+pyramid triangular base|pirámide triangular
+quadrilateral|cuadrilátero
+quail|codorniz
+quarter|cuarto
+queue|hacer cola
+quiche flan|quiche
+rabbit|conejo
+rabbit hutch|conejera
+raccoon|mapache
+race athletics|carrera
+radio|radio
+radish|rábano
+railway car|vagón
+railway track|vía del tren
+raincoat|chubasquero
+raise feet|levantar los pies
+raise head|levantar la cabeza
+raisin|pasa
+raisin currants|pasas
+rake|rastrillo
+ram|carnero
+ramp|rampa
+rash|sarpullido
+rat|rata
+rattle snake|serpiente de cascabel
+ravioli|raviolis
+razor|cuchilla de afeitar
+reach for|alcanzar
+read book|leer un libro
+ready|listo
+ready meal|plato preparado
+ready meal lamb|plato preparado de cordero
+receipt|tique de compra
+receive|recibir
+recipe|receta
+rectangle|rectángulo
+recycle logo|reciclaje
+recycling bins|contenedores de reciclaje
+red envelope|sobre rojo
+red paper lantern|farolillo rojo
+refridgerate|refrigerar
+refuse collector|basurero
+refuse lorry|camión de la basura
+reindeer|reno
+relax|relajarse
+reminder ribbon|lazo solidario
+remote control|mando a distancia
+remove|quitar
+retire|jubilarse
+retired|jubilado
+return book|devolver el libro
+rhinoceros|rinoceronte
+rhombus|rombo (forma)
+rhubarb|ruibarbo
+ribbon|cinta
+rice ball|bola de arroz
+rice cake|tortita de arroz
+rice packet|paquete de arroz
+ride car|ir en coche
+ride horse|montar a caballo
+riding hat|casco de montar
+right|derecha
+right click|clic derecho
+right hand|mano derecha
+ring|anillo
+ring bell|tocar la campana
+ring binder|carpeta de anillas
+ring buoy|salvavidas
+ring doorbell|tocar el timbre
+ringed planet|Saturno
+rinse|enjuagar
+risen|resucitado
+road|carretera
+roast dinner|asado
+roasted sweet potato|boniato asado
+robin|petirrojo
+rock|roca (piedra)
+rock chair|mecerse
+pool hoist|grúa de piscina
+rocking chair|mecedora
+roll dice|tirar el dado
+roll of paper|rollo de papel
+roll on deodorant|desodorante de bola
+roll over|darse la vuelta
+roll pastry|estirar la masa
+rolled-up newspaper|periódico enrollado
+roller blind|estor
+roller coaster|montaña rusa
+roller skate|patín
+rollerskate|patinar
+rolling pin|rodillo
+roman blind|estor plegable
+room|habitación
+roots|raíces
+rosette|escarapela
+rotary washing line|tendedero giratorio
+round pushpin|chincheta redonda
+rowing boat|barca de remos
+rub|frotar
+rudolph|Rodolfo
+rug|alfombra
+rugby ball|balón de rugby
+rugby football|rugby
+running facing right|correr (de lado)
+running shirt|camiseta de correr
+sack|saco
+saddle|silla de montar
+safety goggles|gafas de protección
+safety pin|imperdible
+safety vest|chaleco reflectante
+sailor|marinero
+sake|sake
+salad packet|bolsa de ensalada
+salad plate|plato de ensalada
+salami sausage|salami
+salty|salado
+same|igual
+sand pit|arenero
+sandpaper|papel de lija
+sanitary towel|compresa
+santa claus|Santa Claus
+sari|sari
+satellite|satélite
+satellite antenna|antena parabólica
+satsuma|mandarina
+saturn|Saturno (planeta)
+saucepan|cazo
+saucer|platillo
+sauropod|saurópodo
+sausage and mash|salchichas con puré
+sausage cumberland|salchicha en espiral
+sausage roll|hojaldre de salchicha
+sausages|salchichas
+saw|serrar
+scales|báscula de cocina
+scar|cicatriz
+scarecrow|espantapájaros
+scary|da miedo
+school bag|mochila del cole
+science|ciencias
+science class|clase de ciencias
+science room|laboratorio
+scoop|servir con cuchara
+score goal|marcar un gol
+scorpion|escorpión
+screw|tornillo para madera
+screwdriver|destornillador
+scroll|pergamino
+scrub|frotar
+scrubbing brush|cepillo de fregar
+seagull|gaviota
+seahorse|caballito de mar
+seal envelope|cerrar el sobre
+seat|asiento
+seat belt|cinturón de seguridad
+second|segundo
+secretary|secretario
+see saw|balancín
+seeds|semillas
+seizure|ataque
+senses|sentidos
+sensory room|sala sensorial
+separate|separar
+serene|tranquilo
+serve|servir
+service dog|perro de asistencia
+serviette|servilleta
+set table|poner la mesa
+set the table|poner la mesa (casa)
+set timer|poner el temporizador
+settee|sofá
+seven|siete
+seventeen|diecisiete
+seventy|setenta
+seventy five percent|setenta y cinco por ciento
+sew|coser
+sewing needle|aguja de coser
+shake|agitar
+shake hands|dar la mano
+shake something|sacudir algo
+shallow|poco profundo
+shampoo|champú
+shampoo animal|lavar al animal
+shampoo hair|lavarse el pelo
+shamrock|trébol
+shape puzzle|puzle de formas
+shapesorter|encajable de formas
+share|compartir
+sharp|afilado
+sharpen|afilar
+shave|afeitarse
+shave underarm|depilarse las axilas
+shave with razor|afeitarse con cuchilla
+shaving cream|espuma de afeitar
+sheaf of rice|espiga de arroz
+sheep|ovejas
+shells|conchas
+shepherd|pastor
+shield|escudo
+shin|espinilla
+shinto shrine|santuario sintoísta
+shiny|brillante (que brilla)
+shoot|tirar a puerta
+shooting star|estrella fugaz
+shopping bags|bolsas de la compra
+short|corto
+short hair|pelo corto
+shout|gritar
+show me|enséñame
+shower cap|gorro de ducha
+shower gel|gel de ducha
+shrew|musaraña
+shrove tuesday|Martes de Carnaval
+shuttlecock|volante
+side|al lado
+sieve|tamizar
+signpost|señal
+silence|silencio
+simnel cake|pastel de Pascua
+single bed|cama individual
+sink|hundirse
+sit|sentarse
+sit at computer|sentarse al ordenador
+sit in beanbag|sentarse en el puf
+sit on floor|sentarse en el suelo
+six|seis
+sixteen|dieciséis
+sixty|sesenta
+skate|patinar sobre hielo
+skate park|pista de skate
+skateboard|monopatín
+skeleton|esqueleto
+ski|esquiar
+skid|derrapar
+skier|esquiador
+skin|piel
+skip|saltar a la comba
+skirt|falda
+skis|esquís
+skull|calavera
+skunk|mofeta
+sled|ir en trineo
+sledge|trineo
+sleep female|dormir (mujer)
+sleep male|dormir (hombre)
+sleep on side|dormir de lado
+sleep suit baby|pelele
+sleigh|trineo de Papá Noel
+slice|trozo
+slide backwards|deslizarse hacia atrás
+slide forwards|deslizarse hacia delante
+sling|cabestrillo
+slippers|zapatillas de casa
+slippery|resbaladizo
+slot machine|tragaperras
+sloth|perezoso
+slug|babosa
+small airplane|avioneta
+smear|untar
+smile|sonreír
+smoke|humo
+smooth|liso
+snake|serpiente
+sneak|ir a escondidas
+sneering|burlón
+sneeze cold|resfriado
+snow-capped mountain|montaña nevada
+snowboarder|snowboarder
+snowflake|copo de nieve
+snowman|muñeco de nieve
+snowman without snow|muñeco de nieve sin nieve
+soft|blando
+soft ice cream|helado suave
+softball|sóftbol
+soldier|soldado
+sole|planta del pie
+some|algunos
+son|hijo
+sour|ácido
+sour cream|crema agria
+south|sur
+south east|sureste
+south west|suroeste
+spaceship|nave espacial
+spade|pala
+spade suit|picas
+spaghetti bolognaise|espaguetis a la boloñesa
+sparkler|bengala
+sparkles|destellos
+spatula|espátula
+speech language therapist|logopeda
+speedboat|lancha rápida
+spell|deletrear
+spicy|picante
+spider web|telaraña
+spiders web|tela de araña
+spill|derramar
+spin|girar
+spinach|espinacas
+spine|columna
+spiral calendar|calendario de espiral
+spiral notepad|libreta de espiral
+spiral shell|caracola
+sponge|esponja
+sport utility vehicle|todoterreno grande
+spot light|foco
+spotty|de lunares
+spouting whale|ballena
+spray|rociar
+spread|untar en el pan
+spring onions|cebolletas
+sprinkle|espolvorear
+square|cuadrado
+square setsquare|escuadra
+squash|refresco concentrado
+squeak|chillar
+squeeze|apretar fuerte
+squid|calamar
+squirrel|ardilla
+squirt|chorrear
+stable|cuadra
+stag|venado
+stairs|escaleras
+stamp|sellar
+standard lamp|lámpara de pie
+staple|grapa
+stapler|grapadora
+star|estrella
+star stacker|apilable de estrellas
+starfish|estrella de mar
+station|estación
+statue of liberty|Estatua de la Libertad
+steak|filete
+steal|robar
+steam train|tren de vapor
+steamer|vaporera
+step brother|hermanastro
+step daughter|hijastra
+step sister|hermanastra
+step son|hijastro
+stereo|equipo de música
+stick|palo
+stickers|pegatinas
+sticky|pegajoso
+stir|remover
+stir fry|salteado
+stir mix|mezclar
+stirrups|estribos
+stoat|armiño
+stock|caldo
+stock cubes|pastillas de caldo
+stomach|barriga
+stomach ache|dolor de barriga
+stone|piedra
+stool|taburete
+stopwatch|cronómetro
+straight|recto
+strain|escurrir
+straw|pajita
+strawberry jam|mermelada de fresa
+stretch|estirarse
+string|cuerda
+striped|de rayas
+stroke|acariciar
+strong|fuerte (con fuerza)
+stubble|barba de tres días
+student|estudiante
+studio microphone|micrófono
+study|estudiar
+stuffed flatbread|pan relleno
+stuffing|relleno
+subsoil|subsuelo
+subtract|restar
+sugar bowl|azucarero
+suitcase|maleta
+sum|suma
+sun behind cloud|sol entre nubes
+sun lounger|tumbona
+sunglasses|gafas de sol
+sunrise over mountains|amanecer
+sunscreen|crema solar
+sunset|puesta de sol
+surfing|hacer surf
+surgery health centre|centro de salud
+sushi|sushi
+suspension railway|tren colgante
+sweatshirt|sudadera
+swede|nabo sueco
+sweet|dulce
+sweet potato|boniato
+sweetcorn|maíz
+swimming cap|gorro de natación
+swimming class|clase de natación
+swimming costume|bañador
+swimming trunks|bañador de hombre
+swiss roll|brazo de gitano
+switch access|acceso por pulsador
+switch on television|encender la tele
+synagogue|sinagoga
+t shirt|camiseta
+t-rex|tiranosaurio
+table cloth|mantel
+tablecloth|mantel (mesa)
+tablet blister pack|blíster de pastillas
+tablets|pastillas
+take|tomar
+take a work break|tomar un descanso
+take care of|cuidar
+take off cap|quitarse la gorra
+take off lid|quitar la tapa
+take out|sacar
+take picture|hacer una foto
+takeaway burger|hamburguesa para llevar
+takeaway burger and chips|hamburguesa y patatas para llevar
+takeaway chinese|comida china para llevar
+takeaway container|envase para llevar
+takeaway indian|comida india para llevar
+takeaway pizza|pizza para llevar
+takeout box|caja para llevar
+taking bath|darse un baño
+talk|hablar
+tall|alto (persona)
+tamale|tamal
+tampon|tampón
+tanabata tree|árbol de Tanabata
+tap|grifo
+tape measure|cinta métrica
+tape recorder|grabadora
+tart|tarta
+tartan|tela escocesa
+taste|probar
+tattoo|tatuaje
+taxi driver|taxista
+tea bag|bolsita de té
+tea spoon|cucharilla
+tea time|hora de la merienda
+tea towel|paño de cocina
+tear|romper
+tear-off calendar|calendario de taco
+technologist|técnico
+technology|tecnología
+telephone|teléfono
+telephone handset|auricular
+telephone mobile|llamar por el móvil
+telephone receiver|auricular del teléfono
+telescope|telescopio
+temple|sien
+ten|diez
+terracotta|terracota
+test|examen
+test tube|tubo de ensayo
+text mobile message|escribir un mensaje
+text phone|teléfono de texto
+theme park|parque de atracciones
+thick|grueso
+thigh|muslo
+thin|delgado
+thirteen|trece
+this month|este mes
+this week|esta semana
+thousand|mil
+thread|hilo
+three|tres
+three quarters|tres cuartos
+through|a través
+throw away|tirar
+thumb|pulgar
+thumbs|pulgares
+thunder storm|tormenta con truenos
+ticket|billete
+tickle|hacer cosquillas
+tidy|ordenar
+tidy up|recoger
+tie|atar
+tighten|apretar (tornillo)
+tights|medias
+time out|tiempo fuera
+timer|temporizador
+timer clock|reloj temporizador
+tin|lata
+tin can|lata de conserva
+tin foil|papel de aluminio
+tinned apricots|albaricoques en almíbar
+tinned cherries|cerezas en almíbar
+tinned mushroom soup|sopa de champiñones de lata
+tinned peaches|melocotones en almíbar
+tinned pears|peras en almíbar
+tinned peas|guisantes de lata
+tinned pineapple|piña en almíbar
+tinned plums|ciruelas en almíbar
+tinned sweetcorn|maíz de lata
+tinned tomato|tomate de lata
+tinsel|espumillón
+tippex|típex
+tissues|pañuelos de papel
+toad|sapo
+toast|tostada
+toaster|tostadora
+toe nail|uña del pie
+toilet roll|papel higiénico
+toilets|baños
+tokyo tower|Torre de Tokio
+tomato juice|zumo de tomate
+tomato slice|rodaja de tomate
+tomb|tumba
+tongs|pinzas de cocina
+toolbox|caja de herramientas
+toothache|dolor de muelas
+toothpaste|pasta de dientes
+top|arriba
+topsoil|capa superior del suelo
+torch|antorcha
+tornado|tornado
+tortoise|tortuga
+toss pancake|dar la vuelta a la tortita
+touch|tocar
+touch screen|pantalla táctil
+toupee|peluquín
+toy box|caja de juguetes
+toy soldier|soldadito de juguete
+trace|calcar
+trachea|tráquea
+trackball|trackball
+tracksuit|chándal
+traffic lights|semáforo
+trainers|zapatillas de deporte
+tram|tranvía (tram)
+tram car|vagón de tranvía
+trampoline|cama elástica
+transparent|transparente (claro)
+transport car|vehículo
+trap|trampa
+trapezium|trapecio
+travel|viajar
+tray|bandeja (comida)
+tree trunk|tronco de árbol
+triangle acute|triángulo acutángulo
+triangle equilateral|triángulo equilátero
+triangle isosceles|triángulo isósceles
+triangle obtuse|triángulo obtusángulo
+triangle right angled|triángulo rectángulo
+triangle scalene|triángulo escaleno
+triangular ruler|regla triangular
+trick or treat|truco o trato
+trim|recortar
+trim hedge|podar el seto
+tripod|trípode
+troll|trol
+trolleybus|trolebús
+trousers|pantalones
+trowel|paleta
+tumbler glass|vaso ancho
+tuna|atún
+turkey|pavo
+turn|dar la vuelta
+turn down heat|bajar el fuego
+turn down light|bajar la luz
+turn off|apagar
+turn off light switch|apagar la luz
+turn on|encender
+turn on light switch|encender la luz
+turn up heat|subir el fuego
+turn up light|subir la luz
+turnip|nabo
+tv drama|serie de televisión
+twelve|doce
+twenty|veinte
+twenty five percent|veinticinco por ciento
+two|dos
+two thirds|dos tercios
+two-hump camel|camello de dos jorobas
+ugly|feo
+umbrella on ground|sombrilla
+unbuckle|desabrochar el cinturón
+unbutton|desabotonar
+uncle maternal|tío (de mamá)
+uncle paternal|tío (de papá)
+under|debajo de
+underarm|axila
+underarm hair|pelo de las axilas
+underground train|tren de metro
+undress|desvestirse
+unicorn|unicornio
+unlock|abrir con llave
+unlocked|abierto (candado)
+untie|desatar
+upper arm|brazo (parte de arriba)
+uranus|Urano
+usb stick|memoria USB
+use computer|usar el ordenador
+vacuum cleaner|aspiradora
+vagina|vagina
+van|furgoneta
+varnish|barnizar
+vase|jarrón
+venus|Venus
+verbs collective|verbos
+vertical blinds|cortina de lamas
+vest|camiseta interior
+vice|tornillo de banco
+video camera|videocámara
+video player|reproductor de vídeo
+video tape|cinta de vídeo
+videocassette|videocasete
+vine|vid
+vinegar|vinagre
+visit|visitar
+visitor|visita
+visor|visera
+volcano|volcán
+vomit|vomitar
+vote|votar
+vulture|buitre
+wafer|barquillo
+waffle|gofre
+wag tail|mover la cola
+waistcoat|chaleco
+wait table|servir mesas
+wake up|despertarse
+walk dog|pasear al perro
+walk downstairs|bajar las escaleras
+walk up to|acercarse
+walk upstairs|subir las escaleras
+walking facing right|caminar
+walking frame|andador
+walking stick|bastón
+walkman|walkman
+wall|pared
+wallet|cartera
+walnut|nuez
+walrus|morsa
+waning crescent moon|luna menguante
+waning gibbous moon|luna gibosa menguante
+wardrobe|armario ropero
+warm clothes|ropa de abrigo
+warm fire|fuego calentito
+warning light|luz de aviso
+wash clothes|lavar la ropa
+wash up|fregar los platos
+wash vegetables|lavar la verdura
+washing powder|detergente
+washing up bowl|barreño
+washing up liquid|lavavajillas líquido
+wasp|avispa
+waste paper bin|papelera
+water bowl|cuenco de agua
+water buffalo|búfalo de agua
+water pistol|pistola de agua
+water plants|regar las plantas
+water table|mesa de agua
+water wave|ola
+watering can|regadera
+waterproof|impermeable (no pasa el agua)
+wavy|ondulado
+waxing crescent moon|luna creciente
+waxing gibbous moon|luna gibosa creciente
+weak link|eslabón débil
+wear helmet|llevar casco
+webbed foot|pata palmeada
+webcam|cámara web
+wedding|boda
+weeds|malas hierbas
+weekend|fin de semana
+weigh|pesar
+weigh food|pesar la comida
+weigh person|pesarse
+wellington boots|botas de agua
+west|oeste
+wet|mojado
+wheel|rueda
+wheelbarrow|carretilla de obra
+wheelchair|silla de ruedas (vehículo)
+wheelie bin|cubo de basura con ruedas
+when|cuándo
+which|cuál
+whisk|batir
+whiskers|bigotes
+whisper|susurrar
+white cane|bastón blanco
+white flower|flor blanca
+whiteboard|pizarra blanca
+whole|entero
+why|por qué
+wig|peluca
+wiggle|menearse
+wii|Wii
+wii fit|Wii Fit
+wilted flower|flor marchita
+wind chime|campanillas de viento
+windpipe|tráquea (garganta)
+wine|vino
+wine glass|copa de vino
+wing|ala
+winner|ganador
+wire break|cable roto
+wishbone|espoleta
+witch|bruja
+witches hat|sombrero de bruja
+wood|madera
+wood lathe|torno de madera
+wooden spoon|cuchara de madera
+woodstain|tinte para madera
+wool|lana
+work book|cuaderno de trabajo
+worksheet|ficha
+world|mundo (planeta)
+worm|gusano
+wrap|envolver
+wrapping paper|papel de regalo
+wrench|llave inglesa
+wrestle|luchar
+wrinkled|arrugado
+wrist|muñeca (cuerpo)
+write cheque|hacer un cheque
+write letter|escribir una carta
+wrong thought|idea equivocada
+x-ray|radiografía
+xray|rayos X
+xylophone|xilófono
+yarn|ovillo
+yawn|bostezar
+yen banknote|billete de yen
+yo yo|yoyó
+yorkshire pudding|pudin de Yorkshire
+young|joven
+yule log|tronco de Navidad
+zebra crossing|paso de cebra
+zero|cero
+zip|cremallera

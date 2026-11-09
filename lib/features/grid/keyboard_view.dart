@@ -21,6 +21,10 @@ class KeyboardView extends StatefulWidget {
   /// 'letters': say each letter and each finished word; 'words': only
   /// finished words; 'off'.
   final String typingSpeech;
+
+  /// Show the message big, and saved / recent phrases (optional).
+  final VoidCallback? onShow;
+  final VoidCallback? onPhrases;
   const KeyboardView(
       {super.key,
       required this.predictor,
@@ -30,7 +34,9 @@ class KeyboardView extends StatefulWidget {
       required this.onTextChanged,
       required this.onClose,
       required this.onSpeak,
-      this.typingSpeech = 'letters'});
+      this.typingSpeech = 'letters',
+      this.onShow,
+      this.onPhrases});
   @override
   State<KeyboardView> createState() => _KeyboardViewState();
 }
@@ -52,7 +58,10 @@ class _KeyboardViewState extends State<KeyboardView> {
     super.didUpdateWidget(oldWidget);
     // The message can change outside (e.g. cleared after speaking).
     if (widget.initialText.trimRight() != _text.trimRight()) {
-      _text = widget.initialText;
+      // Changed outside (cleared, or a phrase was added): the next letter
+      // starts a new word.
+      final start = widget.initialText;
+      _text = start.isEmpty || start.endsWith(' ') ? start : '$start ';
     }
   }
 
@@ -163,6 +172,16 @@ class _KeyboardViewState extends State<KeyboardView> {
                 label: 'Speak',
                 onTap: widget.onSpeak,
                 color: const Color(0xFF2E7D32)),
+            if (widget.onPhrases != null)
+              ToolbarButton(
+                  icon: Icons.star_outline,
+                  label: 'Phrases',
+                  onTap: widget.onPhrases),
+            if (widget.onShow != null)
+              ToolbarButton(
+                  icon: Icons.fit_screen,
+                  label: 'Show big',
+                  onTap: _text.trim().isEmpty ? null : widget.onShow),
             ToolbarButton(
                 icon: Icons.clear_all,
                 label: 'Clear',

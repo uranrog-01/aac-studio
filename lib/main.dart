@@ -13,6 +13,7 @@ import 'engine/desktop_native.dart'
 
 import 'engine/arasaac.dart';
 import 'engine/i18n.dart';
+import 'engine/screen_mode.dart';
 import 'engine/prediction.dart';
 import 'engine/settings_controller.dart';
 import 'engine/speech.dart';
@@ -55,6 +56,7 @@ Future<void> _start() async {
   final settings = SettingsController(storage);
   await settings.load();
   await I18n.load(settings.settings.language);
+  await ScreenMode.apply(settings.settings.fullScreen);
 
   final predictor = Predictor();
   await predictor.load();
@@ -133,6 +135,13 @@ class StudioApp extends StatelessWidget {
         builder: (context, _, __) => MaterialApp(
         title: 'AAC Studio',
         debugShowCheckedModeBanner: false,
+        // Arabic and Urdu read right to left.
+        builder: (context, child) => Directionality(
+          textDirection: I18n.language.rightToLeft
+              ? TextDirection.rtl
+              : TextDirection.ltr,
+          child: child!,
+        ),
         theme: ThemeData(
           useMaterial3: true,
           splashFactory: NoSplash.splashFactory,

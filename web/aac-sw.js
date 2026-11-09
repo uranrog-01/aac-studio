@@ -37,6 +37,22 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   const url = new URL(request.url);
   const scope = new URL(self.registration.scope);
+  // Fonts for other scripts (Arabic, Hindi, Chinese, Japanese, Korean...)
+  // come from Google Fonts the first time a language is used; keep them so
+  // that language also works offline afterwards.
+  if (request.method === 'GET' && url.hostname === 'fonts.gstatic.com') {
+    event.respondWith((async () => {
+      const fonts = await caches.open('aac-fonts-v1');
+      const hit = await fonts.match(request);
+      if (hit) return hit;
+      const response = await fetch(request);
+      if (response.ok || response.type === 'opaque') {
+        try { await fonts.put(request, response.clone()); } catch (_) {}
+      }
+      return response;
+    })());
+    return;
+  }
   if (request.method !== 'GET' || url.origin !== scope.origin ||
       !url.pathname.startsWith(scope.pathname)) return;
   event.respondWith((async () => {

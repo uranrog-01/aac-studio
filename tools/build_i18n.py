@@ -40,6 +40,30 @@ def read(path):
     return data
 
 
+def read_extra(path):
+    """Newer app texts, all languages in one file:
+        @ English text
+        sq|translation
+        fr|translation
+    """
+    out = {}
+    english = None
+    if not path.exists():
+        return out
+    for number, raw in enumerate(path.read_text(encoding='utf8').splitlines(), 1):
+        line = raw.strip()
+        if not line or line.startswith('#'):
+            continue
+        if line.startswith('@ '):
+            english = line[2:].strip()
+            continue
+        if english is None or '|' not in line:
+            raise SystemExit(f'{path.name}:{number}: expected "@ English" or "code|text"')
+        code, text = (p.strip() for p in line.split('|', 1))
+        out.setdefault(code, {})[english] = text
+    return out
+
+
 def main():
     sys.stdout.reconfigure(encoding='utf-8')
     pack = json.loads((ROOT / 'assets/sample_pack.json').read_text(encoding='utf8'))
@@ -48,8 +72,10 @@ def main():
     # Letters and numbers are read by the voice in the chosen language.
     labels = {l for l in labels if not (len(l) == 1 or l.isdigit())}
     OUT.mkdir(parents=True, exist_ok=True)
-    for path in sorted(SOURCE.glob('*.txt')):
+    extra = read_extra(SOURCE / '_ui_extra.txt')
+    for path in sorted(p for p in SOURCE.glob('*.txt') if not p.name.startswith('_')):
         data = read(path)
+        data['ui'].update(extra.get(path.stem, {}))
         (OUT / f'{path.stem}.json').write_text(
             json.dumps(data, ensure_ascii=False, sort_keys=True, indent=0) + '\n',
             encoding='utf8')

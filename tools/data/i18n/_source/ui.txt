@@ -1,0 +1,100 @@
+Access
+Add
+Add to message
+Adds a Scan button: tap once for a row, again for a button
+Asian
+Asks for the code before Settings and edit mode
+Back
+Black
+Black background, yellow buttons, bold words
+Blond
+Brown
+Buttons & screen
+Buttons show
+Caregiver
+Choose who speaks, speed and loudness
+Clear
+Clear search
+Clear the message after speaking it
+Click sound
+Copied
+Copy the message
+Dark
+Default
+Delete
+Delete last word
+Each letter and word
+Each word
+Edit buttons, symbols, lock code
+Edit mode
+Find
+Find a word
+Go back to Home after a word
+Gray
+Hair
+High contrast (CVI)
+Hold time
+Hold to select
+Hold to select, switch scanning, extra taps
+Home
+Ignore extra taps for
+Language
+Light
+Lock settings with a code
+Low
+Medium
+Medium dark
+Medium light
+Message bar at the top
+More
+No picture for this word yet. Use Type to write it.
+Nothing here yet
+Off
+Off: words are added silently; tap the message to speak
+Online ARASAAC pictures in search
+Original
+Over picture
+Picture + word
+Picture only
+Pictures, words, contrast
+Pitch
+Press Back 3 times quickly to leave
+Press and hold a button until the circle fills
+Quiet
+Recent words
+Red
+Say each word when tapped
+Say the category name when opened
+Say the last word again
+Scan
+Scan speed
+Select highlighted
+Settings
+Shift
+Skin
+Skin tone for people
+Slow
+Space
+Speak
+Speak message
+Speak while typing (Type)
+Speaking, going home, vibration
+Speed
+Stay in the app
+Stop scan
+Switch scanning
+Tap any button to change it
+Tap symbols to build a message
+Type
+Type part of a word, like "app" for apple. Tap a picture to say it.
+Type your message
+Under picture
+Vibrate
+Voice
+Volume
+When a button is tapped
+White
+Word only
+Word position
+Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.
+category

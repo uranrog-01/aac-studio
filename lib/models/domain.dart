@@ -165,7 +165,12 @@ class VocabButton {
   });
 
   /// The label in the chosen app language (the board keeps English).
-  String get shownLabel => I18n.word(label);
+  String get shownLabel =>
+      // Letters and numbers stay as they are (the letter "I" is not the
+      // word "I"); the voice reads them in the chosen language.
+      wordClass == WordClass.letter || wordClass == WordClass.number
+          ? label
+          : I18n.word(label);
 
   String get speakText =>
       (spokenText != null && spokenText!.isNotEmpty) ? spokenText! : shownLabel;

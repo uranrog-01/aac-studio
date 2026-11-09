@@ -12,5 +12,9 @@ import UIKit
 
   func didInitializeImplicitFlutterEngine(_ engineBridge: FlutterImplicitEngineBridge) {
     GeneratedPluginRegistrant.register(with: engineBridge.pluginRegistry)
+    // Speech into phone and FaceTime calls (see CallSpeech.swift).
+    if let registrar = engineBridge.pluginRegistry.registrar(forPlugin: "CallSpeech") {
+      CallSpeech.shared.register(with: registrar.messenger())
+    }
   }
 }

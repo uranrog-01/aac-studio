@@ -14,6 +14,7 @@ import '../../models/domain.dart';
 import '../settings/settings_sheet.dart';
 import 'keyboard_view.dart';
 import 'message_bar.dart';
+import 'phrases.dart';
 import 'word_search_view.dart';
 
 /// P0/P2 behavior flags read from settings at tap time.
@@ -198,10 +199,18 @@ class GridSession extends ChangeNotifier {
     }
   }
 
+  /// The last spoken messages, newest first (Phrases > Recent messages).
+  final List<String> recentMessages = [];
+
   void _speakMessage(TapFlags? f) {
     if (_message.trim().isEmpty) return;
     speech.speak(_message);
     lastSpoken = _message;
+    final said = _message.trim();
+    recentMessages
+      ..remove(said)
+      ..insert(0, said);
+    if (recentMessages.length > 10) recentMessages.removeLast();
     if (f?.clearOnSpeak ?? false) {
       _message = '';
       _pieces.clear();
@@ -258,6 +267,15 @@ class GridSession extends ChangeNotifier {
     final words = _message.trim().split(' ')..removeWhere((w) => w.isEmpty);
     if (index >= 0 && index < words.length) words.removeAt(index);
     _message = words.join(' ').trim();
+    notifyListeners();
+  }
+
+  /// Adds a saved or recent phrase to the message and says it.
+  void addPhrase(String phrase) {
+    if (phrase.trim().isEmpty) return;
+    _append(phrase.trim());
+    speech.speak(phrase.trim());
+    lastSpoken = phrase.trim();
     notifyListeners();
   }
 
@@ -531,6 +549,8 @@ class _GridScreenState extends State<GridScreen> {
                 widget.session.speakMessage(flags: _tapFlags(settings)),
             onClose: widget.session.toggleKeyboard,
             typingSpeech: settings.typingSpeech,
+            onShow: () => _showBig(context, settings),
+            onPhrases: () => _openPhrases(context),
           );
         }
         if (widget.session.showSearch) {
@@ -694,6 +714,30 @@ class _GridScreenState extends State<GridScreen> {
     );
   }
 
+  void _showBig(BuildContext context, AppSettings settings) => showBigMessage(
+      context,
+      widget.session.message,
+      () => widget.session.speakMessage(flags: _tapFlags(settings)));
+
+  void _openPhrases(BuildContext context) {
+    final controller = context.read<SettingsController>();
+    PhrasesSheet.show(
+      context,
+      message: widget.session.message,
+      phrases: List.of(controller.settings.phrases),
+      recent: List.of(widget.session.recentMessages),
+      onPick: widget.session.addPhrase,
+      onSave: (phrase) {
+        controller.settings.phrases.insert(0, phrase);
+        controller.update();
+      },
+      onDelete: (phrase) {
+        controller.settings.phrases.remove(phrase);
+        controller.update();
+      },
+    );
+  }
+
   void _showMore(BuildContext context) {
     final session = widget.session;
     final messenger = ScaffoldMessenger.of(context);
@@ -714,6 +758,9 @@ class _GridScreenState extends State<GridScreen> {
       backgroundColor: const Color(0xFF22262D),
       builder: (_) => SafeArea(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
+          item(Icons.star_outline, 'Phrases', () => _openPhrases(context)),
+          item(Icons.fit_screen, 'Show big',
+              () => _showBig(context, context.read<SettingsController>().settings)),
           item(Icons.history, 'Recent words',
               () => session.pushFolder(GridSession.recentsFolderId)),
           item(

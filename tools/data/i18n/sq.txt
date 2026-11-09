@@ -679,3 +679,2433 @@ yucky|bëh
 yummy|shijshëm
 zebra|zebër
 zip coat|mbyll palltën
+1st place medal|medalje ari
+2nd place medal|medalje argjendi
+3rd place medal|medalje bronzi
+abacus|numërator
+above|sipër
+absent|mungon
+accordion|fizarmonikë
+acne spots|puçrra
+acorn|lende
+across|matanë
+activity centre|lodër me aktivitete
+add|mblidh
+admission tickets|bileta hyrjeje
+advent|Adventi
+advent calendar|kalendari i Adventit
+aerial tramway|teleferik
+aerobics dance|aerobi
+aeroplane|aeroplan
+afraid|i frikësuar
+after|pas
+aftershave|locion pas rroje
+against|kundër
+ahead|përpara
+air person|punonjës avioni
+air steward|stjuard
+airplane arrival|mbërritja e avionit
+airplane departure|nisja e avionit
+airways|rrugët e frymëmarrjes
+alembic|alembik
+algebra class|ora e algjebrës
+algebra formula|formulë algjebre
+almond|bajame
+amphora|amforë
+anatomical heart|zemra
+anchor|spirancë
+ankle|kyçi i këmbës
+ant eater|milingonangrënës
+antelope|antilopë
+apple juice|lëng molle
+aquarium|akuarium
+arch lever file|dosje
+archery|qitje me hark
+archery target|shenjë qitjeje
+arm chair|kolltuk
+arms|krahët
+armwrestle|mundje me krahë
+around|përreth
+arrest|arresto
+art|art
+art class|ora e artit
+art room|klasa e artit
+artichoke|angjinare
+articulated lorry|kamion me rimorkio
+artist palette|paletë ngjyrash
+ash wednesday|e Mërkura e Hirit
+ask|pyet
+asparagus|shparg
+assembly|mbledhja e shkollës
+atom|atom
+attract|tërhiq
+aubergine|patëllxhan
+aunt maternal|tezja
+aunt paternal|halla
+auroscope|otoskop
+auto rickshaw|tuk-tuk
+autumn|vjeshtë
+awake|zgjuar
+away|larg
+axe|sëpatë
+baby angel|engjëll i vogël
+baby chick|zogth i vogël
+baby oil|vaj për bebe
+baby powder|pudër për bebe
+back ache|dhimbje shpine
+back garden|oborri i shtëpisë
+backstop|rrjeta mbrojtëse
+backwards|mbrapsht
+badger|baldosë
+badminton|badminton
+badminton racket|raketë badmintoni
+baguette bread|baget
+bake|piq
+baked beans|fasule në salcë domateje
+baker|furrxhi
+baking powder|pluhur pjekjeje
+baking tray|tavë furre
+balance scale|peshore
+ballet shoes|këpucë baleti
+banana bunch|vile bananesh
+bank card|kartë banke
+banquet buffet|bufe
+bap|panine e butë
+bar chart|grafik me shtylla
+barbeque|zgarë
+barber pole|berberi
+base rock|shkëmb
+baseball base|baza e bejsbollit
+baseball bat|shkop bejsbolli
+baseball game|ndeshje bejsbolli
+baseball glove|dorezë bejsbolli
+baseball player|lojtar bejsbolli
+basket|shportë
+basketball ball|top basketbolli
+basketball game|ndeshje basketbolli
+bat|lakuriq nate
+bath|vaskë
+bath animal|laj kafshën
+bath mat|tapet banje
+bathe|bëj banjë
+battery|bateri
+beach bag|çantë plazhi
+beach towel|peshqir plazhi
+beach with umbrella|plazh me çadër
+beads|rruaza
+beak|sqep
+beaker|gotë laboratori
+beanbag|qeskë me kokrra
+beans on toast|fasule me bukë të thekur
+beansprouts|filiza fasule
+beaver|kastor
+bed time|ora e gjumit
+beehive|koshere
+beer|birrë
+beer mug|krigël birre
+bees nest|fole bletësh
+beetroot|panxhar
+before|para
+behind|prapa
+bellhop bell|zile recepsioni
+below|poshtë
+belt|rrip
+bench|stol
+bend|përkulu
+bendy|i përkulshëm
+berry|kokrra mali
+between|midis
+bib|përparëse bebeje
+big wheel|rrota panoramike
+bikini|bikini
+billed cap|kapelë me strehë
+bin bag|qese plehrash
+bin bags|qeset e plehrave
+bingo|tombola
+bingo marker|shënues tombole
+bird bath|ujëtore zogjsh
+bird cage|kafaz zogjsh
+bird feeder|ushqyese zogjsh
+bird seed|farë për zogj
+birthday cake|tortë ditëlindjeje
+birthday card|kartolinë ditëlindjeje
+biscuits|biskota
+bison|bizon
+bite|kafsho
+biting lip|kafshoj buzën
+black cat|mace e zezë
+black nib|stilolaps i zi
+blackboard|dërrasë e zezë
+blackcurrant juice|lëng rrush frëngu
+blackcurrants|rrush frëngu i zi
+bladder|fshikëz
+bladder kidneys|veshkat dhe fshikëza
+blanket chest|arkë batanijesh
+blender drinks|blender
+bless|beko
+blind|i verbër
+blinds|grila
+blink|pulit sytë
+blood pressure|tension
+blouse|bluzë
+blow|fryj
+blow kiss|dërgo një puthje
+blowfish|peshk balonë
+blue book|libër blu
+blusher|ruzh
+boar|derr i egër
+bobble hat|kapelë me xhufkë
+boccia|boçe
+boccia chute|pjerrina e boçes
+body outline|konturi i trupit
+bolt|bulon
+bomb|bombë
+bone|kockë
+bonfire|zjarr i madh
+bonfire night|nata e zjarreve
+book end|mbajtëse librash
+book ends|mbajtëset e librave
+book shelf|raft librash
+bookcase|bibliotekë
+bookmark|shënues faqeje
+bookmark tabs|shënues ngjitës
+boomerang|bumerang
+bootees|këpucë bebeje
+both|të dy
+bottom|fund
+bounce|kërce
+bounce ball|përplas topin
+bouncing ball|top që kërcen
+bouquet|buqetë
+bow|fjongo
+bow tie|papion
+bowler|hedhësi
+bowling|bouling
+bowling ball|top boulingu
+bowling gutter|kanali i boulingut
+bowling pins|kunjat e boulingut
+bowling spare|spare
+bowling strike|rrëzim i plotë
+box|boks
+boxer shorts|brekë boksier
+boxing day|dita pas Krishtlindjes
+boxing glove|dorezë boksi
+bra|sytjena
+bracelet|byzylyk
+branch|degë
+brazil nut|arrë braziliane
+bread crumbs|thërrime buke
+bread roll|panine
+bread slice|fetë buke
+break egg|thyej vezën
+break time|pushimi
+breakfast time|ora e mëngjesit
+brick|tullë
+bricks|tulla
+bridle|fre
+briefcase|çantë dokumentesh
+bright|ndriçimi
+bright room|dhomë e ndriçuar
+bring|sill
+broad beans|bathë
+broken|i thyer
+broken bone|kockë e thyer
+broken chain|zinxhir i këputur
+brooch|karficë
+broom|fshesë
+broomstick|fshesë magjistareje
+brown mushroom|kërpudhë kafe
+brush animal|kreh kafshën
+brussel sprouts|lakër Brukseli
+bubble bath|shkumë banje
+bubble mixture|lëng flluskash
+bubble wand|shkop flluskash
+bubble wrap|najlon me flluska
+bucket|kovë
+buckle|tokëz
+bud|syth
+budgie|papagall i vogël
+buffalo|buall
+build|ndërto
+building construction|kantier ndërtimi
+bulb holder|portollambë
+bullet train|tren i shpejtë
+bullseye|qendra e shenjës
+bumpy|me gunga
+bunk beds|krevat marinari
+burn|djegie
+bus stop|stacion autobusi
+bush|shkurre
+busy|i zënë
+butternut squash|kungull
+cabbage|lakër
+cable tv|televizion kabllor
+cafe|kafene
+cage|kafaz
+cake bar|kek në copë
+cake case|kallëp letre për kek
+cake mix|përzierje për kek
+cake slice|copë torte
+cake tin|tavë keku
+calendar month|muaji
+calf|pulpa e këmbës
+call out|thirr
+camera|aparat fotografik
+camera with flash|aparat me blic
+camp|kamp
+camping|kampim
+can opener|hapëse kanaçesh
+candle|qiri
+candy cane|shkop karameleje
+candy floss|sheqer pambuk
+candy hearts|karamele zemër
+canned food|ushqim konserve
+canoe|kanoe
+cap|kapelë
+car boot|bagazhi
+car bumper|parakolp
+car mechanic|mekanik
+car transporter|kamion për makina
+caravan|karavan
+carbohydrates|karbohidrate
+card|kartolinë
+card file box|kuti skedash
+card index|skedar
+card index dividers|ndarëse skedari
+cardboard|karton
+care assistant|ndihmës kujdestar
+caretaker|portier
+carousel horse|kalë karuseli
+carp streamer|flamur me krap
+carpenter|marangoz
+carpentry saw|sharrë
+carry|mbaj
+carry books|mbaj librat
+cart|karrocë
+carton|kuti lëngu
+cartwheeling|bëj rrotën
+carve meat|pres mishin
+carve wood|gdhend drurin
+cash point|bankomat
+cashew|shqeme
+casserole|tenxhere
+cassette tape|kasetë
+castor sugar|sheqer i imët
+cat bed|shtrat mace
+cat biscuits|ushqim i thatë për mace
+cat food|ushqim për mace
+catch|kap
+catherine wheel|rrotë fishekzjarri
+cauliflower|lulelakër
+cctv|kamerë sigurie
+ceiling|tavan
+ceiling light|llambë tavani
+celebrate|festo
+celebrate birthday|festo ditëlindjen
+celebration|festë
+celeriac|rrënjë selinoje
+celery|selino
+cement mixer|betonierë
+centipede|qindkëmbësh
+cereal|drithëra
+cereal bowl|tas drithërash
+cereal bran|drithëra me krunde
+cereal museli|musli
+certificate|certifikatë
+chains|zinxhirë
+chaise lounge|shezlong
+chalk|shkumës
+chameleon|kameleon
+champagne|shampanjë
+chandelier|llambadar
+change|ndrysho
+change clothes|ndërro rrobat
+change mind|ndrysho mendje
+change nappy|ndërro pelenën
+change tv channel|ndërro kanalin
+channel bbc|BBC
+chapatti|çapati
+charge|kariko
+chart decreasing|grafik në rënie
+chart increasing|grafik në rritje
+chase|ndiq
+cheat|bëj hile
+cheek|faqe
+cheese burger|çizburger
+cheese slices|feta djathi
+cheetah|gepard
+cheque book|libër çeqesh
+cherry blossom|lule qershie
+chess pawn|ushtar shahu
+chest of drawers|komo
+chestnut|gështenjë
+chestnuts|gështenja
+chew|përtyp
+chewing gum|çamçakëz
+chewy tube|tub për përtypje
+chick|zogth
+chicken breast|gjoks pule
+chicken house|kotec
+chicken leg|kofshë pule
+chicken nuggets|nuggets pule
+chicken pieces|copa pule
+chicken run|oborr pulash
+childrens tv|emisione për fëmijë
+chilli pepper|spec djegës
+chimney|oxhak
+chimpanzee|shimpanze
+chin|mjekër
+chinese cabbage|lakër kineze
+chinese food|ushqim kinez
+chip and pin device|POS
+chipmunk|ketër i vogël
+chips|patate të skuqura
+chips packet|çips
+chisel|daltë
+chocolate box|kuti çokollatash
+chocolate chips|copëza çokollate
+chocolate egg|vezë çokollate
+chocolate log|rolé çokollate
+choke|mbytem
+chop|copëto
+chop wood|çaj dru
+chopping board|dërrasë kuzhine
+christian|i krishterë
+christmas|Krishtlindje
+christmas bauble|top për bredhin
+christmas bell|zile Krishtlindjesh
+christmas cake|tortë Krishtlindjesh
+christmas day|dita e Krishtlindjes
+christmas decorations|stolitë e Krishtlindjes
+christmas eve|nata e Krishtlindjes
+christmas lights|dritat e Krishtlindjes
+christmas pudding|puding Krishtlindjesh
+christmas sock|çorapja e Krishtlindjes
+christmas tree|bredhi i Krishtlindjes
+christmas wreath|kurorë Krishtlindjesh
+cigarette|cigare
+circle|rreth
+circle time|koha e rrethit
+circuit|qark elektrik
+circus tent|tenda e cirkut
+cityscape|qyteti
+cityscape at dusk|qyteti në muzg
+clamp|morsë
+clap hands|duartrokit
+clapper board|klaketë
+class room|klasa
+classical building|ndërtesë klasike
+claw|kthetër
+clay|baltë
+clean dishes|enë të pastra
+clean hands|duar të pastra
+clean room|dhomë e pastër
+clean shoes|pastro këpucët
+clean window|pastro dritaren
+cleaner|pastruese
+cleaner spray|sprej pastrimi
+cleaning box|kuti pastrimi
+clear|i tejdukshëm
+climb down|zbrit
+climb tree|ngjitu në pemë
+climb up|ngjitu
+climbing|ngjitje
+climbing rock|shkëmb ngjitjeje
+climbing wall|mur ngjitjeje
+clingfilm|najlon ushqimi
+clinking beer mugs|gëzuar me birrë
+clinking glasses|gëzuar
+clip nails|pres thonjtë
+clipboard|dosje me kapëse
+clock radio|radio me orë
+close door|mbyll derën
+close to|afër
+closed|mbyllur
+closed book|libër i mbyllur
+closed shop|dyqan i mbyllur
+closed umbrella|çadër e mbyllur
+clothes hanger|varëse rrobash
+clothes peg|kapëse rrobash
+cloud with lightning|re me vetëtimë
+cloudy|me re
+club suit|spathi
+clutch bag|çantë dore
+coach|autobus udhëtimi
+coated spoon|lugë e butë
+cockatiel|papagall kokatil
+cockerel|gjel
+cockroach|kacabu
+cocktail glass|gotë kokteji
+coffee|kafe
+coffee maker|makinë kafeje
+coffee table|tavolinë e vogël
+coin|monedhë
+colander|kullesë
+collar|jakë
+collect|mblidh
+colour|ngjyrë
+coloured paper|letër me ngjyra
+colouring book|libër ngjyrosjeje
+comb|krehër
+comb animal|kreh kafshën me krehër
+come|eja
+comedy tv|emision komik
+comet|kometë
+communicate|komuniko
+compass|busull
+computer art|vizatim në kompjuter
+computer cable|kabllo kompjuteri
+computer disk|disk kompjuteri
+computer game|lojë kompjuterike
+computer keyboard|tastierë
+computer monitor|ekran
+computer mouse|maus
+computer programme|program kompjuterik
+computer speaker|altoparlant
+concentrating|i përqendruar
+confetti ball|top me konfeti
+conical flask|balonë konike
+connection|lidhje
+construction|ndërtim
+control knobs|butona
+cooker|sobë
+cooking oil|vaj gatimi
+coral|koral
+corned beef|mish viçi i konservuar
+corner cabinet|dollap qoshe
+cornet|kaush akulloreje
+cornflakes|kornfleks
+correct|e saktë
+correct thought|mendim i saktë
+cot|krevat bebeje
+cottage cheese|gjizë
+cotton bud|shkop veshësh
+counters|fisha
+courgette|kungull i njomë
+cover food|mbulo ushqimin
+cow shed|stallë lopësh
+cracker|kraker Krishtlindjesh
+craft table|tavolinë punëdoreje
+cranberries|boronica të kuqe
+cranberry juice|lëng boronice të kuqe
+crane|vinç
+crane fly|mushkonjë e madhe
+crawl|zvarrit
+crayon|lapustil
+cream|krem
+credit card|kartë krediti
+creme fraiche|krem qumështi
+cricket ball|top kriketi
+cricket bowler|hedhës kriketi
+cricket game|ndeshje kriketi
+crisp bread|bukë krokante
+crisps|çips
+crocodile|krokodil
+crooked|i shtrembër
+cross|kryq
+cross fingers|kryqëzo gishtat
+crossed swords|shpata të kryqëzuara
+crouch|ulu në gjunjë
+crown of thorns|kurorë me gjemba
+crucifixion|kryqëzimi
+cruiser|anije lundruese
+crumple paper|rrudh letrën
+crunchy|krokant
+crush|shtyp
+crush garlic|shtyp hudhrën
+crutch|patericë
+crutches|paterica
+crystal ball|top kristali
+cupboard|dollap
+curling stone|gur kurlingu
+curly|kaçurrel
+curly hair|flokë kaçurrela
+currants|rrush i thatë
+curry|kerri
+curry rice|oriz me kerri
+curtains|perde
+cushion|jastëk
+cut and paste|prit dhe ngjit
+cut with scissors|prit me gërshërë
+cycle|ngas biçikletën
+cyclone|ciklon
+cymbals hand|pjata muzikore
+daffodil|narcis
+dagger|kamë
+dairy products|bulmetra
+daisy|luleshqerrë
+dango|dango
+danish pastry|ëmbëlsirë daneze
+darts|shigjeta
+dates|hurma
+daughter|vajza
+daydream|ëndërro me sy hapur
+dead|i vdekur
+dead plant|bimë e tharë
+decorate|lyej
+decorate cake|zbukuro tortën
+decorate tree|zbukuro pemën
+deep|i thellë
+deep fat fryer|fritezë
+deer|dre
+delicious drink|pije e shijshme
+delicious food|ushqim i shijshëm
+deliver|dërgo
+delivery person|postier
+delivery trolley|karrocë transporti
+dental floss|fill dentar
+dentist|dentist
+deodorant|deodorant
+deodorant spray|deodorant sprej
+department store|qendër tregtare
+derelict house|shtëpi e braktisur
+desert|shkretëtirë
+desert island|ishull i shkretë
+desiring|dëshiroj
+desk|tavolinë pune
+desktop computer|kompjuter
+dessert|ëmbëlsirë
+dessert menu|menuja e ëmbëlsirave
+detective|detektiv
+dial|çelës rrotullues
+diamond|romb
+diamond suit|karo
+dictionary|fjalor
+die|vdis
+dig|gërmo
+dining table|tavolinë ngrënieje
+dinner lady|kuzhinierja e shkollës
+dinner time|ora e darkës
+dinosaur|dinosaur
+dip food|ngjyej ushqimin
+dirty|i pistë
+dirty dishes|enë të pista
+disabled toilet|tualet për persona me aftësi të kufizuara
+disgusted|i neveritur
+dish|pjatë
+dish cloth|leckë enësh
+dishes|enët
+dishwasher|pjatalarëse
+dishwasher powder|detergjent pjatalarëseje
+dive|zhytu
+divide|pjesëto
+diving mask|maskë zhytjeje
+diya lamp|llambë diya
+dna|ADN
+dodo|dodo
+dog basket|shportë qeni
+dog bed|shtrat qeni
+dog biscuits|biskota për qen
+dog chew|kockë për qen
+dog coat|pallto qeni
+dog food|ushqim për qen
+dog kennel|kolibe qeni
+doidy cup|gotë Doidy
+doll|kukull
+dollar banknote|kartëmonedhë dollari
+donkey|gomar
+double bed|krevat dopio
+doughnut|petull
+dove|pëllumb
+dragon|dragua
+dragonfly|pilivesë
+draining board|kulluese enësh
+drama|teatër
+drama class|ora e teatrit
+drawer|sirtar
+drawing pin|pineskë
+dream|ëndërro
+dresser|bufe
+dressing gown|rrobë dhome
+dressing table|tualetë
+dribble football|drible me top
+drill bit|majë shpuese
+drink consistency firm spoon|pije e trashë me lugë
+drink consistency honey cup|pije e trashë si mjaltë
+drink consistency juice straw|pije e hollë me kashtë
+drinking glass|gotë
+drip|pikë
+drive|ngas makinën
+drop of blood|pikë gjaku
+dropper pipette|pikatore
+drown|mbytem në ujë
+drumsticks|shkopinj daulleje
+dry|i thatë
+dry hair|thaj flokët
+dumper truck|kamion vetëshkarkues
+dust|fshi pluhurin
+dvd|DVD
+dvd player|aparat DVD
+dysphagia cup|gotë për disfagi
+e-mail|email
+ear muffs|mbrojtëse veshësh
+earrings|vathë
+earth|Toka
+earth crust|korja e Tokës
+earth inner core|bërthama e brendshme e Tokës
+earth mantle|manteli i Tokës
+earth outer core|bërthama e jashtme e Tokës
+earths atmosphere|atmosfera e Tokës
+earthworm|krimb toke
+earwig|gërshërëz
+east|lindje
+easter egg|vezë Pashke
+easter egg hunt|gjueti vezësh të Pashkës
+egg cup|mbajtëse veze
+egg on toast|vezë me bukë të thekur
+egg white|e bardha e vezës
+egg yolk|e verdha e vezës
+eggs|vezë
+eight|tetë
+eighteen|tetëmbëdhjetë
+eighth|i teti
+eighty|tetëdhjetë
+either|njëri ose tjetri
+elbow|bërryl
+elearning|mësim online
+electric plug|prizë
+elevator|ashensor
+eleven|njëmbëdhjetë
+elf|kukudh
+emagazine|revistë online
+emery board|limë thonjsh
+empty|bosh
+empty nest|fole bosh
+energy monitor|matës energjie
+engine|motor
+english|anglisht
+english class|ora e anglishtes
+enough|mjafton
+enter|hyr
+enter door|hyr nga dera
+envelope|zarf
+escalator|shkallë lëvizëse
+escape|ik
+euro banknote|kartëmonedhë euro
+even|i rrafshët
+every|çdo
+ewe|dele
+exercise|ushtrime
+exit|dalja
+exit door|dil nga dera
+extension lead|zgjatues
+extra|shtesë
+extra large|shumë i madh
+eye|sy
+eye drops|pika për sy
+eye shadow|hije sysh
+eyebrow|vetull
+eyebrow pencil|laps vetullash
+eyelash|qerpik
+eyelash curler|kaçurrelëse qerpikësh
+fabric|pëlhurë
+factory worker|punëtor fabrike
+fairy|zanë
+falafel|falafel
+fall off|bie poshtë
+fall over|rrëzohem
+fallen leaf|gjethe e rënë
+family|familja
+fancy|elegant
+fangs|dhëmbë të mprehtë
+fast|shpejt
+fasten|lidh
+fat|i shëndoshë
+father christmas|Babagjyshi i Vitit të Ri
+father christmas sack|thesi i Babagjyshit
+fats|yndyrna
+favourite|i preferuar
+fax machine|faks
+feather|pupël
+feed cat|ushqe macen
+feed dog|ushqe qenin
+feed someone|ushqe dikë
+feeding baby|ushqe foshnjën
+feet|këmbët
+felt tips|flomastera
+female body|trupi i femrës
+fencing|skermë
+fennel|maraq
+ferret|qelbës
+ferris wheel|rrota panoramike e lunaparkut
+ferry|traget
+fibre optic lamp|llambë me fije optike
+field|fushë
+field hockey|hokej në fushë
+fifteen|pesëmbëdhjetë
+fifty|pesëdhjetë
+fifty percent|pesëdhjetë për qind
+fight|grindu
+file|limë
+file cabinet|dollap dosjesh
+file folder|dosje
+file metal|limo metalin
+file nails|limo thonjtë
+file wood|limo drurin
+filing cabinet|dollap dokumentesh
+fill|mbush
+film frames|shirit filmi
+film projector|projektor filmash
+filter paper|letër filtri
+fin|pendë
+find|gjej
+finger painting|pikturë me gishta
+finger puppet|kukull gishti
+fingernail|thua
+fingernails|thonjtë
+fingers|gishtat
+finish|fundi
+fir tree|bredh
+fire|zjarr
+fire extinguisher|fikës zjarri
+fire helmet|helmetë zjarrfikësi
+fire hose|zorrë zjarri
+firecracker|fishekzjarr
+fireplace|oxhak shtëpie
+fireworks|fishekzjarre
+first|i pari
+first aid box|kuti e ndihmës së parë
+first base|baza e parë
+first quarter moon|çereku i parë i hënës
+fish and chips|peshk me patate
+fish burger|burger me peshk
+fish food|ushqim për peshq
+fish tank|akuarium peshqish
+fishing pole|kallam peshkimi
+fist|grusht
+five|pesë
+flame|flakë
+flannel|peshqir fytyre
+flashlight|elektrik dore
+flat|i sheshtë
+flat shoe|këpucë e sheshtë
+flat tyre|gomë e shpuar
+flatbread|bukë e sheshtë
+flatscreen tv|televizor me ekran të sheshtë
+flexed biceps|muskuj
+flip|kthe nga ana tjetër
+flip coin|hidh monedhën
+flipper|pendë noti
+float|pluskon
+floor|dysheme
+floppy disk|disketë
+florist|luleshitës
+flour plain|miell
+flower playing cards|letra me lule
+flush toilet|tërhiq ujin
+fly|mizë
+flying disc|frisbi
+flying saucer|disk fluturues
+fog|mjegull
+foggy|me mjegull
+folding hand fan|freskore
+fondue|fondu
+food|ushqim
+food blender|mikser ushqimi
+food cold|ushqim i ftohtë
+food hot|ushqim i nxehtë
+football kit arsenal|fanella Arsenal
+football kit aston villa|fanella Aston Villa
+football kit barnsley|fanella Barnsley
+football kit birmingham|fanella Birmingham
+football kit blackburn rovers|fanella Blackburn Rovers
+football kit blackpool|fanella Blackpool
+football kit blank|fanellë futbolli
+football kit bolton wanderers|fanella Bolton Wanderers
+football kit bristol city|fanella Bristol City
+football kit burnley|fanella Burnley
+football kit cardiff|fanella Cardiff
+football kit chelsea|fanella Chelsea
+football kit coventry|fanella Coventry
+football kit crystal palace|fanella Crystal Palace
+football kit derby|fanella Derby
+football kit doncaster|fanella Doncaster
+football kit everton|fanella Everton
+football kit fulham|fanella Fulham
+football kit hull city|fanella Hull City
+football kit ipswich|fanella Ipswich
+football kit leicester|fanella Leicester
+football kit liverpool|fanella Liverpool
+football kit manchester city|fanella Manchester City
+football kit manchester united|fanella Manchester United
+football kit middlesbrough|fanella Middlesbrough
+football kit newcastle united|fanella Newcastle United
+football kit nottingham forest|fanella Nottingham Forest
+football kit peterborough|fanella Peterborough
+football kit plymouth argyle|fanella Plymouth Argyle
+football kit portsmouth|fanella Portsmouth
+football kit preston|fanella Preston
+football kit qpr|fanella QPR
+football kit reading|fanella Reading
+football kit scunthorpe|fanella Scunthorpe
+football kit sheffield united|fanella Sheffield United
+football kit sheffield weds|fanella Sheffield Wednesday
+football kit spurs|fanella Spurs
+football kit stoke city|fanella Stoke City
+football kit sunderland|fanella Sunderland
+football kit swansea|fanella Swansea
+football kit watford|fanella Watford
+football kit west bromwich|fanella West Bromwich
+football kit west ham united|fanella West Ham United
+football kit wigan athletic|fanella Wigan Athletic
+football kit wolves|fanella Wolves
+forearm|parakrah
+fork|pirun
+fork lift truck|pirun ngritës
+fortune cookie|biskotë fati
+forty|dyzet
+forward|përpara
+forwards|para
+fountain pen|stilograf
+four|katër
+fourteen|katërmbëdhjetë
+framed picture|pikturë në kornizë
+frankincense|temjan
+freckles|pika në fytyrë
+freezer|ngrirës
+french stick|baget franceze
+friction|fërkim
+fried breakfast|mëngjes i skuqur
+fried shrimp|karkaleca të skuqura
+frog|bretkosë
+fromage frais|gjizë e butë
+front|përpara
+front door|dera e hyrjes
+front-facing baby chick|zogth përballë
+frozen chips|patate të ngrira
+frozen fish fingers|shkopinj peshku të ngrirë
+frozen food box|kuti ushqimi të ngrirë
+frozen pizza|pica e ngrirë
+fruit|frutë
+fruit tree|pemë frutore
+fry|skuq
+frying pan|tigan
+fuel pump|pompë karburanti
+full|plot
+full moon|hënë e plotë
+funnel|hinkë
+funny laugh|e qeshur
+furniture|mobilje
+future|e ardhmja
+fuzzy|me push
+garden clippers|gërshërë kopshti
+gardener|kopshtar
+garlic bread|bukë me hudhër
+garlic crusher|shtypëse hudhre
+gear|ingranazh
+gem stone|gur i çmuar
+geography|gjeografi
+geography class|ora e gjeografisë
+get|merr
+get off bus|zbrit nga autobusi
+get on bus|hip në autobus
+get out of chair|ngrihu nga karrigia
+get up|ngrihu
+ghost|fantazmë
+ginger root|xhenxhefil
+give up cake|hiq dorë nga torta
+give up foods|hiq dorë nga ushqimet
+glass|xham
+glitter|shkëlqim
+globe|glob
+globe with meridians|glob me meridianë
+glowing star|yll që shkëlqen
+glue stick|ngjitës stik
+gnat|mushicë
+go in|hyr brenda
+go out|dil
+go outside|dil jashtë
+go through door|kalo nga dera
+go to the toilet|shko në tualet
+goal|gol
+goal net|rrjeta e portës
+goat|dhi
+goggles|syze noti
+gold bar|shufër ari
+goldfish|peshk i kuq
+goldfish bowl|enë peshku
+golf|golf
+golf club|shkop golfi
+golfing|luaj golf
+good person|njeri i mirë
+good to drink|mirë për të pirë
+good to eat|mirë për të ngrënë
+goose|patë
+goose roast|patë e pjekur
+grab|kap
+graduation cap|kapelë diplomimi
+grains|kokrra drithi
+grandfather|gjyshi
+grandmother|gjyshja
+grandparents|gjyshërit
+grape juice|lëng rrushi
+grapefruit juice|lëng grejpfruti
+graph column|kolonë grafiku
+grass|bar
+grate|grij
+grater|rende
+gravity|graviteti
+gravy boat|salcierë
+great|shumë mirë
+green beans|fasule të njoma
+green book|libër jeshil
+greengrocer|shitës perimesh
+grill|piq në skarë
+grill pan|tigan skare
+ground|dheu
+group work|punë në grup
+grow|rritet
+grow hair|rriten flokët
+guard|roje
+guess|gjej me mend
+guide dog|qen udhërrëfyes
+guinea pig|kavje
+gum|mishi i dhëmbëve
+guy|kukulla e Guy Fawkes
+guy fawkes|Guy Fawkes
+gym|palestër
+hair bunches|bishtaleca
+hair conditioner|balsam flokësh
+hair curler|bigudi
+hair curling tongs|kaçurrelëse flokësh
+hair dye|bojë flokësh
+hair pick|krehër afro
+hair plaits|gërsheta
+hair ponytail|bisht kali
+hairbrush|furçë flokësh
+haircut|qeth flokët
+hairdryer|tharëse flokësh
+hairspray|llak flokësh
+half|gjysmë
+halloween|Halloween
+ham|proshutë e zier
+ham packet|pako proshute
+hamburger|hamburger
+hamburger carton|kuti hamburgeri
+hammer|çekiç
+hammer and pick|çekiç dhe kazmë
+hammer and wrench|çekiç dhe çelës
+hamster|hamster
+hamster food|ushqim për hamster
+hamster maze|labirint hamsteri
+hand bag|çantë dore
+hand cream|krem duarsh
+hand mixer|mikser dore
+hand punch|shpuese letre
+handbag|çantë grash
+handcuffs|pranga
+handle bars|timoni i biçikletës
+handsome|i pashëm
+hang|var
+hang coat|var palltën
+hangar|hangar
+hangul syllable bbegs|rrokje koreane
+hangul syllable jjwaelm|shkronjë koreane
+hankerchief|shami
+hard|i fortë
+hard hat|helmetë pune
+hare|lepur i egër
+harvest|korrje
+harvest festival|festa e korrjes
+hat too big|kapelë shumë e madhe
+hatch|çel
+hatching chick|zogth që çel
+haunted house|shtëpi me fantazma
+hazelnut|lajthi
+head teacher|drejtori
+headache|dhimbje koke
+headband|rrip flokësh
+headboard|koka e krevatit
+headlamp|fener
+healthy|i shëndetshëm
+hear|dëgjo
+hearing aid|aparat dëgjimi
+heart|zemër
+heart shape|formë zemre
+heart suit|kupa
+heat|ngroh
+heavy|i rëndë
+hedge|gardh me shkurre
+hedge cutters|gërshërë gardhi
+hedgehog|iriq
+heel|thembër
+heel of shoe|takë
+hello|përshëndetje
+helmet|helmetë
+heptagon|shtatëkëndësh
+herb|erëz
+heron|çafkë
+hexagon|gjashtëkëndësh
+hibiscus|hibisk
+high|lart
+high chair|karrige e lartë
+high voltage|tension i lartë
+high-heeled shoe|këpucë me takë
+high-speed train|tren i shpejtë
+highest|më i larti
+hike|ecje në mal
+hindu temple|tempull hindu
+hip|ijë
+hippopotamus|hipopotam
+hips|ijët
+history|histori
+history class|ora e historisë
+hit|godit
+hit something|godit diçka
+hoe|shat
+hoist|ngritës
+hold|mbaj
+hold hands|mbaj për dore
+hold sledge hammer|mbaj varrën
+holdall|çantë udhëtimi
+hole punch|shpuese
+hollow|bosh përbrenda
+holly|ashe
+hooded top|bluzë me kapuç
+hoof|thundër
+hook|grep
+hoover|fshi me fshesë elektrike
+hop|kërce me një këmbë
+horns|brirë
+horse racing|gara me kuaj
+hose|zorrë uji
+hot air balloon|balonë me ajër
+hot brush|furçë me ajër të nxehtë
+hot pepper|spec djegës i kuq
+hot person|kam vapë
+hot springs|burime të nxehta
+hourglass done|koha mbaroi
+house|shtëpi
+houses|shtëpi të shumta
+how|si
+how many|sa
+hundred|njëqind
+hunt|gjuaj
+hut|kasolle
+hyacinth|zymbyl
+ice cream tub|kuti akulloreje
+ice hockey|hokej mbi akull
+ice lolly|akullore me shkop
+ice skate|patina
+in|në
+in front|para
+inbox tray|tabaka e letrave
+incoming envelope|letër e ardhur
+index cards|skeda
+ingredients|përbërës
+inhaler|inhalator
+inside out|së prapthi
+inside room|brenda dhomës
+intestine|zorrë
+iphone|iPhone
+ipod|iPod
+iron|hekur rrobash
+ironing board|tryezë hekurosjeje
+is this enough|mjafton kjo?
+it assistant|teknik kompjuteri
+it class|ora e informatikës
+it room|klasa e informatikës
+itch|më kruhet
+ivy|urth
+jack in box|kuti me surprizë
+jack-o-lantern|kungull Halloween
+jacket|xhaketë
+jacket potato|patate e pjekur me lëkurë
+jam|reçel
+jam tart|tartë me reçel
+jar|kavanoz
+jealous|xheloz
+jeep|xhip
+jelly|pelte
+jelly beans|karamele xhelatine
+jet plane|avion reaktiv
+jewellery|stoli
+jigsaw puzzle|puzzle
+jigsaw puzzle piece|copë puzzle
+jog|vrapo lehtë
+join|bashko
+joker|xhoker
+judge|gjykatës
+judo|xhudo
+judo belt|rrip xhudoje
+juggling|xhonglim
+jump|kërce
+jumper|triko
+jungle gym|kënd lojërash për t'u ngjitur
+jupiter|Jupiteri
+kaaba|Qabeja
+kebab|qebap
+kennel|kolibe
+kettle|ibrik
+keyboard|tastierë
+kick ball|gjuaj topin
+kick person|shkelmo
+kick scooter|patinetë
+kick swimming|lëviz këmbët në ujë
+kidneys|veshkat
+kill|vrit
+killer whale|balenë vrasëse
+kimono|kimono
+kitchen knife|thikë kuzhine
+kneeling|në gjunjë
+kneeling facing right|në gjunjë nga e djathta
+knickers|brekë
+knife|thikë
+knit|thur
+knock|trokit
+knock down|rrëzo
+knot|nyjë
+koala|koala
+koosh ball|top me fije
+lab coat|përparëse laboratori
+label|etiketë
+labels|etiketa
+lacrosse|lakros
+ladder|shkallë
+ladies toilet|tualeti i grave
+ladle|garuzhdë
+lager|birrë e lehtë
+lamb|qengj
+lampshade|abazhur
+lantern|fener
+laptop|laptop
+large|i madh
+lasagne|lazanja
+last|i fundit
+last month|muaji i kaluar
+last quarter moon|çereku i fundit i hënës
+last supper|Darka e Fundit
+laundry basket|kosh rrobash
+lava lamp|llambë lave
+lawnmower|kositëse bari
+lead|rrip qeni
+leaves|gjethe
+ledger|regjistër
+leek|presh
+left|majtas
+left click|kliko majtas
+left hand|dora e majtë
+leg warmers|getra
+lego|Lego
+legs|këmbët
+lemon squash|lëng limoni
+lemonade|limonadë
+lens|lente
+lent|Kreshmët
+lentils|thjerrëza
+leopard|leopard
+letter|letër
+level slider|rrëshqitës volumi
+lid|kapak
+lie on back|shtrihu në shpinë
+lift|ashensor
+lifting weights|ngritje peshash
+light|i lehtë
+light bulb|llambë
+light rail|tramvaj
+lightbulb|llambë ndriçimi
+lily|zambak
+link|hallkë
+linked paperclips|kapëse letrash të lidhura
+lip balm|balsam buzësh
+lips|buzët
+lipstick|buzëkuq
+liquid soap|sapun i lëngshëm
+little|pak
+lizard|hardhucë
+llama|lamë
+locked|i kyçur
+locked with key|kyçur me çelës
+locked with pen|kyçur me stilolaps
+locker|dollap personal
+locomotive|lokomotivë
+log|trung
+long|i gjatë
+long drum|daulle e gjatë
+long hair|flokë të gjatë
+long johns|të brendshme të gjata
+look in mirror|shiko në pasqyrë
+lorry|kamion
+lost|i humbur
+lotion|krem trupi
+lotion bottle|shishe kremi
+lots more|shumë më tepër
+lotus|lotus
+loud|me zë të lartë
+love hotel|hotel
+low battery|bateri e ulët
+low fat|me pak yndyrë
+lowest|më i ulëti
+lucky|me fat
+luggage|bagazh
+lump|gungë
+lunch box|kuti dreke
+lunch time|ora e drekës
+lungs|mushkëritë
+macadamias|arra makadamia
+macaroni|makarona
+macaroni cheese|makarona me djathë
+magnet|magnet
+magnetic|magnetik
+mahjong red dragon|dragoi i kuq i mahjongut
+main course|pjata kryesore
+mains socket|prizë muri
+make the bed|rregullo krevatin
+make up|grim
+male body|trupi i mashkullit
+mammoth|mamuth
+mange tout|bizele të ëmbla
+manger|grazhd
+mantelpiece clock|orë oxhaku
+manual wheelchair|karrige me rrota
+maple leaf|gjethe panje
+maracas|marakas
+marbles|bilia
+margarine|margarinë
+marmite|Marmite
+married|i martuar
+marrow|kungull
+mars|Marsi
+marshmallows|marshmallow
+martial arts uniform|uniformë arte marciale
+mascara|rimel
+mash|shtyp
+mash potato|pure patatesh
+masher|shtypëse patatesh
+masking tape|shirit ngjitës letre
+mate|çaj mate
+maths|matematikë
+maths class|ora e matematikës
+mauve|vjollcë e çelur
+mayonnaise|majonezë
+measuring cups|gota matëse
+measuring jug|enë matëse
+measuring spoons|lugë matëse
+meat on bone|mish me kockë
+meatballs and spaghetti|spageti me qofte
+mechanical arm|krah protezë
+mechanical leg|këmbë protezë
+medicine cabinet|dollap ilaçesh
+meet|takohu
+melt|shkri
+melted cheese on toast|bukë e thekur me djathë
+memo|shënim
+memory card|kartë memorie
+mend|rregullo
+mens toilet|tualeti i burrave
+menu|menu
+mercury|Mërkuri
+meringues|beze
+merry go round|karusel
+messy clothes|rroba të çrregullta
+messy room|dhomë e çrregullt
+metro|metro
+microbe|mikrob
+microscope|mikroskop
+microwave|mikrovalë
+middle|në mes
+military helmet|helmetë ushtarake
+military medal|medalje ushtarake
+milk bottle|shishe qumështi
+milk carton|kuti qumështi
+milk litre|litër qumësht
+milk person|qumështor
+milkshake|milkshake
+milky way|Rruga e Qumështit
+mince pie|ëmbëlsirë me fruta të thata
+minced meat|mish i grirë
+mini bus|minibus
+minibus|furgon
+mints|karamele mente
+minute|minutë
+mirror ball|top me pasqyra
+miss bus|humb autobusin
+mistletoe|veshtull
+mittens|doreza pa gishta
+mixer|mikser
+mobile phone|celular
+mobile phone camera|kamera e celularit
+mobile phone case|këllëf celulari
+mobile phone cover|mbulesë celulari
+mobile phone number|numri i celularit
+mobile phone ring tone|zilja e celularit
+mobile phone silent|celular pa zë
+mobile phone text message|mesazh
+mobile phone video|video në celular
+mole|nishan
+money|para
+money bag|qese parash
+money with wings|para që fluturojnë
+monorail|monorail
+monster|përbindësh
+moon|hëna
+moon cake|kek hëne
+moon viewing ceremony|festa e hënës
+moose|dre brilopatë
+mop|shtupë
+moped|motoçikletë e vogël
+mosque|xhami
+mosquito|mushkonjë
+most|më së shumti
+moth|molë
+motor boat|motoskaf
+motor home|kamper
+motor scooter|skuter
+motorized wheelchair|karrige elektrike me rrota
+motorway|autostradë
+mountain|mal
+mountain biking|biçikletë në mal
+mountain cableway|teleferik mali
+mountain railway|hekurudhë malore
+mountains|malet
+mouse|mi
+mouse mat|shtroje mausi
+mouse trap|kurth minjsh
+mouthwash|shpëlarës goje
+move|lëviz
+movie camera|kamerë filmi
+muesli|musli
+multi media|multimedia
+multiply|shumëzo
+muscles|muskujt
+music class|ora e muzikës
+music room|klasa e muzikës
+musical instruments|vegla muzikore
+musical keyboard|sintetizator
+musical note|notë muzikore
+musical score|partiturë
+musician|muzikant
+mussel|midhje
+mx claus|Mx Claus
+nail|gozhdë
+nail care|kujdesi për thonjtë
+nail clippers|prerëse thonjsh
+nail file|limë thonjsh metalike
+nail polish|llak thonjsh
+nail polish remover|heqës llaku
+nappy|pelenë
+national park|park kombëtar
+nativity|lindja e Krishtit
+near|afër
+necklace|gjerdan
+necktie|kravatë
+need toilet|më duhet tualeti
+neither|asnjëri
+neptune|Neptuni
+nest|fole
+nest of tables|tavolina të mbivendosura
+nest with eggs|fole me vezë
+new moon|hënë e re
+newspaper|gazetë
+newspaper person|gazetashitës
+next|tjetri
+next month|muaji tjetër
+next week|java tjetër
+night with stars|natë me yje
+nightgown|këmishë nate
+nine|nëntë
+nineteen|nëntëmbëdhjetë
+ninety|nëntëdhjetë
+ninja|ninxha
+no class|nuk ka mësim
+nod|tund kokën po
+noisy|i zhurmshëm
+non permeable|i papërshkueshëm
+non speaking|nuk flet
+north|veri
+north east|verilindje
+north west|veriperëndim
+nosey cup|gotë me prerje
+nostril|vrimë hunde
+notepad|bllok shënimesh
+nut and bolt|dado dhe bulon
+nuts|arra
+oak leaf|gjethe lisi
+occupational therapist|terapist profesional
+octagon|tetëkëndësh
+oden|oden
+off|fikur
+office block|ndërtesë zyrash
+oil drum|fuçi nafte
+old key|çelës i vjetër
+old object|send i vjetër
+old person|plak
+olive oil|vaj ulliri
+olives|ullinj
+olympic games|Lojërat Olimpike
+olympic rings|rrathët olimpikë
+olympic torch|pishtari olimpik
+omelette|omëletë
+on|mbi
+oncoming automobile|makinë që vjen
+oncoming bus|autobus që vjen
+oncoming police car|makinë policie që vjen
+oncoming taxi|taksi që vjen
+one|një
+one hour|një orë
+one third|një e treta
+onion rings|rrathë qepe
+opaque|i patejdukshëm
+open door|hap derën
+open file folder|dosje e hapur
+open shop|dyqan i hapur
+open tin|hap kanaçen
+operating theatre|salla e operacionit
+operation|operacion
+opposite|përballë
+optical disk|CD
+orange book|libër portokalli
+orange fizzy drink|pije e gazuar portokalli
+orange juice|lëng portokalli
+orange squash|shurup portokalli
+orangutan|orangutan
+order|porosit
+ostrich|struc
+otter|lundër
+out|jashtë
+outbox tray|tabaka e letrave që dalin
+oval|oval
+over|përmbi
+ox|ka
+oxygen mask|maskë oksigjeni
+oyster|gocë deti
+ozone layer|shtresa e ozonit
+pack suitcase|bëj valixhen
+package|pako
+packed lunch|drekë me vete
+paddles|rrema
+page with curl|faqe
+pager|pejxher
+paint box|kuti bojërash
+paint brush|furçë bojë
+paint childs|bojë për fëmijë
+paintbrush|penel
+palm|gjethe palme
+palm sunday|e Diela e Palmave
+palm tree|palmë
+pancake|petull
+panda|panda
+pants|brekë
+paper towel|letër kuzhine
+paper towels|peshqirë letre
+paperclip|kapëse letre
+para olympic games|Lojërat Paraolimpike
+parachute|parashutë
+parade|paradë
+parallelogram|paralelogram
+paramedic|ndihmës mjek
+parents|prindërit
+parsnip|pastinakë
+part|pjesë
+partner|partner
+party celebration|festë
+party popper|fishekzjarr konfetish
+passenger ship|anije pasagjerësh
+passion flower|lule pasioni
+passport|pasaportë
+past|e kaluara
+pasta|makarona
+pasta sauce|salcë makaronash
+pastie|byrek
+pastry|pastë
+pat dog|përkëdhel qenin
+patch on clothes|arnë
+pate|pate
+paw|putër
+paw prints|gjurmë putrash
+pe|edukim fizik
+pe class|ora e edukimit fizik
+pea|bizele
+peanut|kikirik
+peanut butter|gjalpë kikiriku
+pecan|arrë pekan
+peel|qëro
+peel orange|qëro portokallin
+peeler|qëruese
+pelican|pelikan
+pen and paper|stilolaps dhe letër
+pencil and paper|laps dhe letër
+pencil box|kuti lapsash
+pencil case|këllëf lapsash
+pencil sharpener|mprehëse
+penis|penis
+pentagon|pesëkëndësh
+pepper|spec i ëmbël
+pepper mill|mulli piperi
+percent|për qind
+performing arts|arte skenike
+perfume|parfum
+perm|permanent
+permeable|i përshkueshëm
+pestle and mortar|havan
+pet blanket|batanije për kafshën
+pet brush|furçë për kafshën
+pet carrier|kuti transporti për kafshë
+pet carrying basket|shportë për kafshë
+pet comb|krehër për kafshën
+petal|petal
+petri dish|pjatë Petri
+petrol tanker|autocisternë
+petticoat|kombinezon
+phone picture video|foto dhe video
+photocopier|fotokopje
+photographs|fotografi
+physio therapist|fizioterapist
+pick|kazmë
+pick and mix|karamele të përziera
+pick up|merr nga toka
+pickup truck|kamionçinë
+picnic|piknik
+picture|pikturë
+picture frame|kornizë
+pie chart|grafik rrethor
+pig nose|hundë derri
+piglet|gic
+pine cone|boçe pishe
+pine decoration|stoli bredhi
+pine nut|farë pishe
+pineapple juice|lëng ananasi
+ping pong|pingpong
+pint|gotë birre
+pistachios|fëstëkë
+pizza cutter|prerëse pice
+piñata|piñata
+place mat|shtroje tavoline
+place setting|shtrimi i tryezës
+plane|zdrukth
+plane landing|avioni ulet
+plane take off|avioni ngrihet
+planets|planetët
+plaster|leukoplast
+plastic|plastikë
+plastic bag|qese plastike
+plastic pocket|këllëf plastik
+plate guard|mbrojtëse pjate
+play area|kënd lojërash
+playdough|plastelinë
+playing card picture|letër me figurë
+playing cards|letra loje
+playing cards clubs|letra spathi
+playing cards diamonds|letra karo
+playing cards hearts|letra kupa
+playing cards patience|pasians
+playing cards spades|letra pik
+playing handball|luaj hendboll
+playing water polo|luaj vaterpolo
+playstation|PlayStation
+pliers|pinca
+plough|plug
+pluck|shkul vetullat
+plug|spinë
+plum tomato|domate e gjatë
+plunger|pompë lavamani
+pluto|Plutoni
+pocket|xhep
+pointed|me majë
+polar bear|ari polar
+police helmet|helmetë policie
+police radio|radio policie
+polish nails|lyej thonjtë
+pond|pellg
+poodle|qen pudël
+pool 8 ball|topi 8 i bilardos
+pool hoist|ngritës pishine
+pool snooker|bilardo
+pop champagne cork|hap shampanjën
+pop socks|çorape të shkurtra najloni
+poppadoms|papadum
+porcupine|ferrëgjatë
+pork chop|bërxollë derri
+porridge|qull tërshëre
+porter hospital|portier spitali
+post it|letër ngjitëse
+post letter|dërgo letrën
+post office|posta
+post person|postier
+post van|furgon postar
+postbox|kuti postare
+pot noodle|makarona të shpejta
+pottery|qeramikë
+potty chair|oturak
+poultry|shpendë
+pound banknote|kartëmonedhë stërline
+pour|derdh
+pour cake mixture|derdh brumin e kekut
+pour custard|derdh kremin
+pouring liquid|derdhje lëngu
+powder puff|shtupë pudre
+power switch|çelësi i ndezjes
+prawn|karkalec deti
+pray|lutu
+prayer|lutje
+prayer beads|tespihe
+pregnant man|burrë shtatzënë
+pregnant person|person shtatzënë
+pregnant woman|grua shtatzënë
+present|dhuratë
+pretty|i bukur
+prickles|gjemba
+prince|princ
+princess|princeshë
+printer|printer
+prism hexagonal|prizëm gjashtëkëndor
+prism triangular|prizëm trekëndor
+prop up|mbështet
+protect|mbro
+protein|proteina
+puffin|papagall deti
+pull|tërhiq fort
+pull along toy|lodër me spango
+pumice stone|gur shtufi
+pumpkin|kungull
+pumpkin lantern|fener kungulli
+pumpkin pie|ëmbëlsirë me kungull
+pupil|bebëza e syrit
+puppet|kukull dore
+pureed food|ushqim pure
+purse|portofol
+push|shty
+push down|shtyp poshtë
+pushpin|gjilpërë me kokë
+put|vendos
+put away|ruaj në vend
+put in|fut brenda
+put in bin|hidh në kosh
+put in cassette tape|fut kasetën
+put in cd dvd|fut CD-në
+put in contact lens|vendos lentet
+put on cap|vish kapelën
+put on coat|vish palltën
+put on helmet|vish helmetën
+put on lid|vendos kapakun
+put out rubbish|nxirr plehrat
+pyjamas|pizhame
+pyramid square base|piramidë katrore
+pyramid triangular base|piramidë trekëndore
+quadrilateral|katërkëndësh
+quail|thëllëzë
+quarter|çerek
+queue|prit në radhë
+quiche flan|kish
+rabbit|lepur
+rabbit hutch|kafaz lepuri
+raccoon|rakun
+race athletics|garë vrapimi
+radio|radio
+radish|rrepkë
+railway car|vagon
+railway track|binarë
+raincoat|mushama
+raise feet|ngri këmbët
+raise head|ngri kokën
+raisin|rrush i thatë i zi
+raisin currants|rrush i thatë i vogël
+rake|grabujë
+ram|dash
+ramp|pjerrinë
+rash|skuqje lëkure
+rat|mi i madh
+rattle snake|gjarpër me zile
+ravioli|raviola
+razor|brisk
+reach for|zgjat dorën
+read book|lexo librin
+ready|gati
+ready meal|gatim i gatshëm
+ready meal lamb|gatim i gatshëm me qengj
+receipt|faturë
+receive|merr dhuratë
+recipe|recetë
+rectangle|drejtkëndësh
+recycle logo|shenja e riciklimit
+recycling bins|kosha riciklimi
+red envelope|zarf i kuq
+red paper lantern|fener i kuq letre
+refridgerate|fut në frigorifer
+refuse collector|pastrues
+refuse lorry|kamion plehrash
+reindeer|dre i veriut
+relax|çlodhu
+reminder ribbon|shirit përkujtimor
+remote control|telekomandë
+remove|hiq
+retire|dil në pension
+retired|pensionist
+return book|kthe librin
+rhinoceros|rinoqeront
+rhombus|romb i pjerrët
+rhubarb|raven
+ribbon|fjongo dhurate
+rice ball|top orizi
+rice cake|galetë orizi
+rice packet|pako orizi
+ride car|udhëto me makinë
+ride horse|hip në kalë
+riding hat|kapelë kalorësie
+right|djathtas
+right click|kliko djathtas
+right hand|dora e djathtë
+ring|unazë
+ring bell|bjer ziles
+ring binder|dosje me unaza
+ring buoy|gomë shpëtimi
+ring doorbell|bjer ziles së derës
+ringed planet|planet me unaza
+rinse|shpëla
+risen|u ngjall
+road|rrugë
+roast dinner|drekë me mish të pjekur
+roasted sweet potato|patate e ëmbël e pjekur
+robin|gushëkuq
+rock|shkëmb i madh
+rock chair|lëkund karrigen
+rocking chair|karrige lëkundëse
+roll dice|hidh zarin
+roll of paper|rrotull letre
+roll on deodorant|deodorant me sferë
+roll over|rrokullisu
+roll pastry|hap brumin
+rolled-up newspaper|gazetë e mbështjellë
+roller blind|grilë me rrotull
+roller coaster|tren lunaparku
+roller skate|patina me rrota
+rollerskate|patinazh
+rolling pin|okllai
+roman blind|perde romake
+room|dhomë
+roots|rrënjë
+rosette|rozetë
+rotary washing line|tharëse rrobash
+round pushpin|pineskë e rrumbullakët
+rowing boat|varkë me rrema
+rub|fërko
+rudolph|Rudolfi
+rug|qilim
+rugby ball|top regbi
+rugby football|regbi
+running facing right|vrapon djathtas
+running shirt|fanellë vrapimi
+sack|thes
+saddle|shalë
+safety goggles|syze mbrojtëse
+safety pin|karficë sigurie
+safety vest|jelek reflektues
+sailor|marinar
+sake|sake
+salad packet|pako sallate
+salad plate|pjatë sallate
+salami sausage|sallam
+salty|i kripur
+same|njësoj
+sand pit|kuti me rërë
+sandpaper|letër zmerile
+sanitary towel|pecetë higjienike
+santa claus|Babagjyshi
+sari|sari
+satellite|satelit
+satellite antenna|antenë satelitore
+satsuma|mandarinë
+saturn|Saturni
+saucepan|tenxhere e vogël
+saucer|pjatë filxhani
+sauropod|dinosaur me qafë të gjatë
+sausage and mash|salsiçe me pure
+sausage cumberland|salsiçe Cumberland
+sausage roll|byrek me salsiçe
+sausages|salsiçe
+saw|sharrë dore
+scales|peshore kuzhine
+scar|shenjë plage
+scarecrow|dordolec
+scary|i frikshëm
+school bag|çantë shkolle
+science|shkencë
+science class|ora e shkencës
+science room|laboratori i shkollës
+scoop|lugë e madhe
+score goal|shëno gol
+scorpion|akrep
+screw|vidë
+screwdriver|kaçavidë
+scroll|rrotull pergamene
+scrub|fërko fort
+scrubbing brush|furçë pastrimi
+seagull|pulëbardhë
+seahorse|kalë deti
+seal envelope|mbyll zarfin
+seat|ndenjëse
+seat belt|rrip sigurimi
+second|i dyti
+secretary|sekretare
+see saw|lëkundëse
+seeds|fara
+seizure|krizë
+senses|shqisat
+sensory room|dhoma shqisore
+separate|ndaj veç
+serene|i qetë dhe paqësor
+serve|shërbe
+service dog|qen ndihmës
+serviette|pecetë
+set table|shtro tavolinën
+set the table|shtro tryezën
+set timer|vendos kohëmatësin
+settee|divan
+seven|shtatë
+seventeen|shtatëmbëdhjetë
+seventy|shtatëdhjetë
+seventy five percent|shtatëdhjetë e pesë për qind
+sew|qep
+sewing needle|gjilpërë
+shake|tund
+shake hands|shtrëngo dorën
+shake something|tund diçka
+shallow|i cekët
+shampoo|shampo
+shampoo animal|laj kafshën me shampo
+shampoo hair|laj flokët
+shamrock|tërfil irlandez
+shape puzzle|puzzle me forma
+shapesorter|lodër me forma
+share|ndaj
+sharp|i mprehtë
+sharpen|mpreh
+shave|rruhu
+shave underarm|rruaj sqetullat
+shave with razor|rruhu me brisk
+shaving cream|shkumë rroje
+sheaf of rice|tufë orizi
+sheep|dele e bardhë
+shells|guaska
+shepherd|bari
+shield|mburojë
+shin|kërci
+shinto shrine|faltore shinto
+shiny|i shndritshëm
+shoot|gjuaj në portë
+shooting star|yll që bie
+shopping bags|çanta pazari
+short|i shkurtër
+short hair|flokë të shkurtër
+shout|bërtit
+show me|më trego
+shower cap|kapuç dushi
+shower gel|xhel dushi
+shrew|mi hundëgjatë
+shrove tuesday|e Marta e Petullave
+shuttlecock|top badmintoni
+side|anë
+sieve|sitë
+signpost|tabelë rrugore
+silence|qetësi
+simnel cake|kek Pashke
+single bed|krevat teke
+sink|fundoset
+sit|ulu
+sit at computer|ulu te kompjuteri
+sit in beanbag|ulu në puf
+sit on floor|ulu në dysheme
+six|gjashtë
+sixteen|gjashtëmbëdhjetë
+sixty|gjashtëdhjetë
+skate|bëj patinazh
+skate park|park skejtbordi
+skateboard|skejtbord
+skeleton|skelet
+ski|bëj ski
+skid|rrëshqet
+skier|skiator
+skin|lëkurë
+skip|kërce me litar
+skirt|fund
+skis|ski
+skull|kafkë
+skunk|qelbës amerikan
+sled|slitë sportive
+sledge|slitë
+sleep female|ajo fle
+sleep male|ai fle
+sleep on side|fli në krah
+sleep suit baby|pizhame bebeje
+sleigh|slitë e Babagjyshit
+slice|fetë
+slide backwards|rrëshqit prapa
+slide forwards|rrëshqit përpara
+sling|mbajtëse krahu
+slippers|pantofla
+slippery|rrëshqitës
+slot machine|makinë lojërash
+sloth|përtac
+slug|kërmill deti pa guaskë
+small airplane|avion i vogël
+smear|lyej me gisht
+smile|buzëqesh
+smoke|pi duhan
+smooth|i lëmuar
+snake|gjarpër
+sneak|ec fshehurazi
+sneering|përbuzës
+sneeze cold|teshtij
+snow-capped mountain|mal me borë
+snowboarder|snoubordist
+snowflake|flok bore
+snowman|burrë bore
+snowman without snow|burrë bore pa borë
+soft|i butë
+soft ice cream|akullore e butë
+softball|softboll
+soldier|ushtar
+sole|shputa e këmbës
+some|disa
+son|djali
+sour|i thartë
+sour cream|kos i trashë
+south|jug
+south east|juglindje
+south west|jugperëndim
+spaceship|anije kozmike
+spade|lopatë
+spade suit|pik
+spaghetti bolognaise|spageti bolonjeze
+sparkler|fishekzjarr dore
+sparkles|shkëndija
+spatula|shpatull
+speech language therapist|logoped
+speedboat|motoskaf i shpejtë
+spell|gërmëzo
+spicy|pikant
+spider web|rrjetë merimange
+spiders web|pëlhurë merimange
+spill|derdh pa dashje
+spin|rrotullohu
+spinach|spinaq
+spine|shtylla kurrizore
+spiral calendar|kalendar me spirale
+spiral notepad|bllok me spirale
+spiral shell|guaskë spirale
+sponge|sfungjer
+sport utility vehicle|fuoristradë
+spot light|prozhektor
+spotty|me pika
+spouting whale|balenë që hedh ujë
+spray|spërkat
+spread|lyej
+spring onions|qepë të njoma
+sprinkle|hidh sipër
+square|katror
+square setsquare|vizore këndore
+squash|shurup frutash
+squeak|cijatje
+squeeze|shtrydh
+squid|kallamar
+squirrel|ketër
+squirt|spërkat me ujë
+stable|stallë kuajsh
+stag|dre mashkull
+stairs|shkallët
+stamp|vulos
+standard lamp|llambë dyshemeje
+staple|kapëse metalike
+stapler|kapëse letrash me tel
+star|yll
+star stacker|lodër me yje
+starfish|yll deti
+station|stacion treni
+statue of liberty|Statuja e Lirisë
+steak|biftek
+steal|vjedh
+steam train|tren me avull
+steamer|enë me avull
+step brother|vëllai nga njerku
+step daughter|thjeshtra
+step sister|motra nga njerku
+step son|thjeshtri
+stereo|stereo
+stick|shkop
+stickers|ngjitëse
+sticky|ngjitës
+stir|përziej
+stir fry|skuq duke përzier
+stir mix|përziej brumin
+stirrups|yzengji
+stoat|nuselalë
+stock|lëng mishi
+stock cubes|kubë supe
+stomach|bark
+stomach ache|dhimbje barku
+stone|gur
+stool|stol i vogël
+stopwatch|kronometër
+straight|i drejtë
+strain|kullo
+straw|kashtë pijeje
+strawberry jam|reçel luleshtrydheje
+stretch|shtriqu
+string|spango
+striped|me vija
+stroke|përkëdhel
+strong|i fortë fizikisht
+stubble|mjekër e parruar
+student|student
+studio microphone|mikrofon
+study|studio
+stuffed flatbread|bukë e mbushur
+stuffing|mbushje
+subsoil|nëntoka
+subtract|zbrit numrat
+sugar bowl|sheqerore
+suitcase|valixhe
+sum|shuma
+sun behind cloud|diell pas reve
+sun lounger|shezlong plazhi
+sunglasses|syze dielli
+sunrise over mountains|lindja e diellit mbi male
+sunscreen|krem dielli
+sunset|perëndimi i diellit
+surfing|sërf
+surgery health centre|qendër shëndetësore
+sushi|sushi
+suspension railway|hekurudhë e varur
+sweatshirt|duks
+swede|rrepë e verdhë
+sweet|karamele e ëmbël
+sweet potato|patate e ëmbël
+sweetcorn|misër i ëmbël
+swimming cap|kapuç noti
+swimming class|ora e notit
+swimming costume|rroba banje
+swimming trunks|mbathje banje
+swiss roll|rolé
+switch access|qasje me çelës
+switch on television|ndiz televizorin
+synagogue|sinagogë
+t shirt|bluzë me mëngë të shkurtra
+t-rex|T-Rex
+table cloth|mbulesë tavoline
+tablecloth|mbulesë tryeze
+tablet blister pack|pako tabletash
+tablets|tableta
+take|merr me vete
+take a work break|bëj pushim nga puna
+take care of|kujdesu
+take off cap|hiq kapelën
+take off lid|hiq kapakun
+take out|nxirr
+take picture|bëj foto
+takeaway burger|burger me porosi
+takeaway burger and chips|burger me patate me porosi
+takeaway chinese|ushqim kinez me porosi
+takeaway container|kuti ushqimi me porosi
+takeaway indian|ushqim indian me porosi
+takeaway pizza|pica me porosi
+takeout box|kuti ushqimi
+taking bath|bën banjë
+talk|fol
+tall|i gjatë në shtat
+tamale|tamale
+tampon|tampon
+tanabata tree|pema Tanabata
+tap|rubinet
+tape measure|metër shirit
+tape recorder|magnetofon
+tart|tartë
+tartan|kuadrata skoceze
+taste|shijo
+tattoo|tatuazh
+taxi driver|taksist
+tea bag|qeskë çaji
+tea spoon|lugë çaji
+tea time|ora e çajit
+tea towel|leckë kuzhine
+tear|gris
+tear-off calendar|kalendar me fletë
+technologist|teknolog
+technology|teknologji
+telephone|telefon
+telephone handset|receptor telefoni
+telephone mobile|celulari
+telephone receiver|dorezë telefoni
+telescope|teleskop
+temple|tëmth
+ten|dhjetë
+terracotta|terrakotë
+test|provim
+test tube|epruvetë
+text mobile message|dërgo mesazh
+text phone|telefon me tekst
+theme park|lunapark
+thick|i trashë
+thigh|kofshë
+thin|i hollë
+thirteen|trembëdhjetë
+this month|këtë muaj
+this week|këtë javë
+thousand|një mijë
+thread|pe
+three|tre
+three quarters|tre të katërtat
+through|përmes
+throw away|hidh tutje
+thumb|gishti i madh
+thumbs|gishtat e mëdhenj
+thunder storm|stuhi me bubullima
+ticket|biletë
+tickle|gudulis
+tidy|rregullo vendin
+tidy up|rregullo dhomën
+tie|lidh
+tighten|shtrëngo
+tights|geta
+time out|pushim i qetë
+timer|kohëmatës
+timer clock|orë me kohëmatës
+tin|kuti metalike
+tin can|kanaçe
+tin foil|letër alumini
+tinned apricots|kajsi kompostë
+tinned cherries|qershi kompostë
+tinned mushroom soup|supë kërpudhash në kanaçe
+tinned peaches|pjeshkë kompostë
+tinned pears|dardha kompostë
+tinned peas|bizele në kanaçe
+tinned pineapple|ananas kompostë
+tinned plums|kumbulla kompostë
+tinned sweetcorn|misër në kanaçe
+tinned tomato|domate në kanaçe
+tinsel|girlandë me shkëlqim
+tippex|korrektor
+tissues|shami letre
+toad|zhabë
+toast|bukë e thekur
+toaster|thekëse buke
+toe nail|thoi i këmbës
+toilet roll|letër higjienike
+toilets|tualetet
+tokyo tower|Kulla e Tokios
+tomato juice|lëng domateje
+tomato slice|fetë domateje
+tomb|varr
+tongs|mashë
+toolbox|kuti veglash
+toothache|dhimbje dhëmbi
+toothpaste|pastë dhëmbësh
+top|në majë
+topsoil|shtresa e sipërme e tokës
+torch|pishtar
+tornado|tornado
+tortoise|breshkë
+toss pancake|hidh petullën
+touch|prek
+touch screen|ekran me prekje
+toupee|parukë e vogël
+toy box|kuti lodrash
+toy soldier|ushtar lodër
+trace|kopjo vizatimin
+trachea|trake
+trackball|trackball
+tracksuit|tuta
+traffic lights|semafor
+trainers|atlete
+tram|tramvaj elektrik
+tram car|vagon tramvaji
+trampoline|trampolinë
+transparent|transparent
+transport car|makinë transporti
+trap|kurth
+trapezium|trapez
+travel|udhëto
+tray|tabaka
+tree trunk|trung peme
+triangle acute|trekëndësh këndngushtë
+triangle equilateral|trekëndësh barabrinjës
+triangle isosceles|trekëndësh dybrinjënjëshëm
+triangle obtuse|trekëndësh këndgjerë
+triangle right angled|trekëndësh kënddrejtë
+triangle scalene|trekëndësh i çfarëdoshëm
+triangular ruler|vizore trekëndëshe
+trick or treat|ëmbëlsirë apo rreng
+trim|shkurto
+trim hedge|shkurto gardhin
+tripod|trekëmbësh
+troll|trol
+trolleybus|trolejbus
+trousers|pantallona
+trowel|mistri
+tumbler glass|gotë uji
+tuna|ton
+turkey|gjel deti
+turn|kthehu
+turn down heat|ul zjarrin
+turn down light|ul dritën
+turn off|fik
+turn off light switch|fik dritën
+turn on|ndiz
+turn on light switch|ndiz dritën
+turn up heat|rrit zjarrin
+turn up light|rrit dritën
+turnip|rrepë
+tv drama|serial
+twelve|dymbëdhjetë
+twenty|njëzet
+twenty five percent|njëzet e pesë për qind
+two|dy
+two thirds|dy të tretat
+two-hump camel|deve me dy gunga
+ugly|i shëmtuar
+umbrella on ground|çadër në tokë
+unbuckle|zgjidh tokëzën
+unbutton|zbërthe kopsat
+uncle maternal|daja
+uncle paternal|xhaxhai
+under|nën
+underarm|sqetull
+underarm hair|qime sqetulle
+underground train|tren nëntokësor
+undress|zhvishu
+unicorn|njëbrirësh
+unlock|zhblloko
+unlocked|i shkyçur
+untie|zgjidh
+upper arm|krahu i sipërm
+uranus|Urani
+usb stick|USB
+use computer|përdor kompjuterin
+vacuum cleaner|fshesë elektrike
+vagina|vaginë
+van|furgon i madh
+varnish|llak druri
+vase|vazo
+venus|Venusi
+verbs collective|veprimet
+vertical blinds|grila vertikale
+vest|kanatierë
+vice|morsë pune
+video camera|videokamerë
+video player|videoplejer
+video tape|videokasetë
+videocassette|kasetë video
+vine|hardhi
+vinegar|uthull
+visit|vizito
+visitor|vizitor
+visor|strehë
+volcano|vullkan
+vomit|vjell
+vote|voto
+vulture|shkabë
+wafer|vafer
+waffle|vafëll
+wag tail|tund bishtin
+waistcoat|jelek
+wait table|shërbe në tavolinë
+wake up|zgjohu
+walk dog|shëtit qenin
+walk downstairs|zbrit shkallët
+walk up to|afrohu
+walk upstairs|ngjit shkallët
+walking facing right|ecën djathtas
+walking frame|mbështetëse për ecje
+walking stick|bastun
+walkman|Walkman
+wall|mur
+wallet|kuletë
+walnut|arrë
+walrus|lopë deti
+waning crescent moon|hënë gjysmëhënëze në rënie
+waning gibbous moon|hënë në rënie
+wardrobe|gardërobë
+warm clothes|rroba të ngrohta
+warm fire|zjarr i ngrohtë
+warning light|dritë paralajmëruese
+wash clothes|laj rrobat
+wash up|laj enët
+wash vegetables|laj perimet
+washing powder|pluhur larjeje
+washing up bowl|legen enësh
+washing up liquid|detergjent enësh
+wasp|grerëz
+waste paper bin|kosh letrash
+water bowl|enë uji
+water buffalo|buall uji
+water pistol|pistoletë uji
+water plants|ujit bimët
+water table|tavolinë me ujë
+water wave|valë
+watering can|ujitëse
+waterproof|i papërshkueshëm nga uji
+wavy|i valëzuar
+waxing crescent moon|hënë gjysmëhënëze në rritje
+waxing gibbous moon|hënë në rritje
+weak link|hallkë e dobët
+wear helmet|mbaj helmetë
+webbed foot|këmbë me membranë
+webcam|kamerë interneti
+wedding|dasmë
+weeds|barëra të këqija
+weekend|fundjavë
+weigh|peshoj
+weigh food|peso ushqimin
+weigh person|peshohu
+wellington boots|çizme gome
+west|perëndim
+wet|i lagur
+wheel|rrotë
+wheelbarrow|karrocë dore
+wheelchair|karrige me rrota për invalidë
+wheelie bin|kosh plehrash me rrota
+when|kur
+which|cili
+whisk|rrih
+whiskers|mustaqe kafshe
+whisper|pëshpërit
+white cane|shkop i bardhë
+white flower|lule e bardhë
+whiteboard|tabelë e bardhë
+whole|i plotë
+why|pse
+wig|parukë
+wiggle|tundu
+wii|Wii
+wii fit|Wii Fit
+wilted flower|lule e vyshkur
+wind chime|këmbanë ere
+windpipe|gurmaz
+wine|verë
+wine glass|gotë vere
+wing|krah zogu
+winner|fitues
+wire break|kabllo e prerë
+wishbone|kocka e dëshirës
+witch|shtrigë
+witches hat|kapelë shtrige
+wood|dru
+wood lathe|torno druri
+wooden spoon|lugë druri
+woodstain|bojë druri
+wool|lesh
+work book|fletore pune
+worksheet|fletë pune
+world|bota
+worm|krimb
+wrap|mbështill dhuratën
+wrapping paper|letër dhuratash
+wrench|çelës anglez
+wrestle|mundje
+wrinkled|i rrudhur
+wrist|kyçi i dorës
+write cheque|shkruaj çek
+write letter|shkruaj letër
+wrong thought|mendim i gabuar
+x-ray|rëntgen
+xray|grafi rëntgen
+xylophone|ksilofon
+yarn|fill leshi
+yawn|gogësit
+yen banknote|kartëmonedhë jeni
+yo yo|jo-jo
+yorkshire pudding|puding Yorkshire
+young|i ri
+yule log|trungu i Krishtlindjes
+zebra crossing|vendkalim për këmbësorë
+zero|zero
+zip|zinxhir rrobash

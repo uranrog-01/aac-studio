@@ -4,6 +4,7 @@ import 'backup_tools.dart';
 import 'package:flutter/material.dart';
 
 import '../../engine/i18n.dart';
+import '../../engine/screen_mode.dart';
 import 'package:flutter/services.dart';
 
 import '../../engine/settings_controller.dart';
@@ -63,26 +64,35 @@ class _SettingsSheetState extends State<SettingsSheet> {
   @override
   Widget build(BuildContext context) {
     final s = widget.settings;
+    final iOS = !kIsWeb && defaultTargetPlatform == TargetPlatform.iOS;
     return Padding(
       padding:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: ListView(
           controller: widget.scrollController,
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 20),
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 24),
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
+              padding: const EdgeInsets.fromLTRB(8, 4, 8, 2),
               child: Text(I18n.t('Settings'),
                   style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 22,
                       fontWeight: FontWeight.w700)),
             ),
-            _languageGroup(),
-            _group(Icons.record_voice_over, 'Voice',
-                'Choose who speaks, speed and loudness',
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 0, 8, 10),
+              child: Text(I18n.t('Changes are saved automatically.'),
+                  style: const TextStyle(color: Colors.white54, fontSize: 13)),
+            ),
+            // 1. Language & voice: what the person hears.
+            _group(Icons.record_voice_over, 'Language & voice',
+                'Language, voice, speed and loudness',
                 initiallyExpanded: true,
                 children: [
+                  _languagePicker(),
+                  _voiceStatus(),
+                  const Divider(color: Colors.white12, height: 24),
                   _VoicePicker(
                       speech: widget.speech,
                       settings: s,
@@ -103,25 +113,26 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     s.rate = v;
                     _changed();
                   }),
+                  _slider('Volume', 'Quiet', 'Loud', 0.0, 1.0, s.volume, (v) {
+                    s.volume = v;
+                    _changed();
+                  }),
                   _slider('Pitch', 'Low', 'High', 0.5, 2.0, s.pitch, (v) {
                     s.pitch = v;
                     _changed();
                   }),
                   if (s.usePiper && s.pitch != 1.0)
-                    const Text(
-                        'The offline voice cannot change pitch, so the device '
-                        'voice is used while pitch is not in the middle.',
-                        style:
-                            TextStyle(color: Colors.amberAccent, fontSize: 12)),
-                  _slider('Volume', 'Quiet', 'Loud', 0.0, 1.0, s.volume, (v) {
-                    s.volume = v;
-                    _changed();
-                  }),
+                    Text(
+                        I18n.t('The offline voice cannot change pitch, so the '
+                            'device voice is used while pitch is not in the '
+                            'middle.'),
+                        style: const TextStyle(
+                            color: Colors.amberAccent, fontSize: 12)),
                   Wrap(spacing: 8, children: [
                     FilledButton.icon(
                       onPressed: _test,
                       icon: const Icon(Icons.play_arrow),
-                      label: const Text('Test voice'),
+                      label: Text(I18n.t('Test voice')),
                     ),
                     TextButton(
                         onPressed: () {
@@ -130,15 +141,27 @@ class _SettingsSheetState extends State<SettingsSheet> {
                           s.volume = 1.0;
                           _changed();
                         },
-                        child: const Text('Reset speed, pitch, volume')),
+                        child: Text(I18n.t('Reset speed, pitch, volume'))),
                     if (s.usePiper)
                       TextButton(
                           onPressed: () => widget.speech.warmOfflineVoice(),
-                          child: const Text('Retry offline voice')),
+                          child: Text(I18n.t('Retry offline voice'))),
                   ]),
+                  if (iOS)
+                    _switch(
+                        'Speak into phone and FaceTime calls',
+                        s.callSpeech,
+                        (v) => s.callSpeech = v,
+                        'The other person hears the voice. Start the call, '
+                            'then open AAC Studio (iOS 13 or newer).'),
+                  if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android)
+                    _note('During a phone call, turn on the speakerphone so '
+                        'the other person hears the voice. Android does not '
+                        'let apps speak into calls directly.'),
                 ]),
-            _group(Icons.touch_app, 'When a button is tapped',
-                'Speaking, going home, vibration',
+            // 2. Speaking: when the voice talks.
+            _group(Icons.chat_bubble_outline, 'Speaking',
+                'When words are spoken',
                 children: [
                   _switch(
                       'Say each word when tapped',
@@ -147,12 +170,6 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       'Off: words are added silently; tap the message to speak'),
                   _switch('Say the category name when opened',
                       s.vocalizeFolders, (v) => s.vocalizeFolders = v),
-                  _switch('Go back to Home after a word', s.goHomeOnPress,
-                      (v) => s.goHomeOnPress = v),
-                  _switch('Clear the message after speaking it', s.clearOnSpeak,
-                      (v) => s.clearOnSpeak = v),
-                  _switch('Vibrate', s.haptics, (v) => s.haptics = v),
-                  _switch('Click sound', s.audioCues, (v) => s.audioCues = v),
                   _choice<String>('Speak while typing (Type)', s.typingSpeech, {
                     'letters': 'Each letter and word',
                     'words': 'Each word',
@@ -161,10 +178,27 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     s.typingSpeech = v;
                     _changed();
                   }),
+                  _switch('Clear the message after speaking it', s.clearOnSpeak,
+                      (v) => s.clearOnSpeak = v),
+                  _switch('Go back to Home after a word', s.goHomeOnPress,
+                      (v) => s.goHomeOnPress = v),
                 ]),
-            _group(Icons.grid_view, 'Buttons & screen',
-                'Pictures, words, contrast',
+            // 3. Screen & look.
+            _group(Icons.palette_outlined, 'Screen & look',
+                'Full screen, pictures, words, contrast',
                 children: [
+                  _switch(
+                      'Full screen',
+                      s.fullScreen,
+                      (v) {
+                        s.fullScreen = v;
+                        ScreenMode.apply(v);
+                      },
+                      kIsWeb
+                          ? 'Hides the browser bars where the browser allows it. '
+                              'On iPhone, add the app to the Home Screen.'
+                          : 'Hides the status and navigation bars. Swipe from '
+                              'the edge to see them for a moment.'),
                   _choice<ButtonView>('Buttons show', s.buttonView, {
                     ButtonView.symbolText: 'Picture + word',
                     ButtonView.symbolOnly: 'Picture only',
@@ -200,8 +234,9 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       (v) => s.cviMode = v,
                       'Black background, yellow buttons, bold words'),
                 ]),
-            _group(Icons.accessibility_new, 'Access',
-                'Hold to select, switch scanning, extra taps',
+            // 4. Touch & access.
+            _group(Icons.accessibility_new, 'Touch & access',
+                'Hold to select, switch scanning, extra taps, vibration',
                 children: [
                   _switch(
                       'Hold to select',
@@ -229,15 +264,29 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     s.inputDebounceMs = (v * 1000).round();
                     _changed();
                   }, 's'),
+                  _switch('Vibrate', s.haptics, (v) => s.haptics = v),
+                  _switch('Click sound', s.audioCues, (v) => s.audioCues = v),
                   _switch(
                       'Stay in the app',
                       s.preventExit,
                       (v) => s.preventExit = v,
                       'Press Back 3 times quickly to leave'),
                 ]),
-            if (kIsWeb) const WebTools(),
+            // 5. Offline & backup.
+            if (kIsWeb)
+              const WebTools()
+            else
+              _group(Icons.cloud_off_outlined, 'Offline & backup',
+                  'Works without internet; save and restore boards',
+                  children: [
+                    _note('All pictures and words are built into the app, so '
+                        'it works without internet. Only the online picture '
+                        'search needs a connection.'),
+                    const BackupTools(),
+                  ]),
+            // 6. Caregiver.
             _group(Icons.lock_outline, 'Caregiver',
-                'Edit buttons, symbols, lock code',
+                'Edit buttons, pictures, lock code',
                 children: [
                   if (widget.settingsController != null) ...[
                     _asyncSwitch(
@@ -254,11 +303,12 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       contentPadding: EdgeInsets.zero,
                       leading:
                           const Icon(Icons.image_search, color: Colors.white70),
-                      title: const Text('Browse all pictures',
-                          style: TextStyle(color: Colors.white, fontSize: 15)),
-                      subtitle: const Text('Hear a word, add it to Home',
-                          style:
-                              TextStyle(color: Colors.white54, fontSize: 12)),
+                      title: Text(I18n.t('Browse all pictures'),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 15)),
+                      subtitle: Text(I18n.t('Hear a word, add it to Home'),
+                          style: const TextStyle(
+                              color: Colors.white54, fontSize: 12)),
                       onTap: () {
                         Navigator.pop(context);
                         Navigator.of(context, rootNavigator: true).push(
@@ -279,20 +329,20 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     _changed();
                   }),
                   Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: AlignmentDirectional.centerStart,
                     child: TextButton.icon(
                       onPressed: () async {
-                        final pin = await _askPin('Set a new 4-digit code',
+                        final pin = await _askPin(
+                            I18n.t('Set a new 4-digit code'),
                             current: s.pin);
                         if (pin == null) return;
                         s.pin = pin;
                         _changed();
                       },
                       icon: const Icon(Icons.password, size: 18),
-                      label: const Text('Change code'),
+                      label: Text(I18n.t('Change code')),
                     ),
                   ),
-                  if (!kIsWeb) const BackupTools(),
                   _switch('Online ARASAAC pictures in search', s.arasaacEnabled,
                       (v) => s.arasaacEnabled = v),
                   if (s.arasaacEnabled) ...[
@@ -317,18 +367,89 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       _changed();
                     }),
                   ],
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: TextButton(
+                  Wrap(spacing: 8, children: [
+                    TextButton(
+                        onPressed: _resetAll,
+                        child: Text(I18n.t('Reset all settings'),
+                            style: const TextStyle(color: Colors.redAccent))),
+                    TextButton(
                         onPressed: () => showLicensePage(
                             context: context,
                             applicationName: 'AAC Studio',
                             applicationVersion: '1.8.1'),
-                        child: const Text('Voice and software licenses')),
-                  ),
+                        child: Text(I18n.t('Voice and software licenses'))),
+                  ]),
                 ]),
           ]),
     );
+  }
+
+  Widget _note(String text) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6),
+        child: Text(I18n.t(text),
+            style: const TextStyle(color: Colors.white60, fontSize: 13)),
+      );
+
+  /// Back to the defaults, keeping the language, lock code and saved
+  /// phrases (the board itself is not touched).
+  Future<void> _resetAll() async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(I18n.t('Reset all settings?')),
+        content: Text(I18n.t('Voice, speaking, screen and access settings go '
+            'back to how they were at the start. Words, pictures, the '
+            'language and the lock code stay.')),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(I18n.t('Cancel'))),
+          FilledButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text(I18n.t('Reset'))),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    final s = widget.settings;
+    final fresh = AppSettings(
+      language: s.language,
+      pin: s.pin,
+      restrictionsEnabled: s.restrictionsEnabled,
+      phrases: s.phrases,
+    );
+    final json = fresh.toJson();
+    final keep = AppSettings.fromJson(json);
+    // Copy every field back onto the live settings object.
+    s
+      ..usePiper = keep.usePiper
+      ..voiceName = null
+      ..voiceLocale = null
+      ..rate = keep.rate
+      ..pitch = keep.pitch
+      ..volume = keep.volume
+      ..quietBuilder = keep.quietBuilder
+      ..vocalizeFolders = keep.vocalizeFolders
+      ..inputDebounceMs = keep.inputDebounceMs
+      ..preventExit = keep.preventExit
+      ..clearOnSpeak = keep.clearOnSpeak
+      ..goHomeOnPress = keep.goHomeOnPress
+      ..buttonView = keep.buttonView
+      ..labelPosition = keep.labelPosition
+      ..messageWindowTop = keep.messageWindowTop
+      ..scanningEnabled = keep.scanningEnabled
+      ..scanDelayMs = keep.scanDelayMs
+      ..dwellEnabled = keep.dwellEnabled
+      ..dwellSeconds = keep.dwellSeconds
+      ..cviMode = keep.cviMode
+      ..skinTone = keep.skinTone
+      ..haptics = keep.haptics
+      ..audioCues = keep.audioCues
+      ..typingSpeech = keep.typingSpeech
+      ..fullScreen = keep.fullScreen
+      ..callSpeech = keep.callSpeech;
+    ScreenMode.apply(s.fullScreen);
+    _changed();
   }
 
   void _test() => widget.speech.speak(_sample,
@@ -343,41 +464,83 @@ class _SettingsSheetState extends State<SettingsSheet> {
     widget.onChanged();
   }
 
-  /// Language of the board's words, the app's text and the voice.
-  Widget _languageGroup() {
+  /// Language of the board's words, the app's text and the voice. Every
+  /// language's words are built into the app, so they work offline.
+  Widget _languagePicker() {
     final s = widget.settings;
     final current = languageFor(s.language);
-    return _group(Icons.translate, 'Language',
-        '${current.nativeName} · words, app text and voice',
-        children: [
-          Wrap(spacing: 6, runSpacing: 6, children: [
-            for (final lang in kLanguages)
-              ChoiceChip(
-                label: Text(lang.code == 'en'
-                    ? lang.nativeName
-                    : '${lang.nativeName} (${lang.name})'),
-                selected: lang.code == current.code,
-                onSelected: (_) {
-                  if (lang.code == s.language) return;
-                  s.language = lang.code;
-                  // A voice chosen for the old language would read the new
-                  // words wrongly: use the device voice for the new one.
-                  s.voiceName = null;
-                  s.voiceLocale = null;
-                  if (lang.code != 'en') s.usePiper = false;
-                  _changed();
-                  Navigator.of(context).maybePop();
-                },
-              ),
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(I18n.t('Language'),
+          style: const TextStyle(color: Colors.white, fontSize: 15)),
+      const SizedBox(height: 6),
+      DropdownButtonFormField<String>(
+        initialValue: current.code,
+        isExpanded: true,
+        dropdownColor: const Color(0xFF2C313A),
+        decoration: const InputDecoration(
+            isDense: true, border: OutlineInputBorder()),
+        items: [
+          for (final lang in kLanguages)
+            DropdownMenuItem(
+                value: lang.code,
+                child: Text(
+                    lang.code == 'en'
+                        ? lang.nativeName
+                        : '${lang.nativeName}  ·  ${lang.name}',
+                    style: const TextStyle(color: Colors.white))),
+        ],
+        onChanged: (code) {
+          if (code == null || code == s.language) return;
+          s.language = code;
+          // A voice chosen for the old language would read the new words
+          // wrongly: use the device voice for the new one.
+          s.voiceName = null;
+          s.voiceLocale = null;
+          if (code != 'en') s.usePiper = false;
+          _changed();
+          Navigator.of(context).maybePop();
+        },
+      ),
+    ]);
+  }
+
+  /// Whether this device can speak the chosen language, and how to add it.
+  Widget _voiceStatus() {
+    final lang = languageFor(widget.settings.language);
+    return FutureBuilder<List<DeviceVoice>>(
+      future: widget.speech.deviceVoices(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return const SizedBox(height: 8);
+        final prefix = lang.code == 'hr' ? ['hr', 'bs', 'sr'] : [lang.code];
+        final has = snapshot.data!.any((v) => prefix
+            .any((p) => v.locale.toLowerCase().replaceAll('_', '-').startsWith(p)));
+        final howTo = kIsWeb
+            ? 'This browser uses the voices installed on the device.'
+            : defaultTargetPlatform == TargetPlatform.iOS
+                ? 'To add one: Settings > Accessibility > Spoken Content > '
+                    'Voices, then download a voice. It then works offline.'
+                : 'To add one: Settings > System > Languages > Text-to-speech '
+                    '> Preferred engine settings > Install voice data. It then '
+                    'works offline.';
+        return Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Icon(has ? Icons.check_circle : Icons.info_outline,
+                size: 20,
+                color: has ? Colors.lightGreenAccent : Colors.amberAccent),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                  has
+                      ? I18n.t('A voice for this language is on this device.')
+                      : '${I18n.t('No voice for this language on this device yet.')} '
+                          '${I18n.t(howTo)}',
+                  style: const TextStyle(color: Colors.white70, fontSize: 13)),
+            ),
           ]),
-          const SizedBox(height: 8),
-          Text(
-              I18n.t('Words without a translation yet stay in English. '
-                  'If the device has no voice for this language, its '
-                  'default voice reads the words. Add voices in the '
-                  "device's text-to-speech settings."),
-              style: const TextStyle(color: Colors.white54, fontSize: 12)),
-        ]);
+        );
+      },
+    );
   }
 
   Widget _group(IconData icon, String title, String subtitle,

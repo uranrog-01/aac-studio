@@ -1,0 +1,3112 @@
+# Ukrainian (Українська). Draft by machine: please have a native speaker review.
+[ui]
+Access|Доступ
+Add|Додати
+Add to message|Додати до повідомлення
+Adds a Scan button: tap once for a row, again for a button|Додає кнопку «Сканувати»: натисніть раз для рядка, ще раз для кнопки
+Asian|Азійський
+Asks for the code before Settings and edit mode|Запитує код перед налаштуваннями та режимом редагування
+Back|Назад
+Black|Чорний
+Black background, yellow buttons, bold words|Чорне тло, жовті кнопки, жирні слова
+Blond|Білявий
+Brown|Каштановий
+Buttons & screen|Кнопки та екран
+Buttons show|Кнопки показують
+Caregiver|Помічник
+Choose who speaks, speed and loudness|Вибір голосу, швидкості та гучності
+Clear|Очистити
+Clear search|Очистити пошук
+Clear the message after speaking it|Очищати повідомлення після озвучення
+Click sound|Звук натискання
+Copied|Скопійовано
+Copy the message|Копіювати повідомлення
+Dark|Темний
+Default|За замовчуванням
+Delete|Видалити
+Delete last word|Видалити останнє слово
+Each letter and word|Кожну літеру й слово
+Each word|Кожне слово
+Edit buttons, symbols, lock code|Редагування кнопок, символів, коду
+Edit mode|Режим редагування
+Find|Знайти
+Find a word|Знайти слово
+Go back to Home after a word|Повертатися на Головну після слова
+Gray|Сивий
+Hair|Волосся
+High contrast (CVI)|Висока контрастність (CVI)
+Hold time|Час утримання
+Hold to select|Утримувати для вибору
+Hold to select, switch scanning, extra taps|Утримання, сканування, зайві натискання
+Home|Головна
+Ignore extra taps for|Ігнорувати зайві натискання протягом
+Language|Мова
+Light|Світлий
+Lock settings with a code|Захистити налаштування кодом
+Low|Низький
+Medium|Середній
+Medium dark|Середньо-темний
+Medium light|Середньо-світлий
+Message bar at the top|Рядок повідомлення вгорі
+More|Ще
+No picture for this word yet. Use Type to write it.|Для цього слова ще немає картинки. Напишіть його в «Писати».
+Nothing here yet|Тут поки порожньо
+Off|Вимк.
+Off: words are added silently; tap the message to speak|Вимк.: слова додаються мовчки; натисніть на повідомлення, щоб озвучити
+Online ARASAAC pictures in search|Картинки ARASAAC з інтернету в пошуку
+Original|Оригінал
+Over picture|Над картинкою
+Picture + word|Картинка + слово
+Picture only|Лише картинка
+Pictures, words, contrast|Картинки, слова, контраст
+Pitch|Висота голосу
+Press Back 3 times quickly to leave|Швидко натисніть «Назад» 3 рази, щоб вийти
+Press and hold a button until the circle fills|Натисніть і тримайте кнопку, доки коло не заповниться
+Quiet|Тихо
+Recent words|Нещодавні слова
+Red|Рудий
+Say each word when tapped|Вимовляти кожне натиснуте слово
+Say the category name when opened|Вимовляти назву категорії під час відкриття
+Say the last word again|Повторити останнє слово
+Scan|Сканувати
+Scan speed|Швидкість сканування
+Select highlighted|Вибрати виділене
+Settings|Налаштування
+Shift|Великі літери
+Skin|Шкіра
+Skin tone for people|Колір шкіри людей
+Slow|Повільно
+Space|Пробіл
+Speak|Сказати
+Speak message|Сказати повідомлення
+Speak while typing (Type)|Говорити під час набору («Писати»)
+Speaking, going home, vibration|Мовлення, повернення на Головну, вібрація
+Speed|Швидкість
+Stay in the app|Залишатися в застосунку
+Stop scan|Зупинити сканування
+Switch scanning|Сканування кнопкою
+Tap any button to change it|Натисніть кнопку, щоб змінити її
+Tap symbols to build a message|Натискайте символи, щоб скласти повідомлення
+Type|Писати
+Type part of a word, like "app" for apple. Tap a picture to say it.|Напишіть початок слова. Натисніть картинку, щоб її озвучити.
+Type your message|Напишіть повідомлення
+Under picture|Під картинкою
+Vibrate|Вібрація
+Voice|Голос
+Volume|Гучність
+When a button is tapped|Після натискання кнопки
+White|Білий
+Word only|Лише слово
+Word position|Місце слова
+Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Слова без перекладу поки залишаються англійською. Якщо на пристрої немає голосу для цієї мови, слова читає голос за замовчуванням. Додайте голоси в налаштуваннях синтезу мовлення пристрою.
+category|категорія
+[words]
+Actions|Дії
+afternoon|день
+again|ще раз
+airplane|літак
+alarm|будильник
+All categories|Усі категорії
+all done|усе
+Alphabet|Абетка
+ambulance|швидка допомога
+angry|сердитий
+Animal homes & food|Домівки та їжа тварин
+Animals|Тварини
+answer|відповідати
+ant|мураха
+apple|яблуко
+apricot|абрикос
+apron|фартух
+arm|рука
+Art & crafts|Малювання та саморобки
+artist|художник
+astronaut|космонавт
+avocado|авокадо
+baby|немовля
+back|спина
+backpack|рюкзак
+bacon|бекон
+bad|погано
+bagel|бублик
+ball|м'яч
+balloon|повітряна кулька
+banana|банан
+bandage|пластир
+banjo|банджо
+bank|банк
+baseball|бейсбол
+basketball|баскетбол
+bathroom|ванна кімната
+Bathroom things|Для ванної
+bathtub|ванна
+beach|пляж
+beans|квасоля
+bear|ведмідь
+bed|ліжко
+bedroom|спальня
+bee|бджола
+beetle|жук
+bell|дзвоник
+bell pepper|солодкий перець
+bells|дзвіночки
+bicycle|велосипед
+bike|велосипед
+bike ride|кататися на велосипеді
+bird|птах
+Birds|Птахи
+black|чорний
+blackberry|ожина
+blanket|ковдра
+blocks|кубики
+blow nose|сякатися
+blue|синій
+blueberries|чорниці
+boat|човен
+book|книжка
+boots|чоботи
+bored|нудно
+bottle|пляшка
+bowl|миска
+brain|мозок
+bread|хліб
+Bread & cakes|Хліб і випічка
+break|перерва
+breakfast|сніданок
+breathe|дихати
+bridge|міст
+broccoli|броколі
+brother|брат
+brown|коричневий
+brush hair|розчісуватися
+brush teeth|чистити зуби
+bubble tea|бабл-ті
+bubbles|мильні бульбашки
+Bugs|Комахи
+Buildings|Будівлі
+burger|бургер
+burrito|буріто
+bus|автобус
+butter|масло
+butterfly|метелик
+bye|бувай
+cactus|кактус
+cake|торт
+calculator|калькулятор
+calendar|календар
+calm|спокійний
+Calm down|Заспокоїтися
+camel|верблюд
+candy|цукерка
+car|машина
+carrot|морква
+castle|замок
+cat|кіт
+caterpillar|гусінь
+chair|стілець
+Chat|Розмова
+cheese|сир
+chef|кухар
+cherries|вишні
+chicken|курка
+chocolate|шоколад
+chopsticks|палички для їжі
+church|церква
+clap|плескати
+clock|годинник
+closet|шафа
+Clothes|Одяг
+cloud|хмара
+clover|конюшина
+coat|пальто
+coconut|кокос
+cold|холодно
+Colors|Кольори
+computer|комп'ютер
+confused|не розумію
+cook|готувати
+cookie|печиво
+Cooking|Готування
+corn|кукурудза
+couch|диван
+count|рахувати
+cow|корова
+crab|краб
+crackers|крекери
+crayons|олівці
+cricket|цвіркун
+croissant|круасан
+crown|корона
+cry|плакати
+crying|плачу
+cucumber|огірок
+cup|чашка
+cup with straw|склянка з трубочкою
+cupcake|капкейк
+cut|різати
+cut paper|різати папір
+dad|тато
+Daily routines|Щоденні справи
+dance|танцювати
+date|фінік
+day|день
+Describing words|Слова-описи
+dice|кубик
+dinner|вечеря
+doctor|лікар
+dog|собака
+dolls|ляльки
+dolphin|дельфін
+don't know|не знаю
+don't like|не подобається
+donut|пончик
+door|двері
+down|вниз
+draw|малювати
+dress|сукня
+drink|пити
+drink water|пити воду
+Drinks|Напої
+drum|барабан
+dry hands|витирати руки
+duck|качка
+dumpling|вареник
+eagle|орел
+ears|вуха
+eat|їсти
+Eat & drink|Їжа та напої
+egg|яйце
+eggplant|баклажан
+elephant|слон
+embarrassed|соромно
+erase|стирати
+everyone|усі
+excited|у захваті
+eyes|очі
+factory|завод
+farmer|фермер
+Feelings|Почуття
+fig|інжир
+finger|палець
+fire truck|пожежна машина
+firefighter|пожежник
+fish|риба
+flamingo|фламінго
+flower|квітка
+flute|флейта
+fold clothes|складати одяг
+foot|стопа
+football|американський футбол
+fork and knife|виделка і ніж
+fountain|фонтан
+fox|лисиця
+fridge|холодильник
+friend|друг
+fries|картопля фрі
+Fruits|Фрукти
+frustrated|прикро
+garage|гараж
+garden|сад
+garlic|часник
+get dressed|одягатися
+gift|подарунок
+giraffe|жираф
+give|дати
+glasses|окуляри
+gloves|рукавички
+glue|клей
+go|іти
+good|добре
+gooseberry|аґрус
+gorilla|горила
+grandma|бабуся
+grandpa|дідусь
+grapefruit|грейпфрут
+grapes|виноград
+gray|сірий
+green|зелений
+green apple|зелене яблуко
+guitar|гітара
+hand|рука
+hang clothes|вішати одяг
+happy|веселий
+hat|шапка
+he|він
+head|голова
+headphones|навушники
+Health|Здоров'я
+helicopter|гелікоптер
+help|допомогти
+hi|привіт
+high five|дай п'ять
+hippo|бегемот
+Holidays & parties|Свята
+home|дім
+Home things|Дім
+honey|мед
+horse|кінь
+hospital|лікарня
+hot|жарко
+hot chocolate|гарячий шоколад
+hot dog|хот-дог
+hotel|готель
+hourglass|пісочний годинник
+How much|Скільки
+hug|обійняти
+hungry|хочу їсти
+hurry|поспішати
+hurt|боляче
+husband|чоловік
+ice|лід
+ice cream|морозиво
+In, on, under|У, на, під
+it|воно
+jeans|джинси
+jellyfish|медуза
+Jobs|Професії
+juice|сік
+kangaroo|кенгуру
+key|ключ
+kiss|цілувати
+Kitchen|Кухня
+kite|повітряний змій
+kiwi|ківі
+knee|коліно
+ladybug|сонечко
+lamp|лампа
+laugh|сміятися
+laughing|сміюся
+leaf|листок
+leg|нога
+lemon|лимон
+lettuce|салат
+library|бібліотека
+lighthouse|маяк
+like|подобається
+lime|лайм
+line up|стати в ряд
+lion|лев
+listen|слухати
+lobster|омар
+lollipop|льодяник
+look|дивитися
+love|люблю
+lunch|обід
+magic|фокуси
+make|робити
+mango|манго
+mask|маска
+Meals|Страви
+Mealtime|За столом
+meat|м'ясо
+Meat, fish & eggs|М'ясо, риба та яйця
+mechanic|механік
+medal|медаль
+medicine|ліки
+melon|диня
+microphone|мікрофон
+milk|молоко
+Milk & cheese|Молоко та сир
+mirror|дзеркало
+mom|мама
+monkey|мавпа
+mop floor|мити підлогу
+more|ще
+morning|ранок
+motorcycle|мотоцикл
+mouth|рот
+mug|кухоль
+mushroom|гриб
+music|музика
+my|мій
+My body|Моє тіло
+my turn|моя черга
+neck|шия
+need|треба
+nervous|хвилююся
+night|ніч
+ninja star|сюрікен
+no|ні
+noodles|локшина
+nose|ніс
+not|не
+notebook|зошит
+now|зараз
+Numbers|Числа
+nurse|медсестра
+octopus|восьминіг
+okay|нормально
+olive|оливка
+onion|цибуля
+open|відкрити
+orange|помаранчевий
+outside|надворі
+oven|духовка
+owl|сова
+paint|малювати фарбами
+paint picture|малювати картину
+pancakes|млинці
+paper|папір
+park|парк
+parrot|папуга
+passion fruit|маракуя
+peach|персик
+peacock|павич
+peanuts|арахіс
+pear|груша
+peas|горошок
+pen|ручка
+pencil|олівець
+penguin|пінгвін
+People|Люди
+person|людина
+phone|телефон
+piano|піаніно
+pie|пиріг
+pig|свиня
+pillow|подушка
+pilot|пілот
+pine tree|сосна
+pineapple|ананас
+pink|рожевий
+pizza|піца
+Places|Місця
+plant|рослина
+Plants|Рослини
+plate|тарілка
+Play|Гратися
+playground|дитячий майданчик
+please|будь ласка
+plum|слива
+point|показати пальцем
+police|поліцейський
+police car|поліцейська машина
+popcorn|попкорн
+pot|каструля
+potato|картопля
+pretzel|крендель
+pudding|пудинг
+purple|фіолетовий
+put clothes away|прибрати одяг
+put on shoes|узути взуття
+put on socks|одягнути шкарпетки
+puzzle|пазл
+Questions|Питання
+quiet|тиша
+rain|дощ
+rainbow|веселка
+read|читати
+red|червоний
+Reptiles & frogs|Плазуни та жаби
+rest|відпочивати
+restaurant|ресторан
+rhino|носоріг
+rice|рис
+robot|робот
+rocket|ракета
+rooster|півень
+rose|троянда
+ruler|лінійка
+run|бігати
+sad|сумний
+salad|салат
+salt|сіль
+sandals|сандалі
+sandwich|бутерброд
+saxophone|саксофон
+scared|страшно
+scarf|шарф
+School|Школа
+School things|Шкільне приладдя
+Science & space|Наука і космос
+scientist|науковець
+scissors|ножиці
+Sea animals|Морські тварини
+seal|тюлень
+seedling|паросток
+Sensory games|Сенсорні ігри
+Shapes|Фігури
+shark|акула
+shaved ice|фруктовий лід
+she|вона
+ship|корабель
+shirt|сорочка
+shoes|взуття
+shop|крамниця
+Shopping & money|Покупки та гроші
+shorts|шорти
+shot|укол
+shoulder|плече
+shower|душ
+shrimp|креветка
+sick|хворію
+silly|кумедний
+sing|співати
+singer|співак
+sister|сестра
+sleep|спати
+sleepy|хочу спати
+slide|гірка
+smoothie|смузі
+Snacks|Перекус
+snail|равлик
+sneeze|чхати
+snow|сніг
+soap|мило
+soccer|футбол
+socks|шкарпетки
+soft toy|м'яка іграшка
+sorry|вибач
+soup|суп
+spaghetti|спагеті
+spider|павук
+spoon|ложка
+Sports|Спорт
+spring|весна
+stadium|стадіон
+stand|стояти
+stethoscope|стетоскоп
+stop|стоп
+store|магазин
+Stories & pretend|Казки та сюжетні ігри
+storm|гроза
+strawberry|полуниця
+summer|літо
+sun|сонце
+sunflower|соняшник
+surprised|здивований
+swan|лебідь
+sweep floor|підмітати підлогу
+swim|плавати
+swimming pool|басейн
+swimsuit|купальник
+swing|гойдалка
+t-shirt|футболка
+table|стіл
+tablet|планшет
+taco|тако
+take off shoes|роззутися
+take out trash|винести сміття
+taxi|таксі
+tea|чай
+teacher|учитель
+teapot|чайник
+teddy|ведмедик
+teeth|зуби
+tennis|теніс
+tent|намет
+thank you|дякую
+that|те
+thermometer|градусник
+think|думати
+thirsty|хочу пити
+this|це
+throat|горло
+tiger|тигр
+Time|Час
+tired|втомився
+today|сьогодні
+toilet|туалет
+tomato|помідор
+tomorrow|завтра
+tongue|язик
+too loud|занадто гучно
+Tools|Інструменти
+tooth|зуб
+toothbrush|зубна щітка
+towel|рушник
+toy car|машинка
+Toys|Іграшки
+tractor|трактор
+train|потяг
+tree|дерево
+trophy|кубок
+tropical fish|тропічна рибка
+truck|вантажівка
+trumpet|труба
+tulip|тюльпан
+turtle|черепаха
+TV|телевізор
+TV, phones & computers|Телевізор, телефони та комп'ютери
+umbrella|парасолька
+underwear|труси
+up|угору
+vacuum floor|пилососити
+Vegetables|Овочі
+Vehicles|Транспорт
+video game|відеогра
+violin|скрипка
+volleyball|волейбол
+wait|чекати
+walk|гуляти
+want|хочу
+wash dishes|мити посуд
+wash face|умиватися
+wash hair|мити голову
+wash hands|мити руки
+washing machine|пральна машина
+watch|наручний годинник
+water|вода
+watermelon|кавун
+wave|махати рукою
+we|ми
+Weather|Погода
+week|тиждень
+whale|кит
+what|що
+where|де
+white|білий
+who|хто
+wife|дружина
+Wild animals|Дикі тварини
+wind|вітер
+window|вікно
+winter|зима
+wipe face|витерти обличчя
+wipe table|витерти стіл
+wolf|вовк
+work|працювати
+worried|переживаю
+write|писати
+yellow|жовтий
+yes|так
+yesterday|учора
+yo-yo|йо-йо
+yogurt|йогурт
+you|ти
+yucky|фу
+yummy|смачно
+zebra|зебра
+zip coat|застебнути куртку
+1st place medal|золота медаль
+2nd place medal|срібна медаль
+3rd place medal|бронзова медаль
+abacus|рахівниця
+above|над
+absent|відсутній
+accordion|акордеон
+acne spots|прищі
+acorn|жолудь
+across|через
+activity centre|розвивальний центр
+add|додати
+admission tickets|квитки
+advent|адвент
+advent calendar|адвент-календар
+aerial tramway|канатна дорога
+aerobics dance|аеробіка
+aeroplane|літак
+afraid|боюся
+after|після
+aftershave|лосьйон після гоління
+against|проти
+ahead|попереду
+air person|працівник аеропорту
+air steward|стюард
+airplane arrival|приліт
+airplane departure|виліт
+airways|дихальні шляхи
+alembic|перегінний куб
+algebra class|урок алгебри
+algebra formula|формула
+almond|мигдаль
+amphora|амфора
+anatomical heart|серце
+anchor|якір
+ankle|кісточка
+ant eater|мурахоїд
+antelope|антилопа
+apple juice|яблучний сік
+aquarium|акваріум
+arch lever file|папка-реєстратор
+archery|стрільба з лука
+archery target|мішень
+arm chair|крісло
+arms|руки
+armwrestle|армреслінг
+around|навколо
+arrest|заарештувати
+art|мистецтво
+art class|урок малювання
+art room|кабінет малювання
+artichoke|артишок
+articulated lorry|фура
+artist palette|палітра
+ash wednesday|Попільна середа
+ask|запитати
+asparagus|спаржа
+assembly|лінійка
+atom|атом
+attract|притягувати
+aubergine|баклажан
+aunt maternal|тітка (мамина сестра)
+aunt paternal|тітка (татова сестра)
+auroscope|отоскоп
+auto rickshaw|авторикша
+autumn|осінь
+awake|не сплю
+away|геть
+axe|сокира
+baby angel|янголятко
+baby chick|курча
+baby oil|дитяча олійка
+baby powder|дитяча присипка
+back ache|болить спина
+back garden|подвір'я
+backstop|кетчер
+backwards|назад
+badger|борсук
+badminton|бадмінтон
+badminton racket|ракетка для бадмінтону
+baguette bread|багет
+bake|пекти
+baked beans|печена квасоля
+baker|пекар
+baking powder|розпушувач
+baking tray|деко
+balance scale|терези
+ballet shoes|балетки
+banana bunch|гроно бананів
+bank card|банківська картка
+banquet buffet|шведський стіл
+bap|булочка
+bar chart|діаграма
+barbeque|барбекю
+barber pole|перукарня
+base rock|камінь
+baseball base|база
+baseball bat|бейсбольна бита
+baseball game|гра в бейсбол
+baseball glove|бейсбольна рукавиця
+baseball player|бейсболіст
+basket|кошик
+basketball ball|баскетбольний м'яч
+basketball game|гра в баскетбол
+bat|кажан
+bath|ванна
+bath animal|мити тварину
+bath mat|килимок для ванної
+bathe|купатися
+battery|батарейка
+beach bag|пляжна сумка
+beach towel|пляжний рушник
+beach with umbrella|пляж із парасолькою
+beads|намистинки
+beak|дзьоб
+beaker|мензурка
+beanbag|крісло-мішок
+beans on toast|квасоля на тості
+beansprouts|паростки квасолі
+beaver|бобер
+bed time|час спати
+beehive|вулик
+beer|пиво
+beer mug|пивний кухоль
+bees nest|бджолине гніздо
+beetroot|буряк
+before|до
+behind|за
+bellhop bell|дзвінок на стійці
+below|під
+belt|пасок
+bench|лавка
+bend|нахилятися
+bendy|гнучкий
+berry|ягода
+between|між
+bib|слинявчик
+big wheel|оглядове колесо
+bikini|бікіні
+billed cap|кепка
+bin bag|пакет для сміття
+bin bags|пакети для сміття
+bingo|лото
+bingo marker|маркер для лото
+bird bath|поїлка для птахів
+bird cage|клітка для птахів
+bird feeder|годівничка
+bird seed|корм для птахів
+birthday cake|торт на день народження
+birthday card|листівка на день народження
+biscuits|печиво
+bison|бізон
+bite|кусати
+biting lip|кусати губу
+black cat|чорний кіт
+black nib|чорна ручка
+blackboard|дошка
+blackcurrant juice|сік чорної смородини
+blackcurrants|чорна смородина
+bladder|сечовий міхур
+bladder kidneys|нирки
+blanket chest|скриня
+blender drinks|блендер
+bless|благословляти
+blind|незрячий
+blinds|жалюзі
+blink|кліпати
+blood pressure|тиск
+blouse|блузка
+blow|дмухати
+blow kiss|надіслати повітряний поцілунок
+blowfish|риба-фугу
+blue book|синя книжка
+blusher|рум'яна
+boar|кабан
+bobble hat|шапка з помпоном
+boccia|бочча
+boccia chute|жолоб для бочча
+body outline|тіло
+bolt|болт
+bomb|бомба
+bone|кістка
+bonfire|багаття
+bonfire night|Ніч Гая Фокса
+book end|підпора для книжок
+book ends|підпори для книжок
+book shelf|книжкова полиця
+bookcase|книжкова шафа
+bookmark|закладка
+bookmark tabs|закладки
+boomerang|бумеранг
+bootees|пінетки
+both|обидва
+bottom|низ
+bounce|стрибати
+bounce ball|відбивати м'яч
+bouncing ball|стрибучий м'яч
+bouquet|букет
+bow|бантик
+bow tie|метелик
+bowler|подавальник
+bowling|боулінг
+bowling ball|куля для боулінгу
+bowling gutter|жолоб у боулінгу
+bowling pins|кеглі
+bowling spare|спер
+bowling strike|страйк
+box|бокс
+boxer shorts|труси-боксери
+boxing day|День подарунків
+boxing glove|боксерська рукавиця
+bra|бюстгальтер
+bracelet|браслет
+branch|гілка
+brazil nut|бразильський горіх
+bread crumbs|панірувальні сухарі
+bread roll|булочка
+bread slice|скибка хліба
+break egg|розбити яйце
+break time|перерва
+breakfast time|час сніданку
+brick|цегла
+bricks|кубики
+bridle|вуздечка
+briefcase|портфель
+bright|яскравість
+bright room|світла кімната
+bring|принести
+broad beans|боби
+broken|зламано
+broken bone|перелом
+broken chain|розірваний ланцюг
+brooch|брошка
+broom|мітла
+broomstick|мітла відьми
+brown mushroom|печериця
+brush animal|чистити тварину
+brussel sprouts|брюссельська капуста
+bubble bath|піна для ванни
+bubble mixture|розчин для бульбашок
+bubble wand|паличка для бульбашок
+bubble wrap|пухирчаста плівка
+bucket|відерце
+buckle|пряжка
+bud|бутон
+budgie|хвилястий папужка
+buffalo|буйвіл
+build|будувати
+building construction|будова
+bulb holder|патрон для лампочки
+bullet train|швидкісний потяг
+bullseye|дартс
+bumpy|нерівний
+bunk beds|двоповерхове ліжко
+burn|опік
+bus stop|автобусна зупинка
+bush|кущ
+busy|зайнятий
+butternut squash|гарбуз
+cabbage|капуста
+cable tv|кабельне ТБ
+cafe|кафе
+cage|клітка
+cake bar|батончик
+cake case|формочка для кексів
+cake mix|суміш для торта
+cake slice|шматок торта
+cake tin|форма для випікання
+calendar month|місяць
+calf|литка
+call out|покликати
+camera|фотоапарат
+camera with flash|фотоапарат зі спалахом
+camp|табір
+camping|кемпінг
+can opener|відкривачка
+candle|свічка
+candy cane|льодяникова паличка
+candy floss|цукрова вата
+candy hearts|цукерки-сердечка
+canned food|консерви
+canoe|каное
+cap|кепка
+car boot|багажник
+car bumper|бампер
+car mechanic|автомеханік
+car transporter|автовоз
+caravan|будинок на колесах
+carbohydrates|вуглеводи
+card|листівка
+card file box|картотека
+card index|картки
+card index dividers|роздільники
+cardboard|картон
+care assistant|доглядальник
+caretaker|завгосп
+carousel horse|карусель
+carp streamer|прапор-короп
+carpenter|тесля
+carpentry saw|пилка
+carry|нести
+carry books|нести книжки
+cart|візок
+carton|пакет соку
+cartwheeling|колесо
+carve meat|різати м'ясо
+carve wood|різьбити по дереву
+cash point|банкомат
+cashew|кеш'ю
+casserole|каструля
+cassette tape|касета
+castor sugar|цукрова пудра
+cat bed|лежанка для кота
+cat biscuits|сухий корм для кота
+cat food|корм для кота
+catch|ловити
+catherine wheel|вогняне колесо
+cauliflower|цвітна капуста
+cctv|камера спостереження
+ceiling|стеля
+ceiling light|люстра
+celebrate|святкувати
+celebrate birthday|святкувати день народження
+celebration|свято
+celeriac|корінь селери
+celery|селера
+cement mixer|бетонозмішувач
+centipede|багатоніжка
+cereal|пластівці
+cereal bowl|миска для пластівців
+cereal bran|висівки
+cereal museli|мюслі
+certificate|грамота
+chains|ланцюги
+chaise lounge|кушетка
+chalk|крейда
+chameleon|хамелеон
+champagne|шампанське
+chandelier|люстра
+change|змінювати
+change clothes|перевдягатися
+change mind|передумати
+change nappy|змінити підгузок
+change tv channel|перемкнути канал
+channel bbc|канал BBC
+chapatti|коржик чапаті
+charge|заряджати
+chart decreasing|графік униз
+chart increasing|графік угору
+chase|наздоганяти
+cheat|шахраювати
+cheek|щока
+cheese burger|чизбургер
+cheese slices|скибочки сиру
+cheetah|гепард
+cheque book|чекова книжка
+cherry blossom|квітуча вишня
+chess pawn|пішак
+chest of drawers|комод
+chestnut|каштан
+chestnuts|каштани
+chew|жувати
+chewing gum|жуйка
+chewy tube|жувальна трубка
+chick|курчатко
+chicken breast|куряче філе
+chicken house|курник
+chicken leg|куряча ніжка
+chicken nuggets|нагетси
+chicken pieces|шматочки курки
+chicken run|вигул для курей
+childrens tv|дитячі передачі
+chilli pepper|гострий перець
+chimney|димар
+chimpanzee|шимпанзе
+chin|підборіддя
+chinese cabbage|пекінська капуста
+chinese food|китайська їжа
+chip and pin device|термінал
+chipmunk|бурундук
+chips|картопля фрі
+chips packet|чипси
+chisel|стамеска
+chocolate box|коробка цукерок
+chocolate chips|шоколадна крихта
+chocolate egg|шоколадне яйце
+chocolate log|шоколадний рулет
+choke|вдавитися
+chop|нарізати
+chop wood|рубати дрова
+chopping board|обробна дошка
+christian|християнин
+christmas|Різдво
+christmas bauble|ялинкова куля
+christmas bell|різдвяний дзвіночок
+christmas cake|різдвяний кекс
+christmas day|Різдво
+christmas decorations|ялинкові прикраси
+christmas eve|Святвечір
+christmas lights|гірлянда
+christmas pudding|різдвяний пудинг
+christmas sock|різдвяна шкарпетка
+christmas tree|ялинка
+christmas wreath|різдвяний вінок
+cigarette|цигарка
+circle|коло
+circle time|ранкове коло
+circuit|електричне коло
+circus tent|цирк
+cityscape|місто
+cityscape at dusk|вечірнє місто
+clamp|струбцина
+clap hands|плескати в долоні
+clapper board|кінохлопавка
+class room|клас
+classical building|старовинна будівля
+claw|кіготь
+clay|глина
+clean dishes|чистий посуд
+clean hands|чистити руки
+clean room|чиста кімната
+clean shoes|чистити взуття
+clean window|мити вікно
+cleaner|прибиральник
+cleaner spray|миючий спрей
+cleaning box|набір для прибирання
+clear|прозорий
+climb down|злазити
+climb tree|лізти на дерево
+climb up|залазити
+climbing|лазити
+climbing rock|скелелазіння
+climbing wall|скеледром
+clingfilm|харчова плівка
+clinking beer mugs|цокатися кухлями
+clinking glasses|цокатися
+clip nails|стригти нігті
+clipboard|планшет для паперів
+clock radio|радіобудильник
+close door|зачинити двері
+close to|поруч
+closed|зачинено
+closed book|закрита книжка
+closed shop|магазин зачинено
+closed umbrella|складена парасолька
+clothes hanger|вішалка
+clothes peg|прищіпка
+cloud with lightning|блискавка
+cloudy|хмарно
+club suit|трефи
+clutch bag|клатч
+coach|автобус
+coated spoon|ложка з покриттям
+cockatiel|корела
+cockerel|півник
+cockroach|тарган
+cocktail glass|келих для коктейлю
+coffee|кава
+coffee maker|кавоварка
+coffee table|журнальний столик
+coin|монета
+colander|друшляк
+collar|комір
+collect|збирати
+colour|колір
+coloured paper|кольоровий папір
+colouring book|розмальовка
+comb|гребінець
+comb animal|розчісувати тварину
+come|іти сюди
+comedy tv|комедія
+comet|комета
+communicate|спілкуватися
+compass|компас
+computer art|малювання на комп'ютері
+computer cable|кабель
+computer disk|диск
+computer game|комп'ютерна гра
+computer keyboard|клавіатура
+computer monitor|монітор
+computer mouse|мишка
+computer programme|програма
+computer speaker|колонка
+concentrating|зосереджений
+confetti ball|конфеті
+conical flask|колба
+connection|підключення
+construction|будівництво
+control knobs|ручки керування
+cooker|плита
+cooking oil|олія
+coral|корал
+corned beef|тушонка
+corner cabinet|кутова шафа
+cornet|ріжок морозива
+cornflakes|кукурудзяні пластівці
+correct|правильно
+correct thought|правильна думка
+cot|дитяче ліжечко
+cottage cheese|кисломолочний сир
+cotton bud|ватна паличка
+counters|фішки
+courgette|кабачок
+cover food|накрити їжу
+cow shed|корівник
+cracker|хлопавка
+craft table|стіл для саморобок
+cranberries|журавлина
+cranberry juice|журавлиний морс
+crane|підйомний кран
+crane fly|комар-довгоніжка
+crawl|повзати
+crayon|воскова крейдочка
+cream|кремовий
+credit card|кредитна картка
+creme fraiche|сметана
+cricket ball|м'яч для крикету
+cricket bowler|подавальник у крикеті
+cricket game|крикет
+crisp bread|хлібці
+crisps|чипси
+crocodile|крокодил
+crooked|кривий
+cross|хрест
+cross fingers|схрестити пальці
+crossed swords|схрещені мечі
+crouch|присісти
+crown of thorns|терновий вінець
+crucifixion|розп'яття
+cruiser|крейсер
+crumple paper|м'яти папір
+crunchy|хрусткий
+crush|давити
+crush garlic|давити часник
+crutch|милиця
+crutches|милиці
+crystal ball|кришталева куля
+cupboard|шафа
+curling stone|камінь для керлінгу
+curly|кучерявий
+curly hair|кучеряве волосся
+currants|родзинки
+curry|карі
+curry rice|рис із карі
+curtains|штори
+cushion|подушка
+cut and paste|вирізати й клеїти
+cut with scissors|різати ножицями
+cycle|їздити на велосипеді
+cyclone|циклон
+cymbals hand|тарілки
+daffodil|нарцис
+dagger|кинджал
+dairy products|молочні продукти
+daisy|ромашка
+dango|данґо
+danish pastry|листкова булочка
+darts|дартс
+dates|фініки
+daughter|донька
+daydream|мріяти
+dead|мертвий
+dead plant|засохла рослина
+decorate|ремонтувати
+decorate cake|прикрашати торт
+decorate tree|прикрашати ялинку
+deep|глибокий
+deep fat fryer|фритюрниця
+deer|олень
+delicious drink|смачний напій
+delicious food|смачна їжа
+deliver|доставити
+delivery person|кур'єр
+delivery trolley|візок
+dental floss|зубна нитка
+dentist|стоматолог
+deodorant|дезодорант
+deodorant spray|дезодорант-спрей
+department store|універмаг
+derelict house|покинутий будинок
+desert|пустеля
+desert island|безлюдний острів
+desiring|хочу
+desk|письмовий стіл
+desktop computer|комп'ютер
+dessert|десерт
+dessert menu|меню десертів
+detective|детектив
+dial|набирати номер
+diamond|ромб
+diamond suit|бубни
+dictionary|словник
+die|померти
+dig|копати
+dining table|обідній стіл
+dinner lady|кухарка в їдальні
+dinner time|час вечері
+dinosaur|динозавр
+dip food|умочувати їжу
+dirty|брудний
+dirty dishes|брудний посуд
+disabled toilet|туалет для людей з інвалідністю
+disgusted|гидко
+dish|страва
+dish cloth|ганчірка для посуду
+dishes|посуд
+dishwasher|посудомийка
+dishwasher powder|засіб для посудомийки
+dive|пірнати
+divide|ділити
+diving mask|маска для плавання
+diya lamp|лампа дія
+dna|ДНК
+dodo|додо
+dog basket|лежанка для собаки
+dog bed|лежак для собаки
+dog biscuits|собаче печиво
+dog chew|кісточка для собаки
+dog coat|попона для собаки
+dog food|корм для собаки
+dog kennel|буда
+doidy cup|чашка Doidy
+doll|лялька
+dollar banknote|долар
+donkey|віслюк
+double bed|двоспальне ліжко
+doughnut|пампушка
+dove|голуб
+dragon|дракон
+dragonfly|бабка
+draining board|сушарка для посуду
+drama|театр
+drama class|театральний гурток
+drawer|шухляда
+drawing pin|кнопка
+dream|бачити сон
+dresser|буфет
+dressing gown|халат
+dressing table|туалетний столик
+dribble football|вести м'яч
+drill bit|свердло
+drink consistency firm spoon|густий напій (ложка)
+drink consistency honey cup|напій як мед (чашка)
+drink consistency juice straw|рідкий напій (трубочка)
+drinking glass|склянка
+drip|крапля
+drive|кермувати
+drop of blood|крапля крові
+dropper pipette|піпетка
+drown|тонути
+drumsticks|барабанні палички
+dry|сухий
+dry hair|сушити волосся
+dumper truck|самоскид
+dust|витирати пил
+dvd|DVD
+dvd player|DVD-програвач
+dysphagia cup|чашка для ковтання
+e-mail|електронна пошта
+ear muffs|теплі навушники
+earrings|сережки
+earth|Земля
+earth crust|земна кора
+earth inner core|внутрішнє ядро Землі
+earth mantle|мантія Землі
+earth outer core|зовнішнє ядро Землі
+earths atmosphere|атмосфера
+earthworm|черв'як
+earwig|вуховертка
+east|схід
+easter egg|писанка
+easter egg hunt|пошук писанок
+egg cup|підставка для яйця
+egg on toast|яйце на тості
+egg white|білок
+egg yolk|жовток
+eggs|яйця
+eight|вісім
+eighteen|вісімнадцять
+eighth|восьмий
+eighty|вісімдесят
+either|будь-який
+elbow|лікоть
+elearning|онлайн-урок
+electric plug|вилка
+elevator|ліфт
+eleven|одинадцять
+elf|ельф
+emagazine|онлайн-журнал
+emery board|пилочка для нігтів
+empty|порожньо
+empty nest|порожнє гніздо
+energy monitor|лічильник енергії
+engine|двигун
+english|англійська
+english class|урок англійської
+enough|досить
+enter|увійти
+enter door|увійти в двері
+envelope|конверт
+escalator|ескалатор
+escape|утекти
+euro banknote|євро
+even|рівний
+every|кожен
+ewe|вівця
+exercise|зарядка
+exit|вихід
+exit door|вийти за двері
+extension lead|подовжувач
+extra|додатково
+extra large|дуже великий
+eye|око
+eye drops|очні краплі
+eye shadow|тіні для повік
+eyebrow|брова
+eyebrow pencil|олівець для брів
+eyelash|вія
+eyelash curler|щипці для вій
+fabric|тканина
+factory worker|робітник
+fairy|фея
+falafel|фалафель
+fall off|упасти з
+fall over|упасти
+fallen leaf|опале листя
+family|родина
+fancy|ошатний
+fangs|ікла
+fast|швидко
+fasten|застебнути
+fat|товстий
+father christmas|Святий Миколай
+father christmas sack|мішок із подарунками
+fats|жири
+favourite|улюблений
+fax machine|факс
+feather|пір'їна
+feed cat|годувати кота
+feed dog|годувати собаку
+feed someone|годувати
+feeding baby|годувати малюка
+feet|ступні
+felt tips|фломастери
+female body|жіноче тіло
+fencing|фехтування
+fennel|фенхель
+ferret|тхір
+ferris wheel|оглядове колесо
+ferry|пором
+fibre optic lamp|оптоволоконна лампа
+field|поле
+field hockey|хокей на траві
+fifteen|п'ятнадцять
+fifty|п'ятдесят
+fifty percent|половина
+fight|битися
+file|напилок
+file cabinet|картотека
+file folder|папка
+file metal|пиляти метал
+file nails|підпилювати нігті
+file wood|шліфувати дерево
+filing cabinet|шафа для документів
+fill|наповнити
+film frames|кадри фільму
+film projector|кінопроектор
+filter paper|фільтрувальний папір
+fin|плавець
+find|знайти
+finger painting|малювати пальцями
+finger puppet|пальчикова лялька
+fingernail|ніготь
+fingernails|нігті
+fingers|пальці
+finish|фініш
+fir tree|ялина
+fire|вогонь
+fire extinguisher|вогнегасник
+fire helmet|пожежна каска
+fire hose|пожежний шланг
+firecracker|петарда
+fireplace|камін
+fireworks|феєрверк
+first|перший
+first aid box|аптечка
+first base|перша база
+first quarter moon|півмісяць
+fish and chips|риба з картоплею
+fish burger|рибний бургер
+fish food|корм для рибок
+fish tank|акваріум
+fishing pole|вудка
+fist|кулак
+five|п'ять
+flame|полум'я
+flannel|мочалка
+flashlight|ліхтарик
+flat|плаский
+flat shoe|туфлі без підборів
+flat tyre|спущене колесо
+flatbread|коржик
+flatscreen tv|плаский телевізор
+flexed biceps|сильний
+flip|перевертати
+flip coin|підкинути монетку
+flipper|ласт
+float|плавати на воді
+floor|підлога
+floppy disk|дискета
+florist|флорист
+flour plain|борошно
+flower playing cards|ханафуда
+flush toilet|змити воду
+fly|муха
+flying disc|фрісбі
+flying saucer|літаюча тарілка
+fog|туман
+foggy|туманно
+folding hand fan|віяло
+fondue|фондю
+food|їжа
+food blender|блендер
+food cold|холодна їжа
+food hot|гаряча їжа
+football kit arsenal|форма «Арсенал»
+football kit aston villa|форма «Астон Вілла»
+football kit barnsley|форма «Барнслі»
+football kit birmingham|форма «Бірмінгем»
+football kit blackburn rovers|форма «Блекберн Роверс»
+football kit blackpool|форма «Блекпул»
+football kit blank|футбольна форма
+football kit bolton wanderers|форма «Болтон Вондерерз»
+football kit bristol city|форма «Бристоль Сіті»
+football kit burnley|форма «Бернлі»
+football kit cardiff|форма «Кардіфф»
+football kit chelsea|форма «Челсі»
+football kit coventry|форма «Ковентрі»
+football kit crystal palace|форма «Крістал Пелас»
+football kit derby|форма «Дербі»
+football kit doncaster|форма «Донкастер»
+football kit everton|форма «Евертон»
+football kit fulham|форма «Фулгем»
+football kit hull city|форма «Галл Сіті»
+football kit ipswich|форма «Іпсвіч»
+football kit leicester|форма «Лестер»
+football kit liverpool|форма «Ліверпуль»
+football kit manchester city|форма «Манчестер Сіті»
+football kit manchester united|форма «Манчестер Юнайтед»
+football kit middlesbrough|форма «Мідлсбро»
+football kit newcastle united|форма «Ньюкасл»
+football kit nottingham forest|форма «Ноттінгем Форест»
+football kit peterborough|форма «Пітерборо»
+football kit plymouth argyle|форма «Плімут Аргайл»
+football kit portsmouth|форма «Портсмут»
+football kit preston|форма «Престон»
+football kit qpr|форма «КПР»
+football kit reading|форма «Редінг»
+football kit scunthorpe|форма «Сканторп»
+football kit sheffield united|форма «Шеффілд Юнайтед»
+football kit sheffield weds|форма «Шеффілд Венсдей»
+football kit spurs|форма «Тоттенгем»
+football kit stoke city|форма «Сток Сіті»
+football kit sunderland|форма «Сандерленд»
+football kit swansea|форма «Свонсі»
+football kit watford|форма «Вотфорд»
+football kit west bromwich|форма «Вест Бромвіч»
+football kit west ham united|форма «Вест Гем»
+football kit wigan athletic|форма «Віган»
+football kit wolves|форма «Вулвергемптон»
+forearm|передпліччя
+fork|виделка
+fork lift truck|навантажувач
+fortune cookie|печиво з передбаченням
+forty|сорок
+forward|уперед
+forwards|уперед
+fountain pen|перова ручка
+four|чотири
+fourteen|чотирнадцять
+framed picture|картина в рамці
+frankincense|ладан
+freckles|веснянки
+freezer|морозилка
+french stick|батон
+friction|тертя
+fried breakfast|яєчня з беконом
+fried shrimp|смажені креветки
+frog|жаба
+fromage frais|сирок
+front|перед
+front door|вхідні двері
+front-facing baby chick|курчатко
+frozen chips|заморожена картопля фрі
+frozen fish fingers|рибні палички
+frozen food box|заморожені продукти
+frozen pizza|заморожена піца
+fruit|фрукт
+fruit tree|фруктове дерево
+fry|смажити
+frying pan|сковорідка
+fuel pump|заправка
+full|повний
+full moon|повня
+funnel|лійка
+funny laugh|смішно
+furniture|меблі
+future|майбутнє
+fuzzy|пухнастий
+garden clippers|секатор
+gardener|садівник
+garlic bread|часниковий хліб
+garlic crusher|часникодавка
+gear|шестерня
+gem stone|коштовний камінь
+geography|географія
+geography class|урок географії
+get|взяти
+get off bus|вийти з автобуса
+get on bus|сісти в автобус
+get out of chair|встати зі стільця
+get up|вставати
+ghost|привид
+ginger root|імбир
+give up cake|відмовитися від торта
+give up foods|відмовитися від їжі
+glass|скло
+glitter|блискітки
+globe|глобус
+globe with meridians|земна куля
+glowing star|зірка
+glue stick|клей-олівець
+gnat|мошка
+go in|зайти
+go out|вийти
+go outside|вийти надвір
+go through door|пройти у двері
+go to the toilet|до туалету
+goal|гол
+goal net|ворота
+goat|коза
+goggles|захисні окуляри
+gold bar|злиток золота
+goldfish|золота рибка
+goldfish bowl|акваріум для рибки
+golf|гольф
+golf club|ключка для гольфу
+golfing|грати в гольф
+good person|хороша людина
+good to drink|можна пити
+good to eat|можна їсти
+goose|гуска
+goose roast|печена гуска
+grab|хапати
+graduation cap|випускна шапочка
+grains|крупи
+grandfather|дідусь
+grandmother|бабуся
+grandparents|бабуся й дідусь
+grape juice|виноградний сік
+grapefruit juice|грейпфрутовий сік
+graph column|графік
+grass|трава
+grate|терти
+grater|тертка
+gravity|тяжіння
+gravy boat|соусник
+great|чудово
+green beans|стручкова квасоля
+green book|зелена книжка
+greengrocer|продавець овочів
+grill|смажити на грилі
+grill pan|сковорідка-гриль
+ground|земля
+group work|робота в групі
+grow|рости
+grow hair|відрощувати волосся
+guard|охоронець
+guess|вгадувати
+guide dog|собака-поводир
+guinea pig|морська свинка
+gum|ясна
+guy|опудало
+guy fawkes|Гай Фокс
+gym|спортзал
+hair bunches|хвостики
+hair conditioner|бальзам для волосся
+hair curler|бігуді
+hair curling tongs|плойка
+hair dye|фарба для волосся
+hair pick|гребінець-вилка
+hair plaits|кіски
+hair ponytail|хвостик
+hairbrush|щітка для волосся
+haircut|стрижка
+hairdryer|фен
+hairspray|лак для волосся
+half|половина
+halloween|Гелловін
+ham|шинка
+ham packet|упаковка шинки
+hamburger|гамбургер
+hamburger carton|коробка для бургера
+hammer|молоток
+hammer and pick|молоток і кайло
+hammer and wrench|молоток і ключ
+hamster|хом'як
+hamster food|корм для хом'яка
+hamster maze|лабіринт для хом'яка
+hand bag|сумочка
+hand cream|крем для рук
+hand mixer|міксер
+hand punch|діркопробивач
+handbag|сумка
+handcuffs|наручники
+handle bars|кермо
+handsome|гарний
+hang|вішати
+hang coat|повісити пальто
+hangar|ангар
+hangul syllable bbegs|корейський склад
+hangul syllable jjwaelm|корейський склад «jjwaelm»
+hankerchief|носова хустинка
+hard|твердий
+hard hat|каска
+hare|заєць
+harvest|урожай
+harvest festival|свято врожаю
+hat too big|шапка завелика
+hatch|вилупитися
+hatching chick|курча вилуплюється
+haunted house|будинок із привидами
+hazelnut|лісовий горіх
+head teacher|директор школи
+headache|болить голова
+headband|обруч
+headboard|узголів'я
+headlamp|фара
+healthy|здоровий
+hear|чути
+hearing aid|слуховий апарат
+heart|серце
+heart shape|сердечко
+heart suit|чирва
+heat|нагрівати
+heavy|важкий
+hedge|живопліт
+hedge cutters|ножиці для кущів
+hedgehog|їжак
+heel|п'ята
+heel of shoe|підбор
+hello|добрий день
+helmet|шолом
+heptagon|семикутник
+herb|зелень
+heron|чапля
+hexagon|шестикутник
+hibiscus|гібіскус
+high|високий
+high chair|дитячий стільчик
+high voltage|висока напруга
+high-heeled shoe|туфля на підборах
+high-speed train|швидкісний поїзд
+highest|найвищий
+hike|похід
+hindu temple|індуїстський храм
+hip|стегно
+hippopotamus|бегемот
+hips|стегна
+history|історія
+history class|урок історії
+hit|вдарити
+hit something|бити
+hoe|сапка
+hoist|підйомник
+hold|тримати
+hold hands|триматися за руки
+hold sledge hammer|тримати кувалду
+holdall|дорожня сумка
+hole punch|діркопробивач
+hollow|порожнистий
+holly|падуб
+hooded top|худі
+hoof|копито
+hook|гачок
+hoover|пилососити
+hop|стрибати на одній нозі
+horns|роги
+horse racing|кінні перегони
+hose|шланг
+hot air balloon|повітряна куля
+hot brush|фен-щітка
+hot pepper|гострий перець
+hot person|мені жарко
+hot springs|гарячі джерела
+hourglass done|час вийшов
+house|будинок
+houses|будинки
+how|як
+how many|скільки
+hundred|сто
+hunt|полювати
+hut|хатинка
+hyacinth|гіацинт
+ice cream tub|відерце морозива
+ice hockey|хокей
+ice lolly|ескімо
+ice skate|кататися на ковзанах
+in|у
+in front|попереду
+inbox tray|лоток для паперів
+incoming envelope|вхідний лист
+index cards|картки
+ingredients|продукти
+inhaler|інгалятор
+inside out|навиворіт
+inside room|у кімнаті
+intestine|кишечник
+iphone|iPhone
+ipod|iPod
+iron|праска
+ironing board|прасувальна дошка
+is this enough|цього досить?
+it assistant|помічник з інформатики
+it class|урок інформатики
+it room|комп'ютерний клас
+itch|свербить
+ivy|плющ
+jack in box|чортик із коробки
+jack-o-lantern|гарбуз-ліхтар
+jacket|куртка
+jacket potato|печена картопля
+jam|варення
+jam tart|тістечко з варенням
+jar|банка
+jealous|ревную
+jeep|джип
+jelly|желе
+jelly beans|желейки
+jet plane|реактивний літак
+jewellery|прикраси
+jigsaw puzzle|пазл
+jigsaw puzzle piece|частинка пазла
+jog|бігати підтюпцем
+join|з'єднувати
+joker|джокер
+judge|суддя
+judo|дзюдо
+judo belt|пояс для дзюдо
+juggling|жонглювати
+jump|стрибати
+jumper|светр
+jungle gym|драбинка
+jupiter|Юпітер
+kaaba|Кааба
+kebab|шашлик
+kennel|буда
+kettle|чайник
+keyboard|клавіатура
+kick ball|копнути м'яч
+kick person|штовхнути ногою
+kick scooter|самокат
+kick swimming|працювати ногами
+kidneys|нирки
+kill|убити
+killer whale|косатка
+kimono|кімоно
+kitchen knife|кухонний ніж
+kneeling|стояти на колінах
+kneeling facing right|на колінах
+knickers|трусики
+knife|ніж
+knit|в'язати
+knock|стукати
+knock down|зносити
+knot|вузол
+koala|коала
+koosh ball|м'ячик-їжачок
+lab coat|халат
+label|наліпка
+labels|наліпки
+lacrosse|лакрос
+ladder|драбина
+ladies toilet|жіночий туалет
+ladle|черпак
+lager|світле пиво
+lamb|ягня
+lampshade|абажур
+lantern|ліхтар
+laptop|ноутбук
+large|великий
+lasagne|лазанья
+last|останній
+last month|минулого місяця
+last quarter moon|спадний місяць
+last supper|Таємна вечеря
+laundry basket|кошик для білизни
+lava lamp|лава-лампа
+lawnmower|газонокосарка
+lead|повідець
+leaves|листя
+ledger|журнал
+leek|цибуля-порей
+left|ліворуч
+left click|лівий клік
+left hand|ліва рука
+leg warmers|гетри
+lego|лего
+legs|ноги
+lemon squash|лимонний напій
+lemonade|лимонад
+lens|лінза
+lent|Великий піст
+lentils|сочевиця
+leopard|леопард
+letter|лист
+level slider|повзунок гучності
+lid|кришка
+lie on back|лежати на спині
+lift|ліфт
+lifting weights|піднімати штангу
+light|легкий
+light bulb|лампочка
+light rail|трамвай
+lightbulb|лампочка
+lily|лілія
+link|ланка
+linked paperclips|скріпки
+lip balm|бальзам для губ
+lips|губи
+lipstick|помада
+liquid soap|рідке мило
+little|маленький
+lizard|ящірка
+llama|лама
+locked|замкнено
+locked with key|замкнено на ключ
+locked with pen|закрито
+locker|шафка
+locomotive|паротяг
+log|колода
+long|довгий
+long drum|довгий барабан
+long hair|довге волосся
+long johns|кальсони
+look in mirror|дивитися в дзеркало
+lorry|вантажівка
+lost|загубився
+lotion|лосьйон
+lotion bottle|флакон лосьйону
+lots more|набагато більше
+lotus|лотос
+loud|гучно
+love hotel|готель для побачень
+low battery|батарея розряджена
+low fat|знежирений
+lowest|найнижчий
+lucky|щастить
+luggage|багаж
+lump|ґуля
+lunch box|ланч-бокс
+lunch time|час обіду
+lungs|легені
+macadamias|горіхи макадамія
+macaroni|макарони
+macaroni cheese|макарони з сиром
+magnet|магніт
+magnetic|магнітний
+mahjong red dragon|маджонг
+main course|основна страва
+mains socket|розетка
+make the bed|застелити ліжко
+make up|косметика
+male body|чоловіче тіло
+mammoth|мамонт
+mange tout|цукровий горошок
+manger|ясла
+mantelpiece clock|годинник на каміні
+manual wheelchair|інвалідний візок
+maple leaf|кленовий лист
+maracas|маракаси
+marbles|кульки
+margarine|маргарин
+marmite|мармайт
+married|одружені
+marrow|кабачок
+mars|Марс
+marshmallows|маршмелоу
+martial arts uniform|кімоно
+mascara|туш
+mash|м'яти
+mash potato|картопляне пюре
+masher|товкачка
+masking tape|малярний скотч
+mate|мате
+maths|математика
+maths class|урок математики
+mauve|бузковий
+mayonnaise|майонез
+measuring cups|мірні склянки
+measuring jug|мірний глечик
+measuring spoons|мірні ложки
+meat on bone|м'ясо на кістці
+meatballs and spaghetti|спагеті з фрикадельками
+mechanical arm|протез руки
+mechanical leg|протез ноги
+medicine cabinet|аптечка
+meet|зустрітися
+melt|розтопити
+melted cheese on toast|тост із сиром
+memo|записка
+memory card|картка пам'яті
+mend|лагодити
+mens toilet|чоловічий туалет
+menu|меню
+mercury|Меркурій
+meringues|безе
+merry go round|карусель
+messy clothes|пом'ятий одяг
+messy room|безлад у кімнаті
+metro|метро
+microbe|мікроб
+microscope|мікроскоп
+microwave|мікрохвильовка
+middle|середина
+military helmet|військовий шолом
+military medal|орден
+milk bottle|пляшка молока
+milk carton|пакет молока
+milk litre|літр молока
+milk person|молочник
+milkshake|молочний коктейль
+milky way|Чумацький Шлях
+mince pie|пиріжок із родзинками
+minced meat|фарш
+mini bus|мікроавтобус
+minibus|маршрутка
+mints|м'ятні цукерки
+minute|хвилина
+mirror ball|диско-куля
+miss bus|запізнитися на автобус
+mistletoe|омела
+mittens|рукавиці
+mixer|міксер
+mobile phone|мобільний телефон
+mobile phone camera|камера телефону
+mobile phone case|чохол для телефону
+mobile phone cover|кришка телефону
+mobile phone number|номер телефону
+mobile phone ring tone|рингтон
+mobile phone silent|беззвучний режим
+mobile phone text message|СМС
+mobile phone video|відео на телефоні
+mole|родимка
+money|гроші
+money bag|мішок із грошима
+money with wings|гроші летять
+monorail|монорейка
+monster|чудовисько
+moon|місяць
+moon cake|місячний пряник
+moon viewing ceremony|свято місяця
+moose|лось
+mop|швабра
+moped|мопед
+mosque|мечеть
+mosquito|комар
+most|найбільше
+moth|міль
+motor boat|моторний човен
+motor home|автобудинок
+motor scooter|скутер
+motorized wheelchair|електровізок
+motorway|автомагістраль
+mountain|гора
+mountain biking|гірський велосипед
+mountain cableway|канатка
+mountain railway|гірська залізниця
+mountains|гори
+mouse|миша
+mouse mat|килимок для миші
+mouse trap|мишоловка
+mouthwash|ополіскувач для рота
+move|рухатися
+movie camera|кінокамера
+muesli|мюслі
+multi media|мультимедіа
+multiply|множити
+muscles|м'язи
+music class|урок музики
+music room|музичний клас
+musical instruments|музичні інструменти
+musical keyboard|синтезатор
+musical note|нота
+musical score|ноти
+musician|музикант
+mussel|мідія
+mx claus|Санта-Клаус
+nail|цвях
+nail care|догляд за нігтями
+nail clippers|кусачки для нігтів
+nail file|пилочка
+nail polish|лак для нігтів
+nail polish remover|рідина для зняття лаку
+nappy|підгузок
+national park|заповідник
+nativity|Різдво Христове
+near|біля
+necklace|намисто
+necktie|краватка
+need toilet|хочу в туалет
+neither|жоден
+neptune|Нептун
+nest|гніздо
+nest of tables|столики
+nest with eggs|гніздо з яйцями
+new moon|новий місяць
+newspaper|газета
+newspaper person|листоноша
+next|наступний
+next month|наступного місяця
+next week|наступного тижня
+night with stars|зоряна ніч
+nightgown|нічна сорочка
+nine|дев'ять
+nineteen|дев'ятнадцять
+ninety|дев'яносто
+ninja|ніндзя
+no class|немає уроку
+nod|кивати
+noisy|галасливо
+non permeable|не пропускає воду
+non speaking|не говорить
+north|північ
+north east|північний схід
+north west|північний захід
+nosey cup|чашка з вирізом
+nostril|ніздря
+notepad|блокнот
+nut and bolt|гайка й болт
+nuts|горіхи
+oak leaf|дубовий лист
+occupational therapist|ерготерапевт
+octagon|восьмикутник
+oden|оден
+off|вимкнено
+office block|офісна будівля
+oil drum|бочка
+old key|старий ключ
+old object|стара річ
+old person|літня людина
+olive oil|оливкова олія
+olives|оливки
+olympic games|Олімпійські ігри
+olympic rings|олімпійські кільця
+olympic torch|олімпійський смолоскип
+omelette|омлет
+on|на
+oncoming automobile|машина їде
+oncoming bus|автобус їде
+oncoming police car|поліція їде
+oncoming taxi|таксі їде
+one|один
+one hour|одна година
+one third|третина
+onion rings|цибулеві кільця
+opaque|непрозорий
+open door|відчинити двері
+open file folder|відкрита папка
+open shop|магазин відчинено
+open tin|відкрити банку
+operating theatre|операційна
+operation|операція
+opposite|навпроти
+optical disk|компакт-диск
+orange book|помаранчева книжка
+orange fizzy drink|апельсинова газованка
+orange juice|апельсиновий сік
+orange squash|апельсиновий напій
+orangutan|орангутан
+order|замовити
+ostrich|страус
+otter|видра
+out|зовні
+outbox tray|лоток для вихідних
+oval|овал
+over|над
+ox|віл
+oxygen mask|киснева маска
+oyster|устриця
+ozone layer|озоновий шар
+pack suitcase|пакувати валізу
+package|посилка
+packed lunch|обід із собою
+paddles|весла
+page with curl|сторінка
+pager|пейджер
+paint box|фарби
+paint brush|малярний пензель
+paint childs|дитячі фарби
+paintbrush|пензлик
+palm|долоня
+palm sunday|Вербна неділя
+palm tree|пальма
+pancake|млинець
+panda|панда
+pants|труси
+paper towel|паперовий рушник
+paper towels|паперові рушники
+paperclip|скріпка
+para olympic games|Паралімпійські ігри
+parachute|парашут
+parade|парад
+parallelogram|паралелограм
+paramedic|парамедик
+parents|батьки
+parsnip|пастернак
+part|частина
+partner|партнер
+party celebration|вечірка
+party popper|хлопавка
+passenger ship|пасажирський корабель
+passion flower|пасифлора
+passport|паспорт
+past|минуле
+pasta|паста
+pasta sauce|соус для пасти
+pastie|пиріжок
+pastry|випічка
+pat dog|гладити собаку
+patch on clothes|латка
+pate|паштет
+paw|лапа
+paw prints|сліди лап
+pe|фізкультура
+pe class|урок фізкультури
+pea|горошина
+peanut|арахіс
+peanut butter|арахісова паста
+pecan|пекан
+peel|чистити
+peel orange|чистити апельсин
+peeler|овочечистка
+pelican|пелікан
+pen and paper|ручка й папір
+pencil and paper|олівець і папір
+pencil box|пенал
+pencil case|пенал
+pencil sharpener|стругачка
+penis|пеніс
+pentagon|п'ятикутник
+pepper|перець
+pepper mill|перечниця
+percent|відсоток
+performing arts|театр і танці
+perfume|парфуми
+perm|завивка
+permeable|пропускає воду
+pestle and mortar|ступка
+pet blanket|підстилка
+pet brush|щітка для тварин
+pet carrier|переноска
+pet carrying basket|кошик-переноска
+pet comb|гребінець для тварин
+petal|пелюстка
+petri dish|чашка Петрі
+petrol tanker|бензовоз
+petticoat|нижня спідниця
+phone picture video|фото й відео
+photocopier|ксерокс
+photographs|фотографії
+physio therapist|фізіотерапевт
+pick|кайло
+pick and mix|цукерки на вагу
+pick up|підняти
+pickup truck|пікап
+picnic|пікнік
+picture|картина
+picture frame|рамка
+pie chart|кругова діаграма
+pig nose|п'ятачок
+piglet|порося
+pine cone|шишка
+pine decoration|ялинова гілка
+pine nut|кедровий горіх
+pineapple juice|ананасовий сік
+ping pong|настільний теніс
+pint|пінта
+pistachios|фісташки
+pizza cutter|ніж для піци
+piñata|піньята
+place mat|серветка під тарілку
+place setting|сервірування
+plane|рубанок
+plane landing|посадка літака
+plane take off|зліт літака
+planets|планети
+plaster|пластир
+plastic|пластик
+plastic bag|пакет
+plastic pocket|файл
+plate guard|бортик для тарілки
+play area|ігрова зона
+playdough|пластилін
+playing card picture|гральна карта
+playing cards|карти
+playing cards clubs|трефи
+playing cards diamonds|бубни
+playing cards hearts|чирва
+playing cards patience|пасьянс
+playing cards spades|піки
+playing handball|гандбол
+playing water polo|водне поло
+playstation|PlayStation
+pliers|плоскогубці
+plough|плуг
+pluck|вищипувати брови
+plug|штепсель
+plum tomato|помідор-сливка
+plunger|вантуз
+pluto|Плутон
+pocket|кишеня
+pointed|гострий
+polar bear|білий ведмідь
+police helmet|шолом поліцейського
+police radio|рація
+polish nails|фарбувати нігті
+pond|ставок
+poodle|пудель
+pool 8 ball|більярдна куля
+pool hoist|підйомник у басейні
+pool snooker|більярд
+pop champagne cork|відкрити шампанське
+pop socks|гольфи
+poppadoms|пападами
+porcupine|дикобраз
+pork chop|свиняча відбивна
+porridge|каша
+porter hospital|санітар
+post it|стікер
+post letter|надіслати лист
+post office|пошта
+post person|листоноша
+post van|поштова машина
+postbox|поштова скринька
+pot noodle|локшина швидкого приготування
+pottery|гончарство
+potty chair|горщик
+poultry|птиця
+pound banknote|фунт
+pour|наливати
+pour cake mixture|вилити тісто
+pour custard|полити заварним кремом
+pouring liquid|наливати напій
+powder puff|пуховка
+power switch|вимикач
+prawn|креветка
+pray|молитися
+prayer|молитва
+prayer beads|вервиця
+pregnant man|вагітний чоловік
+pregnant person|вагітна людина
+pregnant woman|вагітна жінка
+present|подарунок
+pretty|гарний
+prickles|колючки
+prince|принц
+princess|принцеса
+printer|принтер
+prism hexagonal|шестикутна призма
+prism triangular|трикутна призма
+prop up|підпирати
+protect|захищати
+protein|білки
+puffin|тупик
+pull|тягнути
+pull along toy|іграшка-каталка
+pumice stone|пемза
+pumpkin|гарбуз
+pumpkin lantern|гарбуз-ліхтар
+pumpkin pie|гарбузовий пиріг
+pupil|зіниця
+puppet|лялька
+pureed food|пюре
+purse|гаманець
+push|штовхати
+push down|натискати
+pushpin|кнопка
+put|покласти
+put away|прибрати
+put in|покласти всередину
+put in bin|викинути в смітник
+put in cassette tape|вставити касету
+put in cd dvd|вставити диск
+put in contact lens|вставити лінзи
+put on cap|одягнути кепку
+put on coat|одягнути пальто
+put on helmet|одягнути шолом
+put on lid|закрити кришкою
+put out rubbish|винести сміття
+pyjamas|піжама
+pyramid square base|чотирикутна піраміда
+pyramid triangular base|трикутна піраміда
+quadrilateral|чотирикутник
+quail|перепілка
+quarter|чверть
+queue|стояти в черзі
+quiche flan|кіш
+rabbit|кролик
+rabbit hutch|кролятник
+raccoon|єнот
+race athletics|біг
+radio|радіо
+radish|редиска
+railway car|вагон
+railway track|рейки
+raincoat|дощовик
+raise feet|підняти ноги
+raise head|підняти голову
+raisin|родзинки
+raisin currants|родзинки
+rake|граблі
+ram|баран
+ramp|пандус
+rash|висип
+rat|щур
+rattle snake|гримуча змія
+ravioli|равіолі
+razor|бритва
+reach for|тягтися
+read book|читати книжку
+ready|готовий
+ready meal|готова їжа
+ready meal lamb|готова баранина
+receipt|чек
+receive|отримати
+recipe|рецепт
+rectangle|прямокутник
+recycle logo|переробка
+recycling bins|контейнери для сміття
+red envelope|червоний конверт
+red paper lantern|червоний ліхтарик
+refridgerate|охолодити
+refuse collector|сміттяр
+refuse lorry|сміттєвоз
+reindeer|північний олень
+relax|розслабитися
+reminder ribbon|стрічечка
+remote control|пульт
+remove|прибрати
+retire|вийти на пенсію
+retired|на пенсії
+return book|повернути книжку
+rhinoceros|носоріг
+rhombus|ромб
+rhubarb|ревінь
+ribbon|стрічка
+rice ball|онігірі
+rice cake|рисовий хлібець
+rice packet|пачка рису
+ride car|їхати машиною
+ride horse|їздити верхи
+riding hat|шолом для верхової їзди
+right|праворуч
+right click|правий клік
+right hand|права рука
+ring|каблучка
+ring bell|дзвонити в дзвіночок
+ring binder|папка з кільцями
+ring buoy|рятувальний круг
+ring doorbell|подзвонити у двері
+ringed planet|планета з кільцями
+rinse|полоскати
+risen|воскрес
+road|дорога
+roast dinner|печеня
+roasted sweet potato|печений батат
+robin|вільшанка
+rock|скеля
+rock chair|гойдатися на стільці
+rocking chair|крісло-гойдалка
+roll dice|кинути кубик
+roll of paper|рулон паперу
+roll on deodorant|кульковий дезодорант
+roll over|перевернутися
+roll pastry|розкачувати тісто
+rolled-up newspaper|згорнута газета
+roller blind|рулонна штора
+roller coaster|американські гірки
+roller skate|роликовий ковзан
+rollerskate|кататися на роликах
+rolling pin|качалка
+roman blind|римська штора
+room|кімната
+roots|коріння
+rosette|розетка
+rotary washing line|сушарка для білизни
+round pushpin|кнопка
+rowing boat|веслувальний човен
+rub|терти
+rudolph|Рудольф
+rug|килимок
+rugby ball|м'яч для регбі
+rugby football|регбі
+running facing right|бігти
+running shirt|майка
+sack|мішок
+saddle|сідло
+safety goggles|захисні окуляри
+safety pin|англійська шпилька
+safety vest|світловідбивний жилет
+sailor|моряк
+sake|саке
+salad packet|пакет салату
+salad plate|тарілка салату
+salami sausage|салямі
+salty|солоний
+same|однаковий
+sand pit|пісочниця
+sandpaper|наждачний папір
+sanitary towel|прокладка
+santa claus|Санта-Клаус
+sari|сарі
+satellite|супутник
+satellite antenna|супутникова антена
+satsuma|мандарин
+saturn|Сатурн
+saucepan|каструля
+saucer|блюдце
+sauropod|динозавр
+sausage and mash|сосиски з пюре
+sausage cumberland|ковбаса
+sausage roll|сосиска в тісті
+sausages|сосиски
+saw|пилка
+scales|ваги
+scar|шрам
+scarecrow|опудало
+scary|страшний
+school bag|шкільний рюкзак
+science|природознавство
+science class|урок природознавства
+science room|кабінет природознавства
+scoop|зачерпнути
+score goal|забити гол
+scorpion|скорпіон
+screw|шуруп
+screwdriver|викрутка
+scroll|сувій
+scrub|терти щіткою
+scrubbing brush|щітка
+seagull|чайка
+seahorse|морський коник
+seal envelope|заклеїти конверт
+seat|сидіння
+seat belt|пасок безпеки
+second|другий
+secretary|секретар
+see saw|гойдалка-балансир
+seeds|насіння
+seizure|напад
+senses|чуття
+sensory room|сенсорна кімната
+separate|розділити
+serene|спокійно
+serve|подавати їжу
+service dog|собака-помічник
+serviette|серветка
+set table|накрити на стіл
+set the table|накривати на стіл
+set timer|поставити таймер
+settee|диван
+seven|сім
+seventeen|сімнадцять
+seventy|сімдесят
+seventy five percent|три чверті
+sew|шити
+sewing needle|голка
+shake|трусити
+shake hands|потиснути руку
+shake something|струсити
+shallow|мілкий
+shampoo|шампунь
+shampoo animal|мити тварину шампунем
+shampoo hair|мити голову шампунем
+shamrock|трилисник
+shape puzzle|рамка-вкладка
+shapesorter|сортер
+share|ділитися
+sharp|гострий
+sharpen|точити
+shave|голитися
+shave underarm|голити пахви
+shave with razor|голитися бритвою
+shaving cream|піна для гоління
+sheaf of rice|сніп рису
+sheep|вівця
+shells|черепашки
+shepherd|пастух
+shield|щит
+shin|гомілка
+shinto shrine|синтоїстський храм
+shiny|блискучий
+shoot|бити по воротах
+shooting star|падаюча зірка
+shopping bags|сумки з покупками
+short|короткий
+short hair|коротке волосся
+shout|кричати
+show me|покажи
+shower cap|шапочка для душу
+shower gel|гель для душу
+shrew|землерийка
+shrove tuesday|Масляна
+shuttlecock|волан
+side|збоку
+sieve|сито
+signpost|вказівник
+silence|тиша
+simnel cake|великодній кекс
+single bed|односпальне ліжко
+sink|тонути
+sit|сидіти
+sit at computer|сидіти за комп'ютером
+sit in beanbag|сидіти в кріслі-мішку
+sit on floor|сидіти на підлозі
+six|шість
+sixteen|шістнадцять
+sixty|шістдесят
+skate|кататися на ковзанах
+skate park|скейт-парк
+skateboard|скейтборд
+skeleton|скелет
+ski|кататися на лижах
+skid|занос
+skier|лижник
+skin|шкіра
+skip|стрибати через скакалку
+skirt|спідниця
+skis|лижі
+skull|череп
+skunk|скунс
+sled|санчата
+sledge|сани
+sleep female|вона спить
+sleep male|він спить
+sleep on side|спати на боці
+sleep suit baby|дитячий чоловічок
+sleigh|сани Санти
+slice|шматок
+slide backwards|ковзати назад
+slide forwards|ковзати вперед
+sling|пов'язка для руки
+slippers|капці
+slippery|слизький
+slot machine|ігровий автомат
+sloth|лінивець
+slug|слимак
+small airplane|маленький літак
+smear|розмазувати
+smile|усміхатися
+smoke|дим
+smooth|гладкий
+snake|змія
+sneak|скрадатися
+sneering|глузувати
+sneeze cold|нежить
+snow-capped mountain|засніжена гора
+snowboarder|сноубордист
+snowflake|сніжинка
+snowman|сніговик
+snowman without snow|сніговик без снігу
+soft|м'який
+soft ice cream|м'яке морозиво
+softball|софтбол
+soldier|солдат
+sole|підошва
+some|трохи
+son|син
+sour|кислий
+sour cream|сметана
+south|південь
+south east|південний схід
+south west|південний захід
+spaceship|космічний корабель
+spade|лопатка
+spade suit|піки
+spaghetti bolognaise|спагеті болоньєзе
+sparkler|бенгальський вогник
+sparkles|блиск
+spatula|лопатка
+speech language therapist|логопед
+speedboat|катер
+spell|називати по буквах
+spicy|гострий
+spider web|павутиння
+spiders web|павутина
+spill|розлити
+spin|крутитися
+spinach|шпинат
+spine|хребет
+spiral calendar|календар на спіралі
+spiral notepad|блокнот на спіралі
+spiral shell|мушля
+sponge|губка
+sport utility vehicle|позашляховик
+spot light|прожектор
+spotty|у горошок
+spouting whale|кит із фонтаном
+spray|бризкати
+spread|намащувати
+spring onions|зелена цибуля
+sprinkle|посипати
+square|квадрат
+square setsquare|косинець
+squash|фруктовий напій
+squeak|пищати
+squeeze|стискати
+squid|кальмар
+squirrel|білка
+squirt|бризнути
+stable|стайня
+stag|олень
+stairs|сходи
+stamp|тупотіти
+standard lamp|торшер
+staple|скоба
+stapler|степлер
+star|зірка
+star stacker|пірамідка
+starfish|морська зірка
+station|вокзал
+statue of liberty|статуя Свободи
+steak|стейк
+steal|красти
+steam train|паротяг
+steamer|пароварка
+step brother|зведений брат
+step daughter|падчерка
+step sister|зведена сестра
+step son|пасинок
+stereo|музичний центр
+stick|палиця
+stickers|наліпки
+sticky|липкий
+stir|мішати
+stir fry|обсмажувати
+stir mix|перемішати
+stirrups|стремена
+stoat|горностай
+stock|бульйон
+stock cubes|бульйонні кубики
+stomach|живіт
+stomach ache|болить живіт
+stone|камінь
+stool|табурет
+stopwatch|секундомір
+straight|прямий
+strain|проціджувати
+straw|трубочка
+strawberry jam|полуничне варення
+stretch|потягуватися
+string|мотузка
+striped|смугастий
+stroke|гладити
+strong|сильний
+stubble|щетина
+student|студент
+studio microphone|мікрофон
+study|вчитися
+stuffed flatbread|коржик із начинкою
+stuffing|начинка
+subsoil|підґрунтя
+subtract|віднімати
+sugar bowl|цукорниця
+suitcase|валіза
+sum|сума
+sun behind cloud|сонце за хмарою
+sun lounger|шезлонг
+sunglasses|сонячні окуляри
+sunrise over mountains|світанок у горах
+sunscreen|сонцезахисний крем
+sunset|захід сонця
+surfing|серфінг
+surgery health centre|поліклініка
+sushi|суші
+suspension railway|підвісна дорога
+sweatshirt|світшот
+swede|бруква
+sweet|солодкий
+sweet potato|батат
+sweetcorn|кукурудза
+swimming cap|шапочка для плавання
+swimming class|урок плавання
+swimming costume|купальник
+swimming trunks|плавки
+swiss roll|рулет
+switch access|кнопка-перемикач
+switch on television|увімкнути телевізор
+synagogue|синагога
+t shirt|футболка
+t-rex|тиранозавр
+table cloth|скатертина
+tablecloth|скатертина
+tablet blister pack|таблетки
+tablets|пігулки
+take|взяти
+take a work break|зробити перерву
+take care of|піклуватися
+take off cap|зняти кепку
+take off lid|зняти кришку
+take out|вийняти
+take picture|фотографувати
+takeaway burger|бургер із собою
+takeaway burger and chips|бургер і картопля фрі
+takeaway chinese|китайська їжа з собою
+takeaway container|контейнер для їжі
+takeaway indian|індійська їжа з собою
+takeaway pizza|піца з собою
+takeout box|коробка з їжею
+taking bath|приймати ванну
+talk|говорити
+tall|високий
+tamale|тамале
+tampon|тампон
+tanabata tree|дерево Танабата
+tap|кран
+tape measure|рулетка
+tape recorder|магнітофон
+tart|тарт
+tartan|картата тканина
+taste|куштувати
+tattoo|татуювання
+taxi driver|таксист
+tea bag|чайний пакетик
+tea spoon|чайна ложка
+tea time|час підвечірку
+tea towel|кухонний рушник
+tear|рвати
+tear-off calendar|відривний календар
+technologist|технолог
+technology|технології
+telephone|дзвонити
+telephone handset|телефонна слухавка
+telephone mobile|дзвонити на мобільний
+telephone receiver|слухавка
+telescope|телескоп
+temple|скроня
+ten|десять
+terracotta|теракотовий
+test|контрольна
+test tube|пробірка
+text mobile message|написати СМС
+text phone|текстовий телефон
+theme park|парк розваг
+thick|товстий
+thigh|стегно
+thin|худий
+thirteen|тринадцять
+this month|цього місяця
+this week|цього тижня
+thousand|тисяча
+thread|нитка
+three|три
+three quarters|три чверті
+through|крізь
+throw away|викинути
+thumb|великий палець
+thumbs|великі пальці
+thunder storm|гроза
+ticket|квиток
+tickle|лоскотати
+tidy|прибирати
+tidy up|наводити лад
+tie|зав'язувати
+tighten|затягувати
+tights|колготи
+time out|тайм-аут
+timer|таймер
+timer clock|таймер
+tin|бляшанка
+tin can|консервна бляшанка
+tin foil|фольга
+tinned apricots|консервовані абрикоси
+tinned cherries|консервовані вишні
+tinned mushroom soup|грибний суп у бляшанці
+tinned peaches|консервовані персики
+tinned pears|консервовані груші
+tinned peas|консервований горошок
+tinned pineapple|консервований ананас
+tinned plums|консервовані сливи
+tinned sweetcorn|консервована кукурудза
+tinned tomato|консервовані помідори
+tinsel|мішура
+tippex|коректор
+tissues|серветки
+toad|ропуха
+toast|тост
+toaster|тостер
+toe nail|ніготь на нозі
+toilet roll|туалетний папір
+toilets|туалети
+tokyo tower|Токійська вежа
+tomato juice|томатний сік
+tomato slice|скибочка помідора
+tomb|гробниця
+tongs|щипці
+toolbox|ящик для інструментів
+toothache|болить зуб
+toothpaste|зубна паста
+top|верх
+topsoil|ґрунт
+torch|смолоскип
+tornado|смерч
+tortoise|черепаха
+toss pancake|підкинути млинець
+touch|торкатися
+touch screen|сенсорний екран
+toupee|перука
+toy box|скриня для іграшок
+toy soldier|солдатик
+trace|обводити
+trachea|трахея
+trackball|трекбол
+tracksuit|спортивний костюм
+traffic lights|світлофор
+trainers|кросівки
+tram|трамвай
+tram car|вагон трамвая
+trampoline|батут
+transparent|прозорий
+transport car|легковик
+trap|пастка
+trapezium|трапеція
+travel|подорожувати
+tray|таця
+tree trunk|стовбур дерева
+triangle acute|гострокутний трикутник
+triangle equilateral|рівносторонній трикутник
+triangle isosceles|рівнобедрений трикутник
+triangle obtuse|тупокутний трикутник
+triangle right angled|прямокутний трикутник
+triangle scalene|різносторонній трикутник
+triangular ruler|трикутник-лінійка
+trick or treat|солодощі або капость
+trim|підстригати
+trim hedge|стригти кущі
+tripod|штатив
+troll|троль
+trolleybus|тролейбус
+trousers|штани
+trowel|совок
+tumbler glass|склянка
+tuna|тунець
+turkey|індичка
+turn|повертати
+turn down heat|зменшити вогонь
+turn down light|приглушити світло
+turn off|вимкнути
+turn off light switch|вимкнути світло
+turn on|увімкнути
+turn on light switch|увімкнути світло
+turn up heat|збільшити вогонь
+turn up light|зробити світло яскравішим
+turnip|ріпа
+tv drama|серіал
+twelve|дванадцять
+twenty|двадцять
+twenty five percent|чверть
+two|два
+two thirds|дві третини
+two-hump camel|двогорбий верблюд
+ugly|негарний
+umbrella on ground|парасолька на землі
+unbuckle|розстебнути пряжку
+unbutton|розстебнути ґудзики
+uncle maternal|дядько (мамин брат)
+uncle paternal|дядько (татів брат)
+under|під
+underarm|пахва
+underarm hair|волосся під пахвами
+underground train|метро
+undress|роздягатися
+unicorn|єдиноріг
+unlock|відімкнути
+unlocked|не замкнено
+untie|розв'язати
+upper arm|плече
+uranus|Уран
+usb stick|флешка
+use computer|працювати на комп'ютері
+vacuum cleaner|пилосос
+vagina|вагіна
+van|фургон
+varnish|лак
+vase|ваза
+venus|Венера
+verbs collective|дії
+vertical blinds|вертикальні жалюзі
+vest|майка
+vice|лещата
+video camera|відеокамера
+video player|відеопрогравач
+video tape|відеокасета
+videocassette|відеокасета
+vine|лоза
+vinegar|оцет
+visit|відвідати
+visitor|гість
+visor|козирок
+volcano|вулкан
+vomit|нудить
+vote|голосувати
+vulture|гриф
+wafer|вафля
+waffle|вафлі
+wag tail|махати хвостом
+waistcoat|жилет
+wait table|офіціант
+wake up|прокидатися
+walk dog|вигулювати собаку
+walk downstairs|спускатися сходами
+walk up to|підійти
+walk upstairs|підніматися сходами
+walking facing right|іти
+walking frame|ходунки
+walking stick|ціпок
+walkman|плеєр
+wall|стіна
+wallet|гаманець
+walnut|волоський горіх
+walrus|морж
+waning crescent moon|старий місяць
+waning gibbous moon|спадний місяць
+wardrobe|шафа для одягу
+warm clothes|теплий одяг
+warm fire|тепло від вогню
+warning light|сигнальна лампа
+wash clothes|прати одяг
+wash up|мити посуд
+wash vegetables|мити овочі
+washing powder|пральний порошок
+washing up bowl|миска для посуду
+washing up liquid|засіб для посуду
+wasp|оса
+waste paper bin|кошик для сміття
+water bowl|миска для води
+water buffalo|водяний буйвіл
+water pistol|водяний пістолет
+water plants|поливати квіти
+water table|стіл для ігор із водою
+water wave|хвиля
+watering can|лійка для поливу
+waterproof|непромокальний
+wavy|хвилястий
+waxing crescent moon|молодий місяць
+waxing gibbous moon|зростаючий місяць
+weak link|слабка ланка
+wear helmet|носити шолом
+webbed foot|перетинчаста лапа
+webcam|вебкамера
+wedding|весілля
+weeds|бур'яни
+weekend|вихідні
+weigh|важити
+weigh food|зважувати їжу
+weigh person|зважуватися
+wellington boots|гумові чоботи
+west|захід
+wet|мокрий
+wheel|колесо
+wheelbarrow|тачка
+wheelchair|інвалідний візок
+wheelie bin|сміттєвий бак
+when|коли
+which|який
+whisk|збивати
+whiskers|вуса
+whisper|шепотіти
+white cane|біла тростина
+white flower|біла квітка
+whiteboard|біла дошка
+whole|цілий
+why|чому
+wig|перука
+wiggle|ворушити
+wii|Wii
+wii fit|Wii Fit
+wilted flower|зів'яла квітка
+wind chime|музика вітру
+windpipe|дихальне горло
+wine|вино
+wine glass|келих
+wing|крило
+winner|переможець
+wire break|обрив дроту
+wishbone|кісточка бажань
+witch|відьма
+witches hat|капелюх відьми
+wood|деревина
+wood lathe|токарний верстат
+wooden spoon|дерев'яна ложка
+woodstain|морилка
+wool|вовна
+work book|робочий зошит
+worksheet|завдання
+world|світ
+worm|хробак
+wrap|загортати
+wrapping paper|подарунковий папір
+wrench|гайковий ключ
+wrestle|боротися
+wrinkled|зім'ятий
+wrist|зап'ястя
+write cheque|виписати чек
+write letter|писати лист
+wrong thought|неправильна думка
+x-ray|рентген
+xray|рентгенівський знімок
+xylophone|ксилофон
+yarn|пряжа
+yawn|позіхати
+yen banknote|єна
+yo yo|йо-йо
+yorkshire pudding|йоркширський пудинг
+young|молодий
+yule log|різдвяне поліно
+zebra crossing|пішохідний перехід
+zero|нуль
+zip|блискавка
+# The pronoun "I" (letters on the Alphabet page are never translated).
+I|я

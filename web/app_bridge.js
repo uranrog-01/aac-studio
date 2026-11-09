@@ -138,6 +138,11 @@
       document.body.append(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 60000);
     },
+    // Full screen needs a tap: enter it on the next tap when wanted.
+    setFullscreen(on) {
+      wantFullscreen = !!on;
+      if (!on && document.fullscreenElement) document.exitFullscreen?.().catch(() => {});
+    },
     pickBackup() {
       return new Promise((resolve, reject) => {
         const input = document.createElement('input');
@@ -178,6 +183,14 @@
   window.addEventListener('online', () => {
     if (window.aacAutoDownload?.state === 'error') setTimeout(autoDownload, 3000);
   });
+
+  let wantFullscreen = false;
+  document.addEventListener('pointerup', () => {
+    const standalone = matchMedia('(display-mode: standalone), (display-mode: fullscreen)').matches;
+    if (!wantFullscreen || standalone || document.fullscreenElement ||
+        !document.fullscreenEnabled) return;
+    document.documentElement.requestFullscreen?.({navigationUI: 'hide'}).catch(() => {});
+  }, true);
 
   function activeBuild(worker) {
     return new Promise(resolve => {
