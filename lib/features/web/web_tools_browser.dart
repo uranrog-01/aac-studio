@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../data/pack_loader.dart';
 import '../../engine/settings_controller.dart';
 import '../../engine/storage.dart';
+import '../../engine/prediction.dart';
 
 @JS('aacWeb.offlineStatus')
 external JSPromise<JSString> _offlineStatus();
@@ -77,6 +78,8 @@ class _WebToolsState extends State<WebTools> {
   Future<void> _restore() async {
     final pack = context.read<PackController>();
     final settings = context.read<SettingsController>();
+    final predictor = context.read<Predictor>();
+    final messenger = ScaffoldMessenger.of(context);
     try {
       final text = (await _pickBackup().toDart).toDart;
       if (text.isEmpty || !mounted) return;
@@ -116,8 +119,10 @@ class _WebToolsState extends State<WebTools> {
       await _restoreFiles(jsonEncode(files).toJS).toDart;
       await settings.load();
       await pack.load();
-      _message(
-          'Backup restored. Reopen the app to reload learned suggestions.');
+      await predictor.loadLearned(StorageProviderAdapter(pack.storage));
+      if (!mounted) return;
+      Navigator.pop(context);
+      messenger.showSnackBar(const SnackBar(content: Text('Backup restored.')));
     } catch (_) {
       _message(
           'Could not restore this backup. Check that it is an AAC Studio web backup.');
@@ -134,7 +139,7 @@ class _WebToolsState extends State<WebTools> {
           childrenPadding: const EdgeInsets.all(16),
           children: [
             const Text(
-                'In Safari, tap Share â†’ Add to Home Screen. Turn on Open as Web App, then tap Add. No Apple Account password is needed.'),
+                'In Safari, tap Share > Add to Home Screen. Turn on Open as Web App, then tap Add. No Apple Account password is needed.'),
             const SizedBox(height: 12),
             Text(_status, semanticsLabel: _status),
             if (_downloading)

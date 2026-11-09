@@ -1,9 +1,0 @@
-{
- "target": 10000,
- "baseline": 3264,
- "modernFlatArtworks": 3373,
- "reviewedNewArtworks": 109,
- "remaining": 6627,
- "generatedReceipts": 110,
- "countIsActualWebPFiles": true
-}

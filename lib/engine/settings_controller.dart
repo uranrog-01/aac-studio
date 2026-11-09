@@ -23,6 +23,9 @@ class SettingsController extends ChangeNotifier {
     settings =
         AppSettings.fromJson(await storage.readJson(storage.settingsFile));
     if (kIsWeb) settings.usePiper = false;
+    // The app always opens ready to talk: a caregiver who forgot to leave
+    // edit mode must not turn every tap into an editor after a restart.
+    settings.editMode = false;
     notifyListeners();
   }
 
@@ -97,48 +100,119 @@ class PackController extends ChangeNotifier {
 
   PackController(this.storage);
 
+  /// True when the last save did not reach storage.
+  bool saveFailed = false;
+
+  /// Set when the saved board could not be read and the starter board was
+  /// opened instead (the unreadable file is kept beside it).
+  bool recoveredFromDamage = false;
+
+  /// Parses [json] as a usable board (has a Home page) or returns null.
+  Vocabulary? _usable(Map<String, dynamic>? json) {
+    if (json == null) return null;
+    try {
+      final v = loader.loadString(jsonEncode(json));
+      return (v.viewsByFolder[v.rootFolderId]?.isNotEmpty ?? false) ? v : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Opens the saved board. A damaged or unreadable save never blocks the
+  /// app: the previous good copy is tried, then the starter board opens so
+  /// the person can still talk.
   Future<void> load({String assetPath = 'assets/sample_pack.json'}) async {
     final f = storage.packFile('sample_pack');
-    // Bundled pack version: when the shipped pack is newer than the stored
-    // one, upgrade (keeping a backup of the user's edits) so improvements
-    // reach already-installed devices.
-    final assetRaw = await loader.loadAsset(assetPath);
+    final factory = loader.save(await loader.loadAsset(assetPath));
     const kPackVersion = 9;
-    int storedVersion = 0;
-    if (await f.exists()) {
-      final stored = await storage.readJson(f);
-      storedVersion = (stored?['packVersion'] as num?)?.toInt() ?? 0;
+
+    Map<String, dynamic>? stored;
+    try {
+      stored = await storage.readJson(f);
+    } catch (_) {/* Treated as unreadable below. */}
+    final exists = await f.exists();
+    recoveredFromDamage = false;
+    if (_usable(stored) == null) {
+      if (exists) {
+        recoveredFromDamage = true;
+        try {
+          await f.copy('${f.path}.unreadable-'
+              '${DateTime.now().millisecondsSinceEpoch}.json');
+        } catch (_) {/* Opening the starter board matters more. */}
+      }
+      stored = null;
     }
-    if (!await f.exists() || storedVersion < kPackVersion) {
-      if (await f.exists()) {
+
+    var result = stored ?? factory;
+    var changed = stored == null;
+    final storedVersion = (stored?['packVersion'] as num?)?.toInt() ?? 0;
+    if (stored != null && storedVersion < kPackVersion) {
+      // Bundled pack is newer: merge so improvements reach installed
+      // devices while user additions and edits survive (Vocable pattern).
+      try {
         await f.copy(
             '${f.path}.backup-${DateTime.now().millisecondsSinceEpoch}.json');
-        // Soft-delete merge (Vocable pattern): user additions + user edits
-        // survive the factory upgrade.
-        try {
-          final oldJson =
-              jsonDecode(await f.readAsString()) as Map<String, dynamic>;
-          final history = jsonDecode(await rootBundle.loadString(
-              'assets/factory_symbol_history.json')) as Map<String, dynamic>;
-          final merged = PackUpgrade.merge(oldJson, loader.save(assetRaw),
-              factorySymbolHistory: history);
-          await storage.writeJson(f, merged);
-        } catch (_) {
-          await storage.writeJson(f, loader.save(assetRaw));
+      } catch (_) {}
+      try {
+        final history = jsonDecode(await rootBundle.loadString(
+            'assets/factory_symbol_history.json')) as Map<String, dynamic>;
+        final merged = PackUpgrade.merge(stored, factory,
+            factorySymbolHistory: history);
+        if (_usable(merged) != null) {
+          result = merged;
+          changed = true;
         }
-      } else {
-        await storage.writeJson(f, loader.save(assetRaw));
+      } catch (_) {
+        // Keep the user's own board rather than replacing it.
       }
     }
-    vocabulary = loader.loadString(await f.readAsString());
+
+    if (_normalizePicturePaths(result)) changed = true;
+    vocabulary = _usable(result) ?? loader.loadString(jsonEncode(factory));
+    if (changed) {
+      try {
+        await storage.writeJson(f, result);
+      } catch (_) {
+        saveFailed = true;
+      }
+    }
     packId = vocabulary!.id;
     notifyListeners();
   }
 
-  void save() {
+  /// Rewrites picture paths into the form that survives the app's data
+  /// folder moving (iOS updates). Returns true when anything changed.
+  bool _normalizePicturePaths(Map<String, dynamic> json) {
+    var changed = false;
+    for (final item in [
+      ...(json['buttons'] as List? ?? const []),
+      ...(json['folders'] as List? ?? const []),
+    ]) {
+      if (item is! Map) continue;
+      final path = item['imagePath'];
+      if (path is! String) continue;
+      final stored = storage.storedPicturePath(path);
+      if (stored != path) {
+        item['imagePath'] = stored;
+        changed = true;
+      }
+    }
+    return changed;
+  }
+
+  Future<void> save() async {
     if (vocabulary == null) return;
-    storage.writeJson(
-        storage.packFile('sample_pack'), loader.save(vocabulary!));
+    final json = loader.save(vocabulary!);
     notifyListeners();
+    try {
+      await storage.writeJson(storage.packFile('sample_pack'), json);
+      if (saveFailed) {
+        saveFailed = false;
+        notifyListeners();
+      }
+    } catch (_) {
+      saveFailed = true;
+      notifyListeners();
+    }
   }
 }

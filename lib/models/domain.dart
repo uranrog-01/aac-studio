@@ -234,13 +234,15 @@ class Vocabulary {
   final String rootFolderId;
   final Map<String, VocabFolder> folders;
   final Map<String, List<VocabView>> viewsByFolder; // in priority order
-  const Vocabulary({
+  final Set<String> removedIds;
+  Vocabulary({
     required this.id,
     required this.label,
     required this.rootFolderId,
     required this.folders,
     required this.viewsByFolder,
-  });
+    Set<String>? removedIds,
+  }) : removedIds = removedIds ?? <String>{};
 
   VocabFolder? folderOf(String id) => folders[id];
 }
