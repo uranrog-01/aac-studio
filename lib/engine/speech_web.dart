@@ -1,6 +1,7 @@
 import 'dart:js_interop';
 import 'package:flutter/foundation.dart';
 import '../models/domain.dart';
+import 'i18n.dart';
 import 'storage.dart' show AppSettings;
 
 @JS('aacSpeech.available')
@@ -49,7 +50,11 @@ class SpeechEngine {
     }).toJS;
   }
 
+  /// Language spoken when no voice is chosen (the browser picks a voice).
+  AppLanguage language = kLanguages.first;
+
   void configure(AppSettings settings) {
+    language = languageFor(settings.language);
     rate = settings.rate;
     pitch = settings.pitch;
     volume = settings.volume;
@@ -83,7 +88,7 @@ class SpeechEngine {
           (style?.pitch ?? pitch).clamp(.5, 2),
           (style?.volume ?? volume).clamp(0, 1),
           (voice?.name ?? '').toJS,
-          (voice?.locale ?? '').toJS);
+          (voice?.locale ?? language.voiceLocales.first).toJS);
       error.value = null;
     } catch (_) {
       error.value =

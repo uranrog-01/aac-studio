@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../engine/i18n.dart';
+
 import '../../models/domain.dart';
 import 'message_bar.dart';
 
@@ -100,14 +102,14 @@ class _WordSearchViewState extends State<WordSearchView> {
                 onSubmitted: (_) => _focus.unfocus(),
                 style: const TextStyle(fontSize: 22, color: Colors.black87),
                 decoration: InputDecoration(
-                  hintText: 'Find a word',
+                  hintText: I18n.t('Find a word'),
                   hintStyle: const TextStyle(color: Colors.black45),
                   prefixIcon: const Icon(Icons.search,
                       size: 30, color: Color(0xFF1E88E5)),
                   suffixIcon: query.isEmpty
                       ? null
                       : IconButton(
-                          tooltip: 'Clear search',
+                          tooltip: I18n.t('Clear search'),
                           icon: const Icon(Icons.cancel, color: Colors.black45),
                           onPressed: _query.clear),
                   border: InputBorder.none,
@@ -119,11 +121,11 @@ class _WordSearchViewState extends State<WordSearchView> {
           ),
           Expanded(
             child: query.isEmpty
-                ? _note('Type part of a word, like "app" for apple.\n'
-                    'Tap a picture to say it.')
+                ? _note(I18n.t('Type part of a word, like "app" for apple. '
+                    'Tap a picture to say it.'))
                 : results.isEmpty
-                    ? _note('No picture for "$query" yet.\n'
-                        'Use Type to write it.')
+                    ? _note(I18n.t('No picture for this word yet. '
+                        'Use Type to write it.'))
                     : GridView.builder(
                         padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
                         keyboardDismissBehavior:
@@ -143,7 +145,7 @@ class _WordSearchViewState extends State<WordSearchView> {
                             // Where the word lives, so it can be found again.
                             Text(
                               r.button.kind == ButtonKind.folder
-                                  ? 'category'
+                                  ? I18n.t('category')
                                   : widget.pageName(r.folderId),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,

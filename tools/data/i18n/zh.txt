@@ -1,0 +1,681 @@
+# Chinese, Mandarin (Simplified). Draft by machine: please have a native speaker review.
+[ui]
+Access|辅助功能
+Add|添加
+Add to message|加到消息
+Adds a Scan button: tap once for a row, again for a button|添加"扫描"按钮：点一下选一行，再点一下选按钮
+Asian|亚洲
+Asks for the code before Settings and edit mode|进入设置和编辑模式前需要密码
+Back|返回
+Black|黑色
+Black background, yellow buttons, bold words|黑色背景、黄色按钮、粗体字
+Blond|金色
+Brown|棕色
+Buttons & screen|按钮和屏幕
+Buttons show|按钮显示
+Caregiver|照顾者
+Choose who speaks, speed and loudness|选择声音、语速和音量
+Clear|清除
+Clear search|清除搜索
+Clear the message after speaking it|说完后清除消息
+Click sound|点击声
+Copied|已复制
+Copy the message|复制消息
+Dark|深
+Default|默认
+Delete|删除
+Delete last word|删除最后一个词
+Each letter and word|每个字母和词
+Each word|每个词
+Edit buttons, symbols, lock code|编辑按钮、图片和密码
+Edit mode|编辑模式
+Find|查找
+Find a word|查找词语
+Go back to Home after a word|说完一个词后回到主页
+Gray|灰色
+Hair|头发
+High contrast (CVI)|高对比度 (CVI)
+Hold time|按住时间
+Hold to select|按住选择
+Hold to select, switch scanning, extra taps|按住选择、开关扫描、多余点击
+Home|主页
+Ignore extra taps for|忽略多余点击
+Language|语言
+Light|浅
+Lock settings with a code|用密码锁定设置
+Low|低
+Medium|中
+Medium dark|中深
+Medium light|中浅
+Message bar at the top|消息栏在顶部
+More|更多
+No picture for this word yet. Use Type to write it.|这个词还没有图片。请用"打字"写出来。
+Nothing here yet|这里还没有内容
+Off|关闭
+Off: words are added silently; tap the message to speak|关闭：词语静音添加；点消息才说出来
+Online ARASAAC pictures in search|搜索时使用 ARASAAC 在线图片
+Original|原样
+Over picture|在图片上方
+Picture + word|图片 + 文字
+Picture only|只有图片
+Pictures, words, contrast|图片、文字、对比度
+Pitch|音调
+Press Back 3 times quickly to leave|快速按三次返回才能退出
+Press and hold a button until the circle fills|按住按钮直到圆圈填满
+Quiet|小声
+Recent words|最近的词
+Red|红色
+Say each word when tapped|点一下就说出词语
+Say the category name when opened|打开类别时说出名称
+Say the last word again|再说一次最后一个词
+Scan|扫描
+Scan speed|扫描速度
+Select highlighted|选择高亮项
+Settings|设置
+Shift|大写
+Skin|肤色
+Skin tone for people|人物肤色
+Slow|慢
+Space|空格
+Speak|说话
+Speak message|说出消息
+Speak while typing (Type)|打字时说出来（打字）
+Speaking, going home, vibration|说话、回主页、振动
+Speed|语速
+Stay in the app|留在应用里
+Stop scan|停止扫描
+Switch scanning|开关扫描
+Tap any button to change it|点任意按钮进行修改
+Tap symbols to build a message|点图片组成一句话
+Type|打字
+Type part of a word, like "app" for apple. Tap a picture to say it.|输入词语的一部分。点图片说出来。
+Type your message|输入你的消息
+Under picture|在图片下方
+Vibrate|振动
+Voice|声音
+Volume|音量
+When a button is tapped|点按钮时
+White|白色
+Word only|只有文字
+Word position|文字位置
+Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|还没有翻译的词会显示英文。如果设备没有这种语言的声音，会用默认声音朗读。可以在设备的文字转语音设置中添加声音。
+category|类别
+[words]
+Actions|动作
+afternoon|下午
+again|再来
+airplane|飞机
+alarm|闹钟
+All categories|全部类别
+all done|做完了
+Alphabet|字母
+ambulance|救护车
+angry|生气
+Animal homes & food|动物的家和食物
+Animals|动物
+answer|回答
+ant|蚂蚁
+apple|苹果
+apricot|杏
+apron|围裙
+arm|手臂
+Art & crafts|美术手工
+artist|画家
+astronaut|宇航员
+avocado|牛油果
+baby|宝宝
+back|背
+backpack|书包
+bacon|培根
+bad|不好
+bagel|百吉饼
+ball|球
+balloon|气球
+banana|香蕉
+bandage|创可贴
+banjo|班卓琴
+bank|银行
+baseball|棒球
+basketball|篮球
+bathroom|卫生间
+Bathroom things|卫生间用品
+bathtub|浴缸
+beach|海滩
+beans|豆子
+bear|熊
+bed|床
+bedroom|卧室
+bee|蜜蜂
+beetle|甲虫
+bell|铃
+bell pepper|甜椒
+bells|铃铛
+bicycle|自行车
+bike|单车
+bike ride|骑车
+bird|鸟
+Birds|鸟类
+black|黑色
+blackberry|黑莓
+blanket|毯子
+blocks|积木
+blow nose|擤鼻涕
+blue|蓝色
+blueberries|蓝莓
+boat|小船
+book|书
+boots|靴子
+bored|无聊
+bottle|奶瓶
+bowl|碗
+brain|大脑
+bread|面包
+Bread & cakes|面包和蛋糕
+break|休息一下
+breakfast|早饭
+breathe|呼吸
+bridge|桥
+broccoli|西兰花
+brother|哥哥弟弟
+brown|棕色
+brush hair|梳头
+brush teeth|刷牙
+bubble tea|珍珠奶茶
+bubbles|泡泡
+Bugs|虫子
+Buildings|建筑
+burger|汉堡
+burrito|墨西哥卷饼
+bus|公交车
+butter|黄油
+butterfly|蝴蝶
+bye|再见
+cactus|仙人掌
+cake|蛋糕
+calculator|计算器
+calendar|日历
+calm|平静
+Calm down|冷静下来
+camel|骆驼
+candy|糖果
+car|汽车
+carrot|胡萝卜
+castle|城堡
+cat|猫
+caterpillar|毛毛虫
+chair|椅子
+Chat|聊天
+cheese|奶酪
+chef|厨师
+cherries|樱桃
+chicken|鸡肉
+chocolate|巧克力
+chopsticks|筷子
+church|教堂
+clap|拍手
+clock|钟
+closet|衣柜
+Clothes|衣服
+cloud|云
+clover|三叶草
+coat|外套
+coconut|椰子
+cold|冷
+Colors|颜色
+computer|电脑
+confused|困惑
+cook|做饭
+cookie|饼干
+Cooking|做饭
+corn|玉米
+couch|沙发
+count|数数
+cow|奶牛
+crab|螃蟹
+crackers|苏打饼干
+crayons|蜡笔
+cricket|蟋蟀
+croissant|牛角包
+crown|皇冠
+cry|哭
+crying|在哭
+cucumber|黄瓜
+cup|杯子
+cup with straw|吸管杯
+cupcake|纸杯蛋糕
+cut|剪
+cut paper|剪纸
+dad|爸爸
+Daily routines|日常生活
+dance|跳舞
+date|枣
+day|白天
+Describing words|形容词
+dice|骰子
+dinner|晚饭
+doctor|医生
+dog|狗
+dolls|娃娃
+dolphin|海豚
+don't know|不知道
+don't like|不喜欢
+donut|甜甜圈
+door|门
+down|下
+draw|画画
+dress|裙子
+drink|喝
+drink water|喝水
+Drinks|饮料
+drum|鼓
+dry hands|擦干手
+duck|鸭子
+dumpling|饺子
+eagle|老鹰
+ears|耳朵
+eat|吃
+Eat & drink|吃喝
+egg|鸡蛋
+eggplant|茄子
+elephant|大象
+embarrassed|不好意思
+erase|擦掉
+everyone|大家
+excited|兴奋
+eyes|眼睛
+factory|工厂
+farmer|农民
+Feelings|感受
+fig|无花果
+finger|手指
+fire truck|消防车
+firefighter|消防员
+fish|鱼
+flamingo|火烈鸟
+flower|花
+flute|笛子
+fold clothes|叠衣服
+foot|脚
+football|橄榄球
+fork and knife|刀叉
+fountain|喷泉
+fox|狐狸
+fridge|冰箱
+friend|朋友
+fries|薯条
+Fruits|水果
+frustrated|沮丧
+garage|车库
+garden|花园
+garlic|大蒜
+get dressed|穿衣服
+gift|礼物
+giraffe|长颈鹿
+give|给
+glasses|眼镜
+gloves|手套
+glue|胶水
+go|去
+good|好
+gooseberry|醋栗
+gorilla|大猩猩
+grandma|奶奶
+grandpa|爷爷
+grapefruit|西柚
+grapes|葡萄
+gray|灰色
+green|绿色
+green apple|青苹果
+guitar|吉他
+hand|手
+hang clothes|晾衣服
+happy|开心
+hat|帽子
+he|他
+head|头
+headphones|耳机
+Health|健康
+helicopter|直升机
+help|帮忙
+hi|你好
+high five|击掌
+hippo|河马
+Holidays & parties|节日和派对
+home|家
+Home things|家里的东西
+honey|蜂蜜
+horse|马
+hospital|医院
+hot|热
+hot chocolate|热巧克力
+hot dog|热狗
+hotel|酒店
+hourglass|沙漏
+How much|多少
+hug|抱抱
+hungry|饿
+hurry|快点
+hurt|疼
+husband|丈夫
+I|我
+ice|冰块
+ice cream|冰淇淋
+In, on, under|里、上、下
+it|它
+jeans|牛仔裤
+jellyfish|水母
+Jobs|职业
+juice|果汁
+kangaroo|袋鼠
+key|钥匙
+kiss|亲亲
+Kitchen|厨房
+kite|风筝
+kiwi|猕猴桃
+knee|膝盖
+ladybug|瓢虫
+lamp|台灯
+laugh|笑
+laughing|在笑
+leaf|叶子
+leg|腿
+lemon|柠檬
+lettuce|生菜
+library|图书馆
+lighthouse|灯塔
+like|喜欢
+lime|青柠
+line up|排队
+lion|狮子
+listen|听
+lobster|龙虾
+lollipop|棒棒糖
+look|看
+love|爱
+lunch|午饭
+magic|魔术
+make|做
+mango|芒果
+mask|口罩
+Meals|饭菜
+Mealtime|吃饭时间
+meat|肉
+Meat, fish & eggs|肉、鱼和蛋
+mechanic|修理工
+medal|奖牌
+medicine|药
+melon|甜瓜
+microphone|麦克风
+milk|牛奶
+Milk & cheese|牛奶和奶酪
+mirror|镜子
+mom|妈妈
+monkey|猴子
+mop floor|拖地
+more|还要
+morning|早上
+motorcycle|摩托车
+mouth|嘴巴
+mug|马克杯
+mushroom|蘑菇
+music|音乐
+my|我的
+My body|我的身体
+my turn|轮到我了
+neck|脖子
+need|需要
+nervous|紧张
+night|晚上
+ninja star|忍者飞镖
+no|不要
+noodles|面条
+nose|鼻子
+not|不
+notebook|笔记本
+now|现在
+Numbers|数字
+nurse|护士
+octopus|章鱼
+okay|好的
+olive|橄榄
+onion|洋葱
+open|打开
+orange|橙色
+outside|外面
+oven|烤箱
+owl|猫头鹰
+paint|涂色
+paint picture|画画儿
+pancakes|松饼
+paper|纸
+park|公园
+parrot|鹦鹉
+passion fruit|百香果
+peach|桃子
+peacock|孔雀
+peanuts|花生
+pear|梨
+peas|豌豆
+pen|笔
+pencil|铅笔
+penguin|企鹅
+People|人
+person|人物
+phone|电话
+piano|钢琴
+pie|派
+pig|猪
+pillow|枕头
+pilot|飞行员
+pine tree|松树
+pineapple|菠萝
+pink|粉色
+pizza|披萨
+Places|地方
+plant|植物
+Plants|植物类
+plate|盘子
+Play|玩
+playground|游乐场
+please|请
+plum|李子
+point|指
+police|警察
+police car|警车
+popcorn|爆米花
+pot|锅
+potato|土豆
+pretzel|椒盐卷饼
+pudding|布丁
+purple|紫色
+put clothes away|收衣服
+put on shoes|穿鞋
+put on socks|穿袜子
+puzzle|拼图
+Questions|问题
+quiet|安静
+rain|雨
+rainbow|彩虹
+read|读
+red|红色
+Reptiles & frogs|爬行动物和青蛙
+rest|休息
+restaurant|饭店
+rhino|犀牛
+rice|米饭
+robot|机器人
+rocket|火箭
+rooster|公鸡
+rose|玫瑰
+ruler|尺子
+run|跑
+sad|难过
+salad|沙拉
+salt|盐
+sandals|凉鞋
+sandwich|三明治
+saxophone|萨克斯
+scared|害怕
+scarf|围巾
+School|学校
+School things|学习用品
+Science & space|科学和太空
+scientist|科学家
+scissors|剪刀
+Sea animals|海洋动物
+seal|海豹
+seedling|幼苗
+Sensory games|感官游戏
+Shapes|形状
+shark|鲨鱼
+shaved ice|刨冰
+she|她
+ship|轮船
+shirt|衬衫
+shoes|鞋子
+shop|商店
+Shopping & money|购物和钱
+shorts|短裤
+shot|打针
+shoulder|肩膀
+shower|淋浴
+shrimp|虾
+sick|生病
+silly|好玩
+sing|唱歌
+singer|歌手
+sister|姐姐妹妹
+sleep|睡觉
+sleepy|困了
+slide|滑梯
+smoothie|奶昔
+Snacks|零食
+snail|蜗牛
+sneeze|打喷嚏
+snow|雪
+soap|肥皂
+soccer|足球
+socks|袜子
+soft toy|毛绒玩具
+sorry|对不起
+soup|汤
+spaghetti|意大利面
+spider|蜘蛛
+spoon|勺子
+Sports|运动
+spring|春天
+stadium|体育场
+stand|站
+stethoscope|听诊器
+stop|停
+store|小店
+Stories & pretend|故事和假装游戏
+storm|暴风雨
+strawberry|草莓
+summer|夏天
+sun|太阳
+sunflower|向日葵
+surprised|惊讶
+swan|天鹅
+sweep floor|扫地
+swim|游泳
+swimming pool|游泳池
+swimsuit|泳衣
+swing|秋千
+t-shirt|T恤
+table|桌子
+tablet|平板电脑
+taco|塔可
+take off shoes|脱鞋
+take out trash|倒垃圾
+taxi|出租车
+tea|茶
+teacher|老师
+teapot|茶壶
+teddy|泰迪熊
+teeth|牙齿
+tennis|网球
+tent|帐篷
+thank you|谢谢
+that|那个
+thermometer|体温计
+think|想
+thirsty|渴
+this|这个
+throat|喉咙
+tiger|老虎
+Time|时间
+tired|累
+today|今天
+toilet|厕所
+tomato|西红柿
+tomorrow|明天
+tongue|舌头
+too loud|太吵了
+Tools|工具
+tooth|牙
+toothbrush|牙刷
+towel|毛巾
+toy car|玩具车
+Toys|玩具
+tractor|拖拉机
+train|火车
+tree|树
+trophy|奖杯
+tropical fish|热带鱼
+truck|卡车
+trumpet|小号
+tulip|郁金香
+turtle|乌龟
+TV|电视
+TV, phones & computers|电视、手机和电脑
+umbrella|雨伞
+underwear|内衣
+up|上
+vacuum floor|吸尘
+Vegetables|蔬菜
+Vehicles|交通工具
+video game|电子游戏
+violin|小提琴
+volleyball|排球
+wait|等一下
+walk|走路
+want|要
+wash dishes|洗碗
+wash face|洗脸
+wash hair|洗头
+wash hands|洗手
+washing machine|洗衣机
+watch|手表
+water|水
+watermelon|西瓜
+wave|挥手
+we|我们
+Weather|天气
+week|星期
+whale|鲸鱼
+what|什么
+where|哪里
+white|白色
+who|谁
+wife|妻子
+Wild animals|野生动物
+wind|风
+window|窗户
+winter|冬天
+wipe face|擦脸
+wipe table|擦桌子
+wolf|狼
+work|做功课
+worried|担心
+write|写
+yellow|黄色
+yes|是
+yesterday|昨天
+yo-yo|溜溜球
+yogurt|酸奶
+you|你
+yucky|好恶心
+yummy|好吃
+zebra|斑马
+zip coat|拉上外套拉链

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import '../models/domain.dart';
 import 'piper_voice.dart';
+import 'i18n.dart';
 import 'storage.dart' show AppSettings;
 
 /// One installed platform voice (flutter_tts getVoices entry).
@@ -76,11 +77,17 @@ class SpeechEngine {
   DeviceVoice? voice;
   DeviceVoice? _appliedVoice;
 
+  /// Language the device voice speaks when no voice is chosen.
+  AppLanguage language = kLanguages.first;
+  String? _appliedLanguage;
+
   Future<void> ensure() => _initializing ??= _initialize();
 
   /// Copies the saved speech settings onto the engine.
   void configure(AppSettings s) {
-    usePiper = s.usePiper;
+    language = languageFor(s.language);
+    // The offline voice speaks English only.
+    usePiper = s.usePiper && language.code == 'en';
     rate = s.rate;
     pitch = s.pitch;
     volume = s.volume;
@@ -114,12 +121,14 @@ class SpeechEngine {
     final wanted = voice;
     if (wanted?.name == _appliedVoice?.name &&
         wanted?.locale == _appliedVoice?.locale) {
+      if (wanted == null) await _applyLanguage();
       return;
     }
     if (wanted == null) {
       try {
         await _tts.clearVoice();
       } catch (_) {/* Not every platform implements clearVoice. */}
+      await _applyLanguage();
     } else {
       try {
         await _tts.setVoice({'name': wanted.name, 'locale': wanted.locale});
@@ -128,6 +137,21 @@ class SpeechEngine {
       }
     }
     _appliedVoice = wanted;
+  }
+
+  /// Selects the chosen language's voice (falls back to the device default
+  /// when the language has no voice installed, e.g. Albanian on iPhone).
+  Future<void> _applyLanguage() async {
+    if (_appliedLanguage == language.code) return;
+    for (final locale in language.voiceLocales) {
+      try {
+        if (await _tts.isLanguageAvailable(locale) == true) {
+          await _tts.setLanguage(locale);
+          break;
+        }
+      } catch (_) {/* Windows: keep its default. */}
+    }
+    _appliedLanguage = language.code;
   }
 
   Future<void> _initialize() async {

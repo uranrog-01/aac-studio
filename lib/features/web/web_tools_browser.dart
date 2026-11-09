@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:js_interop';
 import 'package:flutter/material.dart';
@@ -28,10 +29,21 @@ class _WebToolsState extends State<WebTools> {
   String _status = 'Checking offline storage…';
   bool _downloading = false;
   double? _progress;
+  Timer? _poll;
   @override
   void initState() {
     super.initState();
     _refresh();
+    // Show the automatic offline download's progress while Settings is open.
+    _poll = Timer.periodic(const Duration(seconds: 2), (_) {
+      if (!_downloading) _refresh();
+    });
+  }
+
+  @override
+  void dispose() {
+    _poll?.cancel();
+    super.dispose();
   }
 
   Future<void> _refresh() async {
@@ -183,7 +195,7 @@ class _WebToolsState extends State<WebTools> {
                   onPressed: _refresh, child: const Text('Check status')),
             ]),
             const Text(
-                'Starter boards are saved automatically. The full picture library downloads only when you choose this option. Keep the app open during download. Test the voice in airplane mode before relying on it offline.'),
+                'All pictures download automatically in the background while the app is open online (about 80 MB, once). Then the app works without internet. Test the voice in airplane mode before relying on it offline.'),
             const SizedBox(height: 12),
             const Text(
                 'Your changes are saved on this device. Clearing website data removes them. Keep a backup in Files.'),

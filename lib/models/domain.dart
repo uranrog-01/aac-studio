@@ -6,6 +6,8 @@ library;
 
 import 'dart:ui' show Color;
 
+import '../engine/i18n.dart';
+
 /// Word classes (studied: 19 kAWSpeakableItemKind categories).
 enum WordClass {
   other,
@@ -162,8 +164,16 @@ class VocabButton {
     this.userEdited = false,
   });
 
+  /// The label in the chosen app language (the board keeps English).
+  String get shownLabel => I18n.word(label);
+
   String get speakText =>
-      (spokenText != null && spokenText!.isNotEmpty) ? spokenText! : label;
+      (spokenText != null && spokenText!.isNotEmpty) ? spokenText! : shownLabel;
+
+  /// Text an addText action adds: the button's own word follows the
+  /// chosen language; custom text stays as written.
+  String textFor(VocabAction a) =>
+      a.data.isEmpty || a.data == label ? speakText : a.data;
 
   VocabButton copyWith({
     String? label,

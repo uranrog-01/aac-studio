@@ -47,6 +47,7 @@ flutter:
     - assets/voices/NOTICE.txt
     - assets/voices/GPL-3.0.txt
     - assets/symbol_aliases.json
+    - assets/i18n/
     - assets/flat_symbols/
     - assets/flat_symbols/modernflat/
     - assets/flat_symbols/twemoji/

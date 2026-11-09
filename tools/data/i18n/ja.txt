@@ -1,0 +1,681 @@
+# Japanese (日本語). Draft by machine: please have a native speaker review.
+[ui]
+Access|アクセス
+Add|追加
+Add to message|メッセージに入れる
+Adds a Scan button: tap once for a row, again for a button|スキャンボタンを追加：1回タップで行、もう1回でボタンを選ぶ
+Asian|アジア
+Asks for the code before Settings and edit mode|設定と編集モードの前にコードを聞く
+Back|もどる
+Black|黒
+Black background, yellow buttons, bold words|黒い背景、黄色のボタン、太い文字
+Blond|金色
+Brown|茶色
+Buttons & screen|ボタンと画面
+Buttons show|ボタンの表示
+Caregiver|支援者
+Choose who speaks, speed and loudness|声、速さ、音量をえらぶ
+Clear|けす
+Clear search|検索をけす
+Clear the message after speaking it|話したあとメッセージをけす
+Click sound|クリック音
+Copied|コピーしました
+Copy the message|メッセージをコピー
+Dark|濃い
+Default|標準
+Delete|削除
+Delete last word|最後の言葉をけす
+Each letter and word|1文字ごとと言葉ごと
+Each word|言葉ごと
+Edit buttons, symbols, lock code|ボタン、絵、コードの編集
+Edit mode|編集モード
+Find|さがす
+Find a word|言葉をさがす
+Go back to Home after a word|言葉のあとホームにもどる
+Gray|灰色
+Hair|髪
+High contrast (CVI)|ハイコントラスト (CVI)
+Hold time|長押しの時間
+Hold to select|長押しでえらぶ
+Hold to select, switch scanning, extra taps|長押し、スイッチスキャン、余分なタップ
+Home|ホーム
+Ignore extra taps for|余分なタップを無視する時間
+Language|言語
+Light|うすい
+Lock settings with a code|設定をコードでロック
+Low|低い
+Medium|中くらい
+Medium dark|やや濃い
+Medium light|ややうすい
+Message bar at the top|メッセージバーを上に
+More|その他
+No picture for this word yet. Use Type to write it.|この言葉の絵はまだありません。「入力」で書いてください。
+Nothing here yet|まだ何もありません
+Off|オフ
+Off: words are added silently; tap the message to speak|オフ：言葉は静かに入る。メッセージをタップすると話す
+Online ARASAAC pictures in search|検索でARASAACのオンラインの絵を使う
+Original|元のまま
+Over picture|絵の上
+Picture + word|絵と言葉
+Picture only|絵だけ
+Pictures, words, contrast|絵、言葉、コントラスト
+Pitch|声の高さ
+Press Back 3 times quickly to leave|やめるときは「もどる」をすばやく3回
+Press and hold a button until the circle fills|円がいっぱいになるまでボタンを押し続ける
+Quiet|小さい
+Recent words|最近の言葉
+Red|赤
+Say each word when tapped|タップした言葉を話す
+Say the category name when opened|開いたときカテゴリー名を話す
+Say the last word again|最後の言葉をもう一度
+Scan|スキャン
+Scan speed|スキャンの速さ
+Select highlighted|光っているものをえらぶ
+Settings|設定
+Shift|大文字
+Skin|肌
+Skin tone for people|人の肌の色
+Slow|ゆっくり
+Space|スペース
+Speak|話す
+Speak message|メッセージを話す
+Speak while typing (Type)|入力しながら話す（入力）
+Speaking, going home, vibration|話す、ホームにもどる、振動
+Speed|速さ
+Stay in the app|アプリにとどまる
+Stop scan|スキャンをやめる
+Switch scanning|スイッチスキャン
+Tap any button to change it|ボタンをタップして変える
+Tap symbols to build a message|絵をタップしてメッセージを作る
+Type|入力
+Type part of a word, like "app" for apple. Tap a picture to say it.|言葉の一部を入力してください。絵をタップすると話します。
+Type your message|メッセージを入力
+Under picture|絵の下
+Vibrate|振動
+Voice|声
+Volume|音量
+When a button is tapped|ボタンをタップしたとき
+White|白
+Word only|言葉だけ
+Word position|言葉の位置
+Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|まだ翻訳のない言葉は英語のままです。この言語の声が端末にないときは、標準の声で読みます。端末の読み上げ設定で声を追加できます。
+category|カテゴリー
+[words]
+Actions|うごき
+afternoon|ごご
+again|もういっかい
+airplane|ひこうき
+alarm|めざましどけい
+All categories|すべてのカテゴリー
+all done|おわり
+Alphabet|アルファベット
+ambulance|きゅうきゅうしゃ
+angry|おこっている
+Animal homes & food|どうぶつのいえとえさ
+Animals|どうぶつ
+answer|こたえる
+ant|あり
+apple|りんご
+apricot|あんず
+apron|エプロン
+arm|うで
+Art & crafts|こうさく
+artist|がか
+astronaut|うちゅうひこうし
+avocado|アボカド
+baby|あかちゃん
+back|せなか
+backpack|リュック
+bacon|ベーコン
+bad|わるい
+bagel|ベーグル
+ball|ボール
+balloon|ふうせん
+banana|バナナ
+bandage|ばんそうこう
+banjo|バンジョー
+bank|ぎんこう
+baseball|やきゅう
+basketball|バスケットボール
+bathroom|おてあらい
+Bathroom things|おふろのもの
+bathtub|おふろ
+beach|うみべ
+beans|まめ
+bear|くま
+bed|ベッド
+bedroom|しんしつ
+bee|はち
+beetle|かぶとむし
+bell|かね
+bell pepper|ピーマン
+bells|すず
+bicycle|じてんしゃ
+bike|チャリ
+bike ride|じてんしゃにのる
+bird|とり
+Birds|とりたち
+black|くろ
+blackberry|ブラックベリー
+blanket|もうふ
+blocks|つみき
+blow nose|はなをかむ
+blue|あお
+blueberries|ブルーベリー
+boat|ボート
+book|ほん
+boots|ブーツ
+bored|たいくつ
+bottle|ほにゅうびん
+bowl|おわん
+brain|のう
+bread|パン
+Bread & cakes|パンとケーキ
+break|きゅうけい
+breakfast|あさごはん
+breathe|いきをする
+bridge|はし
+broccoli|ブロッコリー
+brother|きょうだい
+brown|ちゃいろ
+brush hair|かみをとかす
+brush teeth|はをみがく
+bubble tea|タピオカティー
+bubbles|しゃぼんだま
+Bugs|むし
+Buildings|たてもの
+burger|ハンバーガー
+burrito|ブリトー
+bus|バス
+butter|バター
+butterfly|ちょうちょ
+bye|バイバイ
+cactus|サボテン
+cake|ケーキ
+calculator|でんたく
+calendar|カレンダー
+calm|おちついている
+Calm down|おちつく
+camel|らくだ
+candy|あめ
+car|くるま
+carrot|にんじん
+castle|おしろ
+cat|ねこ
+caterpillar|いもむし
+chair|いす
+Chat|おしゃべり
+cheese|チーズ
+chef|コック
+cherries|さくらんぼ
+chicken|とりにく
+chocolate|チョコレート
+chopsticks|おはし
+church|きょうかい
+clap|てをたたく
+clock|とけい
+closet|クローゼット
+Clothes|ふく
+cloud|くも
+clover|クローバー
+coat|コート
+coconut|ココナッツ
+cold|さむい
+Colors|いろ
+computer|パソコン
+confused|こまった
+cook|りょうりする
+cookie|クッキー
+Cooking|りょうり
+corn|とうもろこし
+couch|ソファ
+count|かぞえる
+cow|うし
+crab|かに
+crackers|クラッカー
+crayons|クレヨン
+cricket|こおろぎ
+croissant|クロワッサン
+crown|おうかん
+cry|なく
+crying|ないている
+cucumber|きゅうり
+cup|コップ
+cup with straw|ストローのコップ
+cupcake|カップケーキ
+cut|きる
+cut paper|かみをきる
+dad|おとうさん
+Daily routines|まいにちのこと
+dance|おどる
+date|なつめやし
+day|ひる
+Describing words|ようすをあらわすことば
+dice|サイコロ
+dinner|ばんごはん
+doctor|おいしゃさん
+dog|いぬ
+dolls|にんぎょう
+dolphin|いるか
+don't know|わからない
+don't like|すきじゃない
+donut|ドーナツ
+door|ドア
+down|した
+draw|えをかく
+dress|ワンピース
+drink|のむ
+drink water|みずをのむ
+Drinks|のみもの
+drum|たいこ
+dry hands|てをふく
+duck|あひる
+dumpling|ぎょうざ
+eagle|わし
+ears|みみ
+eat|たべる
+Eat & drink|たべる・のむ
+egg|たまご
+eggplant|なす
+elephant|ぞう
+embarrassed|はずかしい
+erase|けす
+everyone|みんな
+excited|わくわく
+eyes|め
+factory|こうじょう
+farmer|のうか
+Feelings|きもち
+fig|いちじく
+finger|ゆび
+fire truck|しょうぼうしゃ
+firefighter|しょうぼうし
+fish|さかな
+flamingo|フラミンゴ
+flower|はな
+flute|フルート
+fold clothes|ふくをたたむ
+foot|あし
+football|アメフト
+fork and knife|フォークとナイフ
+fountain|ふんすい
+fox|きつね
+fridge|れいぞうこ
+friend|ともだち
+fries|フライドポテト
+Fruits|くだもの
+frustrated|イライラ
+garage|ガレージ
+garden|にわ
+garlic|にんにく
+get dressed|ふくをきる
+gift|プレゼント
+giraffe|きりん
+give|あげる
+glasses|めがね
+gloves|てぶくろ
+glue|のり
+go|いく
+good|いい
+gooseberry|グーズベリー
+gorilla|ゴリラ
+grandma|おばあちゃん
+grandpa|おじいちゃん
+grapefruit|グレープフルーツ
+grapes|ぶどう
+gray|はいいろ
+green|みどり
+green apple|あおりんご
+guitar|ギター
+hand|て
+hang clothes|せんたくものをほす
+happy|うれしい
+hat|ぼうし
+he|かれ
+head|あたま
+headphones|ヘッドホン
+Health|けんこう
+helicopter|ヘリコプター
+help|たすけて
+hi|こんにちは
+high five|ハイタッチ
+hippo|かば
+Holidays & parties|おまつりとパーティー
+home|いえ
+Home things|いえのもの
+honey|はちみつ
+horse|うま
+hospital|びょういん
+hot|あつい
+hot chocolate|ココア
+hot dog|ホットドッグ
+hotel|ホテル
+hourglass|すなどけい
+How much|どのくらい
+hug|ぎゅっとする
+hungry|おなかがすいた
+hurry|いそいで
+hurt|いたい
+husband|おっと
+I|わたし
+ice|こおり
+ice cream|アイスクリーム
+In, on, under|なか・うえ・した
+it|それ
+jeans|ジーンズ
+jellyfish|くらげ
+Jobs|しごと
+juice|ジュース
+kangaroo|カンガルー
+key|かぎ
+kiss|キス
+Kitchen|だいどころ
+kite|たこ
+kiwi|キウイ
+knee|ひざ
+ladybug|てんとうむし
+lamp|ランプ
+laugh|わらう
+laughing|わらっている
+leaf|はっぱ
+leg|あし（ひざから下）
+lemon|レモン
+lettuce|レタス
+library|としょかん
+lighthouse|とうだい
+like|すき
+lime|ライム
+line up|ならぶ
+lion|ライオン
+listen|きく
+lobster|ロブスター
+lollipop|ぼうつきキャンディ
+look|みる
+love|だいすき
+lunch|ひるごはん
+magic|まほう
+make|つくる
+mango|マンゴー
+mask|マスク
+Meals|ごはん
+Mealtime|しょくじのじかん
+meat|にく
+Meat, fish & eggs|にく・さかな・たまご
+mechanic|せいびし
+medal|メダル
+medicine|くすり
+melon|メロン
+microphone|マイク
+milk|ぎゅうにゅう
+Milk & cheese|ぎゅうにゅうとチーズ
+mirror|かがみ
+mom|おかあさん
+monkey|さる
+mop floor|ゆかをふく
+more|もっと
+morning|あさ
+motorcycle|バイク
+mouth|くち
+mug|マグカップ
+mushroom|きのこ
+music|おんがく
+my|わたしの
+My body|わたしのからだ
+my turn|わたしのばん
+neck|くび
+need|ひつよう
+nervous|きんちょう
+night|よる
+ninja star|しゅりけん
+no|いいえ
+noodles|めん
+nose|はな（かお）
+not|ない
+notebook|ノート
+now|いま
+Numbers|かず
+nurse|かんごし
+octopus|たこ（うみ）
+okay|だいじょうぶ
+olive|オリーブ
+onion|たまねぎ
+open|あける
+orange|オレンジ
+outside|そと
+oven|オーブン
+owl|ふくろう
+paint|いろをぬる
+paint picture|えのぐでかく
+pancakes|ホットケーキ
+paper|かみ
+park|こうえん
+parrot|オウム
+passion fruit|パッションフルーツ
+peach|もも
+peacock|くじゃく
+peanuts|ピーナッツ
+pear|なし
+peas|えんどうまめ
+pen|ペン
+pencil|えんぴつ
+penguin|ペンギン
+People|ひと
+person|ひと（ひとり）
+phone|でんわ
+piano|ピアノ
+pie|パイ
+pig|ぶた
+pillow|まくら
+pilot|パイロット
+pine tree|まつ
+pineapple|パイナップル
+pink|ピンク
+pizza|ピザ
+Places|ばしょ
+plant|しょくぶつ
+Plants|しょくぶつたち
+plate|おさら
+Play|あそぶ
+playground|あそびば
+please|おねがい
+plum|すもも
+point|ゆびさす
+police|けいさつかん
+police car|パトカー
+popcorn|ポップコーン
+pot|なべ
+potato|じゃがいも
+pretzel|プレッツェル
+pudding|プリン
+purple|むらさき
+put clothes away|ふくをしまう
+put on shoes|くつをはく
+put on socks|くつしたをはく
+puzzle|パズル
+Questions|しつもん
+quiet|しずかに
+rain|あめ（てんき）
+rainbow|にじ
+read|よむ
+red|あか
+Reptiles & frogs|はちゅうるいとかえる
+rest|やすむ
+restaurant|レストラン
+rhino|サイ
+rice|ごはん（おこめ）
+robot|ロボット
+rocket|ロケット
+rooster|おんどり
+rose|ばら
+ruler|じょうぎ
+run|はしる
+sad|かなしい
+salad|サラダ
+salt|しお
+sandals|サンダル
+sandwich|サンドイッチ
+saxophone|サックス
+scared|こわい
+scarf|マフラー
+School|がっこう
+School things|がっこうのもの
+Science & space|かがくとうちゅう
+scientist|かがくしゃ
+scissors|はさみ
+Sea animals|うみのいきもの
+seal|あざらし
+seedling|め（しょくぶつ）
+Sensory games|かんかくあそび
+Shapes|かたち
+shark|さめ
+shaved ice|かきごおり
+she|かのじょ
+ship|ふね
+shirt|シャツ
+shoes|くつ
+shop|おみせ
+Shopping & money|かいものとおかね
+shorts|はんズボン
+shot|ちゅうしゃ
+shoulder|かた
+shower|シャワー
+shrimp|えび
+sick|びょうき
+silly|ふざけた
+sing|うたう
+singer|かしゅ
+sister|しまい
+sleep|ねる
+sleepy|ねむい
+slide|すべりだい
+smoothie|スムージー
+Snacks|おやつ
+snail|かたつむり
+sneeze|くしゃみ
+snow|ゆき
+soap|せっけん
+soccer|サッカー
+socks|くつした
+soft toy|ぬいぐるみ
+sorry|ごめんなさい
+soup|スープ
+spaghetti|スパゲッティ
+spider|くも（むし）
+spoon|スプーン
+Sports|スポーツ
+spring|はる
+stadium|スタジアム
+stand|たつ
+stethoscope|ちょうしんき
+stop|やめて
+store|みせ
+Stories & pretend|おはなしとごっこあそび
+storm|あらし
+strawberry|いちご
+summer|なつ
+sun|たいよう
+sunflower|ひまわり
+surprised|びっくり
+swan|はくちょう
+sweep floor|はく（ほうき）
+swim|およぐ
+swimming pool|プール
+swimsuit|みずぎ
+swing|ブランコ
+t-shirt|Tシャツ
+table|テーブル
+tablet|タブレット
+taco|タコス
+take off shoes|くつをぬぐ
+take out trash|ゴミをだす
+taxi|タクシー
+tea|おちゃ
+teacher|せんせい
+teapot|きゅうす
+teddy|テディベア
+teeth|は
+tennis|テニス
+tent|テント
+thank you|ありがとう
+that|あれ
+thermometer|たいおんけい
+think|かんがえる
+thirsty|のどがかわいた
+this|これ
+throat|のど
+tiger|とら
+Time|じかん
+tired|つかれた
+today|きょう
+toilet|トイレ
+tomato|トマト
+tomorrow|あした
+tongue|した（くち）
+too loud|うるさすぎる
+Tools|どうぐ
+tooth|は（いっぽん）
+toothbrush|はブラシ
+towel|タオル
+toy car|おもちゃのくるま
+Toys|おもちゃ
+tractor|トラクター
+train|でんしゃ
+tree|き
+trophy|トロフィー
+tropical fish|ねったいぎょ
+truck|トラック
+trumpet|トランペット
+tulip|チューリップ
+turtle|かめ
+TV|テレビ
+TV, phones & computers|テレビ・でんわ・パソコン
+umbrella|かさ
+underwear|したぎ
+up|うえ
+vacuum floor|そうじきをかける
+Vegetables|やさい
+Vehicles|のりもの
+video game|ゲーム
+violin|バイオリン
+volleyball|バレーボール
+wait|まって
+walk|あるく
+want|ほしい
+wash dishes|おさらをあらう
+wash face|かおをあらう
+wash hair|かみをあらう
+wash hands|てをあらう
+washing machine|せんたくき
+watch|うでどけい
+water|みず
+watermelon|すいか
+wave|てをふる
+we|わたしたち
+Weather|てんき
+week|しゅう
+whale|くじら
+what|なに
+where|どこ
+white|しろ
+who|だれ
+wife|つま
+Wild animals|やせいのどうぶつ
+wind|かぜ
+window|まど
+winter|ふゆ
+wipe face|かおをふく
+wipe table|テーブルをふく
+wolf|おおかみ
+work|べんきょうする
+worried|しんぱい
+write|かく
+yellow|きいろ
+yes|はい
+yesterday|きのう
+yo-yo|ヨーヨー
+yogurt|ヨーグルト
+you|あなた
+yucky|まずい
+yummy|おいしい
+zebra|しまうま
+zip coat|コートのファスナーをしめる

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../engine/i18n.dart';
 import '../../engine/prediction.dart';
 import '../../engine/speech.dart';
 import '../../engine/storage.dart';
@@ -86,7 +87,7 @@ class _KeyboardViewState extends State<KeyboardView> {
     if (_uppercase && !RegExp(r'^[0-9]$').hasMatch(key)) {
       setState(() => _uppercase = false);
     }
-    if (RegExp(r'^[a-zA-Z0-9]$').hasMatch(typed)) {
+    if (RegExp(r'^[\p{L}\p{N}]$', unicode: true).hasMatch(typed)) {
       // Upper case so the voice says the letter's name ("A", not "uh").
       if (widget.typingSpeech == 'letters') {
         widget.speech.speak(typed.toUpperCase(), interrupt: true);
@@ -106,7 +107,9 @@ class _KeyboardViewState extends State<KeyboardView> {
   void _sayFinishedWord() {
     if (widget.typingSpeech == 'off') return;
     final word =
-        RegExp(r"([A-Za-z0-9']+)[^A-Za-z0-9']*$").firstMatch(_text)?.group(1);
+        RegExp(r"([\p{L}\p{N}']+)[^\p{L}\p{N}']*$", unicode: true)
+            .firstMatch(_text)
+            ?.group(1);
     if (word != null) widget.speech.speak(word, interrupt: true);
   }
 
@@ -119,8 +122,10 @@ class _KeyboardViewState extends State<KeyboardView> {
 
   @override
   Widget build(BuildContext context) {
+    final lang = I18n.language;
     final prefix = RegExp(r"[a-zA-Z']+$").firstMatch(_text)?.group(0) ?? '';
-    final suggestions = prefix.isEmpty
+    // Word suggestions come from an English word list.
+    final suggestions = prefix.isEmpty || lang.code != 'en'
         ? <String>[]
         : widget.predictor
             .suggest(prefix)
@@ -179,20 +184,28 @@ class _KeyboardViewState extends State<KeyboardView> {
                     }, suggestion: true),
                   )),
               ])),
-        Expanded(child: LayoutBuilder(builder: (context, constraints) {
+        if (!lang.usesOwnKeyboard)
+          // Chinese, Japanese and Hindi are typed with the device keyboard.
+          Expanded(child: _deviceKeyboardField())
+        else
+          Expanded(child: LayoutBuilder(builder: (context, constraints) {
+          final rows = [
+            if (lang.extraLetters!.isNotEmpty) lang.extraLetters!,
+            '1234567890',
+            'qwertyuiop',
+            "asdfghjkl'",
+            'zxcvbnm,.'
+          ];
           // Bigger keys on tall phones: easier to hit.
-          final height = ((constraints.maxHeight - 24) / 4).clamp(44.0, 84.0);
+          final height =
+              ((constraints.maxHeight - 6 * rows.length) / rows.length)
+                  .clamp(40.0, 84.0);
           return Align(
               alignment: Alignment.bottomCenter,
               child: SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal: 4),
                   child: Column(children: [
-                    for (final row in [
-                      '1234567890',
-                      'qwertyuiop',
-                      "asdfghjkl'",
-                      'zxcvbnm,.'
-                    ])
+                    for (final row in rows)
                       Padding(
                           padding: const EdgeInsets.only(bottom: 6),
                           child: SizedBox(
@@ -237,7 +250,9 @@ class _KeyboardViewState extends State<KeyboardView> {
                       child: _key('Speak', widget.onSpeak,
                           icon: Icons.volume_up)),
                   const SizedBox(width: 6),
-                  Expanded(flex: 3, child: _key('Space', _space)),
+                  Expanded(
+                      flex: 3,
+                      child: _key(I18n.t('Space'), _space, semantics: 'Space')),
                   const SizedBox(width: 6),
                   Expanded(
                       flex: 2,
@@ -248,11 +263,60 @@ class _KeyboardViewState extends State<KeyboardView> {
     );
   }
 
+  /// Device keyboard (any script). Text goes into the same message.
+  Widget _deviceKeyboardField() => Padding(
+        padding: const EdgeInsets.all(8),
+        child: Column(children: [
+          Material(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            child: TextField(
+              controller: _deviceText,
+              autofocus: true,
+              minLines: 1,
+              maxLines: 3,
+              style: const TextStyle(fontSize: 22, color: Colors.black87),
+              decoration: InputDecoration(
+                  hintText: I18n.t('Type your message'),
+                  border: InputBorder.none,
+                  contentPadding: const EdgeInsets.all(14)),
+              onSubmitted: (_) => _addDeviceText(),
+            ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            height: 52,
+            width: double.infinity,
+            child: _key(I18n.t('Add to message'), _addDeviceText,
+                semantics: 'Add to message', suggestion: true),
+          ),
+        ]),
+      );
+
+  final TextEditingController _deviceText = TextEditingController();
+
+  @override
+  void dispose() {
+    _deviceText.dispose();
+    super.dispose();
+  }
+
+  void _addDeviceText() {
+    final text = _deviceText.text.trim();
+    if (text.isEmpty) return;
+    _insert('$text ');
+    _deviceText.clear();
+    widget.speech.speak(text, interrupt: true);
+  }
+
   Widget _key(String label, VoidCallback onTap,
-          {IconData? icon, bool selected = false, bool suggestion = false}) =>
+          {IconData? icon,
+          bool selected = false,
+          bool suggestion = false,
+          String? semantics}) =>
       Semantics(
         button: true,
-        label: label,
+        label: semantics ?? label,
         toggled: label == 'Shift' ? selected : null,
         excludeSemantics: true,
         child: Material(
@@ -262,7 +326,7 @@ class _KeyboardViewState extends State<KeyboardView> {
                   ? const Color(0xFFFFF59D)
                   : label == 'Speak'
                       ? const Color(0xFF2E7D32)
-                      : label == 'Space'
+                      : (semantics ?? label) == 'Space'
                           ? const Color(0xFFD8EBFF)
                           : const Color(0xFFF3F5F7),
           borderRadius: BorderRadius.circular(8),

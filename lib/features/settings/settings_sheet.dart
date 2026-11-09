@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import '../web/web_tools.dart';
 import 'backup_tools.dart';
 import 'package:flutter/material.dart';
+
+import '../../engine/i18n.dart';
 import 'package:flutter/services.dart';
 
 import '../../engine/settings_controller.dart';
@@ -68,14 +70,15 @@ class _SettingsSheetState extends State<SettingsSheet> {
           controller: widget.scrollController,
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 20),
           children: [
-            const Padding(
-              padding: EdgeInsets.fromLTRB(8, 4, 8, 8),
-              child: Text('Settings',
-                  style: TextStyle(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 4, 8, 8),
+              child: Text(I18n.t('Settings'),
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w700)),
             ),
+            _languageGroup(),
             _group(Icons.record_voice_over, 'Voice',
                 'Choose who speaks, speed and loudness',
                 initiallyExpanded: true,
@@ -340,6 +343,43 @@ class _SettingsSheetState extends State<SettingsSheet> {
     widget.onChanged();
   }
 
+  /// Language of the board's words, the app's text and the voice.
+  Widget _languageGroup() {
+    final s = widget.settings;
+    final current = languageFor(s.language);
+    return _group(Icons.translate, 'Language',
+        '${current.nativeName} · words, app text and voice',
+        children: [
+          Wrap(spacing: 6, runSpacing: 6, children: [
+            for (final lang in kLanguages)
+              ChoiceChip(
+                label: Text(lang.code == 'en'
+                    ? lang.nativeName
+                    : '${lang.nativeName} (${lang.name})'),
+                selected: lang.code == current.code,
+                onSelected: (_) {
+                  if (lang.code == s.language) return;
+                  s.language = lang.code;
+                  // A voice chosen for the old language would read the new
+                  // words wrongly: use the device voice for the new one.
+                  s.voiceName = null;
+                  s.voiceLocale = null;
+                  if (lang.code != 'en') s.usePiper = false;
+                  _changed();
+                  Navigator.of(context).maybePop();
+                },
+              ),
+          ]),
+          const SizedBox(height: 8),
+          Text(
+              I18n.t('Words without a translation yet stay in English. '
+                  'If the device has no voice for this language, its '
+                  'default voice reads the words. Add voices in the '
+                  "device's text-to-speech settings."),
+              style: const TextStyle(color: Colors.white54, fontSize: 12)),
+        ]);
+  }
+
   Widget _group(IconData icon, String title, String subtitle,
           {required List<Widget> children, bool initiallyExpanded = false}) =>
       Card(
@@ -350,12 +390,12 @@ class _SettingsSheetState extends State<SettingsSheet> {
         child: ExpansionTile(
           initiallyExpanded: initiallyExpanded,
           leading: Icon(icon, color: Colors.deepOrangeAccent, size: 28),
-          title: Text(title,
+          title: Text(I18n.t(title),
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 17,
                   fontWeight: FontWeight.w600)),
-          subtitle: Text(subtitle,
+          subtitle: Text(I18n.t(subtitle),
               style: const TextStyle(color: Colors.white54, fontSize: 12)),
           iconColor: Colors.white70,
           collapsedIconColor: Colors.white70,
@@ -378,11 +418,11 @@ class _SettingsSheetState extends State<SettingsSheet> {
         contentPadding: EdgeInsets.zero,
         value: value,
         onChanged: onChanged,
-        title: Text(title,
+        title: Text(I18n.t(title),
             style: const TextStyle(color: Colors.white, fontSize: 15)),
         subtitle: subtitle == null
             ? null
-            : Text(subtitle,
+            : Text(I18n.t(subtitle),
                 style: const TextStyle(color: Colors.white54, fontSize: 12)),
       );
 
@@ -391,7 +431,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
     return Padding(
       padding: const EdgeInsets.only(top: 4),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(label, style: const TextStyle(color: Colors.white, fontSize: 15)),
+        Text(I18n.t(label),
+            style: const TextStyle(color: Colors.white, fontSize: 15)),
         Row(children: [
           SizedBox(
               width: 44,
@@ -423,7 +464,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
         : '${value.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')} $suffix';
     return Row(children: [
       Expanded(
-          child: Text(label,
+          child: Text(I18n.t(label),
               style: const TextStyle(color: Colors.white, fontSize: 15))),
       IconButton(
           onPressed: value > min + 1e-9
@@ -449,7 +490,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 4),
-        child: Text(label,
+        child: Text(I18n.t(label),
             style: const TextStyle(color: Colors.white, fontSize: 15)),
       ),
       Wrap(
@@ -458,7 +499,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
         children: [
           for (final e in options.entries)
             ChoiceChip(
-              label: Text(e.value),
+              label: Text(I18n.t(e.value)),
               selected: current == e.key,
               onSelected: (_) => onChanged(e.key),
             ),

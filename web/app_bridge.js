@@ -84,9 +84,19 @@
       if (!registration?.active) return 'Preparing starter boards for offline use...';
       const active = await activeBuild(registration.active);
       if (!active?.ready || active.buildId !== BUILD_ID) return 'An update is preparing. Keep the app online, then reload.';
+      const auto = window.aacAutoDownload;
+      if (auto?.state === 'running') {
+        return `Saving all pictures for offline use: ${auto.done.toLocaleString()} of ${auto.total.toLocaleString()}. Keep the app open.`;
+      }
+      if (auto?.state === 'done' || completedBuild() === BUILD_ID) {
+        return 'Everything is saved: the app works fully offline. Voice availability depends on your device.';
+      }
       const cache = await caches.open(PICTURES_CACHE);
       const count = (await cache.keys()).length;
-      return `Starter boards ready offline. ${count.toLocaleString()} extra pictures saved. Voice availability depends on your device.`;
+      const waiting = auto?.state === 'error'
+          ? ' The automatic download paused (no connection?); it continues next time the app is open online.'
+          : ' The rest downloads automatically while the app is open online.';
+      return `Starter boards ready offline. ${count.toLocaleString()} extra pictures saved.${waiting}`;
     },
     async downloadSymbols(onProgress) {
       if (!('serviceWorker' in navigator) || !window.isSecureContext) {
@@ -141,6 +151,34 @@
       });
     },
   };
+  // Offline as an app: once the starter boards are ready, every remaining
+  // picture downloads in the background (resumable, 4 at a time). A build
+  // that finished is remembered, so later launches do not re-check.
+  function completedBuild() {
+    try { return localStorage.getItem('aac-offline-complete'); } catch (_) { return null; }
+  }
+  async function autoDownload() {
+    if (window.aacAutoDownload?.state === 'running') return;
+    if (completedBuild() === BUILD_ID || !navigator.onLine) return;
+    if (navigator.connection?.saveData) return; // the person asked to save data
+    const state = window.aacAutoDownload = {state: 'running', done: 0, total: 0};
+    try {
+      await window.aacWeb.downloadSymbols((done, total) => { state.done = done; state.total = total; });
+      state.state = 'done';
+      try { localStorage.setItem('aac-offline-complete', BUILD_ID); } catch (_) {}
+    } catch (_) {
+      // Retried when the connection returns, a few times while open, and
+      // at the next launch. Saved pictures are kept, so it resumes.
+      state.state = 'error';
+      autoRetries++;
+      if (autoRetries <= 3 && navigator.onLine) setTimeout(autoDownload, 60000 * autoRetries);
+    }
+  }
+  let autoRetries = 0;
+  window.addEventListener('online', () => {
+    if (window.aacAutoDownload?.state === 'error') setTimeout(autoDownload, 3000);
+  });
+
   function activeBuild(worker) {
     return new Promise(resolve => {
       if (!worker) return resolve(null);
@@ -158,5 +196,7 @@
     document.getElementById('reload-app').onclick = () => location.reload();
     navigator.serviceWorker.register('aac-sw.js', {updateViaCache: 'none'})
         .catch(() => { window.aacOfflineError = true; });
+    // Start after the board has opened, so the first taps are never slowed.
+    navigator.serviceWorker.ready.then(() => setTimeout(autoDownload, 8000));
   }
 })();

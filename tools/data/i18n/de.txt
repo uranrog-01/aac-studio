@@ -1,0 +1,681 @@
+# German (Deutsch). Draft by machine: please have a native speaker review.
+[ui]
+Access|Zugang
+Add|Hinzufügen
+Add to message|Zur Nachricht hinzufügen
+Adds a Scan button: tap once for a row, again for a button|Fügt eine Scan-Taste hinzu: einmal tippen für eine Reihe, noch einmal für eine Taste
+Asian|Asiatisch
+Asks for the code before Settings and edit mode|Fragt nach dem Code vor Einstellungen und Bearbeiten
+Back|Zurück
+Black|Schwarz
+Black background, yellow buttons, bold words|Schwarzer Hintergrund, gelbe Tasten, fette Wörter
+Blond|Blond
+Brown|Braun
+Buttons & screen|Tasten und Bildschirm
+Buttons show|Tasten zeigen
+Caregiver|Betreuung
+Choose who speaks, speed and loudness|Stimme, Tempo und Lautstärke wählen
+Clear|Löschen
+Clear search|Suche löschen
+Clear the message after speaking it|Nachricht nach dem Sprechen löschen
+Click sound|Klickton
+Copied|Kopiert
+Copy the message|Nachricht kopieren
+Dark|Dunkel
+Default|Standard
+Delete|Entfernen
+Delete last word|Letztes Wort löschen
+Each letter and word|Jeden Buchstaben und jedes Wort
+Each word|Jedes Wort
+Edit buttons, symbols, lock code|Tasten, Symbole und Code bearbeiten
+Edit mode|Bearbeiten
+Find|Suchen
+Find a word|Wort suchen
+Go back to Home after a word|Nach einem Wort zum Start zurück
+Gray|Grau
+Hair|Haare
+High contrast (CVI)|Hoher Kontrast (CVI)
+Hold time|Haltezeit
+Hold to select|Halten zum Auswählen
+Hold to select, switch scanning, extra taps|Halten zum Auswählen, Scannen, zusätzliches Tippen
+Home|Start
+Ignore extra taps for|Zusätzliches Tippen ignorieren für
+Language|Sprache
+Light|Hell
+Lock settings with a code|Einstellungen mit Code sperren
+Low|Tief
+Medium|Mittel
+Medium dark|Mitteldunkel
+Medium light|Mittelhell
+Message bar at the top|Nachrichtenleiste oben
+More|Mehr
+No picture for this word yet. Use Type to write it.|Für dieses Wort gibt es noch kein Bild. Mit Schreiben eintippen.
+Nothing here yet|Hier ist noch nichts
+Off|Aus
+Off: words are added silently; tap the message to speak|Aus: Wörter werden leise hinzugefügt; Nachricht antippen zum Sprechen
+Online ARASAAC pictures in search|Online-Bilder von ARASAAC in der Suche
+Original|Original
+Over picture|Über dem Bild
+Picture + word|Bild + Wort
+Picture only|Nur Bild
+Pictures, words, contrast|Bilder, Wörter, Kontrast
+Pitch|Tonhöhe
+Press Back 3 times quickly to leave|Zum Verlassen 3-mal schnell Zurück drücken
+Press and hold a button until the circle fills|Taste gedrückt halten, bis der Kreis voll ist
+Quiet|Leise
+Recent words|Letzte Wörter
+Red|Rot
+Say each word when tapped|Jedes Wort beim Antippen sprechen
+Say the category name when opened|Kategorienamen beim Öffnen sprechen
+Say the last word again|Letztes Wort wiederholen
+Scan|Scannen
+Scan speed|Scan-Tempo
+Select highlighted|Markiertes auswählen
+Settings|Einstellungen
+Shift|Großbuchstabe
+Skin|Haut
+Skin tone for people|Hautfarbe der Personen
+Slow|Langsam
+Space|Leerzeichen
+Speak|Sprechen
+Speak message|Nachricht sprechen
+Speak while typing (Type)|Beim Schreiben sprechen (Schreiben)
+Speaking, going home, vibration|Sprechen, zurück zum Start, Vibration
+Speed|Tempo
+Stay in the app|In der App bleiben
+Stop scan|Scannen stoppen
+Switch scanning|Scannen mit Taster
+Tap any button to change it|Eine Taste antippen, um sie zu ändern
+Tap symbols to build a message|Symbole antippen, um eine Nachricht zu bilden
+Type|Schreiben
+Type part of a word, like "app" for apple. Tap a picture to say it.|Den Anfang eines Wortes schreiben. Ein Bild antippen, um es zu sagen.
+Type your message|Nachricht schreiben
+Under picture|Unter dem Bild
+Vibrate|Vibrieren
+Voice|Stimme
+Volume|Lautstärke
+When a button is tapped|Beim Antippen einer Taste
+White|Weiß
+Word only|Nur Wort
+Word position|Position des Wortes
+Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Wörter ohne Übersetzung bleiben vorerst Englisch. Hat das Gerät keine Stimme für diese Sprache, liest seine Standardstimme die Wörter. Stimmen in den Sprachausgabe-Einstellungen des Geräts hinzufügen.
+category|Kategorie
+[words]
+Actions|Tätigkeiten
+afternoon|Nachmittag
+again|nochmal
+airplane|Flugzeug
+alarm|Wecker
+All categories|Alle Kategorien
+all done|fertig
+Alphabet|Alphabet
+ambulance|Krankenwagen
+angry|wütend
+Animal homes & food|Tierwohnungen und Futter
+Animals|Tiere
+answer|antworten
+ant|Ameise
+apple|Apfel
+apricot|Aprikose
+apron|Schürze
+arm|Arm
+Art & crafts|Kunst und Basteln
+artist|Künstler
+astronaut|Astronaut
+avocado|Avocado
+baby|Baby
+back|Rücken
+backpack|Rucksack
+bacon|Speck
+bad|schlecht
+bagel|Bagel
+ball|Ball
+balloon|Luftballon
+banana|Banane
+bandage|Pflaster
+banjo|Banjo
+bank|Bank
+baseball|Baseball
+basketball|Basketball
+bathroom|Badezimmer
+Bathroom things|Badsachen
+bathtub|Badewanne
+beach|Strand
+beans|Bohnen
+bear|Bär
+bed|Bett
+bedroom|Schlafzimmer
+bee|Biene
+beetle|Käfer
+bell|Glocke
+bell pepper|Paprika
+bells|Glöckchen
+bicycle|Fahrrad
+bike|Rad
+bike ride|Rad fahren
+bird|Vogel
+Birds|Vögel
+black|schwarz
+blackberry|Brombeere
+blanket|Decke
+blocks|Bauklötze
+blow nose|Nase putzen
+blue|blau
+blueberries|Heidelbeeren
+boat|Boot
+book|Buch
+boots|Stiefel
+bored|gelangweilt
+bottle|Fläschchen
+bowl|Schüssel
+brain|Gehirn
+bread|Brot
+Bread & cakes|Brot und Kuchen
+break|Pause
+breakfast|Frühstück
+breathe|atmen
+bridge|Brücke
+broccoli|Brokkoli
+brother|Bruder
+brown|braun
+brush hair|Haare bürsten
+brush teeth|Zähne putzen
+bubble tea|Bubble Tea
+bubbles|Seifenblasen
+Bugs|Insekten
+Buildings|Gebäude
+burger|Burger
+burrito|Burrito
+bus|Bus
+butter|Butter
+butterfly|Schmetterling
+bye|tschüss
+cactus|Kaktus
+cake|Kuchen
+calculator|Taschenrechner
+calendar|Kalender
+calm|ruhig
+Calm down|Beruhigen
+camel|Kamel
+candy|Bonbon
+car|Auto
+carrot|Karotte
+castle|Burg
+cat|Katze
+caterpillar|Raupe
+chair|Stuhl
+Chat|Unterhalten
+cheese|Käse
+chef|Koch
+cherries|Kirschen
+chicken|Hähnchen
+chocolate|Schokolade
+chopsticks|Essstäbchen
+church|Kirche
+clap|klatschen
+clock|Uhr
+closet|Schrank
+Clothes|Kleidung
+cloud|Wolke
+clover|Klee
+coat|Mantel
+coconut|Kokosnuss
+cold|kalt
+Colors|Farben
+computer|Computer
+confused|verwirrt
+cook|kochen
+cookie|Keks
+Cooking|Kochen
+corn|Mais
+couch|Sofa
+count|zählen
+cow|Kuh
+crab|Krabbe
+crackers|Cracker
+crayons|Buntstifte
+cricket|Grille
+croissant|Croissant
+crown|Krone
+cry|weinen
+crying|weinend
+cucumber|Gurke
+cup|Tasse
+cup with straw|Becher mit Strohhalm
+cupcake|Muffin
+cut|schneiden
+cut paper|Papier schneiden
+dad|Papa
+Daily routines|Tagesablauf
+dance|tanzen
+date|Dattel
+day|Tag
+Describing words|Beschreibende Wörter
+dice|Würfel
+dinner|Abendessen
+doctor|Arzt
+dog|Hund
+dolls|Puppen
+dolphin|Delfin
+don't know|weiß nicht
+don't like|mag ich nicht
+donut|Donut
+door|Tür
+down|runter
+draw|malen
+dress|Kleid
+drink|trinken
+drink water|Wasser trinken
+Drinks|Getränke
+drum|Trommel
+dry hands|Hände abtrocknen
+duck|Ente
+dumpling|Teigtasche
+eagle|Adler
+ears|Ohren
+eat|essen
+Eat & drink|Essen und Trinken
+egg|Ei
+eggplant|Aubergine
+elephant|Elefant
+embarrassed|verlegen
+erase|radieren
+everyone|alle
+excited|aufgeregt
+eyes|Augen
+factory|Fabrik
+farmer|Bauer
+Feelings|Gefühle
+fig|Feige
+finger|Finger
+fire truck|Feuerwehrauto
+firefighter|Feuerwehrmann
+fish|Fisch
+flamingo|Flamingo
+flower|Blume
+flute|Flöte
+fold clothes|Wäsche falten
+foot|Fuß
+football|American Football
+fork and knife|Gabel und Messer
+fountain|Brunnen
+fox|Fuchs
+fridge|Kühlschrank
+friend|Freund
+fries|Pommes
+Fruits|Obst
+frustrated|frustriert
+garage|Garage
+garden|Garten
+garlic|Knoblauch
+get dressed|anziehen
+gift|Geschenk
+giraffe|Giraffe
+give|geben
+glasses|Brille
+gloves|Handschuhe
+glue|Kleber
+go|gehen
+good|gut
+gooseberry|Stachelbeere
+gorilla|Gorilla
+grandma|Oma
+grandpa|Opa
+grapefruit|Grapefruit
+grapes|Trauben
+gray|grau
+green|grün
+green apple|grüner Apfel
+guitar|Gitarre
+hand|Hand
+hang clothes|Wäsche aufhängen
+happy|froh
+hat|Hut
+he|er
+head|Kopf
+headphones|Kopfhörer
+Health|Gesundheit
+helicopter|Hubschrauber
+help|Hilfe
+hi|hallo
+high five|abklatschen
+hippo|Nilpferd
+Holidays & parties|Feste und Ferien
+home|Zuhause
+Home things|Zuhause
+honey|Honig
+horse|Pferd
+hospital|Krankenhaus
+hot|heiß
+hot chocolate|Kakao
+hot dog|Hotdog
+hotel|Hotel
+hourglass|Sanduhr
+How much|Wie viel
+hug|Umarmung
+hungry|Hunger
+hurry|schnell
+hurt|tut weh
+husband|Ehemann
+I|ich
+ice|Eis (gefroren)
+ice cream|Eis
+In, on, under|In, auf, unter
+it|es
+jeans|Jeans
+jellyfish|Qualle
+Jobs|Berufe
+juice|Saft
+kangaroo|Känguru
+key|Schlüssel
+kiss|Kuss
+Kitchen|Küche
+kite|Drachen
+kiwi|Kiwi
+knee|Knie
+ladybug|Marienkäfer
+lamp|Lampe
+laugh|lachen
+laughing|lachend
+leaf|Blatt
+leg|Bein
+lemon|Zitrone
+lettuce|Salat (Kopf)
+library|Bücherei
+lighthouse|Leuchtturm
+like|mag ich
+lime|Limette
+line up|anstellen
+lion|Löwe
+listen|zuhören
+lobster|Hummer
+lollipop|Lutscher
+look|schauen
+love|lieben
+lunch|Mittagessen
+magic|Zauberei
+make|machen
+mango|Mango
+mask|Maske
+Meals|Mahlzeiten
+Mealtime|Essenszeit
+meat|Fleisch
+Meat, fish & eggs|Fleisch, Fisch und Eier
+mechanic|Mechaniker
+medal|Medaille
+medicine|Medizin
+melon|Melone
+microphone|Mikrofon
+milk|Milch
+Milk & cheese|Milch und Käse
+mirror|Spiegel
+mom|Mama
+monkey|Affe
+mop floor|Boden wischen
+more|mehr
+morning|Morgen
+motorcycle|Motorrad
+mouth|Mund
+mug|Becher
+mushroom|Pilz
+music|Musik
+my|mein
+My body|Mein Körper
+my turn|ich bin dran
+neck|Hals
+need|brauchen
+nervous|nervös
+night|Nacht
+ninja star|Ninjastern
+no|nein
+noodles|Nudeln
+nose|Nase
+not|nicht
+notebook|Heft
+now|jetzt
+Numbers|Zahlen
+nurse|Krankenschwester
+octopus|Krake
+okay|okay
+olive|Olive
+onion|Zwiebel
+open|öffnen
+orange|Orange
+outside|draußen
+oven|Ofen
+owl|Eule
+paint|malen mit Farbe
+paint picture|Bild malen
+pancakes|Pfannkuchen
+paper|Papier
+park|Park
+parrot|Papagei
+passion fruit|Maracuja
+peach|Pfirsich
+peacock|Pfau
+peanuts|Erdnüsse
+pear|Birne
+peas|Erbsen
+pen|Kuli
+pencil|Bleistift
+penguin|Pinguin
+People|Menschen
+person|Person
+phone|Telefon
+piano|Klavier
+pie|Kuchen (gefüllt)
+pig|Schwein
+pillow|Kissen
+pilot|Pilot
+pine tree|Tanne
+pineapple|Ananas
+pink|rosa
+pizza|Pizza
+Places|Orte
+plant|Pflanze
+Plants|Pflanzen
+plate|Teller
+Play|Spielen
+playground|Spielplatz
+please|bitte
+plum|Pflaume
+point|zeigen
+police|Polizist
+police car|Polizeiauto
+popcorn|Popcorn
+pot|Topf
+potato|Kartoffel
+pretzel|Brezel
+pudding|Pudding
+purple|lila
+put clothes away|Kleidung wegräumen
+put on shoes|Schuhe anziehen
+put on socks|Socken anziehen
+puzzle|Puzzle
+Questions|Fragen
+quiet|Ruhe
+rain|Regen
+rainbow|Regenbogen
+read|lesen
+red|rot
+Reptiles & frogs|Reptilien und Frösche
+rest|ausruhen
+restaurant|Restaurant
+rhino|Nashorn
+rice|Reis
+robot|Roboter
+rocket|Rakete
+rooster|Hahn
+rose|Rose
+ruler|Lineal
+run|rennen
+sad|traurig
+salad|Salat
+salt|Salz
+sandals|Sandalen
+sandwich|Sandwich
+saxophone|Saxofon
+scared|Angst
+scarf|Schal
+School|Schule
+School things|Schulsachen
+Science & space|Wissenschaft und Weltall
+scientist|Forscher
+scissors|Schere
+Sea animals|Meerestiere
+seal|Robbe
+seedling|Keimling
+Sensory games|Sinnesspiele
+Shapes|Formen
+shark|Hai
+shaved ice|Eisschnee
+she|sie
+ship|Schiff
+shirt|Hemd
+shoes|Schuhe
+shop|Geschäft
+Shopping & money|Einkaufen und Geld
+shorts|kurze Hose
+shot|Spritze
+shoulder|Schulter
+shower|Dusche
+shrimp|Garnele
+sick|krank
+silly|albern
+sing|singen
+singer|Sänger
+sister|Schwester
+sleep|schlafen
+sleepy|müde
+slide|Rutsche
+smoothie|Smoothie
+Snacks|Snacks
+snail|Schnecke
+sneeze|niesen
+snow|Schnee
+soap|Seife
+soccer|Fußball
+socks|Socken
+soft toy|Kuscheltier
+sorry|Entschuldigung
+soup|Suppe
+spaghetti|Spaghetti
+spider|Spinne
+spoon|Löffel
+Sports|Sport
+spring|Frühling
+stadium|Stadion
+stand|stehen
+stethoscope|Stethoskop
+stop|stopp
+store|Laden
+Stories & pretend|Geschichten und So-tun-als-ob
+storm|Gewitter
+strawberry|Erdbeere
+summer|Sommer
+sun|Sonne
+sunflower|Sonnenblume
+surprised|überrascht
+swan|Schwan
+sweep floor|fegen
+swim|schwimmen
+swimming pool|Schwimmbad
+swimsuit|Badeanzug
+swing|Schaukel
+t-shirt|T-Shirt
+table|Tisch
+tablet|Tablet
+taco|Taco
+take off shoes|Schuhe ausziehen
+take out trash|Müll rausbringen
+taxi|Taxi
+tea|Tee
+teacher|Lehrerin
+teapot|Teekanne
+teddy|Teddy
+teeth|Zähne
+tennis|Tennis
+tent|Zelt
+thank you|danke
+that|das da
+thermometer|Thermometer
+think|denken
+thirsty|Durst
+this|das hier
+throat|Hals (innen)
+tiger|Tiger
+Time|Zeit
+tired|müde (erschöpft)
+today|heute
+toilet|Toilette
+tomato|Tomate
+tomorrow|morgen
+tongue|Zunge
+too loud|zu laut
+Tools|Werkzeug
+tooth|Zahn
+toothbrush|Zahnbürste
+towel|Handtuch
+toy car|Spielzeugauto
+Toys|Spielzeug
+tractor|Traktor
+train|Zug
+tree|Baum
+trophy|Pokal
+tropical fish|Tropenfisch
+truck|Lastwagen
+trumpet|Trompete
+tulip|Tulpe
+turtle|Schildkröte
+TV|Fernseher
+TV, phones & computers|Fernseher, Handys und Computer
+umbrella|Regenschirm
+underwear|Unterwäsche
+up|hoch
+vacuum floor|staubsaugen
+Vegetables|Gemüse
+Vehicles|Fahrzeuge
+video game|Videospiel
+violin|Geige
+volleyball|Volleyball
+wait|warten
+walk|gehen (spazieren)
+want|wollen
+wash dishes|abwaschen
+wash face|Gesicht waschen
+wash hair|Haare waschen
+wash hands|Hände waschen
+washing machine|Waschmaschine
+watch|Armbanduhr
+water|Wasser
+watermelon|Wassermelone
+wave|winken
+we|wir
+Weather|Wetter
+week|Woche
+whale|Wal
+what|was
+where|wo
+white|weiß
+who|wer
+wife|Ehefrau
+Wild animals|Wilde Tiere
+wind|Wind
+window|Fenster
+winter|Winter
+wipe face|Gesicht abwischen
+wipe table|Tisch abwischen
+wolf|Wolf
+work|arbeiten
+worried|besorgt
+write|schreiben
+yellow|gelb
+yes|ja
+yesterday|gestern
+yo-yo|Jo-Jo
+yogurt|Joghurt
+you|du
+yucky|igitt
+yummy|lecker
+zebra|Zebra
+zip coat|Jacke zumachen

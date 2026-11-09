@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../engine/i18n.dart';
+
 /// The white message box shared by Home and Type: tap it to hear the whole
 /// message (again), and the red button on its right removes the last word.
 class MessageBar extends StatelessWidget {
@@ -38,7 +40,7 @@ class MessageBar extends StatelessWidget {
           Expanded(
             child: Semantics(
               button: true,
-              label: 'Speak message',
+              label: I18n.t('Speak message'),
               value: message,
               excludeSemantics: true,
               child: InkWell(
@@ -48,7 +50,7 @@ class MessageBar extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   alignment: Alignment.centerLeft,
                   child: message.isEmpty
-                      ? Text(placeholder,
+                      ? Text(I18n.t(placeholder),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: style.copyWith(
@@ -73,7 +75,7 @@ class MessageBar extends StatelessWidget {
           ),
           Semantics(
             button: true,
-            label: 'Delete last word',
+            label: I18n.t('Delete last word'),
             enabled: canDelete,
             excludeSemantics: true,
             child: InkWell(
@@ -130,7 +132,7 @@ class ToolbarButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 2),
         child: Semantics(
           button: true,
-          label: label,
+          label: I18n.t(label),
           enabled: onTap != null,
           excludeSemantics: true,
           child: Material(
@@ -157,7 +159,7 @@ class ToolbarButton extends StatelessWidget {
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
                     Icon(icon, color: Colors.white, size: 26),
                     FittedBox(
-                      child: Text(label,
+                      child: Text(I18n.t(label),
                           style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,

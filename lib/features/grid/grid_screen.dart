@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import '../../engine/i18n.dart';
 import '../../engine/prediction.dart';
 import '../../engine/settings_controller.dart';
 import '../../engine/speech.dart';
@@ -141,11 +142,11 @@ class GridSession extends ChangeNotifier {
     for (final a in b.actions) {
       switch (a.kind) {
         case ActionKind.addText:
-          appended = a.data.isNotEmpty ? a.data : b.speakText;
+          appended = b.textFor(a);
           _append(appended);
           break;
         case ActionKind.speakNow:
-          _speak(a.data.isNotEmpty ? a.data : b.speakText, b, f);
+          _speak(b.textFor(a), b, f);
           spoke = true;
           break;
         case ActionKind.speakMessage:
@@ -314,21 +315,34 @@ class GridSession extends ChangeNotifier {
       final entry = index[i];
       final button = entry.button;
       if (button.kind == ButtonKind.action) continue;
+      // The word as shown (chosen language) ranks first; the English
+      // word is also found, so a caregiver can search either way.
+      final shown = button.shownLabel.toLowerCase();
       final label = button.label.toLowerCase();
       final key = button.kind == ButtonKind.folder ? 'folder:$label' : label;
       if (labels.contains(key)) continue;
-      final rank = label == q
+      int? rankOf(String text) => text == q
           ? 0
-          : label.startsWith(q)
+          : text.startsWith(q)
               ? 1
-              : label.split(RegExp(r"[^a-z0-9']+")).any((w) => w.startsWith(q))
+              : text.split(RegExp(r"[\s,./()-]+")).any((w) => w.startsWith(q))
                   ? 2
-                  : label.contains(q)
+                  : text.contains(q)
                       ? 3
                       : null;
+      // Best match in either language; on a tie the shown word wins.
+      final inShown = rankOf(shown);
+      final inEnglish = shown == label ? null : rankOf(label);
+      final candidates = [
+        if (inShown != null) inShown * 2,
+        if (inEnglish != null) inEnglish * 2 + 1,
+      ];
+      final rank = candidates.isEmpty
+          ? null
+          : candidates.reduce((a, b) => a < b ? a : b);
       if (rank == null) continue;
       labels.add(key);
-      ranked.add((rank, label.length, i, entry));
+      ranked.add((rank, shown.length, i, entry));
     }
     ranked.sort((a, b) => a.$1 != b.$1
         ? a.$1.compareTo(b.$1)
@@ -524,7 +538,8 @@ class _GridScreenState extends State<GridScreen> {
           return WordSearchView(
             message: session.message,
             search: session.findWords,
-            pageName: (id) => session.vocabulary.folders[id]?.label ?? '',
+            pageName: (id) =>
+                I18n.word(session.vocabulary.folders[id]?.label ?? ''),
             columns: widget.maxColumns.clamp(3, 5),
             onSpeak: () => session.speakMessage(flags: _tapFlags(settings)),
             onDeleteWord: session.removeLastWord,
@@ -557,7 +572,7 @@ class _GridScreenState extends State<GridScreen> {
         final cols = view?.columns.clamp(1, 12) ?? widget.maxColumns;
         final body = view == null
             ? Center(
-                child: Text('Nothing here yet',
+                child: Text(I18n.t('Nothing here yet'),
                     style: TextStyle(
                         color:
                             settings.cviMode ? Colors.white : Colors.white54)))
@@ -684,7 +699,7 @@ class _GridScreenState extends State<GridScreen> {
     final messenger = ScaffoldMessenger.of(context);
     Widget item(IconData icon, String label, VoidCallback? onTap) => ListTile(
           leading: Icon(icon, color: Colors.white),
-          title: Text(label,
+          title: Text(I18n.t(label),
               style: const TextStyle(color: Colors.white, fontSize: 16)),
           enabled: onTap != null,
           onTap: onTap == null
@@ -714,9 +729,9 @@ class _GridScreenState extends State<GridScreen> {
                   ? null
                   : () {
                       Clipboard.setData(ClipboardData(text: session.message));
-                      messenger.showSnackBar(const SnackBar(
-                          content: Text('Copied'),
-                          duration: Duration(seconds: 1)));
+                      messenger.showSnackBar(SnackBar(
+                          content: Text(I18n.t('Copied')),
+                          duration: const Duration(seconds: 1)));
                     }),
           if (widget.showOptions)
             item(Icons.settings_outlined, 'Settings', () async {
@@ -1053,7 +1068,7 @@ class _CellButtonState extends State<_CellButton> {
         s.labelPosition != LabelPosition.hidden;
     final labelWidget = showLabel
         ? Text(
-            widget.button.label,
+            widget.button.shownLabel,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
@@ -1147,7 +1162,7 @@ class _CellButtonState extends State<_CellButton> {
       // cancelled when the finger lifts or the gesture is taken away.
       cell = Semantics(
         button: true,
-        label: widget.button.label,
+        label: widget.button.shownLabel,
         hint: 'Hold to select',
         onTap: widget.onTap, // screen readers still activate directly
         child: Listener(

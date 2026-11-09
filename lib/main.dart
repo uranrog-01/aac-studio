@@ -12,6 +12,7 @@ import 'engine/desktop_native.dart'
     if (dart.library.js_interop) 'engine/desktop_web.dart' as desktop;
 
 import 'engine/arasaac.dart';
+import 'engine/i18n.dart';
 import 'engine/prediction.dart';
 import 'engine/settings_controller.dart';
 import 'engine/speech.dart';
@@ -53,6 +54,7 @@ Future<void> _start() async {
   final storage = await initDefaultStorage();
   final settings = SettingsController(storage);
   await settings.load();
+  await I18n.load(settings.settings.language);
 
   final predictor = Predictor();
   await predictor.load();
@@ -72,6 +74,9 @@ Future<void> _start() async {
   void syncSpeech() {
     speech.configure(settings.settings);
     SymbolLibrary.skinTone = settings.settings.skinTone;
+    if (settings.settings.language != I18n.language.code) {
+      I18n.load(settings.settings.language);
+    }
   }
 
   syncSpeech();
@@ -122,7 +127,10 @@ class StudioApp extends StatelessWidget {
         Provider<SymbolLibrary>.value(value: library),
         ChangeNotifierProvider<PackController>.value(value: pack),
       ],
-      child: MaterialApp(
+      // Redraws every screen when the language changes.
+      child: ValueListenableBuilder<String>(
+        valueListenable: I18n.changes,
+        builder: (context, _, __) => MaterialApp(
         title: 'AAC Studio',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -133,7 +141,11 @@ class StudioApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
         ),
-        home: _isMobile ? const AppShell() : desktop.studioHome(),
+        // A new key rebuilds every word in the new language.
+        home: _isMobile
+            ? AppShell(key: ValueKey(I18n.language.code))
+            : desktop.studioHome(),
+      ),
       ),
     );
   }

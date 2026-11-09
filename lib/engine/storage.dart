@@ -53,6 +53,7 @@ class AppSettings {
   String skinTone; // people pictures: '' default or a SymbolLibrary.skinTones value
   bool haptics;
   bool audioCues;
+  String language; // app and board language code (see kLanguages)
   String typingSpeech; // Type screen: 'letters' (and words), 'words' or 'off'
 
   // P2 ARASAAC online symbols
@@ -87,6 +88,7 @@ class AppSettings {
     this.skinTone = '',
     this.haptics = true,
     this.audioCues = false,
+    this.language = 'en',
     this.typingSpeech = 'letters',
     this.arasaacEnabled = true,
     this.arasaacSkin = 0,
@@ -120,6 +122,7 @@ class AppSettings {
         'skinTone': skinTone,
         'haptics': haptics,
         'audioCues': audioCues,
+        'language': language,
         // Saved under a new name: v10 saved 'words' as the default, and
         // typing now speaks each letter unless a caregiver turns it down.
         'typingSpeak': typingSpeech,
@@ -159,6 +162,7 @@ class AppSettings {
         skinTone: j?['skinTone'] as String? ?? '',
         haptics: j?['haptics'] as bool? ?? true,
         audioCues: j?['audioCues'] as bool? ?? false,
+        language: j?['language'] as String? ?? 'en',
         typingSpeech: const ['words', 'letters', 'off']
                 .contains(j?['typingSpeak'])
             ? j!['typingSpeak'] as String
