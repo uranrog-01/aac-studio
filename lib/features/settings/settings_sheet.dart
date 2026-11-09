@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import '../web/web_tools.dart';
+import 'backup_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -149,6 +150,14 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       (v) => s.clearOnSpeak = v),
                   _switch('Vibrate', s.haptics, (v) => s.haptics = v),
                   _switch('Click sound', s.audioCues, (v) => s.audioCues = v),
+                  _choice<String>('Speak while typing (Type)', s.typingSpeech, {
+                    'letters': 'Each letter and word',
+                    'words': 'Each word',
+                    'off': 'Off',
+                  }, (v) {
+                    s.typingSpeech = v;
+                    _changed();
+                  }),
                 ]),
             _group(Icons.grid_view, 'Buttons & screen',
                 'Pictures, words, contrast',
@@ -256,7 +265,11 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     ),
                   ],
                   _asyncSwitch('Lock settings with a code',
-                      s.restrictionsEnabled, 'Code: ${s.pin}', (v) async {
+                      // The code itself is never shown: the person using
+                      // the board could read it here.
+                      s.restrictionsEnabled,
+                      'Asks for the code before Settings and edit mode',
+                      (v) async {
                     if (!v && !await _verifyPin(s.pin)) return;
                     s.restrictionsEnabled = v;
                     if (!v) s.editMode = false;
@@ -276,6 +289,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       label: const Text('Change code'),
                     ),
                   ),
+                  if (!kIsWeb) const BackupTools(),
                   _switch('Online ARASAAC pictures in search', s.arasaacEnabled,
                       (v) => s.arasaacEnabled = v),
                   if (s.arasaacEnabled) ...[
@@ -306,7 +320,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                         onPressed: () => showLicensePage(
                             context: context,
                             applicationName: 'AAC Studio',
-                            applicationVersion: '1.8.0'),
+                            applicationVersion: '1.8.1'),
                         child: const Text('Voice and software licenses')),
                   ),
                 ]),

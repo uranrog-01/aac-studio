@@ -1,7 +1,8 @@
 /* Local-only board storage and device speech. No account or analytics. */
 (() => {
   'use strict';
-  const PICTURES_CACHE = 'aac-symbols-__BUILD_ID__';
+  const BUILD_ID = '__BUILD_ID__';
+  const PICTURES_CACHE = self.aacPictures.name;
   let database;
   function openDatabase() {
     if (!database) database = new Promise((resolve, reject) => {
@@ -80,7 +81,9 @@
       if (!('serviceWorker' in navigator)) return 'Offline storage is unavailable in this browser.';
       if (window.aacOfflineError) return 'Offline download failed. Reopen online and try again.';
       const registration = await navigator.serviceWorker.getRegistration();
-      if (!registration?.active) return 'Preparing starter boards for offline useÃ¢â‚¬Â¦';
+      if (!registration?.active) return 'Preparing starter boards for offline use...';
+      const active = await activeBuild(registration.active);
+      if (!active?.ready || active.buildId !== BUILD_ID) return 'An update is preparing. Keep the app online, then reload.';
       const cache = await caches.open(PICTURES_CACHE);
       const count = (await cache.keys()).length;
       return `Starter boards ready offline. ${count.toLocaleString()} extra pictures saved. Voice availability depends on your device.`;
@@ -89,7 +92,9 @@
       if (!('serviceWorker' in navigator) || !window.isSecureContext) {
         throw new Error('Open the HTTPS version to save pictures offline.');
       }
-      await navigator.serviceWorker.ready;
+      const registration = await navigator.serviceWorker.ready;
+      const active = await activeBuild(registration.active);
+      if (!active?.ready || active.buildId !== BUILD_ID) throw Error('Reload to finish the app update.');
       await navigator.storage?.persist?.();
       const response = await fetch('offline-symbols.json');
       if (!response.ok) throw new Error('Picture list unavailable');
@@ -99,10 +104,11 @@
       await Promise.all(Array.from({length: 4}, async () => {
         while (next < paths.length) {
           const path = paths[next++];
-          if (!await cache.match(path)) {
+          const key = self.aacPictures.key(path);
+          if (!await cache.match(key)) {
             const image = await fetch(path);
             if (!image.ok) throw new Error('A picture could not be saved. Retry to resume.');
-            await cache.put(path, image);
+            if (!await cache.match(key)) await self.aacPictures.put(path, image);
           }
           onProgress(++done, paths.length);
         }
@@ -135,12 +141,22 @@
       });
     },
   };
-  if ('serviceWorker' in navigator && window.isSecureContext) {
-    navigator.serviceWorker.register('aac-sw.js').catch(() => { window.aacOfflineError = true; });
+  function activeBuild(worker) {
+    return new Promise(resolve => {
+      if (!worker) return resolve(null);
+      const channel = new MessageChannel();
+      const timer = setTimeout(() => { channel.port1.close(); resolve(null); }, 5000);
+      channel.port1.onmessage = event => { clearTimeout(timer); channel.port1.close(); resolve(event.data); };
+      worker.postMessage({type: 'AAC_STATUS'}, [channel.port2]);
+    });
   }
-  window.addEventListener('unhandledrejection', event => {
-    // Make failed saves visible; never claim that unsaved edits are durable.
-    const message = document.getElementById('save-error');
-    if (message) { message.hidden = false; message.textContent = 'A change could not be saved. Keep this app open and save a backup in Settings.'; }
-  });
+  if ('serviceWorker' in navigator && window.isSecureContext) {
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (hadController) document.getElementById('update-ready').hidden = false;
+    });
+    document.getElementById('reload-app').onclick = () => location.reload();
+    navigator.serviceWorker.register('aac-sw.js', {updateViaCache: 'none'})
+        .catch(() => { window.aacOfflineError = true; });
+  }
 })();

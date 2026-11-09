@@ -1,6 +1,6 @@
 # Installing AAC Studio on iPhone
 
-Checked November 1, 2026. The requested setup is **Windows only, no paid
+Checked November 2, 2026. The requested setup is **Windows only, no paid
 Apple Developer membership, and no Apple Account password entered into any
 third-party app**. The device is an iPhone Air; its installed iOS version
 has not been supplied.
@@ -13,11 +13,14 @@ Developer membership or signing credentials.
 
 [Apple's home-screen web app instructions](https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/27/ios/27)
 
-**AAC Studio is not currently ready for this route.** There is no Flutter
-`web/` platform directory. Native file access, SQLite storage and Piper
-speech need web-compatible implementations. Browser speech and offline
-storage must be tested on the actual iPhone before claiming feature parity.
-A web version must be built and served before these installation steps work.
+The home-screen web version is now prepared. It uses browser IndexedDB for
+saved boards, browser/device speech, and a custom offline cache. Chromium
+and WebKit checks cover persistence, backup export/restore, offline reopening
+and the typing screen. Audible speech and Home Screen installation still
+need testing on the physical iPhone.
+
+See [the web installation and build guide](WEB_IPHONE.md) for the published
+link, installation steps, backups and validation limits.
 
 ## Native installation and free Apple signing
 
@@ -44,7 +47,7 @@ project.
 ## Current local IPA and helpers
 
 Inspection of `dist/AACStudio-unsigned.ipa` found version **1.0.0 (1)** and
-no embedded provisioning profile. It is not the current 1.7.0 app and is
+no embedded provisioning profile. It is not the current app and is
 not an installable signed release. Downloading or transferring it does
 not supply Apple-trusted signing.
 

@@ -3,7 +3,23 @@
   "audibleSpeechTested": false,
   "browsers": [
     {
+      "name": "chromium",
+      "buildId": "b062f1a5a5b63e65490c",
+      "engine": "156.0.8078.4",
+      "persistedBoard": true,
+      "backupExportRestore": true,
+      "offlineRelaunch": true,
+      "offlinePicture": true,
+      "synchronousSpeechRequests": true,
+      "landscapeKeyboard": true,
+      "qwertyTyping": true,
+      "removedMyWords": true,
+      "fullLibraryDownload": true,
+      "pictureFiles": 7111
+    },
+    {
       "name": "webkit",
+      "buildId": "b062f1a5a5b63e65490c",
       "engine": "27.2",
       "persistedBoard": true,
       "backupExportRestore": true,
@@ -11,6 +27,8 @@
       "offlinePicture": true,
       "synchronousSpeechRequests": false,
       "landscapeKeyboard": true,
+      "qwertyTyping": true,
+      "removedMyWords": true,
       "fullLibraryDownload": false,
       "pictureFiles": 7111
     }

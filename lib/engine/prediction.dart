@@ -7,6 +7,12 @@ class Predictor {
   final List<String> _base = [];
   final Map<String, int> _learned = {}; // word -> use count
   String _lastQuery = '';
+  int _lastLimit = 0;
+  void _invalidate() {
+    _lastQuery = '';
+    _lastResults = const [];
+  }
+
   List<String> _lastResults = const [];
 
   int get learnedCount => _learned.length;
@@ -14,10 +20,15 @@ class Predictor {
   Future<void> load() async {
     if (_base.isNotEmpty) return;
     try {
-      final raw = await rootBundle.loadString('assets/prediction_en_top10k.txt');
+      final raw =
+          await rootBundle.loadString('assets/prediction_en_top10k.txt');
       _base
         ..clear()
-        ..addAll(raw.split('\n').map((w) => w.trim().toLowerCase()).where((w) => w.length > 1));
+        ..addAll(raw
+            .split('\n')
+            .map((w) => w.trim().toLowerCase())
+            .where((w) => w.length > 1));
+      _invalidate();
     } catch (_) {}
   }
 
@@ -26,13 +37,14 @@ class Predictor {
     _learned
       ..clear()
       ..addAll(m);
+    _invalidate();
   }
 
   /// Returns up to [limit] suggestions for [prefix] (case-insensitive).
   List<String> suggest(String prefix, {int limit = 6}) {
     final q = prefix.trim().toLowerCase();
-    if (q.isEmpty) return const [];
-    if (q == _lastQuery) return _lastResults;
+    if (q.isEmpty || limit <= 0) return const [];
+    if (q == _lastQuery && limit == _lastLimit) return _lastResults;
     final res = <String>[];
     // learned words first (most used)
     final learnedMatches = _learned.entries
@@ -46,6 +58,7 @@ class Predictor {
       if (w.startsWith(q) && !res.contains(w)) res.add(w);
     }
     _lastQuery = q;
+    _lastLimit = limit;
     _lastResults = List.unmodifiable(res);
     return res;
   }
@@ -62,7 +75,10 @@ class Predictor {
       _learned[w] = (_learned[w] ?? 0) + 1;
       changed = true;
     }
-    if (changed) await storage.writeLearned(_learned);
+    if (changed) {
+      _invalidate();
+      await storage.writeLearned(_learned);
+    }
   }
 }
 

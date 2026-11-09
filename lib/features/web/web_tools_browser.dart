@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../data/pack_loader.dart';
 import '../../engine/settings_controller.dart';
 import '../../engine/storage.dart';
+import '../../engine/prediction.dart';
 
 @JS('aacWeb.offlineStatus')
 external JSPromise<JSString> _offlineStatus();
@@ -77,15 +78,21 @@ class _WebToolsState extends State<WebTools> {
   Future<void> _restore() async {
     final pack = context.read<PackController>();
     final settings = context.read<SettingsController>();
+    final predictor = context.read<Predictor>();
+    final messenger = ScaffoldMessenger.of(context);
     try {
       final text = (await _pickBackup().toDart).toDart;
       if (text.isEmpty || !mounted) return;
       final backup = jsonDecode(text) as Map<String, dynamic>;
-      if (backup['format'] != 'aac-studio-web' || backup['version'] != 1) {
-        throw const FormatException('Not an AAC Studio web backup');
+      // Backups from the iPhone/iPad/Android app ('aac-studio') restore
+      // here too, so a board moves between devices either way.
+      if (!const ['aac-studio-web', 'aac-studio'].contains(backup['format']) ||
+          backup['version'] != 1) {
+        throw const FormatException('Not an AAC Studio backup');
       }
       final files = backup['files'] as Map<String, dynamic>;
       final board = files['packs/sample_pack.json'] as Map<String, dynamic>;
+      _embedPictures(board, backup['images']);
       // Fully parse before changing any saved data.
       final vocabulary = PackLoader().loadString(jsonEncode(board));
       if (vocabulary.viewsByFolder[vocabulary.rootFolderId]?.isNotEmpty !=
@@ -116,11 +123,37 @@ class _WebToolsState extends State<WebTools> {
       await _restoreFiles(jsonEncode(files).toJS).toDart;
       await settings.load();
       await pack.load();
-      _message(
-          'Backup restored. Reopen the app to reload learned suggestions.');
+      await predictor.loadLearned(StorageProviderAdapter(pack.storage));
+      if (!mounted) return;
+      Navigator.pop(context);
+      messenger.showSnackBar(const SnackBar(content: Text('Backup restored.')));
     } catch (_) {
       _message(
-          'Could not restore this backup. Check that it is an AAC Studio web backup.');
+          'Could not restore this backup. Check that it is an AAC Studio backup.');
+    }
+  }
+
+  /// An app backup carries its photos and downloaded pictures as base64
+  /// next to the board; the browser shows them as data URLs.
+  static void _embedPictures(Map<String, dynamic> board, Object? images) {
+    if (images is! Map) return;
+    for (final item in [
+      ...(board['buttons'] as List? ?? const []),
+      ...(board['folders'] as List? ?? const []),
+    ]) {
+      if (item is! Map) continue;
+      final path = item['imagePath'];
+      final data = path is String ? images[path] : null;
+      if (data is! String) continue;
+      final ext = path.split('.').last.toLowerCase();
+      final type = ext == 'jpg' || ext == 'jpeg'
+          ? 'image/jpeg'
+          : ext == 'webp'
+              ? 'image/webp'
+              : ext == 'gif'
+                  ? 'image/gif'
+                  : 'image/png';
+      item['imagePath'] = 'data:$type;base64,$data';
     }
   }
 
@@ -134,7 +167,7 @@ class _WebToolsState extends State<WebTools> {
           childrenPadding: const EdgeInsets.all(16),
           children: [
             const Text(
-                'In Safari, tap Share â†’ Add to Home Screen. Turn on Open as Web App, then tap Add. No Apple Account password is needed.'),
+                'In Safari, tap Share > Add to Home Screen. Turn on Open as Web App, then tap Add. No Apple Account password is needed.'),
             const SizedBox(height: 12),
             Text(_status, semanticsLabel: _status),
             if (_downloading)

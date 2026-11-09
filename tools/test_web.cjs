@@ -15,7 +15,8 @@ async function enableSemantics(page) {
 }
 
 (async () => {
-  const report = {physicalIphoneTested: false, audibleSpeechTested: false, browsers: []};
+  let report = {physicalIphoneTested: false, audibleSpeechTested: false, browsers: []};
+  try { report = JSON.parse(await fs.readFile(path.join(output, 'web-verification.json'), 'utf8')); } catch (_) {}
   for (const [name, engine] of Object.entries({chromium, webkit})) {
     if (process.env.AAC_TEST_ENGINES && !process.env.AAC_TEST_ENGINES.split(',').includes(name)) continue;
     const browser = await engine.launch({headless: true});
@@ -28,6 +29,7 @@ async function enableSemantics(page) {
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       await page.goto(base);
+      const build = await page.evaluate(async () => (await fetch('web-build.json')).json());
       await enableSemantics(page);
       await page.getByRole('button', {name: 'I', exact: true}).waitFor();
       await page.evaluate(() => {
@@ -42,6 +44,23 @@ async function enableSemantics(page) {
       if (speechAvailable) assert.equal(await page.evaluate(() => window.testSpeechRequests.at(-1)[0]), 'I want');
       await page.getByRole('button', {name: 'Clear', exact: true}).tap();
       await page.screenshot({path: path.join(output, `web-${name}-phone.png`)});
+      assert.equal(await page.getByRole('button', {name: 'My words', exact: true}).count(), 0);
+      await page.getByRole('button', {name: 'Type', exact: true}).tap();
+      await page.getByRole('button', {name: 'a', exact: true}).waitFor();
+      for (const letter of 'abcdefghijklmnopqrstuvwxyz') {
+        assert.equal(await page.getByRole('button', {name: letter, exact: true}).count(), 1);
+      }
+      assert.equal(await page.getByRole('button', {name: 'help', exact: true}).count(), 0);
+      await page.getByRole('switch', {name: 'Shift', exact: true}).tap();
+      for (const key of ['H', 'e', 'l', 'l', 'o', 'Space', '1', '2', 'Delete', '3']) {
+        await page.getByRole('button', {name: key, exact: true}).tap();
+      }
+      await page.getByRole('button', {name: 'Speak', exact: true}).tap();
+      if (speechAvailable) assert.equal(await page.evaluate(() => window.testSpeechRequests.at(-1)[0]), 'Hello 13');
+      await page.screenshot({path: path.join(output, `web-${name}-qwerty-keyboard.png`)});
+      await page.getByRole('button', {name: 'Back', exact: true}).tap();
+      await page.getByRole('button', {name: 'Clear', exact: true}).tap();
+
       await page.getByRole('button', {name: 'More', exact: true}).tap();
       await page.getByRole('button', {name: 'Settings', exact: true}).tap();
       await page.getByRole('button', {name: /Device voice Safari voices/}).waitFor();
@@ -69,7 +88,8 @@ async function enableSemantics(page) {
       }, {...backup.files, 'learned_words.json': {hello: 2}});
 
       const symbols = await page.evaluate(async () => (await fetch('offline-symbols.json')).json());
-      if (name === 'chromium') {
+      const fullLibrary = name === 'chromium' && process.env.AAC_TEST_FULL_LIBRARY !== '0';
+      if (fullLibrary) {
         const count = await page.evaluate(() => window.aacWeb.downloadSymbols(() => {}));
         assert.equal(count, symbols.length);
       } else {
@@ -95,10 +115,11 @@ async function enableSemantics(page) {
       await page.getByRole('textbox').waitFor();
       await page.screenshot({path: path.join(output, `web-${name}-landscape-keyboard.png`)});
       assert.deepEqual(errors, []);
-      report.browsers.push({name, engine: browser.version(), persistedBoard: true,
+      report.browsers = report.browsers.filter(result => result.name !== name);
+      report.browsers.push({name, buildId: build.buildId, engine: browser.version(), persistedBoard: true,
         backupExportRestore: true, offlineRelaunch: true, offlinePicture: true,
-        synchronousSpeechRequests: speechAvailable, landscapeKeyboard: true,
-        fullLibraryDownload: name === 'chromium', pictureFiles: symbols.length});
+        synchronousSpeechRequests: speechAvailable, landscapeKeyboard: true, qwertyTyping: true, removedMyWords: true,
+        fullLibraryDownload: fullLibrary, pictureFiles: symbols.length});
       console.log(`${name}: passed`);
     } finally { await browser.close(); }
   }

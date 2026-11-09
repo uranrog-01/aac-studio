@@ -83,17 +83,24 @@ void main() {
         jsonDecode(await File('assets/sample_pack.json').readAsString())
             as Map<String, dynamic>;
     for (final item in [...pack['buttons'], ...pack['folders']]) {
-      const ext = 'webp';
-      expect(
-          File('assets/flat_symbols/${item['symbolPack']}/${item['symbolKey']}.$ext')
-              .existsSync(),
-          isTrue,
+      // Modern flat (and other flat sets) are WebP; the v11 word library
+      // also uses the bundled Mulberry AAC symbols (SVG).
+      final path = item['symbolPack'] == 'mulberry'
+          ? 'assets/symbols/mulberry/${item['symbolKey']}.svg'
+          : 'assets/flat_symbols/${item['symbolPack']}/${item['symbolKey']}.webp';
+      expect(File(path).existsSync(), isTrue,
           reason: '${item['id']}: ${item['label']}');
     }
     final v = await PackLoader().loadAsset('assets/sample_pack.json');
     expect(v.viewsByFolder['alphabet']!.first.cells.length, 26);
-    expect(v.viewsByFolder['numbers']!.first.cells.length, 21);
-    expect(v.viewsByFolder['fruits']!.first.cells.length, 28);
+    // Digits 0-20 first, then number words (twenty, hundred, ...).
+    expect(
+        v.viewsByFolder['numbers']!.first.cells
+            .take(21)
+            .map((c) => c.button.label),
+        [for (var i = 0; i <= 20; i++) '$i']);
+    expect(v.viewsByFolder['fruits']!.first.cells.length,
+        greaterThanOrEqualTo(28));
     final saved = PackLoader().save(v);
     final roundTrip = PackLoader().loadString(jsonEncode(saved));
     expect(roundTrip.folders['fruits']!.symbol.key, 'scene-fruit');
@@ -156,12 +163,22 @@ void main() {
     await tester.pumpAndSettle();
     expect(calls.where((c) => c.method == 'speak').length, 2);
     expect(find.text('Del'), findsNothing);
+    expect(find.bySemanticsLabel('My words'), findsNothing);
     session.setMessageLive('I want water');
     await tester.pump();
     expect(find.text('I want water'), findsOneWidget);
     await tester.tap(find.byIcon(Icons.clear_all));
     await tester.pump();
     expect(session.message, isEmpty);
+    settings.settings.clearOnSpeak = true;
+    settings.settings.goHomeOnPress = true;
+    session.pushFolder('animals');
+    session.setMessageLive('hello');
+    await tester.pump();
+    await tester.tap(find.bySemanticsLabel('Speak'));
+    await tester.pumpAndSettle();
+    expect(session.message, isEmpty);
+    expect(session.currentFolderId, vocabulary.rootFolderId);
     expect(tester.takeException(), isNull);
   });
   for (final size in [
@@ -186,38 +203,44 @@ void main() {
               onTextChanged: (value) => text = value,
               onClose: () => closed = true,
               onSpeak: () => spoken = text)));
-      expect(find.byType(TextField), findsOneWidget);
-      expect(tester.widget<TextField>(find.byType(TextField)).keyboardType,
-          TextInputType.none);
+      // No system keyboard: the message shows in the same bar as Home.
+      expect(find.byType(TextField), findsNothing);
+      expect(find.bySemanticsLabel('Speak message'), findsOneWidget);
+      expect(find.bySemanticsLabel('Delete last word'), findsOneWidget);
       await tester.tap(find.text('Back'));
       await tester.pump();
       expect(closed, isTrue);
-      expect(find.text('a'), findsNothing);
-      expect(find.text('Numbers'), findsOneWidget);
-      expect(tester.getTopLeft(find.text('Numbers')).dy,
-          lessThan(tester.getTopLeft(find.text('Symbols')).dy));
+      expect(find.text('a'), findsOneWidget);
+      expect(find.text('Symbols'), findsNothing);
+      expect(find.bySemanticsLabel('help'), findsNothing);
       expect(tester.getSize(find.bySemanticsLabel('Space')).width,
           greaterThan(tester.getSize(find.bySemanticsLabel('Delete')).width));
-      await tester.ensureVisible(find.bySemanticsLabel('help'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.bySemanticsLabel('help'));
-      await tester.pump();
-      expect(text, 'help ');
-      expect(find.text('help '), findsOneWidget);
-      await tester.tap(find.text('help ').first);
-      await tester.pump();
-      expect(spoken, 'help ');
-      await tester.scrollUntilVisible(find.text('0'), 150,
-          scrollable: find.byType(Scrollable).last);
-      await Scrollable.ensureVisible(tester.element(find.text('0')),
-          alignment: 0.5);
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('0'));
-      await tester.pump();
-      expect(text, 'help 0');
+      for (final letter in ['h', 'e', 'l', 'l', 'o']) {
+        await tester.ensureVisible(find.bySemanticsLabel(letter));
+        await tester.tap(find.bySemanticsLabel(letter));
+        await tester.pump();
+      }
+      expect(text, 'hello');
       await tester.tap(find.bySemanticsLabel('Space'));
       await tester.pump();
-      expect(text, 'help 0 ');
+      await tester.ensureVisible(find.bySemanticsLabel('0'));
+      await tester.tap(find.bySemanticsLabel('0'));
+      await tester.pump();
+      expect(text, 'hello 0');
+      await tester.tap(find.text('Speak'));
+      await tester.pump();
+      expect(spoken, 'hello 0');
+      // Tapping the message itself repeats it, like on Home.
+      spoken = '';
+      await tester.tap(find.bySemanticsLabel('Speak message'));
+      await tester.pump();
+      expect(spoken, 'hello 0');
+      await tester.tap(find.bySemanticsLabel('Delete'));
+      await tester.pump();
+      expect(text, 'hello ');
+      await tester.tap(find.bySemanticsLabel('Delete last word'));
+      await tester.pump();
+      expect(text, isEmpty);
       expect(tester.takeException(), isNull);
     });
   }
@@ -256,7 +279,7 @@ void main() {
     old['views']['home'][0]['cells'].insert(0, firstCell);
     final merged = PackUpgrade.merge(old, fresh, factorySymbolHistory: history);
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
-    expect(merged['packVersion'], 9);
+    expect(merged['packVersion'], 11);
     expect(buttons['b1']['symbolKey'], 'scene-i');
     expect(buttons['b1']['favorite'], true);
     expect(buttons['b2']['symbolKey'], '1f431');
@@ -295,9 +318,23 @@ void main() {
       }
     }
     final home = (views['home'] as List).first['cells'] as List;
-    expect(home.length, lessThanOrEqualTo(40));
+    // v10: more core words on Home, still well under a long scroll.
+    expect(home.length, lessThanOrEqualTo(80));
     expect(home.map((c) => buttons[c['btn']]['label']),
-        containsAll(['yes', 'no', 'wait']));
+        containsAll(['yes', 'no', 'wait', 'eat', 'drink', 'toilet', 'what']));
+    // Alphabet, Numbers and Colors are one tap from Home.
+    final homeFolders = {
+      for (final c in home)
+        for (final a in buttons[c['btn']]['actions'] as List)
+          if (a['kind'] == 'gotoFolder') a['data']
+    };
+    expect(homeFolders, containsAll(['alphabet', 'numbers', 'colors', 'food']));
+    // Category buttons sit together after the words.
+    final kinds = [for (final c in home) buttons[c['btn']]['kind']];
+    expect(kinds.skipWhile((k) => k != 'folder').every((k) => k == 'folder'),
+        isTrue);
+    expect((views['food'] as List).first['cells'].length,
+        greaterThanOrEqualTo(45));
     // Every category is reachable from Home through category buttons.
     final reachable = <String>{'home'};
     final queue = ['home'];
@@ -430,7 +467,7 @@ void main() {
     expect(after['symbolPack'], 'modernflat');
     expect(after['symbolKey'], before['symbolKey']);
     expect(after['voice'], {'rate': 0.8});
-    expect(merged['packVersion'], 9);
+    expect(merged['packVersion'], 11);
   });
 
   test('library is child-safe and routines are reachable', () async {
@@ -439,7 +476,14 @@ void main() {
     final names = {for (final e in index) (e['n'] as String).toLowerCase()};
     final keys = {for (final e in index) e['k'] as String};
     expect(keys, isNot(contains('vocab-rifle')));
-    for (final word in ['cervix', 'pharynx', 'fe', 'hebdomad', 'pall', 'blow']) {
+    for (final word in [
+      'cervix',
+      'pharynx',
+      'fe',
+      'hebdomad',
+      'pall',
+      'blow'
+    ]) {
       expect(names, isNot(contains(word)), reason: word);
     }
     expect({for (final e in index) e['p']},
@@ -447,7 +491,9 @@ void main() {
     final pack =
         jsonDecode(File('assets/sample_pack.json').readAsStringSync()) as Map;
     final routines = (pack['views']['routines'] as List).first['cells'] as List;
-    expect(routines.length, 24);
+    // The 24 modern flat routines first; v11 adds more after them.
+    expect(routines.length, greaterThanOrEqualTo(24));
+    expect(routines.first['btn'], 'routine_wash-hands');
     for (final parent in ['actions', 'body']) {
       expect(
           ((pack['views'][parent] as List).first['cells'] as List)
@@ -504,8 +550,7 @@ void main() {
     expect(buttons['b77']['symbolKey'], 'fluent-poultry-leg');
   });
 
-  testWidgets(
-      'one message editor supports selected deletion and emoji backspace',
+  testWidgets('Type continues the message and backspace removes whole emoji',
       (tester) async {
     var text = '';
     await tester.pumpWidget(MaterialApp(
@@ -517,19 +562,22 @@ void main() {
             onTextChanged: (value) => text = value,
             onClose: () {},
             onSpeak: () {})));
-    final field = tester.widget<TextField>(find.byType(TextField));
-    expect(find.text('water 👨‍👩‍👧‍👦'), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('Delete'), 200,
+    expect(find.textContaining('water 👨‍👩‍👧‍👦'), findsOneWidget);
+    await tester.scrollUntilVisible(find.bySemanticsLabel('Delete'), 200,
         scrollable: find.byType(Scrollable).last);
-    await tester.tap(find.text('Delete'));
+    // Typing continues after a space, so the first Delete removes it.
+    await tester.tap(find.bySemanticsLabel('Delete'));
+    await tester.pump();
+    expect(text, 'water 👨‍👩‍👧‍👦');
+    await tester.tap(find.bySemanticsLabel('Delete'));
     await tester.pump();
     expect(text, 'water ');
-    field.controller!.selection =
-        const TextSelection(baseOffset: 0, extentOffset: 5);
+    await tester.tap(find.bySemanticsLabel('Delete'));
     await tester.pump();
-    await tester.tap(find.text('Delete'));
+    expect(text, 'water');
+    await tester.tap(find.bySemanticsLabel('Clear'));
     await tester.pump();
-    expect(text, ' ');
+    expect(text, isEmpty);
     expect(tester.takeException(), isNull);
   });
 }

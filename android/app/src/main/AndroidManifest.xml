@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Online ARASAAC pictures. Debug builds get this automatically, so
+         without it only release builds (what people install) were offline. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="AAC Studio"
         android:name="${applicationName}"

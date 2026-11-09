@@ -21,6 +21,7 @@
     #loading h1 { font-size:24px; margin:0 0 8px; }
     #loading p { max-width:340px; line-height:1.5; color:#ddd; }
     #save-error { position:fixed; z-index:99999; bottom:0; padding:12px; background:#702c15; color:white; }
+    #update-ready { position:fixed; z-index:99999; top:0; padding:12px; background:#185b40; color:white; }
   </style>
 </head>
 <body>
@@ -31,6 +32,8 @@
     <noscript>Enable JavaScript in Safari to use AAC Studio.</noscript>
   </div>
   <div id="save-error" role="alert" hidden></div>
+  <div id="update-ready" role="status" hidden>A new version is ready. Finish your message, then <button id="reload-app" type="button">Reload app</button>.</div>
+  <script src="picture_cache.js"></script>
   <script src="app_bridge.js"></script>
   <script src="flutter_bootstrap.js" async></script>
 </body>

@@ -53,6 +53,7 @@ class AppSettings {
   String skinTone; // people pictures: '' default or a SymbolLibrary.skinTones value
   bool haptics;
   bool audioCues;
+  String typingSpeech; // Type screen: 'letters' (and words), 'words' or 'off'
 
   // P2 ARASAAC online symbols
   bool arasaacEnabled;
@@ -86,6 +87,7 @@ class AppSettings {
     this.skinTone = '',
     this.haptics = true,
     this.audioCues = false,
+    this.typingSpeech = 'letters',
     this.arasaacEnabled = true,
     this.arasaacSkin = 0,
     this.arasaacHair = 0,
@@ -118,6 +120,9 @@ class AppSettings {
         'skinTone': skinTone,
         'haptics': haptics,
         'audioCues': audioCues,
+        // Saved under a new name: v10 saved 'words' as the default, and
+        // typing now speaks each letter unless a caregiver turns it down.
+        'typingSpeak': typingSpeech,
         'arasaacEnabled': arasaacEnabled,
         'arasaacSkin': arasaacSkin,
         'arasaacHair': arasaacHair,
@@ -154,6 +159,10 @@ class AppSettings {
         skinTone: j?['skinTone'] as String? ?? '',
         haptics: j?['haptics'] as bool? ?? true,
         audioCues: j?['audioCues'] as bool? ?? false,
+        typingSpeech: const ['words', 'letters', 'off']
+                .contains(j?['typingSpeak'])
+            ? j!['typingSpeak'] as String
+            : 'letters',
         arasaacEnabled: j?['arasaacEnabled'] as bool? ?? true,
         arasaacSkin: (j?['arasaacSkin'] as num?)?.toInt() ?? 0,
         arasaacHair: (j?['arasaacHair'] as num?)?.toInt() ?? 0,

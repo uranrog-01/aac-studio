@@ -38,6 +38,12 @@ local editable pack. Restrictions: 4-digit PIN gates edit mode.
 
 ## Run
 
+For a one-click Windows release build, double-click **`build.bat`** in this
+folder or the parent project folder. It collects APK, web ZIP, and a fresh
+unsigned IPA from GitHub's Mac runner. One-time GitHub login and details:
+**[Build instructions](docs/BUILD.md)**. The IPA requires signing before iPhone
+installation.
+
     flutter pub get
     flutter run -d windows      # native Windows studio (needs VS C++ Build Tools)
     flutter run -d chrome       # quick web preview
