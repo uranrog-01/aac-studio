@@ -1,0 +1,150 @@
+name: AAC Studio local iOS build
+
+on:
+  push:
+    branches: ['build/aac-*']
+  workflow_dispatch:
+    inputs:
+      simulator:
+        description: Also build the iPhone Simulator app (for browser simulators)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  ios:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read requested Flutter version
+        id: flutter
+        shell: bash
+        run: |
+          if [ -f .build-flutter-version ]; then
+            version=$(LC_ALL=C tr -dc '0-9.' < .build-flutter-version)
+            [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+            echo "version=$version" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ steps.flutter.outputs.version }}
+          cache: true
+      - name: Fetch dependencies
+        run: flutter pub get
+      - name: Build current iOS app
+        run: flutter build ios --release --no-codesign
+      - name: Package fresh unsigned IPA
+        shell: bash
+        run: |
+          set -euo pipefail
+          package_dir=$(mktemp -d)
+          mkdir -p "$package_dir/Payload" "$GITHUB_WORKSPACE/dist"
+          ditto build/ios/iphoneos/Runner.app "$package_dir/Payload/Runner.app"
+          cd "$package_dir"
+          zip -qry "$GITHUB_WORKSPACE/dist/AACStudio-unsigned.ipa" Payload
+          unzip -t "$GITHUB_WORKSPACE/dist/AACStudio-unsigned.ipa"
+      - name: Upload IPA from this run
+        uses: actions/upload-artifact@v4
+        with:
+          name: AACStudio-unsigned-ipa
+          path: dist/AACStudio-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
+
+  # iPhone Simulator app, built only when asked for (build.bat -Simulator
+  # pushes a build/aac-sim-* branch). It is a debug build because Flutter
+  # cannot make release builds for the Simulator. The job also installs it
+  # on a Simulator here and takes screenshots, so a start-up crash fails it.
+  simulator:
+    if: startsWith(github.ref_name, 'build/aac-sim-') || (github.event_name == 'workflow_dispatch' && inputs.simulator)
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read requested Flutter version
+        id: flutter
+        shell: bash
+        run: |
+          if [ -f .build-flutter-version ]; then
+            version=$(LC_ALL=C tr -dc '0-9.' < .build-flutter-version)
+            [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+            echo "version=$version" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ steps.flutter.outputs.version }}
+          cache: true
+      - name: Fetch dependencies
+        run: flutter pub get
+      - name: Build Simulator app
+        run: flutter build ios --simulator --debug
+      - name: Package Simulator app
+        shell: bash
+        run: |
+          set -euo pipefail
+          app=build/ios/iphonesimulator/Runner.app
+          mkdir -p "$GITHUB_WORKSPACE/dist"
+          ditto -c -k --sequesterRsrc --keepParent "$app" "$GITHUB_WORKSPACE/dist/AACStudio-simulator.zip"
+          unzip -tq "$GITHUB_WORKSPACE/dist/AACStudio-simulator.zip"
+          {
+            echo "### iPhone Simulator app"
+            echo "- Bundle id: \`$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Info.plist")\`"
+            echo "- Architectures: \`$(lipo -archs "$app/Runner")\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Start the app on an iPhone Simulator
+        shell: bash
+        run: |
+          set -euo pipefail
+          app=build/ios/iphonesimulator/Runner.app
+          bundle=$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "$app/Info.plist")
+          # Newest iOS runtime, first iPhone in it.
+          read -r udid name < <(xcrun simctl list devices available -j | python3 -c '
+          import json, re, sys
+          devices = json.load(sys.stdin)["devices"]
+          def version(runtime):
+              return [int(n) for n in re.findall(r"\d+", runtime.split("iOS")[-1])]
+          for runtime in sorted((r for r in devices if ".iOS-" in r), key=version, reverse=True):
+              phones = [d for d in devices[runtime] if d["name"].startswith("iPhone")]
+              if phones:
+                  print(phones[0]["udid"], phones[0]["name"].replace(" ", "_"))
+                  break
+          ') || true
+          [ -n "${udid:-}" ] || { echo "No iPhone Simulator is available on this runner."; exit 1; }
+          echo "Simulator: $name ($udid)"
+          echo "- Tested on: ${name//_/ }" >> "$GITHUB_STEP_SUMMARY"
+          xcrun simctl boot "$udid"
+          xcrun simctl bootstatus "$udid" -b
+          xcrun simctl install "$udid" "$app"
+          xcrun simctl launch "$udid" "$bundle"
+          # Debug builds start slowly on cloud Macs: allow a few minutes.
+          elapsed=0
+          for at in 30 60 120 180; do
+            sleep $((at - elapsed)); elapsed=$at
+            xcrun simctl io "$udid" screenshot "dist/simulator-after-${at}s.png"
+          done
+          # The app's own messages (Flutter prints and errors), always kept.
+          xcrun simctl spawn "$udid" log show --last 5m --style compact \
+            --predicate 'process == "Runner"' > dist/simulator-log.txt || true
+          grep -iE 'flutter|error|exception' dist/simulator-log.txt | tail -n 40 || true
+          if ! xcrun simctl spawn "$udid" launchctl list | grep -q "$bundle"; then
+            echo "The app is no longer running: it closed or crashed after starting."
+            echo "- Result: **closed or crashed after start** (see simulator-log.txt)" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo "- Result: still running after 3 minutes (check the screenshots)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload Simulator app and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AACStudio-simulator
+          path: |
+            dist/AACStudio-simulator.zip
+            dist/simulator-*.png
+            dist/simulator-log.txt
+          if-no-files-found: warn
+          retention-days: 14

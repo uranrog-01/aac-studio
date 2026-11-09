@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import '../web/web_tools.dart';
+import 'backup_tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -276,6 +277,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       label: const Text('Change code'),
                     ),
                   ),
+                  if (!kIsWeb) const BackupTools(),
                   _switch('Online ARASAAC pictures in search', s.arasaacEnabled,
                       (v) => s.arasaacEnabled = v),
                   if (s.arasaacEnabled) ...[
@@ -306,7 +308,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                         onPressed: () => showLicensePage(
                             context: context,
                             applicationName: 'AAC Studio',
-                            applicationVersion: '1.8.0'),
+                            applicationVersion: '1.8.1'),
                         child: const Text('Voice and software licenses')),
                   ),
                 ]),
