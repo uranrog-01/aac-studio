@@ -57,7 +57,7 @@ void main() {
       final words = (data['words'] as Map).keys.toSet();
       expect(core.where((l) => !words.contains(l.toLowerCase())), isEmpty,
           reason: '${lang.name}: core words missing');
-      expect((data['ui'] as Map).keys.toSet(), ui,
+      expect((data['ui'] as Map).keys.toSet(), containsAll(ui),
           reason: '${lang.name}: app text');
     }
   });

@@ -64,6 +64,13 @@ class SpeechEngine {
   }
 
   Future<void> warmOfflineVoice() async {}
+
+  /// Downloadable offline voices run on phones and tablets (the browser
+  /// uses the device's own voices).
+  static bool hasOfflineVoice(String code) => false;
+  static Future<bool> offlineVoiceReady(String code) async => false;
+  Future<void> downloadOfflineVoice(String code,
+      {void Function(double)? onProgress}) async {}
   Future<void> applyDefaults() async {}
   Future<List<DeviceVoice>> deviceVoices() async {
     final voices = _voices()

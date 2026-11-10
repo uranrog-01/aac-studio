@@ -8,18 +8,88 @@ import 'package:path/path.dart' as p;
 import 'package:piper_phonemize/piper_phonemize.dart' as phonemizer;
 import 'package:sherpa_onnx/sherpa_onnx.dart' as sherpa;
 
-const piperPackDirectory = 'vits-piper-en_US-ljspeech-medium';
-const piperModelFile = 'en_US-ljspeech-medium.onnx';
-const piperModelBytes = 63531507;
+/// One offline Piper voice (sherpa-onnx VITS model + espeak-ng data).
+class PiperPack {
+  final String id; // language code
+  final String name; // shown in Settings
+  final String directory; // root folder inside the archive
+  final String modelFile;
+  final int modelBytes;
+  final String espeakVoice;
+  final String dictionary; // espeak-ng-data/<dictionary> must exist
+  final String? asset; // bundled with the app
+  final String? url; // or downloaded once, then offline
+  final int downloadBytes;
+  final String sha256; // of the downloaded archive
+  const PiperPack({
+    required this.id,
+    required this.name,
+    required this.directory,
+    required this.modelFile,
+    required this.modelBytes,
+    required this.espeakVoice,
+    required this.dictionary,
+    this.asset,
+    this.url,
+    this.downloadBytes = 0,
+    this.sha256 = '',
+  });
 
-bool isPiperPackInstalled(String installDirectory) {
-  final directory = p.join(installDirectory, piperPackDirectory);
-  final model = File(p.join(directory, piperModelFile));
+  /// Folder name under the app's voices folder.
+  String get installName => 'piper-$id-v1';
+
+  List<String> toArgs() => [id, directory, modelFile, '$modelBytes',
+      espeakVoice, dictionary];
+  static PiperPack fromArgs(List<String> a) => PiperPack(
+      id: a[0],
+      name: a[0],
+      directory: a[1],
+      modelFile: a[2],
+      modelBytes: int.parse(a[3]),
+      espeakVoice: a[4],
+      dictionary: a[5]);
+}
+
+/// US English, built into the app.
+const englishPiperPack = PiperPack(
+  id: 'en',
+  name: 'US English · LJ Speech',
+  directory: 'vits-piper-en_US-ljspeech-medium',
+  modelFile: 'en_US-ljspeech-medium.onnx',
+  modelBytes: 63531507,
+  espeakVoice: 'en-us',
+  dictionary: 'en_dict',
+  asset: 'assets/voices/piper-en-us-ljspeech-medium.tar.bz2',
+);
+
+/// Albanian (Piper "edon", trained on the CC0 folsh.ai recordings).
+/// Phones and tablets have no Albanian voice, so it is downloaded once
+/// when Albanian is chosen and then works offline.
+const albanianPiperPack = PiperPack(
+  id: 'sq',
+  name: 'Shqip · Edon',
+  directory: 'vits-piper-sq_AL-edon-medium',
+  modelFile: 'sq_AL-edon-medium.onnx',
+  modelBytes: 63511167,
+  espeakVoice: 'sq',
+  dictionary: 'sq_dict',
+  url: 'https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/'
+      'vits-piper-sq_AL-edon-medium.tar.bz2',
+  downloadBytes: 67191820,
+  sha256: '2d7a3b3647a499ad40a28662edd5ff50eb8594ad7ace94a5d3525e280212bf99',
+);
+
+const piperPacks = {'en': englishPiperPack, 'sq': albanianPiperPack};
+
+bool isPiperPackInstalled(String installDirectory,
+    [PiperPack pack = englishPiperPack]) {
+  final directory = p.join(installDirectory, pack.directory);
+  final model = File(p.join(directory, pack.modelFile));
   return File(p.join(directory, '.ready-v1')).existsSync() &&
       model.existsSync() &&
-      model.lengthSync() == piperModelBytes &&
+      model.lengthSync() == pack.modelBytes &&
       File(p.join(directory, 'tokens.txt')).existsSync() &&
-      File(p.join(directory, 'espeak-ng-data', 'en_dict')).existsSync();
+      File(p.join(directory, 'espeak-ng-data', pack.dictionary)).existsSync();
 }
 
 /// Owns the native model on a persistent worker, never on Flutter's UI isolate.
@@ -34,12 +104,14 @@ class PiperSynthesizer {
     required String archivePath,
     required String installDirectory,
     required String cacheDirectory,
+    PiperPack pack = englishPiperPack,
   }) async {
     final ready = ReceivePort();
     Isolate? worker;
     try {
       worker = await Isolate.spawn(_piperWorker,
-          [ready.sendPort, archivePath, installDirectory, cacheDirectory]);
+          [ready.sendPort, archivePath, installDirectory, cacheDirectory,
+            pack.toArgs()]);
       final result = await ready.first.timeout(const Duration(seconds: 90));
       if (result is! SendPort) throw StateError('$result');
       return PiperSynthesizer._(worker, result);
@@ -82,13 +154,15 @@ class PiperSynthesizer {
 
 /// Extract only regular files inside the expected package. Stream to disk to
 /// avoid retaining an uncompressed model and dictionaries in Dart memory.
-String installPiperPack(String archivePath, String installDirectory) {
-  final modelDirectory = p.join(installDirectory, piperPackDirectory);
+String installPiperPack(String archivePath, String installDirectory,
+    [PiperPack pack = englishPiperPack]) {
+  final modelDirectory = p.join(installDirectory, pack.directory);
   final marker = File(p.join(modelDirectory, '.ready-v1'));
-  final model = File(p.join(modelDirectory, piperModelFile));
+  final model = File(p.join(modelDirectory, pack.modelFile));
   final tokens = File(p.join(modelDirectory, 'tokens.txt'));
-  final dictionary = File(p.join(modelDirectory, 'espeak-ng-data', 'en_dict'));
-  if (isPiperPackInstalled(installDirectory)) {
+  final dictionary =
+      File(p.join(modelDirectory, 'espeak-ng-data', pack.dictionary));
+  if (isPiperPackInstalled(installDirectory, pack)) {
     return modelDirectory;
   }
   Directory(installDirectory).createSync(recursive: true);
@@ -107,8 +181,7 @@ String installPiperPack(String archivePath, String installDirectory) {
     TarDecoder().decodeStream(tarInput, verify: true, keepEntries: false,
         callback: (entry) {
       final name = p.posix.normalize(entry.name.replaceAll('\\', '/'));
-      if (name != piperPackDirectory &&
-          !name.startsWith('$piperPackDirectory/')) {
+      if (name != pack.directory && !name.startsWith('${pack.directory}/')) {
         throw const FormatException('Unexpected Piper archive path');
       }
       if (entry.isSymbolicLink || entry.isHardLink) {
@@ -135,25 +208,28 @@ String installPiperPack(String archivePath, String installDirectory) {
     File(tarPath).deleteSync();
   }
   if (!model.existsSync() ||
-      model.lengthSync() != piperModelBytes ||
+      model.lengthSync() != pack.modelBytes ||
       !tokens.existsSync() ||
       !dictionary.existsSync()) {
     throw const FormatException('Incomplete Piper voice pack');
   }
-  marker.writeAsStringSync('ljspeech-medium-v1');
+  marker.writeAsStringSync('${pack.id}-v1');
   return modelDirectory;
 }
 
 void _piperWorker(List<Object> arguments) async {
   final ready = arguments[0] as SendPort;
   final cacheDirectory = Directory(arguments[3] as String);
+  final pack = arguments.length > 4
+      ? PiperPack.fromArgs((arguments[4] as List).cast<String>())
+      : englishPiperPack;
   sherpa.OfflineTts? tts;
   final cache = <String, String>{};
   var cacheBytes = 0;
   var sequence = 0;
   try {
     final modelDirectory =
-        installPiperPack(arguments[1] as String, arguments[2] as String);
+        installPiperPack(arguments[1] as String, arguments[2] as String, pack);
     if (Platform.isWindows) {
       // Windows ships an older onnxruntime.dll in System32. Preload our
       // matching runtime before loading sherpa's dependent DLL (also for CLI).
@@ -171,7 +247,7 @@ void _piperWorker(List<Object> arguments) async {
     tts = sherpa.OfflineTts(sherpa.OfflineTtsConfig(
       model: sherpa.OfflineTtsModelConfig(
         vits: sherpa.OfflineTtsVitsModelConfig(
-          model: p.join(modelDirectory, piperModelFile),
+          model: p.join(modelDirectory, pack.modelFile),
           tokens: p.join(modelDirectory, 'tokens.txt'),
         ),
         numThreads: 2,
@@ -200,7 +276,7 @@ void _piperWorker(List<Object> arguments) async {
           continue;
         }
         final sentences =
-            phonemizer.PiperPhonemize.phonemize(text, voice: 'en-us')
+            phonemizer.PiperPhonemize.phonemize(text, voice: pack.espeakVoice)
                 .where((s) => s.isNotEmpty)
                 .toList();
         if (sentences.isEmpty) throw StateError('No pronounceable text');

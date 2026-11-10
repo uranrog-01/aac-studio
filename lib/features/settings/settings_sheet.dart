@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../engine/i18n.dart';
 import '../../engine/screen_mode.dart';
+import '../../engine/voice_downloads.dart';
 import 'package:flutter/services.dart';
 
 import '../../engine/settings_controller.dart';
@@ -91,7 +92,11 @@ class _SettingsSheetState extends State<SettingsSheet> {
                 initiallyExpanded: true,
                 children: [
                   _languagePicker(),
-                  _voiceStatus(),
+                  if (SpeechEngine.hasOfflineVoice(s.language) &&
+                      s.language != 'en')
+                    _offlineVoiceCard()
+                  else
+                    _voiceStatus(),
                   const Divider(color: Colors.white12, height: 24),
                   _VoicePicker(
                       speech: widget.speech,
@@ -498,10 +503,74 @@ class _SettingsSheetState extends State<SettingsSheet> {
           s.voiceLocale = null;
           if (code != 'en') s.usePiper = false;
           _changed();
+          // Languages without a voice on phones (Albanian) get the app's
+          // own offline voice, downloaded once.
+          VoiceDownloads.ensure(widget.speech, code);
           Navigator.of(context).maybePop();
         },
       ),
     ]);
+  }
+
+  /// The app's own offline voice for a language phones lack (Albanian):
+  /// download state, progress and retry.
+  Widget _offlineVoiceCard() {
+    final code = widget.settings.language;
+    final lang = languageFor(code);
+    const style = TextStyle(color: Colors.white70, fontSize: 13);
+    return ValueListenableBuilder<VoiceDownload?>(
+      valueListenable: VoiceDownloads.current,
+      builder: (context, download, _) => FutureBuilder<bool>(
+        future: SpeechEngine.offlineVoiceReady(code),
+        builder: (context, ready) {
+          final mine = download?.code == code ? download : null;
+          final Widget body;
+          if (ready.data == true || (mine?.done ?? false)) {
+            body = Row(children: [
+              const Icon(Icons.check_circle,
+                  size: 20, color: Colors.lightGreenAccent),
+              const SizedBox(width: 8),
+              Expanded(
+                  child: Text(
+                      I18n.t('The voice for this language is installed. It '
+                          'works without internet.'),
+                      style: style)),
+            ]);
+          } else if (mine != null && mine.error == null) {
+            body = Column(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                      '${I18n.t('Downloading the voice for this language…')} '
+                      '${(mine.progress * 100).round()}%',
+                      style: style),
+                  const SizedBox(height: 6),
+                  LinearProgressIndicator(value: mine.progress),
+                ]);
+          } else {
+            body = Column(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                      mine?.error != null
+                          ? I18n.t(mine!.error!)
+                          : I18n.t('This app has its own voice for this '
+                              'language. Download it once (67 MB, Wi-Fi '
+                              'recommended); then it works without internet.'),
+                      style: style),
+                  const SizedBox(height: 6),
+                  FilledButton.icon(
+                    onPressed: () =>
+                        VoiceDownloads.ensure(widget.speech, code),
+                    icon: const Icon(Icons.download),
+                    label: Text('${I18n.t('Download voice')} · '
+                        '${lang.nativeName}'),
+                  ),
+                ]);
+          }
+          return Padding(
+              padding: const EdgeInsets.only(top: 10), child: body);
+        },
+      ),
+    );
   }
 
   /// Whether this device can speak the chosen language, and how to add it.

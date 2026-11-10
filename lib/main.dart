@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart'
     show
@@ -14,6 +16,7 @@ import 'engine/desktop_native.dart'
 import 'engine/arasaac.dart';
 import 'engine/i18n.dart';
 import 'engine/screen_mode.dart';
+import 'engine/voice_downloads.dart';
 import 'engine/prediction.dart';
 import 'engine/settings_controller.dart';
 import 'engine/speech.dart';
@@ -83,6 +86,8 @@ Future<void> _start() async {
 
   syncSpeech();
   settings.addListener(syncSpeech);
+  // Finish an offline voice download that was interrupted (e.g. Albanian).
+  unawaited(VoiceDownloads.ensure(speech, settings.settings.language));
   try {
     await speech.ensure().timeout(const Duration(seconds: 8));
   } catch (_) {/* Retry on first speech request. */}

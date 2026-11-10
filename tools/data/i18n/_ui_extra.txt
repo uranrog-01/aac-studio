@@ -1079,3 +1079,19 @@ pl|Pokaż wszystkie języki
 ro|Arată toate limbile
 nl|Alle talen tonen
 ko|모든 언어 보기
+
+# Offline voice download (shown for Albanian; English text elsewhere).
+@ The voice for this language is installed. It works without internet.
+sq|Zëri për këtë gjuhë është instaluar. Punon pa internet.
+
+@ Downloading the voice for this language…
+sq|Po shkarkohet zëri për këtë gjuhë…
+
+@ This app has its own voice for this language. Download it once (67 MB, Wi-Fi recommended); then it works without internet.
+sq|Ky aplikacion ka zërin e vet për këtë gjuhë. Shkarkoje një herë (67 MB, mirë me Wi-Fi); pastaj punon pa internet.
+
+@ Download voice
+sq|Shkarko zërin
+
+@ The voice could not be downloaded. Check the internet connection and try again.
+sq|Zëri nuk u shkarkua dot. Kontrollo lidhjen me internetin dhe provo sërish.

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart' show MethodChannel;
 import 'package:flutter_tts/flutter_tts.dart';
 import '../models/domain.dart';
 import 'piper_voice.dart';
+import 'piper_worker.dart' show piperPacks;
 import 'i18n.dart';
 import 'storage.dart' show AppSettings;
 
@@ -28,11 +29,47 @@ class DeviceVoice {
 
 /// Shared initialization and serialized requests keep first and rapid taps reliable.
 class SpeechEngine {
-  SpeechEngine({OfflineSpeechVoice? offlineVoice})
-      : _offlineVoice = offlineVoice ?? PiperVoice();
+  SpeechEngine(
+      {OfflineSpeechVoice? offlineVoice,
+      Map<String, OfflineSpeechVoice>? packVoices})
+      : _offlineVoice = offlineVoice ?? PiperVoice() {
+    if (packVoices != null) _packVoices.addAll(packVoices);
+  }
 
   final FlutterTts _tts = FlutterTts();
   final OfflineSpeechVoice _offlineVoice;
+  final Map<String, OfflineSpeechVoice> _packVoices = {};
+
+  /// The offline voice for the current language: the built-in English one,
+  /// or a downloaded pack (e.g. Albanian, which phones do not have).
+  OfflineSpeechVoice get _offline => language.code == 'en'
+      ? _offlineVoice
+      : _packVoices.putIfAbsent(
+          language.code, () => PiperVoice(piperPacks[language.code]!));
+
+  /// Whether this app has an offline voice for [code].
+  static bool hasOfflineVoice(String code) => piperPacks.containsKey(code);
+
+  /// Downloads the offline voice for [code] once; afterwards it works
+  /// without internet. [onProgress] gets 0..1.
+  Future<void> downloadOfflineVoice(String code,
+      {void Function(double)? onProgress}) async {
+    final pack = piperPacks[code];
+    if (pack == null) return;
+    await PiperVoice.download(pack, onProgress: onProgress);
+    if (language.code == code) {
+      _offlineReady = false;
+      _warming = null;
+      await warmOfflineVoice();
+    }
+  }
+
+  /// Whether the offline voice for [code] is bundled or already downloaded.
+  static Future<bool> offlineVoiceReady(String code) async {
+    final pack = piperPacks[code];
+    return pack != null && await PiperVoice.isReady(pack);
+  }
+
   final ValueNotifier<String?> error = ValueNotifier(null);
   final ValueNotifier<String> status = ValueNotifier('Device voice');
   bool _usePiper = false;
@@ -59,9 +96,13 @@ class SpeechEngine {
   Future<void> _warmOfflineVoice() async {
     status.value = 'Preparing offline voice. Device voice is available.';
     try {
-      await _offlineVoice.prepare();
+      final code = language.code;
+      await _offline.prepare();
+      if (code != language.code) return; // language changed meanwhile
       _offlineReady = true;
-      if (_usePiper) status.value = 'Piper: US English, LJ Speech (offline)';
+      if (_usePiper) {
+        status.value = 'Offline voice: ${piperPacks[code]?.name ?? code}';
+      }
     } catch (_) {
       _offlineReady = false;
       if (_usePiper) {
@@ -112,13 +153,26 @@ class SpeechEngine {
 
   /// Copies the saved speech settings onto the engine.
   void configure(AppSettings s) {
-    language = languageFor(s.language);
     // iPhone/iPad only: speech also goes into phone and FaceTime calls.
     callSpeech = s.callSpeech &&
         !kIsWeb &&
         defaultTargetPlatform == TargetPlatform.iOS;
-    // The offline voice speaks English only.
-    usePiper = s.usePiper && language.code == 'en';
+    // Offline voices exist for English (built in) and Albanian
+    // (downloaded). Albanian always prefers its own voice: phones have none.
+    final previous = language;
+    final next = languageFor(s.language);
+    if (previous.code != next.code) {
+      if (hasOfflineVoice(previous.code)) unawaited(_offline.stop());
+      _offlineReady = false;
+      _warming = null;
+    }
+    language = next;
+    final wantsOffline = hasOfflineVoice(language.code) &&
+        (language.code == 'en' ? s.usePiper : true);
+    if (wantsOffline && previous.code != language.code && _usePiper) {
+      unawaited(warmOfflineVoice());
+    }
+    usePiper = wantsOffline;
     rate = s.rate;
     pitch = s.pitch;
     volume = s.volume;
@@ -271,7 +325,7 @@ class SpeechEngine {
           try {
             await _tts.stop();
           } catch (_) {/* Piper works independently. */}
-          await _offlineVoice.speak(text.trim(),
+          await _offline.speak(text.trim(),
               rate: requestedRate,
               volume: requestedVolume,
               isCurrent: () => generation == _generation);
@@ -288,7 +342,7 @@ class SpeechEngine {
       }
       if (generation != _generation) return;
       try {
-        await _offlineVoice.stop();
+        await _offline.stop();
       } catch (_) {/* Continue with device speech. */}
       if (_usePiper && _offlineReady && requestedPitch != 1.0) {
         status.value = 'Using device voice for pitch adjustment.';
@@ -333,7 +387,7 @@ class SpeechEngine {
       } catch (_) {}
     }
     try {
-      await _offlineVoice.stop();
+      await _offline.stop();
     } catch (_) {}
     try {
       await _tts.stop();
@@ -344,7 +398,7 @@ class SpeechEngine {
     await stop();
     await _warming;
     await _pending;
-    await _offlineVoice.dispose();
+    await _offline.dispose();
     error.dispose();
     status.dispose();
   }
