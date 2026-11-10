@@ -3110,3 +3110,149 @@ zero|nula
 zip|patentni zatvarač
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ja
+[forms]
+I+want|želim
+I+need|trebam
+I+like|sviđa mi se
+I+don't like|ne sviđa mi se
+I+love|volim
+I+help|pomažem
+I+stop|stajem
+I+go|idem
+I+open|otvaram
+I+look|gledam
+I+make|pravim
+I+give|dajem
+I+eat|jedem
+I+drink|pijem
+I+play|igram se
+I+wait|čekam
+I+don't know|ne znam
+I+happy|sretan sam
+I+sad|tužan sam
+I+angry|ljut sam
+I+tired|umoran sam
+I+scared|bojim se
+I+sick|bolestan sam
+I+hurt|boli me
+I+hungry|gladan sam
+I+thirsty|žedan sam
+I+hot|vruće mi je
+I+cold|hladno mi je
+I+bored|dosadno mi je
+you+want|želiš
+you+need|trebaš
+you+like|sviđa ti se
+you+don't like|ne sviđa ti se
+you+love|voliš
+you+help|pomažeš
+you+stop|staješ
+you+go|ideš
+you+open|otvaraš
+you+look|gledaš
+you+make|praviš
+you+give|daješ
+you+eat|jedeš
+you+drink|piješ
+you+play|igraš se
+you+wait|čekaš
+you+don't know|ne znaš
+you+happy|sretan si
+you+sad|tužan si
+you+angry|ljut si
+you+tired|umoran si
+you+scared|bojiš se
+you+sick|bolestan si
+you+hurt|boli te
+you+hungry|gladan si
+you+thirsty|žedan si
+you+hot|vruće ti je
+you+cold|hladno ti je
+you+bored|dosadno ti je
+he+want|on želi
+he+need|on treba
+he+like|sviđa mu se
+he+don't like|ne sviđa mu se
+he+love|on voli
+he+help|on pomaže
+he+stop|on staje
+he+go|on ide
+he+open|on otvara
+he+look|on gleda
+he+make|on pravi
+he+give|on daje
+he+eat|on jede
+he+drink|on pije
+he+play|on se igra
+he+wait|on čeka
+he+don't know|on ne zna
+he+happy|on je sretan
+he+sad|on je tužan
+he+angry|on je ljut
+he+tired|on je umoran
+he+scared|on se boji
+he+sick|on je bolestan
+he+hurt|boli ga
+he+hungry|on je gladan
+he+thirsty|on je žedan
+he+hot|vruće mu je
+he+cold|hladno mu je
+he+bored|dosadno mu je
+she+want|ona želi
+she+need|ona treba
+she+like|sviđa joj se
+she+don't like|ne sviđa joj se
+she+love|ona voli
+she+help|ona pomaže
+she+stop|ona staje
+she+go|ona ide
+she+open|ona otvara
+she+look|ona gleda
+she+make|ona pravi
+she+give|ona daje
+she+eat|ona jede
+she+drink|ona pije
+she+play|ona se igra
+she+wait|ona čeka
+she+don't know|ona ne zna
+she+happy|ona je sretna
+she+sad|ona je tužna
+she+angry|ona je ljuta
+she+tired|ona je umorna
+she+scared|ona se boji
+she+sick|ona je bolesna
+she+hurt|boli je
+she+hungry|ona je gladna
+she+thirsty|ona je žedna
+she+hot|vruće joj je
+she+cold|hladno joj je
+she+bored|dosadno joj je
+we+want|želimo
+we+need|trebamo
+we+like|sviđa nam se
+we+don't like|ne sviđa nam se
+we+love|volimo
+we+help|pomažemo
+we+stop|stajemo
+we+go|idemo
+we+open|otvaramo
+we+look|gledamo
+we+make|pravimo
+we+give|dajemo
+we+eat|jedemo
+we+drink|pijemo
+we+play|igramo se
+we+wait|čekamo
+we+don't know|ne znamo
+we+happy|sretni smo
+we+sad|tužni smo
+we+angry|ljuti smo
+we+tired|umorni smo
+we+scared|bojimo se
+we+sick|bolesni smo
+we+hurt|boli nas
+we+hungry|gladni smo
+we+thirsty|žedni smo
+we+hot|vruće nam je
+we+cold|hladno nam je
+we+bored|dosadno nam je

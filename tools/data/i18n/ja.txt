@@ -3109,3 +3109,150 @@ find|さがす
 light|かるい
 off|オフ
 skin|はだ
+
+[forms]
+I+want|わたしは ほしい
+I+need|わたしは ひつよう
+I+like|わたしは すき
+I+don't like|わたしは すきじゃない
+I+love|わたしは だいすき
+I+help|わたしは てつだう
+I+stop|わたしは やめる
+I+go|わたしは いく
+I+open|わたしは あける
+I+look|わたしは みる
+I+make|わたしは つくる
+I+give|わたしは あげる
+I+eat|わたしは たべる
+I+drink|わたしは のむ
+I+play|わたしは あそぶ
+I+wait|わたしは まつ
+I+don't know|わたしは わからない
+I+happy|わたしは うれしい
+I+sad|わたしは かなしい
+I+angry|わたしは おこってる
+I+tired|わたしは つかれた
+I+scared|わたしは こわい
+I+sick|わたしは びょうき
+I+hurt|わたしは いたい
+I+hungry|わたしは おなかすいた
+I+thirsty|わたしは のどかわいた
+I+hot|わたしは あつい
+I+cold|わたしは さむい
+I+bored|わたしは たいくつ
+you+want|あなたは ほしい
+you+need|あなたは ひつよう
+you+like|あなたは すき
+you+don't like|あなたは すきじゃない
+you+love|あなたは だいすき
+you+help|あなたは てつだう
+you+stop|あなたは やめる
+you+go|あなたは いく
+you+open|あなたは あける
+you+look|あなたは みる
+you+make|あなたは つくる
+you+give|あなたは あげる
+you+eat|あなたは たべる
+you+drink|あなたは のむ
+you+play|あなたは あそぶ
+you+wait|あなたは まつ
+you+don't know|あなたは わからない
+you+happy|あなたは うれしい
+you+sad|あなたは かなしい
+you+angry|あなたは おこってる
+you+tired|あなたは つかれた
+you+scared|あなたは こわい
+you+sick|あなたは びょうき
+you+hurt|あなたは いたい
+you+hungry|あなたは おなかすいた
+you+thirsty|あなたは のどかわいた
+you+hot|あなたは あつい
+you+cold|あなたは さむい
+you+bored|あなたは たいくつ
+he+want|かれは ほしがってる
+he+need|かれは ひつよう
+he+like|かれは すき
+he+don't like|かれは すきじゃない
+he+love|かれは だいすき
+he+help|かれは てつだう
+he+stop|かれは やめる
+he+go|かれは いく
+he+open|かれは あける
+he+look|かれは みる
+he+make|かれは つくる
+he+give|かれは あげる
+he+eat|かれは たべる
+he+drink|かれは のむ
+he+play|かれは あそぶ
+he+wait|かれは まつ
+he+don't know|かれは わからない
+he+happy|かれは うれしそう
+he+sad|かれは かなしそう
+he+angry|かれは おこってる
+he+tired|かれは つかれてる
+he+scared|かれは こわがってる
+he+sick|かれは びょうき
+he+hurt|かれは いたがってる
+he+hungry|かれは おなかすいてる
+he+thirsty|かれは のどかわいてる
+he+hot|かれは あつがってる
+he+cold|かれは さむがってる
+he+bored|かれは たいくつしてる
+she+want|かのじょは ほしがってる
+she+need|かのじょは ひつよう
+she+like|かのじょは すき
+she+don't like|かのじょは すきじゃない
+she+love|かのじょは だいすき
+she+help|かのじょは てつだう
+she+stop|かのじょは やめる
+she+go|かのじょは いく
+she+open|かのじょは あける
+she+look|かのじょは みる
+she+make|かのじょは つくる
+she+give|かのじょは あげる
+she+eat|かのじょは たべる
+she+drink|かのじょは のむ
+she+play|かのじょは あそぶ
+she+wait|かのじょは まつ
+she+don't know|かのじょは わからない
+she+happy|かのじょは うれしそう
+she+sad|かのじょは かなしそう
+she+angry|かのじょは おこってる
+she+tired|かのじょは つかれてる
+she+scared|かのじょは こわがってる
+she+sick|かのじょは びょうき
+she+hurt|かのじょは いたがってる
+she+hungry|かのじょは おなかすいてる
+she+thirsty|かのじょは のどかわいてる
+she+hot|かのじょは あつがってる
+she+cold|かのじょは さむがってる
+she+bored|かのじょは たいくつしてる
+we+want|わたしたちは ほしい
+we+need|わたしたちは ひつよう
+we+like|わたしたちは すき
+we+don't like|わたしたちは すきじゃない
+we+love|わたしたちは だいすき
+we+help|わたしたちは てつだう
+we+stop|わたしたちは やめる
+we+go|わたしたちは いく
+we+open|わたしたちは あける
+we+look|わたしたちは みる
+we+make|わたしたちは つくる
+we+give|わたしたちは あげる
+we+eat|わたしたちは たべる
+we+drink|わたしたちは のむ
+we+play|わたしたちは あそぶ
+we+wait|わたしたちは まつ
+we+don't know|わたしたちは わからない
+we+happy|わたしたちは うれしい
+we+sad|わたしたちは かなしい
+we+angry|わたしたちは おこってる
+we+tired|わたしたちは つかれた
+we+scared|わたしたちは こわい
+we+sick|わたしたちは びょうき
+we+hurt|わたしたちは いたい
+we+hungry|わたしたちは おなかすいた
+we+thirsty|わたしたちは のどかわいた
+we+hot|わたしたちは あつい
+we+cold|わたしたちは さむい
+we+bored|わたしたちは たいくつ

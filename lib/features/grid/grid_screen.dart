@@ -143,8 +143,12 @@ class GridSession extends ChangeNotifier {
     for (final a in b.actions) {
       switch (a.kind) {
         case ActionKind.addText:
-          appended = b.textFor(a);
-          _append(appended);
+          if (a.data.isEmpty || a.data == b.label) {
+            appended = _appendWord(b, b.textFor(a));
+          } else {
+            appended = b.textFor(a); // custom text stays as written
+            _append(appended);
+          }
           break;
         case ActionKind.speakNow:
           _speak(b.textFor(a), b, f);
@@ -232,12 +236,32 @@ class GridSession extends ChangeNotifier {
   }
 
   /// What each symbol tap added, so Delete removes "thank you" as one.
-  final List<String> _pieces = [];
+  final List<_Piece> _pieces = [];
 
-  void _append(String text) {
+  void _append(String text, {String? label}) {
     if (text.isEmpty) return;
     _message = _message.isEmpty ? text : '$_message $text';
-    _pieces.add(text);
+    _pieces.add(_Piece(text, label));
+  }
+
+  /// Adds a board word. After a pronoun it joins into one natural phrase in
+  /// the chosen language ("I" + "want" → "je veux", "I" + "hungry" →
+  /// "j'ai faim", "he" + "want" → "he wants"). Returns what was added.
+  String _appendWord(VocabButton b, String text) {
+    final last = _pieces.isEmpty ? null : _pieces.last;
+    final phrase = last?.label == null ? null : I18n.form(last!.label!, b.label);
+    final current = _message.trimRight();
+    if (phrase != null && current.endsWith(last!.text)) {
+      _pieces.removeLast();
+      _message = current.substring(0, current.length - last.text.length).trim();
+      _message = _message.isEmpty ? phrase : '$_message $phrase';
+      _pieces.add(_Piece(phrase, null, before: last));
+      return phrase;
+    }
+    final isWord = b.wordClass != WordClass.letter &&
+        b.wordClass != WordClass.number;
+    _append(text, label: isWord ? b.label : null);
+    return text;
   }
 
   /// M4: live typing — replaces the message window contents on every
@@ -251,9 +275,15 @@ class GridSession extends ChangeNotifier {
   /// Removes the last symbol's words (or the last typed word).
   void removeLastWord() {
     final text = _message.trimRight();
-    if (_pieces.isNotEmpty && text.endsWith(_pieces.last)) {
-      _message =
-          text.substring(0, text.length - _pieces.removeLast().length).trim();
+    if (_pieces.isNotEmpty && text.endsWith(_pieces.last.text)) {
+      final piece = _pieces.removeLast();
+      _message = text.substring(0, text.length - piece.text.length).trim();
+      // "je veux" → delete → "je" (the pronoun comes back).
+      final before = piece.before;
+      if (before != null) {
+        _message = _message.isEmpty ? before.text : '$_message ${before.text}';
+        _pieces.add(before);
+      }
     } else {
       _pieces.clear();
       final words = text.split(' ')..removeWhere((w) => w.isEmpty);
@@ -1233,4 +1263,13 @@ class _CellButtonState extends State<_CellButton> {
       child: cell,
     );
   }
+}
+
+/// One tap's text in the message. [label] is the English board word (for
+/// joining pronoun + word); [before] is what a joined phrase replaced.
+class _Piece {
+  final String text;
+  final String? label;
+  final _Piece? before;
+  const _Piece(this.text, this.label, {this.before});
 }

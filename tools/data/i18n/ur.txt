@@ -3110,3 +3110,150 @@ zero|صفر
 zip|زپ
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|میں
+
+[forms]
+I+want|مجھے چاہیے
+I+need|مجھے ضرورت ہے
+I+like|مجھے پسند ہے
+I+don't like|مجھے پسند نہیں ہے
+I+love|میں پیار کرتا ہوں
+I+help|میں مدد کرتا ہوں
+I+stop|میں رکتا ہوں
+I+go|میں جاتا ہوں
+I+open|میں کھولتا ہوں
+I+look|میں دیکھتا ہوں
+I+make|میں بناتا ہوں
+I+give|میں دیتا ہوں
+I+eat|میں کھاتا ہوں
+I+drink|میں پیتا ہوں
+I+play|میں کھیلتا ہوں
+I+wait|میں انتظار کرتا ہوں
+I+don't know|مجھے نہیں پتا
+I+happy|میں خوش ہوں
+I+sad|میں اداس ہوں
+I+angry|مجھے غصہ آ رہا ہے
+I+tired|میں تھکا ہوا ہوں
+I+scared|مجھے ڈر لگ رہا ہے
+I+sick|میں بیمار ہوں
+I+hurt|مجھے درد ہو رہا ہے
+I+hungry|مجھے بھوک لگی ہے
+I+thirsty|مجھے پیاس لگی ہے
+I+hot|مجھے گرمی لگ رہی ہے
+I+cold|مجھے سردی لگ رہی ہے
+I+bored|میں بور ہو رہا ہوں
+you+want|تمہیں چاہیے
+you+need|تمہیں ضرورت ہے
+you+like|تمہیں پسند ہے
+you+don't like|تمہیں پسند نہیں ہے
+you+love|تم پیار کرتے ہو
+you+help|تم مدد کرتے ہو
+you+stop|تم رکتے ہو
+you+go|تم جاتے ہو
+you+open|تم کھولتے ہو
+you+look|تم دیکھتے ہو
+you+make|تم بناتے ہو
+you+give|تم دیتے ہو
+you+eat|تم کھاتے ہو
+you+drink|تم پیتے ہو
+you+play|تم کھیلتے ہو
+you+wait|تم انتظار کرتے ہو
+you+don't know|تمہیں نہیں پتا
+you+happy|تم خوش ہو
+you+sad|تم اداس ہو
+you+angry|تمہیں غصہ آ رہا ہے
+you+tired|تم تھکے ہوئے ہو
+you+scared|تمہیں ڈر لگ رہا ہے
+you+sick|تم بیمار ہو
+you+hurt|تمہیں درد ہو رہا ہے
+you+hungry|تمہیں بھوک لگی ہے
+you+thirsty|تمہیں پیاس لگی ہے
+you+hot|تمہیں گرمی لگ رہی ہے
+you+cold|تمہیں سردی لگ رہی ہے
+you+bored|تم بور ہو رہے ہو
+he+want|اسے چاہیے
+he+need|اسے ضرورت ہے
+he+like|اسے پسند ہے
+he+don't like|اسے پسند نہیں ہے
+he+love|وہ پیار کرتا ہے
+he+help|وہ مدد کرتا ہے
+he+stop|وہ رکتا ہے
+he+go|وہ جاتا ہے
+he+open|وہ کھولتا ہے
+he+look|وہ دیکھتا ہے
+he+make|وہ بناتا ہے
+he+give|وہ دیتا ہے
+he+eat|وہ کھاتا ہے
+he+drink|وہ پیتا ہے
+he+play|وہ کھیلتا ہے
+he+wait|وہ انتظار کرتا ہے
+he+don't know|اسے نہیں پتا
+he+happy|وہ خوش ہے
+he+sad|وہ اداس ہے
+he+angry|اسے غصہ آ رہا ہے
+he+tired|وہ تھکا ہوا ہے
+he+scared|اسے ڈر لگ رہا ہے
+he+sick|وہ بیمار ہے
+he+hurt|اسے درد ہو رہا ہے
+he+hungry|اسے بھوک لگی ہے
+he+thirsty|اسے پیاس لگی ہے
+he+hot|اسے گرمی لگ رہی ہے
+he+cold|اسے سردی لگ رہی ہے
+he+bored|وہ بور ہو رہا ہے
+she+want|اسے چاہیے
+she+need|اسے ضرورت ہے
+she+like|اسے پسند ہے
+she+don't like|اسے پسند نہیں ہے
+she+love|وہ پیار کرتی ہے
+she+help|وہ مدد کرتی ہے
+she+stop|وہ رکتی ہے
+she+go|وہ جاتی ہے
+she+open|وہ کھولتی ہے
+she+look|وہ دیکھتی ہے
+she+make|وہ بناتی ہے
+she+give|وہ دیتی ہے
+she+eat|وہ کھاتی ہے
+she+drink|وہ پیتی ہے
+she+play|وہ کھیلتی ہے
+she+wait|وہ انتظار کرتی ہے
+she+don't know|اسے نہیں پتا
+she+happy|وہ خوش ہے
+she+sad|وہ اداس ہے
+she+angry|اسے غصہ آ رہا ہے
+she+tired|وہ تھکی ہوئی ہے
+she+scared|اسے ڈر لگ رہا ہے
+she+sick|وہ بیمار ہے
+she+hurt|اسے درد ہو رہا ہے
+she+hungry|اسے بھوک لگی ہے
+she+thirsty|اسے پیاس لگی ہے
+she+hot|اسے گرمی لگ رہی ہے
+she+cold|اسے سردی لگ رہی ہے
+she+bored|وہ بور ہو رہی ہے
+we+want|ہمیں چاہیے
+we+need|ہمیں ضرورت ہے
+we+like|ہمیں پسند ہے
+we+don't like|ہمیں پسند نہیں ہے
+we+love|ہم پیار کرتے ہیں
+we+help|ہم مدد کرتے ہیں
+we+stop|ہم رکتے ہیں
+we+go|ہم جاتے ہیں
+we+open|ہم کھولتے ہیں
+we+look|ہم دیکھتے ہیں
+we+make|ہم بناتے ہیں
+we+give|ہم دیتے ہیں
+we+eat|ہم کھاتے ہیں
+we+drink|ہم پیتے ہیں
+we+play|ہم کھیلتے ہیں
+we+wait|ہم انتظار کرتے ہیں
+we+don't know|ہمیں نہیں پتا
+we+happy|ہم خوش ہیں
+we+sad|ہم اداس ہیں
+we+angry|ہمیں غصہ آ رہا ہے
+we+tired|ہم تھکے ہوئے ہیں
+we+scared|ہمیں ڈر لگ رہا ہے
+we+sick|ہم بیمار ہیں
+we+hurt|ہمیں درد ہو رہا ہے
+we+hungry|ہمیں بھوک لگی ہے
+we+thirsty|ہمیں پیاس لگی ہے
+we+hot|ہمیں گرمی لگ رہی ہے
+we+cold|ہمیں سردی لگ رہی ہے
+we+bored|ہم بور ہو رہے ہیں

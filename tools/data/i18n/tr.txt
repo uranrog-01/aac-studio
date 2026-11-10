@@ -3110,3 +3110,149 @@ zero|sıfır
 zip|fermuar
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ben
+[forms]
+I+want|istiyorum
+I+need|ihtiyacım var
+I+like|seviyorum
+I+don't like|sevmiyorum
+I+love|çok seviyorum
+I+help|yardım ediyorum
+I+stop|duruyorum
+I+go|gidiyorum
+I+open|açıyorum
+I+look|bakıyorum
+I+make|yapıyorum
+I+give|veriyorum
+I+eat|yemek yiyorum
+I+drink|içiyorum
+I+play|oynuyorum
+I+wait|bekliyorum
+I+don't know|bilmiyorum
+I+happy|mutluyum
+I+sad|üzgünüm
+I+angry|kızgınım
+I+tired|yorgunum
+I+scared|korkuyorum
+I+sick|hastayım
+I+hurt|canım acıyor
+I+hungry|acıktım
+I+thirsty|susadım
+I+hot|sıcakladım
+I+cold|üşüdüm
+I+bored|sıkıldım
+you+want|istiyorsun
+you+need|ihtiyacın var
+you+like|seviyorsun
+you+don't like|sevmiyorsun
+you+love|çok seviyorsun
+you+help|yardım ediyorsun
+you+stop|duruyorsun
+you+go|gidiyorsun
+you+open|açıyorsun
+you+look|bakıyorsun
+you+make|yapıyorsun
+you+give|veriyorsun
+you+eat|yemek yiyorsun
+you+drink|içiyorsun
+you+play|oynuyorsun
+you+wait|bekliyorsun
+you+don't know|bilmiyorsun
+you+happy|mutlusun
+you+sad|üzgünsün
+you+angry|kızgınsın
+you+tired|yorgunsun
+you+scared|korkuyorsun
+you+sick|hastasın
+you+hurt|canın acıyor
+you+hungry|acıktın
+you+thirsty|susadın
+you+hot|sıcakladın
+you+cold|üşüdün
+you+bored|sıkıldın
+he+want|o istiyor
+he+need|onun ihtiyacı var
+he+like|o seviyor
+he+don't like|o sevmiyor
+he+love|o çok seviyor
+he+help|o yardım ediyor
+he+stop|o duruyor
+he+go|o gidiyor
+he+open|o açıyor
+he+look|o bakıyor
+he+make|o yapıyor
+he+give|o veriyor
+he+eat|o yemek yiyor
+he+drink|o içiyor
+he+play|o oynuyor
+he+wait|o bekliyor
+he+don't know|o bilmiyor
+he+happy|o mutlu
+he+sad|o üzgün
+he+angry|o kızgın
+he+tired|o yorgun
+he+scared|o korkuyor
+he+sick|o hasta
+he+hurt|onun canı acıyor
+he+hungry|o acıktı
+he+thirsty|o susadı
+he+hot|o sıcakladı
+he+cold|o üşüdü
+he+bored|o sıkıldı
+she+want|o istiyor
+she+need|onun ihtiyacı var
+she+like|o seviyor
+she+don't like|o sevmiyor
+she+love|o çok seviyor
+she+help|o yardım ediyor
+she+stop|o duruyor
+she+go|o gidiyor
+she+open|o açıyor
+she+look|o bakıyor
+she+make|o yapıyor
+she+give|o veriyor
+she+eat|o yemek yiyor
+she+drink|o içiyor
+she+play|o oynuyor
+she+wait|o bekliyor
+she+don't know|o bilmiyor
+she+happy|o mutlu
+she+sad|o üzgün
+she+angry|o kızgın
+she+tired|o yorgun
+she+scared|o korkuyor
+she+sick|o hasta
+she+hurt|onun canı acıyor
+she+hungry|o acıktı
+she+thirsty|o susadı
+she+hot|o sıcakladı
+she+cold|o üşüdü
+she+bored|o sıkıldı
+we+want|istiyoruz
+we+need|ihtiyacımız var
+we+like|seviyoruz
+we+don't like|sevmiyoruz
+we+love|çok seviyoruz
+we+help|yardım ediyoruz
+we+stop|duruyoruz
+we+go|gidiyoruz
+we+open|açıyoruz
+we+look|bakıyoruz
+we+make|yapıyoruz
+we+give|veriyoruz
+we+eat|yemek yiyoruz
+we+drink|içiyoruz
+we+play|oynuyoruz
+we+wait|bekliyoruz
+we+don't know|bilmiyoruz
+we+happy|mutluyuz
+we+sad|üzgünüz
+we+angry|kızgınız
+we+tired|yorgunuz
+we+scared|korkuyoruz
+we+sick|hastayız
+we+hurt|canımız acıyor
+we+hungry|acıktık
+we+thirsty|susadık
+we+hot|sıcakladık
+we+cold|üşüdük
+we+bored|sıkıldık

@@ -47,14 +47,14 @@ void main() {
       for (final c in calls)
         if (c.method == 'speak') c.arguments
     ];
-    expect(spoken, ['I'], reason: 'the older letter is dropped');
+    expect(spoken, ['i'], reason: 'the older letter is dropped');
     expect(calls.any((c) => c.method == 'stop'), isTrue);
     calls.clear();
     await Future.wait([engine.speak('I'), engine.speak('want')]);
     expect([
       for (final c in calls)
         if (c.method == 'speak') c.arguments
-    ], ['I', 'want'], reason: 'both picture words are heard');
+    ], ['i', 'want'], reason: 'both picture words are heard');
   });
 
   test('photos are shrunk to at most 512 px, keeping their shape', () async {

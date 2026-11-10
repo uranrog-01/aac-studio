@@ -969,3 +969,113 @@ pl|Ostatnie wiadomości
 ro|Mesaje recente
 nl|Recente berichten
 ko|최근 메시지
+
+@ Best voice for this language
+sq|Zëri më i mirë për këtë gjuhë
+fr|Meilleure voix pour cette langue
+de|Beste Stimme für diese Sprache
+es|La mejor voz para este idioma
+it|La voce migliore per questa lingua
+zh|这种语言最好的声音
+ja|この言語でいちばん良い声
+hi|इस भाषा की सबसे अच्छी आवाज़
+tr|Bu dil için en iyi ses
+el|Η καλύτερη φωνή για αυτή τη γλώσσα
+hr|Najbolji glas za ovaj jezik
+ar|أفضل صوت لهذه اللغة
+ur|اس زبان کی بہترین آواز
+pt|Melhor voz para este idioma
+ru|Лучший голос для этого языка
+uk|Найкращий голос для цієї мови
+pl|Najlepszy głos dla tego języka
+ro|Cea mai bună voce pentru această limbă
+nl|Beste stem voor deze taal
+ko|이 언어에 가장 좋은 목소리
+
+@ Chosen automatically: the most natural voice on this device
+sq|Zgjidhet vetë: zëri më natyral në këtë pajisje
+fr|Choisie automatiquement : la voix la plus naturelle de l'appareil
+de|Automatisch gewählt: die natürlichste Stimme auf diesem Gerät
+es|Se elige sola: la voz más natural del dispositivo
+it|Scelta automaticamente: la voce più naturale del dispositivo
+zh|自动选择：此设备上最自然的声音
+ja|自動で選びます：この端末でいちばん自然な声
+hi|अपने-आप चुनी गई: इस डिवाइस की सबसे स्वाभाविक आवाज़
+tr|Otomatik seçilir: bu cihazdaki en doğal ses
+el|Επιλέγεται αυτόματα: η πιο φυσική φωνή της συσκευής
+hr|Bira se samo: najprirodniji glas na uređaju
+ar|يُختار تلقائيًا: أكثر صوت طبيعي على هذا الجهاز
+ur|خود بخود چنی جاتی ہے: اس ڈیوائس کی سب سے قدرتی آواز
+pt|Escolhida automaticamente: a voz mais natural do aparelho
+ru|Выбирается автоматически: самый естественный голос на устройстве
+uk|Обирається автоматично: найприродніший голос на пристрої
+pl|Wybierany automatycznie: najbardziej naturalny głos na urządzeniu
+ro|Aleasă automat: cea mai naturală voce de pe dispozitiv
+nl|Automatisch gekozen: de meest natuurlijke stem op dit toestel
+ko|자동으로 골라요: 이 기기에서 가장 자연스러운 목소리
+
+@ Voices and accents on this device
+sq|Zërat dhe theksat në këtë pajisje
+fr|Voix et accents sur cet appareil
+de|Stimmen und Akzente auf diesem Gerät
+es|Voces y acentos en este dispositivo
+it|Voci e accenti su questo dispositivo
+zh|此设备上的声音和口音
+ja|この端末の声となまり
+hi|इस डिवाइस की आवाज़ें और लहजे
+tr|Bu cihazdaki sesler ve aksanlar
+el|Φωνές και προφορές στη συσκευή
+hr|Glasovi i naglasci na uređaju
+ar|الأصوات واللهجات على هذا الجهاز
+ur|اس ڈیوائس کی آوازیں اور لہجے
+pt|Vozes e sotaques neste aparelho
+ru|Голоса и акценты на устройстве
+uk|Голоси й акценти на пристрої
+pl|Głosy i akcenty na urządzeniu
+ro|Voci și accente pe dispozitiv
+nl|Stemmen en accenten op dit toestel
+ko|이 기기의 목소리와 억양
+
+@ Show this language only
+sq|Vetëm këtë gjuhë
+fr|Seulement cette langue
+de|Nur diese Sprache
+es|Solo este idioma
+it|Solo questa lingua
+zh|只显示这种语言
+ja|この言語だけ
+hi|सिर्फ़ यह भाषा
+tr|Yalnızca bu dil
+el|Μόνο αυτή η γλώσσα
+hr|Samo ovaj jezik
+ar|هذه اللغة فقط
+ur|صرف یہ زبان
+pt|Só este idioma
+ru|Только этот язык
+uk|Лише ця мова
+pl|Tylko ten język
+ro|Doar această limbă
+nl|Alleen deze taal
+ko|이 언어만 보기
+
+@ Show all languages
+sq|Shfaq të gjitha gjuhët
+fr|Afficher toutes les langues
+de|Alle Sprachen zeigen
+es|Mostrar todos los idiomas
+it|Mostra tutte le lingue
+zh|显示所有语言
+ja|すべての言語
+hi|सभी भाषाएँ दिखाएँ
+tr|Tüm dilleri göster
+el|Όλες οι γλώσσες
+hr|Prikaži sve jezike
+ar|عرض كل اللغات
+ur|تمام زبانیں دکھائیں
+pt|Mostrar todos os idiomas
+ru|Показать все языки
+uk|Показати всі мови
+pl|Pokaż wszystkie języki
+ro|Arată toate limbile
+nl|Alle talen tonen
+ko|모든 언어 보기

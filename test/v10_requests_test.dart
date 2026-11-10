@@ -121,7 +121,7 @@ void main() {
 
   testWidgets('Type can also say each letter', (tester) async {
     await pumpKeyboard(tester, 'letters');
-    expect(spoken, ['H', 'I', 'hi']);
+    expect(spoken, ['h', 'i', 'hi'], reason: 'letters without "capital"');
   });
 
   testWidgets('Type stays quiet when speech while typing is off',

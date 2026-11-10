@@ -3110,3 +3110,149 @@ zero|μηδέν
 zip|φερμουάρ
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|εγώ
+[forms]
+I+want|θέλω
+I+need|χρειάζομαι
+I+like|μου αρέσει
+I+don't like|δεν μου αρέσει
+I+love|αγαπάω
+I+help|βοηθάω
+I+stop|σταματάω
+I+go|πηγαίνω
+I+open|ανοίγω
+I+look|κοιτάζω
+I+make|φτιάχνω
+I+give|δίνω
+I+eat|τρώω
+I+drink|πίνω
+I+play|παίζω
+I+wait|περιμένω
+I+don't know|δεν ξέρω
+I+happy|είμαι χαρούμενος
+I+sad|είμαι λυπημένος
+I+angry|είμαι θυμωμένος
+I+tired|είμαι κουρασμένος
+I+scared|φοβάμαι
+I+sick|είμαι άρρωστος
+I+hurt|πονάω
+I+hungry|πεινάω
+I+thirsty|διψάω
+I+hot|ζεσταίνομαι
+I+cold|κρυώνω
+I+bored|βαριέμαι
+you+want|θέλεις
+you+need|χρειάζεσαι
+you+like|σου αρέσει
+you+don't like|δεν σου αρέσει
+you+love|αγαπάς
+you+help|βοηθάς
+you+stop|σταματάς
+you+go|πηγαίνεις
+you+open|ανοίγεις
+you+look|κοιτάζεις
+you+make|φτιάχνεις
+you+give|δίνεις
+you+eat|τρως
+you+drink|πίνεις
+you+play|παίζεις
+you+wait|περιμένεις
+you+don't know|δεν ξέρεις
+you+happy|είσαι χαρούμενος
+you+sad|είσαι λυπημένος
+you+angry|είσαι θυμωμένος
+you+tired|είσαι κουρασμένος
+you+scared|φοβάσαι
+you+sick|είσαι άρρωστος
+you+hurt|πονάς
+you+hungry|πεινάς
+you+thirsty|διψάς
+you+hot|ζεσταίνεσαι
+you+cold|κρυώνεις
+you+bored|βαριέσαι
+he+want|αυτός θέλει
+he+need|αυτός χρειάζεται
+he+like|του αρέσει
+he+don't like|δεν του αρέσει
+he+love|αυτός αγαπάει
+he+help|αυτός βοηθάει
+he+stop|αυτός σταματάει
+he+go|αυτός πηγαίνει
+he+open|αυτός ανοίγει
+he+look|αυτός κοιτάζει
+he+make|αυτός φτιάχνει
+he+give|αυτός δίνει
+he+eat|αυτός τρώει
+he+drink|αυτός πίνει
+he+play|αυτός παίζει
+he+wait|αυτός περιμένει
+he+don't know|αυτός δεν ξέρει
+he+happy|αυτός είναι χαρούμενος
+he+sad|αυτός είναι λυπημένος
+he+angry|αυτός είναι θυμωμένος
+he+tired|αυτός είναι κουρασμένος
+he+scared|αυτός φοβάται
+he+sick|αυτός είναι άρρωστος
+he+hurt|αυτός πονάει
+he+hungry|αυτός πεινάει
+he+thirsty|αυτός διψάει
+he+hot|αυτός ζεσταίνεται
+he+cold|αυτός κρυώνει
+he+bored|αυτός βαριέται
+she+want|αυτή θέλει
+she+need|αυτή χρειάζεται
+she+like|της αρέσει
+she+don't like|δεν της αρέσει
+she+love|αυτή αγαπάει
+she+help|αυτή βοηθάει
+she+stop|αυτή σταματάει
+she+go|αυτή πηγαίνει
+she+open|αυτή ανοίγει
+she+look|αυτή κοιτάζει
+she+make|αυτή φτιάχνει
+she+give|αυτή δίνει
+she+eat|αυτή τρώει
+she+drink|αυτή πίνει
+she+play|αυτή παίζει
+she+wait|αυτή περιμένει
+she+don't know|αυτή δεν ξέρει
+she+happy|αυτή είναι χαρούμενη
+she+sad|αυτή είναι λυπημένη
+she+angry|αυτή είναι θυμωμένη
+she+tired|αυτή είναι κουρασμένη
+she+scared|αυτή φοβάται
+she+sick|αυτή είναι άρρωστη
+she+hurt|αυτή πονάει
+she+hungry|αυτή πεινάει
+she+thirsty|αυτή διψάει
+she+hot|αυτή ζεσταίνεται
+she+cold|αυτή κρυώνει
+she+bored|αυτή βαριέται
+we+want|θέλουμε
+we+need|χρειαζόμαστε
+we+like|μας αρέσει
+we+don't like|δεν μας αρέσει
+we+love|αγαπάμε
+we+help|βοηθάμε
+we+stop|σταματάμε
+we+go|πηγαίνουμε
+we+open|ανοίγουμε
+we+look|κοιτάζουμε
+we+make|φτιάχνουμε
+we+give|δίνουμε
+we+eat|τρώμε
+we+drink|πίνουμε
+we+play|παίζουμε
+we+wait|περιμένουμε
+we+don't know|δεν ξέρουμε
+we+happy|είμαστε χαρούμενοι
+we+sad|είμαστε λυπημένοι
+we+angry|είμαστε θυμωμένοι
+we+tired|είμαστε κουρασμένοι
+we+scared|φοβόμαστε
+we+sick|είμαστε άρρωστοι
+we+hurt|πονάμε
+we+hungry|πεινάμε
+we+thirsty|διψάμε
+we+hot|ζεσταινόμαστε
+we+cold|κρυώνουμε
+we+bored|βαριόμαστε

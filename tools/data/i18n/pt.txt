@@ -3110,3 +3110,149 @@ zero|zero
 zip|zíper
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|eu
+[forms]
+I+want|eu quero
+I+need|eu preciso
+I+like|eu gosto
+I+don't like|eu não gosto
+I+love|eu amo
+I+help|eu ajudo
+I+stop|eu paro
+I+go|eu vou
+I+open|eu abro
+I+look|eu olho
+I+make|eu faço
+I+give|eu dou
+I+eat|eu como
+I+drink|eu bebo
+I+play|eu brinco
+I+wait|eu espero
+I+don't know|eu não sei
+I+happy|eu estou feliz
+I+sad|eu estou triste
+I+angry|eu estou bravo
+I+tired|eu estou cansado
+I+scared|eu estou com medo
+I+sick|eu estou doente
+I+hurt|eu estou machucado
+I+hungry|eu estou com fome
+I+thirsty|eu estou com sede
+I+hot|eu estou com calor
+I+cold|eu estou com frio
+I+bored|eu estou entediado
+you+want|você quer
+you+need|você precisa
+you+like|você gosta
+you+don't like|você não gosta
+you+love|você ama
+you+help|você ajuda
+you+stop|você para
+you+go|você vai
+you+open|você abre
+you+look|você olha
+you+make|você faz
+you+give|você dá
+you+eat|você come
+you+drink|você bebe
+you+play|você brinca
+you+wait|você espera
+you+don't know|você não sabe
+you+happy|você está feliz
+you+sad|você está triste
+you+angry|você está bravo
+you+tired|você está cansado
+you+scared|você está com medo
+you+sick|você está doente
+you+hurt|você está machucado
+you+hungry|você está com fome
+you+thirsty|você está com sede
+you+hot|você está com calor
+you+cold|você está com frio
+you+bored|você está entediado
+he+want|ele quer
+he+need|ele precisa
+he+like|ele gosta
+he+don't like|ele não gosta
+he+love|ele ama
+he+help|ele ajuda
+he+stop|ele para
+he+go|ele vai
+he+open|ele abre
+he+look|ele olha
+he+make|ele faz
+he+give|ele dá
+he+eat|ele come
+he+drink|ele bebe
+he+play|ele brinca
+he+wait|ele espera
+he+don't know|ele não sabe
+he+happy|ele está feliz
+he+sad|ele está triste
+he+angry|ele está bravo
+he+tired|ele está cansado
+he+scared|ele está com medo
+he+sick|ele está doente
+he+hurt|ele está machucado
+he+hungry|ele está com fome
+he+thirsty|ele está com sede
+he+hot|ele está com calor
+he+cold|ele está com frio
+he+bored|ele está entediado
+she+want|ela quer
+she+need|ela precisa
+she+like|ela gosta
+she+don't like|ela não gosta
+she+love|ela ama
+she+help|ela ajuda
+she+stop|ela para
+she+go|ela vai
+she+open|ela abre
+she+look|ela olha
+she+make|ela faz
+she+give|ela dá
+she+eat|ela come
+she+drink|ela bebe
+she+play|ela brinca
+she+wait|ela espera
+she+don't know|ela não sabe
+she+happy|ela está feliz
+she+sad|ela está triste
+she+angry|ela está brava
+she+tired|ela está cansada
+she+scared|ela está com medo
+she+sick|ela está doente
+she+hurt|ela está machucada
+she+hungry|ela está com fome
+she+thirsty|ela está com sede
+she+hot|ela está com calor
+she+cold|ela está com frio
+she+bored|ela está entediada
+we+want|nós queremos
+we+need|nós precisamos
+we+like|nós gostamos
+we+don't like|nós não gostamos
+we+love|nós amamos
+we+help|nós ajudamos
+we+stop|nós paramos
+we+go|nós vamos
+we+open|nós abrimos
+we+look|nós olhamos
+we+make|nós fazemos
+we+give|nós damos
+we+eat|nós comemos
+we+drink|nós bebemos
+we+play|nós brincamos
+we+wait|nós esperamos
+we+don't know|nós não sabemos
+we+happy|nós estamos felizes
+we+sad|nós estamos tristes
+we+angry|nós estamos bravos
+we+tired|nós estamos cansados
+we+scared|nós estamos com medo
+we+sick|nós estamos doentes
+we+hurt|nós estamos machucados
+we+hungry|nós estamos com fome
+we+thirsty|nós estamos com sede
+we+hot|nós estamos com calor
+we+cold|nós estamos com frio
+we+bored|nós estamos entediados

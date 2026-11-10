@@ -766,17 +766,18 @@ class _VoicePickerState extends State<_VoicePicker> {
       future: _voices,
       builder: (context, snapshot) {
         final all = snapshot.data ?? const <DeviceVoice>[];
-        final english = all.where((v) => v.isEnglish).toList();
-        final shown = _allLanguages || english.isEmpty ? all : english;
+        // Voices for the chosen language (its accents and regions).
+        final lang = languageFor(s.language);
+        final mine = all.where((v) => voiceSpeaks(lang, v.locale)).toList();
+        final shown = _allLanguages || mine.isEmpty ? all : mine;
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          if (!kIsWeb)
+          if (!kIsWeb && lang.code == 'en')
             _option('Offline voice', 'US English · works without internet',
                 Icons.offline_bolt, s.usePiper, () => _pick(piper: true)),
           _option(
-              'Device voice',
-              kIsWeb
-                  ? 'Safari voices; offline availability depends on your device'
-                  : 'This phone or tablet\'s default voice',
+              I18n.t('Best voice for this language'),
+              I18n.t('Chosen automatically: the most natural voice on this '
+                  'device'),
               Icons.smartphone,
               !s.usePiper && s.voiceName == null,
               () => _pick(piper: false)),
@@ -796,7 +797,8 @@ class _VoicePickerState extends State<_VoicePicker> {
           else ...[
             Padding(
               padding: const EdgeInsets.only(top: 8, bottom: 2),
-              child: Text('More voices on this device (${shown.length})',
+              child: Text(
+                  '${I18n.t('Voices and accents on this device')} (${shown.length})',
                   style: const TextStyle(color: Colors.white70, fontSize: 13)),
             ),
             ConstrainedBox(
@@ -815,12 +817,12 @@ class _VoicePickerState extends State<_VoicePicker> {
                       () => _pick(piper: false, voice: v)),
               ]),
             ),
-            if (english.isNotEmpty && english.length != all.length)
+            if (mine.isNotEmpty && mine.length != all.length)
               TextButton(
                 onPressed: () => setState(() => _allLanguages = !_allLanguages),
                 child: Text(_allLanguages
-                    ? 'Show English voices only'
-                    : 'Show all languages'),
+                    ? I18n.t('Show this language only')
+                    : I18n.t('Show all languages')),
               ),
           ],
         ]);

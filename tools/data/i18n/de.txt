@@ -3109,3 +3109,149 @@ yule log|Weihnachtsscheit
 zebra crossing|Zebrastreifen
 zero|null
 zip|Reißverschluss
+[forms]
+I+want|ich will
+I+need|ich brauche
+I+like|ich mag
+I+don't like|ich mag das nicht
+I+love|ich liebe
+I+help|ich helfe
+I+stop|ich höre auf
+I+go|ich gehe
+I+open|ich öffne
+I+look|ich schaue
+I+make|ich mache
+I+give|ich gebe
+I+eat|ich esse
+I+drink|ich trinke
+I+play|ich spiele
+I+wait|ich warte
+I+don't know|ich weiß nicht
+I+happy|ich bin froh
+I+sad|ich bin traurig
+I+angry|ich bin wütend
+I+tired|ich bin müde
+I+scared|ich habe Angst
+I+sick|ich bin krank
+I+hurt|mir tut es weh
+I+hungry|ich habe Hunger
+I+thirsty|ich habe Durst
+I+hot|mir ist heiß
+I+cold|mir ist kalt
+I+bored|mir ist langweilig
+you+want|du willst
+you+need|du brauchst
+you+like|du magst
+you+don't like|du magst das nicht
+you+love|du liebst
+you+help|du hilfst
+you+stop|du hörst auf
+you+go|du gehst
+you+open|du öffnest
+you+look|du schaust
+you+make|du machst
+you+give|du gibst
+you+eat|du isst
+you+drink|du trinkst
+you+play|du spielst
+you+wait|du wartest
+you+don't know|du weißt nicht
+you+happy|du bist froh
+you+sad|du bist traurig
+you+angry|du bist wütend
+you+tired|du bist müde
+you+scared|du hast Angst
+you+sick|du bist krank
+you+hurt|dir tut es weh
+you+hungry|du hast Hunger
+you+thirsty|du hast Durst
+you+hot|dir ist heiß
+you+cold|dir ist kalt
+you+bored|dir ist langweilig
+he+want|er will
+he+need|er braucht
+he+like|er mag
+he+don't like|er mag das nicht
+he+love|er liebt
+he+help|er hilft
+he+stop|er hört auf
+he+go|er geht
+he+open|er öffnet
+he+look|er schaut
+he+make|er macht
+he+give|er gibt
+he+eat|er isst
+he+drink|er trinkt
+he+play|er spielt
+he+wait|er wartet
+he+don't know|er weiß nicht
+he+happy|er ist froh
+he+sad|er ist traurig
+he+angry|er ist wütend
+he+tired|er ist müde
+he+scared|er hat Angst
+he+sick|er ist krank
+he+hurt|ihm tut es weh
+he+hungry|er hat Hunger
+he+thirsty|er hat Durst
+he+hot|ihm ist heiß
+he+cold|ihm ist kalt
+he+bored|ihm ist langweilig
+she+want|sie will
+she+need|sie braucht
+she+like|sie mag
+she+don't like|sie mag das nicht
+she+love|sie liebt
+she+help|sie hilft
+she+stop|sie hört auf
+she+go|sie geht
+she+open|sie öffnet
+she+look|sie schaut
+she+make|sie macht
+she+give|sie gibt
+she+eat|sie isst
+she+drink|sie trinkt
+she+play|sie spielt
+she+wait|sie wartet
+she+don't know|sie weiß nicht
+she+happy|sie ist froh
+she+sad|sie ist traurig
+she+angry|sie ist wütend
+she+tired|sie ist müde
+she+scared|sie hat Angst
+she+sick|sie ist krank
+she+hurt|ihr tut es weh
+she+hungry|sie hat Hunger
+she+thirsty|sie hat Durst
+she+hot|ihr ist heiß
+she+cold|ihr ist kalt
+she+bored|ihr ist langweilig
+we+want|wir wollen
+we+need|wir brauchen
+we+like|wir mögen
+we+don't like|wir mögen das nicht
+we+love|wir lieben
+we+help|wir helfen
+we+stop|wir hören auf
+we+go|wir gehen
+we+open|wir öffnen
+we+look|wir schauen
+we+make|wir machen
+we+give|wir geben
+we+eat|wir essen
+we+drink|wir trinken
+we+play|wir spielen
+we+wait|wir warten
+we+don't know|wir wissen nicht
+we+happy|wir sind froh
+we+sad|wir sind traurig
+we+angry|wir sind wütend
+we+tired|wir sind müde
+we+scared|wir haben Angst
+we+sick|wir sind krank
+we+hurt|uns tut es weh
+we+hungry|wir haben Hunger
+we+thirsty|wir haben Durst
+we+hot|uns ist heiß
+we+cold|uns ist kalt
+we+bored|uns ist langweilig

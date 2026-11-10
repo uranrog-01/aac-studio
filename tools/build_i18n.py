@@ -19,13 +19,13 @@ OUT = ROOT / 'assets/i18n'
 
 
 def read(path):
-    data = {'ui': {}, 'words': {}}
+    data = {'ui': {}, 'words': {}, 'forms': {}}
     section = None
     for number, raw in enumerate(path.read_text(encoding='utf8').splitlines(), 1):
         line = raw.strip()
         if not line or line.startswith('#'):
             continue
-        if line in ('[ui]', '[words]'):
+        if line in ('[ui]', '[words]', '[forms]'):
             section = line[1:-1]
             continue
         if section is None or '|' not in line:
@@ -34,6 +34,8 @@ def read(path):
         if not english or not translated:
             raise SystemExit(f'{path.name}:{number}: empty side')
         key = english if section == 'ui' else english.lower()
+        if section == 'forms' and '+' not in key:
+            raise SystemExit(f'{path.name}:{number}: forms need "pronoun+word"')
         if key in data[section] and data[section][key] != translated:
             raise SystemExit(f'{path.name}:{number}: "{english}" translated twice')
         data[section][key] = translated
@@ -81,7 +83,8 @@ def main():
             encoding='utf8')
         done = len(labels & data['words'].keys())
         print(f'{path.stem}: {len(data["ui"])} app texts, {done} of {len(labels)} '
-              f'board words ({100 * done // len(labels)}%)')
+              f'board words ({100 * done // len(labels)}%), '
+              f'{len(data["forms"])} sentence forms')
 
 
 if __name__ == '__main__':

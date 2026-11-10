@@ -3109,3 +3109,149 @@ yule log|tronchetto di Natale
 zebra crossing|strisce pedonali
 zero|zero
 zip|cerniera
+[forms]
+I+want|voglio
+I+need|ho bisogno
+I+like|mi piace
+I+don't like|non mi piace
+I+love|adoro
+I+help|io aiuto
+I+stop|mi fermo
+I+go|vado
+I+open|apro
+I+look|guardo
+I+make|faccio
+I+give|io do
+I+eat|mangio
+I+drink|bevo
+I+play|gioco
+I+wait|aspetto
+I+don't know|non lo so
+I+happy|sono felice
+I+sad|sono triste
+I+angry|sono arrabbiato
+I+tired|sono stanco
+I+scared|ho paura
+I+sick|sono malato
+I+hurt|mi fa male
+I+hungry|ho fame
+I+thirsty|ho sete
+I+hot|ho caldo
+I+cold|ho freddo
+I+bored|mi annoio
+you+want|vuoi
+you+need|hai bisogno
+you+like|ti piace
+you+don't like|non ti piace
+you+love|adori
+you+help|tu aiuti
+you+stop|ti fermi
+you+go|vai
+you+open|apri
+you+look|guardi
+you+make|fai
+you+give|tu dai
+you+eat|mangi
+you+drink|bevi
+you+play|giochi
+you+wait|aspetti
+you+don't know|non lo sai
+you+happy|sei felice
+you+sad|sei triste
+you+angry|sei arrabbiato
+you+tired|sei stanco
+you+scared|hai paura
+you+sick|sei malato
+you+hurt|ti fa male
+you+hungry|hai fame
+you+thirsty|hai sete
+you+hot|hai caldo
+you+cold|hai freddo
+you+bored|ti annoi
+he+want|lui vuole
+he+need|lui ha bisogno
+he+like|a lui piace
+he+don't like|a lui non piace
+he+love|lui adora
+he+help|lui aiuta
+he+stop|lui si ferma
+he+go|lui va
+he+open|lui apre
+he+look|lui guarda
+he+make|lui fa
+he+give|lui dà
+he+eat|lui mangia
+he+drink|lui beve
+he+play|lui gioca
+he+wait|lui aspetta
+he+don't know|lui non lo sa
+he+happy|lui è felice
+he+sad|lui è triste
+he+angry|lui è arrabbiato
+he+tired|lui è stanco
+he+scared|lui ha paura
+he+sick|lui è malato
+he+hurt|a lui fa male
+he+hungry|lui ha fame
+he+thirsty|lui ha sete
+he+hot|lui ha caldo
+he+cold|lui ha freddo
+he+bored|lui si annoia
+she+want|lei vuole
+she+need|lei ha bisogno
+she+like|a lei piace
+she+don't like|a lei non piace
+she+love|lei adora
+she+help|lei aiuta
+she+stop|lei si ferma
+she+go|lei va
+she+open|lei apre
+she+look|lei guarda
+she+make|lei fa
+she+give|lei dà
+she+eat|lei mangia
+she+drink|lei beve
+she+play|lei gioca
+she+wait|lei aspetta
+she+don't know|lei non lo sa
+she+happy|lei è felice
+she+sad|lei è triste
+she+angry|lei è arrabbiata
+she+tired|lei è stanca
+she+scared|lei ha paura
+she+sick|lei è malata
+she+hurt|a lei fa male
+she+hungry|lei ha fame
+she+thirsty|lei ha sete
+she+hot|lei ha caldo
+she+cold|lei ha freddo
+she+bored|lei si annoia
+we+want|vogliamo
+we+need|abbiamo bisogno
+we+like|ci piace
+we+don't like|non ci piace
+we+love|adoriamo
+we+help|aiutiamo
+we+stop|ci fermiamo
+we+go|andiamo
+we+open|apriamo
+we+look|guardiamo
+we+make|facciamo
+we+give|diamo
+we+eat|mangiamo
+we+drink|beviamo
+we+play|giochiamo
+we+wait|aspettiamo
+we+don't know|non lo sappiamo
+we+happy|siamo felici
+we+sad|siamo tristi
+we+angry|siamo arrabbiati
+we+tired|siamo stanchi
+we+scared|abbiamo paura
+we+sick|siamo malati
+we+hurt|ci fa male
+we+hungry|abbiamo fame
+we+thirsty|abbiamo sete
+we+hot|abbiamo caldo
+we+cold|abbiamo freddo
+we+bored|ci annoiamo

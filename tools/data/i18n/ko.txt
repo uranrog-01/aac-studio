@@ -3110,3 +3110,150 @@ zero|영
 zip|지퍼
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|나
+
+[forms]
+I+want|저는 원해요
+I+need|저는 필요해요
+I+like|저는 좋아해요
+I+don't like|저는 싫어요
+I+love|저는 사랑해요
+I+help|저는 도와줘요
+I+stop|저는 그만해요
+I+go|저는 가요
+I+open|저는 열어요
+I+look|저는 봐요
+I+make|저는 만들어요
+I+give|저는 줘요
+I+eat|저는 먹어요
+I+drink|저는 마셔요
+I+play|저는 놀아요
+I+wait|저는 기다려요
+I+don't know|저는 몰라요
+I+happy|저는 기뻐요
+I+sad|저는 슬퍼요
+I+angry|저는 화났어요
+I+tired|저는 피곤해요
+I+scared|저는 무서워요
+I+sick|저는 몸이 안 좋아요
+I+hurt|저는 아파요
+I+hungry|저는 배고파요
+I+thirsty|저는 목말라요
+I+hot|저는 더워요
+I+cold|저는 추워요
+I+bored|저는 심심해요
+you+want|너는 원해요
+you+need|너는 필요해요
+you+like|너는 좋아해요
+you+don't like|너는 싫어해요
+you+love|너는 사랑해요
+you+help|너는 도와줘요
+you+stop|너는 그만해요
+you+go|너는 가요
+you+open|너는 열어요
+you+look|너는 봐요
+you+make|너는 만들어요
+you+give|너는 줘요
+you+eat|너는 먹어요
+you+drink|너는 마셔요
+you+play|너는 놀아요
+you+wait|너는 기다려요
+you+don't know|너는 몰라요
+you+happy|너는 기뻐요
+you+sad|너는 슬퍼요
+you+angry|너는 화났어요
+you+tired|너는 피곤해요
+you+scared|너는 무서워요
+you+sick|너는 몸이 안 좋아요
+you+hurt|너는 아파요
+you+hungry|너는 배고파요
+you+thirsty|너는 목말라요
+you+hot|너는 더워요
+you+cold|너는 추워요
+you+bored|너는 심심해요
+he+want|그는 원해요
+he+need|그는 필요해요
+he+like|그는 좋아해요
+he+don't like|그는 싫어해요
+he+love|그는 사랑해요
+he+help|그는 도와줘요
+he+stop|그는 그만해요
+he+go|그는 가요
+he+open|그는 열어요
+he+look|그는 봐요
+he+make|그는 만들어요
+he+give|그는 줘요
+he+eat|그는 먹어요
+he+drink|그는 마셔요
+he+play|그는 놀아요
+he+wait|그는 기다려요
+he+don't know|그는 몰라요
+he+happy|그는 기뻐해요
+he+sad|그는 슬퍼해요
+he+angry|그는 화났어요
+he+tired|그는 피곤해해요
+he+scared|그는 무서워해요
+he+sick|그는 몸이 안 좋아요
+he+hurt|그는 아파해요
+he+hungry|그는 배고파해요
+he+thirsty|그는 목말라해요
+he+hot|그는 더워해요
+he+cold|그는 추워해요
+he+bored|그는 심심해해요
+she+want|그녀는 원해요
+she+need|그녀는 필요해요
+she+like|그녀는 좋아해요
+she+don't like|그녀는 싫어해요
+she+love|그녀는 사랑해요
+she+help|그녀는 도와줘요
+she+stop|그녀는 그만해요
+she+go|그녀는 가요
+she+open|그녀는 열어요
+she+look|그녀는 봐요
+she+make|그녀는 만들어요
+she+give|그녀는 줘요
+she+eat|그녀는 먹어요
+she+drink|그녀는 마셔요
+she+play|그녀는 놀아요
+she+wait|그녀는 기다려요
+she+don't know|그녀는 몰라요
+she+happy|그녀는 기뻐해요
+she+sad|그녀는 슬퍼해요
+she+angry|그녀는 화났어요
+she+tired|그녀는 피곤해해요
+she+scared|그녀는 무서워해요
+she+sick|그녀는 몸이 안 좋아요
+she+hurt|그녀는 아파해요
+she+hungry|그녀는 배고파해요
+she+thirsty|그녀는 목말라해요
+she+hot|그녀는 더워해요
+she+cold|그녀는 추워해요
+she+bored|그녀는 심심해해요
+we+want|우리는 원해요
+we+need|우리는 필요해요
+we+like|우리는 좋아해요
+we+don't like|우리는 싫어요
+we+love|우리는 사랑해요
+we+help|우리는 도와줘요
+we+stop|우리는 그만해요
+we+go|우리는 가요
+we+open|우리는 열어요
+we+look|우리는 봐요
+we+make|우리는 만들어요
+we+give|우리는 줘요
+we+eat|우리는 먹어요
+we+drink|우리는 마셔요
+we+play|우리는 놀아요
+we+wait|우리는 기다려요
+we+don't know|우리는 몰라요
+we+happy|우리는 기뻐요
+we+sad|우리는 슬퍼요
+we+angry|우리는 화났어요
+we+tired|우리는 피곤해요
+we+scared|우리는 무서워요
+we+sick|우리는 몸이 안 좋아요
+we+hurt|우리는 아파요
+we+hungry|우리는 배고파요
+we+thirsty|우리는 목말라요
+we+hot|우리는 더워요
+we+cold|우리는 추워요
+we+bored|우리는 심심해요

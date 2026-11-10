@@ -73,6 +73,7 @@ class I18n {
   static AppLanguage language = kLanguages.first;
   static Map<String, String> _ui = const {};
   static Map<String, String> _words = const {};
+  static Map<String, String> _forms = const {};
 
   /// Notifies the app to redraw after a language change.
   static final ValueNotifier<String> changes = ValueNotifier('en');
@@ -81,7 +82,9 @@ class I18n {
     final lang = languageFor(code);
     var ui = <String, String>{};
     var words = <String, String>{};
-    if (lang.code != 'en') {
+    var forms = <String, String>{};
+    // English has no word list but does have sentence forms (en.json).
+    {
       try {
         final data = jsonDecode(
                 await rootBundle.loadString('assets/i18n/${lang.code}.json'))
@@ -91,6 +94,10 @@ class I18n {
           for (final e in (data['words'] as Map? ?? const {}).entries)
             (e.key as String).toLowerCase(): e.value as String
         };
+        forms = {
+          for (final e in (data['forms'] as Map? ?? const {}).entries)
+            (e.key as String).toLowerCase(): e.value as String
+        };
       } catch (_) {
         // A missing or damaged file keeps the app usable in English.
       }
@@ -98,6 +105,7 @@ class I18n {
     language = lang;
     _ui = ui;
     _words = words;
+    _forms = forms;
     changes.value = lang.code;
   }
 
@@ -108,10 +116,81 @@ class I18n {
   static String word(String english) =>
       _words[english.toLowerCase()] ?? english;
 
+  /// Pronoun + word as one natural phrase ("I" + "want" → "je veux",
+  /// "I" + "hungry" → "j'ai faim"), or null when there is none.
+  static String? form(String pronoun, String word) =>
+      _forms['${pronoun.toLowerCase()}+${word.toLowerCase()}'];
+
   static bool hasWord(String english) =>
       _words.containsKey(english.toLowerCase());
 
   /// How many of [labels] have a translation (for Settings).
   static int translatedCount(Iterable<String> labels) =>
       labels.where(hasWord).length;
+}
+
+/// Text as it should be spoken. A single capital letter is lower-cased:
+/// iPhone/iPad voices otherwise say "capital A" instead of "A".
+String speechText(String text) {
+  final t = text.trim();
+  if (t.length == 1 && t.toUpperCase() != t.toLowerCase()) {
+    return t.toLowerCase();
+  }
+  return t;
+}
+
+/// A voice as the device reports it (iOS/Android via flutter_tts, browsers
+/// via speechSynthesis).
+typedef VoiceInfo = ({String name, String locale, String quality, bool network});
+
+/// iPhone joke/effect voices: never chosen automatically.
+const _noveltyVoices = {
+  'albert', 'bad news', 'bahh', 'bells', 'boing', 'bubbles', 'cellos',
+  'good news', 'jester', 'organ', 'superstar', 'trinoids', 'whisper',
+  'wobble', 'zarvox', 'fred', 'junior', 'kathy', 'ralph', 'grandma',
+  'grandpa', 'rocko', 'shelley', 'eddy', 'flo', 'reed', 'sandy',
+};
+
+String _localeKey(String locale) => locale.toLowerCase().replaceAll('_', '-');
+
+/// Whether a voice speaks [lang] (Croatian/Bosnian also accept Serbian
+/// Latin voices, which read the same words correctly).
+bool voiceSpeaks(AppLanguage lang, String locale) {
+  final base = _localeKey(locale).split('-').first;
+  return lang.voiceLocales.any((l) => _localeKey(l).split('-').first == base);
+}
+
+/// The most natural installed voice for [lang]: the language's main region
+/// first (e.g. pt-BR before pt-PT), then the best quality (premium /
+/// enhanced / neural), preferring voices that work offline. Null when the
+/// device has no voice for the language.
+VoiceInfo? bestVoice(AppLanguage lang, Iterable<VoiceInfo> voices) {
+  VoiceInfo? best;
+  var bestScore = -1;
+  for (final v in voices) {
+    if (!voiceSpeaks(lang, v.locale)) continue;
+    final name = v.name.toLowerCase();
+    if (_noveltyVoices.contains(name.split(' (').first)) continue;
+    final loc = _localeKey(v.locale);
+    var score = 100;
+    final region = lang.voiceLocales.indexWhere((l) => _localeKey(l) == loc);
+    score -= region < 0 ? 30 : region * 8;
+    final q = v.quality.toLowerCase();
+    score += q.contains('premium') || q.contains('very high')
+        ? 40
+        : q.contains('enhanced') || q == 'high'
+            ? 25
+            : q.contains('low')
+                ? -10
+                : 0;
+    if (name.contains('natural') || name.contains('neural')) score += 30;
+    if (name.contains('enhanced') || name.contains('premium')) score += 25;
+    if (name.contains('google')) score += 15;
+    if (v.network) score -= 15; // works offline is better
+    if (score > bestScore) {
+      bestScore = score;
+      best = v;
+    }
+  }
+  return best;
 }

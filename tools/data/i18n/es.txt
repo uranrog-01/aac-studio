@@ -3109,3 +3109,149 @@ yule log|tronco de Navidad
 zebra crossing|paso de cebra
 zero|cero
 zip|cremallera
+[forms]
+I+want|quiero
+I+need|necesito
+I+like|me gusta
+I+don't like|no me gusta
+I+love|me encanta
+I+help|yo ayudo
+I+stop|yo paro
+I+go|voy
+I+open|abro
+I+look|miro
+I+make|hago
+I+give|doy
+I+eat|como
+I+drink|bebo
+I+play|juego
+I+wait|espero
+I+don't know|no sé
+I+happy|estoy feliz
+I+sad|estoy triste
+I+angry|estoy enfadado
+I+tired|estoy cansado
+I+scared|tengo miedo
+I+sick|estoy enfermo
+I+hurt|me duele
+I+hungry|tengo hambre
+I+thirsty|tengo sed
+I+hot|tengo calor
+I+cold|tengo frío
+I+bored|estoy aburrido
+you+want|quieres
+you+need|necesitas
+you+like|te gusta
+you+don't like|no te gusta
+you+love|te encanta
+you+help|tú ayudas
+you+stop|tú paras
+you+go|vas
+you+open|abres
+you+look|miras
+you+make|haces
+you+give|das
+you+eat|comes
+you+drink|bebes
+you+play|juegas
+you+wait|esperas
+you+don't know|no sabes
+you+happy|estás feliz
+you+sad|estás triste
+you+angry|estás enfadado
+you+tired|estás cansado
+you+scared|tienes miedo
+you+sick|estás enfermo
+you+hurt|te duele
+you+hungry|tienes hambre
+you+thirsty|tienes sed
+you+hot|tienes calor
+you+cold|tienes frío
+you+bored|estás aburrido
+he+want|él quiere
+he+need|él necesita
+he+like|a él le gusta
+he+don't like|a él no le gusta
+he+love|a él le encanta
+he+help|él ayuda
+he+stop|él para
+he+go|él va
+he+open|él abre
+he+look|él mira
+he+make|él hace
+he+give|él da
+he+eat|él come
+he+drink|él bebe
+he+play|él juega
+he+wait|él espera
+he+don't know|él no sabe
+he+happy|él está feliz
+he+sad|él está triste
+he+angry|él está enfadado
+he+tired|él está cansado
+he+scared|él tiene miedo
+he+sick|él está enfermo
+he+hurt|a él le duele
+he+hungry|él tiene hambre
+he+thirsty|él tiene sed
+he+hot|él tiene calor
+he+cold|él tiene frío
+he+bored|él está aburrido
+she+want|ella quiere
+she+need|ella necesita
+she+like|a ella le gusta
+she+don't like|a ella no le gusta
+she+love|a ella le encanta
+she+help|ella ayuda
+she+stop|ella para
+she+go|ella va
+she+open|ella abre
+she+look|ella mira
+she+make|ella hace
+she+give|ella da
+she+eat|ella come
+she+drink|ella bebe
+she+play|ella juega
+she+wait|ella espera
+she+don't know|ella no sabe
+she+happy|ella está feliz
+she+sad|ella está triste
+she+angry|ella está enfadada
+she+tired|ella está cansada
+she+scared|ella tiene miedo
+she+sick|ella está enferma
+she+hurt|a ella le duele
+she+hungry|ella tiene hambre
+she+thirsty|ella tiene sed
+she+hot|ella tiene calor
+she+cold|ella tiene frío
+she+bored|ella está aburrida
+we+want|queremos
+we+need|necesitamos
+we+like|nos gusta
+we+don't like|no nos gusta
+we+love|nos encanta
+we+help|ayudamos
+we+stop|paramos
+we+go|vamos
+we+open|abrimos
+we+look|miramos
+we+make|hacemos
+we+give|damos
+we+eat|comemos
+we+drink|bebemos
+we+play|jugamos
+we+wait|esperamos
+we+don't know|no sabemos
+we+happy|estamos felices
+we+sad|estamos tristes
+we+angry|estamos enfadados
+we+tired|estamos cansados
+we+scared|tenemos miedo
+we+sick|estamos enfermos
+we+hurt|nos duele
+we+hungry|tenemos hambre
+we+thirsty|tenemos sed
+we+hot|tenemos calor
+we+cold|tenemos frío
+we+bored|estamos aburridos

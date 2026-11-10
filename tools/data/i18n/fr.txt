@@ -3109,3 +3109,149 @@ yule log|bûche de Noël
 zebra crossing|passage piéton
 zero|zéro
 zip|fermeture éclair
+[forms]
+I+want|je veux
+I+need|j'ai besoin
+I+like|j'aime
+I+don't like|je n'aime pas
+I+love|j'adore
+I+help|j'aide
+I+stop|j'arrête
+I+go|je vais
+I+open|j'ouvre
+I+look|je regarde
+I+make|je fais
+I+give|je donne
+I+eat|je mange
+I+drink|je bois
+I+play|je joue
+I+wait|j'attends
+I+don't know|je ne sais pas
+I+happy|je suis content
+I+sad|je suis triste
+I+angry|je suis fâché
+I+tired|je suis fatigué
+I+scared|j'ai peur
+I+sick|je suis malade
+I+hurt|j'ai mal
+I+hungry|j'ai faim
+I+thirsty|j'ai soif
+I+hot|j'ai chaud
+I+cold|j'ai froid
+I+bored|je m'ennuie
+you+want|tu veux
+you+need|tu as besoin
+you+like|tu aimes
+you+don't like|tu n'aimes pas
+you+love|tu adores
+you+help|tu aides
+you+stop|tu arrêtes
+you+go|tu vas
+you+open|tu ouvres
+you+look|tu regardes
+you+make|tu fais
+you+give|tu donnes
+you+eat|tu manges
+you+drink|tu bois
+you+play|tu joues
+you+wait|tu attends
+you+don't know|tu ne sais pas
+you+happy|tu es content
+you+sad|tu es triste
+you+angry|tu es fâché
+you+tired|tu es fatigué
+you+scared|tu as peur
+you+sick|tu es malade
+you+hurt|tu as mal
+you+hungry|tu as faim
+you+thirsty|tu as soif
+you+hot|tu as chaud
+you+cold|tu as froid
+you+bored|tu t'ennuies
+he+want|il veut
+he+need|il a besoin
+he+like|il aime
+he+don't like|il n'aime pas
+he+love|il adore
+he+help|il aide
+he+stop|il arrête
+he+go|il va
+he+open|il ouvre
+he+look|il regarde
+he+make|il fait
+he+give|il donne
+he+eat|il mange
+he+drink|il boit
+he+play|il joue
+he+wait|il attend
+he+don't know|il ne sait pas
+he+happy|il est content
+he+sad|il est triste
+he+angry|il est fâché
+he+tired|il est fatigué
+he+scared|il a peur
+he+sick|il est malade
+he+hurt|il a mal
+he+hungry|il a faim
+he+thirsty|il a soif
+he+hot|il a chaud
+he+cold|il a froid
+he+bored|il s'ennuie
+she+want|elle veut
+she+need|elle a besoin
+she+like|elle aime
+she+don't like|elle n'aime pas
+she+love|elle adore
+she+help|elle aide
+she+stop|elle arrête
+she+go|elle va
+she+open|elle ouvre
+she+look|elle regarde
+she+make|elle fait
+she+give|elle donne
+she+eat|elle mange
+she+drink|elle boit
+she+play|elle joue
+she+wait|elle attend
+she+don't know|elle ne sait pas
+she+happy|elle est contente
+she+sad|elle est triste
+she+angry|elle est fâchée
+she+tired|elle est fatiguée
+she+scared|elle a peur
+she+sick|elle est malade
+she+hurt|elle a mal
+she+hungry|elle a faim
+she+thirsty|elle a soif
+she+hot|elle a chaud
+she+cold|elle a froid
+she+bored|elle s'ennuie
+we+want|nous voulons
+we+need|nous avons besoin
+we+like|nous aimons
+we+don't like|nous n'aimons pas
+we+love|nous adorons
+we+help|nous aidons
+we+stop|nous arrêtons
+we+go|nous allons
+we+open|nous ouvrons
+we+look|nous regardons
+we+make|nous faisons
+we+give|nous donnons
+we+eat|nous mangeons
+we+drink|nous buvons
+we+play|nous jouons
+we+wait|nous attendons
+we+don't know|nous ne savons pas
+we+happy|nous sommes contents
+we+sad|nous sommes tristes
+we+angry|nous sommes fâchés
+we+tired|nous sommes fatigués
+we+scared|nous avons peur
+we+sick|nous sommes malades
+we+hurt|nous avons mal
+we+hungry|nous avons faim
+we+thirsty|nous avons soif
+we+hot|nous avons chaud
+we+cold|nous avons froid
+we+bored|nous nous ennuyons

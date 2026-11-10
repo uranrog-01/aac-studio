@@ -3109,3 +3109,149 @@ yule log|trungu i Krishtlindjes
 zebra crossing|vendkalim për këmbësorë
 zero|zero
 zip|zinxhir rrobash
+[forms]
+I+want|unë dua
+I+need|unë kam nevojë
+I+like|më pëlqen
+I+don't like|nuk më pëlqen
+I+love|unë e dua
+I+help|unë ndihmoj
+I+stop|unë ndalem
+I+go|unë shkoj
+I+open|unë hap
+I+look|unë shikoj
+I+make|unë bëj
+I+give|unë jap
+I+eat|unë ha
+I+drink|unë pi
+I+play|unë luaj
+I+wait|unë pres
+I+don't know|unë nuk e di
+I+happy|unë jam i lumtur
+I+sad|unë jam i trishtuar
+I+angry|unë jam i zemëruar
+I+tired|unë jam i lodhur
+I+scared|unë kam frikë
+I+sick|unë jam i sëmurë
+I+hurt|më dhemb
+I+hungry|unë kam uri
+I+thirsty|unë kam etje
+I+hot|unë kam vapë
+I+cold|unë kam ftohtë
+I+bored|unë jam i mërzitur
+you+want|ti do
+you+need|ti ke nevojë
+you+like|të pëlqen
+you+don't like|nuk të pëlqen
+you+love|ti e do
+you+help|ti ndihmon
+you+stop|ti ndalesh
+you+go|ti shkon
+you+open|ti hap
+you+look|ti shikon
+you+make|ti bën
+you+give|ti jep
+you+eat|ti ha
+you+drink|ti pi
+you+play|ti luan
+you+wait|ti pret
+you+don't know|ti nuk e di
+you+happy|ti je i lumtur
+you+sad|ti je i trishtuar
+you+angry|ti je i zemëruar
+you+tired|ti je i lodhur
+you+scared|ti ke frikë
+you+sick|ti je i sëmurë
+you+hurt|të dhemb
+you+hungry|ti ke uri
+you+thirsty|ti ke etje
+you+hot|ti ke vapë
+you+cold|ti ke ftohtë
+you+bored|ti je i mërzitur
+he+want|ai do
+he+need|ai ka nevojë
+he+like|atij i pëlqen
+he+don't like|atij nuk i pëlqen
+he+love|ai e do
+he+help|ai ndihmon
+he+stop|ai ndalet
+he+go|ai shkon
+he+open|ai hap
+he+look|ai shikon
+he+make|ai bën
+he+give|ai jep
+he+eat|ai ha
+he+drink|ai pi
+he+play|ai luan
+he+wait|ai pret
+he+don't know|ai nuk e di
+he+happy|ai është i lumtur
+he+sad|ai është i trishtuar
+he+angry|ai është i zemëruar
+he+tired|ai është i lodhur
+he+scared|ai ka frikë
+he+sick|ai është i sëmurë
+he+hurt|atij i dhemb
+he+hungry|ai ka uri
+he+thirsty|ai ka etje
+he+hot|ai ka vapë
+he+cold|ai ka ftohtë
+he+bored|ai është i mërzitur
+she+want|ajo do
+she+need|ajo ka nevojë
+she+like|asaj i pëlqen
+she+don't like|asaj nuk i pëlqen
+she+love|ajo e do
+she+help|ajo ndihmon
+she+stop|ajo ndalet
+she+go|ajo shkon
+she+open|ajo hap
+she+look|ajo shikon
+she+make|ajo bën
+she+give|ajo jep
+she+eat|ajo ha
+she+drink|ajo pi
+she+play|ajo luan
+she+wait|ajo pret
+she+don't know|ajo nuk e di
+she+happy|ajo është e lumtur
+she+sad|ajo është e trishtuar
+she+angry|ajo është e zemëruar
+she+tired|ajo është e lodhur
+she+scared|ajo ka frikë
+she+sick|ajo është e sëmurë
+she+hurt|asaj i dhemb
+she+hungry|ajo ka uri
+she+thirsty|ajo ka etje
+she+hot|ajo ka vapë
+she+cold|ajo ka ftohtë
+she+bored|ajo është e mërzitur
+we+want|ne duam
+we+need|ne kemi nevojë
+we+like|na pëlqen
+we+don't like|nuk na pëlqen
+we+love|ne e duam
+we+help|ne ndihmojmë
+we+stop|ne ndalemi
+we+go|ne shkojmë
+we+open|ne hapim
+we+look|ne shikojmë
+we+make|ne bëjmë
+we+give|ne japim
+we+eat|ne hamë
+we+drink|ne pimë
+we+play|ne luajmë
+we+wait|ne presim
+we+don't know|ne nuk e dimë
+we+happy|ne jemi të lumtur
+we+sad|ne jemi të trishtuar
+we+angry|ne jemi të zemëruar
+we+tired|ne jemi të lodhur
+we+scared|ne kemi frikë
+we+sick|ne jemi të sëmurë
+we+hurt|na dhemb
+we+hungry|ne kemi uri
+we+thirsty|ne kemi etje
+we+hot|ne kemi vapë
+we+cold|ne kemi ftohtë
+we+bored|ne jemi të mërzitur

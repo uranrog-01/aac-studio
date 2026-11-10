@@ -3110,3 +3110,150 @@ zero|nul
 zip|rits
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ik
+
+[forms]
+I+want|ik wil
+I+need|ik heb het nodig
+I+like|ik vind het leuk
+I+don't like|ik vind het niet leuk
+I+love|ik hou ervan
+I+help|ik help
+I+stop|ik stop
+I+go|ik ga
+I+open|ik maak het open
+I+look|ik kijk
+I+make|ik maak het
+I+give|ik geef het
+I+eat|ik eet
+I+drink|ik drink
+I+play|ik speel
+I+wait|ik wacht
+I+don't know|ik weet het niet
+I+happy|ik ben blij
+I+sad|ik ben verdrietig
+I+angry|ik ben boos
+I+tired|ik ben moe
+I+scared|ik ben bang
+I+sick|ik ben ziek
+I+hurt|ik heb pijn
+I+hungry|ik heb honger
+I+thirsty|ik heb dorst
+I+hot|ik heb het warm
+I+cold|ik heb het koud
+I+bored|ik verveel me
+you+want|jij wilt
+you+need|jij hebt het nodig
+you+like|jij vindt het leuk
+you+don't like|jij vindt het niet leuk
+you+love|jij houdt ervan
+you+help|jij helpt
+you+stop|jij stopt
+you+go|jij gaat
+you+open|jij maakt het open
+you+look|jij kijkt
+you+make|jij maakt het
+you+give|jij geeft het
+you+eat|jij eet
+you+drink|jij drinkt
+you+play|jij speelt
+you+wait|jij wacht
+you+don't know|jij weet het niet
+you+happy|jij bent blij
+you+sad|jij bent verdrietig
+you+angry|jij bent boos
+you+tired|jij bent moe
+you+scared|jij bent bang
+you+sick|jij bent ziek
+you+hurt|jij hebt pijn
+you+hungry|jij hebt honger
+you+thirsty|jij hebt dorst
+you+hot|jij hebt het warm
+you+cold|jij hebt het koud
+you+bored|jij verveelt je
+he+want|hij wil
+he+need|hij heeft het nodig
+he+like|hij vindt het leuk
+he+don't like|hij vindt het niet leuk
+he+love|hij houdt ervan
+he+help|hij helpt
+he+stop|hij stopt
+he+go|hij gaat
+he+open|hij maakt het open
+he+look|hij kijkt
+he+make|hij maakt het
+he+give|hij geeft het
+he+eat|hij eet
+he+drink|hij drinkt
+he+play|hij speelt
+he+wait|hij wacht
+he+don't know|hij weet het niet
+he+happy|hij is blij
+he+sad|hij is verdrietig
+he+angry|hij is boos
+he+tired|hij is moe
+he+scared|hij is bang
+he+sick|hij is ziek
+he+hurt|hij heeft pijn
+he+hungry|hij heeft honger
+he+thirsty|hij heeft dorst
+he+hot|hij heeft het warm
+he+cold|hij heeft het koud
+he+bored|hij verveelt zich
+she+want|zij wil
+she+need|zij heeft het nodig
+she+like|zij vindt het leuk
+she+don't like|zij vindt het niet leuk
+she+love|zij houdt ervan
+she+help|zij helpt
+she+stop|zij stopt
+she+go|zij gaat
+she+open|zij maakt het open
+she+look|zij kijkt
+she+make|zij maakt het
+she+give|zij geeft het
+she+eat|zij eet
+she+drink|zij drinkt
+she+play|zij speelt
+she+wait|zij wacht
+she+don't know|zij weet het niet
+she+happy|zij is blij
+she+sad|zij is verdrietig
+she+angry|zij is boos
+she+tired|zij is moe
+she+scared|zij is bang
+she+sick|zij is ziek
+she+hurt|zij heeft pijn
+she+hungry|zij heeft honger
+she+thirsty|zij heeft dorst
+she+hot|zij heeft het warm
+she+cold|zij heeft het koud
+she+bored|zij verveelt zich
+we+want|wij willen
+we+need|wij hebben het nodig
+we+like|wij vinden het leuk
+we+don't like|wij vinden het niet leuk
+we+love|wij houden ervan
+we+help|wij helpen
+we+stop|wij stoppen
+we+go|wij gaan
+we+open|wij maken het open
+we+look|wij kijken
+we+make|wij maken het
+we+give|wij geven het
+we+eat|wij eten
+we+drink|wij drinken
+we+play|wij spelen
+we+wait|wij wachten
+we+don't know|wij weten het niet
+we+happy|wij zijn blij
+we+sad|wij zijn verdrietig
+we+angry|wij zijn boos
+we+tired|wij zijn moe
+we+scared|wij zijn bang
+we+sick|wij zijn ziek
+we+hurt|wij hebben pijn
+we+hungry|wij hebben honger
+we+thirsty|wij hebben dorst
+we+hot|wij hebben het warm
+we+cold|wij hebben het koud
+we+bored|wij vervelen ons

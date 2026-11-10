@@ -3110,3 +3110,150 @@ zero|zero
 zip|fermoar
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|eu
+
+[forms]
+I+want|vreau
+I+need|am nevoie
+I+like|îmi place
+I+don't like|nu-mi place
+I+love|iubesc
+I+help|ajut
+I+stop|mă opresc
+I+go|merg
+I+open|deschid
+I+look|mă uit
+I+make|fac
+I+give|dau
+I+eat|mănânc
+I+drink|beau
+I+play|mă joc
+I+wait|aștept
+I+don't know|nu știu
+I+happy|sunt fericit
+I+sad|sunt trist
+I+angry|sunt supărat
+I+tired|sunt obosit
+I+scared|mi-e frică
+I+sick|sunt bolnav
+I+hurt|mă doare
+I+hungry|mi-e foame
+I+thirsty|mi-e sete
+I+hot|mi-e cald
+I+cold|mi-e frig
+I+bored|mă plictisesc
+you+want|vrei
+you+need|ai nevoie
+you+like|îți place
+you+don't like|nu-ți place
+you+love|iubești
+you+help|ajuți
+you+stop|te oprești
+you+go|mergi
+you+open|deschizi
+you+look|te uiți
+you+make|faci
+you+give|dai
+you+eat|mănânci
+you+drink|bei
+you+play|te joci
+you+wait|aștepți
+you+don't know|nu știi
+you+happy|ești fericit
+you+sad|ești trist
+you+angry|ești supărat
+you+tired|ești obosit
+you+scared|ți-e frică
+you+sick|ești bolnav
+you+hurt|te doare
+you+hungry|ți-e foame
+you+thirsty|ți-e sete
+you+hot|ți-e cald
+you+cold|ți-e frig
+you+bored|te plictisești
+he+want|el vrea
+he+need|el are nevoie
+he+like|lui îi place
+he+don't like|lui nu-i place
+he+love|el iubește
+he+help|el ajută
+he+stop|el se oprește
+he+go|el merge
+he+open|el deschide
+he+look|el se uită
+he+make|el face
+he+give|el dă
+he+eat|el mănâncă
+he+drink|el bea
+he+play|el se joacă
+he+wait|el așteaptă
+he+don't know|el nu știe
+he+happy|el e fericit
+he+sad|el e trist
+he+angry|el e supărat
+he+tired|el e obosit
+he+scared|lui îi e frică
+he+sick|el e bolnav
+he+hurt|pe el îl doare
+he+hungry|lui îi e foame
+he+thirsty|lui îi e sete
+he+hot|lui îi e cald
+he+cold|lui îi e frig
+he+bored|el se plictisește
+she+want|ea vrea
+she+need|ea are nevoie
+she+like|ei îi place
+she+don't like|ei nu-i place
+she+love|ea iubește
+she+help|ea ajută
+she+stop|ea se oprește
+she+go|ea merge
+she+open|ea deschide
+she+look|ea se uită
+she+make|ea face
+she+give|ea dă
+she+eat|ea mănâncă
+she+drink|ea bea
+she+play|ea se joacă
+she+wait|ea așteaptă
+she+don't know|ea nu știe
+she+happy|ea e fericită
+she+sad|ea e tristă
+she+angry|ea e supărată
+she+tired|ea e obosită
+she+scared|ei îi e frică
+she+sick|ea e bolnavă
+she+hurt|pe ea o doare
+she+hungry|ei îi e foame
+she+thirsty|ei îi e sete
+she+hot|ei îi e cald
+she+cold|ei îi e frig
+she+bored|ea se plictisește
+we+want|vrem
+we+need|avem nevoie
+we+like|ne place
+we+don't like|nu ne place
+we+love|iubim
+we+help|ajutăm
+we+stop|ne oprim
+we+go|mergem
+we+open|deschidem
+we+look|ne uităm
+we+make|facem
+we+give|dăm
+we+eat|mâncăm
+we+drink|bem
+we+play|ne jucăm
+we+wait|așteptăm
+we+don't know|nu știm
+we+happy|suntem fericiți
+we+sad|suntem triști
+we+angry|suntem supărați
+we+tired|suntem obosiți
+we+scared|ne e frică
+we+sick|suntem bolnavi
+we+hurt|ne doare
+we+hungry|ne e foame
+we+thirsty|ne e sete
+we+hot|ne e cald
+we+cold|ne e frig
+we+bored|ne plictisim

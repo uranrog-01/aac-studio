@@ -3110,3 +3110,150 @@ zero|ноль
 zip|молния
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|я
+
+[forms]
+I+want|я хочу
+I+need|мне нужно
+I+like|мне нравится
+I+don't like|мне не нравится
+I+love|я люблю
+I+help|я помогаю
+I+stop|я останавливаюсь
+I+go|я иду
+I+open|я открываю
+I+look|я смотрю
+I+make|я делаю
+I+give|я даю
+I+eat|я ем
+I+drink|я пью
+I+play|я играю
+I+wait|я жду
+I+don't know|я не знаю
+I+happy|я рад
+I+sad|мне грустно
+I+angry|я сержусь
+I+tired|я устал
+I+scared|мне страшно
+I+sick|я болею
+I+hurt|мне больно
+I+hungry|я хочу есть
+I+thirsty|я хочу пить
+I+hot|мне жарко
+I+cold|мне холодно
+I+bored|мне скучно
+you+want|ты хочешь
+you+need|тебе нужно
+you+like|тебе нравится
+you+don't like|тебе не нравится
+you+love|ты любишь
+you+help|ты помогаешь
+you+stop|ты останавливаешься
+you+go|ты идёшь
+you+open|ты открываешь
+you+look|ты смотришь
+you+make|ты делаешь
+you+give|ты даёшь
+you+eat|ты ешь
+you+drink|ты пьёшь
+you+play|ты играешь
+you+wait|ты ждёшь
+you+don't know|ты не знаешь
+you+happy|ты рад
+you+sad|тебе грустно
+you+angry|ты сердишься
+you+tired|ты устал
+you+scared|тебе страшно
+you+sick|ты болеешь
+you+hurt|тебе больно
+you+hungry|ты хочешь есть
+you+thirsty|ты хочешь пить
+you+hot|тебе жарко
+you+cold|тебе холодно
+you+bored|тебе скучно
+he+want|он хочет
+he+need|ему нужно
+he+like|ему нравится
+he+don't like|ему не нравится
+he+love|он любит
+he+help|он помогает
+he+stop|он останавливается
+he+go|он идёт
+he+open|он открывает
+he+look|он смотрит
+he+make|он делает
+he+give|он даёт
+he+eat|он ест
+he+drink|он пьёт
+he+play|он играет
+he+wait|он ждёт
+he+don't know|он не знает
+he+happy|он рад
+he+sad|ему грустно
+he+angry|он сердится
+he+tired|он устал
+he+scared|ему страшно
+he+sick|он болеет
+he+hurt|ему больно
+he+hungry|он хочет есть
+he+thirsty|он хочет пить
+he+hot|ему жарко
+he+cold|ему холодно
+he+bored|ему скучно
+she+want|она хочет
+she+need|ей нужно
+she+like|ей нравится
+she+don't like|ей не нравится
+she+love|она любит
+she+help|она помогает
+she+stop|она останавливается
+she+go|она идёт
+she+open|она открывает
+she+look|она смотрит
+she+make|она делает
+she+give|она даёт
+she+eat|она ест
+she+drink|она пьёт
+she+play|она играет
+she+wait|она ждёт
+she+don't know|она не знает
+she+happy|она рада
+she+sad|ей грустно
+she+angry|она сердится
+she+tired|она устала
+she+scared|ей страшно
+she+sick|она болеет
+she+hurt|ей больно
+she+hungry|она хочет есть
+she+thirsty|она хочет пить
+she+hot|ей жарко
+she+cold|ей холодно
+she+bored|ей скучно
+we+want|мы хотим
+we+need|нам нужно
+we+like|нам нравится
+we+don't like|нам не нравится
+we+love|мы любим
+we+help|мы помогаем
+we+stop|мы останавливаемся
+we+go|мы идём
+we+open|мы открываем
+we+look|мы смотрим
+we+make|мы делаем
+we+give|мы даём
+we+eat|мы едим
+we+drink|мы пьём
+we+play|мы играем
+we+wait|мы ждём
+we+don't know|мы не знаем
+we+happy|мы рады
+we+sad|нам грустно
+we+angry|мы сердимся
+we+tired|мы устали
+we+scared|нам страшно
+we+sick|мы болеем
+we+hurt|нам больно
+we+hungry|мы хотим есть
+we+thirsty|мы хотим пить
+we+hot|нам жарко
+we+cold|нам холодно
+we+bored|нам скучно

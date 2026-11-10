@@ -97,9 +97,10 @@ class _KeyboardViewState extends State<KeyboardView> {
       setState(() => _uppercase = false);
     }
     if (RegExp(r'^[\p{L}\p{N}]$', unicode: true).hasMatch(typed)) {
-      // Upper case so the voice says the letter's name ("A", not "uh").
+      // The speech engine says single letters by their name, without
+      // "capital" (see SpeechText.forSpeech).
       if (widget.typingSpeech == 'letters') {
-        widget.speech.speak(typed.toUpperCase(), interrupt: true);
+        widget.speech.speak(typed, interrupt: true);
       }
     } else if (typed != "'") {
       _sayFinishedWord();

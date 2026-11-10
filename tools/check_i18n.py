@@ -25,13 +25,13 @@ def check(code):
     if not path.exists():
         print(f'{code}: {path} does not exist')
         return False
-    ui, words, problems = {}, {}, []
+    ui, words, forms, problems = {}, {}, {}, []
     section = None
     for number, raw in enumerate(path.read_text(encoding='utf8').splitlines(), 1):
         line = raw.strip()
         if not line or line.startswith('#'):
             continue
-        if line in ('[ui]', '[words]'):
+        if line in ('[ui]', '[words]', '[forms]'):
             section = line
             continue
         if section is None:
@@ -44,23 +44,28 @@ def check(code):
         if not english or not translated:
             problems.append(f'line {number}: empty side in {line!r}')
             continue
-        target = ui if section == '[ui]' else words
+        target = ui if section == '[ui]' else forms if section == '[forms]' else words
         key = english if section == '[ui]' else english.lower()
         if key in target and target[key] != translated:
             problems.append(f'line {number}: {english!r} translated twice')
         target[key] = translated
-    missing_ui = [e for e in entries('ui.txt') if e not in ui]
-    missing_core = [e for e in entries('core_words.txt') if e.lower() not in words]
-    missing_lib = [e for e in entries('library_words.txt') if e.lower() not in words]
-    ok = not (problems or missing_ui or missing_core or missing_lib)
+    english_only = code == 'en'
+    missing_ui = [] if english_only else [e for e in entries('ui.txt') if e not in ui]
+    missing_core = [] if english_only else [
+        e for e in entries('core_words.txt') if e.lower() not in words]
+    missing_lib = [] if english_only else [
+        e for e in entries('library_words.txt') if e.lower() not in words]
+    missing_forms = [e for e in entries('forms.txt') if e.lower() not in forms]
+    ok = not (problems or missing_ui or missing_core or missing_lib or missing_forms)
     print(f'{code}: {"OK" if ok else "INCOMPLETE"} - {len(ui)} app texts, '
           f'{len(words)} words; missing: {len(missing_ui)} app texts, '
-          f'{len(missing_core)} core, {len(missing_lib)} library; '
+          f'{len(missing_core)} core, {len(missing_lib)} library, '
+          f'{len(missing_forms)} sentence forms; '
           f'{len(problems)} format problems')
     for p in problems[:20]:
         print('  ', p)
     for label, items in (('app text', missing_ui), ('core', missing_core),
-                         ('library', missing_lib)):
+                         ('library', missing_lib), ('sentence form', missing_forms)):
         if items:
             print(f'   first missing {label}: {items[:8]}')
     return ok

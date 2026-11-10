@@ -12,12 +12,18 @@ import 'storage.dart' show AppSettings;
 class DeviceVoice {
   final String name;
   final String locale;
-  const DeviceVoice(this.name, this.locale);
+  final String quality;
+  final bool network;
+  const DeviceVoice(this.name, this.locale,
+      {this.quality = '', this.network = false});
+
+  VoiceInfo get info =>
+      (name: name, locale: locale, quality: quality, network: network);
 
   bool get isEnglish => locale.toLowerCase().startsWith('en');
 
   /// Android lists cloud voices that only speak with internet access.
-  bool get needsInternet => name.toLowerCase().contains('network');
+  bool get needsInternet => network || name.toLowerCase().contains('network');
 }
 
 /// Shared initialization and serialized requests keep first and rapid taps reliable.
@@ -76,7 +82,6 @@ class SpeechEngine {
   /// Chosen device voice (null = platform default). Applied before the next
   /// device utterance.
   DeviceVoice? voice;
-  DeviceVoice? _appliedVoice;
 
   /// iOS: speak through the call-capable voice (see ios/Runner/CallSpeech.swift).
   bool callSpeech = false;
@@ -90,8 +95,8 @@ class SpeechEngine {
         'rate': rate,
         'pitch': pitch,
         'volume': volume,
-        'voiceName': voice?.name ?? '',
-        'locale': voice?.locale ?? language.voiceLocales.first,
+        'voiceName': _resolved?.name ?? '',
+        'locale': _resolved?.locale ?? language.voiceLocales.first,
         'interrupt': interrupt,
       });
       return result == 1;
@@ -102,7 +107,6 @@ class SpeechEngine {
 
   /// Language the device voice speaks when no voice is chosen.
   AppLanguage language = kLanguages.first;
-  String? _appliedLanguage;
 
   Future<void> ensure() => _initializing ??= _initialize();
 
@@ -131,9 +135,15 @@ class SpeechEngine {
       final voices = <DeviceVoice>[
         for (final v in (raw as List? ?? const []))
           if (v is Map && v['name'] != null)
-            DeviceVoice('${v['name']}', '${v['locale'] ?? ''}'),
+            DeviceVoice('${v['name']}', '${v['locale'] ?? ''}',
+                quality: '${v['quality'] ?? ''}',
+                network: '${v['network_required'] ?? '0'}' == '1'),
       ];
       voices.sort((a, b) {
+        // The chosen language's voices first, then English, then the rest.
+        final aMine = voiceSpeaks(language, a.locale);
+        final bMine = voiceSpeaks(language, b.locale);
+        if (aMine != bMine) return aMine ? -1 : 1;
         if (a.isEnglish != b.isEnglish) return a.isEnglish ? -1 : 1;
         final byLocale = a.locale.compareTo(b.locale);
         return byLocale != 0 ? byLocale : a.name.compareTo(b.name);
@@ -144,18 +154,47 @@ class SpeechEngine {
     }
   }
 
+  /// The voice actually speaking (chosen in Settings, or the best one for
+  /// the language); null = the device default for the language.
+  DeviceVoice? _resolved;
+  String? _appliedKey;
+  String? _bestFor;
+  DeviceVoice? _best;
+
+  Future<DeviceVoice?> _bestVoice() async {
+    if (_bestFor == language.code) return _best;
+    final voices = await deviceVoices();
+    final pick = bestVoice(language, voices.map((v) => v.info));
+    _best = pick == null
+        ? null
+        : voices.firstWhere(
+            (v) => v.name == pick.name && v.locale == pick.locale);
+    _bestFor = language.code;
+    return _best;
+  }
+
+  /// Uses the voice chosen in Settings if it speaks the current language;
+  /// otherwise the most natural installed voice for the language (so French
+  /// words are never read by an English voice). Falls back to the device's
+  /// default for the language, e.g. Albanian on iPhone.
   Future<void> _applyVoice() async {
-    final wanted = voice;
-    if (wanted?.name == _appliedVoice?.name &&
-        wanted?.locale == _appliedVoice?.locale) {
-      if (wanted == null) await _applyLanguage();
-      return;
-    }
+    var wanted = voice;
+    if (wanted != null && !voiceSpeaks(language, wanted.locale)) wanted = null;
+    wanted ??= await _bestVoice();
+    final key = '${language.code}|${wanted?.name}|${wanted?.locale}';
+    if (key == _appliedKey) return;
     if (wanted == null) {
       try {
         await _tts.clearVoice();
       } catch (_) {/* Not every platform implements clearVoice. */}
-      await _applyLanguage();
+      for (final locale in language.voiceLocales) {
+        try {
+          if (await _tts.isLanguageAvailable(locale) == true) {
+            await _tts.setLanguage(locale);
+            break;
+          }
+        } catch (_) {/* Windows: keep its default. */}
+      }
     } else {
       try {
         await _tts.setVoice({'name': wanted.name, 'locale': wanted.locale});
@@ -163,22 +202,8 @@ class SpeechEngine {
         // An uninstalled voice must not silence the app: keep the default.
       }
     }
-    _appliedVoice = wanted;
-  }
-
-  /// Selects the chosen language's voice (falls back to the device default
-  /// when the language has no voice installed, e.g. Albanian on iPhone).
-  Future<void> _applyLanguage() async {
-    if (_appliedLanguage == language.code) return;
-    for (final locale in language.voiceLocales) {
-      try {
-        if (await _tts.isLanguageAvailable(locale) == true) {
-          await _tts.setLanguage(locale);
-          break;
-        }
-      } catch (_) {/* Windows: keep its default. */}
-    }
-    _appliedLanguage = language.code;
+    _resolved = wanted;
+    _appliedKey = key;
   }
 
   Future<void> _initialize() async {
@@ -224,7 +249,8 @@ class SpeechEngine {
   /// [interrupt] (typing) cuts off what is playing instead, so letters
   /// typed quickly do not pile up and fall behind.
   Future<void> speak(String text, {VoiceStyle? style, bool interrupt = false}) {
-    if (text.trim().isEmpty) return Future.value();
+    text = speechText(text);
+    if (text.isEmpty) return Future.value();
     // Piper synthesis takes time: a newer tap replaces queued/stale speech.
     if (_usePiper || interrupt) _generation++;
     final generation = _generation;
@@ -290,7 +316,7 @@ class SpeechEngine {
           return;
         } catch (_) {
           _initializing = null;
-          _appliedVoice = null;
+          _appliedKey = null;
         }
       }
       error.value =

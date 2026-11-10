@@ -1,0 +1,147 @@
+# English: pronoun + word combined into a natural phrase.
+[forms]
+I+want|I want
+I+need|I need
+I+like|I like
+I+don't like|I don't like
+I+love|I love
+I+help|I help
+I+stop|I stop
+I+go|I go
+I+open|I open
+I+look|I look
+I+make|I make
+I+give|I give
+I+eat|I eat
+I+drink|I drink
+I+play|I play
+I+wait|I wait
+I+don't know|I don't know
+I+happy|I am happy
+I+sad|I am sad
+I+angry|I am angry
+I+tired|I am tired
+I+scared|I am scared
+I+sick|I am sick
+I+hurt|I am hurt
+I+hungry|I am hungry
+I+thirsty|I am thirsty
+I+hot|I am hot
+I+cold|I am cold
+I+bored|I am bored
+you+want|you want
+you+need|you need
+you+like|you like
+you+don't like|you don't like
+you+love|you love
+you+help|you help
+you+stop|you stop
+you+go|you go
+you+open|you open
+you+look|you look
+you+make|you make
+you+give|you give
+you+eat|you eat
+you+drink|you drink
+you+play|you play
+you+wait|you wait
+you+don't know|you don't know
+you+happy|you are happy
+you+sad|you are sad
+you+angry|you are angry
+you+tired|you are tired
+you+scared|you are scared
+you+sick|you are sick
+you+hurt|you are hurt
+you+hungry|you are hungry
+you+thirsty|you are thirsty
+you+hot|you are hot
+you+cold|you are cold
+you+bored|you are bored
+he+want|he wants
+he+need|he needs
+he+like|he likes
+he+don't like|he doesn't like
+he+love|he loves
+he+help|he helps
+he+stop|he stops
+he+go|he goes
+he+open|he opens
+he+look|he looks
+he+make|he makes
+he+give|he gives
+he+eat|he eats
+he+drink|he drinks
+he+play|he plays
+he+wait|he waits
+he+don't know|he doesn't know
+he+happy|he is happy
+he+sad|he is sad
+he+angry|he is angry
+he+tired|he is tired
+he+scared|he is scared
+he+sick|he is sick
+he+hurt|he is hurt
+he+hungry|he is hungry
+he+thirsty|he is thirsty
+he+hot|he is hot
+he+cold|he is cold
+he+bored|he is bored
+she+want|she wants
+she+need|she needs
+she+like|she likes
+she+don't like|she doesn't like
+she+love|she loves
+she+help|she helps
+she+stop|she stops
+she+go|she goes
+she+open|she opens
+she+look|she looks
+she+make|she makes
+she+give|she gives
+she+eat|she eats
+she+drink|she drinks
+she+play|she plays
+she+wait|she waits
+she+don't know|she doesn't know
+she+happy|she is happy
+she+sad|she is sad
+she+angry|she is angry
+she+tired|she is tired
+she+scared|she is scared
+she+sick|she is sick
+she+hurt|she is hurt
+she+hungry|she is hungry
+she+thirsty|she is thirsty
+she+hot|she is hot
+she+cold|she is cold
+she+bored|she is bored
+we+want|we want
+we+need|we need
+we+like|we like
+we+don't like|we don't like
+we+love|we love
+we+help|we help
+we+stop|we stop
+we+go|we go
+we+open|we open
+we+look|we look
+we+make|we make
+we+give|we give
+we+eat|we eat
+we+drink|we drink
+we+play|we play
+we+wait|we wait
+we+don't know|we don't know
+we+happy|we are happy
+we+sad|we are sad
+we+angry|we are angry
+we+tired|we are tired
+we+scared|we are scared
+we+sick|we are sick
+we+hurt|we are hurt
+we+hungry|we are hungry
+we+thirsty|we are thirsty
+we+hot|we are hot
+we+cold|we are cold
+we+bored|we are bored

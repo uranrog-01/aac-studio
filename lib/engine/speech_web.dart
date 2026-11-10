@@ -70,7 +70,10 @@ class SpeechEngine {
         .toDart
         .map((v) => DeviceVoice(v.name, v.lang, needsInternet: !v.localService))
         .toList();
-    voices.sort((a, b) => a.isEnglish != b.isEnglish
+    voices.sort((a, b) => voiceSpeaks(language, a.locale) !=
+            voiceSpeaks(language, b.locale)
+        ? (voiceSpeaks(language, a.locale) ? -1 : 1)
+        : a.isEnglish != b.isEnglish
         ? (a.isEnglish ? -1 : 1)
         : a.name.compareTo(b.name));
     return voices;
@@ -79,16 +82,27 @@ class SpeechEngine {
   /// The browser always cuts off what is playing (Safari's speech queue can
   /// stall), so [interrupt] is the behaviour here either way.
   Future<void> speak(String text, {VoiceStyle? style, bool interrupt = false}) {
-    if (text.trim().isEmpty) return Future.value();
+    text = speechText(text);
+    if (text.isEmpty) return Future.value();
     try {
       if (!_available) throw StateError('No browser speech');
+      // The chosen voice if it speaks this language, else the most natural
+      // browser voice for the language (never an English voice for French).
+      var use = voice;
+      if (use == null || !voiceSpeaks(language, use.locale)) {
+        final pick = bestVoice(language, [
+          for (final v in _voices().toDart)
+            (name: v.name, locale: v.lang, quality: '', network: !v.localService)
+        ]);
+        use = pick == null ? null : DeviceVoice(pick.name, pick.locale);
+      }
       _speak(
           text.trim().toJS,
           (style?.rate ?? rate).clamp(0, 1),
           (style?.pitch ?? pitch).clamp(.5, 2),
           (style?.volume ?? volume).clamp(0, 1),
-          (voice?.name ?? '').toJS,
-          (voice?.locale ?? language.voiceLocales.first).toJS);
+          (use?.name ?? '').toJS,
+          (use?.locale ?? language.voiceLocales.first).toJS);
       error.value = null;
     } catch (_) {
       error.value =

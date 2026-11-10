@@ -3110,3 +3110,150 @@ zero|zero
 zip|zamek błyskawiczny
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ja
+
+[forms]
+I+want|chcę
+I+need|potrzebuję
+I+like|lubię
+I+don't like|nie lubię
+I+love|kocham
+I+help|pomagam
+I+stop|zatrzymuję się
+I+go|idę
+I+open|otwieram
+I+look|patrzę
+I+make|robię
+I+give|daję
+I+eat|jem
+I+drink|piję
+I+play|bawię się
+I+wait|czekam
+I+don't know|nie wiem
+I+happy|jestem szczęśliwy
+I+sad|jestem smutny
+I+angry|jestem zły
+I+tired|jestem zmęczony
+I+scared|boję się
+I+sick|jestem chory
+I+hurt|boli mnie
+I+hungry|jestem głodny
+I+thirsty|chce mi się pić
+I+hot|gorąco mi
+I+cold|zimno mi
+I+bored|nudzi mi się
+you+want|chcesz
+you+need|potrzebujesz
+you+like|lubisz
+you+don't like|nie lubisz
+you+love|kochasz
+you+help|pomagasz
+you+stop|zatrzymujesz się
+you+go|idziesz
+you+open|otwierasz
+you+look|patrzysz
+you+make|robisz
+you+give|dajesz
+you+eat|jesz
+you+drink|pijesz
+you+play|bawisz się
+you+wait|czekasz
+you+don't know|nie wiesz
+you+happy|jesteś szczęśliwy
+you+sad|jesteś smutny
+you+angry|jesteś zły
+you+tired|jesteś zmęczony
+you+scared|boisz się
+you+sick|jesteś chory
+you+hurt|boli cię
+you+hungry|jesteś głodny
+you+thirsty|chce ci się pić
+you+hot|gorąco ci
+you+cold|zimno ci
+you+bored|nudzi ci się
+he+want|on chce
+he+need|on potrzebuje
+he+like|on lubi
+he+don't like|on nie lubi
+he+love|on kocha
+he+help|on pomaga
+he+stop|on się zatrzymuje
+he+go|on idzie
+he+open|on otwiera
+he+look|on patrzy
+he+make|on robi
+he+give|on daje
+he+eat|on je
+he+drink|on pije
+he+play|on się bawi
+he+wait|on czeka
+he+don't know|on nie wie
+he+happy|on jest szczęśliwy
+he+sad|on jest smutny
+he+angry|on jest zły
+he+tired|on jest zmęczony
+he+scared|on się boi
+he+sick|on jest chory
+he+hurt|boli go
+he+hungry|on jest głodny
+he+thirsty|chce mu się pić
+he+hot|gorąco mu
+he+cold|zimno mu
+he+bored|nudzi mu się
+she+want|ona chce
+she+need|ona potrzebuje
+she+like|ona lubi
+she+don't like|ona nie lubi
+she+love|ona kocha
+she+help|ona pomaga
+she+stop|ona się zatrzymuje
+she+go|ona idzie
+she+open|ona otwiera
+she+look|ona patrzy
+she+make|ona robi
+she+give|ona daje
+she+eat|ona je
+she+drink|ona pije
+she+play|ona się bawi
+she+wait|ona czeka
+she+don't know|ona nie wie
+she+happy|ona jest szczęśliwa
+she+sad|ona jest smutna
+she+angry|ona jest zła
+she+tired|ona jest zmęczona
+she+scared|ona się boi
+she+sick|ona jest chora
+she+hurt|boli ją
+she+hungry|ona jest głodna
+she+thirsty|chce jej się pić
+she+hot|gorąco jej
+she+cold|zimno jej
+she+bored|nudzi jej się
+we+want|chcemy
+we+need|potrzebujemy
+we+like|lubimy
+we+don't like|nie lubimy
+we+love|kochamy
+we+help|pomagamy
+we+stop|zatrzymujemy się
+we+go|idziemy
+we+open|otwieramy
+we+look|patrzymy
+we+make|robimy
+we+give|dajemy
+we+eat|jemy
+we+drink|pijemy
+we+play|bawimy się
+we+wait|czekamy
+we+don't know|nie wiemy
+we+happy|jesteśmy szczęśliwi
+we+sad|jesteśmy smutni
+we+angry|jesteśmy źli
+we+tired|jesteśmy zmęczeni
+we+scared|boimy się
+we+sick|jesteśmy chorzy
+we+hurt|boli nas
+we+hungry|jesteśmy głodni
+we+thirsty|chce nam się pić
+we+hot|gorąco nam
+we+cold|zimno nam
+we+bored|nudzi nam się

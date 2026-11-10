@@ -3110,3 +3110,149 @@ zero|صفر
 zip|سحاب
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|أنا
+[forms]
+I+want|أنا أريد
+I+need|أنا أحتاج
+I+like|أنا أحب
+I+don't like|أنا لا أحب
+I+love|أنا أحب كثيرا
+I+help|أنا أساعد
+I+stop|أنا أتوقف
+I+go|أنا أذهب
+I+open|أنا أفتح
+I+look|أنا أنظر
+I+make|أنا أصنع
+I+give|أنا أعطي
+I+eat|أنا آكل
+I+drink|أنا أشرب
+I+play|أنا ألعب
+I+wait|أنا أنتظر
+I+don't know|أنا لا أعرف
+I+happy|أنا سعيد
+I+sad|أنا حزين
+I+angry|أنا غاضب
+I+tired|أنا متعب
+I+scared|أنا خائف
+I+sick|أنا مريض
+I+hurt|أنا أتألم
+I+hungry|أنا جائع
+I+thirsty|أنا عطشان
+I+hot|أنا أشعر بالحر
+I+cold|أنا أشعر بالبرد
+I+bored|أنا أشعر بالملل
+you+want|أنت تريد
+you+need|أنت تحتاج
+you+like|أنت تحب
+you+don't like|أنت لا تحب
+you+love|أنت تحب كثيرا
+you+help|أنت تساعد
+you+stop|أنت تتوقف
+you+go|أنت تذهب
+you+open|أنت تفتح
+you+look|أنت تنظر
+you+make|أنت تصنع
+you+give|أنت تعطي
+you+eat|أنت تأكل
+you+drink|أنت تشرب
+you+play|أنت تلعب
+you+wait|أنت تنتظر
+you+don't know|أنت لا تعرف
+you+happy|أنت سعيد
+you+sad|أنت حزين
+you+angry|أنت غاضب
+you+tired|أنت متعب
+you+scared|أنت خائف
+you+sick|أنت مريض
+you+hurt|أنت تتألم
+you+hungry|أنت جائع
+you+thirsty|أنت عطشان
+you+hot|أنت تشعر بالحر
+you+cold|أنت تشعر بالبرد
+you+bored|أنت تشعر بالملل
+he+want|هو يريد
+he+need|هو يحتاج
+he+like|هو يحب
+he+don't like|هو لا يحب
+he+love|هو يحب كثيرا
+he+help|هو يساعد
+he+stop|هو يتوقف
+he+go|هو يذهب
+he+open|هو يفتح
+he+look|هو ينظر
+he+make|هو يصنع
+he+give|هو يعطي
+he+eat|هو يأكل
+he+drink|هو يشرب
+he+play|هو يلعب
+he+wait|هو ينتظر
+he+don't know|هو لا يعرف
+he+happy|هو سعيد
+he+sad|هو حزين
+he+angry|هو غاضب
+he+tired|هو متعب
+he+scared|هو خائف
+he+sick|هو مريض
+he+hurt|هو يتألم
+he+hungry|هو جائع
+he+thirsty|هو عطشان
+he+hot|هو يشعر بالحر
+he+cold|هو يشعر بالبرد
+he+bored|هو يشعر بالملل
+she+want|هي تريد
+she+need|هي تحتاج
+she+like|هي تحب
+she+don't like|هي لا تحب
+she+love|هي تحب كثيرا
+she+help|هي تساعد
+she+stop|هي تتوقف
+she+go|هي تذهب
+she+open|هي تفتح
+she+look|هي تنظر
+she+make|هي تصنع
+she+give|هي تعطي
+she+eat|هي تأكل
+she+drink|هي تشرب
+she+play|هي تلعب
+she+wait|هي تنتظر
+she+don't know|هي لا تعرف
+she+happy|هي سعيدة
+she+sad|هي حزينة
+she+angry|هي غاضبة
+she+tired|هي متعبة
+she+scared|هي خائفة
+she+sick|هي مريضة
+she+hurt|هي تتألم
+she+hungry|هي جائعة
+she+thirsty|هي عطشانة
+she+hot|هي تشعر بالحر
+she+cold|هي تشعر بالبرد
+she+bored|هي تشعر بالملل
+we+want|نحن نريد
+we+need|نحن نحتاج
+we+like|نحن نحب
+we+don't like|نحن لا نحب
+we+love|نحن نحب كثيرا
+we+help|نحن نساعد
+we+stop|نحن نتوقف
+we+go|نحن نذهب
+we+open|نحن نفتح
+we+look|نحن ننظر
+we+make|نحن نصنع
+we+give|نحن نعطي
+we+eat|نحن نأكل
+we+drink|نحن نشرب
+we+play|نحن نلعب
+we+wait|نحن ننتظر
+we+don't know|نحن لا نعرف
+we+happy|نحن سعداء
+we+sad|نحن حزينون
+we+angry|نحن غاضبون
+we+tired|نحن متعبون
+we+scared|نحن خائفون
+we+sick|نحن مرضى
+we+hurt|نحن نتألم
+we+hungry|نحن جائعون
+we+thirsty|نحن عطشانون
+we+hot|نحن نشعر بالحر
+we+cold|نحن نشعر بالبرد
+we+bored|نحن نشعر بالملل
