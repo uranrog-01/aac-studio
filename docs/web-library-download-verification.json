@@ -1,8 +1,0 @@
-{
-  "engine": "Chromium",
-  "pictureFiles": 7111,
-  "allPicturesBytes": 78418707,
-  "passed": true,
-  "source": "tools/test_web.cjs Chromium stage completed successfully before the WebKit speech-availability test was corrected",
-  "scope": "Full download, offline relaunch, saved board, backup export/restore, offline picture and landscape keyboard. The later starter-cache fix adds a keyboard picture; full-library files and byte total are unchanged."
-}
