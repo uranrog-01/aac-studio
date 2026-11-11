@@ -191,6 +191,14 @@ try {
             throw 'Android SDK was not found. Set ANDROID_HOME to your Android SDK folder.'
         }
         Write-Host "Android SDK: $env:ANDROID_HOME"
+        # Java 21 on Windows makes an internal socket in a temp folder; on this
+        # PC that fails ("Unable to establish loopback connection") and Gradle
+        # stops before compiling. A plain short folder avoids it.
+        $socketDir = 'C:\Temp\jdk'
+        New-Item -ItemType Directory -Path $socketDir -Force | Out-Null
+        if ($env:JAVA_TOOL_OPTIONS -notmatch 'jdk\.net\.unixdomain\.tmpdir') {
+            $env:JAVA_TOOL_OPTIONS = ("$env:JAVA_TOOL_OPTIONS -Djdk.net.unixdomain.tmpdir=$socketDir").Trim()
+        }
     }
     if (-not $SkipWeb) { Invoke-Checked python @('--version') }
     Invoke-Checked $Flutter @('pub', 'get')
