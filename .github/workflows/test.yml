@@ -34,7 +34,9 @@ jobs:
           git diff --exit-code -- assets/i18n
 
       - name: Analyze
-        run: flutter analyze
+        # Warnings and errors fail the check. Notes (such as a newer Flutter
+        # announcing a future deprecation) are shown but do not.
+        run: flutter analyze --no-fatal-infos
 
       - name: Test
         run: flutter test
