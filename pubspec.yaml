@@ -6,7 +6,7 @@ description: >-
 publish_to: "none"
 # Build number stays above every per-CPU APK ever shipped (they used
 # 1000/2000/4000 + n), so the single universal APK always installs as an update.
-version: 1.8.1+5006
+version: 1.9.0+5007
 
 environment:
   sdk: ">=3.4.0 <4.0.0"

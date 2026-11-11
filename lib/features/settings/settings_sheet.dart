@@ -468,7 +468,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                         onPressed: () => showLicensePage(
                             context: context,
                             applicationName: 'AAC Studio',
-                            applicationVersion: '1.8.1'),
+                            applicationVersion: '1.9.0'),
                         child: Text(I18n.t('Voice and software licenses'))),
                   ]),
                 ]),
