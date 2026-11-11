@@ -2,7 +2,12 @@
 
 Source format (UTF-8), one entry per line, "English|translation":
     [ui]      app text (buttons, hints, settings), keyed by its English text
-    [words]   board words and category names, keyed by the English label
+    [words]   board words and category names, keyed by the English label;
+              "@<button or category id>|translation" translates one button
+              only, for words with several meanings (sink, watch, tie)
+    [forms]   pronoun+word phrases ("i+want|unë dua")
+    [words_f] / [forms_f]  the same, where a girl or woman says it
+              differently ("tired|e lodhur"); only the differing ones
 Lines starting with # are comments. The saved board stays in English; the
 app translates words when it shows and speaks them (lib/engine/i18n.dart).
 
@@ -19,13 +24,13 @@ OUT = ROOT / 'assets/i18n'
 
 
 def read(path):
-    data = {'ui': {}, 'words': {}, 'forms': {}}
+    data = {'ui': {}, 'words': {}, 'forms': {}, 'words_f': {}, 'forms_f': {}}
     section = None
     for number, raw in enumerate(path.read_text(encoding='utf8').splitlines(), 1):
         line = raw.strip()
         if not line or line.startswith('#'):
             continue
-        if line in ('[ui]', '[words]', '[forms]'):
+        if line in ('[ui]', '[words]', '[forms]', '[words_f]', '[forms_f]'):
             section = line[1:-1]
             continue
         if section is None or '|' not in line:
@@ -34,7 +39,7 @@ def read(path):
         if not english or not translated:
             raise SystemExit(f'{path.name}:{number}: empty side')
         key = english if section == 'ui' else english.lower()
-        if section == 'forms' and '+' not in key:
+        if section in ('forms', 'forms_f') and '+' not in key:
             raise SystemExit(f'{path.name}:{number}: forms need "pronoun+word"')
         if key in data[section] and data[section][key] != translated:
             raise SystemExit(f'{path.name}:{number}: "{english}" translated twice')
@@ -78,6 +83,7 @@ def main():
     for path in sorted(p for p in SOURCE.glob('*.txt') if not p.name.startswith('_')):
         data = read(path)
         data['ui'].update(extra.get(path.stem, {}))
+        data = {k: v for k, v in data.items() if v or not k.endswith('_f')}
         (OUT / f'{path.stem}.json').write_text(
             json.dumps(data, ensure_ascii=False, sort_keys=True, indent=0) + '\n',
             encoding='utf8')

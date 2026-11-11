@@ -59,6 +59,19 @@ class AppSettings {
   List<String> phrases; // saved messages (Type > Save)
   String typingSpeech; // Type screen: 'letters' (and words), 'words' or 'off'
 
+  /// The person speaking is a girl or woman (languages where words such
+  /// as "tired" or "happy" differ: Albanian "i lodhur" / "e lodhur").
+  bool speakerFemale;
+
+  /// Start small and grow: how many Home words are shown. 0 = all,
+  /// 1 = the first 10 (no categories), 2 = 25, 3 = 45. Words never move;
+  /// more rows appear below as the person learns.
+  int homeLevel;
+
+  /// Lock the app on the screen: Back never leaves the app and, on
+  /// Android, the app is pinned. Unlocking always needs the code.
+  bool lockApp;
+
   // P2 ARASAAC online symbols
   bool arasaacEnabled;
   int arasaacSkin; // 0 none..3 dark
@@ -99,6 +112,9 @@ class AppSettings {
     this.arasaacEnabled = true,
     this.arasaacSkin = 0,
     this.arasaacHair = 0,
+    this.speakerFemale = false,
+    this.homeLevel = 0,
+    this.lockApp = false,
   }) : phrases = phrases ?? [];
 
   Map<String, dynamic> toJson() => {
@@ -138,53 +154,86 @@ class AppSettings {
         'arasaacEnabled': arasaacEnabled,
         'arasaacSkin': arasaacSkin,
         'arasaacHair': arasaacHair,
+        'speakerFemale': speakerFemale,
+        'homeLevel': homeLevel,
+        'lockApp': lockApp,
       };
 
+  // A wrong type in one saved value falls back to that value's default
+  // instead of stopping the app from opening.
+  static bool _b(Map<String, dynamic>? j, String k, bool d) {
+    final v = j?[k];
+    return v is bool ? v : d;
+  }
+
+  static double _d(Map<String, dynamic>? j, String k, double d) {
+    final v = j?[k];
+    return v is num && v.isFinite ? v.toDouble() : d;
+  }
+
+  static int _i(Map<String, dynamic>? j, String k, int d) {
+    final v = j?[k];
+    return v is num && v.isFinite ? v.toInt() : d;
+  }
+
+  static String _s(Map<String, dynamic>? j, String k, String d) {
+    final v = j?[k];
+    return v is String ? v : d;
+  }
+
+  static String? _sn(Map<String, dynamic>? j, String k) {
+    final v = j?[k];
+    return v is String ? v : null;
+  }
+
   static AppSettings fromJson(Map<String, dynamic>? j) => AppSettings(
-        usePiper: j?['usePiper'] as bool? ?? true,
-        voiceName: j?['voiceName'] as String?,
-        voiceLocale: j?['voiceLocale'] as String?,
-        rate: (j?['rate'] as num?)?.toDouble() ?? 0.45,
-        pitch: (j?['pitch'] as num?)?.toDouble() ?? 1.0,
-        volume: (j?['volume'] as num?)?.toDouble() ?? 1.0,
-        restrictionsEnabled: j?['restrictionsEnabled'] as bool? ?? false,
-        pin: (j?['pin'] as String?) ?? '1234',
-        editMode: j?['editMode'] as bool? ?? false,
-        quietBuilder: j?['quietBuilder'] as bool? ?? false,
-        vocalizeFolders: j?['vocalizeFolders'] as bool? ?? true,
-        inputDebounceMs: (j?['inputDebounceMs'] as num?)?.toInt() ?? 0,
-        preventExit: j?['preventExit'] as bool? ?? false,
-        clearOnSpeak: j?['clearOnSpeak'] as bool? ?? false,
-        goHomeOnPress: j?['goHomeOnPress'] as bool? ?? false,
+        usePiper: _b(j, 'usePiper', true),
+        voiceName: _sn(j, 'voiceName'),
+        voiceLocale: _sn(j, 'voiceLocale'),
+        rate: _d(j, 'rate', 0.45),
+        pitch: _d(j, 'pitch', 1.0),
+        volume: _d(j, 'volume', 1.0),
+        restrictionsEnabled: _b(j, 'restrictionsEnabled', false),
+        pin: _s(j, 'pin', '1234'),
+        editMode: _b(j, 'editMode', false),
+        quietBuilder: _b(j, 'quietBuilder', false),
+        vocalizeFolders: _b(j, 'vocalizeFolders', true),
+        inputDebounceMs: _i(j, 'inputDebounceMs', 0),
+        preventExit: _b(j, 'preventExit', false),
+        clearOnSpeak: _b(j, 'clearOnSpeak', false),
+        goHomeOnPress: _b(j, 'goHomeOnPress', false),
         buttonView: ButtonView.values.firstWhere(
             (v) => v.name == j?['buttonView'],
             orElse: () => ButtonView.symbolText),
         labelPosition: LabelPosition.values.firstWhere(
             (v) => v.name == j?['labelPosition'],
             orElse: () => LabelPosition.below),
-        messageWindowTop: j?['messageWindowTop'] as bool? ?? true,
-        scanningEnabled: j?['scanningEnabled'] as bool? ?? false,
-        scanDelayMs: (j?['scanDelayMs'] as num?)?.toInt() ?? 1200,
-        dwellEnabled: j?['dwellEnabled'] as bool? ?? false,
-        dwellSeconds: (j?['dwellSeconds'] as num?)?.toDouble() ?? 1.0,
-        cviMode: j?['cviMode'] as bool? ?? false,
-        skinTone: j?['skinTone'] as String? ?? '',
-        haptics: j?['haptics'] as bool? ?? true,
-        audioCues: j?['audioCues'] as bool? ?? false,
-        language: j?['language'] as String? ?? 'en',
-        fullScreen: j?['fullScreen'] as bool? ?? true,
-        callSpeech: j?['callSpeech'] as bool? ?? false,
+        messageWindowTop: _b(j, 'messageWindowTop', true),
+        scanningEnabled: _b(j, 'scanningEnabled', false),
+        scanDelayMs: _i(j, 'scanDelayMs', 1200),
+        dwellEnabled: _b(j, 'dwellEnabled', false),
+        dwellSeconds: _d(j, 'dwellSeconds', 1.0),
+        cviMode: _b(j, 'cviMode', false),
+        skinTone: _s(j, 'skinTone', ''),
+        haptics: _b(j, 'haptics', true),
+        audioCues: _b(j, 'audioCues', false),
+        language: _s(j, 'language', 'en'),
+        fullScreen: _b(j, 'fullScreen', true),
+        callSpeech: _b(j, 'callSpeech', false),
         phrases: [
-          for (final p in (j?['phrases'] as List? ?? const []))
+          for (final p in (j?['phrases'] is List ? j!['phrases'] as List : const []))
             if (p is String && p.trim().isNotEmpty) p
         ],
         typingSpeech: const ['words', 'letters', 'off']
                 .contains(j?['typingSpeak'])
             ? j!['typingSpeak'] as String
             : 'letters',
-        arasaacEnabled: j?['arasaacEnabled'] as bool? ?? true,
-        arasaacSkin: (j?['arasaacSkin'] as num?)?.toInt() ?? 0,
-        arasaacHair: (j?['arasaacHair'] as num?)?.toInt() ?? 0,
+        arasaacEnabled: _b(j, 'arasaacEnabled', true),
+        arasaacSkin: _i(j, 'arasaacSkin', 0),
+        arasaacHair: _i(j, 'arasaacHair', 0),
+        speakerFemale: _b(j, 'speakerFemale', false),
+        homeLevel: _i(j, 'homeLevel', 0).clamp(0, 3),
+        lockApp: _b(j, 'lockApp', false),
       );
 }
 

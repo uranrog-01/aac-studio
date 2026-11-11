@@ -1698,8 +1698,8 @@ handsome|гарний
 hang|вішати
 hang coat|повісити пальто
 hangar|ангар
-hangul syllable bbegs|корейський склад
-hangul syllable jjwaelm|корейський склад «jjwaelm»
+hangul syllable bbegs|яловичина
+hangul syllable jjwaelm|кав'ярня
 hankerchief|носова хустинка
 hard|твердий
 hard hat|каска
@@ -3111,6 +3111,56 @@ zip|блискавка
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|я
 
+beef|яловичина
+coffee shop|кав'ярня
+start|почати
+wrong|неправильно
+next to|поруч
+dizzy|паморочиться голова
+good morning|добрий ранок
+good night|на добраніч
+excuse me|перепрошую
+big|великий
+small|маленький
+slow|повільно
+me|мене
+him|його
+her|її
+us|нас
+they|вони
+them|їх
+mine|моє
+your|твоє
+his|його річ
+our|наше
+their|їхнє
+these|ці
+those|ті
+different|інший
+new|новий
+with|з
+hard to do|важко
+finished|закінчено
+later|пізніше
+have|мати
+drop|впустити
+know|знати
+hide|сховати
+see|бачити
+kick|копнути
+close|закрити
+keep|залишити
+fix|полагодити
+win|виграти
+buy|купити
+throw|кинути
+can|могти
+feel|відчувати
+shy|сором'язливий
+lonely|самотній
+proud|гордий
+say|сказати
+tell|розповісти
 [forms]
 I+want|я хочу
 I+need|мені треба

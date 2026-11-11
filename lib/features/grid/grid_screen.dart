@@ -1,3 +1,4 @@
+import '../../engine/app_lock.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -110,7 +111,28 @@ class GridSession extends ChangeNotifier {
         best = v;
       }
     }
-    return best;
+    return _homeLevelView(best);
+  }
+
+  /// Start small and grow (Settings > Caregiver > Words on Home):
+  /// 0 = everything, 1 = the first 10 words, 2 = 25, 3 = 45. The words
+  /// keep their places; level 1 also hides the categories.
+  int homeLevel = 0;
+
+  VocabView _homeLevelView(VocabView view) {
+    final limit = const {1: 10, 2: 25, 3: 45}[homeLevel];
+    if (limit == null || view.folderId != vocabulary.rootFolderId) return view;
+    var words = 0;
+    final cells = <GridCell>[];
+    for (final c in view.cells) {
+      if (c.button.kind == ButtonKind.folder) {
+        if (homeLevel > 1) cells.add(c);
+      } else if (c.button.kind != ButtonKind.item || words++ < limit) {
+        cells.add(c);
+      }
+    }
+    return VocabView(
+        id: view.id, folderId: view.folderId, columns: view.columns, cells: cells);
   }
 
   void pushFolder(String folderId) {
@@ -297,6 +319,8 @@ class GridSession extends ChangeNotifier {
     final words = _message.trim().split(' ')..removeWhere((w) => w.isEmpty);
     if (index >= 0 && index < words.length) words.removeAt(index);
     _message = words.join(' ').trim();
+    // The per-symbol history no longer matches the text.
+    _pieces.clear();
     notifyListeners();
   }
 
@@ -589,7 +613,7 @@ class _GridScreenState extends State<GridScreen> {
             message: session.message,
             search: session.findWords,
             pageName: (id) =>
-                I18n.word(session.vocabulary.folders[id]?.label ?? ''),
+                I18n.word(session.vocabulary.folders[id]?.label ?? '', id: id),
             columns: widget.maxColumns.clamp(3, 5),
             onSpeak: () => session.speakMessage(flags: _tapFlags(settings)),
             onDeleteWord: session.removeLastWord,
@@ -615,6 +639,7 @@ class _GridScreenState extends State<GridScreen> {
             if (_gridScroll.hasClients) _gridScroll.jumpTo(0);
           });
         }
+        widget.session.homeLevel = settings.homeLevel;
         final view = widget.session.viewFor(widget.session.currentFolderId,
             maxColumns: widget.maxColumns);
         final folder = widget.session.currentFolder ??
@@ -702,7 +727,8 @@ class _GridScreenState extends State<GridScreen> {
             : Padding(
                 padding: const EdgeInsets.all(8),
                 child:
-                    Text(error, style: const TextStyle(color: Colors.white))),
+                    Text(I18n.t(error),
+                        style: const TextStyle(color: Colors.white))),
       ),
     ]);
   }
@@ -810,10 +836,19 @@ class _GridScreenState extends State<GridScreen> {
                           content: Text(I18n.t('Copied')),
                           duration: const Duration(seconds: 1)));
                     }),
+          if (context.read<SettingsController>().settings.lockApp)
+            item(Icons.lock_open, 'Unlock the app', () async {
+              final sc = context.read<SettingsController>();
+              if (!await sc.guardPrivileged(context)) return;
+              sc.settings.lockApp = false;
+              await AppLock.apply(false);
+              await sc.update();
+            }),
           if (widget.showOptions)
             item(Icons.settings_outlined, 'Settings', () async {
               final sc = context.read<SettingsController>();
-              if (sc.restrictionsEnabled &&
+              // A locked app always asks for the code first.
+              if ((sc.restrictionsEnabled || sc.settings.lockApp) &&
                   !await sc.guardPrivileged(context)) {
                 return;
               }

@@ -279,7 +279,7 @@ void main() {
     old['views']['home'][0]['cells'].insert(0, firstCell);
     final merged = PackUpgrade.merge(old, fresh, factorySymbolHistory: history);
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
-    expect(merged['packVersion'], 11);
+    expect(merged['packVersion'], 14);
     expect(buttons['b1']['symbolKey'], 'scene-i');
     expect(buttons['b1']['favorite'], true);
     expect(buttons['b2']['symbolKey'], '1f431');
@@ -400,7 +400,9 @@ void main() {
     expect(home, isNot(contains('fx_people')));
     expect(home, isNot(contains('speakBtn')));
     expect(home, contains('fx_vehicles'), reason: 'starred by the user');
-    expect(home.sublist(24, 27), ['core_yes', 'core_no', 'core_wait']);
+    // v13 Home: yes and no open the second row, wait follows "all done".
+    expect(home.sublist(5, 7), ['core_yes', 'core_no']);
+    expect(home[8], 'core_wait');
     expect([for (final c in merged['views']['vehicles'][0]['cells']) c['btn']],
         isNot(contains('x15')));
     expect([for (final c in merged['views']['places'][0]['cells']) c['btn']],
@@ -467,7 +469,7 @@ void main() {
     expect(after['symbolPack'], 'modernflat');
     expect(after['symbolKey'], before['symbolKey']);
     expect(after['voice'], {'rate': 0.8});
-    expect(merged['packVersion'], 11);
+    expect(merged['packVersion'], 14);
   });
 
   test('library is child-safe and routines are reachable', () async {

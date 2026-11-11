@@ -6,7 +6,8 @@ class PackUpgrade {
   /// Applies user edits/additions from [oldJson] onto [newJson].
   static Map<String, dynamic> merge(
       Map<String, dynamic> oldJson, Map<String, dynamic> newJson,
-      {Map<String, dynamic> factorySymbolHistory = const {}}) {
+      {Map<String, dynamic> factorySymbolHistory = const {},
+      bool adoptStarterLayouts = false}) {
     final result = jsonDecode(jsonEncode(newJson)) as Map<String, dynamic>;
     final fresh = {for (final b in result['buttons'] as List) b['id']: b};
     final old = {for (final b in oldJson['buttons'] as List? ?? []) b['id']: b};
@@ -49,9 +50,32 @@ class PackUpgrade {
         fresh.values.where((b) => !removed.contains(b['id'])).toList();
     final views = result['views'] as Map<String, dynamic>;
     final oldViews = oldJson['views'] as Map<String, dynamic>? ?? {};
+    // An installed board keeps its own order: a person who talks with it
+    // knows where every button is, so an update never moves buttons by
+    // itself. New words are added; a caregiver can switch to the new
+    // starter layout in Settings > Caregiver. With [adoptStarterLayouts],
+    // a page that is still exactly an earlier starter layout moves to the
+    // new one.
+    final layouts = (factorySymbolHistory['layouts'] as Map?) ?? const {};
+    bool untouched(String folder, List previous) {
+      final known = layouts[folder] as List?;
+      if (!adoptStarterLayouts || known == null || previous.length != 1) {
+        return false;
+      }
+      final cells = (previous.first as Map)['cells'] as List;
+      if (cells.any((c) => c is! Map || c.length != 1)) return false;
+      final ids = [for (final c in cells) c['btn']];
+      return known.any((layout) =>
+          layout is List &&
+          layout.length == ids.length &&
+          [for (var i = 0; i < ids.length; i++) layout[i] == ids[i]]
+              .every((same) => same));
+    }
+
     for (final entry in oldViews.entries) {
       final newViews = views[entry.key] as List? ?? [];
       final previous = entry.value as List;
+      if (newViews.isNotEmpty && untouched(entry.key, previous)) continue;
       for (var i = 0; i < previous.length; i++) {
         final view = previous[i] as Map;
         final cells = view['cells'] as List;

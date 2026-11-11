@@ -1698,8 +1698,8 @@ handsome|knap
 hang|hangen
 hang coat|jas ophangen
 hangar|hangar
-hangul syllable bbegs|Koreaans teken bbegs
-hangul syllable jjwaelm|Koreaans teken jjwaelm
+hangul syllable bbegs|rundvlees
+hangul syllable jjwaelm|koffiehuis
 hankerchief|zakdoek
 hard|hard
 hard hat|bouwhelm
@@ -3111,6 +3111,56 @@ zip|rits
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ik
 
+beef|rundvlees
+coffee shop|koffiehuis
+start|beginnen
+wrong|fout
+next to|naast
+dizzy|duizelig
+good morning|goedemorgen
+good night|welterusten
+excuse me|pardon
+big|groot
+small|klein
+slow|langzaam
+me|mij
+him|hem
+her|haar
+us|ons
+they|zij
+them|hen
+mine|van mij
+your|jouw
+his|zijn
+our|onze
+their|hun
+these|deze
+those|die
+different|anders
+new|nieuw
+with|met
+hard to do|moeilijk
+finished|klaar
+later|later
+have|hebben
+drop|laten vallen
+know|weten
+hide|verstoppen
+see|zien
+kick|schoppen
+close|sluiten
+keep|houden
+fix|repareren
+win|winnen
+buy|kopen
+throw|gooien
+can|kunnen
+feel|voelen
+shy|verlegen
+lonely|eenzaam
+proud|trots
+say|zeggen
+tell|vertellen
 [forms]
 I+want|ik wil
 I+need|ik heb het nodig

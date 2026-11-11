@@ -31,7 +31,7 @@ def check(code):
         line = raw.strip()
         if not line or line.startswith('#'):
             continue
-        if line in ('[ui]', '[words]', '[forms]'):
+        if line in ('[ui]', '[words]', '[forms]', '[words_f]', '[forms_f]'):
             section = line
             continue
         if section is None:
@@ -44,7 +44,8 @@ def check(code):
         if not english or not translated:
             problems.append(f'line {number}: empty side in {line!r}')
             continue
-        target = ui if section == '[ui]' else forms if section == '[forms]' else words
+        target = (ui if section == '[ui]' else forms if section == '[forms]'
+                  else {} if section.endswith('_f]') else words)
         key = english if section == '[ui]' else english.lower()
         if key in target and target[key] != translated:
             problems.append(f'line {number}: {english!r} translated twice')

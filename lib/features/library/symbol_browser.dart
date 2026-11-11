@@ -1,3 +1,4 @@
+import '../../engine/i18n.dart';
 import 'dart:async';
 import '../../engine/image_reference.dart';
 
@@ -71,7 +72,7 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
       backgroundColor: const Color(0xFF26323C),
       appBar: AppBar(
         backgroundColor: const Color(0xFF1E2730),
-        title: Text('All symbols (${library.size})',
+        title: Text('${I18n.t('All pictures')} (${library.size})',
             style: const TextStyle(color: Colors.white, fontSize: 17)),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
@@ -82,7 +83,7 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
             autofocus: true,
             style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
-              hintText: 'Search ${library.size} symbols…',
+              hintText: I18n.t('Search pictures…'),
               hintStyle: const TextStyle(color: Colors.white38),
               prefixIcon: const Icon(Icons.search, color: Colors.white38),
               isDense: true,
@@ -197,7 +198,7 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
             FilledButton.icon(
               onPressed: () => SpeechEngineProvider.of(ctx).speak(r.name),
               icon: const Icon(Icons.volume_up),
-              label: const Text('Hear it'),
+              label: Text(I18n.t('Hear it')),
             ),
             const SizedBox(width: 12),
             FilledButton.tonalIcon(
@@ -206,7 +207,7 @@ class _SymbolBrowserState extends State<SymbolBrowser> {
                 Navigator.pop(ctx);
               },
               icon: const Icon(Icons.add),
-              label: const Text('Add to Home'),
+              label: Text(I18n.t('Add to Home')),
             ),
           ]),
         ]),
@@ -291,7 +292,7 @@ class _SymbolTile extends StatelessWidget {
             FilledButton.icon(
               onPressed: () => SpeechEngineProvider.of(ctx).speak(entry.name),
               icon: const Icon(Icons.volume_up),
-              label: const Text('Hear it'),
+              label: Text(I18n.t('Hear it')),
             ),
             const SizedBox(width: 12),
             FilledButton.tonalIcon(
@@ -300,7 +301,7 @@ class _SymbolTile extends StatelessWidget {
                 Navigator.pop(ctx);
               },
               icon: const Icon(Icons.add),
-              label: const Text('Add to Home'),
+              label: Text(I18n.t('Add to Home')),
             ),
           ]),
         ]),

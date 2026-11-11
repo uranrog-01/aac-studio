@@ -48,6 +48,7 @@ bell	School things
 bell pepper	Vegetables
 bells	Music
 bicycle	Vehicles
+big	Describing words
 bike	Play
 bike ride	Sports
 bird	Animals
@@ -86,6 +87,7 @@ burrito	Eat & drink
 bus	Places
 butter	Eat & drink
 butterfly	Bugs
+buy	Actions
 bye	Home
 cactus	Plants
 cake	Snacks
@@ -94,6 +96,7 @@ calendar	Time
 calm	Feelings
 Calm down	Home
 camel	Wild animals
+can	Actions
 candy	Snacks
 car	Places
 carrot	Vegetables
@@ -101,7 +104,7 @@ castle	Buildings
 cat	Animals
 caterpillar	Bugs
 chair	Home things
-Chat	Home
+Chat	People
 cheese	Eat & drink
 chef	Jobs
 cherries	Fruits
@@ -111,14 +114,16 @@ chopsticks	Kitchen
 church	Buildings
 clap	Actions
 clock	Time
+close	Actions
 closet	Home things
-Clothes	Home
+Clothes	My body
 cloud	Weather
 clover	Plants
 coat	Clothes
 coconut	Fruits
 cold	Weather
 Colors	School
+come	Home
 computer	Home things
 confused	Feelings
 cook	Actions
@@ -147,9 +152,11 @@ Daily routines	My body
 dance	Play
 date	Fruits
 day	Time
-Describing words	Home
+Describing words	School
 dice	Toys
+different	Describing words
 dinner	Eat & drink
+dizzy	Health
 doctor	People
 dog	Animals
 dolls	Toys
@@ -164,6 +171,7 @@ dress	Clothes
 drink	Eat & drink
 drink water	Calm down
 Drinks	Eat & drink
+drop	Actions
 drum	Music
 dry hands	Daily routines
 duck	Birds
@@ -179,15 +187,19 @@ embarrassed	Feelings
 erase	Daily routines
 everyone	People
 excited	Feelings
+excuse me	Chat
 eyes	My body
 factory	Buildings
 farmer	Jobs
+feel	Feelings
 Feelings	Home
 fig	Fruits
 finger	My body
+finished	Describing words
 fire truck	Vehicles
 firefighter	Jobs
 fish	Animals
+fix	Actions
 flamingo	Birds
 flower	Plants
 flute	Music
@@ -214,6 +226,8 @@ gloves	Clothes
 glue	School things
 go	Home
 good	Home
+good morning	Chat
+good night	Chat
 gooseberry	Fruits
 gorilla	Wild animals
 grandma	People
@@ -227,16 +241,22 @@ guitar	Music
 hand	My body
 hang clothes	Daily routines
 happy	Feelings
+hard to do	Describing words
 hat	Clothes
+have	Actions
 he	Home
 head	My body
 headphones	Calm down
 Health	My body
 helicopter	Vehicles
 help	Home
+her	People
 hi	Home
+hide	Actions
 high five	Actions
+him	People
 hippo	Wild animals
+his	People
 Holidays & parties	Time
 home	Places
 Home things	Home
@@ -263,14 +283,18 @@ jellyfish	Sea animals
 Jobs	People
 juice	Eat & drink
 kangaroo	Wild animals
+keep	Actions
 key	Home things
+kick	Actions
 kiss	Actions
 Kitchen	Eat & drink
 kite	Toys
 kiwi	Fruits
 knee	My body
+know	Actions
 ladybug	Bugs
 lamp	Home things
+later	Time
 laugh	Actions
 laughing	Feelings
 leaf	Plants
@@ -286,6 +310,7 @@ lion	Animals
 listen	School
 lobster	Sea animals
 lollipop	Snacks
+lonely	Feelings
 look	Home
 love	Feelings
 lunch	School
@@ -293,6 +318,7 @@ magic	Toys
 make	Home
 mango	Fruits
 mask	Health
+me	People
 Meals	Eat & drink
 Mealtime	Eat & drink
 meat	Eat & drink
@@ -304,6 +330,7 @@ melon	Fruits
 microphone	Music
 milk	Eat & drink
 Milk & cheese	Eat & drink
+mine	People
 mirror	Home things
 mom	People
 monkey	Animals
@@ -321,6 +348,8 @@ my turn	Home
 neck	My body
 need	Home
 nervous	Feelings
+new	Describing words
+next to	In, on, under
 night	Time
 ninja star	Toys
 no	Home
@@ -337,6 +366,7 @@ olive	Fruits
 onion	Vegetables
 open	Home
 orange	Colors
+our	People
 outside	Places
 oven	Home things
 owl	Birds
@@ -382,13 +412,14 @@ popcorn	Snacks
 pot	Kitchen
 potato	Vegetables
 pretzel	Snacks
+proud	Feelings
 pudding	Snacks
 purple	Colors
 put clothes away	Daily routines
 put on shoes	Daily routines
 put on socks	Daily routines
 puzzle	Play
-Questions	Home
+Questions	People
 quiet	Calm down
 rain	Weather
 rainbow	Weather
@@ -411,6 +442,7 @@ salt	Eat & drink
 sandals	Clothes
 sandwich	Eat & drink
 saxophone	Music
+say	Chat
 scared	Feelings
 scarf	Clothes
 School	Home
@@ -420,6 +452,7 @@ scientist	Jobs
 scissors	School
 Sea animals	Animals
 seal	Sea animals
+see	Actions
 seedling	Plants
 Sensory games	Calm down
 Shapes	Describing words
@@ -436,6 +469,7 @@ shot	Health
 shoulder	My body
 shower	Home things
 shrimp	Sea animals
+shy	Feelings
 sick	Feelings
 silly	Feelings
 sing	Play
@@ -444,6 +478,8 @@ sister	People
 sleep	Actions
 sleepy	Feelings
 slide	Play
+slow	Describing words
+small	Describing words
 smoothie	Drinks
 Snacks	Eat & drink
 snail	Bugs
@@ -462,6 +498,7 @@ Sports	Play
 spring	Time
 stadium	Buildings
 stand	Actions
+start	Actions
 stethoscope	Health
 stop	Home
 store	Places
@@ -490,17 +527,24 @@ teacher	People
 teapot	Kitchen
 teddy	Toys
 teeth	My body
+tell	Chat
 tennis	Sports
 tent	Buildings
 thank you	Home
 that	Home
+their	People
+them	People
 thermometer	Health
+these	Describing words
+they	People
 think	Actions
 thirsty	Drinks
 this	Home
+those	Describing words
 throat	My body
+throw	Actions
 tiger	Wild animals
-Time	Home
+Time	School
 tired	Feelings
 today	Time
 toilet	Home things
@@ -528,6 +572,7 @@ TV, phones & computers	Home things
 umbrella	Weather
 underwear	Clothes
 up	Home
+us	People
 vacuum floor	Daily routines
 Vegetables	Eat & drink
 Vehicles	Places
@@ -556,21 +601,25 @@ white	Colors
 who	Home
 wife	People
 Wild animals	Animals
+win	Actions
 wind	Weather
 window	Home things
 winter	Time
 wipe face	Daily routines
 wipe table	Daily routines
+with	Describing words
 wolf	Wild animals
 work	School
 worried	Feelings
 write	School
+wrong	Describing words
 yellow	Colors
 yes	Home
 yesterday	Time
 yo-yo	Toys
 yogurt	Eat & drink
 you	Home
+your	People
 yucky	Eat & drink
 yummy	Eat & drink
 zebra	Wild animals

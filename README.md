@@ -21,12 +21,13 @@ Per-button rate/pitch overrides + global speech settings (test voice button).
 
 ### M4 - Typing + prediction
 Unified symbol, alphabet and number keyboard (plus hardware keyboard), prediction bar over an
-open 9.9k-word frequency lexicon, auto-learn: every sentence you send teaches
-the predictor your words.
+open 9.9k-word English frequency lexicon; in the other 20 languages the
+board's own words are suggested. Auto-learn: every sentence you send teaches
+the predictor your words, kept per language.
 
 ### M5 - Editor + restrictions
 Edit mode: tap any button to change label, spoken text, word class, symbol
-(search 23,848 bundled open pictures across 8 packs, or pick an emoji), voice
+(search about 7,300 bundled open pictures: modern flat, Mulberry and flags), voice
 overrides, delete; Add button to create new ones. Everything persists to a
 local editable pack. Restrictions: 4-digit PIN gates edit mode.
 
@@ -116,9 +117,9 @@ iOS" repos) and the USB install helper: **[docs/IOS_SIGNING.md](docs/IOS_SIGNING
 ## Licensing
 
 Code: MIT (see LICENSE). Sample vocabulary content: original, MIT.
-Symbols: six open packs with their own licenses - see THIRD_PARTY_SYMBOLS.md
-(Twemoji CC-BY, Noto Apache-2.0, OpenMoji CC BY-SA, Mulberry CC BY-SA, names
-from Unicode CLDR). Symbol packs you add (e.g., ARASAAC) carry their own
+Symbols: open packs with their own licenses - see THIRD_PARTY_SYMBOLS.md
+(Fluent Emoji Flat MIT, Mulberry CC BY-SA, Twemoji flags CC-BY, names from
+Unicode CLDR). Symbol packs you add (e.g., ARASAAC) carry their own
 licenses - check before redistribution. The P2G Explorer is a personal study
 tool; do not distribute extracted data or rendered symbols.
 
@@ -154,3 +155,44 @@ replace its distribution terms.
 ## Simpler Home and voice choice (pack v7)
 
 Home has 40 buttons with no duplicates. Settings has five plain groups and a voice picker. See [docs/SIMPLER_HOME_AND_VOICE.md](docs/SIMPLER_HOME_AND_VOICE.md).
+
+## Easier Home (board v13)
+
+Home starts with what is needed most, one idea per row: asking (I, want,
+more, help, stop), answers (yes, no, all done, wait, again), body needs (eat,
+drink, water, toilet, sleep), how I feel, feelings, people, doing, places,
+greetings and questions: 64 words, then 16 categories. "All categories" is
+grouped by topic. A Home page that was never rearranged moves to this layout
+when the app updates; a page the person changed keeps its own order and only
+gains the new words. Built by `tools/simplify_home_v13.py`.
+
+## Languages
+
+21 languages (English plus 20 translations) for the app's own text and all
+board words. Sources are `tools/data/i18n/<code>.txt` and `_ui_extra.txt`;
+run `python tools/build_i18n.py` after editing. A word with two meanings can
+be translated per button (`@<button id>|translation`), and words a girl or
+woman says differently go in `[words_f]` / `[forms_f]` (Albanian so far:
+Settings > Language & voice > "The person speaking is").
+
+`python tools/review_sheets.py --lang sq` writes one page per category to
+`build/review-sheets/` with every picture next to its word, for a human check.
+
+`.github/workflows/test.yml` runs the analyzer, the tests and a check that
+the translation files match their sources on every push.
+
+## Board v14, Settings and the app lock
+
+- **Core words with pictures:** 38 more words (me, him, her, us, they, mine,
+  have, know, different, later, ...). 19 pictures are composed from bundled
+  artwork by `tools/compose_core_words.py`; the rest use bundled pictures
+  that were not on the board. No picture generator is involved.
+- **Start small and grow:** Settings > Caregiver > Words on Home shows the
+  first 10, 25 or 45 Home words, or all. Words never move.
+- **Updates never move buttons:** an installed board keeps its order and only
+  gains new words. Caregiver > "Use the new Home layout" switches on purpose.
+- **Settings** is a short menu; each section opens on its own page. Voices are
+  listed as Female, Male and Other.
+- **Lock the app on the screen** (Caregiver > Safety): Back never leaves the
+  app, Android pins it, and unlocking (More > Unlock the app) needs the code.
+  iPhone and iPad cannot be locked by an app: start Guided Access as well.

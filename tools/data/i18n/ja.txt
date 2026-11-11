@@ -1696,8 +1696,8 @@ handsome|かっこいい
 hang|つるす
 hang coat|コートをかける
 hangar|かくのうこ
-hangul syllable bbegs|にく
-hangul syllable jjwaelm|たべもの
+hangul syllable bbegs|牛肉
+hangul syllable jjwaelm|喫茶店
 hankerchief|ハンカチ
 hard|かたい
 hard hat|ヘルメット
@@ -3110,6 +3110,56 @@ light|かるい
 off|オフ
 skin|はだ
 
+beef|牛肉
+coffee shop|喫茶店
+start|はじめる
+wrong|まちがい
+next to|となり
+dizzy|めまい
+good morning|おはよう
+good night|おやすみ
+excuse me|すみません
+big|おおきい
+small|ちいさい
+slow|おそい
+me|わたしを
+him|かれを
+her|かのじょを
+us|わたしたちを
+they|かれら
+them|かれらを
+mine|わたしの
+your|あなたの
+his|かれの
+our|わたしたちの
+their|かれらの
+these|これら
+those|あれら
+different|ちがう
+new|あたらしい
+with|いっしょに
+hard to do|むずかしい
+finished|おわった
+later|あとで
+have|もっている
+drop|おとす
+know|しっている
+hide|かくれる
+see|みえる
+kick|ける
+close|しめる
+keep|とっておく
+fix|なおす
+win|かつ
+buy|かう
+throw|なげる
+can|できる
+feel|かんじる
+shy|はずかしい
+lonely|さびしい
+proud|ほこらしい
+say|いう
+tell|はなす
 [forms]
 I+want|わたしは ほしい
 I+need|わたしは ひつよう

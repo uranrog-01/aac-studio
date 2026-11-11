@@ -143,7 +143,7 @@ void main() {
         'letters');
   });
 
-  test('an installed v9 board gets the new words in the new order', () {
+  test('an installed v9 board gets the new words and keeps its Home order', () {
     final v9 = jsonDecode(File('test/fixtures/sample_pack_v9.json')
         .readAsStringSync()) as Map<String, dynamic>;
     final fresh = jsonDecode(File('assets/sample_pack.json').readAsStringSync())
@@ -160,9 +160,13 @@ void main() {
           for (final c in (pack['views'][page] as List).first['cells'] as List)
             c['btn'] as String
         ];
-    for (final page in ['home', 'food', 'people', 'drinks']) {
+    for (final page in ['food', 'people', 'drinks']) {
       expect(ids(merged, page), ids(fresh, page), reason: page);
     }
+    // Home keeps the person's own order; the new words are added to it.
+    final before = ids(v9, 'home');
+    expect(ids(merged, 'home').where(before.contains).toList(), before);
+    expect(ids(merged, 'home'), containsAll(ids(fresh, 'home')));
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
     expect(buttons['b9']['label'], 'more please');
     final v = PackLoader().loadString(jsonEncode(merged));

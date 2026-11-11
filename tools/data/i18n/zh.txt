@@ -1697,8 +1697,8 @@ handsome|帅
 hang|挂
 hang coat|挂外套
 hangar|机库
-hangul syllable bbegs|肉
-hangul syllable jjwaelm|吃饭
+hangul syllable bbegs|牛肉
+hangul syllable jjwaelm|咖啡店
 hankerchief|手帕
 hard|硬
 hard hat|安全帽
@@ -3110,6 +3110,56 @@ zebra crossing|斑马线
 zero|零
 zip|拉链
 
+beef|牛肉
+coffee shop|咖啡店
+start|开始
+wrong|错
+next to|旁边
+dizzy|头晕
+good morning|早上好
+good night|晚安
+excuse me|打扰一下
+big|大
+small|小
+slow|慢
+me|我
+him|他
+her|她
+us|我们
+they|他们
+them|给他们
+mine|我的
+your|你的
+his|他的
+our|我们的
+their|他们的
+these|这些
+those|那些
+different|不同
+new|新
+with|和
+hard to do|难
+finished|完成了
+later|以后
+have|有
+drop|掉
+know|知道
+hide|藏
+see|看见
+kick|踢
+close|关
+keep|留着
+fix|修
+win|赢
+buy|买
+throw|扔
+can|能
+feel|感觉
+shy|害羞
+lonely|孤单
+proud|骄傲
+say|说
+tell|告诉
 [forms]
 I+want|我要
 I+need|我需要

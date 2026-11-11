@@ -1,3 +1,4 @@
+import '../../engine/i18n.dart';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -40,9 +41,9 @@ class _BackupToolsState extends State<BackupTools> {
         bytes: bytes,
         mimeType: 'application/json',
       );
-      if (saved != null) _message('Backup saved.');
+      if (saved != null) _message(I18n.t('Backup saved.'));
     } catch (_) {
-      _message('The backup could not be saved. Please try again.');
+      _message(I18n.t('The backup could not be saved. Please try again.'));
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -64,18 +65,18 @@ class _BackupToolsState extends State<BackupTools> {
       final confirmed = await showDialog<bool>(
           context: context,
           builder: (context) => AlertDialog(
-                title: const Text('Restore this backup?'),
-                content: const Text(
+                title: Text(I18n.t('Restore this backup?')),
+                content: Text(I18n.t(
                     'This replaces the current board, settings and learned '
                     'words on this device. Save a backup first if you want '
-                    'to keep them.'),
+                    'to keep them.')),
                 actions: [
                   TextButton(
                       onPressed: () => Navigator.pop(context, false),
-                      child: const Text('Cancel')),
+                      child: Text(I18n.t('Cancel'))),
                   FilledButton(
                       onPressed: () => Navigator.pop(context, true),
-                      child: const Text('Restore')),
+                      child: Text(I18n.t('Restore'))),
                 ],
               ));
       if (confirmed != true) return;
@@ -84,10 +85,11 @@ class _BackupToolsState extends State<BackupTools> {
       await pack.load();
       await predictor.loadLearned(StorageProviderAdapter(pack.storage));
       if (navigator.canPop()) navigator.pop(); // close the old settings sheet
-      messenger.showSnackBar(const SnackBar(content: Text('Backup restored.')));
+      messenger.showSnackBar(
+          SnackBar(content: Text(I18n.t('Backup restored.'))));
     } catch (_) {
-      _message('This file could not be restored. Choose an AAC Studio '
-          'backup file.');
+      _message(I18n.t('This file could not be restored. Choose an AAC Studio '
+          'backup file.'));
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -97,22 +99,22 @@ class _BackupToolsState extends State<BackupTools> {
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 8),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
             child: Text(
-                'Keep a backup somewhere else (Files, Drive, email) so a lost '
-                'or reset device does not lose this board.',
-                style: TextStyle(color: Colors.white54, fontSize: 12)),
+                I18n.t('Keep a backup somewhere else (Files, Drive, email) so a lost '
+                    'or reset device does not lose this board.'),
+                style: const TextStyle(color: Colors.white54, fontSize: 12)),
           ),
           Wrap(spacing: 8, children: [
             TextButton.icon(
                 onPressed: _busy ? null : _save,
                 icon: const Icon(Icons.save_alt),
-                label: const Text('Save backup')),
+                label: Text(I18n.t('Save backup'))),
             TextButton.icon(
                 onPressed: _busy ? null : _restore,
                 icon: const Icon(Icons.restore),
-                label: const Text('Restore backup')),
+                label: Text(I18n.t('Restore backup'))),
           ]),
         ],
       );

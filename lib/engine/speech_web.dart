@@ -28,6 +28,9 @@ class DeviceVoice {
   final bool needsInternet;
   const DeviceVoice(this.name, this.locale, {this.needsInternet = false});
   bool get isEnglish => locale.toLowerCase().startsWith('en');
+
+  /// Browsers do not say whether a voice is female or male.
+  String get gender => '';
 }
 
 /// Call speechSynthesis synchronously from the tap handler. In particular,
@@ -42,7 +45,7 @@ class SpeechEngine {
 
   Future<void> ensure() async {
     if (!_available) {
-      error.value = 'Speech is unavailable in this browser. Open in Safari.';
+      error.value = 'Speech unavailable. Check your device voices and volume.';
       return;
     }
     _onError = ((JSString message) {
@@ -112,8 +115,7 @@ class SpeechEngine {
           (use?.locale ?? language.voiceLocales.first).toJS);
       error.value = null;
     } catch (_) {
-      error.value =
-          'Speech unavailable. Open in Safari and check device voices.';
+      error.value = 'Speech unavailable. Check your device voices and volume.';
     }
     return Future.value();
   }

@@ -1698,8 +1698,8 @@ handsome|잘생겼어요
 hang|매달려요
 hang coat|외투 걸어요
 hangar|격납고
-hangul syllable bbegs|뻯
-hangul syllable jjwaelm|쫾
+hangul syllable bbegs|소고기
+hangul syllable jjwaelm|카페
 hankerchief|손수건
 hard|딱딱해요
 hard hat|안전모
@@ -3111,6 +3111,56 @@ zip|지퍼
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|나
 
+beef|소고기
+coffee shop|카페
+start|시작
+wrong|틀림
+next to|옆
+dizzy|어지러워요
+good morning|좋은 아침
+good night|잘 자요
+excuse me|실례합니다
+big|큰
+small|작은
+slow|느리게
+me|나를
+him|그를
+her|그녀를
+us|우리를
+they|그들
+them|그들을
+mine|내 것
+your|네 것
+his|그의 것
+our|우리 것
+their|그들의 것
+these|이것들
+those|저것들
+different|다른
+new|새로운
+with|함께
+hard to do|어려운
+finished|끝났어요
+later|나중에
+have|가지다
+drop|떨어뜨리다
+know|알다
+hide|숨다
+see|보이다
+kick|차다
+close|닫다
+keep|간직하다
+fix|고치다
+win|이기다
+buy|사다
+throw|던지다
+can|할 수 있다
+feel|느끼다
+shy|수줍은
+lonely|외로운
+proud|자랑스러운
+say|말하다
+tell|이야기하다
 [forms]
 I+want|저는 원해요
 I+need|저는 필요해요

@@ -1697,8 +1697,8 @@ handsome|bello
 hang|appendere
 hang coat|appendere il cappotto
 hangar|hangar
-hangul syllable bbegs|carne
-hangul syllable jjwaelm|pasto
+hangul syllable bbegs|manzo
+hangul syllable jjwaelm|caffetteria
 hankerchief|fazzoletto
 hard|duro
 hard hat|casco
@@ -3109,6 +3109,56 @@ yule log|tronchetto di Natale
 zebra crossing|strisce pedonali
 zero|zero
 zip|cerniera
+beef|manzo
+coffee shop|caffetteria
+start|iniziare
+wrong|sbagliato
+next to|accanto
+dizzy|mi gira la testa
+good morning|buongiorno
+good night|buonanotte
+excuse me|scusi
+big|grande
+small|piccolo
+slow|lento
+me|me
+him|lui
+her|lei
+us|noi
+they|loro
+them|a loro
+mine|mio
+your|tuo
+his|suo
+our|nostro
+their|il loro
+these|questi
+those|quelli
+different|diverso
+new|nuovo
+with|con
+hard to do|difficile
+finished|finito
+later|più tardi
+have|avere
+drop|lasciar cadere
+know|sapere
+hide|nascondere
+see|vedere
+kick|calciare
+close|chiudere
+keep|tenere
+fix|aggiustare
+win|vincere
+buy|comprare
+throw|lanciare
+can|potere
+feel|sentire
+shy|timido
+lonely|solo
+proud|orgoglioso
+say|dire
+tell|raccontare
 [forms]
 I+want|voglio
 I+need|ho bisogno

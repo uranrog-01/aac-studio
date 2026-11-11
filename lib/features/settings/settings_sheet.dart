@@ -1,3 +1,5 @@
+import '../../engine/app_lock.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 import '../web/web_tools.dart';
 import 'backup_tools.dart';
@@ -14,8 +16,9 @@ import '../../engine/storage.dart';
 import '../../models/domain.dart';
 import '../library/symbol_browser.dart';
 
-/// Settings sheet in five plain-language groups: Voice, When a button is
-/// tapped, Buttons & screen, Access, Caregiver. Only Voice starts open.
+/// Settings as a short menu of plain-language sections. One section is
+/// open at a time, on its own page with a Back row, so there is never a
+/// long list to scroll through and get lost in.
 class SettingsSheet extends StatefulWidget {
   final SpeechEngine speech;
   final AppSettings settings;
@@ -62,6 +65,25 @@ class SettingsSheet extends StatefulWidget {
 class _SettingsSheetState extends State<SettingsSheet> {
   static const _sample = 'Hello! This is my voice.';
 
+  /// The open section (its English title), or null for the menu.
+  String? _open;
+
+  static const _sectionColors = <String, Color>{
+    'Language & voice': Color(0xFFFF8A65),
+    'Speaking': Color(0xFF64B5F6),
+    'Screen & look': Color(0xFFBA68C8),
+    'Touch & access': Color(0xFF81C784),
+    'Offline & backup': Color(0xFF4DD0E1),
+    'iPhone & offline': Color(0xFF4DD0E1),
+    'Caregiver': Color(0xFFE57373),
+  };
+
+  void _openSection(String? title) {
+    setState(() => _open = title);
+    final c = widget.scrollController;
+    if (c != null && c.hasClients) c.jumpTo(0);
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = widget.settings;
@@ -73,19 +95,23 @@ class _SettingsSheetState extends State<SettingsSheet> {
           controller: widget.scrollController,
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 24),
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 4, 8, 2),
-              child: Text(I18n.t('Settings'),
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700)),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 10),
-              child: Text(I18n.t('Changes are saved automatically.'),
-                  style: const TextStyle(color: Colors.white54, fontSize: 13)),
-            ),
+            if (_open == null) ...[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 4, 8, 2),
+                child: Text(I18n.t('Settings'),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700)),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 10),
+                child: Text(I18n.t('Changes are saved automatically.'),
+                    style:
+                        const TextStyle(color: Colors.white54, fontSize: 13)),
+              ),
+            ] else
+              _sectionBar(_open!),
             // 1. Language & voice: what the person hears.
             _group(Icons.record_voice_over, 'Language & voice',
                 'Language, voice, speed and loudness',
@@ -109,7 +135,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     valueListenable: widget.speech.status,
                     builder: (context, status, _) => Padding(
                       padding: const EdgeInsets.only(top: 6, bottom: 4),
-                      child: Text(status,
+                      child: Text(I18n.t(status),
                           style: const TextStyle(
                               color: Colors.white54, fontSize: 12)),
                     ),
@@ -220,6 +246,14 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       s.labelPosition = v;
                       _changed();
                     }),
+                  if (I18n.hasFeminine)
+                    _choice<bool>('The person speaking is', s.speakerFemale, {
+                      false: 'A boy or man',
+                      true: 'A girl or woman',
+                    }, (v) {
+                      s.speakerFemale = v;
+                      _changed();
+                    }),
                   _choice<String>('Skin tone for people', s.skinTone, {
                     '': 'Default',
                     'light': 'Light',
@@ -279,7 +313,9 @@ class _SettingsSheetState extends State<SettingsSheet> {
                 ]),
             // 5. Offline & backup.
             if (kIsWeb)
-              const WebTools()
+              _group(Icons.install_mobile, 'iPhone & offline',
+                  'Install, save pictures, back up boards',
+                  children: const [WebTools()])
             else
               _group(Icons.cloud_off_outlined, 'Offline & backup',
                   'Works without internet; save and restore boards',
@@ -293,6 +329,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
             _group(Icons.lock_outline, 'Caregiver',
                 'Edit buttons, pictures, lock code',
                 children: [
+                  _header('Board'),
                   if (widget.settingsController != null) ...[
                     _asyncSwitch(
                         'Edit mode',
@@ -322,6 +359,54 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       },
                     ),
                   ],
+                  _choice<int>('Words on Home', s.homeLevel, {
+                    1: 'First 10 words',
+                    2: '25 words',
+                    3: '45 words',
+                    0: 'All words',
+                  }, (v) {
+                    s.homeLevel = v;
+                    _changed();
+                  }),
+                  _note('Start small and show more as the person learns. '
+                      'Words keep their places; new rows appear below.'),
+                  if (widget.settingsController != null)
+                    Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: TextButton.icon(
+                        onPressed: _useNewLayout,
+                        icon: const Icon(Icons.dashboard_customize_outlined,
+                            size: 18),
+                        label: Text(I18n.t('Use the new Home layout')),
+                      ),
+                    ),
+                  _header('Safety'),
+                  _asyncSwitch(
+                      'Lock the app on the screen',
+                      s.lockApp,
+                      'The person cannot leave or close the app', (v) async {
+                    // Locking is free; unlocking always needs the code.
+                    if (!v && !await _verifyPin(s.pin)) return;
+                    s.lockApp = v;
+                    _changed();
+                    await AppLock.apply(v);
+                  }),
+                  _note(AppLock.canPin
+                      ? 'Android asks once to pin the app. To unlock: More > '
+                          'Unlock the app, then the code. For the strongest '
+                          'lock, turn on "Ask for PIN before unpinning" in '
+                          'the Android settings.'
+                      : AppLock.isApple
+                          ? 'Back no longer leaves the app. To unlock: More > '
+                              'Unlock the app, then the code. On iPhone and '
+                              'iPad also start Guided Access: Settings > '
+                              'Accessibility > Guided Access, then '
+                              'triple-click the side or Home button.'
+                          : 'Back no longer leaves the app. To unlock: More > '
+                              'Unlock the app, then the code. A browser or '
+                              'computer cannot stop someone from switching '
+                              'apps; use the phone or tablet app for a full '
+                              'lock.'),
                   _asyncSwitch('Lock settings with a code',
                       // The code itself is never shown: the person using
                       // the board could read it here.
@@ -348,6 +433,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       label: Text(I18n.t('Change code')),
                     ),
                   ),
+                  _header('Online pictures'),
                   _switch('Online ARASAAC pictures in search', s.arasaacEnabled,
                       (v) => s.arasaacEnabled = v),
                   if (s.arasaacEnabled) ...[
@@ -372,6 +458,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       _changed();
                     }),
                   ],
+                  _header('About'),
                   Wrap(spacing: 8, children: [
                     TextButton(
                         onPressed: _resetAll,
@@ -387,6 +474,70 @@ class _SettingsSheetState extends State<SettingsSheet> {
                 ]),
           ]),
     );
+  }
+
+  /// A small title inside a section (Caregiver: Board, Safety, ...).
+  Widget _header(String text) => Padding(
+        padding: const EdgeInsets.only(top: 14, bottom: 2),
+        child: Row(children: [
+          Text(I18n.t(text).toUpperCase(),
+              style: const TextStyle(
+                  color: Colors.white54,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1.1)),
+          const SizedBox(width: 10),
+          const Expanded(child: Divider(color: Colors.white12, height: 1)),
+        ]),
+      );
+
+  /// The top row of an open section: Back and the section's name.
+  Widget _sectionBar(String title) => Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Row(children: [
+          IconButton(
+            tooltip: I18n.t('Back'),
+            onPressed: () => _openSection(null),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+          ),
+          Expanded(
+            child: Text(I18n.t(title),
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700)),
+          ),
+        ]),
+      );
+
+  /// Switches Home and All categories to the new starter layout. Never
+  /// automatic: buttons change places, so a caregiver decides.
+  Future<void> _useNewLayout() async {
+    final pack = context.read<PackController>();
+    final messenger = ScaffoldMessenger.of(context);
+    final navigator = Navigator.of(context);
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(I18n.t('Use the new Home layout?')),
+        content: Text(I18n.t('Home and All categories move to the new, '
+            'simpler order, so buttons change places. Your own buttons, '
+            'pictures and words are kept.')),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(I18n.t('Cancel'))),
+          FilledButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text(I18n.t('Use new layout'))),
+        ],
+      ),
+    );
+    if (ok != true) return;
+    await pack.useStarterLayout();
+    if (navigator.canPop()) navigator.pop();
+    messenger.showSnackBar(
+        SnackBar(content: Text(I18n.t('Home now uses the new layout.'))));
   }
 
   Widget _note(String text) => Padding(
@@ -457,7 +608,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
     _changed();
   }
 
-  void _test() => widget.speech.speak(_sample,
+  void _test() => widget.speech.speak(I18n.t(_sample),
       style: VoiceStyle(
           rate: widget.settings.rate,
           pitch: widget.settings.pitch,
@@ -613,29 +764,45 @@ class _SettingsSheetState extends State<SettingsSheet> {
   }
 
   Widget _group(IconData icon, String title, String subtitle,
-          {required List<Widget> children, bool initiallyExpanded = false}) =>
-      Card(
+      {required List<Widget> children, bool initiallyExpanded = false}) {
+    final color = _sectionColors[title] ?? Colors.deepOrangeAccent;
+    if (_open == null) {
+      return Card(
         color: const Color(0xFF2C313A),
         margin: const EdgeInsets.symmetric(vertical: 5),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         clipBehavior: Clip.antiAlias,
-        child: ExpansionTile(
-          initiallyExpanded: initiallyExpanded,
-          leading: Icon(icon, color: Colors.deepOrangeAccent, size: 28),
+        child: ListTile(
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          leading: Container(
+            width: 46,
+            height: 46,
+            decoration: BoxDecoration(
+                color: color.withValues(alpha: .18),
+                borderRadius: BorderRadius.circular(12)),
+            child: Icon(icon, color: color, size: 26),
+          ),
           title: Text(I18n.t(title),
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 17,
                   fontWeight: FontWeight.w600)),
           subtitle: Text(I18n.t(subtitle),
-              style: const TextStyle(color: Colors.white54, fontSize: 12)),
-          iconColor: Colors.white70,
-          collapsedIconColor: Colors.white70,
-          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-          expandedCrossAxisAlignment: CrossAxisAlignment.start,
-          children: children,
+              style: const TextStyle(color: Colors.white60, fontSize: 13)),
+          trailing: const Icon(Icons.chevron_right, color: Colors.white54),
+          onTap: () => _openSection(title),
         ),
       );
+    }
+    if (_open != title) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start, children: children),
+    );
+  }
 
   Widget _switch(String title, bool value, void Function(bool) onChanged,
           [String? subtitle]) =>
@@ -667,8 +834,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
             style: const TextStyle(color: Colors.white, fontSize: 15)),
         Row(children: [
           SizedBox(
-              width: 44,
-              child: Text(low,
+              width: 64,
+              child: Text(I18n.t(low),
                   style: const TextStyle(color: Colors.white54, fontSize: 12))),
           Expanded(
             child: Slider(
@@ -680,8 +847,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
             ),
           ),
           SizedBox(
-              width: 40,
-              child: Text(high,
+              width: 56,
+              child: Text(I18n.t(high),
                   textAlign: TextAlign.end,
                   style: const TextStyle(color: Colors.white54, fontSize: 12))),
         ]),
@@ -692,7 +859,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
   Widget _stepper(String label, double min, double max, double value,
       double step, ValueChanged<double> onChanged, String suffix) {
     final shown = value <= 0
-        ? 'Off'
+        ? I18n.t('Off')
         : '${value.toStringAsFixed(2).replaceFirst(RegExp(r'\.?0+$'), '')} $suffix';
     return Row(children: [
       Expanded(
@@ -761,10 +928,10 @@ class _SettingsSheetState extends State<SettingsSheet> {
         actions: [
           TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: const Text('Cancel')),
+              child: Text(I18n.t('Cancel'))),
           FilledButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: const Text('OK')),
+              child: Text(I18n.t('OK'))),
         ],
       ),
     );
@@ -778,8 +945,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: const Color(0xFF2A2E35),
-        title: const Text('Enter code',
-            style: TextStyle(color: Colors.white, fontSize: 16)),
+        title: Text(I18n.t('Enter code'),
+            style: const TextStyle(color: Colors.white, fontSize: 16)),
         content: TextField(
           controller: c,
           autofocus: true,
@@ -792,10 +959,10 @@ class _SettingsSheetState extends State<SettingsSheet> {
         actions: [
           TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: const Text('Cancel')),
+              child: Text(I18n.t('Cancel'))),
           FilledButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: const Text('OK')),
+              child: Text(I18n.t('OK'))),
         ],
       ),
     );
@@ -841,7 +1008,8 @@ class _VoicePickerState extends State<_VoicePicker> {
         final shown = _allLanguages || mine.isEmpty ? all : mine;
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           if (!kIsWeb && lang.code == 'en')
-            _option('Offline voice', 'US English · works without internet',
+            _option(I18n.t('Offline voice'),
+                'US English · ${I18n.t('works without internet')}',
                 Icons.offline_bolt, s.usePiper, () => _pick(piper: true)),
           _option(
               I18n.t('Best voice for this language'),
@@ -856,12 +1024,12 @@ class _VoicePickerState extends State<_VoicePicker> {
               child: LinearProgressIndicator(),
             )
           else if (all.isEmpty)
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 6),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6),
               child: Text(
-                  'No other voices found. Add voices in the device\'s '
-                  'text-to-speech settings.',
-                  style: TextStyle(color: Colors.white54, fontSize: 12)),
+                  I18n.t('No other voices found. Add voices in the device\'s '
+                      'text-to-speech settings.'),
+                  style: const TextStyle(color: Colors.white54, fontSize: 12)),
             )
           else ...[
             Padding(
@@ -870,22 +1038,22 @@ class _VoicePickerState extends State<_VoicePicker> {
                   '${I18n.t('Voices and accents on this device')} (${shown.length})',
                   style: const TextStyle(color: Colors.white70, fontSize: 13)),
             ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxHeight: 240),
-              child: ListView(shrinkWrap: true, children: [
-                for (final v in shown)
-                  _option(
-                      v.name,
-                      [v.locale, if (v.needsInternet) 'needs internet']
-                          .where((t) => t.isNotEmpty)
-                          .join(' · '),
-                      Icons.record_voice_over,
-                      !s.usePiper &&
-                          s.voiceName == v.name &&
-                          (s.voiceLocale ?? '') == v.locale,
-                      () => _pick(piper: false, voice: v)),
-              ]),
-            ),
+            // Two clear groups; a voice the device does not describe is
+            // listed under "Other voices" rather than guessed.
+            for (final group in const [
+              (VoiceGender.female, 'Female voices', Icons.face_3, Color(0xFFF48FB1)),
+              (VoiceGender.male, 'Male voices', Icons.face_6, Color(0xFF64B5F6)),
+              (VoiceGender.unknown, 'Other voices', Icons.record_voice_over, Colors.white54),
+            ])
+              ..._voiceGroup(
+                  group.$2,
+                  group.$3,
+                  group.$4,
+                  [
+                    for (final v in shown)
+                      if (voiceGender(v.name, hint: v.gender) == group.$1) v
+                  ],
+                  s),
             if (mine.isNotEmpty && mine.length != all.length)
               TextButton(
                 onPressed: () => setState(() => _allLanguages = !_allLanguages),
@@ -897,6 +1065,34 @@ class _VoicePickerState extends State<_VoicePicker> {
         ]);
       },
     );
+  }
+
+  List<Widget> _voiceGroup(String title, IconData icon, Color color,
+      List<DeviceVoice> voices, AppSettings s) {
+    if (voices.isEmpty) return const [];
+    return [
+      Padding(
+        padding: const EdgeInsets.only(top: 10, bottom: 2),
+        child: Row(children: [
+          Icon(icon, color: color, size: 20),
+          const SizedBox(width: 8),
+          Text('${I18n.t(title)} (${voices.length})',
+              style: TextStyle(
+                  color: color, fontSize: 14, fontWeight: FontWeight.w600)),
+        ]),
+      ),
+      for (final v in voices)
+        _option(
+            v.name,
+            [v.locale, if (v.needsInternet) I18n.t('needs internet')]
+                .where((t) => t.isNotEmpty)
+                .join(' · '),
+            icon,
+            !s.usePiper &&
+                s.voiceName == v.name &&
+                (s.voiceLocale ?? '') == v.locale,
+            () => _pick(piper: false, voice: v)),
+    ];
   }
 
   Widget _option(String title, String subtitle, IconData icon, bool selected,

@@ -1696,8 +1696,8 @@ handsome|सुंदर
 hang|टाँगना
 hang coat|कोट टाँगना
 hangar|हैंगर
-hangul syllable bbegs|मांस
-hangul syllable jjwaelm|खाना
+hangul syllable bbegs|गोमांस
+hangul syllable jjwaelm|कॉफ़ी शॉप
 hankerchief|रूमाल
 hard|सख़्त
 hard hat|हेलमेट
@@ -3110,6 +3110,56 @@ light|हल्का
 off|बंद
 skin|त्वचा
 
+beef|गोमांस
+coffee shop|कॉफ़ी शॉप
+start|शुरू करो
+wrong|गलत
+next to|बगल में
+dizzy|चक्कर
+good morning|सुप्रभात
+good night|शुभ रात्रि
+excuse me|माफ़ कीजिए
+big|बड़ा
+small|छोटा
+slow|धीरे
+me|मुझे
+him|उसको
+her|उसे
+us|हमें
+they|वे
+them|उन्हें
+mine|मेरा
+your|तुम्हारा
+his|उसका
+our|हमारा
+their|उनका
+these|ये
+those|वो
+different|अलग
+new|नया
+with|साथ
+hard to do|मुश्किल
+finished|खत्म
+later|बाद में
+have|पास है
+drop|गिराना
+know|जानना
+hide|छिपना
+see|देखना
+kick|लात मारना
+close|बंद करना
+keep|रखना
+fix|ठीक करना
+win|जीतना
+buy|खरीदना
+throw|फेंकना
+can|कर सकता हूँ
+feel|महसूस करना
+shy|शर्मीला
+lonely|अकेला
+proud|गर्व
+say|कहना
+tell|बताना
 [forms]
 I+want|मुझे चाहिए
 I+need|मुझे ज़रूरत है

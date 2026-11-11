@@ -1698,8 +1698,8 @@ handsome|خوبصورت
 hang|لٹکانا
 hang coat|کوٹ لٹکانا
 hangar|ہینگر
-hangul syllable bbegs|کوریائی حرف
-hangul syllable jjwaelm|کوریائی حرف
+hangul syllable bbegs|گائے کا گوشت
+hangul syllable jjwaelm|کافی شاپ
 hankerchief|رومال
 hard|سخت
 hard hat|ہیلمٹ
@@ -3111,6 +3111,56 @@ zip|زپ
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|میں
 
+beef|گائے کا گوشت
+coffee shop|کافی شاپ
+start|شروع کرو
+wrong|غلط
+next to|ساتھ
+dizzy|چکر
+good morning|صبح بخیر
+good night|شب بخیر
+excuse me|معاف کیجیے
+big|بڑا
+small|چھوٹا
+slow|آہستہ
+me|مجھے
+him|اس کو
+her|اسے
+us|ہمیں
+they|وہ لوگ
+them|انہیں
+mine|میرا
+your|تمہارا
+his|اس کا
+our|ہمارا
+their|ان کا
+these|یہ سب
+those|وہ سب
+different|مختلف
+new|نیا
+with|ساتھ
+hard to do|مشکل
+finished|ختم
+later|بعد میں
+have|پاس ہے
+drop|گرانا
+know|جاننا
+hide|چھپنا
+see|دیکھنا
+kick|لات مارنا
+close|بند کرنا
+keep|رکھنا
+fix|ٹھیک کرنا
+win|جیتنا
+buy|خریدنا
+throw|پھینکنا
+can|کر سکتا ہوں
+feel|محسوس کرنا
+shy|شرمیلا
+lonely|اکیلا
+proud|فخر
+say|کہنا
+tell|بتانا
 [forms]
 I+want|مجھے چاہیے
 I+need|مجھے ضرورت ہے

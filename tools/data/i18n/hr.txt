@@ -1698,8 +1698,8 @@ handsome|zgodan
 hang|objesiti
 hang coat|objesiti kaput
 hangar|hangar
-hangul syllable bbegs|korejsko jelo
-hangul syllable jjwaelm|korejska hrana
+hangul syllable bbegs|govedina
+hangul syllable jjwaelm|kafić
 hankerchief|maramica
 hard|tvrdo
 hard hat|zaštitna kaciga
@@ -3110,6 +3110,56 @@ zero|nula
 zip|patentni zatvarač
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ja
+beef|govedina
+coffee shop|kafić
+start|počni
+wrong|krivo
+next to|pored
+dizzy|vrti mi se
+good morning|dobro jutro
+good night|laku noć
+excuse me|oprostite
+big|veliko
+small|malo
+slow|sporo
+me|mene
+him|njega
+her|nju
+us|nas
+they|oni
+them|njih
+mine|moje
+your|tvoje
+his|njegovo
+our|naše
+their|njihovo
+these|ovi
+those|oni tamo
+different|drugačije
+new|novo
+with|s
+hard to do|teško
+finished|gotovo
+later|kasnije
+have|imati
+drop|ispustiti
+know|znati
+hide|sakriti
+see|vidjeti
+kick|šutnuti
+close|zatvoriti
+keep|zadržati
+fix|popraviti
+win|pobijediti
+buy|kupiti
+throw|baciti
+can|moći
+feel|osjećati
+shy|sramežljiv
+lonely|usamljen
+proud|ponosan
+say|reći
+tell|ispričati
 [forms]
 I+want|želim
 I+need|trebam

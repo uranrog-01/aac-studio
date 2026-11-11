@@ -1698,8 +1698,8 @@ handsome|chipeș
 hang|agăța
 hang coat|agăța haina
 hangar|hangar
-hangul syllable bbegs|silabă coreeană
-hangul syllable jjwaelm|silabă coreeană
+hangul syllable bbegs|carne de vită
+hangul syllable jjwaelm|cafenea
 hankerchief|batistă
 hard|tare
 hard hat|cască de protecție
@@ -3111,6 +3111,56 @@ zip|fermoar
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|eu
 
+beef|carne de vită
+coffee shop|cafenea
+start|începe
+wrong|greșit
+next to|lângă
+dizzy|amețit
+good morning|bună dimineața
+good night|noapte bună
+excuse me|scuzați-mă
+big|mare
+small|mic
+slow|încet
+me|pe mine
+him|pe el
+her|pe ea
+us|pe noi
+they|ei
+them|pe ei
+mine|al meu
+your|al tău
+his|al lui
+our|al nostru
+their|al lor
+these|aceștia
+those|aceia
+different|diferit
+new|nou
+with|cu
+hard to do|greu
+finished|terminat
+later|mai târziu
+have|am
+drop|scapă
+know|știu
+hide|ascunde
+see|văd
+kick|lovește cu piciorul
+close|închide
+keep|păstrează
+fix|repară
+win|câștigă
+buy|cumpără
+throw|aruncă
+can|pot
+feel|simt
+shy|timid
+lonely|singur
+proud|mândru
+say|spune
+tell|povestește
 [forms]
 I+want|vreau
 I+need|am nevoie

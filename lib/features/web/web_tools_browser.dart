@@ -1,3 +1,4 @@
+import '../../engine/i18n.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:js_interop';
@@ -170,16 +171,13 @@ class _WebToolsState extends State<WebTools> {
   }
 
   @override
-  Widget build(BuildContext context) => Card(
-        color: const Color(0xFF2C313A),
-        child: ExpansionTile(
-          leading: const Icon(Icons.install_mobile),
-          title: const Text('iPhone & offline'),
-          subtitle: const Text('Install, save pictures, back up boards'),
-          childrenPadding: const EdgeInsets.all(16),
+  Widget build(BuildContext context) => DefaultTextStyle.merge(
+        style: const TextStyle(color: Colors.white70, fontSize: 13),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-                'In Safari, tap Share > Add to Home Screen. Turn on Open as Web App, then tap Add. No Apple Account password is needed.'),
+            Text(I18n.t(
+                'In Safari, tap Share > Add to Home Screen. Turn on Open as Web App, then tap Add. No Apple Account password is needed.')),
             const SizedBox(height: 12),
             Text(_status, semanticsLabel: _status),
             if (_downloading)
@@ -190,30 +188,30 @@ class _WebToolsState extends State<WebTools> {
               TextButton.icon(
                   onPressed: _downloading ? null : _download,
                   icon: const Icon(Icons.download),
-                  label: const Text('Save all pictures offline')),
+                  label: Text(I18n.t('Save all pictures offline'))),
               TextButton(
-                  onPressed: _refresh, child: const Text('Check status')),
+                  onPressed: _refresh, child: Text(I18n.t('Check status'))),
             ]),
-            const Text(
-                'All pictures download automatically in the background while the app is open online (about 80 MB, once). Then the app works without internet. Test the voice in airplane mode before relying on it offline.'),
+            Text(I18n.t(
+                'All pictures download automatically in the background while the app is open online (about 80 MB, once). Then the app works without internet. Test the voice in airplane mode before relying on it offline.')),
             const SizedBox(height: 12),
-            const Text(
-                'Your changes are saved on this device. Clearing website data removes them. Keep a backup in Files.'),
+            Text(I18n.t(
+                'Your changes are saved on this device. Clearing website data removes them. Keep a backup in Files.')),
             Wrap(spacing: 8, children: [
               TextButton.icon(
                   onPressed: () async {
                     try {
                       await _exportBackup().toDart;
                     } catch (_) {
-                      _message('Backup could not be saved. Please try again.');
+                      _message(I18n.t('The backup could not be saved. Please try again.'));
                     }
                   },
                   icon: const Icon(Icons.save_alt),
-                  label: const Text('Save backup')),
+                  label: Text(I18n.t('Save backup'))),
               TextButton.icon(
                   onPressed: _restore,
                   icon: const Icon(Icons.restore),
-                  label: const Text('Restore backup')),
+                  label: Text(I18n.t('Restore backup'))),
             ]),
           ],
         ),

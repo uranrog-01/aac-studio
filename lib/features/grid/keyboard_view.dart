@@ -133,9 +133,13 @@ class _KeyboardViewState extends State<KeyboardView> {
   @override
   Widget build(BuildContext context) {
     final lang = I18n.language;
-    final prefix = RegExp(r"[a-zA-Z']+$").firstMatch(_text)?.group(0) ?? '';
-    // Word suggestions come from an English word list.
-    final suggestions = prefix.isEmpty || lang.code != 'en'
+    final prefix = RegExp(r"[\p{L}']+$", unicode: true)
+            .firstMatch(_text)
+            ?.group(0) ??
+        '';
+    // English uses a frequency word list; other languages suggest the
+    // board's own words in that language and the person's learned words.
+    final suggestions = prefix.isEmpty
         ? <String>[]
         : widget.predictor
             .suggest(prefix)
@@ -161,7 +165,7 @@ class _KeyboardViewState extends State<KeyboardView> {
               ? const SizedBox.shrink()
               : Padding(
                   padding: const EdgeInsets.all(8),
-                  child: Text(error,
+                  child: Text(I18n.t(error),
                       style: const TextStyle(color: Colors.white))),
         ),
         Padding(

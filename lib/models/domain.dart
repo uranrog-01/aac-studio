@@ -170,7 +170,7 @@ class VocabButton {
       // word "I"); the voice reads them in the chosen language.
       wordClass == WordClass.letter || wordClass == WordClass.number
           ? label
-          : I18n.word(label);
+          : I18n.word(label, id: id);
 
   String get speakText =>
       (spokenText != null && spokenText!.isNotEmpty) ? spokenText! : shownLabel;

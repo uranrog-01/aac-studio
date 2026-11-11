@@ -74,6 +74,26 @@ class I18n {
   static Map<String, String> _ui = const {};
   static Map<String, String> _words = const {};
   static Map<String, String> _forms = const {};
+  static Map<String, String> _wordsF = const {};
+  static Map<String, String> _formsF = const {};
+
+  /// The person speaking is a girl or woman: words and phrases that
+  /// differ ("e lodhur" for "i lodhur") use their feminine form.
+  static bool female = false;
+
+  /// Whether the chosen language has feminine forms to offer.
+  static bool get hasFeminine => _wordsF.isNotEmpty || _formsF.isNotEmpty;
+
+  static void setFemale(bool value) {
+    if (female == value) return;
+    female = value;
+    changes.value = _state;
+  }
+
+  static String get _state => '${language.code}${female ? '-f' : ''}';
+
+  /// Every board word in the chosen language (typing suggestions).
+  static Iterable<String> get boardWords => _words.values;
 
   /// Notifies the app to redraw after a language change.
   static final ValueNotifier<String> changes = ValueNotifier('en');
@@ -83,6 +103,8 @@ class I18n {
     var ui = <String, String>{};
     var words = <String, String>{};
     var forms = <String, String>{};
+    var wordsF = <String, String>{};
+    var formsF = <String, String>{};
     // English has no word list but does have sentence forms (en.json).
     {
       try {
@@ -98,6 +120,14 @@ class I18n {
           for (final e in (data['forms'] as Map? ?? const {}).entries)
             (e.key as String).toLowerCase(): e.value as String
         };
+        wordsF = {
+          for (final e in (data['words_f'] as Map? ?? const {}).entries)
+            (e.key as String).toLowerCase(): e.value as String
+        };
+        formsF = {
+          for (final e in (data['forms_f'] as Map? ?? const {}).entries)
+            (e.key as String).toLowerCase(): e.value as String
+        };
       } catch (_) {
         // A missing or damaged file keeps the app usable in English.
       }
@@ -106,20 +136,34 @@ class I18n {
     _ui = ui;
     _words = words;
     _forms = forms;
-    changes.value = lang.code;
+    _wordsF = wordsF;
+    _formsF = formsF;
+    changes.value = _state;
   }
 
   /// App text (buttons, hints, messages), keyed by its English wording.
   static String t(String english) => _ui[english] ?? english;
 
   /// A board word or category name in the chosen language.
-  static String word(String english) =>
-      _words[english.toLowerCase()] ?? english;
+  ///
+  /// A word with several meanings ("sink" the basin, "sink" in water) can
+  /// be translated per button or category: `@id` wins over the word.
+  static String word(String english, {String? id}) {
+    final key = english.toLowerCase();
+    final own = id == null ? null : '@${id.toLowerCase()}';
+    if (female) {
+      final f = (own == null ? null : _wordsF[own]) ?? _wordsF[key];
+      if (f != null && (own == null || !_words.containsKey(own))) return f;
+    }
+    return (own == null ? null : _words[own]) ?? _words[key] ?? english;
+  }
 
   /// Pronoun + word as one natural phrase ("I" + "want" → "je veux",
   /// "I" + "hungry" → "j'ai faim"), or null when there is none.
-  static String? form(String pronoun, String word) =>
-      _forms['${pronoun.toLowerCase()}+${word.toLowerCase()}'];
+  static String? form(String pronoun, String word) {
+    final key = '${pronoun.toLowerCase()}+${word.toLowerCase()}';
+    return (female ? _formsF[key] : null) ?? _forms[key];
+  }
 
   static bool hasWord(String english) =>
       _words.containsKey(english.toLowerCase());
@@ -142,6 +186,58 @@ String speechText(String text) {
 /// A voice as the device reports it (iOS/Android via flutter_tts, browsers
 /// via speechSynthesis).
 typedef VoiceInfo = ({String name, String locale, String quality, bool network});
+
+enum VoiceGender { female, male, unknown }
+
+const _femaleNames = {
+  'samantha', 'victoria', 'karen', 'moira', 'tessa', 'fiona', 'allison', 'ava',
+  'susan', 'zoe', 'nicky', 'kate', 'serena', 'veena', 'alice', 'amelie',
+  'amélie', 'anna', 'ellen', 'joana', 'luciana', 'monica', 'mónica',
+  'paulina', 'sara', 'satu', 'kyoko', 'yuna', 'mei-jia', 'sin-ji',
+  'ting-ting', 'milena', 'zuzana', 'ioana', 'melina', 'yelda', 'damayanti',
+  'lekha', 'laura', 'marie', 'audrey', 'aurelie', 'aurélie', 'alva', 'nora',
+  'helena', 'petra', 'carmit', 'kanya', 'lana', 'zira', 'hazel', 'heera',
+  'catherine', 'linda', 'eva', 'hortense', 'julie', 'katja', 'hedda', 'elsa',
+  'cosima', 'lucia', 'paola', 'ayumi', 'haruka', 'sayaka', 'heami', 'huihui',
+  'yaoyao', 'tracy', 'hanhan', 'irina', 'maria', 'helia', 'sabina', 'zosia',
+  'filiz', 'seda', 'salma', 'hoda', 'kalpana', 'anila', 'jenny', 'aria',
+  'michelle', 'emma', 'sonia', 'libby', 'natasha', 'clara', 'denise', 'elvira',
+  'isabella', 'nanami', 'sun-hi', 'xiaoxiao', 'swara', 'emel', 'svetlana',
+  'polina', 'gabrijela', 'athina', 'alina', 'colette', 'fenna', 'zofia',
+};
+
+const _maleNames = {
+  'daniel', 'alex', 'tom', 'oliver', 'aaron', 'arthur', 'gordon', 'lee',
+  'rishi', 'thomas', 'jorge', 'juan', 'diego', 'luca', 'xander', 'maged',
+  'tarik', 'otoya', 'hattori', 'yuri', 'markus', 'yannick', 'martin', 'david',
+  'mark', 'george', 'james', 'richard', 'ravi', 'hemant', 'sean', 'guillaume',
+  'paul', 'claude', 'stefan', 'michael', 'karsten', 'pablo', 'raul', 'raúl',
+  'cosimo', 'ichiro', 'pavel', 'adam', 'jakub', 'tolga', 'naayf', 'andrei',
+  'filip', 'matej', 'lado', 'guy', 'ryan', 'william', 'liam', 'henri',
+  'conrad', 'alvaro', 'álvaro', 'keita', 'injoon', 'yunxi', 'madhur', 'ahmet',
+  'dmitry', 'ostap', 'srecko', 'srećko', 'nestoras', 'emil', 'maarten', 'marek',
+  'ilir', 'edon', 'asad', 'hamed', 'antonio', 'eddy', 'reed', 'rocko',
+};
+
+/// Whether a device voice is a woman's or a man's. The device says so on
+/// iPhone and iPad ([hint]); elsewhere it is read from the voice's name
+/// (Android "…#female_1", Windows "Zira" / "David"). Unknown voices are
+/// listed separately rather than guessed.
+VoiceGender voiceGender(String name, {String hint = ''}) {
+  final h = hint.toLowerCase();
+  if (h.contains('female')) return VoiceGender.female;
+  if (h.contains('male')) return VoiceGender.male;
+  final n = name.toLowerCase();
+  if (n.contains('female') || n.contains('woman')) return VoiceGender.female;
+  if (RegExp(r'(^|[^a-z])(male|man)([^a-z]|$)').hasMatch(n)) {
+    return VoiceGender.male;
+  }
+  for (final word in n.split(RegExp(r"[^a-zà-ÿ'-]+"))) {
+    if (_femaleNames.contains(word)) return VoiceGender.female;
+    if (_maleNames.contains(word)) return VoiceGender.male;
+  }
+  return VoiceGender.unknown;
+}
 
 /// iPhone joke/effect voices: never chosen automatically.
 const _noveltyVoices = {

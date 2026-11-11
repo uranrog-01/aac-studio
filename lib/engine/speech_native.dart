@@ -15,8 +15,11 @@ class DeviceVoice {
   final String locale;
   final String quality;
   final bool network;
+
+  /// 'female' / 'male' when the device says so (iPhone, iPad), else ''.
+  final String gender;
   const DeviceVoice(this.name, this.locale,
-      {this.quality = '', this.network = false});
+      {this.quality = '', this.network = false, this.gender = ''});
 
   VoiceInfo get info =>
       (name: name, locale: locale, quality: quality, network: network);
@@ -101,7 +104,8 @@ class SpeechEngine {
       if (code != language.code) return; // language changed meanwhile
       _offlineReady = true;
       if (_usePiper) {
-        status.value = 'Offline voice: ${piperPacks[code]?.name ?? code}';
+        status.value =
+            '${I18n.t('Offline voice')}: ${piperPacks[code]?.name ?? code}';
       }
     } catch (_) {
       _offlineReady = false;
@@ -191,7 +195,8 @@ class SpeechEngine {
           if (v is Map && v['name'] != null)
             DeviceVoice('${v['name']}', '${v['locale'] ?? ''}',
                 quality: '${v['quality'] ?? ''}',
-                network: '${v['network_required'] ?? '0'}' == '1'),
+                network: '${v['network_required'] ?? '0'}' == '1',
+                gender: '${v['gender'] ?? ''}'),
       ];
       voices.sort((a, b) {
         // The chosen language's voices first, then English, then the rest.
@@ -263,7 +268,7 @@ class SpeechEngine {
   Future<void> _initialize() async {
     _tts.setErrorHandler((message) {
       error.value =
-          'Speech unavailable. Check media volume and installed English voices in device settings.';
+          'Speech unavailable. Check your device voices and volume.';
       _initializing = null;
     });
     try {
@@ -330,7 +335,7 @@ class SpeechEngine {
               volume: requestedVolume,
               isCurrent: () => generation == _generation);
           if (generation == _generation) {
-            status.value = 'Piper: US English, LJ Speech (offline)';
+            status.value = '${I18n.t('Offline voice')}: US English';
             error.value = null;
           }
           return;
@@ -374,7 +379,7 @@ class SpeechEngine {
         }
       }
       error.value =
-          'Speech unavailable. Check media volume and installed English voices in device settings.';
+          'Speech unavailable. Check your device voices and volume.';
     });
     return _pending;
   }

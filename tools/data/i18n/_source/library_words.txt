@@ -119,6 +119,7 @@ beans on toast	Meals
 beansprouts	Vegetables
 beaver	Animals
 bed time	Time
+beef	Meat, fish & eggs
 beehive	Animal homes & food
 beer	Drinks
 beer mug	Drinks
@@ -457,6 +458,7 @@ cockroach	Bugs
 cocktail glass	Drinks
 coffee	Drinks
 coffee maker	Kitchen
+coffee shop	Mealtime
 coffee table	Home things
 coin	Shopping & money
 colander	Kitchen
@@ -467,7 +469,6 @@ coloured paper	Art & crafts
 colouring book	Toys
 comb	Bathroom things
 comb animal	Animal homes & food
-come	Actions
 comedy tv	TV, phones & computers
 comet	Science & space
 communicate	Chat
@@ -1018,8 +1019,6 @@ handsome	Describing words
 hang	Actions
 hang coat	Daily routines
 hangar	Vehicles
-hangul syllable bbegs	Meat, fish & eggs
-hangul syllable jjwaelm	Mealtime
 hankerchief	Clothes
 hard	Describing words
 hard hat	Clothes

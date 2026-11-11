@@ -1698,8 +1698,8 @@ handsome|όμορφος
 hang|κρεμάω
 hang coat|κρεμάω το παλτό
 hangar|υπόστεγο
-hangul syllable bbegs|κορεατική συλλαβή
-hangul syllable jjwaelm|κορεατικό γράμμα
+hangul syllable bbegs|βοδινό
+hangul syllable jjwaelm|καφετέρια
 hankerchief|μαντίλι
 hard|σκληρό
 hard hat|κράνος εργασίας
@@ -3110,6 +3110,56 @@ zero|μηδέν
 zip|φερμουάρ
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|εγώ
+beef|βοδινό
+coffee shop|καφετέρια
+start|ξεκίνα
+wrong|λάθος
+next to|δίπλα
+dizzy|ζαλίζομαι
+good morning|καλημέρα
+good night|καληνύχτα
+excuse me|συγγνώμη
+big|μεγάλο
+small|μικρό
+slow|αργά
+me|εμένα
+him|αυτόν
+her|αυτήν
+us|εμάς
+they|αυτοί
+them|αυτούς
+mine|δικό μου
+your|δικό σου
+his|δικό του
+our|δικό μας
+their|δικό τους
+these|αυτά
+those|εκείνα
+different|διαφορετικό
+new|καινούριο
+with|με
+hard to do|δύσκολο
+finished|τελείωσε
+later|αργότερα
+have|έχω
+drop|ρίχνω κάτω
+know|ξέρω
+hide|κρύβομαι
+see|βλέπω
+kick|κλοτσάω
+close|κλείνω
+keep|κρατάω
+fix|φτιάχνω
+win|κερδίζω
+buy|αγοράζω
+throw|πετάω
+can|μπορώ
+feel|νιώθω
+shy|ντροπαλός
+lonely|μόνος
+proud|περήφανος
+say|λέω
+tell|διηγούμαι
 [forms]
 I+want|θέλω
 I+need|χρειάζομαι

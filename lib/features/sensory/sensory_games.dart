@@ -1,3 +1,4 @@
+import '../../engine/i18n.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -24,13 +25,17 @@ class SensoryGamesScreen extends StatelessWidget {
             icon: const Icon(Icons.close, color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          bottom: const TabBar(
+          bottom: TabBar(
             indicatorColor: Colors.deepOrangeAccent,
             labelColor: Colors.white,
             unselectedLabelColor: Colors.white38,
             tabs: [
-              Tab(icon: Icon(Icons.bubble_chart), text: 'Bubbles'),
-              Tab(icon: Icon(Icons.self_improvement), text: 'Breathe'),
+              Tab(
+                  icon: const Icon(Icons.bubble_chart),
+                  text: I18n.t('Bubbles')),
+              Tab(
+                  icon: const Icon(Icons.self_improvement),
+                  text: I18n.t('Breathe')),
             ],
           ),
         ),

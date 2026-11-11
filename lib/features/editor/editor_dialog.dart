@@ -1,3 +1,4 @@
+import '../../engine/i18n.dart';
 import 'package:flutter/material.dart';
 
 import '../../engine/photo_picker.dart';
@@ -73,7 +74,7 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
         .toList();
     return AlertDialog(
       backgroundColor: const Color(0xFF2A2E35),
-      title: Text(widget.existing == null ? 'Add button' : 'Edit button',
+      title: Text(I18n.t(widget.existing == null ? 'Add button' : 'Edit button'),
           style: const TextStyle(color: Colors.white, fontSize: 18)),
       content: SizedBox(
         width: 520,
@@ -110,17 +111,18 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                     TextField(
                       controller: _label,
                       style: const TextStyle(color: Colors.white),
-                      decoration: const InputDecoration(
-                          labelText: 'Label', labelStyle: TextStyle(color: Colors.white54)),
+                      decoration: InputDecoration(
+                          labelText: I18n.t('Label'),
+                          labelStyle: const TextStyle(color: Colors.white54)),
                       onChanged: (_) => setState(() {}),
                     ),
                     const SizedBox(height: 8),
                     TextField(
                       controller: _spoken,
                       style: const TextStyle(color: Colors.white),
-                      decoration: const InputDecoration(
-                          labelText: 'Spoken text (optional)',
-                          labelStyle: TextStyle(color: Colors.white54)),
+                      decoration: InputDecoration(
+                          labelText: I18n.t('Spoken text (optional)'),
+                          labelStyle: const TextStyle(color: Colors.white54)),
                     ),
                     const SizedBox(height: 8),
                     DropdownButtonFormField<WordClass>(
@@ -134,9 +136,9 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                             DropdownMenuItem(value: w, child: Text(w.name))
                       ],
                       onChanged: (w) => setState(() => _wordClass = w ?? WordClass.noun),
-                      decoration: const InputDecoration(
-                          labelText: 'Word class',
-                          labelStyle: TextStyle(color: Colors.white54)),
+                      decoration: InputDecoration(
+                          labelText: I18n.t('Word class'),
+                          labelStyle: const TextStyle(color: Colors.white54)),
                     ),
                   ]),
                 ),
@@ -148,8 +150,7 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                   child: TextField(
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
-                      hintText:
-                          'Search ${widget.library.size} symbols…',
+                      hintText: I18n.t('Search pictures…'),
                       hintStyle: const TextStyle(color: Colors.white38),
                       prefixIcon: const Icon(Icons.search, color: Colors.white38),
                       isDense: true,
@@ -163,12 +164,15 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                   dropdownColor: const Color(0xFF2A2E35),
                   style: const TextStyle(color: Colors.white70),
                   // The picture sets bundled with the app.
-                  items: const [
-                    DropdownMenuItem(value: 'all', child: Text('All pictures')),
+                  items: [
                     DropdownMenuItem(
+                        value: 'all', child: Text(I18n.t('All pictures'))),
+                    const DropdownMenuItem(
                         value: 'modernflat', child: Text('Modern flat')),
-                    DropdownMenuItem(value: 'mulberry', child: Text('Mulberry')),
-                    DropdownMenuItem(value: 'twemoji', child: Text('Flags')),
+                    const DropdownMenuItem(
+                        value: 'mulberry', child: Text('Mulberry')),
+                    DropdownMenuItem(
+                        value: 'twemoji', child: Text(I18n.t('Flags'))),
                   ],
                   onChanged: (p) => setState(() => _packFilter = p ?? 'all'),
                 ),
@@ -222,13 +226,13 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
                           height: 16,
                           child: CircularProgressIndicator(strokeWidth: 2))
                       : const Icon(Icons.photo_library_outlined),
-                  label: const Text('Use a photo'),
+                  label: Text(I18n.t('Use a photo')),
                 ),
                 if (_symbol.imagePath != null)
                   TextButton(
                     onPressed: () => setState(
                         () => _symbol = SymbolRef(_symbol.emoji)),
-                    child: const Text('Remove photo'),
+                    child: Text(I18n.t('Remove photo')),
                   ),
               ]),
               const SizedBox(height: 10),
@@ -250,7 +254,8 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
               // M3 voice style
               Wrap(spacing: 14, crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
-                const Text('Voice:', style: TextStyle(color: Colors.white54)),
+                Text(I18n.t('Voice:'),
+                    style: const TextStyle(color: Colors.white54)),
                 // Speech rate is 0-1 on every platform (0.45 = normal).
                 _slider('speed', _voice?.rate, 0.45, 0.1, 1.0,
                     (v) => _applyVoice(rate: v)),
@@ -270,11 +275,12 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
         if (widget.onDelete != null)
           TextButton(
             onPressed: _confirmDelete,
-            child: const Text('Delete', style: TextStyle(color: Colors.redAccent)),
+            child: Text(I18n.t('Delete'),
+                style: const TextStyle(color: Colors.redAccent)),
           ),
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(I18n.t('Cancel')),
         ),
         FilledButton(
           onPressed: () {
@@ -296,7 +302,7 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
             ));
             Navigator.pop(context);
           },
-          child: const Text('Save'),
+          child: Text(I18n.t('Save')),
         ),
       ],
     );
@@ -307,17 +313,17 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Delete "$label"?'),
-        content: const Text('The button is removed from this board. '
-            'Save a backup first if you may want it back.'),
+        title: Text('${I18n.t('Delete')} "$label"?'),
+        content: Text(I18n.t('The button is removed from this board. '
+            'Save a backup first if you may want it back.')),
         actions: [
           TextButton(
               onPressed: () => Navigator.pop(context, false),
-              child: const Text('Cancel')),
+              child: Text(I18n.t('Cancel'))),
           FilledButton(
               style: FilledButton.styleFrom(backgroundColor: Colors.red),
               onPressed: () => Navigator.pop(context, true),
-              child: const Text('Delete')),
+              child: Text(I18n.t('Delete'))),
         ],
       ),
     );
@@ -337,8 +343,9 @@ class _ButtonEditorDialogState extends State<ButtonEditorDialog> {
             imagePath: path));
       }
     } catch (_) {
-      messenger?.showSnackBar(const SnackBar(
-          content: Text('That photo could not be used. Try another one.')));
+      messenger?.showSnackBar(SnackBar(
+          content: Text(
+              I18n.t('That photo could not be used. Try another one.'))));
     } finally {
       if (mounted) setState(() => _pickingPhoto = false);
     }

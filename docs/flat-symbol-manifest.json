@@ -6725,17 +6725,17 @@
    "key": "type-123"
   }
  ],
- "fileCount": 3675,
- "indexNames": 7294,
- "uniqueIndexedPictures": 7090,
+ "fileCount": 3694,
+ "indexNames": 7313,
+ "uniqueIndexedPictures": 7109,
  "counts": {
   "communication": 19,
   "learning": 21,
-  "modernflat": 3373,
+  "modernflat": 3392,
   "twemoji": 262,
   "mulberry": 3436
  },
- "bytes": 44645944,
+ "bytes": 45045706,
  "files": {
   "communication/again.webp": "2cd019e362801e6efe8b6d52cfef02fdf2b5cad29936277cf81428cbb0efc7b0",
   "communication/bedroom.webp": "3ddc89925068894b7cc3e62242c583dbf176cbc8f9d254aca76cf7d8b5eb1cb1",
@@ -10411,7 +10411,26 @@
   "modernflat/vocab-whisk.webp": "7dc5cbcffa84e251b8872bd613e9ec2805dc3fefc625e000dcfb25fea8798788",
   "modernflat/vocab-wife.webp": "c1887fbd317b1ce44142fb0f71ae8884ab53cfe7fb58364dfdd0ca6980fe4a24",
   "modernflat/vocab-winter.webp": "5a06f5f776b558646e4bf5ceac0087528a0976a815e2e558c5e8db5cb25cd9d7",
-  "modernflat/vocab-yesterday.webp": "9e7e7bede3ef4302dd102ee3f30a84bbb9aac4045eee5e12c011d97c8188b139"
+  "modernflat/vocab-yesterday.webp": "9e7e7bede3ef4302dd102ee3f30a84bbb9aac4045eee5e12c011d97c8188b139",
+  "modernflat/vocab-me.webp": "577813f07f7a2a37c1e50b8c2e7b50e3f88b04fdf0c51616115134a3d55cdeac",
+  "modernflat/vocab-him.webp": "cbf25385c2c461ad16676690949b5842005a7b7cabe069c2832c1174d33312df",
+  "modernflat/vocab-her.webp": "7047c2151ca53775adf33fc71c217524d87c8a5160076006758f705097b7c8c0",
+  "modernflat/vocab-they.webp": "ec484b77d3a121598b4bbc457f5da29297efd7da6d3e6f0d223ef10180f9cecb",
+  "modernflat/vocab-them.webp": "398fb8a3a773137e721f6a1bc24a625a294133a7c698343e5839814588622938",
+  "modernflat/vocab-us.webp": "1ac8474dd22d36338753b699bc8aae1b28caa71cdd27f3dd775e67c2b786500b",
+  "modernflat/vocab-mine.webp": "bbad596db1db9b160104a9c83e629bfc453f1183933ddabc9bc39779620e2962",
+  "modernflat/vocab-his.webp": "46ae1e25b5952d0334cec313ce5bdc8c628786827be32a1177ccce61d615488b",
+  "modernflat/vocab-your.webp": "eccd43affd2cd81d9beddf16167f831fa8465bf65cbde0f47b47c8e35ad01269",
+  "modernflat/vocab-our.webp": "432610a3e39565636f82a9c0c734e4f1cc01db2574eefd0e7f5b2df074ccfe99",
+  "modernflat/vocab-their.webp": "4211a65dfa288715811c2b4b7ca6ff018d667f4997db2dd8cef058b7ada71b6a",
+  "modernflat/vocab-these.webp": "7df23bf90a4bcc01a753f9a17bad75a1671c1fba3721b7adca21e7820425dab5",
+  "modernflat/vocab-those.webp": "238f72f34b8d5fb15f4d7f899f91d31ab394207cee9f8e77704aeb12d6807cfb",
+  "modernflat/vocab-have.webp": "5b177d30387d2874c8a6c772ef77514c7e6f89a49d729bed62d875f4d75d8984",
+  "modernflat/vocab-drop.webp": "3114f78f1e4465f09b9890d9f9b900feaf8276b90a8d25fbe3a09c89eed44cb8",
+  "modernflat/vocab-know.webp": "1f58f552362ddfb24d1296ec1ddbab6a673eeaa76857494672eff26e3af5d7fb",
+  "modernflat/vocab-different.webp": "f43685ed19d61e9997e83f5f1e3ab7cc6a84f1e8e7406dc038b2be2b23b3ded3",
+  "modernflat/vocab-new.webp": "911fe65b1aab571c744c36a3afea0035b3d297309bc3e72212a6459ebd1a325f",
+  "modernflat/vocab-later.webp": "dfd8513b95282b6e1a434e1469110e5a6a0eb39fd71d75ac3596c1c0b25dbb35"
  },
  "rendering": "Original flat vector artwork and exact Fluent Flat variants; at most 340px, smaller raster originals retain native resolution without added padding. Generated scenes exported with LANCZOS resampling. No original 3D images used.",
  "expansionTarget": 10000,
@@ -10425,5 +10444,146 @@
   ],
   "reason": "Repeated emoji that modern flat already draws; files kept in work/removed_flat_sets",
   "aliases": "assets/symbol_aliases.json"
+ },
+ "composedPictures": {
+  "vocab-me": {
+   "label": "me",
+   "from": [
+    "scene-i"
+   ]
+  },
+  "vocab-him": {
+   "label": "him",
+   "from": [
+    "fluent-backhand-index-pointing-right",
+    "fluent-boy"
+   ]
+  },
+  "vocab-her": {
+   "label": "her",
+   "from": [
+    "fluent-backhand-index-pointing-right",
+    "fluent-girl"
+   ]
+  },
+  "vocab-they": {
+   "label": "they",
+   "from": [
+    "fluent-boy",
+    "fluent-girl",
+    "fluent-person"
+   ]
+  },
+  "vocab-them": {
+   "label": "them",
+   "from": [
+    "fluent-boy",
+    "fluent-girl",
+    "fluent-person"
+   ]
+  },
+  "vocab-us": {
+   "label": "us",
+   "from": [
+    "scene-i",
+    "fluent-girl"
+   ]
+  },
+  "vocab-mine": {
+   "label": "mine",
+   "from": [
+    "scene-i",
+    "fluent-teddy-bear"
+   ]
+  },
+  "vocab-his": {
+   "label": "his",
+   "from": [
+    "fluent-boy",
+    "fluent-teddy-bear"
+   ]
+  },
+  "vocab-your": {
+   "label": "your",
+   "from": [
+    "fluent-index-pointing-at-the-viewer",
+    "fluent-teddy-bear"
+   ]
+  },
+  "vocab-our": {
+   "label": "our",
+   "from": [
+    "scene-i",
+    "fluent-girl",
+    "fluent-teddy-bear"
+   ]
+  },
+  "vocab-their": {
+   "label": "their",
+   "from": [
+    "fluent-boy",
+    "fluent-girl",
+    "fluent-person",
+    "fluent-teddy-bear"
+   ]
+  },
+  "vocab-these": {
+   "label": "these",
+   "from": [
+    "fluent-backhand-index-pointing-down",
+    "fluent-red-apple",
+    "fluent-red-apple",
+    "fluent-red-apple"
+   ]
+  },
+  "vocab-those": {
+   "label": "those",
+   "from": [
+    "fluent-backhand-index-pointing-right",
+    "fluent-red-apple",
+    "fluent-red-apple",
+    "fluent-red-apple"
+   ]
+  },
+  "vocab-have": {
+   "label": "have",
+   "from": [
+    "fluent-palm-up-hand",
+    "fluent-soccer-ball"
+   ]
+  },
+  "vocab-drop": {
+   "label": "drop",
+   "from": [
+    "fluent-soccer-ball"
+   ]
+  },
+  "vocab-know": {
+   "label": "know",
+   "from": [
+    "fluent-boy",
+    "fluent-light-bulb"
+   ]
+  },
+  "vocab-different": {
+   "label": "different",
+   "from": [
+    "fluent-red-circle",
+    "fluent-blue-square"
+   ]
+  },
+  "vocab-new": {
+   "label": "new",
+   "from": [
+    "fluent-wrapped-gift",
+    "fluent-sparkles"
+   ]
+  },
+  "vocab-later": {
+   "label": "later",
+   "from": [
+    "fluent-one-oclock"
+   ]
+  }
  }
 }

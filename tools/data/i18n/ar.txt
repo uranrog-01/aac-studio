@@ -1698,8 +1698,8 @@ handsome|وسيم
 hang|أعلق
 hang coat|أعلق المعطف
 hangar|حظيرة طائرات
-hangul syllable bbegs|رمز كوري
-hangul syllable jjwaelm|رمز كوري للطعام
+hangul syllable bbegs|لحم بقري
+hangul syllable jjwaelm|مقهى
 hankerchief|منديل
 hard|قاس
 hard hat|خوذة
@@ -3110,6 +3110,56 @@ zero|صفر
 zip|سحاب
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|أنا
+beef|لحم بقري
+coffee shop|مقهى
+start|ابدأ
+wrong|خطأ
+next to|بجانب
+dizzy|دوخة
+good morning|صباح الخير
+good night|تصبح على خير
+excuse me|عفوًا
+big|كبير
+small|صغير
+slow|بطيء
+me|لي
+him|له
+her|لها
+us|لنا
+they|هم
+them|لهم
+mine|ملكي
+your|ملكك
+his|ملكه
+our|ملكنا
+their|ملكهم
+these|هذه
+those|تلك
+different|مختلف
+new|جديد
+with|مع
+hard to do|صعب
+finished|انتهى
+later|لاحقًا
+have|عندي
+drop|أسقط
+know|أعرف
+hide|اختبئ
+see|أرى
+kick|اركل
+close|أغلق
+keep|احتفظ
+fix|أصلح
+win|فاز
+buy|اشترِ
+throw|ارمِ
+can|أستطيع
+feel|أشعر
+shy|خجول
+lonely|وحيد
+proud|فخور
+say|قل
+tell|أخبر
 [forms]
 I+want|أنا أريد
 I+need|أنا أحتاج

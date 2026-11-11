@@ -1,4 +1,4 @@
-# Albanian (Shqip). Draft by machine: please have a native speaker review.
+# Albanian (Shqip). Machine draft, corrected in a full review pass (Nov 2026).
 [ui]
 Access|Qasja
 Add|Shto
@@ -9,12 +9,12 @@ Asks for the code before Settings and edit mode|Kërkon kodin para Cilësimeve d
 Back|Prapa
 Black|E zezë
 Black background, yellow buttons, bold words|Sfond i zi, butona të verdhë, fjalë të trasha
-Blond|Bjonde
+Blond|Bjond
 Brown|Kafe
 Buttons & screen|Butonat dhe ekrani
 Buttons show|Butonat tregojnë
 Caregiver|Kujdestari
-Choose who speaks, speed and loudness|Zgjidh kush flet, shpejtësinë dhe zërin
+Choose who speaks, speed and loudness|Zgjidh kush flet, shpejtësinë dhe volumin
 Clear|Pastro
 Clear search|Pastro kërkimin
 Clear the message after speaking it|Pastro mesazhin pasi të thuhet
@@ -22,7 +22,7 @@ Click sound|Tingull klikimi
 Copied|U kopjua
 Copy the message|Kopjo mesazhin
 Dark|E errët
-Default|Parazgjedhur
+Default|E parazgjedhur
 Delete|Fshi
 Delete last word|Fshi fjalën e fundit
 Each letter and word|Çdo shkronjë dhe fjalë
@@ -31,14 +31,14 @@ Edit buttons, symbols, lock code|Ndrysho butonat, simbolet, kodin
 Edit mode|Modaliteti i redaktimit
 Find|Gjej
 Find a word|Gjej një fjalë
-Go back to Home after a word|Kthehu në Shtëpi pas një fjale
+Go back to Home after a word|Kthehu te Kreu pas një fjale
 Gray|Gri
 Hair|Flokët
 High contrast (CVI)|Kontrast i lartë (CVI)
 Hold time|Koha e mbajtjes
 Hold to select|Mbaj për të zgjedhur
 Hold to select, switch scanning, extra taps|Mbaj për të zgjedhur, skanim, prekje të tepërta
-Home|Shtëpi
+Home|Kreu
 Ignore extra taps for|Injoro prekjet e tepërta për
 Language|Gjuha
 Light|E çelët
@@ -62,7 +62,7 @@ Pictures, words, contrast|Figura, fjalë, kontrast
 Pitch|Lartësia e zërit
 Press Back 3 times quickly to leave|Shtyp Prapa 3 herë shpejt për të dalë
 Press and hold a button until the circle fills|Shtyp dhe mbaj butonin derisa rrethi të mbushet
-Quiet|I qetë
+Quiet|Ulët
 Recent words|Fjalët e fundit
 Red|E kuqe
 Say each word when tapped|Thuaj çdo fjalë kur preket
@@ -80,7 +80,7 @@ Space|Hapësirë
 Speak|Fol
 Speak message|Thuaj mesazhin
 Speak while typing (Type)|Fol gjatë shkrimit (Shkruaj)
-Speaking, going home, vibration|Të folurit, kthimi në shtëpi, dridhja
+Speaking, going home, vibration|Të folurit, kthimi te Kreu, dridhja
 Speed|Shpejtësia
 Stay in the app|Qëndro në aplikacion
 Stop scan|Ndalo skanimin
@@ -126,7 +126,7 @@ avocado|avokado
 baby|foshnjë
 back|shpinë
 backpack|çantë shpine
-bacon|proshutë
+bacon|pançetë
 bad|keq
 bagel|simit
 ball|top
@@ -137,7 +137,7 @@ banjo|banxho
 bank|bankë
 baseball|bejsboll
 basketball|basketboll
-bathroom|banjo
+bathroom|banjë
 Bathroom things|Gjërat e banjës
 bathtub|vaskë
 beach|plazh
@@ -219,7 +219,7 @@ Clothes|Rrobat
 cloud|re
 clover|tërfil
 coat|pallto
-coconut|kokos
+coconut|arrë kokosi
 cold|ftohtë
 Colors|Ngjyrat
 computer|kompjuter
@@ -233,7 +233,7 @@ count|numëro
 cow|lopë
 crab|gaforre
 crackers|krekera
-crayons|lapsa me ngjyra
+crayons|lapsa dylli
 cricket|bulkth
 croissant|kroasan
 crown|kurorë
@@ -243,12 +243,12 @@ cucumber|kastravec
 cup|filxhan
 cup with straw|gotë me kashtë
 cupcake|kek i vogël
-cut|pri
-cut paper|pri letrën
+cut|prit
+cut paper|prit letrën
 dad|babi
 Daily routines|Rutina ditore
-dance|kërce
-date|hurmë
+dance|vallëzo
+date|hurmë arabe
 day|ditë
 Describing words|Fjalë përshkruese
 dice|zare
@@ -259,7 +259,7 @@ dolls|kukulla
 dolphin|delfin
 don't know|nuk e di
 don't like|nuk më pëlqen
-donut|petull
+donut|donat
 door|derë
 down|poshtë
 draw|vizato
@@ -317,7 +317,7 @@ gloves|doreza
 glue|ngjitës
 go|shko
 good|mirë
-gooseberry|kulumbri
+gooseberry|rrush frëngu
 gorilla|gorillë
 grandma|gjyshja
 grandpa|gjyshi
@@ -338,7 +338,7 @@ Health|Shëndeti
 helicopter|helikopter
 help|ndihmë
 hi|përshëndetje
-high five|pesë lart
+high five|pesëshe
 hippo|hipopotam
 Holidays & parties|Festa dhe pushime
 home|shtëpi
@@ -361,7 +361,7 @@ I|unë
 ice|akull
 ice cream|akullore
 In, on, under|Brenda, mbi, nën
-it|ai/ajo
+it|kjo
 jeans|xhinse
 jellyfish|kandil deti
 Jobs|Punët
@@ -391,7 +391,7 @@ listen|dëgjo
 lobster|karavidhe
 lollipop|lëpirëse
 look|shiko
-love|dua
+love|e dua
 lunch|drekë
 magic|magji
 make|bëj
@@ -424,7 +424,7 @@ My body|Trupi im
 my turn|radha ime
 neck|qafë
 need|kam nevojë
-nervous|nervoz
+nervous|në ankth
 night|natë
 ninja star|yll ninxha
 no|jo
@@ -446,7 +446,7 @@ oven|furrë
 owl|buf
 paint|ngjyros
 paint picture|pikturo
-pancakes|petulla
+pancakes|pankekë
 paper|letër
 park|park
 parrot|papagall
@@ -470,7 +470,7 @@ pilot|pilot
 pine tree|pishë
 pineapple|ananas
 pink|rozë
-pizza|pica
+pizza|picë
 Places|Vendet
 plant|bimë
 Plants|Bimët
@@ -489,8 +489,8 @@ pretzel|gjevrek
 pudding|puding
 purple|vjollcë
 put clothes away|rregullo rrobat
-put on shoes|vish këpucët
-put on socks|vish çorapet
+put on shoes|mbath këpucët
+put on socks|mbath çorapet
 puzzle|enigmë
 Questions|Pyetjet
 quiet|qetësi
@@ -586,7 +586,7 @@ t-shirt|bluzë
 table|tavolinë
 tablet|tablet
 taco|tako
-take off shoes|hiq këpucët
+take off shoes|zbath këpucët
 take out trash|nxirr plehrat
 taxi|taksi
 tea|çaj
@@ -599,7 +599,7 @@ tent|çadër
 thank you|faleminderit
 that|ai atje
 thermometer|termometër
-think|mendoj
+think|mendo
 thirsty|i etur
 this|ky
 throat|fyt
@@ -675,8 +675,8 @@ yesterday|dje
 yo-yo|jo-jo
 yogurt|kos
 you|ti
-yucky|bëh
-yummy|shijshëm
+yucky|i pështirë
+yummy|i shijshëm
 zebra|zebër
 zip coat|mbyll palltën
 1st place medal|medalje ari
@@ -690,12 +690,12 @@ acne spots|puçrra
 acorn|lende
 across|matanë
 activity centre|lodër me aktivitete
-add|mblidh
+add|shto
 admission tickets|bileta hyrjeje
 advent|Adventi
 advent calendar|kalendari i Adventit
 aerial tramway|teleferik
-aerobics dance|aerobi
+aerobics dance|aerobik
 aeroplane|aeroplan
 afraid|i frikësuar
 after|pas
@@ -795,7 +795,7 @@ beach with umbrella|plazh me çadër
 beads|rruaza
 beak|sqep
 beaker|gotë laboratori
-beanbag|qeskë me kokrra
+beanbag|puf
 beans on toast|fasule me bukë të thekur
 beansprouts|filiza fasule
 beaver|kastor
@@ -852,7 +852,7 @@ blow|fryj
 blow kiss|dërgo një puthje
 blowfish|peshk balonë
 blue book|libër blu
-blusher|ruzh
+blusher|ruzh faqesh
 boar|derr i egër
 bobble hat|kapelë me xhufkë
 boccia|boçe
@@ -904,7 +904,7 @@ brick|tullë
 bricks|tulla
 bridle|fre
 briefcase|çantë dokumentesh
-bright|ndriçimi
+bright|i ndritshëm
 bright room|dhomë e ndriçuar
 bring|sill
 broad beans|bathë
@@ -957,7 +957,7 @@ camping|kampim
 can opener|hapëse kanaçesh
 candle|qiri
 candy cane|shkop karameleje
-candy floss|sheqer pambuk
+candy floss|pambuk sheqeri
 candy hearts|karamele zemër
 canned food|ushqim konserve
 canoe|kanoe
@@ -1065,7 +1065,7 @@ chisel|daltë
 chocolate box|kuti çokollatash
 chocolate chips|copëza çokollate
 chocolate egg|vezë çokollate
-chocolate log|rolé çokollate
+chocolate log|role çokollate
 choke|mbytem
 chop|copëto
 chop wood|çaj dru
@@ -1105,7 +1105,7 @@ clean window|pastro dritaren
 cleaner|pastruese
 cleaner spray|sprej pastrimi
 cleaning box|kuti pastrimi
-clear|i tejdukshëm
+clear|pastro
 climb down|zbrit
 climb tree|ngjitu në pemë
 climb up|ngjitu
@@ -1190,8 +1190,8 @@ cranberries|boronica të kuqe
 cranberry juice|lëng boronice të kuqe
 crane|vinç
 crane fly|mushkonjë e madhe
-crawl|zvarrit
-crayon|lapustil
+crawl|zvarritu
+crayon|laps dylli
 cream|krem
 credit card|kartë krediti
 creme fraiche|krem qumështi
@@ -1205,10 +1205,10 @@ crooked|i shtrembër
 cross|kryq
 cross fingers|kryqëzo gishtat
 crossed swords|shpata të kryqëzuara
-crouch|ulu në gjunjë
+crouch|ulu galiç
 crown of thorns|kurorë me gjemba
 crucifixion|kryqëzimi
-cruiser|anije lundruese
+cruiser|anije turistike
 crumple paper|rrudh letrën
 crunchy|krokant
 crush|shtyp
@@ -1237,12 +1237,12 @@ daisy|luleshqerrë
 dango|dango
 danish pastry|ëmbëlsirë daneze
 darts|shigjeta
-dates|hurma
+dates|hurma arabe
 daughter|vajza
 daydream|ëndërro me sy hapur
 dead|i vdekur
 dead plant|bimë e tharë
-decorate|lyej
+decorate|zbukuro
 decorate cake|zbukuro tortën
 decorate tree|zbukuro pemën
 deep|i thellë
@@ -1285,8 +1285,8 @@ disgusted|i neveritur
 dish|pjatë
 dish cloth|leckë enësh
 dishes|enët
-dishwasher|pjatalarëse
-dishwasher powder|detergjent pjatalarëseje
+dishwasher|enëlarëse
+dishwasher powder|detergjent enëlarëseje
 dive|zhytu
 divide|pjesëto
 diving mask|maskë zhytjeje
@@ -1305,7 +1305,7 @@ doll|kukull
 dollar banknote|kartëmonedhë dollari
 donkey|gomar
 double bed|krevat dopio
-doughnut|petull
+doughnut|donat
 dove|pëllumb
 dragon|dragua
 dragonfly|pilivesë
@@ -1316,7 +1316,7 @@ drawer|sirtar
 drawing pin|pineskë
 dream|ëndërro
 dresser|bufe
-dressing gown|rrobë dhome
+dressing gown|robdëshambër
 dressing table|tualetë
 dribble football|drible me top
 drill bit|majë shpuese
@@ -1363,7 +1363,7 @@ eighty|tetëdhjetë
 either|njëri ose tjetri
 elbow|bërryl
 elearning|mësim online
-electric plug|prizë
+electric plug|spinë
 elevator|ashensor
 eleven|njëmbëdhjetë
 elf|kukudh
@@ -1382,7 +1382,7 @@ envelope|zarf
 escalator|shkallë lëvizëse
 escape|ik
 euro banknote|kartëmonedhë euro
-even|i rrafshët
+even|baraz
 every|çdo
 ewe|dele
 exercise|ushtrime
@@ -1555,18 +1555,18 @@ fork lift truck|pirun ngritës
 fortune cookie|biskotë fati
 forty|dyzet
 forward|përpara
-forwards|para
+forwards|përpara
 fountain pen|stilograf
 four|katër
 fourteen|katërmbëdhjetë
 framed picture|pikturë në kornizë
 frankincense|temjan
-freckles|pika në fytyrë
+freckles|prenka
 freezer|ngrirës
 french stick|baget franceze
 friction|fërkim
 fried breakfast|mëngjes i skuqur
-fried shrimp|karkaleca të skuqura
+fried shrimp|karkaleca deti të skuqur
 frog|bretkosë
 fromage frais|gjizë e butë
 front|përpara
@@ -1575,8 +1575,8 @@ front-facing baby chick|zogth përballë
 frozen chips|patate të ngrira
 frozen fish fingers|shkopinj peshku të ngrirë
 frozen food box|kuti ushqimi të ngrirë
-frozen pizza|pica e ngrirë
-fruit|frutë
+frozen pizza|picë e ngrirë
+fruit|frut
 fruit tree|pemë frutore
 fry|skuq
 frying pan|tigan
@@ -1678,7 +1678,7 @@ hairdryer|tharëse flokësh
 hairspray|llak flokësh
 half|gjysmë
 halloween|Halloween
-ham|proshutë e zier
+ham|proshutë
 ham packet|pako proshute
 hamburger|hamburger
 hamburger carton|kuti hamburgeri
@@ -1699,8 +1699,8 @@ handsome|i pashëm
 hang|var
 hang coat|var palltën
 hangar|hangar
-hangul syllable bbegs|rrokje koreane
-hangul syllable jjwaelm|shkronjë koreane
+hangul syllable bbegs|mish viçi
+hangul syllable jjwaelm|kafene
 hankerchief|shami
 hard|i fortë
 hard hat|helmetë pune
@@ -1756,7 +1756,7 @@ hoe|shat
 hoist|ngritës
 hold|mbaj
 hold hands|mbaj për dore
-hold sledge hammer|mbaj varrën
+hold sledge hammer|mbaj varenë
 holdall|çantë udhëtimi
 hole punch|shpuese
 hollow|bosh përbrenda
@@ -1840,7 +1840,7 @@ kettle|ibrik
 keyboard|tastierë
 kick ball|gjuaj topin
 kick person|shkelmo
-kick scooter|patinetë
+kick scooter|trotinet
 kick swimming|lëviz këmbët në ujë
 kidneys|veshkat
 kill|vrit
@@ -1933,7 +1933,7 @@ lots more|shumë më tepër
 lotus|lotus
 loud|me zë të lartë
 love hotel|hotel
-low battery|bateri e ulët
+low battery|bateri e dobët
 low fat|me pak yndyrë
 lowest|më i ulëti
 lucky|me fat
@@ -1957,10 +1957,10 @@ mammoth|mamuth
 mange tout|bizele të ëmbla
 manger|grazhd
 mantelpiece clock|orë oxhaku
-manual wheelchair|karrige me rrota
+manual wheelchair|karrige me rrota manuale
 maple leaf|gjethe panje
 maracas|marakas
-marbles|bilia
+marbles|bila xhami
 margarine|margarinë
 marmite|Marmite
 married|i martuar
@@ -1982,7 +1982,7 @@ measuring cups|gota matëse
 measuring jug|enë matëse
 measuring spoons|lugë matëse
 meat on bone|mish me kockë
-meatballs and spaghetti|spageti me qofte
+meatballs and spaghetti|shpageta me qofte
 mechanical arm|krah protezë
 mechanical leg|këmbë protezë
 medicine cabinet|dollap ilaçesh
@@ -2009,7 +2009,7 @@ military medal|medalje ushtarake
 milk bottle|shishe qumështi
 milk carton|kuti qumështi
 milk litre|litër qumësht
-milk person|qumështor
+milk person|qumështshitës
 milkshake|milkshake
 milky way|Rruga e Qumështit
 mince pie|ëmbëlsirë me fruta të thata
@@ -2121,7 +2121,7 @@ notepad|bllok shënimesh
 nut and bolt|dado dhe bulon
 nuts|arra
 oak leaf|gjethe lisi
-occupational therapist|terapist profesional
+occupational therapist|terapist okupacional
 octagon|tetëkëndësh
 oden|oden
 off|fikur
@@ -2129,7 +2129,7 @@ office block|ndërtesë zyrash
 oil drum|fuçi nafte
 old key|çelës i vjetër
 old object|send i vjetër
-old person|plak
+old person|i moshuar
 olive oil|vaj ulliri
 olives|ullinj
 olympic games|Lojërat Olimpike
@@ -2161,7 +2161,7 @@ orange squash|shurup portokalli
 orangutan|orangutan
 order|porosit
 ostrich|struc
-otter|lundër
+otter|lundërz
 out|jashtë
 outbox tray|tabaka e letrave që dalin
 oval|oval
@@ -2177,13 +2177,13 @@ paddles|rrema
 page with curl|faqe
 pager|pejxher
 paint box|kuti bojërash
-paint brush|furçë bojë
+paint brush|furçë boje
 paint childs|bojë për fëmijë
 paintbrush|penel
 palm|gjethe palme
 palm sunday|e Diela e Palmave
 palm tree|palmë
-pancake|petull
+pancake|pankek
 panda|panda
 pants|brekë
 paper towel|letër kuzhine
@@ -2210,7 +2210,7 @@ pastie|byrek
 pastry|pastë
 pat dog|përkëdhel qenin
 patch on clothes|arnë
-pate|pate
+pate|pashtetë
 paw|putër
 paw prints|gjurmë putrash
 pe|edukim fizik
@@ -2243,12 +2243,12 @@ pet brush|furçë për kafshën
 pet carrier|kuti transporti për kafshë
 pet carrying basket|shportë për kafshë
 pet comb|krehër për kafshën
-petal|petal
+petal|petël
 petri dish|pjatë Petri
 petrol tanker|autocisternë
 petticoat|kombinezon
 phone picture video|foto dhe video
-photocopier|fotokopje
+photocopier|fotokopjues
 photographs|fotografi
 physio therapist|fizioterapist
 pick|kazmë
@@ -2269,7 +2269,7 @@ ping pong|pingpong
 pint|gotë birre
 pistachios|fëstëkë
 pizza cutter|prerëse pice
-piñata|piñata
+piñata|pinjata
 place mat|shtroje tavoline
 place setting|shtrimi i tryezës
 plane|zdrukth
@@ -2289,7 +2289,7 @@ playing cards clubs|letra spathi
 playing cards diamonds|letra karo
 playing cards hearts|letra kupa
 playing cards patience|pasians
-playing cards spades|letra pik
+playing cards spades|letra maç
 playing handball|luaj hendboll
 playing water polo|luaj vaterpolo
 playstation|PlayStation
@@ -2354,7 +2354,7 @@ prop up|mbështet
 protect|mbro
 protein|proteina
 puffin|papagall deti
-pull|tërhiq fort
+pull|tërhiq
 pull along toy|lodër me spango
 pumice stone|gur shtufi
 pumpkin|kungull
@@ -2374,16 +2374,16 @@ put in bin|hidh në kosh
 put in cassette tape|fut kasetën
 put in cd dvd|fut CD-në
 put in contact lens|vendos lentet
-put on cap|vish kapelën
+put on cap|vër kapelën
 put on coat|vish palltën
-put on helmet|vish helmetën
+put on helmet|vër helmetën
 put on lid|vendos kapakun
 put out rubbish|nxirr plehrat
 pyjamas|pizhame
 pyramid square base|piramidë katrore
 pyramid triangular base|piramidë trekëndore
 quadrilateral|katërkëndësh
-quail|thëllëzë
+quail|shkurtë
 quarter|çerek
 queue|prit në radhë
 quiche flan|kish
@@ -2481,14 +2481,14 @@ rowing boat|varkë me rrema
 rub|fërko
 rudolph|Rudolfi
 rug|qilim
-rugby ball|top regbi
+rugby ball|top regbie
 rugby football|regbi
 running facing right|vrapon djathtas
 running shirt|fanellë vrapimi
 sack|thes
 saddle|shalë
 safety goggles|syze mbrojtëse
-safety pin|karficë sigurie
+safety pin|paramanë
 safety vest|jelek reflektues
 sailor|marinar
 sake|sake
@@ -2575,7 +2575,7 @@ shave underarm|rruaj sqetullat
 shave with razor|rruhu me brisk
 shaving cream|shkumë rroje
 sheaf of rice|tufë orizi
-sheep|dele e bardhë
+sheep|dele
 shells|guaska
 shepherd|bari
 shield|mburojë
@@ -2593,7 +2593,7 @@ shower cap|kapuç dushi
 shower gel|xhel dushi
 shrew|mi hundëgjatë
 shrove tuesday|e Marta e Petullave
-shuttlecock|top badmintoni
+shuttlecock|pupël badmintoni
 side|anë
 sieve|sitë
 signpost|tabelë rrugore
@@ -2636,7 +2636,7 @@ slippers|pantofla
 slippery|rrëshqitës
 slot machine|makinë lojërash
 sloth|përtac
-slug|kërmill deti pa guaskë
+slug|ligavec
 small airplane|avion i vogël
 smear|lyej me gisht
 smile|buzëqesh
@@ -2649,8 +2649,8 @@ sneeze cold|teshtij
 snow-capped mountain|mal me borë
 snowboarder|snoubordist
 snowflake|flok bore
-snowman|burrë bore
-snowman without snow|burrë bore pa borë
+snowman|njeri prej bore
+snowman without snow|njeri prej bore pa borë
 soft|i butë
 soft ice cream|akullore e butë
 softball|softboll
@@ -2659,21 +2659,21 @@ sole|shputa e këmbës
 some|disa
 son|djali
 sour|i thartë
-sour cream|kos i trashë
+sour cream|ajkë e thartë
 south|jug
 south east|juglindje
 south west|jugperëndim
 spaceship|anije kozmike
 spade|lopatë
-spade suit|pik
-spaghetti bolognaise|spageti bolonjeze
+spade suit|maç
+spaghetti bolognaise|shpageta bolonjeze
 sparkler|fishekzjarr dore
 sparkles|shkëndija
-spatula|shpatull
+spatula|spatul
 speech language therapist|logoped
 speedboat|motoskaf i shpejtë
 spell|gërmëzo
-spicy|pikant
+spicy|djegës
 spider web|rrjetë merimange
 spiders web|pëlhurë merimange
 spill|derdh pa dashje
@@ -2703,7 +2703,7 @@ squirt|spërkat me ujë
 stable|stallë kuajsh
 stag|dre mashkull
 stairs|shkallët
-stamp|vulos
+stamp|përplas këmbën
 standard lamp|llambë dyshemeje
 staple|kapëse metalike
 stapler|kapëse letrash me tel
@@ -2730,7 +2730,7 @@ stir mix|përziej brumin
 stirrups|yzengji
 stoat|nuselalë
 stock|lëng mishi
-stock cubes|kubë supe
+stock cubes|kube supe
 stomach|bark
 stomach ache|dhimbje barku
 stone|gur
@@ -2744,7 +2744,7 @@ stretch|shtriqu
 string|spango
 striped|me vija
 stroke|përkëdhel
-strong|i fortë fizikisht
+strong|i fuqishëm
 stubble|mjekër e parruar
 student|student
 studio microphone|mikrofon
@@ -2768,14 +2768,14 @@ sushi|sushi
 suspension railway|hekurudhë e varur
 sweatshirt|duks
 swede|rrepë e verdhë
-sweet|karamele e ëmbël
+sweet|karamele
 sweet potato|patate e ëmbël
 sweetcorn|misër i ëmbël
 swimming cap|kapuç noti
 swimming class|ora e notit
 swimming costume|rroba banje
 swimming trunks|mbathje banje
-swiss roll|rolé
+swiss roll|role
 switch access|qasje me çelës
 switch on television|ndiz televizorin
 synagogue|sinagogë
@@ -2792,16 +2792,16 @@ take off cap|hiq kapelën
 take off lid|hiq kapakun
 take out|nxirr
 take picture|bëj foto
-takeaway burger|burger me porosi
-takeaway burger and chips|burger me patate me porosi
-takeaway chinese|ushqim kinez me porosi
-takeaway container|kuti ushqimi me porosi
-takeaway indian|ushqim indian me porosi
-takeaway pizza|pica me porosi
+takeaway burger|burger për me vete
+takeaway burger and chips|burger me patate për me vete
+takeaway chinese|ushqim kinez për me vete
+takeaway container|kuti ushqimi për me vete
+takeaway indian|ushqim indian për me vete
+takeaway pizza|picë për me vete
 takeout box|kuti ushqimi
 taking bath|bën banjë
 talk|fol
-tall|i gjatë në shtat
+tall|shtatlartë
 tamale|tamale
 tampon|tampon
 tanabata tree|pema Tanabata
@@ -2862,14 +2862,14 @@ timer clock|orë me kohëmatës
 tin|kuti metalike
 tin can|kanaçe
 tin foil|letër alumini
-tinned apricots|kajsi kompostë
-tinned cherries|qershi kompostë
+tinned apricots|kajsi komposto
+tinned cherries|qershi komposto
 tinned mushroom soup|supë kërpudhash në kanaçe
-tinned peaches|pjeshkë kompostë
-tinned pears|dardha kompostë
+tinned peaches|pjeshkë komposto
+tinned pears|dardha komposto
 tinned peas|bizele në kanaçe
-tinned pineapple|ananas kompostë
-tinned plums|kumbulla kompostë
+tinned pineapple|ananas komposto
+tinned plums|kumbulla komposto
 tinned sweetcorn|misër në kanaçe
 tinned tomato|domate në kanaçe
 tinsel|girlandë me shkëlqim
@@ -2894,7 +2894,7 @@ topsoil|shtresa e sipërme e tokës
 torch|pishtar
 tornado|tornado
 tortoise|breshkë
-toss pancake|hidh petullën
+toss pancake|hidh pankekun
 touch|prek
 touch screen|ekran me prekje
 toupee|parukë e vogël
@@ -3020,7 +3020,7 @@ warning light|dritë paralajmëruese
 wash clothes|laj rrobat
 wash up|laj enët
 wash vegetables|laj perimet
-washing powder|pluhur larjeje
+washing powder|detergjent rrobash
 washing up bowl|legen enësh
 washing up liquid|detergjent enësh
 wasp|grerëz
@@ -3043,15 +3043,15 @@ webcam|kamerë interneti
 wedding|dasmë
 weeds|barëra të këqija
 weekend|fundjavë
-weigh|peshoj
-weigh food|peso ushqimin
+weigh|pesho
+weigh food|pesho ushqimin
 weigh person|peshohu
 wellington boots|çizme gome
 west|perëndim
 wet|i lagur
 wheel|rrotë
 wheelbarrow|karrocë dore
-wheelchair|karrige me rrota për invalidë
+wheelchair|karrige me rrota
 wheelie bin|kosh plehrash me rrota
 when|kur
 which|cili
@@ -3087,7 +3087,7 @@ work book|fletore pune
 worksheet|fletë pune
 world|bota
 worm|krimb
-wrap|mbështill dhuratën
+wrap|mbështill
 wrapping paper|letër dhuratash
 wrench|çelës anglez
 wrestle|mundje
@@ -3096,8 +3096,8 @@ wrist|kyçi i dorës
 write cheque|shkruaj çek
 write letter|shkruaj letër
 wrong thought|mendim i gabuar
-x-ray|rëntgen
-xray|grafi rëntgen
+x-ray|radiografi
+xray|radiografi
 xylophone|ksilofon
 yarn|fill leshi
 yawn|gogësit
@@ -3109,9 +3109,97 @@ yule log|trungu i Krishtlindjes
 zebra crossing|vendkalim për këmbësorë
 zero|zero
 zip|zinxhir rrobash
+beef|mish viçi
+coffee shop|kafene
+my words|Fjalët e mia
+@v11_furniture_sink|lavaman
+@v11_kitchen_sink|lavaman
+@v11_body_bottom|prapanicë
+@v11_time_date|data
+@v11_clothes_tie|kravatë
+@v11_routines_iron|hekuros
+@v11_actions_burn|djeg
+@v11_actions_watch|shiko
+@v11_mealtime_sweet|ëmbëlsirë
+@v11_actions_pick|zgjidh
+@v11_cooking_dice|prit në kubikë
+@fruits_5|portokall
+@v11_colors_cream|ngjyrë krem
+@v11_sports_fish|peshko
+@v11_vehicles_park|parko
+@v11_tools_plant|mbill
+@v11_tools_paint|bojë
+@v11_chat_telephone|telefono
+@v11_routines_shower|bëj dush
+@v11_mealtime_salt|hidh kripë
+@v11_sports_rowing_boat|vozit me rrema
+@v11_time_second|sekondë
+@v11_cooking_squash|shtyp
+@v11_meals_stir_fry|perime të skuqura
+@v11_cooking_mash_potato|shtyp patatet
+@v11_cooking_barbeque|piq në zgarë
+@v11_cooking_scoop|merr me lugë
+@v11_cooking_sieve|sit
+@v11_actions_rake|mblidh me grabujë
+@v11_actions_slide|rrëshqit
+@v11_meatfish_lamb|mish qengji
+@b77|mish pule
+@v11_meatfish_chicken|mish pule
+@v11_drinks_drink|pije
+@v11_health_cut|prerje
+@v11_tech_torch|elektrik dore
+@v11_kitchen_whisk|rrahëse
+start|fillo
+wrong|gabim
+next to|pranë
+dizzy|më merren mendtë
+good morning|mirëmëngjes
+good night|natën e mirë
+excuse me|më falni
+big|i madh
+small|i vogël
+slow|ngadalë
+me|mua
+him|atij
+her|asaj
+us|neve
+they|ata
+them|atyre
+mine|imja
+your|yti
+his|i tij
+our|yni
+their|i tyre
+these|këto
+those|ato
+different|ndryshe
+new|i ri
+with|me
+hard to do|e vështirë
+finished|mbaroi
+later|më vonë
+have|kam
+drop|lësho
+know|e di
+hide|fshihu
+see|shoh
+kick|godit me këmbë
+close|mbyll
+keep|ruaj
+fix|ndreq
+win|fito
+buy|bli
+throw|hidh
+can|mundem
+feel|ndiej
+shy|i turpshëm
+lonely|i vetmuar
+proud|krenar
+say|thuaj
+tell|trego
 [forms]
 I+want|unë dua
-I+need|unë kam nevojë
+I+need|unë kam nevojë për
 I+like|më pëlqen
 I+don't like|nuk më pëlqen
 I+love|unë e dua
@@ -3140,7 +3228,7 @@ I+hot|unë kam vapë
 I+cold|unë kam ftohtë
 I+bored|unë jam i mërzitur
 you+want|ti do
-you+need|ti ke nevojë
+you+need|ti ke nevojë për
 you+like|të pëlqen
 you+don't like|nuk të pëlqen
 you+love|ti e do
@@ -3169,7 +3257,7 @@ you+hot|ti ke vapë
 you+cold|ti ke ftohtë
 you+bored|ti je i mërzitur
 he+want|ai do
-he+need|ai ka nevojë
+he+need|ai ka nevojë për
 he+like|atij i pëlqen
 he+don't like|atij nuk i pëlqen
 he+love|ai e do
@@ -3198,7 +3286,7 @@ he+hot|ai ka vapë
 he+cold|ai ka ftohtë
 he+bored|ai është i mërzitur
 she+want|ajo do
-she+need|ajo ka nevojë
+she+need|ajo ka nevojë për
 she+like|asaj i pëlqen
 she+don't like|asaj nuk i pëlqen
 she+love|ajo e do
@@ -3227,7 +3315,7 @@ she+hot|ajo ka vapë
 she+cold|ajo ka ftohtë
 she+bored|ajo është e mërzitur
 we+want|ne duam
-we+need|ne kemi nevojë
+we+need|ne kemi nevojë për
 we+like|na pëlqen
 we+don't like|nuk na pëlqen
 we+love|ne e duam
@@ -3255,3 +3343,39 @@ we+thirsty|ne kemi etje
 we+hot|ne kemi vapë
 we+cold|ne kemi ftohtë
 we+bored|ne jemi të mërzitur
+
+# Said by a girl or woman (Settings > Language & voice).
+[words_f]
+angry|e zemëruar
+bored|e mërzitur
+happy|e lumtur
+sad|e trishtuar
+sick|e sëmurë
+tired|e lodhur
+scared|e frikësuar
+afraid|e frikësuar
+hungry|e uritur
+thirsty|e etur
+calm|e qetë
+busy|e zënë
+confused|e hutuar
+embarrassed|e turpëruar
+excited|e emocionuar
+frustrated|e frustruar
+jealous|xheloze
+surprised|e habitur
+worried|e shqetësuar
+sleepy|e përgjumur
+lost|e humbur
+disgusted|e neveritur
+concentrating|e përqendruar
+healthy|e shëndetshme
+silly|qesharake
+
+[forms_f]
+i+angry|unë jam e zemëruar
+i+bored|unë jam e mërzitur
+i+happy|unë jam e lumtur
+i+sad|unë jam e trishtuar
+i+sick|unë jam e sëmurë
+i+tired|unë jam e lodhur

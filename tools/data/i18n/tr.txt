@@ -1698,8 +1698,8 @@ handsome|yakışıklı
 hang|asmak
 hang coat|mont asmak
 hangar|hangar
-hangul syllable bbegs|Korece hece
-hangul syllable jjwaelm|Korece harf
+hangul syllable bbegs|sığır eti
+hangul syllable jjwaelm|kafe
 hankerchief|mendil
 hard|sert
 hard hat|baret
@@ -3110,6 +3110,56 @@ zero|sıfır
 zip|fermuar
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ben
+beef|sığır eti
+coffee shop|kafe
+start|başla
+wrong|yanlış
+next to|yanında
+dizzy|başım dönüyor
+good morning|günaydın
+good night|iyi geceler
+excuse me|affedersiniz
+big|büyük
+small|küçük
+slow|yavaş
+me|beni
+him|onu
+her|ona
+us|bizi
+they|onlar
+them|onları
+mine|benim
+your|senin
+his|onun
+our|bizim
+their|onların
+these|bunlar
+those|şunlar
+different|farklı
+new|yeni
+with|ile
+hard to do|zor
+finished|bitti
+later|sonra
+have|var
+drop|düşür
+know|bilmek
+hide|saklan
+see|görmek
+kick|tekme at
+close|kapat
+keep|sakla
+fix|tamir et
+win|kazan
+buy|satın al
+throw|at
+can|yapabilirim
+feel|hissetmek
+shy|utangaç
+lonely|yalnız
+proud|gururlu
+say|söyle
+tell|anlat
 [forms]
 I+want|istiyorum
 I+need|ihtiyacım var

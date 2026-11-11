@@ -1699,8 +1699,8 @@ handsome|guapo
 hang|colgar
 hang coat|colgar el abrigo
 hangar|hangar
-hangul syllable bbegs|letra coreana
-hangul syllable jjwaelm|signo coreano
+hangul syllable bbegs|carne de res
+hangul syllable jjwaelm|cafetería
 hankerchief|pañuelo
 hard|duro
 hard hat|casco de obra
@@ -3109,6 +3109,56 @@ yule log|tronco de Navidad
 zebra crossing|paso de cebra
 zero|cero
 zip|cremallera
+beef|carne de res
+coffee shop|cafetería
+start|empezar
+wrong|incorrecto
+next to|al lado
+dizzy|mareado
+good morning|buenos días
+good night|buenas noches
+excuse me|perdón
+big|grande
+small|pequeño
+slow|lento
+me|a mí
+him|a él
+her|a ella
+us|a nosotros
+they|ellos
+them|a ellos
+mine|mío
+your|tu
+his|su
+our|nuestro
+their|de ellos
+these|estos
+those|esos
+different|diferente
+new|nuevo
+with|con
+hard to do|difícil
+finished|terminado
+later|más tarde
+have|tener
+drop|soltar
+know|saber
+hide|esconder
+see|ver
+kick|patear
+close|cerrar
+keep|guardar
+fix|arreglar
+win|ganar
+buy|comprar
+throw|lanzar
+can|poder
+feel|sentir
+shy|tímido
+lonely|solo
+proud|orgulloso
+say|decir
+tell|contar
 [forms]
 I+want|quiero
 I+need|necesito

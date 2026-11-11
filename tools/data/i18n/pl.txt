@@ -1698,8 +1698,8 @@ handsome|przystojny
 hang|wieszać
 hang coat|powiesić kurtkę
 hangar|hangar
-hangul syllable bbegs|znak koreański
-hangul syllable jjwaelm|znak koreański
+hangul syllable bbegs|wołowina
+hangul syllable jjwaelm|kawiarnia
 hankerchief|chusteczka
 hard|twardy
 hard hat|kask
@@ -3111,6 +3111,56 @@ zip|zamek błyskawiczny
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|ja
 
+beef|wołowina
+coffee shop|kawiarnia
+start|zacznij
+wrong|źle
+next to|obok
+dizzy|kręci mi się w głowie
+good morning|dzień dobry
+good night|dobranoc
+excuse me|przepraszam
+big|duży
+small|mały
+slow|wolno
+me|mnie
+him|jemu
+her|ją
+us|nas
+they|oni
+them|im
+mine|moje
+your|twoje
+his|jego
+our|nasze
+their|ich
+these|te
+those|tamte
+different|inny
+new|nowy
+with|z
+hard to do|trudne
+finished|skończone
+later|później
+have|mieć
+drop|upuścić
+know|wiedzieć
+hide|schować
+see|widzieć
+kick|kopać
+close|zamknąć
+keep|zatrzymać
+fix|naprawić
+win|wygrać
+buy|kupić
+throw|rzucić
+can|móc
+feel|czuć
+shy|nieśmiały
+lonely|samotny
+proud|dumny
+say|powiedzieć
+tell|opowiedzieć
 [forms]
 I+want|chcę
 I+need|potrzebuję

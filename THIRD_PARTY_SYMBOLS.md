@@ -53,3 +53,9 @@ and three original repo-native SVG graphics. Its full prompt and review record
 is `docs/modern-flat-expansion-assets.json`. WordNet 3.0 definitions from the
 NLTK corpus help disambiguate meanings; the complete WordNet notice is bundled
 as `flat_symbols/LICENSE-WordNet.txt`. WordNet is not an image source.
+
+Board v14 adds 19 composed pictures (`modernflat/vocab-me.webp` and others,
+listed under `composedPictures` in `docs/flat-symbol-manifest.json`). Each is
+built by `tools/compose_core_words.py` from bundled Fluent Emoji Flat artwork
+(MIT) and the app's own "I" scene (MIT), with arrows drawn by the script; they
+are covered by the same licenses as their parts.

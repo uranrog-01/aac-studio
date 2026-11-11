@@ -27,9 +27,12 @@ import 'studio/device_frame.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Something is on screen at once; loading the pictures, the board and
+  // the voice can take several seconds on older tablets.
+  runApp(const _Splash());
   try {
     await _start();
-  } catch (_) {
+  } catch (error) {
     runApp(MaterialApp(
         home: Scaffold(
             body: SafeArea(
@@ -38,8 +41,15 @@ Future<void> main() async {
           padding: const EdgeInsets.all(24),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             const Text(
-                'AAC Studio could not open saved boards. Check available storage and your connection, then retry. Your saved data has not been cleared.',
+                'AAC Studio could not start. Check available storage and your connection, then retry. Your saved data has not been cleared.',
                 textAlign: TextAlign.center),
+            const SizedBox(height: 12),
+            // The real cause, so the problem can be reported and fixed.
+            Text('$error',
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 12, color: Colors.grey)),
             const SizedBox(height: 16),
             FilledButton(onPressed: main, child: const Text('Retry')),
           ])),
@@ -64,6 +74,7 @@ Future<void> _start() async {
   final predictor = Predictor();
   await predictor.load();
   await predictor.loadLearned(StorageProviderAdapter(storage));
+  predictor.setLanguage(I18n.language.code, I18n.boardWords);
 
   final library = SymbolLibrary();
   await library.load();
@@ -79,8 +90,10 @@ Future<void> _start() async {
   void syncSpeech() {
     speech.configure(settings.settings);
     SymbolLibrary.skinTone = settings.settings.skinTone;
+    I18n.setFemale(settings.settings.speakerFemale);
     if (settings.settings.language != I18n.language.code) {
-      I18n.load(settings.settings.language);
+      I18n.load(settings.settings.language).then(
+          (_) => predictor.setLanguage(I18n.language.code, I18n.boardWords));
     }
   }
 
@@ -100,6 +113,19 @@ Future<void> _start() async {
     library: library,
     pack: pack,
   ));
+}
+
+class _Splash extends StatelessWidget {
+  const _Splash();
+
+  @override
+  Widget build(BuildContext context) => const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          backgroundColor: Color(0xFF2B2F36),
+          body: Center(child: CircularProgressIndicator()),
+        ),
+      );
 }
 
 class StudioApp extends StatelessWidget {
@@ -157,7 +183,7 @@ class StudioApp extends StatelessWidget {
         ),
         // A new key rebuilds every word in the new language.
         home: _isMobile
-            ? AppShell(key: ValueKey(I18n.language.code))
+            ? AppShell(key: ValueKey(I18n.changes.value))
             : desktop.studioHome(),
       ),
       ),

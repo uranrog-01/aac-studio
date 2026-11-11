@@ -1,3 +1,4 @@
+import 'i18n.dart';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
@@ -20,8 +21,13 @@ class SettingsController extends ChangeNotifier {
   bool get restrictionsEnabled => settings.restrictionsEnabled;
 
   Future<void> load() async {
-    settings =
-        AppSettings.fromJson(await storage.readJson(storage.settingsFile));
+    // Unreadable settings never stop the app: it opens with defaults.
+    try {
+      settings =
+          AppSettings.fromJson(await storage.readJson(storage.settingsFile));
+    } catch (_) {
+      settings = AppSettings();
+    }
     if (kIsWeb) settings.usePiper = false;
     // The app always opens ready to talk: a caregiver who forgot to leave
     // edit mode must not turn every tap into an editor after a restart.
@@ -63,14 +69,26 @@ class _PinResult {
   _PinResult(this.ok, this.pin);
 }
 
-class _PinDialog extends StatelessWidget {
+class _PinDialog extends StatefulWidget {
+  @override
+  State<_PinDialog> createState() => _PinDialogState();
+}
+
+class _PinDialogState extends State<_PinDialog> {
   final TextEditingController c = TextEditingController();
+
+  @override
+  void dispose() {
+    c.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: const Color(0xFF2A2E35),
-      title: const Text('Enter restrictions PIN',
-          style: TextStyle(color: Colors.white, fontSize: 16)),
+      title: Text(I18n.t('Enter code'),
+          style: const TextStyle(color: Colors.white, fontSize: 16)),
       content: TextField(
         controller: c,
         autofocus: true,
@@ -82,10 +100,10 @@ class _PinDialog extends StatelessWidget {
       actions: [
         TextButton(
             onPressed: () => Navigator.pop(context, _PinResult(false, '')),
-            child: const Text('Cancel')),
+            child: Text(I18n.t('Cancel'))),
         FilledButton(
             onPressed: () => Navigator.pop(context, _PinResult(true, c.text)),
-            child: const Text('OK')),
+            child: Text(I18n.t('OK'))),
       ],
     );
   }
@@ -201,6 +219,44 @@ class PackController extends ChangeNotifier {
       }
     }
     return changed;
+  }
+
+  /// Moves Home and "All categories" to the current starter layout (the
+  /// simpler Home). Only a caregiver does this, on purpose: buttons change
+  /// places. The person's own buttons stay, after the starter ones, and
+  /// buttons they deleted stay deleted.
+  Future<void> useStarterLayout(
+      {String assetPath = 'assets/sample_pack.json'}) async {
+    if (vocabulary == null) return;
+    final factory = loader.save(await loader.loadAsset(assetPath));
+    final json = loader.save(vocabulary!);
+    final views = json['views'] as Map<String, dynamic>;
+    final mineIds = {for (final b in json['buttons'] as List) b['id']};
+    final factoryIds = {for (final b in factory['buttons'] as List) b['id']};
+    for (final page in {'${json['rootFolder'] ?? 'home'}', 'allcats'}) {
+      final fresh = (factory['views'] as Map)[page] as List?;
+      final mine = views[page] as List?;
+      if (fresh == null || fresh.isEmpty || mine == null || mine.isEmpty) {
+        continue;
+      }
+      final cells = <dynamic>[
+        for (final c in (fresh.first as Map)['cells'] as List)
+          if (mineIds.contains(c['btn'])) Map<String, dynamic>.from(c as Map)
+      ];
+      final placed = {for (final c in cells) c['btn']};
+      final view = mine.first as Map;
+      for (final c in view['cells'] as List) {
+        if (!placed.contains(c['btn']) && !factoryIds.contains(c['btn'])) {
+          cells.add(c);
+        }
+      }
+      view['cells'] = cells;
+      view['columns'] = (fresh.first as Map)['columns'];
+    }
+    final next = _usable(json);
+    if (next == null) return;
+    vocabulary = next;
+    await save();
   }
 
   Future<void> save() async {

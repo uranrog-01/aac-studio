@@ -1698,8 +1698,8 @@ handsome|bonito
 hang|pendurar
 hang coat|pendurar o casaco
 hangar|hangar
-hangul syllable bbegs|comida coreana
-hangul syllable jjwaelm|comida coreana para comer
+hangul syllable bbegs|carne bovina
+hangul syllable jjwaelm|cafeteria
 hankerchief|lenço
 hard|duro
 hard hat|capacete de obra
@@ -3110,6 +3110,56 @@ zero|zero
 zip|zíper
 # The pronoun "I" (letters on the Alphabet page are never translated).
 I|eu
+beef|carne bovina
+coffee shop|cafeteria
+start|começar
+wrong|errado
+next to|ao lado
+dizzy|tonto
+good morning|bom dia
+good night|boa noite
+excuse me|com licença
+big|grande
+small|pequeno
+slow|devagar
+me|mim
+him|a ele
+her|a ela
+us|a nós
+they|eles
+them|a eles
+mine|meu
+your|seu
+his|dele
+our|nosso
+their|deles
+these|estes
+those|aqueles
+different|diferente
+new|novo
+with|com
+hard to do|difícil
+finished|terminado
+later|mais tarde
+have|ter
+drop|soltar
+know|saber
+hide|esconder
+see|ver
+kick|chutar
+close|fechar
+keep|guardar
+fix|consertar
+win|ganhar
+buy|comprar
+throw|arremessar
+can|poder
+feel|sentir
+shy|tímido
+lonely|sozinho
+proud|orgulhoso
+say|dizer
+tell|contar
 [forms]
 I+want|eu quero
 I+need|eu preciso

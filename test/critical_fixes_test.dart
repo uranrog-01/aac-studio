@@ -276,7 +276,8 @@ void main() {
       await tester.pump(const Duration(milliseconds: 1000));
       await tester.tapAt(const Offset(40, 1200));
       await tester.pump();
-      expect(session.message, 'I like');
+      // v13 Home: row 2 is yes, no, all done, wait, again.
+      expect(session.message, 'I no');
 
       await tester.tap(find.bySemanticsLabel('Stop scan'));
       await tester.pump(const Duration(seconds: 5));

@@ -1,0 +1,40 @@
+# Checks every push and pull request: translations are complete and valid,
+# the code has no analyzer issues, and all tests pass.
+
+name: Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Fetch dependencies
+        run: flutter pub get
+
+      - name: Translation files are built from their sources
+        run: |
+          python tools/build_i18n.py
+          git diff --exit-code -- assets/i18n
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test

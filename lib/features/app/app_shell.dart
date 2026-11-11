@@ -1,3 +1,5 @@
+import '../../engine/app_lock.dart';
+import '../../engine/i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -34,6 +36,18 @@ class _AppShellState extends State<AppShell> {
   bool _toldRecovery = false;
   DateTime _firstBack = DateTime.fromMillisecondsSinceEpoch(0);
 
+  @override
+  void initState() {
+    super.initState();
+    // A locked app is locked again every time it opens.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      if (context.read<SettingsController>().settings.lockApp) {
+        AppLock.apply(true);
+      }
+    });
+  }
+
   GridSession? _sessionFor(Vocabulary vocab, SpeechEngine speech) {
     if (_session == null || _builtFor != vocab) {
       _session = GridSession(vocabulary: vocab, speech: speech);
@@ -57,11 +71,11 @@ class _AppShellState extends State<AppShell> {
       _toldRecovery = true;
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          duration: Duration(seconds: 10),
-          content: Text('The saved board could not be opened, so the starter '
-              'board is shown. A copy of the damaged file was kept. Restore '
-              'a backup in Settings > Caregiver.'),
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          duration: const Duration(seconds: 10),
+          content: Text(I18n.t('The saved board could not be opened, so the '
+              'starter board is shown. A copy of the damaged file was kept. '
+              'Restore a backup in Settings > Caregiver.')),
         ));
       });
     }
@@ -74,11 +88,11 @@ class _AppShellState extends State<AppShell> {
           color: const Color(0xFFB71C1C),
           child: SafeArea(
             bottom: false,
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: Text(
-                  'Changes could not be saved. Check free storage space.',
-                  style: TextStyle(color: Colors.white)),
+                  I18n.t('Changes could not be saved. Check free storage space.'),
+                  style: const TextStyle(color: Colors.white)),
             ),
           ),
         ),
@@ -92,6 +106,7 @@ class _AppShellState extends State<AppShell> {
       animation: session,
       builder: (context, child) => PopScope(
         canPop: !settings.preventExit &&
+            !settings.lockApp &&
             !session.canGoBack &&
             !session.showKeyboard &&
             !session.showSearch,
@@ -128,6 +143,12 @@ class _AppShellState extends State<AppShell> {
       session.toggleSearch();
     } else if (session.canGoBack) {
       session.back();
+    } else if (settings.lockApp) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(I18n.t('The app is locked. A caregiver can unlock it '
+            'in More.')),
+        duration: const Duration(seconds: 2),
+      ));
     } else if (!settings.preventExit) {
       SystemNavigator.pop();
     } else {
@@ -149,7 +170,7 @@ class _AppShellState extends State<AppShell> {
       return;
     }
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Press back ${3 - _backAttempts} more times to exit'),
+      content: Text(I18n.t('Press Back 3 times quickly to leave')),
       duration: const Duration(milliseconds: 800),
     ));
   }

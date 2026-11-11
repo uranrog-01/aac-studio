@@ -10230,9 +10230,21 @@
     "symbol": "👨",
     "symbolPack": "modernflat",
     "symbolKey": "fluent-man"
+   },
+   {
+    "label": "he",
+    "symbol": "👨",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-man"
    }
   ],
   "v10_home_she": [
+   {
+    "label": "she",
+    "symbol": "👩",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-woman"
+   },
    {
     "label": "she",
     "symbol": "👩",
@@ -16710,6 +16722,12 @@
     "symbol": "⬜",
     "symbolPack": "modernflat",
     "symbolKey": "scene-date"
+   },
+   {
+    "label": "date",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "scene-date"
    }
   ],
   "v11_time_dinner_time": [
@@ -20398,6 +20416,12 @@
     "symbol": "✈",
     "symbolPack": "modernflat",
     "symbolKey": "fluent-airplane"
+   },
+   {
+    "label": "plane",
+    "symbol": "✈",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-airplane"
    }
   ],
   "v11_tools_plant": [
@@ -23134,6 +23158,12 @@
     "symbol": "⛏",
     "symbolPack": "modernflat",
     "symbolKey": "fluent-pick"
+   },
+   {
+    "label": "pick",
+    "symbol": "⛏",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-pick"
    }
   ],
   "v11_actions_pick_up": [
@@ -23913,6 +23943,12 @@
    }
   ],
   "v11_actions_watch": [
+   {
+    "label": "watch",
+    "symbol": "⌚",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-watch"
+   },
    {
     "label": "watch",
     "symbol": "⌚",
@@ -26385,6 +26421,12 @@
    }
   ],
   "v11_cooking_dice": [
+   {
+    "label": "dice",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-game-die"
+   },
    {
     "label": "dice",
     "symbol": "⬜",
@@ -33399,6 +33441,502 @@
     "symbolPack": "modernflat",
     "symbolKey": "fluent-giraffe"
    }
+  ],
+  "v13_home_water": [
+   {
+    "label": "water",
+    "symbol": "💧",
+    "symbolPack": "modernflat",
+    "symbolKey": "scene-water"
+   }
+  ],
+  "v13_home_sleep": [
+   {
+    "label": "sleep",
+    "symbol": "😴",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-sleeping-face"
+   }
+  ],
+  "v13_home_break": [
+   {
+    "label": "break",
+    "symbol": "⏸",
+    "symbolPack": "modernflat",
+    "symbolKey": "scene-break"
+   }
+  ],
+  "v13_home_happy": [
+   {
+    "label": "happy",
+    "symbol": "😄",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-grinning-face-with-smiling-eyes"
+   }
+  ],
+  "v13_home_sad": [
+   {
+    "label": "sad",
+    "symbol": "😢",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-crying-face"
+   }
+  ],
+  "v13_home_angry": [
+   {
+    "label": "angry",
+    "symbol": "😠",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-angry-face"
+   }
+  ],
+  "v13_home_scared": [
+   {
+    "label": "scared",
+    "symbol": "😨",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-fearful-face"
+   }
+  ],
+  "v13_home_hug": [
+   {
+    "label": "hug",
+    "symbol": "🤗",
+    "symbolPack": "modernflat",
+    "symbolKey": "scene-hug"
+   }
+  ],
+  "v13_home_mom": [
+   {
+    "label": "mom",
+    "symbol": "👩",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-woman"
+   }
+  ],
+  "v13_home_dad": [
+   {
+    "label": "dad",
+    "symbol": "👨",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-man"
+   }
+  ],
+  "v13_home_come": [
+   {
+    "label": "come",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "come_,_to"
+   }
+  ],
+  "v13_home_outside": [
+   {
+    "label": "outside",
+    "symbol": "🌳",
+    "symbolPack": "modernflat",
+    "symbolKey": "scene-outside"
+   }
+  ],
+  "v13_home_home": [
+   {
+    "label": "home",
+    "symbol": "🏠",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-house"
+   }
+  ],
+  "v13_home_music": [
+   {
+    "label": "music",
+    "symbol": "🎵",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-musical-notes"
+   }
+  ],
+  "v13_describe_big": [
+   {
+    "label": "big",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "large"
+   }
+  ],
+  "v13_describe_small": [
+   {
+    "label": "small",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "little"
+   }
+  ],
+  "v13_describe_slow": [
+   {
+    "label": "slow",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-turtle"
+   }
+  ],
+  "v13_describe_wrong": [
+   {
+    "label": "wrong",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "mistake_no_wrong"
+   }
+  ],
+  "v13_actions_start": [
+   {
+    "label": "start",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "begin_start"
+   }
+  ],
+  "v13_positions_next_to": [
+   {
+    "label": "next to",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "beside_next_to"
+   }
+  ],
+  "v13_health_dizzy": [
+   {
+    "label": "dizzy",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-dizzy"
+   }
+  ],
+  "v13_chat_good_morning": [
+   {
+    "label": "good morning",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "morning"
+   }
+  ],
+  "v13_chat_good_night": [
+   {
+    "label": "good night",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "night"
+   }
+  ],
+  "v13_chat_excuse_me": [
+   {
+    "label": "excuse me",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-person-raising-hand"
+   }
+  ],
+  "v14_people_me": [
+   {
+    "label": "me",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-me"
+   }
+  ],
+  "v14_people_him": [
+   {
+    "label": "him",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-him"
+   }
+  ],
+  "v14_people_her": [
+   {
+    "label": "her",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-her"
+   }
+  ],
+  "v14_people_us": [
+   {
+    "label": "us",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-us"
+   }
+  ],
+  "v14_people_they": [
+   {
+    "label": "they",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-they"
+   }
+  ],
+  "v14_people_them": [
+   {
+    "label": "them",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-them"
+   }
+  ],
+  "v14_people_mine": [
+   {
+    "label": "mine",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-mine"
+   }
+  ],
+  "v14_people_your": [
+   {
+    "label": "your",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-your"
+   }
+  ],
+  "v14_people_his": [
+   {
+    "label": "his",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-his"
+   }
+  ],
+  "v14_people_our": [
+   {
+    "label": "our",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-our"
+   }
+  ],
+  "v14_people_their": [
+   {
+    "label": "their",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-their"
+   }
+  ],
+  "v14_describe_these": [
+   {
+    "label": "these",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-these"
+   }
+  ],
+  "v14_describe_those": [
+   {
+    "label": "those",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-those"
+   }
+  ],
+  "v14_describe_different": [
+   {
+    "label": "different",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-different"
+   }
+  ],
+  "v14_describe_new": [
+   {
+    "label": "new",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-new"
+   }
+  ],
+  "v14_describe_with": [
+   {
+    "label": "with",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-handshake"
+   }
+  ],
+  "v14_describe_hard_to_do": [
+   {
+    "label": "hard to do",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-persevering-face"
+   }
+  ],
+  "v14_describe_finished": [
+   {
+    "label": "finished",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-check-mark"
+   }
+  ],
+  "v14_time_later": [
+   {
+    "label": "later",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-later"
+   }
+  ],
+  "v14_actions_have": [
+   {
+    "label": "have",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-have"
+   }
+  ],
+  "v14_actions_drop": [
+   {
+    "label": "drop",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-drop"
+   }
+  ],
+  "v14_actions_know": [
+   {
+    "label": "know",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-know"
+   }
+  ],
+  "v14_actions_hide": [
+   {
+    "label": "hide",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-see-no-evil-monkey"
+   }
+  ],
+  "v14_actions_see": [
+   {
+    "label": "see",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-eye"
+   }
+  ],
+  "v14_actions_kick": [
+   {
+    "label": "kick",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "kick_ball_1_,_to"
+   }
+  ],
+  "v14_actions_close": [
+   {
+    "label": "close",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "close_,_to"
+   }
+  ],
+  "v14_actions_keep": [
+   {
+    "label": "keep",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "keep_,_to"
+   }
+  ],
+  "v14_actions_fix": [
+   {
+    "label": "fix",
+    "symbol": "⬜",
+    "symbolPack": "mulberry",
+    "symbolKey": "mend"
+   }
+  ],
+  "v14_actions_win": [
+   {
+    "label": "win",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-trophy"
+   }
+  ],
+  "v14_actions_buy": [
+   {
+    "label": "buy",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-shopping-bags"
+   }
+  ],
+  "v14_actions_throw": [
+   {
+    "label": "throw",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-person-playing-handball"
+   }
+  ],
+  "v14_actions_can": [
+   {
+    "label": "can",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-flexed-biceps"
+   }
+  ],
+  "v14_feelings_feel": [
+   {
+    "label": "feel",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-beating-heart"
+   }
+  ],
+  "v14_feelings_shy": [
+   {
+    "label": "shy",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-face-with-peeking-eye"
+   }
+  ],
+  "v14_feelings_lonely": [
+   {
+    "label": "lonely",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-pensive-face"
+   }
+  ],
+  "v14_feelings_proud": [
+   {
+    "label": "proud",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-smiling-face-with-smiling-eyes"
+   }
+  ],
+  "v14_chat_say": [
+   {
+    "label": "say",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-speaking-head"
+   }
+  ],
+  "v14_chat_tell": [
+   {
+    "label": "tell",
+    "symbol": "⬜",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-left-speech-bubble"
+   }
   ]
  },
  "folders": {
@@ -34443,6 +34981,260 @@
   ],
   "food": [
    "b80"
+  ]
+ },
+ "layouts": {
+  "home": [
+   [
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5",
+    "b6",
+    "b7",
+    "b8",
+    "b9",
+    "b10",
+    "b11",
+    "b12",
+    "b13",
+    "b14",
+    "b15",
+    "b16",
+    "b17",
+    "b18",
+    "b19",
+    "b20",
+    "b21",
+    "b22",
+    "b23",
+    "b24",
+    "core_yes",
+    "core_no",
+    "core_wait",
+    "v10_home_he",
+    "v10_home_she",
+    "v10_home_we",
+    "v10_home_eat",
+    "v10_home_drink",
+    "v10_home_what",
+    "v10_home_where",
+    "v10_home_who",
+    "v10_home_this",
+    "v10_home_that",
+    "v10_home_toilet",
+    "v10_home_hurt",
+    "v10_home_sick",
+    "v10_home_tired",
+    "v10_home_hungry",
+    "v10_home_hot",
+    "v10_home_cold",
+    "v10_home_good",
+    "v10_home_bad",
+    "v10_home_up",
+    "v10_home_down",
+    "v10_home_sorry",
+    "v10_home_don_t_know",
+    "fpeople",
+    "ffeelings",
+    "fcalm",
+    "ffood",
+    "fplay",
+    "fplaces",
+    "fschool",
+    "fanimals",
+    "fbody",
+    "fx_clothes",
+    "fx_furniture",
+    "fx_actions",
+    "fx_time",
+    "home_alphabet",
+    "home_numbers",
+    "home_colors",
+    "home_routines",
+    "home_weather",
+    "home_vehicles"
+   ],
+   [
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5",
+    "b6",
+    "b7",
+    "b8",
+    "b9",
+    "b10",
+    "b11",
+    "b12",
+    "b13",
+    "b14",
+    "b15",
+    "b16",
+    "b17",
+    "b18",
+    "b19",
+    "b20",
+    "b21",
+    "b22",
+    "b23",
+    "b24",
+    "core_yes",
+    "core_no",
+    "core_wait",
+    "fpeople",
+    "ffeelings",
+    "fcalm",
+    "ffood",
+    "fplay",
+    "fplaces",
+    "fschool",
+    "fanimals",
+    "fbody",
+    "fx_clothes",
+    "fx_furniture",
+    "fx_actions",
+    "fx_time"
+   ],
+   [
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5",
+    "b6",
+    "b7",
+    "b8",
+    "b9",
+    "b10",
+    "b11",
+    "b12",
+    "b13",
+    "b14",
+    "b15",
+    "b16",
+    "b17",
+    "b18",
+    "b19",
+    "b20",
+    "b21",
+    "b22",
+    "b23",
+    "b24",
+    "core_yes",
+    "core_no",
+    "core_wait",
+    "v10_home_he",
+    "v10_home_she",
+    "v10_home_we",
+    "v10_home_eat",
+    "v10_home_drink",
+    "v10_home_what",
+    "v10_home_where",
+    "v10_home_who",
+    "v10_home_this",
+    "v10_home_that",
+    "v10_home_toilet",
+    "v10_home_hurt",
+    "v10_home_sick",
+    "v10_home_tired",
+    "v10_home_hungry",
+    "v10_home_hot",
+    "v10_home_cold",
+    "v10_home_good",
+    "v10_home_bad",
+    "v10_home_up",
+    "v10_home_down",
+    "v10_home_sorry",
+    "v10_home_don_t_know",
+    "fpeople",
+    "ffeelings",
+    "fcalm",
+    "ffood",
+    "fplay",
+    "fplaces",
+    "fschool",
+    "fanimals",
+    "fbody",
+    "fx_clothes",
+    "fx_furniture",
+    "fx_actions",
+    "fx_time",
+    "home_alphabet",
+    "home_numbers",
+    "home_colors",
+    "home_routines",
+    "home_weather",
+    "home_vehicles",
+    "link_home_questions",
+    "link_home_chat",
+    "link_home_describe",
+    "link_home_allcats"
+   ]
+  ],
+  "allcats": [
+   [
+    "all_actions",
+    "all_alphabet",
+    "all_animalhome",
+    "all_animals",
+    "all_art",
+    "all_bathroom",
+    "all_birds",
+    "all_bakery",
+    "all_insects",
+    "all_places2",
+    "all_calm",
+    "all_chat",
+    "all_clothes",
+    "all_colors",
+    "all_cooking",
+    "all_routines",
+    "all_describe",
+    "all_drinks",
+    "all_food",
+    "all_feelings",
+    "all_fruits",
+    "all_health",
+    "all_holidays",
+    "all_furniture",
+    "all_amounts",
+    "all_positions",
+    "all_jobs",
+    "all_kitchen",
+    "all_meals",
+    "all_mealtime",
+    "all_meatfish",
+    "all_dairy",
+    "all_instruments",
+    "all_body",
+    "all_numbers",
+    "all_people",
+    "all_places",
+    "all_plants",
+    "all_play",
+    "all_questions",
+    "all_reptiles",
+    "all_school",
+    "all_school2",
+    "all_science",
+    "all_sea",
+    "all_shapes",
+    "all_shopping",
+    "all_snacks",
+    "all_sports",
+    "all_fantasy",
+    "all_time",
+    "all_tools",
+    "all_toys",
+    "all_tech",
+    "all_vegetables",
+    "all_vehicles",
+    "all_weather",
+    "all_wild"
+   ]
   ]
  }
 }

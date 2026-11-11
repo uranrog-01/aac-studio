@@ -20,7 +20,7 @@ void main() {
   Map<String, dynamic> read(String path) =>
       jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
 
-  test('the board has thousands of words and every category is A-Z listed',
+  test('the board has thousands of words and categories are grouped by topic',
       () {
     final pack = read('assets/sample_pack.json');
     final buttons = {for (final b in pack['buttons']) b['id']: b};
@@ -36,13 +36,31 @@ void main() {
         for (final a in b['actions'] as List) a['data']
     };
     expect(targets, containsAll(views.keys.where((k) => k != 'home' && k != 'allcats')));
-    final labels = [for (final b in all) (b['label'] as String).toLowerCase()];
-    expect(labels, [...labels]..sort(), reason: 'All categories is A to Z');
+    // v13: grouped by topic (people, food, body, home, play, places,
+    // school, animals, words). A to Z by the English name meant nothing
+    // in the other languages.
+    final labels = [for (final b in all) b['label'] as String];
+    expect(labels.first, 'People');
+    expect(labels.indexOf('Meals'), labels.indexOf('Eat & drink') + 1);
+    expect(labels.indexOf('Wild animals'), labels.indexOf('Animals') + 1);
     final home = [
       for (final c in (views['home'] as List).first['cells'])
         buttons[c['btn']]['label']
     ];
-    expect(home, containsAll(['Questions', 'Chat', 'Describing words', 'All categories']));
+    expect(home, contains('All categories'));
+    // Home starts with what is needed most; the first screen answers
+    // "what do you want / need / feel".
+    expect(home.take(15), containsAll(['I', 'want', 'more', 'help', 'stop',
+        'yes', 'no', 'eat', 'drink', 'water', 'toilet', 'sleep']));
+    expect(home, containsAll(['hurt', 'happy', 'sad', 'mom', 'dad', 'break']));
+    // Categories that left Home are one tap inside a related category.
+    List<String> page(String id) => [
+          for (final c in (views[id] as List).first['cells'])
+            buttons[c['btn']]['label'] as String
+        ];
+    expect(page('people'), containsAll(['Chat', 'Questions']));
+    expect(page('actions'), contains('Describing words'));
+    expect(page('routines'), containsAll(['Clothes', 'Time']));
   });
 
   test('library labels are clean words', () {
@@ -70,9 +88,13 @@ void main() {
           for (final c in (pack['views'][page] as List).first['cells'] as List)
             c['btn'] as String
         ];
-    for (final page in ['home', 'food', 'actions', 'jobs', 'allcats']) {
+    for (final page in ['food', 'actions', 'jobs', 'allcats']) {
       expect(ids(merged, page), ids(fresh, page), reason: page);
     }
+    // Home keeps the person's own order; the new words are added to it.
+    final before = ids(v10, 'home');
+    expect(ids(merged, 'home').where(before.contains).toList(), before);
+    expect(ids(merged, 'home'), containsAll(ids(fresh, 'home')));
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
     expect(buttons['b5']['label'], 'I want');
     final v = PackLoader().loadString(jsonEncode(merged));
@@ -99,9 +121,9 @@ void main() {
     final current = PackController(storage);
     await current.load();
     final saved = (await storage.readJson(file))!;
-    expect(saved['packVersion'], 11);
+    expect(saved['packVersion'], 14);
     expect((saved['buttons'] as List).length, greaterThan(3000));
     await current.save();
-    expect((await storage.readJson(file))!['packVersion'], 11);
+    expect((await storage.readJson(file))!['packVersion'], 14);
   });
 }
