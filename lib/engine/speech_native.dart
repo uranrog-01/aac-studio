@@ -1,3 +1,5 @@
+import 'voice_clips.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -40,6 +42,29 @@ class SpeechEngine {
   }
 
   final FlutterTts _tts = FlutterTts();
+
+  /// Plays recorded words (VoiceClips) for a language the device cannot
+  /// speak itself, e.g. Albanian.
+  AudioPlayer? _clipPlayer;
+
+  Future<bool> _speakClips(List<String> clips, double rate, double volume,
+      bool Function() isCurrent) async {
+    try {
+      final player = _clipPlayer ??= AudioPlayer();
+      await player.setReleaseMode(ReleaseMode.stop);
+      for (final clip in clips) {
+        if (!isCurrent()) return true;
+        final done = player.onPlayerComplete.first;
+        await player.setVolume(volume);
+        await player.setPlaybackRate((rate / .45).clamp(.5, 2.0));
+        await player.play(AssetSource(clip));
+        await done.timeout(const Duration(seconds: 12), onTimeout: () {});
+      }
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
   final OfflineSpeechVoice _offlineVoice;
   final Map<String, OfflineSpeechVoice> _packVoices = {};
 
@@ -311,7 +336,8 @@ class SpeechEngine {
     text = speechText(text);
     if (text.isEmpty) return Future.value();
     // Piper synthesis takes time: a newer tap replaces queued/stale speech.
-    if (_usePiper || interrupt) _generation++;
+    if (_usePiper || interrupt || VoiceClips.available) _generation++;
+    if (interrupt) unawaited(_clipPlayer?.stop());
     final generation = _generation;
     final requestedRate = (style?.rate ?? rate).clamp(0.0, 1.0);
     final requestedPitch = (style?.pitch ?? pitch).clamp(0.5, 2.0);
@@ -323,6 +349,23 @@ class SpeechEngine {
               requestedVolume, interrupt)) {
         error.value = null;
         return;
+      }
+      // Board words in a language with recordings (Albanian) play the
+      // recordings: made with the reference Piper program, they say each
+      // word completely. The live voice covers typed text.
+      final clips = VoiceClips.clipsFor(text);
+      if (clips != null) {
+        try {
+          await _offline.stop();
+        } catch (_) {}
+        try {
+          await _tts.stop();
+        } catch (_) {}
+        if (await _speakClips(clips, requestedRate, requestedVolume,
+            () => generation == _generation)) {
+          error.value = null;
+          return;
+        }
       }
       if (_usePiper && _offlineReady && requestedPitch == 1.0) {
         try {
@@ -393,6 +436,9 @@ class SpeechEngine {
     }
     try {
       await _offline.stop();
+    } catch (_) {}
+    try {
+      await _clipPlayer?.stop();
     } catch (_) {}
     try {
       await _tts.stop();

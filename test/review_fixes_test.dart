@@ -5,6 +5,7 @@ import 'package:aac_studio/engine/i18n.dart';
 import 'package:aac_studio/engine/pack_upgrade.dart';
 import 'package:aac_studio/engine/prediction.dart';
 import 'package:aac_studio/engine/storage.dart';
+import 'package:aac_studio/engine/voice_clips.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -179,12 +180,50 @@ void main() {
     expect(AppSettings().lockApp, isFalse);
   });
 
+  test('Albanian recordings cover whole messages or nothing', () {
+    VoiceClips.useIndex('sq', {
+      'unë': 'a.mp3',
+      'dua': 'b.mp3',
+      'ujë': 'c.mp3',
+      'unë jam i lodhur': 'd.mp3',
+    });
+    expect(VoiceClips.clipsFor('Ujë'), ['voices/clips/sq/c.mp3']);
+    expect(VoiceClips.clipsFor('unë jam i lodhur.'), ['voices/clips/sq/d.mp3']);
+    expect(VoiceClips.clipsFor('unë  dua ujë'),
+        ['voices/clips/sq/a.mp3', 'voices/clips/sq/b.mp3', 'voices/clips/sq/c.mp3']);
+    expect(VoiceClips.clipsFor('unë jam i lodhur dua ujë'), hasLength(3));
+    // One unknown word: no recordings, so no mixed voices.
+    expect(VoiceClips.clipsFor('unë dua kafe'), isNull);
+    VoiceClips.useIndex('', {});
+  });
+
+  test('every Albanian board word has a recording', () {
+    final index = (jsonDecode(
+            File('assets/voices/clips/sq/index.json').readAsStringSync()) as Map)
+        .cast<String, String>();
+    VoiceClips.useIndex('sq', index);
+    final data = jsonDecode(File('assets/i18n/sq.json').readAsStringSync()) as Map;
+    final missing = [
+      for (final section in ['words', 'words_f', 'forms', 'forms_f'])
+        for (final text in ((data[section] as Map?) ?? const {}).values)
+          if (VoiceClips.clipsFor(text as String) == null) text
+    ];
+    expect(missing, isEmpty);
+    for (final file in index.values.toSet()) {
+      expect(File('assets/voices/clips/sq/$file').existsSync(), isTrue, reason: file);
+    }
+    VoiceClips.useIndex('', {});
+  });
+
   test('every app text is translated in every language', () {
     final texts = _appTexts();
     expect(texts.length, greaterThan(60));
     // Shown only where the language has them (Albanian voice, girl/boy).
     const albanianOnly = {
       'The person speaking is',
+      'Board words are spoken by recordings of a native voice built into the '
+          'app, so they sound right even when this device has no voice for the '
+          'language.',
       'Download voice',
       'Downloading the voice for this language…',
       'The voice for this language is installed. It works without internet.',

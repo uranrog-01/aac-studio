@@ -129,7 +129,8 @@ class PiperVoice implements OfflineSpeechVoice {
       await prepare();
       if (!isCurrent()) return;
       final path =
-          await _synthesizer!.synthesize(text, (rate / 0.45).clamp(0.5, 2.0));
+          await _synthesizer!.synthesize(
+              text, (rate / 0.45 * pack.pace).clamp(0.5, 2.0));
       if (!isCurrent()) return;
       if (_player == null) {
         final player = AudioPlayer();

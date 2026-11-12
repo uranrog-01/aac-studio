@@ -58,14 +58,16 @@ def finalize(output: Path, archive_target: Path | None = None):
             starter.add(f'assets/assets/symbols/mulberry/{key}.svg' if folder == 'mulberry'
                         else f'assets/assets/flat_symbols/{folder}/{key}.webp')
     symbols = sorted(p.relative_to(output).as_posix()
-                     for parent in ['assets/assets/flat_symbols', 'assets/assets/symbols/mulberry']
-                     for p in (output / parent).rglob('*') if p.is_file() and p.suffix in {'.webp', '.svg'})
+                     for parent in ['assets/assets/flat_symbols', 'assets/assets/symbols/mulberry',
+                                    'assets/assets/voices/clips']
+                     for p in (output / parent).rglob('*') if p.is_file() and p.suffix in {'.webp', '.svg', '.mp3'})
     hashes = {path: hashlib.sha256((output / path).read_bytes()).hexdigest() for path in symbols}
     picture_script = (ROOT / 'web/picture_cache.js').read_text(encoding='utf-8')
     (output / 'picture_cache.js').write_text(picture_script.replace('__PICTURE_HASHES__', json.dumps(hashes)), encoding='utf-8')
     # Keep runtime, fonts, JSON, icons and CanvasKit local for offline startup.
     core = sorted(p.relative_to(output).as_posix() for p in output.rglob('*')
                   if p.is_file() and '/flat_symbols/' not in p.as_posix() and '/symbols/mulberry/' not in p.as_posix()
+                  and not (p.suffix == '.mp3' and '/voices/clips/' in p.as_posix())
                   and p.name not in {'aac-sw.js', 'flutter_service_worker.js',
                                      '.last_build_id', 'offline-symbols.json', 'web-build.json'}
                   and not p.name.endswith('.map'))

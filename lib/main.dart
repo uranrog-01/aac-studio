@@ -1,3 +1,4 @@
+import 'engine/voice_clips.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -75,6 +76,7 @@ Future<void> _start() async {
   await predictor.load();
   await predictor.loadLearned(StorageProviderAdapter(storage));
   predictor.setLanguage(I18n.language.code, I18n.boardWords);
+  await VoiceClips.load(settings.settings.language);
 
   final library = SymbolLibrary();
   await library.load();
@@ -95,6 +97,7 @@ Future<void> _start() async {
       I18n.load(settings.settings.language).then(
           (_) => predictor.setLanguage(I18n.language.code, I18n.boardWords));
     }
+    VoiceClips.load(settings.settings.language);
   }
 
   syncSpeech();

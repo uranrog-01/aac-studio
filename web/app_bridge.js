@@ -49,13 +49,37 @@
 
   let utterance;
   const speech = window.speechSynthesis;
+  let clipAudio = null;
+  let clipRun = 0;
+  const stopClips = () => { clipRun++; if (clipAudio) { clipAudio.onended = null; clipAudio.pause(); } };
   window.aacSpeech = {
     available: !!speech,
     onError: () => {},
     voices: () => speech ? speech.getVoices() : [],
-    stop: () => { if (speech) speech.cancel(); utterance = null; },
+    stop: () => { if (speech) speech.cancel(); utterance = null; stopClips(); },
+    // Recorded words (Albanian) for languages the browser cannot speak.
+    // One audio element, started inside the tap, so iPhone Safari plays it
+    // and the following words of the same message.
+    playClips(urls, rate, volume) {
+      if (speech) speech.cancel();
+      stopClips();
+      const list = Array.from(urls);
+      const audio = clipAudio || (clipAudio = new Audio());
+      const run = ++clipRun;
+      let i = 0;
+      const next = () => {
+        if (run !== clipRun || i >= list.length) return;
+        audio.src = list[i++];
+        audio.playbackRate = Math.max(.5, Math.min(2, rate / .45));
+        audio.volume = volume;
+        audio.play().catch(e => window.aacSpeech.onError(String(e && e.name || 'Audio failed')));
+      };
+      audio.onended = next;
+      next();
+    },
     speak(text, rate, pitch, volume, name, locale) {
       if (!speech) throw new Error('Browser speech unavailable');
+      stopClips();
       speech.cancel();
       utterance = new SpeechSynthesisUtterance(text);
       const voices = speech.getVoices();

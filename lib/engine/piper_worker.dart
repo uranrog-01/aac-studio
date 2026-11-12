@@ -16,6 +16,10 @@ class PiperPack {
   final String modelFile;
   final int modelBytes;
   final String espeakVoice;
+
+  /// Speaking pace at the default speed setting (1 = the voice's fastest
+  /// natural pace). The Albanian voice is quick, so it speaks at 80%.
+  final double pace;
   final String dictionary; // espeak-ng-data/<dictionary> must exist
   final String? asset; // bundled with the app
   final String? url; // or downloaded once, then offline
@@ -28,6 +32,7 @@ class PiperPack {
     required this.modelFile,
     required this.modelBytes,
     required this.espeakVoice,
+    this.pace = 1.0,
     required this.dictionary,
     this.asset,
     this.url,
@@ -72,6 +77,7 @@ const albanianPiperPack = PiperPack(
   modelFile: 'sq_AL-edon-medium.onnx',
   modelBytes: 63511167,
   espeakVoice: 'sq',
+  pace: 0.8,
   dictionary: 'sq_dict',
   url: 'https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/'
       'vits-piper-sq_AL-edon-medium.tar.bz2',
@@ -275,8 +281,13 @@ void _piperWorker(List<Object> arguments) async {
           reply.send({'path': cached});
           continue;
         }
+        // Piper cuts off the last sound of a phrase that does not end like
+        // a sentence ("ujë" lost its ending), so single words get a full stop.
+        final spoken = RegExp(r'[.!?…]$').hasMatch(text.trim())
+            ? text
+            : '${text.trim()}.';
         final sentences =
-            phonemizer.PiperPhonemize.phonemize(text, voice: pack.espeakVoice)
+            phonemizer.PiperPhonemize.phonemize(spoken, voice: pack.espeakVoice)
                 .where((s) => s.isNotEmpty)
                 .toList();
         if (sentences.isEmpty) throw StateError('No pronounceable text');

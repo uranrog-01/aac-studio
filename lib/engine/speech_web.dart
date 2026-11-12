@@ -1,3 +1,4 @@
+import 'voice_clips.dart';
 import 'dart:js_interop';
 import 'package:flutter/foundation.dart';
 import '../models/domain.dart';
@@ -13,6 +14,8 @@ external void _speak(JSString text, double rate, double pitch, double volume,
     JSString name, JSString locale);
 @JS('aacSpeech.stop')
 external void _stop();
+@JS('aacSpeech.playClips')
+external void _playClips(JSArray<JSString> urls, double rate, double volume);
 @JS('aacSpeech.onError')
 external set _onError(JSFunction callback);
 
@@ -105,6 +108,18 @@ class SpeechEngine {
             (name: v.name, locale: v.lang, quality: '', network: !v.localService)
         ]);
         use = pick == null ? null : DeviceVoice(pick.name, pick.locale);
+      }
+      // No browser voice for the language (Albanian in Safari and Chrome):
+      // play the app's recordings of the words, started in this same tap
+      // so Safari allows the sound. Never an English voice for Albanian.
+      final clips = use == null ? VoiceClips.clipsFor(text) : null;
+      if (clips != null) {
+        _playClips(
+            [for (final c in clips) 'assets/assets/$c'.toJS].toJS,
+            (style?.rate ?? rate).clamp(0, 1).toDouble(),
+            (style?.volume ?? volume).clamp(0, 1).toDouble());
+        error.value = null;
+        return Future.value();
       }
       _speak(
           text.trim().toJS,

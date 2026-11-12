@@ -196,3 +196,14 @@ the translation files match their sources on every push.
 - **Lock the app on the screen** (Caregiver > Safety): Back never leaves the
   app, Android pins it, and unlocking (More > Unlock the app) needs the code.
   iPhone and iPad cannot be locked by an app: start Guided Access as well.
+
+## Albanian recorded voice (1.9.1)
+
+Phones, tablets and most browsers have no Albanian voice, so an English voice
+used to read Albanian words with English sounds. All 3,234 Albanian board
+words, category names and sentence forms now ship as recordings of the
+Albanian Piper voice "Edon" (`assets/voices/clips/sq/`, 12 MB), made with the
+official Piper program at a calm 80% pace. They play first on every device,
+including the web app; the downloadable live voice covers typed text, and the
+device voice is used only for words without a recording. Rebuild them with
+`tools/build_voice_clips.py` (see its header) after Albanian words change.

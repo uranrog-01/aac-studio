@@ -2820,3 +2820,6 @@ ko|다른 음성을 찾을 수 없습니다. 기기의 텍스트 음성 변환 �
 hi|कोई और आवाज़ नहीं मिली। डिवाइस की टेक्स्ट-टू-स्पीच सेटिंग में आवाज़ें जोड़ें।
 ar|لم يُعثر على أصوات أخرى. أضف أصواتًا من إعدادات تحويل النص إلى كلام في الجهاز.
 ur|کوئی اور آواز نہیں ملی۔ ڈیوائس کی ٹیکسٹ ٹو اسپیچ ترتیبات میں آوازیں شامل کریں۔
+
+@ Board words are spoken by recordings of a native voice built into the app, so they sound right even when this device has no voice for the language.
+sq|Fjalët e tabelës i thotë një zë shqip i incizuar brenda aplikacionit, prandaj tingëllojnë saktë edhe kur pajisja nuk ka zë shqip.

@@ -1,3 +1,4 @@
+import '../../engine/voice_clips.dart';
 import '../../engine/app_lock.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
@@ -118,6 +119,10 @@ class _SettingsSheetState extends State<SettingsSheet> {
                 initiallyExpanded: true,
                 children: [
                   _languagePicker(),
+                  if (VoiceClips.languages.contains(s.language))
+                    _note('Board words are spoken by recordings of a native '
+                        'voice built into the app, so they sound right even when '
+                        'this device has no voice for the language.'),
                   if (SpeechEngine.hasOfflineVoice(s.language) &&
                       s.language != 'en')
                     _offlineVoiceCard()
@@ -468,7 +473,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                         onPressed: () => showLicensePage(
                             context: context,
                             applicationName: 'AAC Studio',
-                            applicationVersion: '1.9.0'),
+                            applicationVersion: '1.9.1'),
                         child: Text(I18n.t('Voice and software licenses'))),
                   ]),
                 ]),
