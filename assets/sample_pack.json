@@ -2,7 +2,7 @@
  "id": "studio.basics.autism",
  "label": "My Words",
  "rootFolder": "home",
- "packVersion": 14,
+ "packVersion": 15,
  "folders": [
   {
    "id": "home",
@@ -423,6 +423,13 @@
    "symbol": "⬜",
    "symbolPack": "modernflat",
    "symbolKey": "fluent-person-fairy"
+  },
+  {
+   "id": "games",
+   "label": "Games",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-video-game"
   }
  ],
  "buttons": [
@@ -51950,6 +51957,171 @@
    ],
    "symbolPack": "modernflat",
    "symbolKey": "fluent-left-speech-bubble"
+  },
+  {
+   "id": "game_bubbles",
+   "kind": "action",
+   "label": "bubbles",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-bubbles",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "bubbles"
+    }
+   ]
+  },
+  {
+   "id": "game_lights",
+   "kind": "action",
+   "label": "light painting",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-sparkler",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "lights"
+    }
+   ]
+  },
+  {
+   "id": "game_water",
+   "kind": "action",
+   "label": "water ripples",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-water-wave",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "water"
+    }
+   ]
+  },
+  {
+   "id": "game_kaleidoscope",
+   "kind": "action",
+   "label": "kaleidoscope",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-kaleidoscope",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "kaleidoscope"
+    }
+   ]
+  },
+  {
+   "id": "game_lava",
+   "kind": "action",
+   "label": "lava lamp",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "mulberry",
+   "symbolKey": "lava_lamp",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "lava"
+    }
+   ]
+  },
+  {
+   "id": "game_xylophone",
+   "kind": "action",
+   "label": "xylophone",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "mulberry",
+   "symbolKey": "xylophone",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "xylophone"
+    }
+   ]
+  },
+  {
+   "id": "game_spinner",
+   "kind": "action",
+   "label": "spinner",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-spinner",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "spinner"
+    }
+   ]
+  },
+  {
+   "id": "home_games",
+   "kind": "folder",
+   "label": "Games",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-video-game",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "games"
+    }
+   ]
+  },
+  {
+   "id": "all_games",
+   "kind": "folder",
+   "label": "Games",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-video-game",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "games"
+    }
+   ]
+  },
+  {
+   "id": "play_games",
+   "kind": "folder",
+   "label": "Games",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-video-game",
+   "actions": [
+    {
+     "kind": "gotoFolder",
+     "data": "games"
+    }
+   ]
+  },
+  {
+   "id": "v15_home_why",
+   "kind": "item",
+   "label": "why",
+   "class": "question",
+   "symbol": "❓",
+   "symbolPack": "mulberry",
+   "symbolKey": "why",
+   "actions": [
+    {
+     "kind": "addText",
+     "data": "why"
+    }
+   ]
   }
  ],
  "views": {
@@ -52147,6 +52319,9 @@
       "btn": "v10_home_who"
      },
      {
+      "btn": "v15_home_why"
+     },
+     {
       "btn": "v10_home_don_t_know"
      },
      {
@@ -52163,6 +52338,9 @@
      },
      {
       "btn": "fplay"
+     },
+     {
+      "btn": "home_games"
      },
      {
       "btn": "home_routines"
@@ -52771,6 +52949,9 @@
      },
      {
       "btn": "link_play_fantasy"
+     },
+     {
+      "btn": "play_games"
      }
     ]
    }
@@ -59591,6 +59772,9 @@
       "btn": "all_play"
      },
      {
+      "btn": "all_games"
+     },
+     {
       "btn": "all_toys"
      },
      {
@@ -62683,6 +62867,34 @@
      },
      {
       "btn": "v11_fantasy_troll"
+     }
+    ]
+   }
+  ],
+  "games": [
+   {
+    "columns": 4,
+    "cells": [
+     {
+      "btn": "game_bubbles"
+     },
+     {
+      "btn": "game_lights"
+     },
+     {
+      "btn": "game_water"
+     },
+     {
+      "btn": "game_kaleidoscope"
+     },
+     {
+      "btn": "game_lava"
+     },
+     {
+      "btn": "game_xylophone"
+     },
+     {
+      "btn": "game_spinner"
      }
     ]
    }

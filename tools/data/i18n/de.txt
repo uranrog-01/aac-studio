@@ -3159,6 +3159,11 @@ lonely|einsam
 proud|stolz
 say|sagen
 tell|erzählen
+games|Spiele
+light painting|Lichtmalen
+water ripples|Wasserwellen
+kaleidoscope|Kaleidoskop
+spinner|Kreisel
 [forms]
 I+want|ich will
 I+need|ich brauche

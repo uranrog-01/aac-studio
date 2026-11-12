@@ -3159,6 +3159,11 @@ lonely|seul
 proud|fier
 say|dire
 tell|raconter
+games|Jeux
+light painting|peinture de lumière
+water ripples|ondes sur l'eau
+kaleidoscope|kaléidoscope
+spinner|toupie
 [forms]
 I+want|je veux
 I+need|j'ai besoin

@@ -3161,6 +3161,11 @@ lonely|اکیلا
 proud|فخر
 say|کہنا
 tell|بتانا
+games|کھیل
+light painting|روشنی سے تصویر
+water ripples|پانی کی لہریں
+kaleidoscope|کلائیڈوسکوپ
+spinner|لٹو
 [forms]
 I+want|مجھے چاہیے
 I+need|مجھے ضرورت ہے

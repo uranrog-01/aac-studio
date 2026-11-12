@@ -3160,6 +3160,11 @@ lonely|さびしい
 proud|ほこらしい
 say|いう
 tell|はなす
+games|ゲーム
+light painting|ひかりのおえかき
+water ripples|みずのわ
+kaleidoscope|まんげきょう
+spinner|こま
 [forms]
 I+want|わたしは ほしい
 I+need|わたしは ひつよう

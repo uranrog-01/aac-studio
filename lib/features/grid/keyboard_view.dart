@@ -22,7 +22,7 @@ class KeyboardView extends StatefulWidget {
   /// finished words; 'off'.
   final String typingSpeech;
 
-  /// Show the message big, and saved / recent phrases (optional).
+  /// Show the current message, and saved / recent phrases (optional).
   final VoidCallback? onShow;
   final VoidCallback? onPhrases;
   const KeyboardView(
@@ -158,6 +158,7 @@ class _KeyboardViewState extends State<KeyboardView> {
           showCursor: true,
           onSpeak: widget.onSpeak,
           onDeleteWord: _deleteWord,
+          onShow: widget.onShow,
         ),
         ValueListenableBuilder<String?>(
           valueListenable: widget.speech.error,
@@ -182,11 +183,6 @@ class _KeyboardViewState extends State<KeyboardView> {
                   icon: Icons.star_outline,
                   label: 'Phrases',
                   onTap: widget.onPhrases),
-            if (widget.onShow != null)
-              ToolbarButton(
-                  icon: Icons.fit_screen,
-                  label: 'Show big',
-                  onTap: _text.trim().isEmpty ? null : widget.onShow),
             ToolbarButton(
                 icon: Icons.clear_all,
                 label: 'Clear',

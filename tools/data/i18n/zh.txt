@@ -3160,6 +3160,11 @@ lonely|孤单
 proud|骄傲
 say|说
 tell|告诉
+games|游戏
+light painting|光绘
+water ripples|水波
+kaleidoscope|万花筒
+spinner|陀螺
 [forms]
 I+want|我要
 I+need|我需要

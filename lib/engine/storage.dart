@@ -63,6 +63,11 @@ class AppSettings {
   /// as "tired" or "happy" differ: Albanian "i lodhur" / "e lodhur").
   bool speakerFemale;
 
+  /// The voice the person wants: '' (automatic), 'female' or 'male'. The
+  /// best installed voice of that kind is used; where the device has
+  /// none, the best voice of any kind speaks.
+  String voiceGender;
+
   /// Start small and grow: how many Home words are shown. 0 = all,
   /// 1 = the first 10 (no categories), 2 = 25, 3 = 45. Words never move;
   /// more rows appear below as the person learns.
@@ -113,6 +118,7 @@ class AppSettings {
     this.arasaacSkin = 0,
     this.arasaacHair = 0,
     this.speakerFemale = false,
+    this.voiceGender = '',
     this.homeLevel = 0,
     this.lockApp = false,
   }) : phrases = phrases ?? [];
@@ -155,6 +161,7 @@ class AppSettings {
         'arasaacSkin': arasaacSkin,
         'arasaacHair': arasaacHair,
         'speakerFemale': speakerFemale,
+        'voiceGender': voiceGender,
         'homeLevel': homeLevel,
         'lockApp': lockApp,
       };
@@ -232,6 +239,9 @@ class AppSettings {
         arasaacSkin: _i(j, 'arasaacSkin', 0),
         arasaacHair: _i(j, 'arasaacHair', 0),
         speakerFemale: _b(j, 'speakerFemale', false),
+        voiceGender: const ['female', 'male'].contains(j?['voiceGender'])
+            ? j!['voiceGender'] as String
+            : '',
         homeLevel: _i(j, 'homeLevel', 0).clamp(0, 3),
         lockApp: _b(j, 'lockApp', false),
       );

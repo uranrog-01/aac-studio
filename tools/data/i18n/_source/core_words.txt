@@ -214,6 +214,7 @@ friend	People
 fries	Eat & drink
 Fruits	Eat & drink
 frustrated	Feelings
+Games	Home
 garage	Places
 garden	Places
 garlic	Vegetables
@@ -282,6 +283,7 @@ jeans	Clothes
 jellyfish	Sea animals
 Jobs	People
 juice	Eat & drink
+kaleidoscope	Games
 kangaroo	Wild animals
 keep	Actions
 key	Home things
@@ -297,11 +299,13 @@ lamp	Home things
 later	Time
 laugh	Actions
 laughing	Feelings
+lava lamp	Games
 leaf	Plants
 leg	My body
 lemon	Fruits
 lettuce	Vegetables
 library	Places
+light painting	Games
 lighthouse	Buildings
 like	Home
 lime	Fruits
@@ -493,6 +497,7 @@ sorry	Home
 soup	Eat & drink
 spaghetti	Eat & drink
 spider	Bugs
+spinner	Games
 spoon	Kitchen
 Sports	Play
 spring	Time
@@ -589,6 +594,7 @@ wash hands	Daily routines
 washing machine	Home things
 watch	Time
 water	Eat & drink
+water ripples	Games
 watermelon	Fruits
 wave	Actions
 we	Home
@@ -599,6 +605,7 @@ what	Home
 where	Home
 white	Colors
 who	Home
+why	Home
 wife	People
 Wild animals	Animals
 win	Actions
@@ -613,6 +620,7 @@ work	School
 worried	Feelings
 write	School
 wrong	Describing words
+xylophone	Games
 yellow	Colors
 yes	Home
 yesterday	Time

@@ -3161,6 +3161,11 @@ lonely|eenzaam
 proud|trots
 say|zeggen
 tell|vertellen
+games|Spelletjes
+light painting|lichtschilderen
+water ripples|waterrimpels
+kaleidoscope|caleidoscoop
+spinner|tol
 [forms]
 I+want|ik wil
 I+need|ik heb het nodig

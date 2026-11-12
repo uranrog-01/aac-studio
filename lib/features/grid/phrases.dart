@@ -1,87 +1,86 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../engine/i18n.dart';
 
-/// Shows the message full screen in very large letters, to show someone
-/// (a shop, a doctor, a noisy place). "Turn around" flips it for the person
-/// sitting opposite; tapping the text speaks it.
-Future<void> showBigMessage(
-    BuildContext context, String message, VoidCallback onSpeak) {
-  return Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+/// Displays a snapshot of the draft so it can be read or spoken repeatedly.
+Future<void> showMessage(
+    BuildContext context, String message, ValueChanged<String> onSpeak) async {
+  final text = message.trim();
+  if (text.isEmpty) return;
+  await Navigator.of(context, rootNavigator: true).push<void>(MaterialPageRoute(
     fullscreenDialog: true,
-    builder: (_) => _BigMessage(message: message, onSpeak: onSpeak),
+    builder: (_) => _MessageDisplay(text: text, onSpeak: () => onSpeak(text)),
   ));
 }
 
-class _BigMessage extends StatefulWidget {
-  final String message;
+class _MessageDisplay extends StatelessWidget {
+  final String text;
   final VoidCallback onSpeak;
-  const _BigMessage({required this.message, required this.onSpeak});
-  @override
-  State<_BigMessage> createState() => _BigMessageState();
-}
 
-class _BigMessageState extends State<_BigMessage> {
-  bool _flipped = false;
+  const _MessageDisplay({required this.text, required this.onSpeak});
 
   @override
   Widget build(BuildContext context) {
-    final text = widget.message.trim().isEmpty ? '…' : widget.message.trim();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
+        minimum: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         child: Column(children: [
           Expanded(
-            child: Semantics(
-              button: true,
-              label: I18n.t('Speak message'),
-              value: text,
-              excludeSemantics: true,
-              child: InkWell(
-                onTap: widget.onSpeak,
-                child: Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Center(
-                    child: RotatedBox(
-                      quarterTurns: _flipped ? 2 : 0,
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 900),
-                          child: Text(text,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                  fontSize: 96,
-                                  height: 1.1,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: LayoutBuilder(builder: (context, constraints) {
+                final fontSize = math
+                    .min(
+                      constraints.maxWidth / 6,
+                      constraints.maxHeight / 3,
+                    )
+                    .clamp(36.0, 112.0);
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints:
+                        BoxConstraints(minHeight: constraints.maxHeight),
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 1100),
+                        child: Text(
+                          text,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            height: 1.15,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ),
+                );
+              }),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(12),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
             child: Row(children: [
               Expanded(
-                child: _bigButton(Icons.close, I18n.t('Back'),
-                    () => Navigator.of(context).pop(), const Color(0xFF3A4049)),
+                child: FilledButton(
+                  autofocus: true,
+                  onPressed: () => Navigator.of(context).pop(),
+                  style: _buttonStyle(
+                      const Color(0xFFE9EDF2), const Color(0xFF172231)),
+                  child: Text(I18n.t('Close'), textAlign: TextAlign.center),
+                ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 12),
               Expanded(
-                child: _bigButton(
-                    Icons.screen_rotation_alt,
-                    I18n.t('Turn around'),
-                    () => setState(() => _flipped = !_flipped),
-                    const Color(0xFF1565C0)),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: _bigButton(Icons.volume_up, I18n.t('Speak'),
-                    widget.onSpeak, const Color(0xFF2E7D32)),
+                child: FilledButton(
+                  onPressed: onSpeak,
+                  style: _buttonStyle(const Color(0xFF205C33), Colors.white),
+                  child: Text(I18n.t('Speak'), textAlign: TextAlign.center),
+                ),
               ),
             ]),
           ),
@@ -90,19 +89,14 @@ class _BigMessageState extends State<_BigMessage> {
     );
   }
 
-  Widget _bigButton(
-          IconData icon, String label, VoidCallback onTap, Color color) =>
-      SizedBox(
-        height: 64,
-        child: FilledButton.icon(
-          style: FilledButton.styleFrom(
-              backgroundColor: color,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12))),
-          onPressed: onTap,
-          icon: Icon(icon),
-          label: FittedBox(child: Text(label)),
-        ),
+  ButtonStyle _buttonStyle(Color background, Color foreground) =>
+      FilledButton.styleFrom(
+        backgroundColor: background,
+        foregroundColor: foreground,
+        minimumSize: const Size(0, 64),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
       );
 }
 

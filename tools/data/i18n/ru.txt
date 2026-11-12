@@ -3161,6 +3161,11 @@ lonely|одинокий
 proud|гордый
 say|сказать
 tell|рассказать
+games|Игры
+light painting|рисование светом
+water ripples|круги на воде
+kaleidoscope|калейдоскоп
+spinner|волчок
 [forms]
 I+want|я хочу
 I+need|мне нужно

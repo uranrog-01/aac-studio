@@ -6725,17 +6725,17 @@
    "key": "type-123"
   }
  ],
- "fileCount": 3694,
- "indexNames": 7313,
- "uniqueIndexedPictures": 7109,
+ "fileCount": 3696,
+ "indexNames": 7315,
+ "uniqueIndexedPictures": 7111,
  "counts": {
   "communication": 19,
   "learning": 21,
-  "modernflat": 3392,
+  "modernflat": 3394,
   "twemoji": 262,
   "mulberry": 3436
  },
- "bytes": 45045706,
+ "bytes": 45093102,
  "files": {
   "communication/again.webp": "2cd019e362801e6efe8b6d52cfef02fdf2b5cad29936277cf81428cbb0efc7b0",
   "communication/bedroom.webp": "3ddc89925068894b7cc3e62242c583dbf176cbc8f9d254aca76cf7d8b5eb1cb1",
@@ -10430,7 +10430,9 @@
   "modernflat/vocab-know.webp": "1f58f552362ddfb24d1296ec1ddbab6a673eeaa76857494672eff26e3af5d7fb",
   "modernflat/vocab-different.webp": "f43685ed19d61e9997e83f5f1e3ab7cc6a84f1e8e7406dc038b2be2b23b3ded3",
   "modernflat/vocab-new.webp": "911fe65b1aab571c744c36a3afea0035b3d297309bc3e72212a6459ebd1a325f",
-  "modernflat/vocab-later.webp": "dfd8513b95282b6e1a434e1469110e5a6a0eb39fd71d75ac3596c1c0b25dbb35"
+  "modernflat/vocab-later.webp": "dfd8513b95282b6e1a434e1469110e5a6a0eb39fd71d75ac3596c1c0b25dbb35",
+  "modernflat/vocab-spinner.webp": "9193948329572cc8c76d7b04584cd8870a8f77bd5ce5f5786358e2f0ed749c30",
+  "modernflat/vocab-kaleidoscope.webp": "762890908861e86b7436371cc9239af9bbbeb4ebe14aa6f024a1aa13818a1ce0"
  },
  "rendering": "Original flat vector artwork and exact Fluent Flat variants; at most 340px, smaller raster originals retain native resolution without added padding. Generated scenes exported with LANCZOS resampling. No original 3D images used.",
  "expansionTarget": 10000,
@@ -10583,6 +10585,18 @@
    "label": "later",
    "from": [
     "fluent-one-oclock"
+   ]
+  },
+  "vocab-spinner": {
+   "label": "spinner",
+   "from": [
+    "drawn by tools/add_games_v15.py"
+   ]
+  },
+  "vocab-kaleidoscope": {
+   "label": "kaleidoscope",
+   "from": [
+    "drawn by tools/add_games_v15.py"
    ]
   }
  }

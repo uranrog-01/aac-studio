@@ -3161,6 +3161,11 @@ lonely|samotny
 proud|dumny
 say|powiedzieć
 tell|opowiedzieć
+games|Gry
+light painting|malowanie światłem
+water ripples|fale na wodzie
+kaleidoscope|kalejdoskop
+spinner|bączek
 [forms]
 I+want|chcę
 I+need|potrzebuję

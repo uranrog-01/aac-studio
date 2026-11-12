@@ -207,3 +207,20 @@ official Piper program at a calm 80% pace. They play first on every device,
 including the web app; the downloadable live voice covers typed text, and the
 device voice is used only for words without a recording. Rebuild them with
 `tools/build_voice_clips.py` (see its header) after Albanian words change.
+
+## 1.10: Female / Male voice, Games, slimmer Settings (board v15)
+
+- **Voice: Automatic, Female or Male** (Settings > Voice). The best installed
+  voice of that kind speaks; the full voice list is under "More options".
+- **Albanian has both**: `assets/voices/clips/sq/` is the male voice "Edon";
+  `sq-f/` is a female set made from the same recordings (pitch and voice
+  character raised, see `FEMALE` in `tools/build_voice_clips.py`). It is a
+  processed voice, not a recorded woman. Foreign names are respelled for
+  speaking ("ajfon"), see `SAY` in the same file.
+- **Games** is a category on Home with seven sensory games drawn by the app
+  (bubbles, light painting, water ripples, kaleidoscope, lava lamp,
+  xylophone, spinner): slow, predictable, no scores, no flashing. Each board
+  button opens its game. The breathing exercise was removed.
+- **Settings** has seven short sections; rarely used items are folded under
+  "More options".
+- Home also gains "why". Built by `tools/add_games_v15.py`.

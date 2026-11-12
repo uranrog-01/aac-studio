@@ -22,6 +22,10 @@ voice = PiperVoice.load(model)
 config = SynthesisConfig(length_scale=scale)
 out.mkdir(parents=True, exist_ok=True)
 phrases = json.loads(texts.read_text(encoding='utf8'))
+# say.json (beside texts.json) holds how each phrase is spoken, e.g. "ajfon".
+say = texts.with_name('say.json')
+if say.exists():
+    phrases = json.loads(say.read_text(encoding='utf8'))
 for i, text in enumerate(phrases):
     spoken = text.strip() if re.search(r'[.!?…]$', text.strip()) else text.strip() + '.'
     with wave.open(str(out / f'{i}.wav'), 'wb') as w:

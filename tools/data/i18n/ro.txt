@@ -3161,6 +3161,11 @@ lonely|singur
 proud|mândru
 say|spune
 tell|povestește
+games|Jocuri
+light painting|pictură cu lumină
+water ripples|valuri pe apă
+kaleidoscope|caleidoscop
+spinner|titirez
 [forms]
 I+want|vreau
 I+need|am nevoie

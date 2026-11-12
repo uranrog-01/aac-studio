@@ -180,7 +180,7 @@ brother|αδερφός
 brown|καφέ
 brush hair|χτενίζομαι
 brush teeth|πλένω τα δόντια
-bubble tea|bubble tea
+bubble tea|τσάι με φούσκες
 bubbles|σαπουνόφουσκες
 Bugs|Έντομα
 Buildings|Κτίρια
@@ -1661,7 +1661,7 @@ guide dog|σκύλος οδηγός
 guinea pig|ινδικό χοιρίδιο
 gum|ούλα
 guy|ομοίωμα του Guy Fawkes
-guy fawkes|Guy Fawkes
+guy fawkes|Γκάι Φοκς
 gym|γυμναστήριο
 hair bunches|κοτσιδάκια
 hair conditioner|μαλακτικό μαλλιών
@@ -1676,7 +1676,7 @@ haircut|κούρεμα
 hairdryer|σεσουάρ
 hairspray|λακ
 half|μισό
-halloween|Halloween
+halloween|Χάλογουιν
 ham|ζαμπόν
 ham packet|πακέτο ζαμπόν
 hamburger|χάμπουργκερ
@@ -3160,6 +3160,11 @@ lonely|μόνος
 proud|περήφανος
 say|λέω
 tell|διηγούμαι
+games|Παιχνίδια
+light painting|ζωγραφική με φως
+water ripples|κύματα στο νερό
+kaleidoscope|καλειδοσκόπιο
+spinner|σβούρα
 [forms]
 I+want|θέλω
 I+need|χρειάζομαι

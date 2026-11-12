@@ -3160,6 +3160,11 @@ lonely|अकेला
 proud|गर्व
 say|कहना
 tell|बताना
+games|खेल
+light painting|रोशनी से चित्र
+water ripples|पानी की लहरें
+kaleidoscope|बहुरूपदर्शक
+spinner|लट्टू
 [forms]
 I+want|मुझे चाहिए
 I+need|मुझे ज़रूरत है

@@ -279,7 +279,7 @@ void main() {
     old['views']['home'][0]['cells'].insert(0, firstCell);
     final merged = PackUpgrade.merge(old, fresh, factorySymbolHistory: history);
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
-    expect(merged['packVersion'], 14);
+    expect(merged['packVersion'], 15);
     expect(buttons['b1']['symbolKey'], 'scene-i');
     expect(buttons['b1']['favorite'], true);
     expect(buttons['b2']['symbolKey'], '1f431');
@@ -319,7 +319,7 @@ void main() {
     }
     final home = (views['home'] as List).first['cells'] as List;
     // v10: more core words on Home, still well under a long scroll.
-    expect(home.length, lessThanOrEqualTo(80));
+    expect(home.length, lessThanOrEqualTo(85));
     expect(home.map((c) => buttons[c['btn']]['label']),
         containsAll(['yes', 'no', 'wait', 'eat', 'drink', 'toilet', 'what']));
     // Alphabet, Numbers and Colors are one tap from Home.
@@ -469,7 +469,7 @@ void main() {
     expect(after['symbolPack'], 'modernflat');
     expect(after['symbolKey'], before['symbolKey']);
     expect(after['voice'], {'rate': 0.8});
-    expect(merged['packVersion'], 14);
+    expect(merged['packVersion'], 15);
   });
 
   test('library is child-safe and routines are reachable', () async {

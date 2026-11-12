@@ -182,6 +182,15 @@ class SpeechEngine {
 
   /// Copies the saved speech settings onto the engine.
   void configure(AppSettings s) {
+    final wanted = s.voiceGender == 'female'
+        ? VoiceGender.female
+        : s.voiceGender == 'male'
+            ? VoiceGender.male
+            : VoiceGender.unknown;
+    if (wanted != gender) {
+      gender = wanted;
+      _appliedKey = null;
+    }
     // iPhone/iPad only: speech also goes into phone and FaceTime calls.
     callSpeech = s.callSpeech &&
         !kIsWeb &&
@@ -240,20 +249,34 @@ class SpeechEngine {
 
   /// The voice actually speaking (chosen in Settings, or the best one for
   /// the language); null = the device default for the language.
+  /// The kind of voice wanted (Settings > Voice).
+  VoiceGender gender = VoiceGender.unknown;
+
   DeviceVoice? _resolved;
   String? _appliedKey;
   String? _bestFor;
   DeviceVoice? _best;
 
   Future<DeviceVoice?> _bestVoice() async {
-    if (_bestFor == language.code) return _best;
+    if (_bestFor == '${language.code}|${gender.name}') return _best;
     final voices = await deviceVoices();
-    final pick = bestVoice(language, voices.map((v) => v.info));
+    // Female or male, when asked for and the device has such a voice.
+    var pool = voices;
+    if (gender != VoiceGender.unknown) {
+      final wanted = [
+        for (final v in voices)
+          if (voiceSpeaks(language, v.locale) &&
+              voiceGender(v.name, hint: v.gender) == gender)
+            v
+      ];
+      if (wanted.isNotEmpty) pool = wanted;
+    }
+    final pick = bestVoice(language, pool.map((v) => v.info));
     _best = pick == null
         ? null
         : voices.firstWhere(
             (v) => v.name == pick.name && v.locale == pick.locale);
-    _bestFor = language.code;
+    _bestFor = '${language.code}|${gender.name}';
     return _best;
   }
 

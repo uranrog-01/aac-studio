@@ -1,4 +1,4 @@
-# Newer app texts (Settings redesign, Phrases, Show big, voice status).
+# Newer app texts (Settings redesign, Phrases, Show message, voice status).
 # Format: "@ English" then "code|translation" lines. Merged by build_i18n.py.
 # Draft by machine: please have native speakers review.
 
@@ -838,49 +838,71 @@ ro|Fraze
 nl|Zinnen
 ko|문장
 
-@ Show big
-sq|Shfaq të madhe
-fr|Afficher en grand
-de|Groß zeigen
-es|Mostrar grande
-it|Mostra in grande
-zh|放大显示
-ja|大きく見せる
-hi|बड़ा दिखाएँ
-tr|Büyük göster
-el|Μεγάλη προβολή
-hr|Prikaži veliko
-ar|عرض كبير
-ur|بڑا دکھائیں
-pt|Mostrar grande
-ru|Показать крупно
-uk|Показати великим
-pl|Pokaż duże
-ro|Arată mare
-nl|Groot tonen
-ko|크게 보기
+@ Show
+sq|Shfaq
+fr|Afficher
+de|Zeigen
+es|Mostrar
+it|Mostra
+zh|显示
+ja|表示
+hi|दिखाएँ
+tr|Göster
+el|Εμφάνιση
+hr|Prikaži
+ar|عرض
+ur|دکھائیں
+pt|Mostrar
+ru|Показать
+uk|Показати
+pl|Pokaż
+ro|Arată
+nl|Tonen
+ko|보기
 
-@ Turn around
-sq|Ktheje
-fr|Retourner
-de|Umdrehen
-es|Girar
-it|Capovolgi
-zh|倒转
-ja|向きを変える
-hi|उलटा करें
-tr|Çevir
-el|Αναστροφή
-hr|Okreni
-ar|اقلب
-ur|الٹا کریں
-pt|Virar
-ru|Перевернуть
-uk|Перевернути
-pl|Obróć
-ro|Întoarce
-nl|Omdraaien
-ko|뒤집기
+@ Show message
+sq|Shfaq mesazhin
+fr|Afficher le message
+de|Nachricht anzeigen
+es|Mostrar el mensaje
+it|Mostra il messaggio
+zh|显示消息
+ja|メッセージを表示
+hi|संदेश दिखाएँ
+tr|Mesajı göster
+el|Εμφάνιση μηνύματος
+hr|Prikaži poruku
+ar|عرض الرسالة
+ur|پیغام دکھائیں
+pt|Mostrar mensagem
+ru|Показать сообщение
+uk|Показати повідомлення
+pl|Pokaż wiadomość
+ro|Arată mesajul
+nl|Bericht tonen
+ko|메시지 보기
+
+@ Close
+sq|Mbyll
+fr|Fermer
+de|Schließen
+es|Cerrar
+it|Chiudi
+zh|关闭
+ja|閉じる
+hi|बंद करें
+tr|Kapat
+el|Κλείσιμο
+hr|Zatvori
+ar|إغلاق
+ur|بند کریں
+pt|Fechar
+ru|Закрыть
+uk|Закрити
+pl|Zamknij
+ro|Închide
+nl|Sluiten
+ko|닫기
 
 @ Save this message
 sq|Ruaj këtë mesazh
@@ -2823,3 +2845,135 @@ ur|کوئی اور آواز نہیں ملی۔ ڈیوائس کی ٹیکسٹ ٹو 
 
 @ Board words are spoken by recordings of a native voice built into the app, so they sound right even when this device has no voice for the language.
 sq|Fjalët e tabelës i thotë një zë shqip i incizuar brenda aplikacionit, prandaj tingëllojnë saktë edhe kur pajisja nuk ka zë shqip.
+
+@ App and board language
+sq|Gjuha e aplikacionit dhe e tabelës
+fr|Langue de l'app et du tableau
+de|Sprache der App und der Tafel
+es|Idioma de la app y del tablero
+it|Lingua dell'app e della tabella
+pt|Idioma do app e da prancha
+nl|Taal van de app en het bord
+pl|Język aplikacji i tablicy
+ro|Limba aplicației și a tablei
+hr|Jezik aplikacije i ploče
+tr|Uygulama ve pano dili
+el|Γλώσσα εφαρμογής και πίνακα
+ru|Язык приложения и доски
+uk|Мова програми та дошки
+zh|应用和沟通板的语言
+ja|アプリとボードの言語
+ko|앱과 보드의 언어
+hi|ऐप और बोर्ड की भाषा
+ar|لغة التطبيق واللوحة
+ur|ایپ اور بورڈ کی زبان
+
+@ Female or male voice, speed
+sq|Zë femre ose mashkulli, shpejtësia
+fr|Voix féminine ou masculine, vitesse
+de|Frauen- oder Männerstimme, Tempo
+es|Voz femenina o masculina, velocidad
+it|Voce femminile o maschile, velocità
+pt|Voz feminina ou masculina, velocidade
+nl|Vrouwen- of mannenstem, snelheid
+pl|Głos żeński lub męski, szybkość
+ro|Voce feminină sau masculină, viteză
+hr|Ženski ili muški glas, brzina
+tr|Kadın veya erkek sesi, hız
+el|Γυναικεία ή ανδρική φωνή, ταχύτητα
+ru|Женский или мужской голос, скорость
+uk|Жіночий або чоловічий голос, швидкість
+zh|女声或男声、语速
+ja|女性または男性の声、速さ
+ko|여성 또는 남성 음성, 속도
+hi|महिला या पुरुष आवाज़, गति
+ar|صوت نسائي أو رجالي، السرعة
+ur|خاتون یا مرد کی آواز، رفتار
+
+@ Automatic
+sq|Automatik
+fr|Automatique
+de|Automatisch
+es|Automática
+it|Automatica
+pt|Automática
+nl|Automatisch
+pl|Automatyczny
+ro|Automată
+hr|Automatski
+tr|Otomatik
+el|Αυτόματα
+ru|Автоматически
+uk|Автоматично
+zh|自动
+ja|自動
+ko|자동
+hi|अपने-आप
+ar|تلقائي
+ur|خودکار
+
+@ Female
+sq|Femër
+fr|Féminine
+de|Weiblich
+es|Femenina
+it|Femminile
+pt|Feminina
+nl|Vrouw
+pl|Żeński
+ro|Feminină
+hr|Ženski
+tr|Kadın
+el|Γυναικεία
+ru|Женский
+uk|Жіночий
+zh|女声
+ja|女性
+ko|여성
+hi|महिला
+ar|نسائي
+ur|خاتون
+
+@ Male
+sq|Mashkull
+fr|Masculine
+de|Männlich
+es|Masculina
+it|Maschile
+pt|Masculina
+nl|Man
+pl|Męski
+ro|Masculină
+hr|Muški
+tr|Erkek
+el|Ανδρική
+ru|Мужской
+uk|Чоловічий
+zh|男声
+ja|男性
+ko|남성
+hi|पुरुष
+ar|رجالي
+ur|مرد
+
+@ More options
+sq|Më shumë mundësi
+fr|Plus d'options
+de|Weitere Optionen
+es|Más opciones
+it|Altre opzioni
+pt|Mais opções
+nl|Meer opties
+pl|Więcej opcji
+ro|Mai multe opțiuni
+hr|Više mogućnosti
+tr|Diğer seçenekler
+el|Περισσότερες επιλογές
+ru|Другие настройки
+uk|Інші налаштування
+zh|更多选项
+ja|その他の設定
+ko|추가 옵션
+hi|और विकल्प
+ar|خيارات أخرى
+ur|مزید اختیارات

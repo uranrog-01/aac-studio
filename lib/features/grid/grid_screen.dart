@@ -230,13 +230,7 @@ class GridSession extends ChangeNotifier {
 
   void _speakMessage(TapFlags? f) {
     if (_message.trim().isEmpty) return;
-    speech.speak(_message);
-    lastSpoken = _message;
-    final said = _message.trim();
-    recentMessages
-      ..remove(said)
-      ..insert(0, said);
-    if (recentMessages.length > 10) recentMessages.removeLast();
+    _speakAndRemember(_message);
     if (f?.clearOnSpeak ?? false) {
       _message = '';
       _pieces.clear();
@@ -246,6 +240,16 @@ class GridSession extends ChangeNotifier {
         ..clear()
         ..add(vocabulary.rootFolderId);
     }
+  }
+
+  void _speakAndRemember(String message) {
+    speech.speak(message);
+    lastSpoken = message;
+    final said = message.trim();
+    recentMessages
+      ..remove(said)
+      ..insert(0, said);
+    if (recentMessages.length > 10) recentMessages.removeLast();
   }
 
   void _stampRecent(VocabButton b) {
@@ -508,6 +512,12 @@ class GridSession extends ChangeNotifier {
     _speakMessage(flags);
     notifyListeners();
   }
+
+  /// Replays the message on the display while keeping the draft and folder.
+  void speakDisplayedMessage(String message) {
+    _speakAndRemember(message);
+    notifyListeners();
+  }
 }
 
 /// Shared grid screen used by the mobile app AND the studio preview.
@@ -522,7 +532,8 @@ class GridScreen extends StatefulWidget {
   final bool showOptions;
   final void Function(VocabButton updated)? onEditButton;
   final VoidCallback? onAddButton;
-  final VoidCallback? onSensoryGames;
+  /// Opens the sensory games: the menu, or one game named by the button.
+  final ValueChanged<String>? onSensoryGames;
 
   const GridScreen({
     super.key,
@@ -575,6 +586,7 @@ class _GridScreenState extends State<GridScreen> {
   List<({int col, int row, GridCell cell})> _layout = const [];
   List<_ToolEntry> _tools = const [];
   late AppSettings _settings;
+  bool _showingMessage = false;
 
   @override
   void dispose() {
@@ -603,7 +615,7 @@ class _GridScreenState extends State<GridScreen> {
                 widget.session.speakMessage(flags: _tapFlags(settings)),
             onClose: widget.session.toggleKeyboard,
             typingSpeech: settings.typingSpeech,
-            onShow: () => _showBig(context, settings),
+            onShow: _showMessage,
             onPhrases: () => _openPhrases(context),
           );
         }
@@ -718,6 +730,7 @@ class _GridScreenState extends State<GridScreen> {
         onSpeak: () => session.speakMessage(flags: _tapFlags(settings)),
         // Removes the last word (a whole symbol, e.g. "thank you").
         onDeleteWord: session.removeLastWord,
+        onShow: _showMessage,
         deleteHighlight: _scanHighlightFor('msg:delete'),
       ),
       ValueListenableBuilder<String?>(
@@ -770,10 +783,16 @@ class _GridScreenState extends State<GridScreen> {
     );
   }
 
-  void _showBig(BuildContext context, AppSettings settings) => showBigMessage(
-      context,
-      widget.session.message,
-      () => widget.session.speakMessage(flags: _tapFlags(settings)));
+  Future<void> _showMessage() async {
+    if (_showingMessage) return;
+    final session = widget.session;
+    _showingMessage = true;
+    try {
+      await showMessage(context, session.message, session.speakDisplayedMessage);
+    } finally {
+      _showingMessage = false;
+    }
+  }
 
   void _openPhrases(BuildContext context) {
     final controller = context.read<SettingsController>();
@@ -815,8 +834,6 @@ class _GridScreenState extends State<GridScreen> {
       builder: (_) => SafeArea(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           item(Icons.star_outline, 'Phrases', () => _openPhrases(context)),
-          item(Icons.fit_screen, 'Show big',
-              () => _showBig(context, context.read<SettingsController>().settings)),
           item(Icons.history, 'Recent words',
               () => session.pushFolder(GridSession.recentsFolderId)),
           item(
@@ -991,7 +1008,7 @@ class _GridScreenState extends State<GridScreen> {
   }
 
   void _scanStep() {
-    if (!mounted || !_scanning) return;
+    if (!mounted || !_scanning || _showingMessage) return;
     if (widget.session.showKeyboard) return; // paused while typing
     final groups = _scanGroups();
     if (groups.isEmpty) return;
@@ -1095,7 +1112,9 @@ class _GridScreenState extends State<GridScreen> {
       return;
     }
     if (btn.actions.any((a) => a.kind == ActionKind.sensoryGames)) {
-      widget.onSensoryGames?.call();
+      widget.onSensoryGames?.call(btn.actions
+          .firstWhere((a) => a.kind == ActionKind.sensoryGames)
+          .data);
       return;
     }
     widget.session.tap(btn, maxColumns: widget.maxColumns, flags: flags);

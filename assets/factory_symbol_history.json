@@ -33937,6 +33937,94 @@
     "symbolPack": "modernflat",
     "symbolKey": "fluent-left-speech-bubble"
    }
+  ],
+  "game_bubbles": [
+   {
+    "label": "bubbles",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-bubbles"
+   }
+  ],
+  "game_lights": [
+   {
+    "label": "light painting",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-sparkler"
+   }
+  ],
+  "game_water": [
+   {
+    "label": "water ripples",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-water-wave"
+   }
+  ],
+  "game_kaleidoscope": [
+   {
+    "label": "kaleidoscope",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-kaleidoscope"
+   }
+  ],
+  "game_lava": [
+   {
+    "label": "lava lamp",
+    "symbol": "🎮",
+    "symbolPack": "mulberry",
+    "symbolKey": "lava_lamp"
+   }
+  ],
+  "game_xylophone": [
+   {
+    "label": "xylophone",
+    "symbol": "🎮",
+    "symbolPack": "mulberry",
+    "symbolKey": "xylophone"
+   }
+  ],
+  "game_spinner": [
+   {
+    "label": "spinner",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-spinner"
+   }
+  ],
+  "home_games": [
+   {
+    "label": "Games",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-video-game"
+   }
+  ],
+  "all_games": [
+   {
+    "label": "Games",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-video-game"
+   }
+  ],
+  "play_games": [
+   {
+    "label": "Games",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-video-game"
+   }
+  ],
+  "v15_home_why": [
+   {
+    "label": "why",
+    "symbol": "❓",
+    "symbolPack": "mulberry",
+    "symbolKey": "why"
+   }
   ]
  },
  "folders": {
@@ -34925,6 +35013,14 @@
     "symbolPack": "modernflat",
     "symbolKey": "fluent-person-fairy"
    }
+  ],
+  "games": [
+   {
+    "label": "Games",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-video-game"
+   }
   ]
  },
  "retired": {
@@ -35172,6 +35268,88 @@
     "link_home_chat",
     "link_home_describe",
     "link_home_allcats"
+   ],
+   [
+    "b1",
+    "b5",
+    "b9",
+    "b10",
+    "b11",
+    "core_yes",
+    "core_no",
+    "b13",
+    "core_wait",
+    "b17",
+    "v10_home_eat",
+    "v10_home_drink",
+    "v13_home_water",
+    "v10_home_toilet",
+    "v13_home_sleep",
+    "v10_home_hurt",
+    "v10_home_sick",
+    "v10_home_tired",
+    "v10_home_hungry",
+    "v13_home_break",
+    "v13_home_happy",
+    "v13_home_sad",
+    "v13_home_angry",
+    "v13_home_scared",
+    "v13_home_hug",
+    "b7",
+    "b8",
+    "b6",
+    "b16",
+    "b14",
+    "b2",
+    "v13_home_mom",
+    "v13_home_dad",
+    "v10_home_he",
+    "v10_home_she",
+    "v10_home_we",
+    "b3",
+    "b4",
+    "v10_home_this",
+    "v10_home_that",
+    "b12",
+    "v13_home_come",
+    "b18",
+    "b20",
+    "b19",
+    "b15",
+    "v10_home_up",
+    "v10_home_down",
+    "v13_home_outside",
+    "v13_home_home",
+    "v10_home_hot",
+    "v10_home_cold",
+    "v10_home_good",
+    "v10_home_bad",
+    "v13_home_music",
+    "b21",
+    "b22",
+    "b24",
+    "b23",
+    "v10_home_sorry",
+    "v10_home_what",
+    "v10_home_where",
+    "v10_home_who",
+    "v10_home_don_t_know",
+    "fpeople",
+    "ffeelings",
+    "fcalm",
+    "ffood",
+    "fplay",
+    "home_routines",
+    "fbody",
+    "fx_furniture",
+    "fplaces",
+    "fschool",
+    "fanimals",
+    "fx_actions",
+    "home_colors",
+    "home_numbers",
+    "home_alphabet",
+    "link_home_allcats"
    ]
   ],
   "allcats": [
@@ -35234,6 +35412,66 @@
     "all_vehicles",
     "all_weather",
     "all_wild"
+   ],
+   [
+    "all_people",
+    "all_jobs",
+    "all_feelings",
+    "all_calm",
+    "all_chat",
+    "all_questions",
+    "all_food",
+    "all_meals",
+    "all_snacks",
+    "all_drinks",
+    "all_fruits",
+    "all_vegetables",
+    "all_bakery",
+    "all_meatfish",
+    "all_dairy",
+    "all_mealtime",
+    "all_kitchen",
+    "all_cooking",
+    "all_body",
+    "all_health",
+    "all_routines",
+    "all_bathroom",
+    "all_clothes",
+    "all_furniture",
+    "all_tools",
+    "all_tech",
+    "all_play",
+    "all_toys",
+    "all_sports",
+    "all_instruments",
+    "all_art",
+    "all_fantasy",
+    "all_holidays",
+    "all_places",
+    "all_places2",
+    "all_shopping",
+    "all_vehicles",
+    "all_weather",
+    "all_time",
+    "all_school",
+    "all_school2",
+    "all_alphabet",
+    "all_numbers",
+    "all_colors",
+    "all_shapes",
+    "all_science",
+    "all_animals",
+    "all_wild",
+    "all_sea",
+    "all_birds",
+    "all_insects",
+    "all_reptiles",
+    "all_animalhome",
+    "all_plants",
+    "all_actions",
+    "all_describe",
+    "all_positions",
+    "all_amounts"
    ]
   ]
  }

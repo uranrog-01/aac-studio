@@ -109,23 +109,22 @@ void main() {
     expect(I18n.word('watch', id: 'v11_actions_watch'), 'shiko');
   });
 
-  test('an update never moves Home buttons; the new layout is a choice',
-      () {
+  test('an update never moves Home buttons; the new layout is a choice', () {
     Map<String, dynamic> read(String path) =>
         jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
     final fresh = read('assets/sample_pack.json');
     final history = read('assets/factory_symbol_history.json');
     final v11Home = ((history['layouts'] as Map)['home'] as List).last as List;
     List<String> home(Map<String, dynamic> pack) => [
-          for (final c in (pack['views']['home'] as List).first['cells'] as List)
+          for (final c
+              in (pack['views']['home'] as List).first['cells'] as List)
             c['btn'] as String
         ];
     Map<String, dynamic> installed(List ids) {
       final old = jsonDecode(jsonEncode(fresh)) as Map<String, dynamic>;
       old['packVersion'] = 11;
-      (old['buttons'] as List)
-          .removeWhere((b) =>
-              (b['id'] as String).startsWith(RegExp('v1[34]_')));
+      (old['buttons'] as List).removeWhere(
+          (b) => (b['id'] as String).startsWith(RegExp('v1[34]_')));
       old['views']['home'][0]['cells'] = [
         for (final id in ids) {'btn': id}
       ];
@@ -189,30 +188,48 @@ void main() {
     });
     expect(VoiceClips.clipsFor('Ujë'), ['voices/clips/sq/c.mp3']);
     expect(VoiceClips.clipsFor('unë jam i lodhur.'), ['voices/clips/sq/d.mp3']);
-    expect(VoiceClips.clipsFor('unë  dua ujë'),
-        ['voices/clips/sq/a.mp3', 'voices/clips/sq/b.mp3', 'voices/clips/sq/c.mp3']);
+    expect(VoiceClips.clipsFor('unë  dua ujë'), [
+      'voices/clips/sq/a.mp3',
+      'voices/clips/sq/b.mp3',
+      'voices/clips/sq/c.mp3'
+    ]);
     expect(VoiceClips.clipsFor('unë jam i lodhur dua ujë'), hasLength(3));
     // One unknown word: no recordings, so no mixed voices.
     expect(VoiceClips.clipsFor('unë dua kafe'), isNull);
     VoiceClips.useIndex('', {});
   });
 
-  test('every Albanian board word has a recording', () {
-    final index = (jsonDecode(
-            File('assets/voices/clips/sq/index.json').readAsStringSync()) as Map)
-        .cast<String, String>();
-    VoiceClips.useIndex('sq', index);
-    final data = jsonDecode(File('assets/i18n/sq.json').readAsStringSync()) as Map;
-    final missing = [
-      for (final section in ['words', 'words_f', 'forms', 'forms_f'])
-        for (final text in ((data[section] as Map?) ?? const {}).values)
-          if (VoiceClips.clipsFor(text as String) == null) text
-    ];
-    expect(missing, isEmpty);
-    for (final file in index.values.toSet()) {
-      expect(File('assets/voices/clips/sq/$file').existsSync(), isTrue, reason: file);
-    }
-    VoiceClips.useIndex('', {});
+  for (final set in const ['sq', 'sq-f']) {
+    test('every Albanian board word has a recording ($set)', () {
+      final index = (jsonDecode(File('assets/voices/clips/$set/index.json')
+              .readAsStringSync()) as Map)
+          .cast<String, String>();
+      VoiceClips.useIndex('sq', index);
+      final data =
+          jsonDecode(File('assets/i18n/sq.json').readAsStringSync()) as Map;
+      final missing = [
+        for (final section in ['words', 'words_f', 'forms', 'forms_f'])
+          for (final text in ((data[section] as Map?) ?? const {}).values)
+            if (VoiceClips.clipsFor(text as String) == null) text
+      ];
+      expect(missing, isEmpty);
+      for (final file in index.values.toSet()) {
+        expect(File('assets/voices/clips/$set/$file').existsSync(), isTrue,
+            reason: file);
+      }
+      VoiceClips.useIndex('', {});
+    });
+  }
+
+  test('the voice choice (female, male, automatic) is saved', () {
+    expect(AppSettings().voiceGender, '');
+    expect(
+        AppSettings.fromJson({'voiceGender': 'female'}).voiceGender, 'female');
+    expect(AppSettings.fromJson({'voiceGender': 'robot'}).voiceGender, '');
+    expect(
+        AppSettings.fromJson(AppSettings(voiceGender: 'male').toJson())
+            .voiceGender,
+        'male');
   });
 
   test('every app text is translated in every language', () {
@@ -233,11 +250,11 @@ void main() {
           'Wi-Fi recommended); then it works without internet.',
     };
     for (final lang in kLanguages.where((l) => l.code != 'en')) {
-      final ui = ((jsonDecode(
-                  File('assets/i18n/${lang.code}.json').readAsStringSync())
-              as Map)['ui'] as Map)
-          .keys
-          .toSet();
+      final ui =
+          ((jsonDecode(File('assets/i18n/${lang.code}.json').readAsStringSync())
+                  as Map)['ui'] as Map)
+              .keys
+              .toSet();
       final missing = texts.difference(ui);
       if (lang.code != 'sq') missing.removeAll(albanianOnly);
       expect(missing, isEmpty, reason: '${lang.name}: app text not translated');

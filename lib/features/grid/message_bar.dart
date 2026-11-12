@@ -9,6 +9,7 @@ class MessageBar extends StatelessWidget {
   final String placeholder;
   final VoidCallback onSpeak;
   final VoidCallback onDeleteWord;
+  final VoidCallback? onShow;
 
   /// Switch scanning: 0 none, 1 its group is highlighted, 2 it is selected.
   final int deleteHighlight;
@@ -22,6 +23,7 @@ class MessageBar extends StatelessWidget {
     required this.placeholder,
     required this.onSpeak,
     required this.onDeleteWord,
+    this.onShow,
     this.deleteHighlight = 0,
     this.showCursor = false,
   });
@@ -29,6 +31,7 @@ class MessageBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final canDelete = message.trim().isNotEmpty;
+    final show = canDelete ? onShow : null;
     const style = TextStyle(fontSize: 22, color: Colors.black87);
     return Material(
       color: Colors.white,
@@ -73,6 +76,39 @@ class MessageBar extends StatelessWidget {
               ),
             ),
           ),
+          if (onShow != null)
+            SizedBox(
+              width: 64,
+              child: Semantics(
+                button: true,
+                label: I18n.t('Show message'),
+                enabled: show != null,
+                onTap: show,
+                excludeSemantics: true,
+                child: Tooltip(
+                  message: I18n.t('Show message'),
+                  child: TextButton(
+                    onPressed: show,
+                    style: TextButton.styleFrom(
+                      backgroundColor: const Color(0xFFE4EFFA),
+                      foregroundColor: const Color(0xFF153E68),
+                      disabledBackgroundColor: const Color(0xFFF4F6F8),
+                      disabledForegroundColor: const Color(0xFF65717D),
+                      padding: const EdgeInsets.all(4),
+                      shape: const RoundedRectangleBorder(),
+                      textStyle: const TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.w700),
+                    ),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      const Icon(Icons.fit_screen, size: 22),
+                      const SizedBox(height: 2),
+                      Text(I18n.t('Show'),
+                          maxLines: 1, overflow: TextOverflow.ellipsis),
+                    ]),
+                  ),
+                ),
+              ),
+            ),
           Semantics(
             button: true,
             label: I18n.t('Delete last word'),

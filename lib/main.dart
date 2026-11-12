@@ -76,7 +76,8 @@ Future<void> _start() async {
   await predictor.load();
   await predictor.loadLearned(StorageProviderAdapter(storage));
   predictor.setLanguage(I18n.language.code, I18n.boardWords);
-  await VoiceClips.load(settings.settings.language);
+  await VoiceClips.load(settings.settings.language,
+      female: settings.settings.voiceGender == 'female');
 
   final library = SymbolLibrary();
   await library.load();
@@ -97,7 +98,8 @@ Future<void> _start() async {
       I18n.load(settings.settings.language).then(
           (_) => predictor.setLanguage(I18n.language.code, I18n.boardWords));
     }
-    VoiceClips.load(settings.settings.language);
+    VoiceClips.load(settings.settings.language,
+        female: settings.settings.voiceGender == 'female');
   }
 
   syncSpeech();

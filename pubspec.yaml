@@ -6,7 +6,7 @@ description: >-
 publish_to: "none"
 # Build number stays above every per-CPU APK ever shipped (they used
 # 1000/2000/4000 + n), so the single universal APK always installs as an update.
-version: 1.9.1+5008
+version: 1.10.0+5009
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
@@ -48,6 +48,7 @@ flutter:
     - assets/voices/NOTICE.txt
     - assets/voices/GPL-3.0.txt
     - assets/voices/clips/sq/
+    - assets/voices/clips/sq-f/
     - assets/symbol_aliases.json
     - assets/i18n/
     - assets/flat_symbols/

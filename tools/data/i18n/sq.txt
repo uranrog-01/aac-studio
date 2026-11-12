@@ -3197,6 +3197,11 @@ lonely|i vetmuar
 proud|krenar
 say|thuaj
 tell|trego
+games|Lojëra
+light painting|pikturë me dritë
+water ripples|valë uji
+kaleidoscope|kaleidoskop
+spinner|rrotullues
 [forms]
 I+want|unë dua
 I+need|unë kam nevojë për

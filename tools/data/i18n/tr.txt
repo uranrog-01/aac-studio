@@ -3160,6 +3160,11 @@ lonely|yalnız
 proud|gururlu
 say|söyle
 tell|anlat
+games|Oyunlar
+light painting|ışıkla boyama
+water ripples|su dalgaları
+kaleidoscope|kaleydoskop
+spinner|topaç
 [forms]
 I+want|istiyorum
 I+need|ihtiyacım var

@@ -3160,6 +3160,11 @@ lonely|usamljen
 proud|ponosan
 say|reći
 tell|ispričati
+games|Igre
+light painting|slikanje svjetlom
+water ripples|valovi na vodi
+kaleidoscope|kaleidoskop
+spinner|zvrk
 [forms]
 I+want|želim
 I+need|trebam

@@ -129,7 +129,7 @@ class _AppShellState extends State<AppShell> {
       library: context.watch<SymbolLibrary>(),
       editMode: settings.editMode,
       showOptions: true,
-      onSensoryGames: () => _openSensory(context),
+      onSensoryGames: (game) => _openSensory(context, game),
       onEditButton: (b) => _edit(context, session, pack, b),
       onAddButton: () => _add(context, session, pack),
     );
@@ -180,10 +180,10 @@ class _AppShellState extends State<AppShell> {
     return (w ~/ 95).clamp(4, 9);
   }
 
-  void _openSensory(BuildContext context) {
+  void _openSensory(BuildContext context, String game) {
     Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
       fullscreenDialog: true,
-      builder: (_) => const SensoryGamesScreen(),
+      builder: (_) => SensoryGamesScreen(game: game.isEmpty ? null : game),
     ));
   }
 
