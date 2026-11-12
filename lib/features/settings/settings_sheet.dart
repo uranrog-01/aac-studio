@@ -70,7 +70,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
   String? _open;
 
   static const _sectionColors = <String, Color>{
-    'Language & voice': Color(0xFFFF8A65),
+    'Language': Color(0xFFFFB74D),
+    'Voice': Color(0xFFFF8A65),
     'Speaking': Color(0xFF64B5F6),
     'Screen & look': Color(0xFFBA68C8),
     'Touch & access': Color(0xFF81C784),
@@ -113,12 +114,18 @@ class _SettingsSheetState extends State<SettingsSheet> {
               ),
             ] else
               _sectionBar(_open!),
-            // 1. Language & voice: what the person hears.
-            _group(Icons.record_voice_over, 'Language & voice',
-                'Language, voice, speed and loudness',
-                initiallyExpanded: true,
+            // 1. Language: what is shown and spoken.
+            _group(Icons.translate, 'Language', 'App and board language',
                 children: [
                   _languagePicker(),
+                  if (I18n.hasFeminine)
+                    _choice<bool>('The person speaking is', s.speakerFemale, {
+                      false: 'A boy or man',
+                      true: 'A girl or woman',
+                    }, (v) {
+                      s.speakerFemale = v;
+                      _changed();
+                    }),
                   if (VoiceClips.languages.contains(s.language))
                     _note('Board words are spoken by recordings of a native '
                         'voice built into the app, so they sound right even when '
@@ -128,76 +135,103 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     _offlineVoiceCard()
                   else
                     _voiceStatus(),
-                  const Divider(color: Colors.white12, height: 24),
-                  _VoicePicker(
-                      speech: widget.speech,
-                      settings: s,
-                      onPicked: () {
-                        _changed();
-                        _test();
-                      }),
-                  ValueListenableBuilder<String>(
-                    valueListenable: widget.speech.status,
-                    builder: (context, status, _) => Padding(
-                      padding: const EdgeInsets.only(top: 6, bottom: 4),
-                      child: Text(I18n.t(status),
-                          style: const TextStyle(
-                              color: Colors.white54, fontSize: 12)),
-                    ),
-                  ),
+                ]),
+            // 2. Voice: who speaks, and how fast. The long list of device
+            // voices and the fine controls sit under "More options".
+            _group(
+                Icons.record_voice_over, 'Voice', 'Female or male voice, speed',
+                children: [
+                  _choice<String>('Voice', s.voiceGender, {
+                    '': 'Automatic',
+                    'female': 'Female',
+                    'male': 'Male',
+                  }, (v) {
+                    s.voiceGender = v;
+                    // The best voice of that kind is chosen again. The
+                    // built-in English offline voice is a woman's.
+                    s.voiceName = null;
+                    s.voiceLocale = null;
+                    if (v == 'male' && s.language == 'en') s.usePiper = false;
+                    _changed();
+                    VoiceClips.load(s.language, female: v == 'female')
+                        .then((_) => _test());
+                  }),
                   _slider('Speed', 'Slow', 'Fast', 0.1, 1.0, s.rate, (v) {
                     s.rate = v;
                     _changed();
                   }),
-                  _slider('Volume', 'Quiet', 'Loud', 0.0, 1.0, s.volume, (v) {
-                    s.volume = v;
-                    _changed();
-                  }),
-                  _slider('Pitch', 'Low', 'High', 0.5, 2.0, s.pitch, (v) {
-                    s.pitch = v;
-                    _changed();
-                  }),
-                  if (s.usePiper && s.pitch != 1.0)
-                    Text(
-                        I18n.t('The offline voice cannot change pitch, so the '
-                            'device voice is used while pitch is not in the '
-                            'middle.'),
-                        style: const TextStyle(
-                            color: Colors.amberAccent, fontSize: 12)),
-                  Wrap(spacing: 8, children: [
-                    FilledButton.icon(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: FilledButton.icon(
                       onPressed: _test,
                       icon: const Icon(Icons.play_arrow),
                       label: Text(I18n.t('Test voice')),
                     ),
-                    TextButton(
-                        onPressed: () {
-                          s.rate = 0.45;
-                          s.pitch = 1.0;
-                          s.volume = 1.0;
+                  ),
+                  _more([
+                    _VoicePicker(
+                        speech: widget.speech,
+                        settings: s,
+                        onPicked: () {
                           _changed();
-                        },
-                        child: Text(I18n.t('Reset speed, pitch, volume'))),
-                    if (s.usePiper)
+                          _test();
+                        }),
+                    ValueListenableBuilder<String>(
+                      valueListenable: widget.speech.status,
+                      builder: (context, status, _) => Padding(
+                        padding: const EdgeInsets.only(top: 6, bottom: 4),
+                        child: Text(I18n.t(status),
+                            style: const TextStyle(
+                                color: Colors.white54, fontSize: 12)),
+                      ),
+                    ),
+                    _slider('Volume', 'Quiet', 'Loud', 0.0, 1.0, s.volume, (v) {
+                      s.volume = v;
+                      _changed();
+                    }),
+                    _slider('Pitch', 'Low', 'High', 0.5, 2.0, s.pitch, (v) {
+                      s.pitch = v;
+                      _changed();
+                    }),
+                    if (s.usePiper && s.pitch != 1.0)
+                      Text(
+                          I18n.t(
+                              'The offline voice cannot change pitch, so the '
+                              'device voice is used while pitch is not in the '
+                              'middle.'),
+                          style: const TextStyle(
+                              color: Colors.amberAccent, fontSize: 12)),
+                    Wrap(spacing: 8, children: [
                       TextButton(
-                          onPressed: () => widget.speech.warmOfflineVoice(),
-                          child: Text(I18n.t('Retry offline voice'))),
+                          onPressed: () {
+                            s.rate = 0.45;
+                            s.pitch = 1.0;
+                            s.volume = 1.0;
+                            _changed();
+                          },
+                          child: Text(I18n.t('Reset speed, pitch, volume'))),
+                      if (s.usePiper)
+                        TextButton(
+                            onPressed: () => widget.speech.warmOfflineVoice(),
+                            child: Text(I18n.t('Retry offline voice'))),
+                    ]),
+                    if (iOS)
+                      _switch(
+                          'Speak into phone and FaceTime calls',
+                          s.callSpeech,
+                          (v) => s.callSpeech = v,
+                          'The other person hears the voice. Start the call, '
+                              'then open AAC Studio (iOS 13 or newer).'),
+                    if (!kIsWeb &&
+                        defaultTargetPlatform == TargetPlatform.android)
+                      _note('During a phone call, turn on the speakerphone so '
+                          'the other person hears the voice. Android does not '
+                          'let apps speak into calls directly.'),
                   ]),
-                  if (iOS)
-                    _switch(
-                        'Speak into phone and FaceTime calls',
-                        s.callSpeech,
-                        (v) => s.callSpeech = v,
-                        'The other person hears the voice. Start the call, '
-                            'then open AAC Studio (iOS 13 or newer).'),
-                  if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android)
-                    _note('During a phone call, turn on the speakerphone so '
-                        'the other person hears the voice. Android does not '
-                        'let apps speak into calls directly.'),
                 ]),
             // 2. Speaking: when the voice talks.
-            _group(Icons.chat_bubble_outline, 'Speaking',
-                'When words are spoken',
+            _group(
+                Icons.chat_bubble_outline, 'Speaking', 'When words are spoken',
                 children: [
                   _switch(
                       'Say each word when tapped',
@@ -223,13 +257,10 @@ class _SettingsSheetState extends State<SettingsSheet> {
             _group(Icons.palette_outlined, 'Screen & look',
                 'Full screen, pictures, words, contrast',
                 children: [
-                  _switch(
-                      'Full screen',
-                      s.fullScreen,
-                      (v) {
-                        s.fullScreen = v;
-                        ScreenMode.apply(v);
-                      },
+                  _switch('Full screen', s.fullScreen, (v) {
+                    s.fullScreen = v;
+                    ScreenMode.apply(v);
+                  },
                       kIsWeb
                           ? 'Hides the browser bars where the browser allows it. '
                               'On iPhone, add the app to the Home Screen.'
@@ -251,32 +282,26 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       s.labelPosition = v;
                       _changed();
                     }),
-                  if (I18n.hasFeminine)
-                    _choice<bool>('The person speaking is', s.speakerFemale, {
-                      false: 'A boy or man',
-                      true: 'A girl or woman',
-                    }, (v) {
-                      s.speakerFemale = v;
-                      _changed();
-                    }),
-                  _choice<String>('Skin tone for people', s.skinTone, {
-                    '': 'Default',
-                    'light': 'Light',
-                    'medium-light': 'Medium light',
-                    'medium': 'Medium',
-                    'medium-dark': 'Medium dark',
-                    'dark': 'Dark',
-                  }, (v) {
-                    s.skinTone = v;
-                    _changed();
-                  }),
-                  _switch('Message bar at the top', s.messageWindowTop,
-                      (v) => s.messageWindowTop = v),
                   _switch(
                       'High contrast (CVI)',
                       s.cviMode,
                       (v) => s.cviMode = v,
                       'Black background, yellow buttons, bold words'),
+                  _more([
+                    _choice<String>('Skin tone for people', s.skinTone, {
+                      '': 'Default',
+                      'light': 'Light',
+                      'medium-light': 'Medium light',
+                      'medium': 'Medium',
+                      'medium-dark': 'Medium dark',
+                      'dark': 'Dark',
+                    }, (v) {
+                      s.skinTone = v;
+                      _changed();
+                    }),
+                    _switch('Message bar at the top', s.messageWindowTop,
+                        (v) => s.messageWindowTop = v),
+                  ]),
                 ]),
             // 4. Touch & access.
             _group(Icons.accessibility_new, 'Touch & access',
@@ -292,29 +317,32 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       s.dwellSeconds = v;
                       _changed();
                     }, 's'),
-                  _switch(
-                      'Switch scanning',
-                      s.scanningEnabled,
-                      (v) => s.scanningEnabled = v,
-                      'Adds a Scan button: tap once for a row, again for a button'),
-                  if (s.scanningEnabled)
-                    _stepper('Scan speed', 0.4, 4.0, s.scanDelayMs / 1000, 0.2,
-                        (v) {
-                      s.scanDelayMs = (v * 1000).round();
-                      _changed();
-                    }, 's'),
-                  _stepper('Ignore extra taps for', 0, 2.0,
-                      s.inputDebounceMs / 1000, 0.25, (v) {
-                    s.inputDebounceMs = (v * 1000).round();
-                    _changed();
-                  }, 's'),
                   _switch('Vibrate', s.haptics, (v) => s.haptics = v),
                   _switch('Click sound', s.audioCues, (v) => s.audioCues = v),
-                  _switch(
-                      'Stay in the app',
-                      s.preventExit,
-                      (v) => s.preventExit = v,
-                      'Press Back 3 times quickly to leave'),
+                  _more([
+                    _switch(
+                        'Switch scanning',
+                        s.scanningEnabled,
+                        (v) => s.scanningEnabled = v,
+                        'Adds a Scan button: tap once for a row, again for a button'),
+                    if (s.scanningEnabled)
+                      _stepper(
+                          'Scan speed', 0.4, 4.0, s.scanDelayMs / 1000, 0.2,
+                          (v) {
+                        s.scanDelayMs = (v * 1000).round();
+                        _changed();
+                      }, 's'),
+                    _stepper('Ignore extra taps for', 0, 2.0,
+                        s.inputDebounceMs / 1000, 0.25, (v) {
+                      s.inputDebounceMs = (v * 1000).round();
+                      _changed();
+                    }, 's'),
+                    _switch(
+                        'Stay in the app',
+                        s.preventExit,
+                        (v) => s.preventExit = v,
+                        'Press Back 3 times quickly to leave'),
+                  ]),
                 ]),
             // 5. Offline & backup.
             if (kIsWeb)
@@ -375,20 +403,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
                   }),
                   _note('Start small and show more as the person learns. '
                       'Words keep their places; new rows appear below.'),
-                  if (widget.settingsController != null)
-                    Align(
-                      alignment: AlignmentDirectional.centerStart,
-                      child: TextButton.icon(
-                        onPressed: _useNewLayout,
-                        icon: const Icon(Icons.dashboard_customize_outlined,
-                            size: 18),
-                        label: Text(I18n.t('Use the new Home layout')),
-                      ),
-                    ),
                   _header('Safety'),
-                  _asyncSwitch(
-                      'Lock the app on the screen',
-                      s.lockApp,
+                  _asyncSwitch('Lock the app on the screen', s.lockApp,
                       'The person cannot leave or close the app', (v) async {
                     // Locking is free; unlocking always needs the code.
                     if (!v && !await _verifyPin(s.pin)) return;
@@ -412,7 +428,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
                               'computer cannot stop someone from switching '
                               'apps; use the phone or tablet app for a full '
                               'lock.'),
-                  _asyncSwitch('Lock settings with a code',
+                  _asyncSwitch(
+                      'Lock settings with a code',
                       // The code itself is never shown: the person using
                       // the board could read it here.
                       s.restrictionsEnabled,
@@ -438,48 +455,78 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       label: Text(I18n.t('Change code')),
                     ),
                   ),
-                  _header('Online pictures'),
-                  _switch('Online ARASAAC pictures in search', s.arasaacEnabled,
-                      (v) => s.arasaacEnabled = v),
-                  if (s.arasaacEnabled) ...[
-                    _choice<int>('Skin', s.arasaacSkin, {
-                      0: 'Original',
-                      1: 'White',
-                      2: 'Black',
-                      3: 'Asian',
-                    }, (v) {
-                      s.arasaacSkin = v;
-                      _changed();
-                    }),
-                    _choice<int>('Hair', s.arasaacHair, {
-                      0: 'Original',
-                      1: 'Blond',
-                      2: 'Brown',
-                      3: 'Dark',
-                      4: 'Red',
-                      5: 'Gray',
-                    }, (v) {
-                      s.arasaacHair = v;
-                      _changed();
-                    }),
-                  ],
-                  _header('About'),
-                  Wrap(spacing: 8, children: [
-                    TextButton(
-                        onPressed: _resetAll,
-                        child: Text(I18n.t('Reset all settings'),
-                            style: const TextStyle(color: Colors.redAccent))),
-                    TextButton(
-                        onPressed: () => showLicensePage(
-                            context: context,
-                            applicationName: 'AAC Studio',
-                            applicationVersion: '1.9.1'),
-                        child: Text(I18n.t('Voice and software licenses'))),
+                  _more([
+                    if (widget.settingsController != null)
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: TextButton.icon(
+                          onPressed: _useNewLayout,
+                          icon: const Icon(Icons.dashboard_customize_outlined,
+                              size: 18),
+                          label: Text(I18n.t('Use the new Home layout')),
+                        ),
+                      ),
+                    _header('Online pictures'),
+                    _switch('Online ARASAAC pictures in search',
+                        s.arasaacEnabled, (v) => s.arasaacEnabled = v),
+                    if (s.arasaacEnabled) ...[
+                      _choice<int>('Skin', s.arasaacSkin, {
+                        0: 'Original',
+                        1: 'White',
+                        2: 'Black',
+                        3: 'Asian',
+                      }, (v) {
+                        s.arasaacSkin = v;
+                        _changed();
+                      }),
+                      _choice<int>('Hair', s.arasaacHair, {
+                        0: 'Original',
+                        1: 'Blond',
+                        2: 'Brown',
+                        3: 'Dark',
+                        4: 'Red',
+                        5: 'Gray',
+                      }, (v) {
+                        s.arasaacHair = v;
+                        _changed();
+                      }),
+                    ],
+                    _header('About'),
+                    Wrap(spacing: 8, children: [
+                      TextButton(
+                          onPressed: _resetAll,
+                          child: Text(I18n.t('Reset all settings'),
+                              style: const TextStyle(color: Colors.redAccent))),
+                      TextButton(
+                          onPressed: () => showLicensePage(
+                              context: context,
+                              applicationName: 'AAC Studio',
+                              applicationVersion: '1.10.0'),
+                          child: Text(I18n.t('Voice and software licenses'))),
+                    ]),
                   ]),
                 ]),
           ]),
     );
   }
+
+  /// Rarely needed settings, folded away so a section stays short.
+  Widget _more(List<Widget> children) => Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          tilePadding: EdgeInsets.zero,
+          childrenPadding: const EdgeInsets.only(bottom: 8),
+          expandedCrossAxisAlignment: CrossAxisAlignment.start,
+          iconColor: Colors.white70,
+          collapsedIconColor: Colors.white70,
+          title: Text(I18n.t('More options'),
+              style: const TextStyle(
+                  color: Colors.white70,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600)),
+          children: children,
+        ),
+      );
 
   /// A small title inside a section (Caregiver: Board, Safety, ...).
   Widget _header(String text) => Padding(
@@ -638,8 +685,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
         initialValue: current.code,
         isExpanded: true,
         dropdownColor: const Color(0xFF2C313A),
-        decoration: const InputDecoration(
-            isDense: true, border: OutlineInputBorder()),
+        decoration:
+            const InputDecoration(isDense: true, border: OutlineInputBorder()),
         items: [
           for (final lang in kLanguages)
             DropdownMenuItem(
@@ -693,37 +740,35 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       style: style)),
             ]);
           } else if (mine != null && mine.error == null) {
-            body = Column(crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                      '${I18n.t('Downloading the voice for this language…')} '
-                      '${(mine.progress * 100).round()}%',
-                      style: style),
-                  const SizedBox(height: 6),
-                  LinearProgressIndicator(value: mine.progress),
-                ]);
+            body =
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                  '${I18n.t('Downloading the voice for this language…')} '
+                  '${(mine.progress * 100).round()}%',
+                  style: style),
+              const SizedBox(height: 6),
+              LinearProgressIndicator(value: mine.progress),
+            ]);
           } else {
-            body = Column(crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                      mine?.error != null
-                          ? I18n.t(mine!.error!)
-                          : I18n.t('This app has its own voice for this '
-                              'language. Download it once (67 MB, Wi-Fi '
-                              'recommended); then it works without internet.'),
-                      style: style),
-                  const SizedBox(height: 6),
-                  FilledButton.icon(
-                    onPressed: () =>
-                        VoiceDownloads.ensure(widget.speech, code),
-                    icon: const Icon(Icons.download),
-                    label: Text('${I18n.t('Download voice')} · '
-                        '${lang.nativeName}'),
-                  ),
-                ]);
+            body =
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                  mine?.error != null
+                      ? I18n.t(mine!.error!)
+                      : I18n.t('This app has its own voice for this '
+                          'language. Download it once (67 MB, Wi-Fi '
+                          'recommended); then it works without internet.'),
+                  style: style),
+              const SizedBox(height: 6),
+              FilledButton.icon(
+                onPressed: () => VoiceDownloads.ensure(widget.speech, code),
+                icon: const Icon(Icons.download),
+                label: Text('${I18n.t('Download voice')} · '
+                    '${lang.nativeName}'),
+              ),
+            ]);
           }
-          return Padding(
-              padding: const EdgeInsets.only(top: 10), child: body);
+          return Padding(padding: const EdgeInsets.only(top: 10), child: body);
         },
       ),
     );
@@ -737,8 +782,8 @@ class _SettingsSheetState extends State<SettingsSheet> {
       builder: (context, snapshot) {
         if (!snapshot.hasData) return const SizedBox(height: 8);
         final prefix = lang.code == 'hr' ? ['hr', 'bs', 'sr'] : [lang.code];
-        final has = snapshot.data!.any((v) => prefix
-            .any((p) => v.locale.toLowerCase().replaceAll('_', '-').startsWith(p)));
+        final has = snapshot.data!.any((v) => prefix.any(
+            (p) => v.locale.toLowerCase().replaceAll('_', '-').startsWith(p)));
         final howTo = kIsWeb
             ? 'This browser uses the voices installed on the device.'
             : defaultTargetPlatform == TargetPlatform.iOS
@@ -769,14 +814,13 @@ class _SettingsSheetState extends State<SettingsSheet> {
   }
 
   Widget _group(IconData icon, String title, String subtitle,
-      {required List<Widget> children, bool initiallyExpanded = false}) {
+      {required List<Widget> children}) {
     final color = _sectionColors[title] ?? Colors.deepOrangeAccent;
     if (_open == null) {
       return Card(
         color: const Color(0xFF2C313A),
         margin: const EdgeInsets.symmetric(vertical: 5),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         clipBehavior: Clip.antiAlias,
         child: ListTile(
           contentPadding:
@@ -1013,9 +1057,12 @@ class _VoicePickerState extends State<_VoicePicker> {
         final shown = _allLanguages || mine.isEmpty ? all : mine;
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           if (!kIsWeb && lang.code == 'en')
-            _option(I18n.t('Offline voice'),
+            _option(
+                I18n.t('Offline voice'),
                 'US English · ${I18n.t('works without internet')}',
-                Icons.offline_bolt, s.usePiper, () => _pick(piper: true)),
+                Icons.offline_bolt,
+                s.usePiper,
+                () => _pick(piper: true)),
           _option(
               I18n.t('Best voice for this language'),
               I18n.t('Chosen automatically: the most natural voice on this '
@@ -1046,9 +1093,24 @@ class _VoicePickerState extends State<_VoicePicker> {
             // Two clear groups; a voice the device does not describe is
             // listed under "Other voices" rather than guessed.
             for (final group in const [
-              (VoiceGender.female, 'Female voices', Icons.face_3, Color(0xFFF48FB1)),
-              (VoiceGender.male, 'Male voices', Icons.face_6, Color(0xFF64B5F6)),
-              (VoiceGender.unknown, 'Other voices', Icons.record_voice_over, Colors.white54),
+              (
+                VoiceGender.female,
+                'Female voices',
+                Icons.face_3,
+                Color(0xFFF48FB1)
+              ),
+              (
+                VoiceGender.male,
+                'Male voices',
+                Icons.face_6,
+                Color(0xFF64B5F6)
+              ),
+              (
+                VoiceGender.unknown,
+                'Other voices',
+                Icons.record_voice_over,
+                Colors.white54
+              ),
             ])
               ..._voiceGroup(
                   group.$2,

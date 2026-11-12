@@ -13,28 +13,42 @@ class VoiceClips {
   /// Languages with recordings bundled in assets/voices/clips/<code>/.
   static const languages = {'sq'};
 
+  /// Languages that also have a female recording set, in
+  /// assets/voices/clips/<code>-f/. The plain folder is the male voice.
+  static const femaleLanguages = {'sq'};
+
+  static String _folder = '';
+
   static String _code = '';
   static Map<String, String> _index = const {};
 
   static bool get available => _index.isNotEmpty;
 
-  /// Loads the recordings list for [code] (empty for other languages).
-  static Future<void> load(String code) async {
-    if (code == _code) return;
+  /// Loads the recordings list for [code] (empty for other languages),
+  /// the female set when [female] is asked for and the language has one.
+  static Future<void> load(String code, {bool female = false}) async {
+    final folder = !languages.contains(code)
+        ? ''
+        : female && femaleLanguages.contains(code)
+            ? '$code-f'
+            : code;
+    if (code == _code && folder == _folder) return;
     _code = code;
+    _folder = folder;
     _index = const {};
-    if (!languages.contains(code)) return;
+    if (folder.isEmpty) return;
     try {
       final raw = await rootBundle
-          .loadString('assets/voices/clips/$code/index.json');
+          .loadString('assets/voices/clips/$folder/index.json');
       final index = (jsonDecode(raw) as Map).cast<String, String>();
-      if (_code == code) _index = index;
+      if (_folder == folder) _index = index;
     } catch (_) {/* No recordings: the device voice speaks. */}
   }
 
   /// For tests.
   static void useIndex(String code, Map<String, String> index) {
     _code = code;
+    _folder = code;
     _index = index;
   }
 
@@ -50,7 +64,7 @@ class VoiceClips {
   static List<String>? clipsFor(String text) {
     if (_index.isEmpty) return null;
     final whole = _index[normalize(text)];
-    if (whole != null) return ['voices/clips/$_code/$whole'];
+    if (whole != null) return ['voices/clips/$_folder/$whole'];
     final words = normalize(text)
         .split(' ')
         .map(normalize)
@@ -64,7 +78,7 @@ class VoiceClips {
       for (var n = (words.length - i).clamp(1, 6); n >= 1; n--) {
         final file = _index[words.sublist(i, i + n).join(' ')];
         if (file != null) {
-          clips.add('voices/clips/$_code/$file');
+          clips.add('voices/clips/$_folder/$file');
           i += n;
           found = true;
           break;

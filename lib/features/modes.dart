@@ -54,10 +54,11 @@ class _MyAppHomeState extends State<MyAppHome> {
       predictor: context.watch<Predictor>(),
       library: library,
       editMode: settings.editMode,
-      onSensoryGames: () => Navigator.of(context, rootNavigator: true).push(
+      onSensoryGames: (game) => Navigator.of(context, rootNavigator: true).push(
           MaterialPageRoute(
               fullscreenDialog: true,
-              builder: (_) => const SensoryGamesScreen())),
+              builder: (_) =>
+                  SensoryGamesScreen(game: game.isEmpty ? null : game))),
       onEditButton: (b) => _edit(context, session, pack, library, b),
       onAddButton: () => _add(context, session, pack, library),
     );

@@ -522,7 +522,8 @@ class GridScreen extends StatefulWidget {
   final bool showOptions;
   final void Function(VocabButton updated)? onEditButton;
   final VoidCallback? onAddButton;
-  final VoidCallback? onSensoryGames;
+  /// Opens the sensory games: the menu, or one game named by the button.
+  final ValueChanged<String>? onSensoryGames;
 
   const GridScreen({
     super.key,
@@ -1095,7 +1096,9 @@ class _GridScreenState extends State<GridScreen> {
       return;
     }
     if (btn.actions.any((a) => a.kind == ActionKind.sensoryGames)) {
-      widget.onSensoryGames?.call();
+      widget.onSensoryGames?.call(btn.actions
+          .firstWhere((a) => a.kind == ActionKind.sensoryGames)
+          .data);
       return;
     }
     widget.session.tap(btn, maxColumns: widget.maxColumns, flags: flags);

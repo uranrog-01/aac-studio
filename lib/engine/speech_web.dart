@@ -59,8 +59,16 @@ class SpeechEngine {
   /// Language spoken when no voice is chosen (the browser picks a voice).
   AppLanguage language = kLanguages.first;
 
+  /// The kind of voice wanted (Settings > Voice).
+  VoiceGender gender = VoiceGender.unknown;
+
   void configure(AppSettings settings) {
     language = languageFor(settings.language);
+    gender = settings.voiceGender == 'female'
+        ? VoiceGender.female
+        : settings.voiceGender == 'male'
+            ? VoiceGender.male
+            : VoiceGender.unknown;
     rate = settings.rate;
     pitch = settings.pitch;
     volume = settings.volume;
@@ -103,10 +111,21 @@ class SpeechEngine {
       // browser voice for the language (never an English voice for French).
       var use = voice;
       if (use == null || !voiceSpeaks(language, use.locale)) {
-        final pick = bestVoice(language, [
+        var pool = [
           for (final v in _voices().toDart)
             (name: v.name, locale: v.lang, quality: '', network: !v.localService)
-        ]);
+        ];
+        // Female or male, when asked for and the browser has such a voice.
+        if (gender != VoiceGender.unknown) {
+          final wanted = [
+            for (final v in pool)
+              if (voiceSpeaks(language, v.locale) &&
+                  voiceGender(v.name) == gender)
+                v
+          ];
+          if (wanted.isNotEmpty) pool = wanted;
+        }
+        final pick = bestVoice(language, pool);
         use = pick == null ? null : DeviceVoice(pick.name, pick.locale);
       }
       // No browser voice for the language (Albanian in Safari and Chrome):
