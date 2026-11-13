@@ -3,6 +3,9 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+const femaleAlbanianUnavailable =
+    'This text needs a female Albanian voice on this device.';
+
 /// One language the app can show and speak.
 class AppLanguage {
   final String code;
@@ -11,15 +14,15 @@ class AppLanguage {
   /// Voice languages to try, best first (BCP-47).
   final List<String> voiceLocales;
 
-  /// Extra letters for the Type keyboard (accents), or null when the
-  /// language is typed with the device's own keyboard (Chinese, Japanese,
-  /// Hindi).
-  final String? extraLetters;
+  final String extraLetters;
+
+  /// Null uses the device's input method for composing this script.
+  final List<String>? keyboardRows;
   final bool rightToLeft;
   const AppLanguage(this.code, this.name, this.nativeName, this.voiceLocales,
-      {this.extraLetters = '', this.rightToLeft = false});
-
-  bool get usesOwnKeyboard => extraLetters != null;
+      {this.extraLetters = '',
+      this.keyboardRows = const ['qwertyuiop', "asdfghjkl'", 'zxcvbnm,.'],
+      this.rightToLeft = false});
 }
 
 const kLanguages = <AppLanguage>[
@@ -35,31 +38,38 @@ const kLanguages = <AppLanguage>[
   AppLanguage('it', 'Italian', 'Italiano', ['it-IT', 'it'],
       extraLetters: 'àèéìòù'),
   AppLanguage('zh', 'Chinese (Mandarin)', '中文', ['zh-CN', 'zh-TW', 'zh'],
-      extraLetters: null),
-  AppLanguage('ja', 'Japanese', '日本語', ['ja-JP', 'ja'], extraLetters: null),
-  AppLanguage('hi', 'Hindi', 'हिन्दी', ['hi-IN', 'hi'], extraLetters: null),
+      keyboardRows: null),
+  AppLanguage('ja', 'Japanese', '日本語', ['ja-JP', 'ja'], keyboardRows: null),
+  AppLanguage('hi', 'Hindi', 'हिन्दी', ['hi-IN', 'hi'], keyboardRows: null),
   AppLanguage('tr', 'Turkish', 'Türkçe', ['tr-TR', 'tr'],
       extraLetters: 'çğıöşü'),
-  AppLanguage('el', 'Greek', 'Ελληνικά', ['el-GR', 'el'], extraLetters: null),
+  AppLanguage('el', 'Greek', 'Ελληνικά', ['el-GR', 'el'],
+      extraLetters: 'άέήίόύώϊϋ',
+      keyboardRows: ['ςερτυθιοπ', 'ασδφγηξκλ', 'ζχψωβνμ,.']),
   AppLanguage('hr', 'Croatian / Bosnian', 'Hrvatski / Bosanski',
       ['hr-HR', 'bs-BA', 'sr-Latn-RS', 'hr', 'bs'],
       extraLetters: 'čćđšž'),
   AppLanguage('ar', 'Arabic', 'العربية', ['ar-SA', 'ar-EG', 'ar'],
-      extraLetters: null, rightToLeft: true),
+      extraLetters: 'أإآؤئءى',
+      keyboardRows: ['ضصثقفغعهخحجد', 'شسيبلاتنمكط', 'ذظزروة،.'],
+      rightToLeft: true),
   AppLanguage('ur', 'Urdu', 'اردو', ['ur-PK', 'ur-IN', 'ur'],
-      extraLetters: null, rightToLeft: true),
+      keyboardRows: null, rightToLeft: true),
   AppLanguage('pt', 'Portuguese (Brazil)', 'Português', ['pt-BR', 'pt-PT', 'pt'],
       extraLetters: 'ãáâàçéêíóôõú'),
-  AppLanguage('ru', 'Russian', 'Русский', ['ru-RU', 'ru'], extraLetters: null),
+  AppLanguage('ru', 'Russian', 'Русский', ['ru-RU', 'ru'],
+      extraLetters: 'ёъ',
+      keyboardRows: ['йцукенгшщзх', 'фывапролджэ', 'ячсмитьбю,.']),
   AppLanguage('uk', 'Ukrainian', 'Українська', ['uk-UA', 'uk'],
-      extraLetters: null),
+      extraLetters: 'ґї’',
+      keyboardRows: ['йцукенгшщзх', 'фівапролджє', 'ячсмитьбю,.']),
   AppLanguage('pl', 'Polish', 'Polski', ['pl-PL', 'pl'],
       extraLetters: 'ąćęłńóśźż'),
   AppLanguage('ro', 'Romanian', 'Română', ['ro-RO', 'ro'],
       extraLetters: 'ăâîșț'),
   AppLanguage('nl', 'Dutch', 'Nederlands', ['nl-NL', 'nl-BE', 'nl'],
       extraLetters: 'éëïóöü'),
-  AppLanguage('ko', 'Korean', '한국어', ['ko-KR', 'ko'], extraLetters: null),
+  AppLanguage('ko', 'Korean', '한국어', ['ko-KR', 'ko'], keyboardRows: null),
 ];
 
 AppLanguage languageFor(String code) =>
@@ -97,8 +107,10 @@ class I18n {
 
   /// Notifies the app to redraw after a language change.
   static final ValueNotifier<String> changes = ValueNotifier('en');
+  static int _loadRequest = 0;
 
   static Future<void> load(String code) async {
+    final request = ++_loadRequest;
     final lang = languageFor(code);
     var ui = <String, String>{};
     var words = <String, String>{};
@@ -132,6 +144,7 @@ class I18n {
         // A missing or damaged file keeps the app usable in English.
       }
     }
+    if (request != _loadRequest) return;
     language = lang;
     _ui = ui;
     _words = words;
@@ -190,6 +203,7 @@ typedef VoiceInfo = ({String name, String locale, String quality, bool network})
 enum VoiceGender { female, male, unknown }
 
 const _femaleNames = {
+  'arta',
   'samantha', 'victoria', 'karen', 'moira', 'tessa', 'fiona', 'allison', 'ava',
   'susan', 'zoe', 'nicky', 'kate', 'serena', 'veena', 'alice', 'amelie',
   'amélie', 'anna', 'ellen', 'joana', 'luciana', 'monica', 'mónica',

@@ -3165,6 +3165,12 @@ light painting|slikanje svjetlom
 water ripples|valovi na vodi
 kaleidoscope|kaleidoskop
 spinner|zvrk
+pop it|pop it
+slime|sluz
+sand|pijesak
+paint swirl|vrtlog boja
+tap and hear|dodirni i slušaj
+match pairs|pronađi parove
 [forms]
 I+want|želim
 I+need|trebam

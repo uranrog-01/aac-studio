@@ -3166,6 +3166,12 @@ light painting|pictură cu lumină
 water ripples|valuri pe apă
 kaleidoscope|caleidoscop
 spinner|titirez
+pop it|pop it
+slime|slime
+sand|nisip
+paint swirl|vârtej de culori
+tap and hear|atinge și ascultă
+match pairs|găsește perechile
 [forms]
 I+want|vreau
 I+need|am nevoie

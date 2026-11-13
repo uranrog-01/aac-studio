@@ -3202,6 +3202,12 @@ light painting|pikturë me dritë
 water ripples|valë uji
 kaleidoscope|kaleidoskop
 spinner|rrotullues
+pop it|pop it
+slime|llum
+sand|rërë
+paint swirl|ngjyra që rrotullohen
+tap and hear|prek dhe dëgjo
+match pairs|gjej çiftet
 [forms]
 I+want|unë dua
 I+need|unë kam nevojë për

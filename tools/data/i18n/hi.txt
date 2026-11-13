@@ -3165,6 +3165,12 @@ light painting|रोशनी से चित्र
 water ripples|पानी की लहरें
 kaleidoscope|बहुरूपदर्शक
 spinner|लट्टू
+pop it|पॉप इट
+slime|स्लाइम
+sand|रेत
+paint swirl|रंगों का भँवर
+tap and hear|छूओ और सुनो
+match pairs|जोड़ी मिलाओ
 [forms]
 I+want|मुझे चाहिए
 I+need|मुझे ज़रूरत है

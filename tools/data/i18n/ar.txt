@@ -3165,6 +3165,12 @@ light painting|الرسم بالضوء
 water ripples|تموجات الماء
 kaleidoscope|مشكال
 spinner|دوّامة
+pop it|بوب إت
+slime|سلايم
+sand|رمل
+paint swirl|دوامة الألوان
+tap and hear|المس واستمع
+match pairs|طابق الأزواج
 [forms]
 I+want|أنا أريد
 I+need|أنا أحتاج

@@ -7,8 +7,7 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
-    // "Lock the app on the screen": Android screen pinning, started and
-    // stopped from Settings > Caregiver (lib/engine/app_lock.dart).
+    // Android screen pinning is separate from the app's caregiver lock.
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "aac_studio/app_lock")
@@ -33,7 +32,7 @@ class MainActivity : FlutterActivity() {
                         else -> result.notImplemented()
                     }
                 } catch (e: Exception) {
-                    result.success(false)
+                    result.error("app_lock", e.message, null)
                 }
             }
     }

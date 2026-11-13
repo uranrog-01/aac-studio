@@ -3165,6 +3165,12 @@ light painting|ζωγραφική με φως
 water ripples|κύματα στο νερό
 kaleidoscope|καλειδοσκόπιο
 spinner|σβούρα
+pop it|ποπ ιτ
+slime|γλίτσα
+sand|άμμος
+paint swirl|δίνη χρωμάτων
+tap and hear|άγγιξε και άκου
+match pairs|βρες τα ζευγάρια
 [forms]
 I+want|θέλω
 I+need|χρειάζομαι

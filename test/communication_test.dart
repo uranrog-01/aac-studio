@@ -279,7 +279,7 @@ void main() {
     old['views']['home'][0]['cells'].insert(0, firstCell);
     final merged = PackUpgrade.merge(old, fresh, factorySymbolHistory: history);
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
-    expect(merged['packVersion'], 15);
+    expect(merged['packVersion'], 16);
     expect(buttons['b1']['symbolKey'], 'scene-i');
     expect(buttons['b1']['favorite'], true);
     expect(buttons['b2']['symbolKey'], '1f431');
@@ -469,7 +469,7 @@ void main() {
     expect(after['symbolPack'], 'modernflat');
     expect(after['symbolKey'], before['symbolKey']);
     expect(after['voice'], {'rate': 0.8});
-    expect(merged['packVersion'], 15);
+    expect(merged['packVersion'], 16);
   });
 
   test('library is child-safe and routines are reachable', () async {

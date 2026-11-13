@@ -1,13 +1,23 @@
 import 'dart:convert';
+import 'dart:async';
 import 'dart:math' as math;
+import 'dart:typed_data';
+import 'dart:ui' show PointMode;
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../../engine/i18n.dart';
+import '../../engine/settings_controller.dart';
+import '../../engine/speech_provider.dart';
+import '../../engine/symbol_library.dart';
+import '../../models/domain.dart';
+
+part 'sensory_games_more.dart';
 
 /// Sensory games for regulation and cause-and-effect play, made for
 /// autistic users: slow, predictable movement, soft glowing colours, an
@@ -27,7 +37,20 @@ class SensoryGame {
   const SensoryGame(this.id, this.word, this.icon, this.color, this.build);
 }
 
+/// Turns every game sound on or off (the speaker button in the menu).
+set sensorySoundsOn(bool value) => _Sound.on = value;
+bool get sensorySoundsOn => _Sound.on;
+
 final kSensoryGames = <SensoryGame>[
+  // Satisfying: things to press, squeeze, pour and swirl.
+  SensoryGame('popit', 'pop it', Icons.grid_on, const Color(0xFFEF5350),
+      () => const _PopItGame()),
+  SensoryGame('slime', 'slime', Icons.water_drop, const Color(0xFF26C6DA),
+      () => const _SlimeGame()),
+  SensoryGame('sand', 'sand', Icons.grain, const Color(0xFFD4A04C),
+      () => const _SandGame()),
+  SensoryGame('marbling', 'paint swirl', Icons.palette, const Color(0xFF5C6BC0),
+      () => const _MarblingGame()),
   SensoryGame('bubbles', 'bubbles', Icons.bubble_chart, const Color(0xFF29B6F6),
       () => const _BubblesGame()),
   SensoryGame('lights', 'light painting', Icons.auto_awesome,
@@ -42,6 +65,11 @@ final kSensoryGames = <SensoryGame>[
       () => const _XylophoneGame()),
   SensoryGame('spinner', 'spinner', Icons.toys, const Color(0xFF66BB6A),
       () => const _SpinnerGame()),
+  // Nonverbal: pictures from the person's own board, spoken aloud.
+  SensoryGame('hear', 'tap and hear', Icons.record_voice_over,
+      const Color(0xFF42A5F5), () => const _HearGame()),
+  SensoryGame('pairs', 'match pairs', Icons.style, const Color(0xFF7E57C2),
+      () => const _PairsGame()),
 ];
 
 /// The games menu, or one game when [game] names it (a board button).
@@ -88,7 +116,8 @@ class _SensoryGamesScreenState extends State<SensoryGamesScreen> {
             Positioned.fill(
                 child: open == null
                     ? _menu(context)
-                    : KeyedSubtree(key: ValueKey(open.id), child: open.build())),
+                    : KeyedSubtree(
+                        key: ValueKey(open.id), child: open.build())),
             PositionedDirectional(
               top: 8,
               start: 8,
@@ -114,13 +143,31 @@ class _SensoryGamesScreenState extends State<SensoryGamesScreen> {
         builder: (context, c) => Column(children: [
           SizedBox(
             height: 62,
-            child: Center(
-              child: Text(I18n.word('Games'),
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700)),
-            ),
+            child: Stack(children: [
+              Center(
+                child: Text(I18n.word('Games'),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700)),
+              ),
+              // Every game sound is soft; this turns them all off.
+              PositionedDirectional(
+                top: 8,
+                end: 8,
+                child: Material(
+                  color: Colors.black45,
+                  shape: const CircleBorder(),
+                  child: IconButton(
+                    iconSize: 30,
+                    tooltip: I18n.t('Sound'),
+                    icon: Icon(_Sound.on ? Icons.volume_up : Icons.volume_off,
+                        color: Colors.white),
+                    onPressed: () => setState(() => _Sound.on = !_Sound.on),
+                  ),
+                ),
+              ),
+            ]),
           ),
           Expanded(
             child: GridView.count(
@@ -261,10 +308,9 @@ void _background(Canvas canvas, Size size, Color top, Color bottom) {
       rect,
       Paint()
         ..shader = LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [top, bottom])
-            .createShader(rect));
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [top, bottom]).createShader(rect));
 }
 
 // ---------------------------------------------------------------- bubbles
@@ -325,6 +371,7 @@ class _BubblesGameState extends _GameState<_BubblesGame> {
       final b = _bubbles[i];
       if ((b.pos - p).distance < b.r + 14) {
         _bubbles.removeAt(i);
+        _Sound.bubble();
         for (var k = 0; k < 12; k++) {
           final a = k / 12 * 6.283 + rng.nextDouble() * 0.4;
           final v = 70 + rng.nextDouble() * 110;
@@ -357,8 +404,12 @@ class _BubblesGameState extends _GameState<_BubblesGame> {
               _hue(b.hue, alpha: 0.16, s: 0.6),
               _hue(b.hue + 60, alpha: 0.45, s: 0.55),
               Colors.white.withValues(alpha: 0.75),
-            ], stops: const [0.55, 0.82, 0.95, 1.0])
-                .createShader(rect));
+            ], stops: const [
+              0.55,
+              0.82,
+              0.95,
+              1.0
+            ]).createShader(rect));
       canvas.drawOval(
           Rect.fromCenter(
               center: b.pos + Offset(-b.r * 0.38, -b.r * 0.42),
@@ -394,6 +445,7 @@ class _LightsGame extends StatefulWidget {
 
 class _LightsGameState extends _GameState<_LightsGame> {
   final _lines = <_Glow>[];
+  final _sparks = <_Drop>[];
   final _lastPoint = <int, Offset>{};
 
   @override
@@ -402,6 +454,12 @@ class _LightsGameState extends _GameState<_LightsGame> {
       l.life -= dt / 5;
     }
     _lines.removeWhere((l) => l.life <= 0);
+    for (final s in _sparks) {
+      s.pos += s.vel * dt;
+      s.vel *= math.exp(-dt * 2);
+      s.life -= dt * 1.4;
+    }
+    _sparks.removeWhere((s) => s.life <= 0);
   }
 
   @override
@@ -418,6 +476,14 @@ class _LightsGameState extends _GameState<_LightsGame> {
     if ((p - from).distance < 3) return;
     _lines.add(_Glow(from, p, _colour(pointer)));
     _lastPoint[pointer] = p;
+    for (var k = 0; k < 2; k++) {
+      final a = rng.nextDouble() * 6.283;
+      _sparks.add(_Drop(
+          p,
+          Offset(math.cos(a), math.sin(a)) * (30 + rng.nextDouble() * 60),
+          _colour(pointer)));
+    }
+    if (_sparks.length > 240) _sparks.removeRange(0, _sparks.length - 240);
     if (_lines.length > 900) _lines.removeRange(0, _lines.length - 900);
   }
 
@@ -426,7 +492,8 @@ class _LightsGameState extends _GameState<_LightsGame> {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(Offset.zero & size, Paint()..color = const Color(0xFF05060B));
+    canvas.drawRect(
+        Offset.zero & size, Paint()..color = const Color(0xFF05060B));
     final glow = Paint()
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 26
@@ -441,6 +508,10 @@ class _LightsGameState extends _GameState<_LightsGame> {
     for (final l in _lines) {
       core.color = _hue(l.hue, alpha: l.life, s: 0.35);
       canvas.drawLine(l.a, l.b, core);
+    }
+    for (final s in _sparks) {
+      canvas.drawCircle(s.pos, 1.5 + 2.5 * s.life,
+          Paint()..color = _hue(s.hue, alpha: s.life, s: 0.25));
     }
   }
 }
@@ -478,8 +549,8 @@ class _WaterGameState extends _GameState<_WaterGame> {
     if (_fish.isEmpty) {
       for (var i = 0; i < 6; i++) {
         _fish.add(_Fish(
-            Offset(rng.nextDouble() * size.width,
-                rng.nextDouble() * size.height),
+            Offset(
+                rng.nextDouble() * size.width, rng.nextDouble() * size.height),
             rng.nextDouble() * 6.283,
             24 + rng.nextDouble() * 18,
             const [18.0, 30.0, 45.0, 0.0, 22.0, 38.0][i],
@@ -508,7 +579,8 @@ class _WaterGameState extends _GameState<_WaterGame> {
       for (final r in _rings) {
         final away = f.pos - r.pos;
         if (r.age < 1.2 && away.distance < 170) {
-          steer = _wrap(math.atan2(away.dy, away.dx) - f.angle).clamp(-3.0, 3.0);
+          steer =
+              _wrap(math.atan2(away.dy, away.dx) - f.angle).clamp(-3.0, 3.0);
           speed = f.speed * 2.6;
         }
       }
@@ -539,6 +611,7 @@ class _WaterGameState extends _GameState<_WaterGame> {
   @override
   void down(int pointer, Offset p) {
     _ripple(pointer, p, force: true);
+    _Sound.drop();
     tick();
   }
 
@@ -571,7 +644,8 @@ class _WaterGameState extends _GameState<_WaterGame> {
         ..close();
       canvas.drawPath(tail, Paint()..color = _hue(f.hue, alpha: 0.85, s: 0.7));
       canvas.drawOval(
-          Rect.fromCenter(center: Offset.zero, width: l, height: l * 0.4), body);
+          Rect.fromCenter(center: Offset.zero, width: l, height: l * 0.4),
+          body);
       canvas.drawOval(
           Rect.fromCenter(
               center: Offset(l * 0.08, 0), width: l * 0.36, height: l * 0.24),
@@ -580,8 +654,23 @@ class _WaterGameState extends _GameState<_WaterGame> {
           Paint()..color = Colors.black87);
       canvas.restore();
     }
-    // A thin veil of water over the fish.
+    // A thin veil of water over the fish, with sunlight moving through it.
     canvas.drawRect(rect, Paint()..color = const Color(0x3310506A));
+    for (var i = 0; i < 7; i++) {
+      final c = Offset(
+          size.width * (0.5 + 0.42 * math.sin(time * 0.11 * (i + 1) + i * 1.7)),
+          size.height * (0.5 + 0.42 * math.cos(time * 0.09 * (i + 2) + i)));
+      final r = size.shortestSide * (0.22 + 0.06 * math.sin(time * 0.4 + i));
+      canvas.drawCircle(
+          c,
+          r,
+          Paint()
+            ..blendMode = BlendMode.plus
+            ..shader = RadialGradient(colors: [
+              Colors.white.withValues(alpha: 0.10),
+              Colors.white.withValues(alpha: 0.0),
+            ]).createShader(Rect.fromCircle(center: c, radius: r)));
+    }
     final ring = Paint()
       ..style = PaintingStyle.stroke
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.5);
@@ -638,8 +727,8 @@ class _KaleidoscopeGameState extends _GameState<_KaleidoscopeGame> {
     final r = size.shortestSide * 0.36;
     for (var i = 0; i < 26; i++) {
       final t0 = i / 26, t1 = (i + 1) / 26;
-      Offset at(double t) => Offset(r * (0.25 + 0.75 * t),
-          math.sin(t * 6.283) * r * 0.16);
+      Offset at(double t) =>
+          Offset(r * (0.25 + 0.75 * t), math.sin(t * 6.283) * r * 0.16);
       _strokes.add(_Stroke(at(t0), at(t1), 200 + i * 6));
     }
   }
@@ -680,7 +769,8 @@ class _KaleidoscopeGameState extends _GameState<_KaleidoscopeGame> {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(Offset.zero & size, Paint()..color = const Color(0xFF08080F));
+    canvas.drawRect(
+        Offset.zero & size, Paint()..color = const Color(0xFF08080F));
     canvas.save();
     canvas.translate(size.width / 2, size.height / 2);
     canvas.rotate(time * 0.06);
@@ -733,8 +823,8 @@ class _LavaGameState extends _GameState<_LavaGame> {
       final count = (size.width / 70).clamp(7, 14).round();
       for (var i = 0; i < count; i++) {
         _blobs.add(_Blob(
-            Offset((i + 0.5) / count * size.width,
-                rng.nextDouble() * size.height),
+            Offset(
+                (i + 0.5) / count * size.width, rng.nextDouble() * size.height),
             size.shortestSide * (0.09 + rng.nextDouble() * 0.09),
             10 + rng.nextDouble() * 16,
             rng.nextDouble() * 6.283,
@@ -745,7 +835,8 @@ class _LavaGameState extends _GameState<_LavaGame> {
     for (final b in _blobs) {
       if (b.pos.dy < b.r * 0.6) b.direction = 1;
       if (b.pos.dy > size.height - b.r * 0.6) b.direction = -1;
-      var v = Offset(math.sin(time * 0.35 + b.phase) * 9, b.direction * b.speed);
+      var v =
+          Offset(math.sin(time * 0.35 + b.phase) * 9, b.direction * b.speed);
       for (final f in _fingers.values) {
         final to = f - b.pos;
         if (to.distance < 260 && to.distance > 4) {
@@ -753,7 +844,8 @@ class _LavaGameState extends _GameState<_LavaGame> {
         }
       }
       b.pos += v * dt;
-      b.pos = Offset(b.pos.dx.clamp(b.r * 0.4, size.width - b.r * 0.4), b.pos.dy);
+      b.pos =
+          Offset(b.pos.dx.clamp(b.r * 0.4, size.width - b.r * 0.4), b.pos.dy);
     }
   }
 
@@ -780,8 +872,11 @@ class _LavaGameState extends _GameState<_LavaGame> {
               _hue(b.hue + 30, alpha: 0.95, s: 0.75),
               _hue(b.hue, alpha: 0.75),
               _hue(b.hue - 25, alpha: 0),
-            ], stops: const [0.0, 0.55, 1.0])
-                .createShader(rect));
+            ], stops: const [
+              0.0,
+              0.55,
+              1.0
+            ]).createShader(rect));
     }
   }
 }
@@ -798,7 +893,16 @@ class _XylophoneGame extends StatefulWidget {
 
 class _XylophoneGameState extends _GameState<_XylophoneGame> {
   // C major, one octave: C D E F G A B C.
-  static const _notes = [261.63, 293.66, 329.63, 349.23, 392.0, 440.0, 493.88, 523.25];
+  static const _notes = [
+    261.63,
+    293.66,
+    329.63,
+    349.23,
+    392.0,
+    440.0,
+    493.88,
+    523.25
+  ];
   final _ring = List<double>.filled(_notes.length, 0);
   final _under = <int, int>{};
   final _players = <int, AudioPlayer>{};
@@ -844,6 +948,7 @@ class _XylophoneGameState extends _GameState<_XylophoneGame> {
   Future<void> _play(int bar) async {
     _ring[bar] = 1;
     tick();
+    if (!_Sound.on) return;
     try {
       final source = _sounds.putIfAbsent(bar, () {
         final bytes = _tone(_notes[bar]);
@@ -927,10 +1032,12 @@ class _XylophoneGameState extends _GameState<_XylophoneGame> {
           shape,
           Paint()
             ..shader = LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Color.lerp(colour, Colors.white, 0.3 + ring * 0.4)!, colour])
-                .createShader(rect));
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.lerp(colour, Colors.white, 0.3 + ring * 0.4)!,
+                  colour
+                ]).createShader(rect));
       for (final y in [rect.top + 22, rect.bottom - 22]) {
         canvas.drawCircle(Offset(rect.center.dx, y), 6,
             Paint()..color = Colors.black.withValues(alpha: 0.35));
@@ -1025,7 +1132,9 @@ class _SpinnerGameState extends _GameState<_SpinnerGame> {
         }
       }
     }
-    canvas.drawCircle(centre, ball * 0.8, Paint()..color = const Color(0xFFECEFF1));
-    canvas.drawCircle(centre, ball * 0.4, Paint()..color = const Color(0xFF455A64));
+    canvas.drawCircle(
+        centre, ball * 0.8, Paint()..color = const Color(0xFFECEFF1));
+    canvas.drawCircle(
+        centre, ball * 0.4, Paint()..color = const Color(0xFF455A64));
   }
 }

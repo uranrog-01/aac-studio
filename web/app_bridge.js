@@ -51,7 +51,14 @@
   const speech = window.speechSynthesis;
   let clipAudio = null;
   let clipRun = 0;
-  const stopClips = () => { clipRun++; if (clipAudio) { clipAudio.onended = null; clipAudio.pause(); } };
+  const stopClips = () => {
+    clipRun++;
+    if (clipAudio) {
+      clipAudio.onended = null;
+      clipAudio.onerror = null;
+      clipAudio.pause();
+    }
+  };
   window.aacSpeech = {
     available: !!speech,
     onError: () => {},
@@ -66,15 +73,19 @@
       const list = Array.from(urls);
       const audio = clipAudio || (clipAudio = new Audio());
       const run = ++clipRun;
+      const reportError = error => {
+        if (run === clipRun) window.aacSpeech.onError(String(error?.name || 'Audio failed'));
+      };
       let i = 0;
       const next = () => {
         if (run !== clipRun || i >= list.length) return;
         audio.src = list[i++];
         audio.playbackRate = Math.max(.5, Math.min(2, rate / .45));
         audio.volume = volume;
-        audio.play().catch(e => window.aacSpeech.onError(String(e && e.name || 'Audio failed')));
+        audio.play().catch(reportError);
       };
       audio.onended = next;
+      audio.onerror = reportError;
       next();
     },
     speak(text, rate, pitch, volume, name, locale) {

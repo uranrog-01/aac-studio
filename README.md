@@ -212,11 +212,11 @@ device voice is used only for words without a recording. Rebuild them with
 
 - **Voice: Automatic, Female or Male** (Settings > Voice). The best installed
   voice of that kind speaks; the full voice list is under "More options".
-- **Albanian has both**: `assets/voices/clips/sq/` is the male voice "Edon";
-  `sq-f/` is a female set made from the same recordings (pitch and voice
-  character raised, see `FEMALE` in `tools/build_voice_clips.py`). It is a
-  processed voice, not a recorded woman. Foreign names are respelled for
-  speaking ("ajfon"), see `SAY` in the same file.
+- **Albanian has both**. The bundled `sq/` clips are synthesized with Edon and
+  `sq-f/` with Arta. Both use the same Albanian board text and pronunciation
+  list in `tools/build_voice_clips.py`. To rebuild Arta's clips, use her Piper
+  model with `tools/render_voice_clips_piper.py`, then encode the WAVs as
+  `female`. Model provenance is listed in `assets/voices/NOTICE.txt`.
 - **Games** is a category on Home with seven sensory games drawn by the app
   (bubbles, light painting, water ripples, kaleidoscope, lava lamp,
   xylophone, spinner): slow, predictable, no scores, no flashing. Each board
@@ -224,3 +224,20 @@ device voice is used only for words without a recording. Rebuild them with
 - **Settings** has seven short sections; rarely used items are folded under
   "More options".
 - Home also gains "why". Built by `tools/add_games_v15.py`.
+
+## 1.11: more games (board v16)
+
+The Games category has 13 games. New:
+
+- **Satisfying:** Pop it (a silicone pop-it board; slide to pop a row; it
+  turns over when every bubble is down), Slime (stretch, squish, wobble,
+  five colours), Sand (coloured sand pours from each finger and piles up),
+  Paint swirl (paint marbling: a tap drops paint, a drag combs it).
+- **Nonverbal:** Tap and hear (big pictures from the person's own board,
+  spoken when touched) and Match pairs (three pairs, no time limit, a match
+  glows and says its word).
+- Soft sounds made by the app (pop, drop, squish, chime), and a speaker
+  button in the games menu turns all game sounds off. Water now has moving
+  sunlight; light painting leaves sparkles.
+
+Built by `tools/add_games_v16.py`; game code in `lib/features/sensory/`.

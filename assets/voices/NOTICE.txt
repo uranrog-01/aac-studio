@@ -31,4 +31,13 @@ Before public distribution, package corresponding source/build materials
 for the exact GPL components with the release; upstream links alone are not
 a substitute for corresponding-source distribution obligations.
 
+Albanian audio clips in clips/sq-f/ were synthesized offline with Arta,
+an Albanian Piper model by Edon Sekiraqa, from AAC Studio's Albanian board text.
+Model and configuration source (AGPL-3.0, not bundled):
+https://huggingface.co/edonseki/folsh.ai/tree/2497504/arta
+License notice:
+https://huggingface.co/edonseki/folsh.ai/blob/29b1f1a/arta/README.md
+Model SHA-256:
+5f03253a2f248754595a259fd1bb366fb5c3259b8dd1e299142c2f253a861fb8
+
 No voices or code extracted from Proloquo2Go are included.

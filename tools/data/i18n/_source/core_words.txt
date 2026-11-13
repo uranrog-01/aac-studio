@@ -322,6 +322,7 @@ magic	Toys
 make	Home
 mango	Fruits
 mask	Health
+match pairs	Games
 me	People
 Meals	Eat & drink
 Mealtime	Eat & drink
@@ -376,6 +377,7 @@ oven	Home things
 owl	Birds
 paint	Actions
 paint picture	Daily routines
+paint swirl	Games
 pancakes	Eat & drink
 paper	School things
 park	Places
@@ -412,6 +414,7 @@ plum	Fruits
 point	Actions
 police	Jobs
 police car	Vehicles
+pop it	Games
 popcorn	Snacks
 pot	Kitchen
 potato	Vegetables
@@ -443,6 +446,7 @@ run	Play
 sad	Feelings
 salad	Eat & drink
 salt	Eat & drink
+sand	Games
 sandals	Clothes
 sandwich	Eat & drink
 saxophone	Music
@@ -482,6 +486,7 @@ sister	People
 sleep	Actions
 sleepy	Feelings
 slide	Play
+slime	Games
 slow	Describing words
 small	Describing words
 smoothie	Drinks
@@ -526,6 +531,7 @@ tablet	Play
 taco	Eat & drink
 take off shoes	Daily routines
 take out trash	Daily routines
+tap and hear	Games
 taxi	Vehicles
 tea	Drinks
 teacher	People

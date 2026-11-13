@@ -3166,6 +3166,12 @@ light painting|рисование светом
 water ripples|круги на воде
 kaleidoscope|калейдоскоп
 spinner|волчок
+pop it|поп-ит
+slime|слайм
+sand|песок
+paint swirl|вихрь красок
+tap and hear|нажми и послушай
+match pairs|найди пары
 [forms]
 I+want|я хочу
 I+need|мне нужно

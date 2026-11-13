@@ -23,6 +23,7 @@ class _MessageDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const labelStyle = TextStyle(fontSize: 18, fontWeight: FontWeight.w700);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -71,7 +72,8 @@ class _MessageDisplay extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                   style: _buttonStyle(
                       const Color(0xFFE9EDF2), const Color(0xFF172231)),
-                  child: Text(I18n.t('Close'), textAlign: TextAlign.center),
+                  child: Text(I18n.t('Close'),
+                      style: labelStyle, textAlign: TextAlign.center),
                 ),
               ),
               const SizedBox(width: 12),
@@ -79,7 +81,8 @@ class _MessageDisplay extends StatelessWidget {
                 child: FilledButton(
                   onPressed: onSpeak,
                   style: _buttonStyle(const Color(0xFF205C33), Colors.white),
-                  child: Text(I18n.t('Speak'), textAlign: TextAlign.center),
+                  child: Text(I18n.t('Speak'),
+                      style: labelStyle, textAlign: TextAlign.center),
                 ),
               ),
             ]),
@@ -96,7 +99,6 @@ class _MessageDisplay extends StatelessWidget {
         minimumSize: const Size(0, 64),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
       );
 }
 

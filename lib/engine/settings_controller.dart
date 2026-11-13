@@ -3,10 +3,11 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show FilteringTextInputFormatter, rootBundle;
 
 import '../data/pack_loader.dart';
 import '../models/domain.dart';
+import 'app_lock.dart';
 import 'arasaac.dart';
 import 'storage.dart';
 
@@ -14,11 +15,22 @@ import 'storage.dart';
 class SettingsController extends ChangeNotifier {
   final AppStorage storage;
   late AppSettings settings;
+  final _screenPinning = ValueNotifier<bool?>(null);
+  int _pinningRead = 0;
+  bool _changingLock = false;
 
   SettingsController(this.storage);
 
   bool get editMode => settings.editMode;
   bool get restrictionsEnabled => settings.restrictionsEnabled;
+  ValueListenable<bool?> get screenPinning => _screenPinning;
+
+  @override
+  void dispose() {
+    _pinningRead++;
+    _screenPinning.dispose();
+    super.dispose();
+  }
 
   Future<void> load() async {
     // Unreadable settings never stop the app: it opens with defaults.
@@ -40,13 +52,99 @@ class SettingsController extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Always prompts for the edit-mode code (default 1234).
-  Future<bool> guardPrivileged(BuildContext context) async {
-    final s = await showDialog<_PinResult>(
-      context: context,
-      builder: (ctx) => _PinDialog(),
-    );
-    return s != null && s.ok && s.pin == settings.pin;
+  Future<bool?> refreshScreenPinning() async {
+    if (!AppLock.canPin) return null;
+    final read = ++_pinningRead;
+    final pinned = await AppLock.active();
+    if (read == _pinningRead) _screenPinning.value = pinned;
+    return pinned;
+  }
+
+  Future<void> pinScreen() async {
+    if (!AppLock.canPin || await refreshScreenPinning() == true) return;
+    if (!settings.lockApp) return;
+    await AppLock.start();
+    await refreshScreenPinning();
+  }
+
+  Future<void> changeAppLock(BuildContext context, bool locked,
+      {VoidCallback? onLocked}) async {
+    if (_changingLock) return;
+    final messenger = ScaffoldMessenger.of(context);
+    _changingLock = true;
+    try {
+      if (!locked) {
+        if (!await guardPrivileged(context) || !context.mounted) return;
+        if (AppLock.canPin && await refreshScreenPinning() != false) {
+          final accepted = await AppLock.stop();
+          var pinned = await refreshScreenPinning();
+          if (accepted == true && pinned == true) {
+            await Future<void>.delayed(const Duration(milliseconds: 250));
+            pinned = await refreshScreenPinning();
+          }
+          if (pinned == true) {
+            _showNotice(messenger,
+                'Android still has the screen pinned. Try unlocking again.');
+            return;
+          }
+        }
+      }
+      final previousLock = settings.lockApp;
+      final previousEdit = settings.editMode;
+      settings.lockApp = locked;
+      if (locked) settings.editMode = false;
+      try {
+        await update();
+      } catch (_) {
+        settings.lockApp = previousLock;
+        settings.editMode = previousEdit;
+        notifyListeners();
+        _showNotice(
+            messenger, 'Changes could not be saved. Check free storage space.');
+        return;
+      }
+      if (locked) {
+        if (context.mounted) onLocked?.call();
+        await pinScreen();
+      }
+    } finally {
+      _changingLock = false;
+    }
+  }
+
+  void _showNotice(ScaffoldMessengerState messenger, String message) {
+    if (messenger.mounted) {
+      messenger.showSnackBar(SnackBar(content: Text(I18n.t(message))));
+    }
+  }
+
+  /// Always prompts for the caregiver code.
+  Future<bool> guardPrivileged(BuildContext context) =>
+      confirmPin(context, settings.pin);
+
+  static Future<bool> confirmPin(BuildContext context, String expected) async =>
+      await _readPin(context, 'Enter code') == expected;
+
+  static Future<String?> _readPin(BuildContext context, String title) =>
+      showDialog<String>(
+        context: context,
+        builder: (ctx) => _PinDialog(title),
+      );
+
+  Future<void> changePin(BuildContext context) async {
+    final messenger = ScaffoldMessenger.of(context);
+    if (!await guardPrivileged(context) || !context.mounted) return;
+    final pin = await _readPin(context, 'Set a new 4-digit code');
+    if (!context.mounted || pin == null || pin.length != 4) return;
+    final previous = settings.pin;
+    settings.pin = pin;
+    try {
+      await update();
+    } catch (_) {
+      settings.pin = previous;
+      _showNotice(
+          messenger, 'Changes could not be saved. Check free storage space.');
+    }
   }
 
   /// Edit mode always requires the code (default 1234, changeable in
@@ -63,13 +161,10 @@ class SettingsController extends ChangeNotifier {
   Future<bool> verifyPin(String pin) => Future.value(pin == settings.pin);
 }
 
-class _PinResult {
-  final bool ok;
-  final String pin;
-  _PinResult(this.ok, this.pin);
-}
-
 class _PinDialog extends StatefulWidget {
+  final String title;
+  const _PinDialog(this.title);
+
   @override
   State<_PinDialog> createState() => _PinDialogState();
 }
@@ -87,7 +182,7 @@ class _PinDialogState extends State<_PinDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: const Color(0xFF2A2E35),
-      title: Text(I18n.t('Enter code'),
+      title: Text(I18n.t(widget.title),
           style: const TextStyle(color: Colors.white, fontSize: 16)),
       content: TextField(
         controller: c,
@@ -95,14 +190,15 @@ class _PinDialogState extends State<_PinDialog> {
         obscureText: true,
         keyboardType: TextInputType.number,
         maxLength: 4,
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         style: const TextStyle(color: Colors.white),
       ),
       actions: [
         TextButton(
-            onPressed: () => Navigator.pop(context, _PinResult(false, '')),
+            onPressed: () => Navigator.pop(context),
             child: Text(I18n.t('Cancel'))),
         FilledButton(
-            onPressed: () => Navigator.pop(context, _PinResult(true, c.text)),
+            onPressed: () => Navigator.pop(context, c.text),
             child: Text(I18n.t('OK'))),
       ],
     );

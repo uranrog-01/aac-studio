@@ -3166,6 +3166,12 @@ light painting|빛 그림
 water ripples|물결
 kaleidoscope|만화경
 spinner|팽이
+pop it|팝잇
+slime|슬라임
+sand|모래
+paint swirl|물감 소용돌이
+tap and hear|누르고 듣기
+match pairs|짝 맞추기
 [forms]
 I+want|저는 원해요
 I+need|저는 필요해요

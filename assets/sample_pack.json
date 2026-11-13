@@ -2,7 +2,7 @@
  "id": "studio.basics.autism",
  "label": "My Words",
  "rootFolder": "home",
- "packVersion": 15,
+ "packVersion": 16,
  "folders": [
   {
    "id": "home",
@@ -52122,6 +52122,96 @@
      "data": "why"
     }
    ]
+  },
+  {
+   "id": "game_popit",
+   "kind": "action",
+   "label": "pop it",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-pop-it",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "popit"
+    }
+   ]
+  },
+  {
+   "id": "game_slime",
+   "kind": "action",
+   "label": "slime",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-slime",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "slime"
+    }
+   ]
+  },
+  {
+   "id": "game_sand",
+   "kind": "action",
+   "label": "sand",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-sand-art",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "sand"
+    }
+   ]
+  },
+  {
+   "id": "game_marbling",
+   "kind": "action",
+   "label": "paint swirl",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-paint-swirl",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "marbling"
+    }
+   ]
+  },
+  {
+   "id": "game_hear",
+   "kind": "action",
+   "label": "tap and hear",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-speaking-head",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "hear"
+    }
+   ]
+  },
+  {
+   "id": "game_pairs",
+   "kind": "action",
+   "label": "match pairs",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-match-pairs",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "pairs"
+    }
+   ]
   }
  ],
  "views": {
@@ -62876,6 +62966,18 @@
     "columns": 4,
     "cells": [
      {
+      "btn": "game_popit"
+     },
+     {
+      "btn": "game_slime"
+     },
+     {
+      "btn": "game_sand"
+     },
+     {
+      "btn": "game_marbling"
+     },
+     {
       "btn": "game_bubbles"
      },
      {
@@ -62895,6 +62997,12 @@
      },
      {
       "btn": "game_spinner"
+     },
+     {
+      "btn": "game_hear"
+     },
+     {
+      "btn": "game_pairs"
      }
     ]
    }

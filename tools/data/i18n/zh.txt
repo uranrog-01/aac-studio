@@ -3165,6 +3165,12 @@ light painting|光绘
 water ripples|水波
 kaleidoscope|万花筒
 spinner|陀螺
+pop it|捏捏乐
+slime|史莱姆
+sand|沙子
+paint swirl|颜料漩涡
+tap and hear|点一点听一听
+match pairs|配对
 [forms]
 I+want|我要
 I+need|我需要

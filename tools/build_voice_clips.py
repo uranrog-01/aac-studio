@@ -1,22 +1,23 @@
-"""Builds assets/voices/clips/<code>/ from recordings made by
-tool/render_voice_clips.dart: every board word, category name and sentence
-form of a language, spoken by that language's own voice.
+"""Builds assets/voices/clips/<code>/ from Piper recordings of every board
+word, category name and sentence form in the language.
 
     python tools/build_voice_clips.py texts   sq <work-dir>   # list to record
-    dart run tool/render_voice_clips.dart sq <work-dir> <work-dir>/cache <work-dir>/texts.json <work-dir>/wav
+    python tools/render_voice_clips_piper.py <model.onnx> <work-dir>/texts.json <work-dir>/wav
     python tools/build_voice_clips.py encode  sq <work-dir>          # MP3 + index (male)
-    python tools/build_voice_clips.py encode  sq <work-dir> female   # the female set, <code>-f
+    python tools/build_voice_clips.py encode  sq <arta-work-dir> female  # WAVs from Arta
 
 Each clip is MP3, mono, 32 kbit/s, with silence trimmed at both ends. The
 app plays them where the device has no voice for the language
 (lib/engine/voice_clips.dart). Needs ffmpeg on PATH.
 """
+from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
 import re
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,16 +31,9 @@ SAY = {
         'marshmallow': 'marshmellou', 'smoothie': 'smuthi', 'trackball': 'trekboll',
         'milkshake': 'milkshejk', 'marmite': 'marmajt', 'puzzle': 'pazëll',
         'nuggets': 'nagets', 'email': 'imejl', 'bbc': 'bi bi si', 'lego': 'lego',
+        'ç': 'çë',
     },
 }
-
-# The female set is made from the male recordings: the voice character
-# (formants) is raised by 22% and the pitch by 55% in all (about 109 Hz to
-# 180 Hz). Of six settings tried, this one stayed closest to the original
-# in a speech-recognition check (69% against 72% for the untouched voice).
-FEMALE = ('asetrate=22050*1.22,aresample=22050,atempo=0.8197,'
-          'rubberband=pitch=1.27:formant=preserved:pitchq=quality')
-
 
 def normalize(text):
     text = re.sub(r'\s+', ' ', text.strip().lower())
@@ -56,6 +50,8 @@ def texts(code, work):
         if button.get('class') in ('letter', 'number'):
             label = button['label']
             found.add(label.lower() if len(label) == 1 else label)
+    if code == 'sq':
+        found.update(('ë', 'ç'))
     keys = {}
     for text in sorted(found):
         key = normalize(text)
@@ -72,32 +68,43 @@ def texts(code, work):
 
 def encode(code, work, variant=''):
     phrases = json.loads((work / 'texts.json').read_text(encoding='utf8'))
-    female = variant == 'female'
-    out = ROOT / f'assets/voices/clips/{code}{"-f" if female else ""}'
-    if out.exists():
-        shutil.rmtree(out)
-    out.mkdir(parents=True)
+    out = ROOT / f'assets/voices/clips/{code}{"-f" if variant == "female" else ""}'
     trim = ('silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,'
             'areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.08,areverse')
-    index, missing = {}, []
-    for i, text in enumerate(phrases):
-        wav = work / 'wav' / f'{i}.wav'
-        if not wav.exists():
-            missing.append(text)
-            continue
-        key = normalize(text)
-        name = hashlib.sha1(key.encode('utf8')).hexdigest()[:12] + '.mp3'
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(wav), '-af',
-                        (FEMALE + ',' if female else '') + trim, '-ac', '1',
-                        '-ar', '22050', '-c:a', 'libmp3lame', '-b:a', '32k', str(out / name)],
-                       check=True)
-        index[key] = name
-    (out / 'index.json').write_text(json.dumps(index, ensure_ascii=False, sort_keys=True,
-                                               separators=(',', ':')), encoding='utf8')
-    size = sum(p.stat().st_size for p in out.iterdir())
-    print(f'{len(index)} clips, {size / 1048576:.1f} MB in {out}; {len(missing)} not recorded')
+    wavs = [work / 'wav' / f'{i}.wav' for i in range(len(phrases))]
+    missing = [phrase for phrase, wav in zip(phrases, wavs) if not wav.is_file()]
     if missing:
-        print('  not recorded:', missing[:20])
+        raise SystemExit(f'{len(missing)} recordings missing: {missing[:20]}')
+    keys = [normalize(text) for text in phrases]
+    index = {key: hashlib.sha1(key.encode('utf8')).hexdigest()[:12] + '.mp3'
+             for key in keys}
+    with tempfile.TemporaryDirectory(prefix='encoded-', dir=work) as directory:
+        staging = Path(directory)
+
+        def encode_clip(pair):
+            key, wav = pair
+            target = staging / index[key]
+            subprocess.run(['ffmpeg', '-v', 'error', '-filter_threads', '1', '-y',
+                            '-i', str(wav), '-af', trim, '-ac', '1', '-ar', '22050',
+                            '-c:a', 'libmp3lame', '-b:a', '32k', str(target)], check=True)
+            if target.stat().st_size < 500:
+                raise ValueError(f'Recording is silent or too short: {key}')
+
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            for _ in pool.map(encode_clip, zip(keys, wavs)):
+                pass
+        out.mkdir(parents=True, exist_ok=True)
+        manifest = out / 'index.json'
+        previous = json.loads(manifest.read_text(encoding='utf8')) if manifest.exists() else {}
+        for name in index.values():
+            shutil.copyfile(staging / name, out / name)
+        manifest.write_text(json.dumps(index, ensure_ascii=False, sort_keys=True,
+                                       separators=(',', ':')), encoding='utf8')
+        for name in set(previous.values()) - set(index.values()):
+            if re.fullmatch(r'[0-9a-f]{12}\.mp3', name):
+                (out / name).unlink(missing_ok=True)
+    size = sum(p.stat().st_size for p in out.iterdir())
+    print(f'{len(index)} clips, {size / 1048576:.1f} MB in {out}')
 
 
 if __name__ == '__main__':

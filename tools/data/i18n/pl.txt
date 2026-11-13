@@ -3166,6 +3166,12 @@ light painting|malowanie światłem
 water ripples|fale na wodzie
 kaleidoscope|kalejdoskop
 spinner|bączek
+pop it|pop it
+slime|glut
+sand|piasek
+paint swirl|wir farb
+tap and hear|dotknij i posłuchaj
+match pairs|znajdź pary
 [forms]
 I+want|chcę
 I+need|potrzebuję

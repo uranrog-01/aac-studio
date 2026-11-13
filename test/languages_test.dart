@@ -157,4 +157,41 @@ void main() {
     expect(tester.takeException(), isNull);
     await tester.runAsync(() => I18n.load('en'));
   });
+
+  testWidgets('Type has usable input in every app language', (tester) async {
+    tester.view.physicalSize = const Size(375, 667);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    final engine = SpeechEngine();
+    for (final language in kLanguages) {
+      await tester.runAsync(() => I18n.load(language.code));
+      var text = '';
+      await tester.pumpWidget(MaterialApp(
+        home: KeyboardView(
+          key: ValueKey(language.code),
+          predictor: Predictor(),
+          speech: engine,
+          typingSpeech: 'off',
+          onTextChanged: (value) => text = value,
+          onClose: () {},
+          onSpeak: () {},
+        ),
+      ));
+      await tester.pump();
+      if (language.keyboardRows case final rows?) {
+        final key = language.extraLetters.isEmpty
+            ? rows.first.characters.first
+            : language.extraLetters.characters.first;
+        await tester.tap(find.bySemanticsLabel(key));
+        expect(text, key, reason: language.code);
+      } else {
+        expect(find.byType(TextField), findsOneWidget, reason: language.code);
+        await tester.tap(find.bySemanticsLabel('1'));
+        await tester.tap(find.bySemanticsLabel('Add to message'));
+        expect(text, '1 ', reason: language.code);
+      }
+      expect(tester.takeException(), isNull, reason: language.code);
+    }
+    await tester.runAsync(() => I18n.load('en'));
+  });
 }

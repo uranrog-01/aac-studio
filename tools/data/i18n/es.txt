@@ -3164,6 +3164,12 @@ light painting|pintar con luz
 water ripples|ondas en el agua
 kaleidoscope|caleidoscopio
 spinner|peonza
+pop it|pop it
+slime|slime
+sand|arena
+paint swirl|remolino de pintura
+tap and hear|toca y escucha
+match pairs|encuentra las parejas
 [forms]
 I+want|quiero
 I+need|necesito

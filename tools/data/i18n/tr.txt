@@ -3165,6 +3165,12 @@ light painting|ışıkla boyama
 water ripples|su dalgaları
 kaleidoscope|kaleydoskop
 spinner|topaç
+pop it|pop it
+slime|slaym
+sand|kum
+paint swirl|boya girdabı
+tap and hear|dokun ve dinle
+match pairs|eşleri bul
 [forms]
 I+want|istiyorum
 I+need|ihtiyacım var

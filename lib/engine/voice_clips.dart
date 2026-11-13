@@ -17,39 +17,45 @@ class VoiceClips {
   /// assets/voices/clips/<code>-f/. The plain folder is the male voice.
   static const femaleLanguages = {'sq'};
 
-  static String _folder = '';
+  static final _indexes = <String, Map<String, String>>{};
+  static final _loading = <String, Future<void>>{};
 
-  static String _code = '';
-  static Map<String, String> _index = const {};
+  static String _folder(String code, bool female) =>
+      female && femaleLanguages.contains(code) ? '$code-f' : code;
 
-  static bool get available => _index.isNotEmpty;
+  /// Preload both indexes so a tap can play the selected voice immediately.
+  static Future<void> preload() async {
+    await Future.wait([
+      for (final code in languages) load(code),
+      for (final code in femaleLanguages) load(code, female: true),
+    ]);
+  }
 
-  /// Loads the recordings list for [code] (empty for other languages),
-  /// the female set when [female] is asked for and the language has one.
   static Future<void> load(String code, {bool female = false}) async {
-    final folder = !languages.contains(code)
-        ? ''
-        : female && femaleLanguages.contains(code)
-            ? '$code-f'
-            : code;
-    if (code == _code && folder == _folder) return;
-    _code = code;
-    _folder = folder;
-    _index = const {};
-    if (folder.isEmpty) return;
-    try {
-      final raw = await rootBundle
-          .loadString('assets/voices/clips/$folder/index.json');
-      final index = (jsonDecode(raw) as Map).cast<String, String>();
-      if (_folder == folder) _index = index;
-    } catch (_) {/* No recordings: the device voice speaks. */}
+    if (!languages.contains(code)) return;
+    final folder = _folder(code, female);
+    if (_indexes.containsKey(folder)) return;
+    await _loading.putIfAbsent(folder, () async {
+      try {
+        final raw = await rootBundle
+            .loadString('assets/voices/clips/$folder/index.json');
+        _indexes[folder] = (jsonDecode(raw) as Map).cast<String, String>();
+      } catch (_) {
+        // A missing index leaves the matching live voice available.
+      } finally {
+        _loading.remove(folder);
+      }
+    });
   }
 
   /// For tests.
-  static void useIndex(String code, Map<String, String> index) {
-    _code = code;
-    _folder = code;
-    _index = index;
+  static void useIndex(String code, Map<String, String> index,
+      {bool female = false}) {
+    if (code.isEmpty) {
+      _indexes.clear();
+    } else {
+      _indexes[_folder(code, female)] = index;
+    }
   }
 
   static String normalize(String text) => text
@@ -61,10 +67,13 @@ class VoiceClips {
   /// Asset paths (relative to assets/) that speak [text] in order, or null
   /// when some word has no recording. Longest phrases are matched first, so
   /// "unë jam i lodhur" plays as one recording.
-  static List<String>? clipsFor(String text) {
-    if (_index.isEmpty) return null;
-    final whole = _index[normalize(text)];
-    if (whole != null) return ['voices/clips/$_folder/$whole'];
+  static List<String>? clipsFor(String text, String code,
+      {bool female = false}) {
+    final folder = _folder(code, female);
+    final index = _indexes[folder];
+    if (index == null || index.isEmpty) return null;
+    final whole = index[normalize(text)];
+    if (whole != null) return ['voices/clips/$folder/$whole'];
     final words = normalize(text)
         .split(' ')
         .map(normalize)
@@ -76,9 +85,9 @@ class VoiceClips {
     while (i < words.length) {
       var found = false;
       for (var n = (words.length - i).clamp(1, 6); n >= 1; n--) {
-        final file = _index[words.sublist(i, i + n).join(' ')];
+        final file = index[words.sublist(i, i + n).join(' ')];
         if (file != null) {
-          clips.add('voices/clips/$_folder/$file');
+          clips.add('voices/clips/$folder/$file');
           i += n;
           found = true;
           break;

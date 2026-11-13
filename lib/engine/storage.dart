@@ -73,8 +73,7 @@ class AppSettings {
   /// more rows appear below as the person learns.
   int homeLevel;
 
-  /// Lock the app on the screen: Back never leaves the app and, on
-  /// Android, the app is pinned. Unlocking always needs the code.
+  /// Caregiver lock. The device's screen pinning state is checked separately.
   bool lockApp;
 
   // P2 ARASAAC online symbols

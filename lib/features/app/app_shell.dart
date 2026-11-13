@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../../engine/app_lock.dart';
 import '../../engine/i18n.dart';
 import 'package:flutter/material.dart';
@@ -34,18 +36,39 @@ class _AppShellState extends State<AppShell> {
   Vocabulary? _builtFor;
   int _backAttempts = 0;
   bool _toldRecovery = false;
+  AppLifecycleListener? _lockLifecycle;
   DateTime _firstBack = DateTime.fromMillisecondsSinceEpoch(0);
 
   @override
   void initState() {
     super.initState();
-    // A locked app is locked again every time it opens.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    if (!AppLock.canPin) return;
+    final controller = context.read<SettingsController>();
+    var restore = true;
+    void syncPinning() {
       if (!mounted) return;
-      if (context.read<SettingsController>().settings.lockApp) {
-        AppLock.apply(true);
+      final pinOnLaunch = restore && controller.settings.lockApp;
+      restore = false;
+      if (pinOnLaunch) {
+        unawaited(controller.pinScreen());
+      } else {
+        unawaited(controller.refreshScreenPinning());
+      }
+    }
+
+    _lockLifecycle = AppLifecycleListener(onResume: syncPinning);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final state = WidgetsBinding.instance.lifecycleState;
+      if (state == null || state == AppLifecycleState.resumed) {
+        syncPinning();
       }
     });
+  }
+
+  @override
+  void dispose() {
+    _lockLifecycle?.dispose();
+    super.dispose();
   }
 
   GridSession? _sessionFor(Vocabulary vocab, SpeechEngine speech) {

@@ -2667,6 +2667,185 @@ hi|वापस बटन अब ऐप से बाहर नहीं जा�
 ar|زر الرجوع لم يعد يغادر التطبيق. لفتح القفل: المزيد > فتح قفل التطبيق، ثم الرمز. المتصفح أو الحاسوب لا يستطيع منع الانتقال إلى تطبيقات أخرى؛ استخدم تطبيق الهاتف أو الجهاز اللوحي لقفل كامل.
 ur|واپس کا بٹن اب ایپ سے باہر نہیں جاتا۔ ان لاک کرنے کے لیے: مزید > ایپ ان لاک کریں، پھر کوڈ۔ براؤزر یا کمپیوٹر دوسری ایپس پر جانے سے نہیں روک سکتا؛ مکمل لاک کے لیے فون یا ٹیبلٹ کی ایپ استعمال کریں۔
 
+@ Caregiver lock
+sq|Kyçja e kujdestarit
+fr|Verrouillage aidant
+de|Betreuungssperre
+es|Bloqueo del cuidador
+it|Blocco caregiver
+zh|照护者锁定
+ja|介助者ロック
+hi|देखभालकर्ता लॉक
+tr|Bakım veren kilidi
+el|Κλείδωμα φροντιστή
+hr|Zaključavanje za skrbnika
+ar|قفل مقدم الرعاية
+ur|نگہداشت کنندہ کا لاک
+pt|Bloqueio do cuidador
+ru|Блокировка для опекуна
+uk|Блокування для опікуна
+pl|Blokada opiekuna
+ro|Blocare pentru îngrijitor
+nl|Vergrendeling voor verzorgers
+ko|보호자 잠금
+
+@ Protects Settings with the caregiver code
+sq|Mbron cilësimet me kodin e kujdestarit
+fr|Protège les réglages avec le code de l’aidant
+de|Schützt die Einstellungen mit dem Betreuungscode
+es|Protege los ajustes con el código del cuidador
+it|Protegge le impostazioni con il codice del caregiver
+zh|使用照护者密码保护设置
+ja|介助者のコードで設定を保護します
+hi|सेटिंग्स को देखभालकर्ता के कोड से सुरक्षित रखता है
+tr|Ayarları bakım verenin koduyla korur
+el|Προστατεύει τις ρυθμίσεις με τον κωδικό φροντιστή
+hr|Štiti postavke kodom skrbnika
+ar|يحمي الإعدادات برمز مقدم الرعاية
+ur|سیٹنگز کو نگہداشت کنندہ کے کوڈ سے محفوظ کرتا ہے
+pt|Protege os ajustes com o código do cuidador
+ru|Защищает настройки кодом опекуна
+uk|Захищає налаштування кодом опікуна
+pl|Chroni ustawienia kodem opiekuna
+ro|Protejează setările cu codul îngrijitorului
+nl|Beschermt instellingen met de code van de verzorger
+ko|보호자 코드로 설정을 보호합니다
+
+@ Screen pinning is active
+sq|Fiksimi i ekranit është aktiv
+fr|Épinglage de l’écran actif
+de|Bildschirmfixierung aktiv
+es|Fijación de pantalla activa
+it|Blocco schermo dell’app attivo
+zh|屏幕固定已启用
+ja|画面の固定は有効です
+hi|स्क्रीन पिनिंग चालू है
+tr|Ekran sabitleme açık
+el|Το καρφίτσωμα οθόνης είναι ενεργό
+hr|Prikvačivanje zaslona je uključeno
+ar|تثبيت الشاشة مفعّل
+ur|اسکرین پننگ فعال ہے
+pt|Fixação de tela ativa
+ru|Закрепление экрана включено
+uk|Закріплення екрана ввімкнено
+pl|Przypinanie ekranu jest aktywne
+ro|Fixarea ecranului este activă
+nl|Scherm vastzetten is actief
+ko|화면 고정이 켜져 있습니다
+
+@ Screen pinning is off
+sq|Fiksimi i ekranit është joaktiv
+fr|Épinglage de l’écran désactivé
+de|Bildschirmfixierung aus
+es|Fijación de pantalla desactivada
+it|Blocco schermo dell’app disattivato
+zh|屏幕固定已关闭
+ja|画面の固定は無効です
+hi|स्क्रीन पिनिंग बंद है
+tr|Ekran sabitleme kapalı
+el|Το καρφίτσωμα οθόνης είναι ανενεργό
+hr|Prikvačivanje zaslona je isključeno
+ar|تثبيت الشاشة متوقف
+ur|اسکرین پننگ بند ہے
+pt|Fixação de tela desativada
+ru|Закрепление экрана выключено
+uk|Закріплення екрана вимкнено
+pl|Przypinanie ekranu jest wyłączone
+ro|Fixarea ecranului este oprită
+nl|Scherm vastzetten is uit
+ko|화면 고정이 꺼져 있습니다
+
+@ Screen pinning status unavailable
+sq|Gjendja e fiksimit nuk dihet
+fr|État de l’épinglage indisponible
+de|Status der Bildschirmfixierung unbekannt
+es|Estado de fijación no disponible
+it|Stato del blocco schermo non disponibile
+zh|无法获取屏幕固定状态
+ja|画面の固定状況を確認できません
+hi|स्क्रीन पिनिंग की स्थिति उपलब्ध नहीं है
+tr|Ekran sabitleme durumu bilinmiyor
+el|Η κατάσταση καρφιτσώματος δεν είναι διαθέσιμη
+hr|Stanje prikvačivanja nije dostupno
+ar|حالة تثبيت الشاشة غير متاحة
+ur|اسکرین پننگ کی حالت دستیاب نہیں
+pt|Status da fixação indisponível
+ru|Состояние закрепления недоступно
+uk|Стан закріплення недоступний
+pl|Stan przypięcia jest niedostępny
+ro|Starea fixării nu este disponibilă
+nl|Status van scherm vastzetten onbekend
+ko|화면 고정 상태를 확인할 수 없습니다
+
+@ Pin screen
+sq|Fikso ekranin
+fr|Épingler l’écran
+de|Bildschirm fixieren
+es|Fijar pantalla
+it|Blocca l’app sullo schermo
+zh|固定屏幕
+ja|画面を固定
+hi|स्क्रीन पिन करें
+tr|Ekranı sabitle
+el|Καρφίτσωμα οθόνης
+hr|Prikvači zaslon
+ar|تثبيت الشاشة
+ur|اسکرین پن کریں
+pt|Fixar tela
+ru|Закрепить экран
+uk|Закріпити екран
+pl|Przypnij ekran
+ro|Fixează ecranul
+nl|Scherm vastzetten
+ko|화면 고정
+
+@ Android still has the screen pinned. Try unlocking again.
+sq|Android ende e mban ekranin të fiksuar. Provo ta shkyçësh përsëri.
+fr|Android maintient encore l’écran épinglé. Réessayez de déverrouiller.
+de|Android hält den Bildschirm weiterhin fixiert. Versuche erneut, ihn zu entsperren.
+es|Android aún mantiene la pantalla fijada. Intenta desbloquearla de nuevo.
+it|Android tiene ancora l’app bloccata sullo schermo. Riprova a sbloccarla.
+zh|Android 仍在固定屏幕。请再次尝试解锁。
+ja|Android で画面がまだ固定されています。もう一度ロック解除してください。
+hi|Android में स्क्रीन अभी भी पिन है। फिर से अनलॉक करने की कोशिश करें।
+tr|Android ekranı hâlâ sabit tutuyor. Kilidi tekrar açmayı dene.
+el|Το Android διατηρεί την οθόνη καρφιτσωμένη. Δοκιμάστε να την ξεκλειδώσετε ξανά.
+hr|Android još drži zaslon prikvačenim. Pokušajte ponovno otključati.
+ar|لا يزال Android يثبّت الشاشة. حاول إلغاء القفل مرة أخرى.
+ur|Android نے ابھی بھی اسکرین پن کر رکھی ہے۔ دوبارہ ان لاک کریں۔
+pt|O Android ainda mantém a tela fixada. Tente desbloquear novamente.
+ru|Android всё ещё удерживает экран закреплённым. Попробуйте разблокировать ещё раз.
+uk|Android усе ще утримує екран закріпленим. Спробуйте розблокувати ще раз.
+pl|Android nadal utrzymuje ekran przypięty. Spróbuj odblokować ponownie.
+ro|Android menține încă ecranul fixat. Încearcă să deblochezi din nou.
+nl|Android houdt het scherm nog vastgezet. Probeer opnieuw te ontgrendelen.
+ko|Android에서 화면이 아직 고정되어 있습니다. 다시 잠금 해제해 보세요.
+
+@ Use Guided Access in Settings > Accessibility to keep the app on screen.
+sq|Përdor Guided Access te Cilësimet > Aksesueshmëria për ta mbajtur aplikacionin në ekran.
+fr|Utilisez Accès guidé dans Réglages > Accessibilité pour garder l’app à l’écran.
+de|Verwende Geführter Zugriff unter Einstellungen > Bedienungshilfen, um die App auf dem Bildschirm zu halten.
+es|Usa Acceso guiado en Ajustes > Accesibilidad para mantener la app en pantalla.
+it|Usa Accesso Guidato in Impostazioni > Accessibilità per tenere l’app sullo schermo.
+zh|前往“设置 > 辅助功能”使用引导式访问，使应用保持在屏幕上。
+ja|設定 > アクセシビリティのアクセスガイドを使うと、このアプリを画面に固定できます。
+hi|ऐप को स्क्रीन पर रखने के लिए सेटिंग्स > ऐक्सेसिबिलिटी में गाइडेड ऐक्सेस इस्तेमाल करें।
+tr|Uygulamayı ekranda tutmak için Ayarlar > Erişilebilirlik bölümünde Güdümlü Erişim’i kullan.
+el|Χρησιμοποιήστε την Καθοδηγούμενη πρόσβαση στις Ρυθμίσεις > Προσβασιμότητα για να κρατήσετε την εφαρμογή στην οθόνη.
+hr|Koristite Vođeni pristup u Postavke > Pristupačnost da aplikacija ostane na zaslonu.
+ar|استخدم الوصول الموجّه في الإعدادات > تسهيلات الاستخدام لإبقاء التطبيق على الشاشة.
+ur|ایپ کو اسکرین پر رکھنے کے لیے سیٹنگز > رسائی میں گائیڈڈ ایکسیس استعمال کریں۔
+pt|Use o Acesso Guiado em Ajustes > Acessibilidade para manter o app na tela.
+ru|Чтобы оставить приложение на экране, включите Гид-доступ в разделе Настройки > Универсальный доступ.
+uk|Щоб залишити програму на екрані, скористайтеся Керованим доступом у Параметри > Доступність.
+pl|Użyj Dostępu nadzorowanego w Ustawienia > Dostępność, aby pozostawić aplikację na ekranie.
+ro|Folosește Acces ghidat în Configurări > Accesibilitate pentru a păstra aplicația pe ecran.
+nl|Gebruik Begeleide toegang in Instellingen > Toegankelijkheid om de app op het scherm te houden.
+ko|설정 > 손쉬운 사용에서 사용법 유도를 사용하여 앱을 화면에 유지하세요.
+
+@ This text needs a female Albanian voice on this device.
+sq|Ky tekst kërkon një zë femëror shqip në këtë pajisje.
+
 @ Unlock the app
 sq|Shkyç aplikacionin
 fr|Déverrouiller l'app
@@ -2977,3 +3156,25 @@ ko|추가 옵션
 hi|और विकल्प
 ar|خيارات أخرى
 ur|مزید اختیارات
+
+@ Sound
+sq|Zëri
+fr|Son
+de|Ton
+es|Sonido
+it|Suono
+pt|Som
+nl|Geluid
+pl|Dźwięk
+ro|Sunet
+hr|Zvuk
+tr|Ses
+el|Ήχος
+ru|Звук
+uk|Звук
+zh|声音
+ja|おと
+ko|소리
+hi|आवाज़
+ar|الصوت
+ur|آواز

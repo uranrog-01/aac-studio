@@ -186,16 +186,21 @@ void main() {
       'ujë': 'c.mp3',
       'unë jam i lodhur': 'd.mp3',
     });
-    expect(VoiceClips.clipsFor('Ujë'), ['voices/clips/sq/c.mp3']);
-    expect(VoiceClips.clipsFor('unë jam i lodhur.'), ['voices/clips/sq/d.mp3']);
-    expect(VoiceClips.clipsFor('unë  dua ujë'), [
+    VoiceClips.useIndex('sq', {'ujë': 'f.mp3'}, female: true);
+    expect(VoiceClips.clipsFor('Ujë', 'sq'), ['voices/clips/sq/c.mp3']);
+    expect(VoiceClips.clipsFor('Ujë', 'sq', female: true),
+        ['voices/clips/sq-f/f.mp3']);
+    expect(VoiceClips.clipsFor('Ujë', 'en'), isNull);
+    expect(VoiceClips.clipsFor('unë jam i lodhur.', 'sq'),
+        ['voices/clips/sq/d.mp3']);
+    expect(VoiceClips.clipsFor('unë  dua ujë', 'sq'), [
       'voices/clips/sq/a.mp3',
       'voices/clips/sq/b.mp3',
       'voices/clips/sq/c.mp3'
     ]);
-    expect(VoiceClips.clipsFor('unë jam i lodhur dua ujë'), hasLength(3));
+    expect(VoiceClips.clipsFor('unë jam i lodhur dua ujë', 'sq'), hasLength(3));
     // One unknown word: no recordings, so no mixed voices.
-    expect(VoiceClips.clipsFor('unë dua kafe'), isNull);
+    expect(VoiceClips.clipsFor('unë dua kafe', 'sq'), isNull);
     VoiceClips.useIndex('', {});
   });
 
@@ -204,13 +209,15 @@ void main() {
       final index = (jsonDecode(File('assets/voices/clips/$set/index.json')
               .readAsStringSync()) as Map)
           .cast<String, String>();
-      VoiceClips.useIndex('sq', index);
+      final female = set == 'sq-f';
+      VoiceClips.useIndex('sq', index, female: female);
       final data =
           jsonDecode(File('assets/i18n/sq.json').readAsStringSync()) as Map;
       final missing = [
         for (final section in ['words', 'words_f', 'forms', 'forms_f'])
           for (final text in ((data[section] as Map?) ?? const {}).values)
-            if (VoiceClips.clipsFor(text as String) == null) text
+            if (VoiceClips.clipsFor(text as String, 'sq', female: female) == null)
+              text
       ];
       expect(missing, isEmpty);
       for (final file in index.values.toSet()) {

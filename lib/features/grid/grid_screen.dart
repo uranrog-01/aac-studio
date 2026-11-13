@@ -602,7 +602,7 @@ class _GridScreenState extends State<GridScreen> {
     _settings = settings;
     if (_scanning && !settings.scanningEnabled) _stopScanning();
     return AnimatedBuilder(
-      animation: widget.session,
+      animation: Listenable.merge([widget.session, I18n.changes]),
       builder: (context, _) {
         if (widget.session.showKeyboard && widget.predictor != null) {
           return KeyboardView(
@@ -815,11 +815,19 @@ class _GridScreenState extends State<GridScreen> {
 
   void _showMore(BuildContext context) {
     final session = widget.session;
+    final sc = context.read<SettingsController>();
     final messenger = ScaffoldMessenger.of(context);
-    Widget item(IconData icon, String label, VoidCallback? onTap) => ListTile(
+    unawaited(sc.refreshScreenPinning());
+    Widget item(IconData icon, String label, VoidCallback? onTap,
+            {String? subtitle}) =>
+        ListTile(
           leading: Icon(icon, color: Colors.white),
           title: Text(I18n.t(label),
               style: const TextStyle(color: Colors.white, fontSize: 16)),
+          subtitle: subtitle == null
+              ? null
+              : Text(I18n.t(subtitle),
+                  style: const TextStyle(color: Colors.white70)),
           enabled: onTap != null,
           onTap: onTap == null
               ? null
@@ -832,53 +840,56 @@ class _GridScreenState extends State<GridScreen> {
       context: context,
       backgroundColor: const Color(0xFF22262D),
       builder: (_) => SafeArea(
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          item(Icons.star_outline, 'Phrases', () => _openPhrases(context)),
-          item(Icons.history, 'Recent words',
-              () => session.pushFolder(GridSession.recentsFolderId)),
-          item(
-              Icons.replay,
-              'Say the last word again',
-              session.lastSpoken == null
-                  ? null
-                  : () => session.speech.speak(session.lastSpoken!)),
-          item(
-              Icons.copy_all,
-              'Copy the message',
-              session.message.isEmpty
-                  ? null
-                  : () {
-                      Clipboard.setData(ClipboardData(text: session.message));
-                      messenger.showSnackBar(SnackBar(
-                          content: Text(I18n.t('Copied')),
-                          duration: const Duration(seconds: 1)));
-                    }),
-          if (context.read<SettingsController>().settings.lockApp)
-            item(Icons.lock_open, 'Unlock the app', () async {
-              final sc = context.read<SettingsController>();
-              if (!await sc.guardPrivileged(context)) return;
-              sc.settings.lockApp = false;
-              await AppLock.apply(false);
-              await sc.update();
-            }),
-          if (widget.showOptions)
-            item(Icons.settings_outlined, 'Settings', () async {
-              final sc = context.read<SettingsController>();
-              // A locked app always asks for the code first.
-              if ((sc.restrictionsEnabled || sc.settings.lockApp) &&
-                  !await sc.guardPrivileged(context)) {
-                return;
-              }
-              if (!context.mounted) return;
-              SettingsSheet.show(
-                context,
-                speech: session.speech,
-                settings: context.read<SettingsController>().settings,
-                settingsController: context.read<SettingsController>(),
-                onChanged: () => context.read<SettingsController>().update(),
-              );
-            }),
-        ]),
+        child: SingleChildScrollView(
+          child: ValueListenableBuilder<bool?>(
+            valueListenable: sc.screenPinning,
+            builder: (_, pinned, __) =>
+                Column(mainAxisSize: MainAxisSize.min, children: [
+              item(Icons.star_outline, 'Phrases', () => _openPhrases(context)),
+              item(Icons.history, 'Recent words',
+                  () => session.pushFolder(GridSession.recentsFolderId)),
+              item(
+                  Icons.replay,
+                  'Say the last word again',
+                  session.lastSpoken == null
+                      ? null
+                      : () => session.speech.speak(session.lastSpoken!)),
+              item(
+                  Icons.copy_all,
+                  'Copy the message',
+                  session.message.isEmpty
+                      ? null
+                      : () {
+                          Clipboard.setData(
+                              ClipboardData(text: session.message));
+                          messenger.showSnackBar(SnackBar(
+                              content: Text(I18n.t('Copied')),
+                              duration: const Duration(seconds: 1)));
+                        }),
+              if (sc.settings.lockApp || pinned == true)
+                item(Icons.lock_open, 'Unlock the app',
+                    () => sc.changeAppLock(context, false),
+                    subtitle:
+                        AppLock.canPin ? AppLock.statusLabel(pinned) : null),
+              if (widget.showOptions)
+                item(Icons.settings_outlined, 'Settings', () async {
+                  // A locked app always asks for the code first.
+                  if ((sc.restrictionsEnabled || sc.settings.lockApp) &&
+                      !await sc.guardPrivileged(context)) {
+                    return;
+                  }
+                  if (!context.mounted) return;
+                  SettingsSheet.show(
+                    context,
+                    speech: session.speech,
+                    settings: sc.settings,
+                    settingsController: sc,
+                    onChanged: sc.update,
+                  );
+                }),
+            ]),
+          ),
+        ),
       ),
     );
   }

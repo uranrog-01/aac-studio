@@ -1,12 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-/// Keeps the app on the screen for a person who should not leave it.
-///
-/// Android pins the app (the system's "screen pinning"): Home, Back and the
-/// app switcher no longer leave it. iPhone and iPad do not let an app lock
-/// itself; there the caregiver starts Guided Access. In every case the app
-/// itself ignores Back while locked, and unlocking needs the code.
+/// Android screen pinning is managed separately from the caregiver lock.
 class AppLock {
   static const _channel = MethodChannel('aac_studio/app_lock');
 
@@ -17,10 +12,24 @@ class AppLock {
   static bool get isApple =>
       !kIsWeb && defaultTargetPlatform == TargetPlatform.iOS;
 
-  static Future<void> apply(bool locked) async {
-    if (!canPin) return;
+  static Future<bool?> start() => _invoke('start');
+  static Future<bool?> stop() => _invoke('stop');
+  static Future<bool?> active() => _invoke('active');
+
+  static String statusLabel(bool? active) => switch (active) {
+        true => 'Screen pinning is active',
+        false => 'Screen pinning is off',
+        null => 'Screen pinning status unavailable',
+      };
+
+  static Future<bool?> _invoke(String method) async {
+    if (!canPin) return null;
     try {
-      await _channel.invokeMethod<bool>(locked ? 'start' : 'stop');
-    } catch (_) {/* Pinning is unavailable: the in-app lock still works. */}
+      return await _channel.invokeMethod<bool>(method);
+    } on PlatformException {
+      return null;
+    } on MissingPluginException {
+      return null;
+    }
   }
 }

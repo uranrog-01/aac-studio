@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:aac_studio/engine/piper_worker.dart';
 import 'package:aac_studio/engine/speech.dart';
 import 'package:aac_studio/engine/storage.dart';
+import 'package:aac_studio/engine/voice_clips.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -12,6 +15,8 @@ void main() {
   final deviceSpoken = <String>[];
   setUp(() {
     deviceSpoken.clear();
+    VoiceClips.useIndex('sq', {});
+    VoiceClips.useIndex('sq', {}, female: true);
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(const MethodChannel('flutter_tts'),
             (call) async {
@@ -19,6 +24,7 @@ void main() {
       return call.method == 'isLanguageAvailable' ? true : 1;
     });
   });
+  tearDown(() => VoiceClips.useIndex('', {}));
 
   test('the Albanian pack is a pinned, downloadable Piper voice', () {
     final pack = piperPacks['sq']!;
@@ -71,5 +77,25 @@ void main() {
     await engine.speak('hello');
     expect(english.spoken, ['hello']);
     expect(albanian.spoken, isEmpty);
+  });
+
+  test('switching to Female cancels queued Edon and preserves voice choice',
+      () async {
+    final albanian = FakeOfflineVoice()..generating = Completer<void>();
+    final settings = AppSettings(language: 'sq', voiceGender: 'male');
+    final engine = SpeechEngine(
+        offlineVoice: FakeOfflineVoice(), packVoices: {'sq': albanian});
+    engine.configure(settings);
+    await engine.warmOfflineVoice();
+    final oldRequest = engine.speak('Unë dua ujë');
+    await albanian.started.future;
+    engine.configure(settings..voiceGender = 'female');
+    albanian.generating!.complete();
+    await oldRequest;
+    await engine.speak('Një fjali pa regjistrim');
+    expect(albanian.spoken, isEmpty);
+    expect(deviceSpoken, isEmpty);
+    expect(engine.error.value, contains('female Albanian voice'));
+    await engine.dispose();
   });
 }
