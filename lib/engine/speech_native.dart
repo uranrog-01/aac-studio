@@ -46,25 +46,31 @@ class SpeechEngine {
   /// Plays recorded words (VoiceClips) for a language the device cannot
   /// speak itself, e.g. Albanian.
   AudioPlayer? _clipPlayer;
+  Completer<void>? _clipCompletion;
 
-  Future<bool> _speakClips(List<String> clips, double rate, double volume,
+  Future<void> _speakClips(List<String> clips, double rate, double volume,
       bool Function() isCurrent) async {
-    try {
-      final player = _clipPlayer ??= AudioPlayer();
-      await player.setReleaseMode(ReleaseMode.stop);
-      for (final clip in clips) {
-        if (!isCurrent()) return true;
-        final done = player.onPlayerComplete.first;
-        await player.setVolume(volume);
-        await player.setPlaybackRate((rate / .45).clamp(.5, 2.0));
+    final player = _clipPlayer ??= AudioPlayer();
+    await player.setReleaseMode(ReleaseMode.stop);
+    await player.setVolume(volume);
+    await player.setPlaybackRate((rate / .45).clamp(.5, 2.0));
+    for (final clip in clips) {
+      if (!isCurrent()) return;
+      final done = _clipCompletion = Completer<void>();
+      final completion = player.onPlayerComplete.listen((_) {
+        if (!done.isCompleted) done.complete();
+      });
+      try {
         await player.play(AssetSource(clip));
-        await done.timeout(const Duration(seconds: 12), onTimeout: () {});
+        if (!isCurrent() && done.isCompleted) await player.stop();
+        await done.future.timeout(const Duration(seconds: 12));
+      } finally {
+        if (identical(_clipCompletion, done)) _clipCompletion = null;
+        await completion.cancel();
       }
-      return true;
-    } catch (_) {
-      return false;
     }
   }
+
   final OfflineSpeechVoice _offlineVoice;
   final Map<String, OfflineSpeechVoice> _packVoices = {};
 
@@ -144,6 +150,7 @@ class SpeechEngine {
 
   Future<void>? _initializing;
   Future<void> _pending = Future.value();
+  Future<void> _stopping = Future.value();
   int _generation = 0;
   double rate = 0.45;
   double pitch = 1.0;
@@ -187,26 +194,29 @@ class SpeechEngine {
         : s.voiceGender == 'male'
             ? VoiceGender.male
             : VoiceGender.unknown;
-    if (wanted != gender) {
-      gender = wanted;
-      _appliedKey = null;
-    }
-    // iPhone/iPad only: speech also goes into phone and FaceTime calls.
-    callSpeech = s.callSpeech &&
-        !kIsWeb &&
-        defaultTargetPlatform == TargetPlatform.iOS;
-    // Offline voices exist for English (built in) and Albanian
-    // (downloaded). Albanian always prefers its own voice: phones have none.
     final previous = language;
     final next = languageFor(s.language);
+    if (wanted != gender ||
+        previous.code != next.code ||
+        voice?.name != s.voiceName ||
+        voice?.locale != s.voiceLocale) {
+      unawaited(stop());
+      gender = wanted;
+      _appliedKey = null;
+      error.value = null;
+    }
+    // iPhone/iPad only: speech also goes into phone and FaceTime calls.
+    callSpeech =
+        s.callSpeech && !kIsWeb && defaultTargetPlatform == TargetPlatform.iOS;
+    // Offline voices exist for English (built in) and Albanian
+    // (downloaded). Albanian always prefers its own voice: phones have none.
     if (previous.code != next.code) {
-      if (hasOfflineVoice(previous.code)) unawaited(_offline.stop());
       _offlineReady = false;
       _warming = null;
     }
     language = next;
     final wantsOffline = hasOfflineVoice(language.code) &&
-        (language.code == 'en' ? s.usePiper : true);
+        (language.code == 'en' ? s.usePiper : !_femaleAlbanian);
     if (wantsOffline && previous.code != language.code && _usePiper) {
       unawaited(warmOfflineVoice());
     }
@@ -217,6 +227,7 @@ class SpeechEngine {
     voice = s.voiceName == null
         ? null
         : DeviceVoice(s.voiceName!, s.voiceLocale ?? '');
+    if (_femaleAlbanian) status.value = 'Shqip · Arta';
   }
 
   /// Installed device voices, English first, sorted by language then name.
@@ -257,6 +268,9 @@ class SpeechEngine {
   String? _bestFor;
   DeviceVoice? _best;
 
+  bool get _femaleAlbanian =>
+      language.code == 'sq' && gender == VoiceGender.female;
+
   Future<DeviceVoice?> _bestVoice() async {
     if (_bestFor == '${language.code}|${gender.name}') return _best;
     final voices = await deviceVoices();
@@ -269,13 +283,13 @@ class SpeechEngine {
               voiceGender(v.name, hint: v.gender) == gender)
             v
       ];
-      if (wanted.isNotEmpty) pool = wanted;
+      if (wanted.isNotEmpty || _femaleAlbanian) pool = wanted;
     }
     final pick = bestVoice(language, pool.map((v) => v.info));
     _best = pick == null
         ? null
-        : voices.firstWhere(
-            (v) => v.name == pick.name && v.locale == pick.locale);
+        : voices
+            .firstWhere((v) => v.name == pick.name && v.locale == pick.locale);
     _bestFor = '${language.code}|${gender.name}';
     return _best;
   }
@@ -284,12 +298,18 @@ class SpeechEngine {
   /// otherwise the most natural installed voice for the language (so French
   /// words are never read by an English voice). Falls back to the device's
   /// default for the language, e.g. Albanian on iPhone.
-  Future<void> _applyVoice() async {
+  Future<bool> _applyVoice() async {
     var wanted = voice;
     if (wanted != null && !voiceSpeaks(language, wanted.locale)) wanted = null;
+    if (_femaleAlbanian &&
+        wanted != null &&
+        voiceGender(wanted.name, hint: wanted.gender) != VoiceGender.female) {
+      wanted = null;
+    }
     wanted ??= await _bestVoice();
+    if (_femaleAlbanian && wanted == null) return false;
     final key = '${language.code}|${wanted?.name}|${wanted?.locale}';
-    if (key == _appliedKey) return;
+    if (key == _appliedKey) return true;
     if (wanted == null) {
       try {
         await _tts.clearVoice();
@@ -304,19 +324,22 @@ class SpeechEngine {
       }
     } else {
       try {
-        await _tts.setVoice({'name': wanted.name, 'locale': wanted.locale});
+        final result =
+            await _tts.setVoice({'name': wanted.name, 'locale': wanted.locale});
+        if (_femaleAlbanian && (result == false || result == 0)) return false;
       } catch (_) {
+        if (_femaleAlbanian) return false;
         // An uninstalled voice must not silence the app: keep the default.
       }
     }
     _resolved = wanted;
     _appliedKey = key;
+    return true;
   }
 
   Future<void> _initialize() async {
     _tts.setErrorHandler((message) {
-      error.value =
-          'Speech unavailable. Check your device voices and volume.';
+      error.value = 'Speech unavailable. Check your device voices and volume.';
       _initializing = null;
     });
     try {
@@ -359,15 +382,20 @@ class SpeechEngine {
     text = speechText(text);
     if (text.isEmpty) return Future.value();
     // Piper synthesis takes time: a newer tap replaces queued/stale speech.
-    if (_usePiper || interrupt || VoiceClips.available) _generation++;
-    if (interrupt) unawaited(_clipPlayer?.stop());
+    if (interrupt) {
+      unawaited(stop());
+    } else if (_usePiper || VoiceClips.languages.contains(language.code)) {
+      _generation++;
+    }
     final generation = _generation;
     final requestedRate = (style?.rate ?? rate).clamp(0.0, 1.0);
     final requestedPitch = (style?.pitch ?? pitch).clamp(0.5, 2.0);
     final requestedVolume = (style?.volume ?? volume).clamp(0.0, 1.0);
     _pending = _pending.then((_) async {
+      await _stopping;
       if (generation != _generation) return;
       if (callSpeech &&
+          !VoiceClips.languages.contains(language.code) &&
           await _speakIntoCalls(text.trim(), requestedRate, requestedPitch,
               requestedVolume, interrupt)) {
         error.value = null;
@@ -376,19 +404,26 @@ class SpeechEngine {
       // Board words in a language with recordings (Albanian) play the
       // recordings: made with the reference Piper program, they say each
       // word completely. The live voice covers typed text.
-      final clips = VoiceClips.clipsFor(text);
+      final code = language.code;
+      final female = gender == VoiceGender.female;
+      await VoiceClips.load(code, female: female);
+      if (generation != _generation) return;
+      final clips = VoiceClips.clipsFor(text, code, female: female);
       if (clips != null) {
         try {
-          await _offline.stop();
-        } catch (_) {}
-        try {
-          await _tts.stop();
-        } catch (_) {}
-        if (await _speakClips(clips, requestedRate, requestedVolume,
-            () => generation == _generation)) {
-          error.value = null;
-          return;
+          await _stopOutputs(
+              stopCalls: false, stopClips: false, offline: _packVoices[code]);
+          if (generation != _generation) return;
+          await _speakClips(clips, requestedRate, requestedVolume,
+              () => generation == _generation);
+          if (generation == _generation) error.value = null;
+        } catch (_) {
+          if (generation == _generation) {
+            error.value =
+                'Speech unavailable. Check your device voices and volume.';
+          }
         }
+        return;
       }
       if (_usePiper && _offlineReady && requestedPitch == 1.0) {
         try {
@@ -401,7 +436,8 @@ class SpeechEngine {
               volume: requestedVolume,
               isCurrent: () => generation == _generation);
           if (generation == _generation) {
-            status.value = '${I18n.t('Offline voice')}: US English';
+            status.value =
+                '${I18n.t('Offline voice')}: ${piperPacks[code]?.name ?? code}';
             error.value = null;
           }
           return;
@@ -422,7 +458,12 @@ class SpeechEngine {
         try {
           await ensure();
           if (generation != _generation) return;
-          await _applyVoice();
+          if (!await _applyVoice()) {
+            if (generation == _generation) {
+              error.value = femaleAlbanianUnavailable;
+            }
+            return;
+          }
           await _tts.setSpeechRate(requestedRate);
           await _tts.setPitch(requestedPitch);
           await _tts.setVolume(requestedVolume);
@@ -444,24 +485,36 @@ class SpeechEngine {
           _appliedKey = null;
         }
       }
-      error.value =
-          'Speech unavailable. Check your device voices and volume.';
+      error.value = 'Speech unavailable. Check your device voices and volume.';
     });
     return _pending;
   }
 
-  Future<void> stop() async {
+  Future<void> stop() {
     _generation++;
-    if (callSpeech) {
+    final clip = _clipCompletion;
+    if (clip != null && !clip.isCompleted) clip.complete();
+    final stopCalls = callSpeech;
+    final offline =
+        language.code == 'en' ? _offlineVoice : _packVoices[language.code];
+    return _stopping = _stopping
+        .then((_) => _stopOutputs(stopCalls: stopCalls, offline: offline));
+  }
+
+  Future<void> _stopOutputs(
+      {required bool stopCalls,
+      bool stopClips = true,
+      OfflineSpeechVoice? offline}) async {
+    if (stopCalls) {
       try {
         await _callChannel.invokeMethod('stop');
       } catch (_) {}
     }
     try {
-      await _offline.stop();
+      await offline?.stop();
     } catch (_) {}
     try {
-      await _clipPlayer?.stop();
+      if (stopClips) await _clipPlayer?.stop();
     } catch (_) {}
     try {
       await _tts.stop();
@@ -472,7 +525,10 @@ class SpeechEngine {
     await stop();
     await _warming;
     await _pending;
-    await _offline.dispose();
+    await _clipPlayer?.dispose();
+    for (final voice in {_offlineVoice, ..._packVoices.values}) {
+      await voice.dispose();
+    }
     error.dispose();
     status.dispose();
   }

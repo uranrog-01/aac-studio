@@ -96,13 +96,13 @@ class MessageBar extends StatelessWidget {
                       disabledForegroundColor: const Color(0xFF65717D),
                       padding: const EdgeInsets.all(4),
                       shape: const RoundedRectangleBorder(),
-                      textStyle: const TextStyle(
-                          fontSize: 13, fontWeight: FontWeight.w700),
                     ),
                     child: Column(mainAxisSize: MainAxisSize.min, children: [
                       const Icon(Icons.fit_screen, size: 22),
                       const SizedBox(height: 2),
                       Text(I18n.t('Show'),
+                          style: const TextStyle(
+                              fontSize: 13, fontWeight: FontWeight.w700),
                           maxLines: 1, overflow: TextOverflow.ellipsis),
                     ]),
                   ),

@@ -96,7 +96,7 @@ class _StudioHomeState extends State<StudioHome> {
                             fontWeight: FontWeight.w800,
                             fontSize: 18,
                             letterSpacing: 1.2)),
-                    Text('v1.10.0 · modern flat',
+                    Text('v1.11.0 · modern flat',
                         style: TextStyle(color: Colors.white38, fontSize: 10)),
                   ]),
             ]),
@@ -157,16 +157,21 @@ class _StudioHomeState extends State<StudioHome> {
             leading: const Icon(Icons.tune, color: Colors.white54, size: 18),
             title: const Text('⚙️ Settings',
                 style: TextStyle(color: Colors.white70, fontSize: 13)),
-            onTap: () => SettingsSheet.show(
-              context,
-              speech: context.read<SpeechEngine>(),
-              settings: context.read<SettingsController>().settings,
-              onChanged: () {
-                final sc = context.read<SettingsController>();
-                context.read<SpeechEngine>().configure(sc.settings);
-                sc.update();
-              },
-            ),
+            onTap: () async {
+              final sc = context.read<SettingsController>();
+              if ((sc.restrictionsEnabled || sc.settings.lockApp) &&
+                  !await sc.guardPrivileged(context)) {
+                return;
+              }
+              if (!mounted) return;
+              SettingsSheet.show(
+                context,
+                speech: context.read<SpeechEngine>(),
+                settings: sc.settings,
+                settingsController: sc,
+                onChanged: sc.update,
+              );
+            },
           ),
           if (_isDesktop) ...[
             const Divider(color: Colors.white12),

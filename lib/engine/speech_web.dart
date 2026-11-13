@@ -63,12 +63,21 @@ class SpeechEngine {
   VoiceGender gender = VoiceGender.unknown;
 
   void configure(AppSettings settings) {
-    language = languageFor(settings.language);
-    gender = settings.voiceGender == 'female'
+    final nextLanguage = languageFor(settings.language);
+    final nextGender = settings.voiceGender == 'female'
         ? VoiceGender.female
         : settings.voiceGender == 'male'
             ? VoiceGender.male
             : VoiceGender.unknown;
+    if (language.code != nextLanguage.code ||
+        gender != nextGender ||
+        voice?.name != settings.voiceName ||
+        voice?.locale != settings.voiceLocale) {
+      _stop();
+      error.value = null;
+    }
+    language = nextLanguage;
+    gender = nextGender;
     rate = settings.rate;
     pitch = settings.pitch;
     volume = settings.volume;
@@ -91,12 +100,12 @@ class SpeechEngine {
         .toDart
         .map((v) => DeviceVoice(v.name, v.lang, needsInternet: !v.localService))
         .toList();
-    voices.sort((a, b) => voiceSpeaks(language, a.locale) !=
-            voiceSpeaks(language, b.locale)
-        ? (voiceSpeaks(language, a.locale) ? -1 : 1)
-        : a.isEnglish != b.isEnglish
-        ? (a.isEnglish ? -1 : 1)
-        : a.name.compareTo(b.name));
+    voices.sort((a, b) =>
+        voiceSpeaks(language, a.locale) != voiceSpeaks(language, b.locale)
+            ? (voiceSpeaks(language, a.locale) ? -1 : 1)
+            : a.isEnglish != b.isEnglish
+                ? (a.isEnglish ? -1 : 1)
+                : a.name.compareTo(b.name));
     return voices;
   }
 
@@ -106,14 +115,36 @@ class SpeechEngine {
     text = speechText(text);
     if (text.isEmpty) return Future.value();
     try {
+      final femaleAlbanian =
+          language.code == 'sq' && gender == VoiceGender.female;
+      final clips = VoiceClips.clipsFor(text, language.code,
+          female: gender == VoiceGender.female);
+      if (clips != null) {
+        _playClips(
+            [for (final c in clips) 'assets/assets/$c'.toJS].toJS,
+            (style?.rate ?? rate).clamp(0, 1).toDouble(),
+            (style?.volume ?? volume).clamp(0, 1).toDouble());
+        error.value = null;
+        return Future.value();
+      }
       if (!_available) throw StateError('No browser speech');
       // The chosen voice if it speaks this language, else the most natural
       // browser voice for the language (never an English voice for French).
       var use = voice;
+      if (femaleAlbanian &&
+          use != null &&
+          voiceGender(use.name) != VoiceGender.female) {
+        use = null;
+      }
       if (use == null || !voiceSpeaks(language, use.locale)) {
         var pool = [
           for (final v in _voices().toDart)
-            (name: v.name, locale: v.lang, quality: '', network: !v.localService)
+            (
+              name: v.name,
+              locale: v.lang,
+              quality: '',
+              network: !v.localService
+            )
         ];
         // Female or male, when asked for and the browser has such a voice.
         if (gender != VoiceGender.unknown) {
@@ -123,21 +154,14 @@ class SpeechEngine {
                   voiceGender(v.name) == gender)
                 v
           ];
-          if (wanted.isNotEmpty) pool = wanted;
+          if (wanted.isNotEmpty || femaleAlbanian) pool = wanted;
         }
         final pick = bestVoice(language, pool);
         use = pick == null ? null : DeviceVoice(pick.name, pick.locale);
       }
-      // No browser voice for the language (Albanian in Safari and Chrome):
-      // play the app's recordings of the words, started in this same tap
-      // so Safari allows the sound. Never an English voice for Albanian.
-      final clips = use == null ? VoiceClips.clipsFor(text) : null;
-      if (clips != null) {
-        _playClips(
-            [for (final c in clips) 'assets/assets/$c'.toJS].toJS,
-            (style?.rate ?? rate).clamp(0, 1).toDouble(),
-            (style?.volume ?? volume).clamp(0, 1).toDouble());
-        error.value = null;
+      if (femaleAlbanian && use == null) {
+        _stop();
+        error.value = femaleAlbanianUnavailable;
         return Future.value();
       }
       _speak(
@@ -155,7 +179,7 @@ class SpeechEngine {
   }
 
   Future<void> stop() async {
-    if (_available) _stop();
+    _stop();
   }
 
   Future<void> dispose() async {

@@ -34025,6 +34025,54 @@
     "symbolPack": "mulberry",
     "symbolKey": "why"
    }
+  ],
+  "game_popit": [
+   {
+    "label": "pop it",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-pop-it"
+   }
+  ],
+  "game_slime": [
+   {
+    "label": "slime",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-slime"
+   }
+  ],
+  "game_sand": [
+   {
+    "label": "sand",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-sand-art"
+   }
+  ],
+  "game_marbling": [
+   {
+    "label": "paint swirl",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-paint-swirl"
+   }
+  ],
+  "game_hear": [
+   {
+    "label": "tap and hear",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-speaking-head"
+   }
+  ],
+  "game_pairs": [
+   {
+    "label": "match pairs",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-match-pairs"
+   }
   ]
  },
  "folders": {

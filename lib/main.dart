@@ -60,7 +60,7 @@ Future<void> main() async {
 
 Future<void> _start() async {
   LicenseRegistry.addLicense(() async* {
-    yield LicenseEntryWithLineBreaks(['Piper LJ Speech offline voice'],
+    yield LicenseEntryWithLineBreaks(['AAC Studio voices'],
         await rootBundle.loadString('assets/voices/NOTICE.txt'));
   });
   // SQLite on desktop (P2G Explorer research viewer); mobile uses plugins.
@@ -76,8 +76,7 @@ Future<void> _start() async {
   await predictor.load();
   await predictor.loadLearned(StorageProviderAdapter(storage));
   predictor.setLanguage(I18n.language.code, I18n.boardWords);
-  await VoiceClips.load(settings.settings.language,
-      female: settings.settings.voiceGender == 'female');
+  await VoiceClips.preload();
 
   final library = SymbolLibrary();
   await library.load();
@@ -90,16 +89,16 @@ Future<void> _start() async {
   // Warm up the TTS engine before the first tap (first-tap silence on
   // Android/Fire otherwise).
   final speech = SpeechEngine();
+  var requestedLanguage = I18n.language.code;
   void syncSpeech() {
     speech.configure(settings.settings);
     SymbolLibrary.skinTone = settings.settings.skinTone;
     I18n.setFemale(settings.settings.speakerFemale);
-    if (settings.settings.language != I18n.language.code) {
-      I18n.load(settings.settings.language).then(
+    if (settings.settings.language != requestedLanguage) {
+      requestedLanguage = settings.settings.language;
+      I18n.load(requestedLanguage).then(
           (_) => predictor.setLanguage(I18n.language.code, I18n.boardWords));
     }
-    VoiceClips.load(settings.settings.language,
-        female: settings.settings.voiceGender == 'female');
   }
 
   syncSpeech();
@@ -186,10 +185,8 @@ class StudioApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
         ),
-        // A new key rebuilds every word in the new language.
-        home: _isMobile
-            ? AppShell(key: ValueKey(I18n.changes.value))
-            : desktop.studioHome(),
+        // Redraw localized text without replacing the current board session.
+        home: _isMobile ? const AppShell() : desktop.studioHome(),
       ),
       ),
     );

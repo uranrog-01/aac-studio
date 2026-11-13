@@ -84,14 +84,15 @@ class _KeyboardViewState extends State<KeyboardView> {
     _set(words.isEmpty ? '' : '${words.join(' ')} ');
   }
 
+  String _keyLabel(String key) {
+    if (!_uppercase) return key;
+    if (key == ',' || key == '،') return I18n.language.rightToLeft ? '؟' : '?';
+    if (key == '.') return '!';
+    return key.toUpperCase();
+  }
+
   void _typeKey(String key) {
-    final typed = _uppercase
-        ? (key == ','
-            ? '?'
-            : key == '.'
-                ? '!'
-                : key.toUpperCase())
-        : key;
+    final typed = _keyLabel(key);
     _insert(typed);
     if (_uppercase && !RegExp(r'^[0-9]$').hasMatch(key)) {
       setState(() => _uppercase = false);
@@ -116,10 +117,9 @@ class _KeyboardViewState extends State<KeyboardView> {
   /// suggestion), straight from the key tap so Safari allows the speech.
   void _sayFinishedWord() {
     if (widget.typingSpeech == 'off') return;
-    final word =
-        RegExp(r"([\p{L}\p{N}']+)[^\p{L}\p{N}']*$", unicode: true)
-            .firstMatch(_text)
-            ?.group(1);
+    final word = RegExp(r"([\p{L}\p{N}']+)[^\p{L}\p{N}']*$", unicode: true)
+        .firstMatch(_text)
+        ?.group(1);
     if (word != null) widget.speech.speak(word, interrupt: true);
   }
 
@@ -133,10 +133,8 @@ class _KeyboardViewState extends State<KeyboardView> {
   @override
   Widget build(BuildContext context) {
     final lang = I18n.language;
-    final prefix = RegExp(r"[\p{L}']+$", unicode: true)
-            .firstMatch(_text)
-            ?.group(0) ??
-        '';
+    final prefix =
+        RegExp(r"[\p{L}']+$", unicode: true).firstMatch(_text)?.group(0) ?? '';
     // English uses a frequency word list; other languages suggest the
     // board's own words in that language and the person's learned words.
     final suggestions = prefix.isEmpty
@@ -148,142 +146,139 @@ class _KeyboardViewState extends State<KeyboardView> {
                 ? '${word[0].toUpperCase()}${word.substring(1)}'
                 : word)
             .toList();
+    final header = <Widget>[
+      MessageBar(
+        message: _text,
+        placeholder: 'Type your message',
+        showCursor: true,
+        onSpeak: widget.onSpeak,
+        onDeleteWord: _deleteWord,
+        onShow: widget.onShow,
+      ),
+      ValueListenableBuilder<String?>(
+        valueListenable: widget.speech.error,
+        builder: (context, error, _) => error == null
+            ? const SizedBox.shrink()
+            : Padding(
+                padding: const EdgeInsets.all(8),
+                child: Text(I18n.t(error),
+                    style: const TextStyle(color: Colors.white))),
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
+        child: Row(children: [
+          ToolbarButton(icon: Icons.arrow_back, label: 'Back', onTap: _close),
+          ToolbarButton(
+              icon: Icons.volume_up,
+              label: 'Speak',
+              onTap: widget.onSpeak,
+              color: const Color(0xFF2E7D32)),
+          if (widget.onPhrases != null)
+            ToolbarButton(
+                icon: Icons.star_outline,
+                label: 'Phrases',
+                onTap: widget.onPhrases),
+          ToolbarButton(
+              icon: Icons.clear_all,
+              label: 'Clear',
+              onTap: _text.isEmpty ? null : () => _set('')),
+        ]),
+      ),
+      if (suggestions.isNotEmpty)
+        SizedBox(
+            height: 44,
+            child: Row(children: [
+              for (final word in suggestions)
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 3),
+                  child: _key(word, () {
+                    _set('${_text.substring(0, _text.length - prefix.length)}'
+                        '$word ');
+                    _sayFinishedWord();
+                  }, suggestion: true),
+                )),
+            ])),
+    ];
+    final controls = Padding(
+        padding: const EdgeInsets.fromLTRB(6, 4, 6, 6),
+        child: SizedBox(
+            height: 52,
+            child: Row(children: [
+              Expanded(
+                  flex: 2,
+                  child: _key('Speak', widget.onSpeak, icon: Icons.volume_up)),
+              const SizedBox(width: 6),
+              Expanded(
+                  flex: 3,
+                  child: _key(I18n.t('Space'), _space, semantics: 'Space')),
+              const SizedBox(width: 6),
+              Expanded(
+                  flex: 2,
+                  child: _key('Delete', _backspace,
+                      icon: Icons.backspace_outlined)),
+            ])));
+    final rows = lang.keyboardRows;
     return Scaffold(
       backgroundColor: const Color(0xFF2B2F36),
       body: SafeArea(
-          child: Column(children: [
-        MessageBar(
-          message: _text,
-          placeholder: 'Type your message',
-          showCursor: true,
-          onSpeak: widget.onSpeak,
-          onDeleteWord: _deleteWord,
-          onShow: widget.onShow,
-        ),
-        ValueListenableBuilder<String?>(
-          valueListenable: widget.speech.error,
-          builder: (context, error, _) => error == null
-              ? const SizedBox.shrink()
-              : Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Text(I18n.t(error),
-                      style: const TextStyle(color: Colors.white))),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 5),
-          child: Row(children: [
-            ToolbarButton(icon: Icons.arrow_back, label: 'Back', onTap: _close),
-            ToolbarButton(
-                icon: Icons.volume_up,
-                label: 'Speak',
-                onTap: widget.onSpeak,
-                color: const Color(0xFF2E7D32)),
-            if (widget.onPhrases != null)
-              ToolbarButton(
-                  icon: Icons.star_outline,
-                  label: 'Phrases',
-                  onTap: widget.onPhrases),
-            ToolbarButton(
-                icon: Icons.clear_all,
-                label: 'Clear',
-                onTap: _text.isEmpty ? null : () => _set('')),
-          ]),
-        ),
-        if (suggestions.isNotEmpty)
-          SizedBox(
-              height: 44,
-              child: Row(children: [
-                for (final word in suggestions)
-                  Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 3),
-                    child: _key(word, () {
-                      _set('${_text.substring(0, _text.length - prefix.length)}'
-                          '$word ');
-                      _sayFinishedWord();
-                    }, suggestion: true),
-                  )),
-              ])),
-        if (!lang.usesOwnKeyboard)
-          // Chinese, Japanese and Hindi are typed with the device keyboard.
-          Expanded(child: _deviceKeyboardField())
-        else
-          Expanded(child: LayoutBuilder(builder: (context, constraints) {
-          final rows = [
-            if (lang.extraLetters!.isNotEmpty) lang.extraLetters!,
-            '1234567890',
-            'qwertyuiop',
-            "asdfghjkl'",
-            'zxcvbnm,.'
-          ];
-          // Bigger keys on tall phones: easier to hit.
-          final height =
-              ((constraints.maxHeight - 6 * rows.length) / rows.length)
-                  .clamp(40.0, 84.0);
-          return Align(
-              alignment: Alignment.bottomCenter,
-              child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: Column(children: [
-                    for (final row in rows)
-                      Padding(
-                          padding: const EdgeInsets.only(bottom: 6),
-                          child: SizedBox(
-                              height: height,
-                              child: Row(children: [
-                                if (row.startsWith('z'))
-                                  Expanded(
-                                      child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 2),
-                                          child: _key(
-                                              'Shift',
-                                              () => setState(() =>
-                                                  _uppercase = !_uppercase),
-                                              icon: Icons.keyboard_arrow_up,
-                                              selected: _uppercase))),
-                                for (final letter in row.split(''))
-                                  Expanded(
-                                      child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 2),
-                                          child: _key(
-                                              _uppercase
-                                                  ? (letter == ','
-                                                      ? '?'
-                                                      : letter == '.'
-                                                          ? '!'
-                                                          : letter
-                                                              .toUpperCase())
-                                                  : letter,
-                                              () => _typeKey(letter)))),
-                              ]))),
-                  ])));
-        })),
-        Padding(
-            padding: const EdgeInsets.fromLTRB(6, 4, 6, 6),
-            child: SizedBox(
-                height: 52,
-                child: Row(children: [
-                  Expanded(
-                      flex: 2,
-                      child: _key('Speak', widget.onSpeak,
-                          icon: Icons.volume_up)),
-                  const SizedBox(width: 6),
-                  Expanded(
-                      flex: 3,
-                      child: _key(I18n.t('Space'), _space, semantics: 'Space')),
-                  const SizedBox(width: 6),
-                  Expanded(
-                      flex: 2,
-                      child: _key('Delete', _backspace,
-                          icon: Icons.backspace_outlined)),
-                ]))),
-      ])),
+        child: rows == null
+            ? ListView(children: [...header, _deviceKeyboardField(), controls])
+            : Column(children: [
+                ...header,
+                Expanded(child: _letterKeys(rows, lang.extraLetters)),
+                controls,
+              ]),
+      ),
     );
   }
 
-  /// Device keyboard (any script). Text goes into the same message.
+  Widget _letterKeys(List<String> letters, String accents) {
+    final rows = [
+      '1234567890',
+      ...letters,
+      if (accents.isNotEmpty) accents,
+    ];
+    return LayoutBuilder(builder: (context, constraints) {
+      final height = ((constraints.maxHeight - 6 * rows.length) / rows.length)
+          .clamp(40.0, 84.0);
+      return Align(
+        alignment: Alignment.bottomCenter,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: Column(children: [
+            for (var row = 0; row < rows.length; row++)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: SizedBox(
+                  height: height,
+                  child: Row(children: [
+                    if (row == letters.length)
+                      _rowKey(_key(
+                        'Shift',
+                        () => setState(() => _uppercase = !_uppercase),
+                        icon: Icons.keyboard_arrow_up,
+                        selected: _uppercase,
+                      )),
+                    for (final key in rows[row].characters)
+                      _rowKey(_key(_keyLabel(key), () => _typeKey(key))),
+                  ]),
+                ),
+              ),
+          ]),
+        ),
+      );
+    });
+  }
+
+  Widget _rowKey(Widget key) => Expanded(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 2),
+          child: key,
+        ),
+      );
+
+  /// Device input methods handle composing characters in this script.
   Widget _deviceKeyboardField() => Padding(
         padding: const EdgeInsets.all(8),
         child: Column(children: [
@@ -295,13 +290,24 @@ class _KeyboardViewState extends State<KeyboardView> {
               autofocus: true,
               minLines: 1,
               maxLines: 3,
+              textInputAction: TextInputAction.done,
               style: const TextStyle(fontSize: 22, color: Colors.black87),
               decoration: InputDecoration(
-                  hintText: I18n.t('Type your message'),
-                  border: InputBorder.none,
-                  contentPadding: const EdgeInsets.all(14)),
+                hintText: I18n.t('Type your message'),
+                hintStyle: const TextStyle(color: Colors.black54),
+                border: InputBorder.none,
+                contentPadding: const EdgeInsets.all(14),
+              ),
               onSubmitted: (_) => _addDeviceText(),
             ),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            height: 48,
+            child: Row(children: [
+              for (final digit in '1234567890'.characters)
+                _rowKey(_key(digit, () => _insertDeviceDigit(digit))),
+            ]),
           ),
           const SizedBox(height: 8),
           SizedBox(
@@ -312,6 +318,17 @@ class _KeyboardViewState extends State<KeyboardView> {
           ),
         ]),
       );
+
+  void _insertDeviceDigit(String digit) {
+    final input = _deviceText.value;
+    final selection = input.selection;
+    final start = selection.isValid ? selection.start : input.text.length;
+    final end = selection.isValid ? selection.end : start;
+    _deviceText.value = TextEditingValue(
+      text: input.text.replaceRange(start, end, digit),
+      selection: TextSelection.collapsed(offset: start + digit.length),
+    );
+  }
 
   final TextEditingController _deviceText = TextEditingController();
 
@@ -326,7 +343,9 @@ class _KeyboardViewState extends State<KeyboardView> {
     if (text.isEmpty) return;
     _insert('$text ');
     _deviceText.clear();
-    widget.speech.speak(text, interrupt: true);
+    if (widget.typingSpeech != 'off') {
+      widget.speech.speak(text, interrupt: true);
+    }
   }
 
   Widget _key(String label, VoidCallback onTap,

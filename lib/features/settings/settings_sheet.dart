@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import '../../engine/i18n.dart';
 import '../../engine/screen_mode.dart';
 import '../../engine/voice_downloads.dart';
-import 'package:flutter/services.dart';
 
 import '../../engine/settings_controller.dart';
 import '../../engine/speech.dart';
@@ -89,6 +88,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
   @override
   Widget build(BuildContext context) {
     final s = widget.settings;
+    final lockController = widget.settingsController;
     final iOS = !kIsWeb && defaultTargetPlatform == TargetPlatform.iOS;
     return Padding(
       padding:
@@ -131,7 +131,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                         'voice built into the app, so they sound right even when '
                         'this device has no voice for the language.'),
                   if (SpeechEngine.hasOfflineVoice(s.language) &&
-                      s.language != 'en')
+                      s.language != 'en' && s.voiceGender != 'female')
                     _offlineVoiceCard()
                   else
                     _voiceStatus(),
@@ -153,8 +153,6 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     s.voiceLocale = null;
                     if (v == 'male' && s.language == 'en') s.usePiper = false;
                     _changed();
-                    VoiceClips.load(s.language, female: v == 'female')
-                        .then((_) => _test());
                   }),
                   _slider('Speed', 'Slow', 'Fast', 0.1, 1.0, s.rate, (v) {
                     s.rate = v;
@@ -404,30 +402,37 @@ class _SettingsSheetState extends State<SettingsSheet> {
                   _note('Start small and show more as the person learns. '
                       'Words keep their places; new rows appear below.'),
                   _header('Safety'),
-                  _asyncSwitch('Lock the app on the screen', s.lockApp,
-                      'The person cannot leave or close the app', (v) async {
-                    // Locking is free; unlocking always needs the code.
-                    if (!v && !await _verifyPin(s.pin)) return;
-                    s.lockApp = v;
-                    _changed();
-                    await AppLock.apply(v);
-                  }),
-                  _note(AppLock.canPin
-                      ? 'Android asks once to pin the app. To unlock: More > '
-                          'Unlock the app, then the code. For the strongest '
-                          'lock, turn on "Ask for PIN before unpinning" in '
-                          'the Android settings.'
-                      : AppLock.isApple
-                          ? 'Back no longer leaves the app. To unlock: More > '
-                              'Unlock the app, then the code. On iPhone and '
-                              'iPad also start Guided Access: Settings > '
-                              'Accessibility > Guided Access, then '
-                              'triple-click the side or Home button.'
-                          : 'Back no longer leaves the app. To unlock: More > '
-                              'Unlock the app, then the code. A browser or '
-                              'computer cannot stop someone from switching '
-                              'apps; use the phone or tablet app for a full '
-                              'lock.'),
+                  if (lockController != null) ...[
+                    _asyncSwitch('Caregiver lock', s.lockApp,
+                        'Protects Settings with the caregiver code', (v) async {
+                      await lockController.changeAppLock(context, v,
+                          onLocked: () {
+                        if (ModalRoute.of(context)?.isCurrent == true) {
+                          Navigator.of(context).pop();
+                        }
+                      });
+                      if (mounted) setState(() {});
+                    }),
+                    if (AppLock.canPin)
+                      ValueListenableBuilder<bool?>(
+                        valueListenable: lockController.screenPinning,
+                        builder: (context, pinned, _) => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _note(AppLock.statusLabel(pinned)),
+                            if (s.lockApp && pinned != true)
+                              TextButton.icon(
+                                onPressed: lockController.pinScreen,
+                                icon: const Icon(Icons.push_pin_outlined),
+                                label: Text(I18n.t('Pin screen')),
+                              ),
+                          ],
+                        ),
+                      )
+                    else if (AppLock.isApple)
+                      _note('Use Guided Access in Settings > Accessibility to '
+                          'keep the app on screen.'),
+                  ],
                   _asyncSwitch(
                       'Lock settings with a code',
                       // The code itself is never shown: the person using
@@ -435,26 +440,24 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       s.restrictionsEnabled,
                       'Asks for the code before Settings and edit mode',
                       (v) async {
-                    if (!v && !await _verifyPin(s.pin)) return;
+                    if (!v &&
+                        !await SettingsController.confirmPin(context, s.pin)) {
+                      return;
+                    }
+                    if (!mounted) return;
                     s.restrictionsEnabled = v;
                     if (!v) s.editMode = false;
                     _changed();
                   }),
-                  Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: TextButton.icon(
-                      onPressed: () async {
-                        final pin = await _askPin(
-                            I18n.t('Set a new 4-digit code'),
-                            current: s.pin);
-                        if (pin == null) return;
-                        s.pin = pin;
-                        _changed();
-                      },
-                      icon: const Icon(Icons.password, size: 18),
-                      label: Text(I18n.t('Change code')),
+                  if (lockController != null)
+                    Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: TextButton.icon(
+                        onPressed: () => lockController.changePin(context),
+                        icon: const Icon(Icons.password, size: 18),
+                        label: Text(I18n.t('Change code')),
+                      ),
                     ),
-                  ),
                   _more([
                     if (widget.settingsController != null)
                       Align(
@@ -501,7 +504,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                           onPressed: () => showLicensePage(
                               context: context,
                               applicationName: 'AAC Studio',
-                              applicationVersion: '1.10.0'),
+                              applicationVersion: '1.11.0'),
                           child: Text(I18n.t('Voice and software licenses'))),
                     ]),
                   ]),
@@ -660,7 +663,9 @@ class _SettingsSheetState extends State<SettingsSheet> {
     _changed();
   }
 
-  void _test() => widget.speech.speak(I18n.t(_sample),
+  void _test() => widget.speech.speak(
+      widget.settings.language == 'sq' ? 'Përshëndetje' : I18n.t(_sample),
+      interrupt: true,
       style: VoiceStyle(
           rate: widget.settings.rate,
           pitch: widget.settings.pitch,
@@ -954,68 +959,6 @@ class _SettingsSheetState extends State<SettingsSheet> {
         ],
       ),
     ]);
-  }
-
-  Future<String?> _askPin(String title, {String? current}) async {
-    final c = TextEditingController(text: current ?? '');
-    final ok = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF2A2E35),
-        title: Text(title,
-            style: const TextStyle(color: Colors.white, fontSize: 16)),
-        content: TextField(
-          controller: c,
-          autofocus: true,
-          keyboardType: TextInputType.number,
-          obscureText: true,
-          maxLength: 4,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          style: const TextStyle(color: Colors.white),
-          decoration: const InputDecoration(hintText: '••••'),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, false),
-              child: Text(I18n.t('Cancel'))),
-          FilledButton(
-              onPressed: () => Navigator.pop(ctx, true),
-              child: Text(I18n.t('OK'))),
-        ],
-      ),
-    );
-    if (ok != true) return null;
-    return (c.text.length == 4) ? c.text : null;
-  }
-
-  Future<bool> _verifyPin(String correct) async {
-    final c = TextEditingController();
-    final ok = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF2A2E35),
-        title: Text(I18n.t('Enter code'),
-            style: const TextStyle(color: Colors.white, fontSize: 16)),
-        content: TextField(
-          controller: c,
-          autofocus: true,
-          keyboardType: TextInputType.number,
-          obscureText: true,
-          maxLength: 4,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          style: const TextStyle(color: Colors.white),
-        ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, false),
-              child: Text(I18n.t('Cancel'))),
-          FilledButton(
-              onPressed: () => Navigator.pop(ctx, true),
-              child: Text(I18n.t('OK'))),
-        ],
-      ),
-    );
-    return ok == true && c.text == correct;
   }
 }
 
