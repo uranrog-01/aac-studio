@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/aac-studio/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="description" content="Pictures, words and a voice for everyday communication.">
+  <meta name="theme-color" content="#2B2F36">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AAC Studio">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <title>AAC Studio</title>
+  <style>
+    html,body { margin:0; height:100%; background:#2B2F36; color:#fff; font:16px system-ui,sans-serif; }
+    #loading { position:fixed; inset:0; display:grid; place-content:center; padding:24px; text-align:center; }
+    #loading img { width:80px; height:80px; margin:0 auto 16px; border-radius:18px; }
+    #loading h1 { font-size:24px; margin:0 0 8px; }
+    #loading p { max-width:340px; line-height:1.5; color:#ddd; }
+    #save-error { position:fixed; z-index:99999; bottom:0; padding:12px; background:#702c15; color:white; }
+    #update-ready { position:fixed; z-index:99999; top:0; padding:12px; background:#185b40; color:white; }
+  </style>
+</head>
+<body>
+  <div id="loading" role="status">
+    <img src="icons/Icon-192.png" alt="">
+    <h1>AAC Studio</h1>
+    <p id="loading-text">Opening your communication boards…<br>The first visit needs an internet connection.</p>
+    <noscript>Enable JavaScript in Safari to use AAC Studio.</noscript>
+  </div>
+  <div id="save-error" role="alert" hidden></div>
+  <div id="update-ready" role="status" hidden>A new version is ready. Finish your message, then <button id="reload-app" type="button">Reload app</button>.</div>
+  <script src="picture_cache.03101d6aa0a43f05f7c1.js"></script>
+  <script src="app_bridge.2de35bd5278791113a26.js"></script>
+  <script src="flutter_bootstrap.2de35bd5278791113a26.js" async></script>
+</body>
+</html>
