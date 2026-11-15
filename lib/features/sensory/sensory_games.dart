@@ -3,21 +3,19 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'dart:typed_data';
 import 'dart:ui' show PointMode;
+import 'dart:ui' as ui;
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 import '../../engine/i18n.dart';
-import '../../engine/settings_controller.dart';
-import '../../engine/speech_provider.dart';
-import '../../engine/symbol_library.dart';
-import '../../models/domain.dart';
 
 part 'sensory_games_more.dart';
+part 'sensory_games_3d.dart';
+part 'sensory_games_satisfying.dart';
 
 /// Sensory games for regulation and cause-and-effect play, made for
 /// autistic users: slow, predictable movement, soft glowing colours, an
@@ -29,12 +27,16 @@ part 'sensory_games_more.dart';
 class SensoryGame {
   final String id;
 
+  /// Menu section: satisfying, play or calm.
+  final String section;
+
   /// English board word; shown through I18n.word in the chosen language.
   final String word;
   final IconData icon;
   final Color color;
   final Widget Function() build;
-  const SensoryGame(this.id, this.word, this.icon, this.color, this.build);
+  const SensoryGame(this.id, this.word, this.icon, this.color, this.build,
+      {this.section = 'play'});
 }
 
 /// Turns every game sound on or off (the speaker button in the menu).
@@ -42,15 +44,26 @@ set sensorySoundsOn(bool value) => _Sound.on = value;
 bool get sensorySoundsOn => _Sound.on;
 
 final kSensoryGames = <SensoryGame>[
-  // Satisfying: things to press, squeeze, pour and swirl.
+  // Satisfying: things to cut, squish, pour, clean and press.
+  SensoryGame('kineticsand', 'kinetic sand', Icons.landscape, const Color(0xFFE88FB0),
+      () => const _KineticSandGame(), section: 'satisfying'),
+  SensoryGame('soap', 'soap cutting', Icons.content_cut, const Color(0xFF9FA8DA),
+      () => const _SoapGame(), section: 'satisfying'),
+  SensoryGame('beads', 'water beads', Icons.bubble_chart_outlined,
+      const Color(0xFF4FC3F7), () => const _BeadsGame(), section: 'satisfying'),
+  SensoryGame('wash', 'pressure wash', Icons.shower, const Color(0xFF26A69A),
+      () => const _WashGame(), section: 'satisfying'),
+  SensoryGame('cradle', 'swinging balls', Icons.sports_baseball,
+      const Color(0xFF78909C), () => const _CradleGame(), section: 'satisfying'),
   SensoryGame('popit', 'pop it', Icons.grid_on, const Color(0xFFEF5350),
-      () => const _PopItGame()),
+      () => const _PopItGame(), section: 'satisfying'),
   SensoryGame('slime', 'slime', Icons.water_drop, const Color(0xFF26C6DA),
-      () => const _SlimeGame()),
+      () => const _SlimeGame(), section: 'satisfying'),
   SensoryGame('sand', 'sand', Icons.grain, const Color(0xFFD4A04C),
-      () => const _SandGame()),
+      () => const _SandGame(), section: 'satisfying'),
   SensoryGame('marbling', 'paint swirl', Icons.palette, const Color(0xFF5C6BC0),
-      () => const _MarblingGame()),
+      () => const _MarblingGame(), section: 'satisfying'),
+  // Play: light, water, colour and sound.
   SensoryGame('bubbles', 'bubbles', Icons.bubble_chart, const Color(0xFF29B6F6),
       () => const _BubblesGame()),
   SensoryGame('lights', 'light painting', Icons.auto_awesome,
@@ -65,11 +78,13 @@ final kSensoryGames = <SensoryGame>[
       () => const _XylophoneGame()),
   SensoryGame('spinner', 'spinner', Icons.toys, const Color(0xFF66BB6A),
       () => const _SpinnerGame()),
-  // Nonverbal: pictures from the person's own board, spoken aloud.
-  SensoryGame('hear', 'tap and hear', Icons.record_voice_over,
-      const Color(0xFF42A5F5), () => const _HearGame()),
-  SensoryGame('pairs', 'match pairs', Icons.style, const Color(0xFF7E57C2),
-      () => const _PairsGame()),
+  // Calm down: slow, soft scenes with quiet music, for hard moments.
+  SensoryGame('tunnel', 'light tunnel', Icons.lens_blur, const Color(0xFF5C6BC0),
+      () => const _TunnelGame(), section: 'calm'),
+  SensoryGame('aurora', 'northern lights', Icons.nights_stay, const Color(0xFF00897B),
+      () => const _AuroraGame(), section: 'calm'),
+  SensoryGame('jellyfish', 'jellyfish', Icons.water, const Color(0xFF3949AB),
+      () => const _JellyfishGame(), section: 'calm'),
 ];
 
 /// The games menu, or one game when [game] names it (a board button).
@@ -170,8 +185,25 @@ class _SensoryGamesScreenState extends State<SensoryGamesScreen> {
             ]),
           ),
           Expanded(
-            child: GridView.count(
-              padding: const EdgeInsets.fromLTRB(14, 6, 14, 18),
+            child: CustomScrollView(slivers: [
+              for (final (section, title) in [
+                ('satisfying', I18n.t('Satisfying')),
+                ('play', I18n.word('play')),
+                ('calm', I18n.word('Calm down')),
+              ]) ...[
+                SliverPadding(
+                  padding: const EdgeInsets.fromLTRB(18, 10, 18, 8),
+                  sliver: SliverToBoxAdapter(
+                    child: Text(title,
+                        style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700)),
+                  ),
+                ),
+                SliverPadding(
+                  padding: const EdgeInsets.fromLTRB(14, 0, 14, 12),
+                  sliver: SliverGrid.count(
               crossAxisCount: c.maxWidth >= 900
                   ? 4
                   : c.maxWidth >= 560
@@ -181,7 +213,7 @@ class _SensoryGamesScreenState extends State<SensoryGamesScreen> {
               crossAxisSpacing: 14,
               childAspectRatio: 1.15,
               children: [
-                for (final g in kSensoryGames)
+                for (final g in kSensoryGames.where((g) => g.section == section))
                   Material(
                     color: g.color,
                     borderRadius: BorderRadius.circular(26),
@@ -208,7 +240,10 @@ class _SensoryGamesScreenState extends State<SensoryGamesScreen> {
                     ),
                   ),
               ],
-            ),
+                  ),
+                ),
+              ],
+            ]),
           ),
         ]),
       );
@@ -316,9 +351,11 @@ void _background(Canvas canvas, Size size, Color top, Color bottom) {
 // ---------------------------------------------------------------- bubbles
 
 class _Bubble {
-  Offset pos;
-  final double r, speed, phase, hue;
-  _Bubble(this.pos, this.r, this.speed, this.phase, this.hue);
+  Offset pos, vel;
+  double r;
+  final double phase, hue;
+  int? blower; // the finger blowing it, until it is let go
+  _Bubble(this.pos, this.vel, this.r, this.phase, this.hue);
 }
 
 class _Drop {
@@ -328,8 +365,16 @@ class _Drop {
   _Drop(this.pos, this.vel, this.hue);
 }
 
-/// Soap bubbles drift up slowly; touch one (or sweep a finger through
-/// several) and it pops into droplets.
+class _PopRing {
+  final Offset pos;
+  final double r;
+  double age = 0;
+  _PopRing(this.pos, this.r);
+}
+
+/// Soap bubbles with real rainbow film. Touch one (or sweep through
+/// several) to pop it; touch empty space and hold to blow a new bubble,
+/// then let go and it floats away.
 class _BubblesGame extends StatefulWidget {
   const _BubblesGame();
   @override
@@ -339,104 +384,209 @@ class _BubblesGame extends StatefulWidget {
 class _BubblesGameState extends _GameState<_BubblesGame> {
   final _bubbles = <_Bubble>[];
   final _drops = <_Drop>[];
+  final _rings = <_PopRing>[];
+  final _touch = <int, (Offset, double)>{};
+  final _bokeh = <(Offset, double, double)>[];
 
   @override
   void step(double dt) {
-    final target = (size.width * size.height / 26000).clamp(8, 26).round();
-    if (_bubbles.length < target && rng.nextDouble() < 0.08) {
-      final r = 26 + rng.nextDouble() * 38;
+    if (_bokeh.isEmpty) {
+      for (var i = 0; i < 14; i++) {
+        _bokeh.add((
+          Offset(rng.nextDouble() * size.width, rng.nextDouble() * size.height),
+          size.shortestSide * (0.05 + rng.nextDouble() * 0.12),
+          rng.nextDouble() * 360
+        ));
+      }
+    }
+    final target = (size.width * size.height / 30000).clamp(6, 20).round();
+    if (_bubbles.where((b) => b.blower == null).length < target &&
+        rng.nextDouble() < 0.06) {
+      final r = 24 + rng.nextDouble() * 40;
       _bubbles.add(_Bubble(
-          Offset(rng.nextDouble() * size.width,
-              size.height + r + rng.nextDouble() * 60),
+          Offset(rng.nextDouble() * size.width, size.height + r + 20),
+          Offset(0, -(16 + rng.nextDouble() * 26)),
           r,
-          18 + rng.nextDouble() * 30,
           rng.nextDouble() * 6.28,
-          170 + rng.nextDouble() * 130));
+          rng.nextDouble() * 360));
     }
     for (final b in _bubbles) {
-      b.pos = Offset(b.pos.dx + math.sin(time * 0.8 + b.phase) * 14 * dt,
-          b.pos.dy - b.speed * dt);
+      if (b.blower != null) {
+        b.r = math.min(b.r + dt * 46, size.shortestSide * 0.2);
+        continue;
+      }
+      b.vel = Offset(b.vel.dx * math.exp(-dt * 0.6) + math.sin(time * 0.7 + b.phase) * 10 * dt,
+          b.vel.dy + (-22 - b.vel.dy) * (1 - math.exp(-dt * 0.5)));
+      b.pos += b.vel * dt;
     }
-    _bubbles.removeWhere((b) => b.pos.dy < -b.r - 8);
+    _bubbles.removeWhere((b) => b.pos.dy < -b.r * 2 && b.blower == null);
     for (final d in _drops) {
-      d.vel += Offset(0, 260 * dt);
+      d.vel += Offset(0, 300 * dt);
       d.pos += d.vel * dt;
       d.life -= dt * 1.6;
     }
     _drops.removeWhere((d) => d.life <= 0);
+    for (final r in _rings) {
+      r.age += dt;
+    }
+    _rings.removeWhere((r) => r.age > 0.35);
   }
 
-  void _pop(Offset p) {
+  bool _pop(Offset p) {
     for (var i = _bubbles.length - 1; i >= 0; i--) {
       final b = _bubbles[i];
-      if ((b.pos - p).distance < b.r + 14) {
+      if (b.blower != null) continue;
+      if ((b.pos - p).distance < b.r + 10) {
         _bubbles.removeAt(i);
+        _rings.add(_PopRing(b.pos, b.r));
         _Sound.bubble();
-        for (var k = 0; k < 12; k++) {
-          final a = k / 12 * 6.283 + rng.nextDouble() * 0.4;
-          final v = 70 + rng.nextDouble() * 110;
-          _drops.add(_Drop(b.pos + Offset(math.cos(a), math.sin(a)) * b.r * 0.8,
-              Offset(math.cos(a), math.sin(a)) * v, b.hue));
+        for (var k = 0; k < 14; k++) {
+          final a = k / 14 * 6.283 + rng.nextDouble() * 0.3;
+          final v = 60 + rng.nextDouble() * 120;
+          _drops.add(_Drop(b.pos + Offset(math.cos(a), math.sin(a)) * b.r,
+              Offset(math.cos(a), math.sin(a)) * v, b.hue + k * 20));
         }
         tick();
-        return;
+        return true;
       }
     }
+    return false;
   }
 
   @override
-  void down(int pointer, Offset p) => _pop(p);
+  void down(int pointer, Offset p) {
+    _touch[pointer] = (p, time);
+    if (_pop(p)) return;
+    final b = _Bubble(p, Offset.zero, 10, rng.nextDouble() * 6.28, rng.nextDouble() * 360)
+      ..blower = pointer;
+    _bubbles.add(b);
+  }
+
   @override
-  void move(int pointer, Offset p) => _pop(p);
+  void move(int pointer, Offset p) {
+    final blown = _bubbles.where((b) => b.blower == pointer);
+    if (blown.isNotEmpty) {
+      final b = blown.first;
+      final (before, at) = _touch[pointer] ?? (p, time);
+      b.vel = (p - before) / math.max(time - at, 0.016);
+      b.pos = p;
+    } else {
+      _pop(p);
+    }
+    _touch[pointer] = (p, time);
+  }
+
+  @override
+  void up(int pointer) {
+    for (final b in _bubbles) {
+      if (b.blower == pointer) {
+        b.blower = null;
+        b.vel = Offset(b.vel.dx.clamp(-300.0, 300.0) * 0.4,
+            math.min(-20.0, b.vel.dy.clamp(-300.0, 300.0) * 0.4));
+      }
+    }
+    _touch.remove(pointer);
+  }
+
+  void _drawBubble(Canvas canvas, _Bubble b) {
+    final wobble = 0.035 * math.sin(time * 3 + b.phase);
+    final rect = Rect.fromCenter(
+        center: b.pos, width: b.r * 2 * (1 + wobble), height: b.r * 2 * (1 - wobble));
+    // Nearly clear inside, with a faint tint near the edge.
+    canvas.drawOval(
+        rect,
+        Paint()
+          ..shader = RadialGradient(colors: [
+            Colors.white.withValues(alpha: 0.02),
+            _hue(b.hue + 180, alpha: 0.06, s: 0.4),
+            _hue(b.hue, alpha: 0.18, s: 0.5),
+          ], stops: const [0.0, 0.8, 1.0]).createShader(rect));
+    // Thin-film rainbow swirling round the rim.
+    canvas.drawOval(
+        rect.deflate(b.r * 0.06),
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = b.r * 0.16
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, b.r * 0.05)
+          ..shader = SweepGradient(
+            transform: GradientRotation(time * 0.5 + b.phase),
+            colors: [
+              for (var k = 0; k <= 6; k++)
+                _hue(b.hue + k * 60, alpha: 0.42, s: 0.65),
+            ],
+          ).createShader(rect));
+    canvas.drawOval(
+        rect,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.2
+          ..color = Colors.white.withValues(alpha: 0.45));
+    // A window reflection and a soft bounce light.
+    canvas.save();
+    canvas.translate(b.pos.dx - b.r * 0.42, b.pos.dy - b.r * 0.45);
+    canvas.rotate(-0.6);
+    canvas.drawRRect(
+        RRect.fromRectAndRadius(
+            Rect.fromCenter(center: Offset.zero, width: b.r * 0.5, height: b.r * 0.22),
+            Radius.circular(b.r * 0.1)),
+        Paint()..color = Colors.white.withValues(alpha: 0.7));
+    canvas.restore();
+    canvas.drawArc(
+        rect.deflate(b.r * 0.18),
+        0.3,
+        1.1,
+        false,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = b.r * 0.06
+          ..strokeCap = StrokeCap.round
+          ..color = Colors.white.withValues(alpha: 0.35));
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
-    _background(canvas, size, const Color(0xFF0B2A4A), const Color(0xFF0E5E6F));
-    for (final b in _bubbles) {
-      final rect = Rect.fromCircle(center: b.pos, radius: b.r);
-      // Thin soap film: almost clear in the middle, coloured at the rim.
+    _background(canvas, size, const Color(0xFF6EC6E8), const Color(0xFF2F6FA8));
+    for (final (c, r, h) in _bokeh) {
+      final drift = Offset(math.sin(time * 0.1 + h) * 20, math.cos(time * 0.08 + h) * 14);
       canvas.drawCircle(
-          b.pos,
-          b.r,
+          c + drift,
+          r,
           Paint()
             ..shader = RadialGradient(colors: [
-              Colors.white.withValues(alpha: 0.03),
-              _hue(b.hue, alpha: 0.16, s: 0.6),
-              _hue(b.hue + 60, alpha: 0.45, s: 0.55),
-              Colors.white.withValues(alpha: 0.75),
-            ], stops: const [
-              0.55,
-              0.82,
-              0.95,
-              1.0
-            ]).createShader(rect));
-      canvas.drawOval(
-          Rect.fromCenter(
-              center: b.pos + Offset(-b.r * 0.38, -b.r * 0.42),
-              width: b.r * 0.42,
-              height: b.r * 0.26),
-          Paint()..color = Colors.white.withValues(alpha: 0.7));
-      canvas.drawCircle(b.pos + Offset(b.r * 0.42, b.r * 0.46), b.r * 0.07,
-          Paint()..color = Colors.white.withValues(alpha: 0.4));
+              _hue(h, alpha: 0.16, s: 0.25),
+              _hue(h, alpha: 0.0, s: 0.25),
+            ]).createShader(Rect.fromCircle(center: c + drift, radius: r)));
+    }
+    for (final b in _bubbles) {
+      _drawBubble(canvas, b);
+    }
+    for (final r in _rings) {
+      final t = r.age / 0.35;
+      canvas.drawCircle(
+          r.pos,
+          r.r * (1 + t * 0.35),
+          Paint()
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 2 * (1 - t)
+            ..color = Colors.white.withValues(alpha: 0.6 * (1 - t)));
     }
     for (final d in _drops) {
-      canvas.drawCircle(d.pos, 3.5 * d.life + 1,
-          Paint()..color = _hue(d.hue, alpha: d.life, s: 0.35));
+      canvas.drawCircle(d.pos, 3 * d.life + 0.8,
+          Paint()..color = _hue(d.hue, alpha: d.life * 0.9, s: 0.4));
     }
   }
 }
 
 // ---------------------------------------------------------------- lights
 
-class _Glow {
-  final Offset a, b;
-  final double hue;
-  double life = 1;
-  _Glow(this.a, this.b, this.hue);
+class _Seg {
+  final double ax, ay, az, bx, by, bz, hue, born;
+  _Seg(this.ax, this.ay, this.az, this.bx, this.by, this.bz, this.hue, this.born);
 }
 
-/// Light painting: every finger draws a glowing line that slowly changes
-/// colour and fades away.
+/// Light painting in 3D: glowing lines drawn with a finger float slowly
+/// away into space and turn, so the drawing becomes a sculpture of light
+/// among the stars.
 class _LightsGame extends StatefulWidget {
   const _LightsGame();
   @override
@@ -444,16 +594,44 @@ class _LightsGame extends StatefulWidget {
 }
 
 class _LightsGameState extends _GameState<_LightsGame> {
-  final _lines = <_Glow>[];
+  final _segs = <_Seg>[];
   final _sparks = <_Drop>[];
   final _lastPoint = <int, Offset>{};
+  final _stars = <(double, double, double)>[];
+  static const _life = 9.0, _focal = 900.0;
+
+  double get _turn => time * 0.22;
+
+  /// Screen point to world, so it shows under the finger right now.
+  (double, double, double) _world(Offset p) {
+    final c = size.center(Offset.zero);
+    final x = p.dx - c.dx, y = p.dy - c.dy;
+    return (x * math.cos(_turn), y, x * math.sin(_turn));
+  }
+
+  (Offset, double)? _screen(double x, double y, double z, double age) {
+    final t = _turn;
+    final zz = z + age * 26;
+    final rx = x * math.cos(t) + zz * math.sin(t);
+    final rz = -x * math.sin(t) + zz * math.cos(t);
+    final depth = _focal + rz;
+    if (depth < 60) return null;
+    final s = _focal / depth;
+    return (size.center(Offset.zero) + Offset(rx, y) * s, s);
+  }
 
   @override
   void step(double dt) {
-    for (final l in _lines) {
-      l.life -= dt / 5;
+    if (_stars.isEmpty) {
+      for (var i = 0; i < 220; i++) {
+        _stars.add((
+          (rng.nextDouble() - 0.5) * size.width * 3,
+          (rng.nextDouble() - 0.5) * size.height * 3,
+          (rng.nextDouble() - 0.5) * 2400
+        ));
+      }
     }
-    _lines.removeWhere((l) => l.life <= 0);
+    _segs.removeWhere((s) => time - s.born > _life);
     for (final s in _sparks) {
       s.pos += s.vel * dt;
       s.vel *= math.exp(-dt * 2);
@@ -462,29 +640,25 @@ class _LightsGameState extends _GameState<_LightsGame> {
     _sparks.removeWhere((s) => s.life <= 0);
   }
 
-  @override
-  void down(int pointer, Offset p) {
-    _lastPoint[pointer] = p;
-    _lines.add(_Glow(p, p + const Offset(0.1, 0.1), _colour(pointer)));
-  }
-
   double _colour(int pointer) => time * 45 + pointer * 70;
+
+  @override
+  void down(int pointer, Offset p) => _lastPoint[pointer] = p;
 
   @override
   void move(int pointer, Offset p) {
     final from = _lastPoint[pointer] ?? p;
     if ((p - from).distance < 3) return;
-    _lines.add(_Glow(from, p, _colour(pointer)));
+    final a = _world(from), b = _world(p);
+    _segs.add(_Seg(a.$1, a.$2, a.$3, b.$1, b.$2, b.$3, _colour(pointer), time));
     _lastPoint[pointer] = p;
     for (var k = 0; k < 2; k++) {
-      final a = rng.nextDouble() * 6.283;
-      _sparks.add(_Drop(
-          p,
-          Offset(math.cos(a), math.sin(a)) * (30 + rng.nextDouble() * 60),
+      final ang = rng.nextDouble() * 6.283;
+      _sparks.add(_Drop(p, Offset(math.cos(ang), math.sin(ang)) * (30 + rng.nextDouble() * 60),
           _colour(pointer)));
     }
     if (_sparks.length > 240) _sparks.removeRange(0, _sparks.length - 240);
-    if (_lines.length > 900) _lines.removeRange(0, _lines.length - 900);
+    if (_segs.length > 1400) _segs.removeRange(0, _segs.length - 1400);
   }
 
   @override
@@ -492,198 +666,51 @@ class _LightsGameState extends _GameState<_LightsGame> {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(
-        Offset.zero & size, Paint()..color = const Color(0xFF05060B));
-    final glow = Paint()
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = 26
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 14);
-    final core = Paint()
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = 7;
-    for (final l in _lines) {
-      glow.color = _hue(l.hue, alpha: l.life * 0.45);
-      canvas.drawLine(l.a, l.b, glow);
-    }
-    for (final l in _lines) {
-      core.color = _hue(l.hue, alpha: l.life, s: 0.35);
-      canvas.drawLine(l.a, l.b, core);
-    }
-    for (final s in _sparks) {
-      canvas.drawCircle(s.pos, 1.5 + 2.5 * s.life,
-          Paint()..color = _hue(s.hue, alpha: s.life, s: 0.25));
-    }
-  }
-}
-
-// ---------------------------------------------------------------- water
-
-class _Ring {
-  final Offset pos;
-  double age = 0;
-  _Ring(this.pos);
-}
-
-class _Fish {
-  Offset pos;
-  double angle, speed, turn = 0;
-  final double hue, length;
-  _Fish(this.pos, this.angle, this.speed, this.hue, this.length);
-}
-
-/// A calm pond: touching the water sends out ripples, and the fish swim
-/// gently away from them.
-class _WaterGame extends StatefulWidget {
-  const _WaterGame();
-  @override
-  State<_WaterGame> createState() => _WaterGameState();
-}
-
-class _WaterGameState extends _GameState<_WaterGame> {
-  final _rings = <_Ring>[];
-  final _fish = <_Fish>[];
-  final _lastRing = <int, double>{};
-
-  @override
-  void step(double dt) {
-    if (_fish.isEmpty) {
-      for (var i = 0; i < 6; i++) {
-        _fish.add(_Fish(
-            Offset(
-                rng.nextDouble() * size.width, rng.nextDouble() * size.height),
-            rng.nextDouble() * 6.283,
-            24 + rng.nextDouble() * 18,
-            const [18.0, 30.0, 45.0, 0.0, 22.0, 38.0][i],
-            46 + rng.nextDouble() * 26));
-      }
-    }
-    for (final r in _rings) {
-      r.age += dt;
-    }
-    _rings.removeWhere((r) => r.age > 3.6);
-    for (final f in _fish) {
-      // Wander slowly; turn back before the edge; swim away from new ripples.
-      f.turn += (rng.nextDouble() - 0.5) * 1.6 * dt;
-      f.turn = f.turn.clamp(-0.6, 0.6);
-      var steer = f.turn;
-      final ahead = f.pos + Offset(math.cos(f.angle), math.sin(f.angle)) * 90;
-      if (ahead.dx < 30 ||
-          ahead.dy < 30 ||
-          ahead.dx > size.width - 30 ||
-          ahead.dy > size.height - 30) {
-        final home = size.center(Offset.zero) - f.pos;
-        final want = math.atan2(home.dy, home.dx);
-        steer = _wrap(want - f.angle).clamp(-1.6, 1.6);
-      }
-      var speed = f.speed;
-      for (final r in _rings) {
-        final away = f.pos - r.pos;
-        if (r.age < 1.2 && away.distance < 170) {
-          steer =
-              _wrap(math.atan2(away.dy, away.dx) - f.angle).clamp(-3.0, 3.0);
-          speed = f.speed * 2.6;
-        }
-      }
-      f.angle += steer * dt;
-      f.pos += Offset(math.cos(f.angle), math.sin(f.angle)) * speed * dt;
-      f.pos = Offset(f.pos.dx.clamp(-40.0, size.width + 40),
-          f.pos.dy.clamp(-40.0, size.height + 40));
-    }
-  }
-
-  static double _wrap(double a) {
-    while (a > math.pi) {
-      a -= 2 * math.pi;
-    }
-    while (a < -math.pi) {
-      a += 2 * math.pi;
-    }
-    return a;
-  }
-
-  void _ripple(int pointer, Offset p, {bool force = false}) {
-    if (!force && time - (_lastRing[pointer] ?? -1) < 0.14) return;
-    _lastRing[pointer] = time;
-    _rings.add(_Ring(p));
-    if (_rings.length > 60) _rings.removeAt(0);
-  }
-
-  @override
-  void down(int pointer, Offset p) {
-    _ripple(pointer, p, force: true);
-    _Sound.drop();
-    tick();
-  }
-
-  @override
-  void move(int pointer, Offset p) => _ripple(pointer, p);
-
-  @override
-  void paint(Canvas canvas, Size size) {
     final rect = Offset.zero & size;
     canvas.drawRect(
         rect,
         Paint()
-          ..shader = RadialGradient(
-                  center: const Alignment(-0.2, -0.3),
-                  radius: 1.2,
-                  colors: const [Color(0xFF1C8FA6), Color(0xFF0A3F5C)])
+          ..shader = const RadialGradient(
+                  colors: [Color(0xFF141238), Color(0xFF03030A)], radius: 0.9)
               .createShader(rect));
-    for (final f in _fish) {
-      canvas.save();
-      canvas.translate(f.pos.dx, f.pos.dy);
-      canvas.rotate(f.angle);
-      final l = f.length;
-      final wag = math.sin(time * 5 + f.hue) * 0.35;
-      final body = Paint()..color = _hue(f.hue, s: 0.85, v: 1);
-      final tail = Path()
-        ..moveTo(-l * 0.42, 0)
-        ..lineTo(-l * 0.85, -l * 0.26 + wag * l * 0.3)
-        ..lineTo(-l * 0.72, wag * l * 0.2)
-        ..lineTo(-l * 0.85, l * 0.26 + wag * l * 0.3)
-        ..close();
-      canvas.drawPath(tail, Paint()..color = _hue(f.hue, alpha: 0.85, s: 0.7));
-      canvas.drawOval(
-          Rect.fromCenter(center: Offset.zero, width: l, height: l * 0.4),
-          body);
-      canvas.drawOval(
-          Rect.fromCenter(
-              center: Offset(l * 0.08, 0), width: l * 0.36, height: l * 0.24),
-          Paint()..color = Colors.white.withValues(alpha: 0.85));
-      canvas.drawCircle(Offset(l * 0.36, -l * 0.08), l * 0.035,
-          Paint()..color = Colors.black87);
-      canvas.restore();
+    final star = Paint();
+    for (final (x, y, z) in _stars) {
+      final s = _screen(x, y, z, 0);
+      if (s == null) continue;
+      star.color = Colors.white.withValues(alpha: (0.25 + 0.5 * s.$2).clamp(0.0, 0.9));
+      canvas.drawCircle(s.$1, (1.4 * s.$2).clamp(0.4, 2.2), star);
     }
-    // A thin veil of water over the fish, with sunlight moving through it.
-    canvas.drawRect(rect, Paint()..color = const Color(0x3310506A));
-    for (var i = 0; i < 7; i++) {
-      final c = Offset(
-          size.width * (0.5 + 0.42 * math.sin(time * 0.11 * (i + 1) + i * 1.7)),
-          size.height * (0.5 + 0.42 * math.cos(time * 0.09 * (i + 2) + i)));
-      final r = size.shortestSide * (0.22 + 0.06 * math.sin(time * 0.4 + i));
-      canvas.drawCircle(
-          c,
-          r,
-          Paint()
-            ..blendMode = BlendMode.plus
-            ..shader = RadialGradient(colors: [
-              Colors.white.withValues(alpha: 0.10),
-              Colors.white.withValues(alpha: 0.0),
-            ]).createShader(Rect.fromCircle(center: c, radius: r)));
-    }
-    final ring = Paint()
-      ..style = PaintingStyle.stroke
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1.5);
-    for (final r in _rings) {
-      final fade = (1 - r.age / 3.6).clamp(0.0, 1.0);
-      for (var i = 0; i < 3; i++) {
-        final radius = r.age * 95 - i * 22;
-        if (radius <= 2) continue;
-        ring
-          ..strokeWidth = 3.2 - i * 0.7
-          ..color = Colors.white.withValues(alpha: fade * (0.6 - i * 0.15));
-        canvas.drawCircle(r.pos, radius, ring);
+    final glow = Paint()
+      ..strokeCap = StrokeCap.round
+      ..blendMode = BlendMode.plus
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12);
+    final core = Paint()
+      ..strokeCap = StrokeCap.round
+      ..blendMode = BlendMode.plus;
+    for (final pass in const [0, 1]) {
+      for (final g in _segs) {
+        final age = time - g.born;
+        final a = _screen(g.ax, g.ay, g.az, age);
+        final b = _screen(g.bx, g.by, g.bz, age);
+        if (a == null || b == null) continue;
+        final fade = (1 - age / _life).clamp(0.0, 1.0);
+        final s = (a.$2 + b.$2) / 2;
+        if (pass == 0) {
+          glow
+            ..strokeWidth = 22 * s
+            ..color = _hue(g.hue, alpha: 0.32 * fade);
+          canvas.drawLine(a.$1, b.$1, glow);
+        } else {
+          core
+            ..strokeWidth = 5 * s
+            ..color = _hue(g.hue, alpha: fade, s: 0.3);
+          canvas.drawLine(a.$1, b.$1, core);
+        }
       }
+    }
+    for (final s in _sparks) {
+      canvas.drawCircle(s.pos, 1.5 + 2.5 * s.life,
+          Paint()..color = _hue(s.hue, alpha: s.life, s: 0.25));
     }
   }
 }
@@ -774,110 +801,53 @@ class _KaleidoscopeGameState extends _GameState<_KaleidoscopeGame> {
     canvas.save();
     canvas.translate(size.width / 2, size.height / 2);
     canvas.rotate(time * 0.06);
+    // Coloured glass behind the mirrors, slowly breathing.
+    final glassR = size.longestSide * 0.75;
+    canvas.drawCircle(
+        Offset.zero,
+        glassR,
+        Paint()
+          ..shader = SweepGradient(
+            transform: GradientRotation(-time * 0.04),
+            colors: [
+              for (var k = 0; k <= 8; k++)
+                _hue(k * 45 + time * 6, alpha: 0.10, s: 0.7),
+            ],
+          ).createShader(Rect.fromCircle(center: Offset.zero, radius: glassR)));
+    final breathe = 1 + 0.03 * math.sin(time * 0.5);
+    canvas.scale(breathe);
+    final glow = Paint()
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 16
+      ..blendMode = BlendMode.plus
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8);
     final line = Paint()
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 6;
-    for (var k = 0; k < _slices; k++) {
-      for (final mirror in const [1.0, -1.0]) {
-        canvas.save();
-        canvas.rotate(k * 2 * math.pi / _slices);
-        canvas.scale(1, mirror);
-        for (var i = 0; i < _strokes.length; i++) {
-          final s = _strokes[i];
-          // The oldest lines fade out as new ones are drawn.
-          final age = (_strokes.length - i) / 520;
-          line.color = _hue(s.hue, alpha: 1 - age * 0.75, s: 0.8);
-          canvas.drawLine(s.a, s.b, line);
+      ..strokeWidth = 5
+      ..blendMode = BlendMode.plus;
+    for (final pass in const [0, 1]) {
+      for (var k = 0; k < _slices; k++) {
+        for (final mirror in const [1.0, -1.0]) {
+          canvas.save();
+          canvas.rotate(k * 2 * math.pi / _slices);
+          canvas.scale(1, mirror);
+          for (var i = 0; i < _strokes.length; i++) {
+            final s = _strokes[i];
+            // The oldest lines fade out as new ones are drawn.
+            final age = (_strokes.length - i) / 520;
+            if (pass == 0) {
+              glow.color = _hue(s.hue, alpha: (1 - age * 0.8) * 0.35, s: 0.8);
+              canvas.drawLine(s.a, s.b, glow);
+            } else {
+              line.color = _hue(s.hue, alpha: 1 - age * 0.75, s: 0.55);
+              canvas.drawLine(s.a, s.b, line);
+            }
+          }
+          canvas.restore();
         }
-        canvas.restore();
       }
     }
     canvas.restore();
-  }
-}
-
-// ---------------------------------------------------------------- lava lamp
-
-class _Blob {
-  Offset pos;
-  final double r, speed, phase, hue;
-  double direction;
-  _Blob(this.pos, this.r, this.speed, this.phase, this.hue, this.direction);
-}
-
-/// Lava lamp: warm blobs rise and sink very slowly and melt into each
-/// other. A finger draws the nearest ones gently toward it.
-class _LavaGame extends StatefulWidget {
-  const _LavaGame();
-  @override
-  State<_LavaGame> createState() => _LavaGameState();
-}
-
-class _LavaGameState extends _GameState<_LavaGame> {
-  final _blobs = <_Blob>[];
-  final _fingers = <int, Offset>{};
-
-  @override
-  void step(double dt) {
-    if (_blobs.isEmpty) {
-      final count = (size.width / 70).clamp(7, 14).round();
-      for (var i = 0; i < count; i++) {
-        _blobs.add(_Blob(
-            Offset(
-                (i + 0.5) / count * size.width, rng.nextDouble() * size.height),
-            size.shortestSide * (0.09 + rng.nextDouble() * 0.09),
-            10 + rng.nextDouble() * 16,
-            rng.nextDouble() * 6.283,
-            rng.nextDouble() * 50 - 10,
-            rng.nextBool() ? 1 : -1));
-      }
-    }
-    for (final b in _blobs) {
-      if (b.pos.dy < b.r * 0.6) b.direction = 1;
-      if (b.pos.dy > size.height - b.r * 0.6) b.direction = -1;
-      var v =
-          Offset(math.sin(time * 0.35 + b.phase) * 9, b.direction * b.speed);
-      for (final f in _fingers.values) {
-        final to = f - b.pos;
-        if (to.distance < 260 && to.distance > 4) {
-          v += to / to.distance * 70;
-        }
-      }
-      b.pos += v * dt;
-      b.pos =
-          Offset(b.pos.dx.clamp(b.r * 0.4, size.width - b.r * 0.4), b.pos.dy);
-    }
-  }
-
-  @override
-  void down(int pointer, Offset p) => _fingers[pointer] = p;
-  @override
-  void move(int pointer, Offset p) => _fingers[pointer] = p;
-  @override
-  void up(int pointer) => _fingers.remove(pointer);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    _background(canvas, size, const Color(0xFF1B0B2E), const Color(0xFF3A0D2B));
-    for (final b in _blobs) {
-      final pulse = 1 + math.sin(time * 0.6 + b.phase) * 0.08;
-      final r = b.r * pulse;
-      final rect = Rect.fromCircle(center: b.pos, radius: r * 1.5);
-      canvas.drawCircle(
-          b.pos,
-          r * 1.5,
-          Paint()
-            ..blendMode = BlendMode.plus
-            ..shader = RadialGradient(colors: [
-              _hue(b.hue + 30, alpha: 0.95, s: 0.75),
-              _hue(b.hue, alpha: 0.75),
-              _hue(b.hue - 25, alpha: 0),
-            ], stops: const [
-              0.0,
-              0.55,
-              1.0
-            ]).createShader(rect));
-    }
   }
 }
 
@@ -1102,39 +1072,100 @@ class _SpinnerGameState extends _GameState<_SpinnerGame> {
     if (_speed.abs() < 0.25) _speed = _speed < 0 ? -0.25 : 0.25;
   }
 
-  @override
-  void paint(Canvas canvas, Size size) {
-    _background(canvas, size, const Color(0xFF14202B), const Color(0xFF0B1118));
-    final centre = size.center(Offset.zero);
-    final reach = size.shortestSide * 0.36;
-    final ball = size.shortestSide * 0.115;
-    // Faster turning leaves a longer, softer trail.
-    final trail = (_speed.abs() / 4).clamp(0.0, 1.0);
-    final steps = 1 + (trail * 7).round();
-    for (var s = steps - 1; s >= 0; s--) {
-      final a = _angle - _speed.sign * s * 0.07 * (1 + trail);
-      final alpha = s == 0 ? 1.0 : 0.16 * (1 - s / steps);
-      for (var arm = 0; arm < 3; arm++) {
-        final dir = a + arm * 2 * math.pi / 3;
-        final end = centre + Offset(math.cos(dir), math.sin(dir)) * reach;
-        final colour = _hue(arm * 120.0 + 200, alpha: alpha, s: 0.75);
-        canvas.drawLine(
-            centre,
-            end,
-            Paint()
-              ..color = colour
-              ..strokeWidth = ball * 0.9
-              ..strokeCap = StrokeCap.round);
-        canvas.drawCircle(end, ball, Paint()..color = colour);
-        if (s == 0) {
-          canvas.drawCircle(end, ball * 0.5,
-              Paint()..color = Colors.white.withValues(alpha: 0.85));
-        }
-      }
+  void _spinnerBody(Canvas canvas, Offset centre, double angle, double reach,
+      double ball, double alpha) {
+    final rect = Rect.fromCircle(center: centre, radius: reach + ball * 1.3);
+    // Anodised metal: a rainbow sheen that turns with the spinner.
+    final metal = Paint()
+      ..shader = SweepGradient(
+        transform: GradientRotation(angle),
+        colors: [
+          for (var k = 0; k <= 6; k++)
+            _hue(200 + k * 60, alpha: alpha, s: 0.55, v: 0.95),
+        ],
+      ).createShader(rect)
+      ..strokeCap = StrokeCap.round;
+    for (var arm = 0; arm < 3; arm++) {
+      final dir = angle + arm * 2 * math.pi / 3;
+      final end = centre + Offset(math.cos(dir), math.sin(dir)) * reach;
+      canvas.drawLine(centre, end, metal..strokeWidth = ball * 1.15);
+      canvas.drawCircle(end, ball * 1.25, metal);
+    }
+    canvas.drawCircle(centre, ball * 1.3, metal);
+  }
+
+  void _bearing(Canvas canvas, Offset c, double r, double spin) {
+    final rect = Rect.fromCircle(center: c, radius: r);
+    canvas.drawCircle(
+        c,
+        r,
+        Paint()
+          ..shader = const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color(0xFFF5F7FA), Color(0xFF8A939C), Color(0xFFE0E4E8)])
+              .createShader(rect));
+    canvas.drawCircle(c, r * 0.72, Paint()..color = const Color(0xFF2B3036));
+    for (var k = 0; k < 7; k++) {
+      final a = spin + k / 7 * 2 * math.pi;
+      final bc = c + Offset(math.cos(a), math.sin(a)) * r * 0.5;
+      canvas.drawCircle(
+          bc,
+          r * 0.17,
+          Paint()
+            ..shader = RadialGradient(
+                    center: const Alignment(-0.4, -0.4),
+                    colors: const [Color(0xFFFFFFFF), Color(0xFF7D868F)])
+                .createShader(Rect.fromCircle(center: bc, radius: r * 0.17)));
     }
     canvas.drawCircle(
-        centre, ball * 0.8, Paint()..color = const Color(0xFFECEFF1));
+        c,
+        r * 0.3,
+        Paint()
+          ..shader = RadialGradient(
+                  center: const Alignment(-0.3, -0.3),
+                  colors: const [Color(0xFFF0F2F4), Color(0xFF8B949D)])
+              .createShader(Rect.fromCircle(center: c, radius: r * 0.3)));
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    _background(canvas, size, const Color(0xFF1C2833), const Color(0xFF0A0F14));
+    final centre = size.center(Offset.zero);
+    final reach = size.shortestSide * 0.3;
+    final ball = size.shortestSide * 0.1;
+    // Soft shadow on the table.
     canvas.drawCircle(
-        centre, ball * 0.4, Paint()..color = const Color(0xFF455A64));
+        centre + Offset(ball * 0.35, ball * 0.55),
+        reach + ball,
+        Paint()
+          ..color = const Color(0x66000000)
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, ball * 0.6));
+    // Fast spinning blurs into a soft disc of colour.
+    final blur = (_speed.abs() / 6).clamp(0.0, 1.0);
+    final copies = 1 + (blur * 6).round();
+    for (var c = copies - 1; c >= 1; c--) {
+      _spinnerBody(canvas, centre, _angle - _speed.sign * c * 0.09, reach, ball,
+          0.18 * (1 - c / copies));
+    }
+    _spinnerBody(canvas, centre, _angle, reach, ball, 1);
+    // A light from the top left gives the metal its roundness.
+    final rect = Rect.fromCircle(center: centre, radius: reach + ball * 1.3);
+    canvas.drawCircle(
+        centre,
+        reach + ball * 1.3,
+        Paint()
+          ..blendMode = BlendMode.softLight
+          ..shader = const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color(0xCCFFFFFF), Color(0x00FFFFFF), Color(0x99000000)])
+              .createShader(rect));
+    for (var arm = 0; arm < 3; arm++) {
+      final dir = _angle + arm * 2 * math.pi / 3;
+      _bearing(canvas, centre + Offset(math.cos(dir), math.sin(dir)) * reach, ball * 0.85,
+          _angle * 2.5);
+    }
+    _bearing(canvas, centre, ball * 0.95, -_angle * 0.4);
   }
 }

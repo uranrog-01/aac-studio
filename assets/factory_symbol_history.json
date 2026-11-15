@@ -34121,6 +34121,70 @@
     "symbolPack": "modernflat",
     "symbolKey": "fluent-framed-picture"
    }
+  ],
+  "game_kineticsand": [
+   {
+    "label": "kinetic sand",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-kinetic-sand"
+   }
+  ],
+  "game_soap": [
+   {
+    "label": "soap cutting",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-soap-cutting"
+   }
+  ],
+  "game_beads": [
+   {
+    "label": "water beads",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-water-beads"
+   }
+  ],
+  "game_wash": [
+   {
+    "label": "pressure wash",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-pressure-wash"
+   }
+  ],
+  "game_cradle": [
+   {
+    "label": "swinging balls",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-swinging-balls"
+   }
+  ],
+  "game_tunnel": [
+   {
+    "label": "light tunnel",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-light-tunnel"
+   }
+  ],
+  "game_aurora": [
+   {
+    "label": "northern lights",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "vocab-northern-lights"
+   }
+  ],
+  "game_jellyfish": [
+   {
+    "label": "jellyfish",
+    "symbol": "🎮",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-jellyfish"
+   }
   ]
  },
  "folders": {
@@ -35173,6 +35237,10 @@
   ],
   "food": [
    "b80"
+  ],
+  "games": [
+   "game_hear",
+   "game_pairs"
   ]
  },
  "layouts": {
