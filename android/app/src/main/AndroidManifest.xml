@@ -2,10 +2,13 @@
     <!-- Online ARASAAC pictures. Debug builds get this automatically, so
          without it only release builds (what people install) were offline. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Listen: the other person's words written on screen (asked first). -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
         android:label="AAC Studio"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -42,6 +45,9 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
         </intent>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>

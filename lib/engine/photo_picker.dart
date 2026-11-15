@@ -16,20 +16,21 @@ class PhotoPicker {
   /// Opens the photo library / files. Returns a picture path for
   /// [SymbolRef.imagePath], or null when the person cancelled.
   /// Throws when the photo cannot be read.
-  static Future<String?> pick() async {
+  static Future<String?> pick({int maxSide = PhotoPicker.maxSide}) async {
     final file = await FilePicker.pickFile(
         type: FileType.image,
         // iOS: hand over a JPEG (not HEIC), which every platform decodes.
         compressionQuality: 90,
         dialogTitle: 'Choose a photo');
     if (file == null) return null;
-    final png = await shrink(await file.readAsBytes());
+    final png = await shrink(await file.readAsBytes(), maxSide: maxSide);
     return savePhoto(png);
   }
 
   /// Decodes any common image and re-encodes it as a PNG no larger than
   /// [maxSide] pixels on its longest side.
-  static Future<Uint8List> shrink(Uint8List bytes) async {
+  static Future<Uint8List> shrink(Uint8List bytes,
+      {int maxSide = PhotoPicker.maxSide}) async {
     final buffer = await ui.ImmutableBuffer.fromUint8List(bytes);
     final descriptor = await ui.ImageDescriptor.encoded(buffer);
     final scale =

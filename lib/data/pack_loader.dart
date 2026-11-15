@@ -166,6 +166,7 @@ class PackLoader {
                     ActionKind.gotoFolder => 'gotoFolder',
                     ActionKind.launchUrl => 'launchUrl',
                     ActionKind.sensoryGames => 'sensoryGames',
+                    ActionKind.openTool => 'openTool',
                   },
                   if (a.data.isNotEmpty) 'data': a.data,
                 })
@@ -211,6 +212,7 @@ class PackLoader {
         'gotoFolder' => ActionKind.gotoFolder,
         'launchUrl' => ActionKind.launchUrl,
         'sensoryGames' => ActionKind.sensoryGames,
+        'openTool' => ActionKind.openTool,
         _ => ActionKind.addText,
       };
 }

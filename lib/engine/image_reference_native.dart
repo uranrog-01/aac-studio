@@ -31,3 +31,19 @@ Widget referenceImage(String path,
   return Image.file(File(AppStorage.current?.resolvePicturePath(path) ?? path),
       width: width, height: height, fit: fit, errorBuilder: errorBuilder);
 }
+
+/// The image behind [referenceImage] (to learn a photo's shape), or null.
+ImageProvider? referenceImageProvider(String path) {
+  final uri = Uri.tryParse(path);
+  try {
+    if (uri?.scheme == 'data') {
+      return MemoryImage(UriData.parse(path).contentAsBytes());
+    }
+    if (uri?.scheme == 'https' || uri?.scheme == 'http') {
+      return NetworkImage(path);
+    }
+    return FileImage(File(AppStorage.current?.resolvePicturePath(path) ?? path));
+  } catch (_) {
+    return null;
+  }
+}

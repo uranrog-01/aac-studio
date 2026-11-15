@@ -71,7 +71,10 @@ enum ActionKind {
   clearMessage,
   gotoFolder,
   launchUrl,
-  sensoryGames
+  sensoryGames,
+
+  /// Opens a tool screen named by data: schedule, pain, scenes, listen.
+  openTool
 }
 
 class VocabAction {
@@ -228,12 +231,17 @@ class GridCell {
   final int span; // cells wide (default 1)
   final bool hidden;
   final bool dimmed;
+
+  /// An empty slot that keeps the place of a word not shown yet (start
+  /// small and grow, or hidden for now), so no other button moves.
+  final bool blank;
   const GridCell(this.button,
       {this.col,
       this.row,
       this.span = 1,
       this.hidden = false,
-      this.dimmed = false});
+      this.dimmed = false,
+      this.blank = false});
 }
 
 class VocabFolder {

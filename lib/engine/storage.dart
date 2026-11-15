@@ -76,6 +76,35 @@ class AppSettings {
   /// Caregiver lock. The device's screen pinning state is checked separately.
   bool lockApp;
 
+  /// Smart help on the board: likely next words after the last one (and
+  /// time-of-day words on an empty message), a fuller sentence to say
+  /// instead of a short one, and a row of quick replies for conversations.
+  bool suggestNext;
+  bool betterSentences;
+  bool quickReplies;
+
+  /// Optional extras, off until a caregiver turns them on: words for the
+  /// time of day, and Listen (the other person's speech on screen).
+  bool timeSuggestions;
+  bool listenEnabled;
+
+  /// Button size: 0 automatic, else the number of buttons across.
+  int gridColumns;
+
+  /// Pointing selects: resting a mouse, head pointer or eye-gaze pointer on
+  /// a button selects it after the hold time, with no tap.
+  bool hoverSelect;
+
+  /// Keep a record of which words are used, for the word-use report. Off
+  /// until a caregiver turns it on; it never leaves the device.
+  bool logWords;
+
+  /// The visual schedule (board button ids, in order), the step reached,
+  /// and the First / Then board.
+  List<String> schedule;
+  int scheduleStep;
+  String firstId, thenId;
+
   // P2 ARASAAC online symbols
   bool arasaacEnabled;
   int arasaacSkin; // 0 none..3 dark
@@ -120,7 +149,20 @@ class AppSettings {
     this.voiceGender = '',
     this.homeLevel = 0,
     this.lockApp = false,
-  }) : phrases = phrases ?? [];
+    this.suggestNext = true,
+    this.betterSentences = true,
+    this.quickReplies = false,
+    this.timeSuggestions = false,
+    this.listenEnabled = false,
+    this.gridColumns = 0,
+    this.hoverSelect = false,
+    this.logWords = false,
+    List<String>? schedule,
+    this.scheduleStep = 0,
+    this.firstId = '',
+    this.thenId = '',
+  })  : phrases = phrases ?? [],
+        schedule = schedule ?? [];
 
   Map<String, dynamic> toJson() => {
         'usePiper': usePiper,
@@ -163,6 +205,18 @@ class AppSettings {
         'voiceGender': voiceGender,
         'homeLevel': homeLevel,
         'lockApp': lockApp,
+        'suggestNext': suggestNext,
+        'betterSentences': betterSentences,
+        'quickReplies': quickReplies,
+        'timeSuggestions': timeSuggestions,
+        'listenEnabled': listenEnabled,
+        'gridColumns': gridColumns,
+        'hoverSelect': hoverSelect,
+        'logWords': logWords,
+        'schedule': schedule,
+        'scheduleStep': scheduleStep,
+        'firstId': firstId,
+        'thenId': thenId,
       };
 
   // A wrong type in one saved value falls back to that value's default
@@ -243,6 +297,21 @@ class AppSettings {
             : '',
         homeLevel: _i(j, 'homeLevel', 0).clamp(0, 3),
         lockApp: _b(j, 'lockApp', false),
+        suggestNext: _b(j, 'suggestNext', true),
+        betterSentences: _b(j, 'betterSentences', true),
+        quickReplies: _b(j, 'quickReplies', false),
+        timeSuggestions: _b(j, 'timeSuggestions', false),
+        listenEnabled: _b(j, 'listenEnabled', false),
+        gridColumns: _i(j, 'gridColumns', 0).clamp(0, 12),
+        hoverSelect: _b(j, 'hoverSelect', false),
+        logWords: _b(j, 'logWords', false),
+        schedule: [
+          for (final id in (j?['schedule'] is List ? j!['schedule'] as List : const []))
+            if (id is String && id.isNotEmpty) id
+        ],
+        scheduleStep: _i(j, 'scheduleStep', 0),
+        firstId: _s(j, 'firstId', ''),
+        thenId: _s(j, 'thenId', ''),
       );
 }
 

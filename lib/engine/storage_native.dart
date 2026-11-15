@@ -94,6 +94,9 @@ class AppStorage {
   File get settingsFile => File(p.join(root.path, 'settings.json'));
   File get learnedFile => File(p.join(root.path, 'learned_words.json'));
 
+  /// A small data file of its own (schedule, scenes, word-use record).
+  File dataFile(String name) => File(p.join(root.path, name));
+
   File _previous(File f) => File('${f.path}.prev');
 
   /// Saves [json] atomically. The data is encoded immediately, so later
