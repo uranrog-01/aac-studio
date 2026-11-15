@@ -28,3 +28,17 @@ class IconPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const Text('▧');
 }
+
+/// The image behind [referenceImage] (to learn a photo's shape), or null.
+ImageProvider? referenceImageProvider(String path) {
+  final uri = Uri.tryParse(path);
+  try {
+    if (uri?.scheme == 'data') {
+      return MemoryImage(UriData.parse(path).contentAsBytes());
+    }
+    if (uri?.scheme == 'https' || uri?.scheme == 'http') {
+      return NetworkImage(path);
+    }
+  } catch (_) {}
+  return null;
+}

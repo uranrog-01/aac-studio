@@ -19,6 +19,9 @@ class WordSearchView extends StatefulWidget {
 
   /// Draws a result with the board's own button (colours, hold-to-select).
   final Widget Function(VocabButton button) tileBuilder;
+
+  /// "Show me where": guides the person to the word on the board.
+  final void Function(SearchResult result)? onShowWhere;
   final VoidCallback onSpeak;
   final VoidCallback onDeleteWord;
   final VoidCallback onClear;
@@ -31,6 +34,7 @@ class WordSearchView extends StatefulWidget {
     required this.search,
     required this.pageName,
     required this.tileBuilder,
+    this.onShowWhere,
     required this.onSpeak,
     required this.onDeleteWord,
     required this.onClear,
@@ -142,15 +146,34 @@ class _WordSearchViewState extends State<WordSearchView> {
                           return Column(children: [
                             Expanded(child: widget.tileBuilder(r.button)),
                             const SizedBox(height: 2),
-                            // Where the word lives, so it can be found again.
-                            Text(
-                              r.button.kind == ButtonKind.folder
-                                  ? I18n.t('category')
-                                  : widget.pageName(r.folderId),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                  color: Colors.white70, fontSize: 11),
+                            // Where the word lives, so it can be found
+                            // again; tapping it shows the way there.
+                            InkWell(
+                              onTap: widget.onShowWhere == null
+                                  ? null
+                                  : () => widget.onShowWhere!(r),
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    if (widget.onShowWhere != null)
+                                      const Padding(
+                                        padding: EdgeInsets.only(right: 2),
+                                        child: Icon(Icons.near_me,
+                                            size: 12, color: Colors.amber),
+                                      ),
+                                    Flexible(
+                                      child: Text(
+                                        r.button.kind == ButtonKind.folder
+                                            ? I18n.t('category')
+                                            : widget.pageName(r.folderId),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 11),
+                                      ),
+                                    ),
+                                  ]),
                             ),
                           ]);
                         },

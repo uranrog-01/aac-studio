@@ -26,6 +26,17 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Listen writes what the other person says on the screen, with pictures, so the person can answer.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Listen turns the other person's speech into words and pictures on the screen.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Copy a board to another phone or tablet on the same Wi-Fi.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

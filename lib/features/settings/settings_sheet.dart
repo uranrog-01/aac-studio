@@ -15,6 +15,8 @@ import '../../engine/speech.dart';
 import '../../engine/storage.dart';
 import '../../models/domain.dart';
 import '../library/symbol_browser.dart';
+import '../tools/report_screen.dart';
+import '../../engine/personal_voice.dart';
 
 /// Settings as a short menu of plain-language sections. One section is
 /// open at a time, on its own page with a Back row, so there is never a
@@ -83,6 +85,10 @@ class _SettingsSheetState extends State<SettingsSheet> {
     setState(() => _open = title);
     final c = widget.scrollController;
     if (c != null && c.hasClients) c.jumpTo(0);
+    // The new page starts at its top, also after it is laid out.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && c != null && c.hasClients && c.offset != 0) c.jumpTo(0);
+    });
   }
 
   @override
@@ -238,6 +244,23 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       'Off: words are added silently; tap the message to speak'),
                   _switch('Say the category name when opened',
                       s.vocalizeFolders, (v) => s.vocalizeFolders = v),
+                  _switch(
+                      'Suggest the next word',
+                      s.suggestNext,
+                      (v) => s.suggestNext = v,
+                      'Pictures of words that may come next, and words for '
+                          'this time of day'),
+                  _switch(
+                      'Offer a fuller sentence',
+                      s.betterSentences,
+                      (v) => s.betterSentences = v,
+                      '"want drink" becomes "I want to drink." — tap it to '
+                          'say it'),
+                  _switch(
+                      'Quick replies',
+                      s.quickReplies,
+                      (v) => s.quickReplies = v,
+                      "Yes, no, wait, I don't know… always one tap away"),
                   _choice<String>('Speak while typing (Type)', s.typingSpeech, {
                     'letters': 'Each letter and word',
                     'words': 'Each word',
@@ -250,6 +273,38 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       (v) => s.clearOnSpeak = v),
                   _switch('Go back to Home after a word', s.goHomeOnPress,
                       (v) => s.goHomeOnPress = v),
+                  if (PersonalVoice.supported)
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.record_voice_over,
+                          color: Colors.white70),
+                      title: Text(I18n.t('Use my Personal Voice'),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 15)),
+                      subtitle: Text(
+                          I18n.t('iPhone and iPad (iOS 17+): a voice that '
+                              'sounds like the person'),
+                          style: const TextStyle(
+                              color: Colors.white54, fontSize: 12)),
+                      onTap: () async {
+                        final messenger = ScaffoldMessenger.of(context);
+                        final status = await PersonalVoice.request();
+                        messenger.showSnackBar(SnackBar(
+                          duration: const Duration(seconds: 8),
+                          content: Text(I18n.t(switch (status) {
+                            'authorized' => 'Personal Voice is allowed. '
+                                'Close Settings, open it again and choose it '
+                                'in Voice.',
+                            'denied' => 'Personal Voice is not allowed. Allow '
+                                'it in iPhone Settings > Accessibility > '
+                                'Personal Voice.',
+                            _ => 'Make a Personal Voice first in iPhone '
+                                'Settings > Accessibility > Personal Voice '
+                                '(iOS 17 or later).',
+                          })),
+                        ));
+                      },
+                    ),
                 ]),
             // 3. Screen & look.
             _group(Icons.palette_outlined, 'Screen & look',
@@ -280,6 +335,17 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       s.labelPosition = v;
                       _changed();
                     }),
+                  _choice<int>('Buttons in a row', s.gridColumns, {
+                    0: 'Automatic',
+                    3: '3 — largest',
+                    4: '4',
+                    5: '5',
+                    6: '6',
+                    8: '8 — smallest',
+                  }, (v) {
+                    s.gridColumns = v;
+                    _changed();
+                  }),
                   _switch(
                       'High contrast (CVI)',
                       s.cviMode,
@@ -340,6 +406,17 @@ class _SettingsSheetState extends State<SettingsSheet> {
                         s.preventExit,
                         (v) => s.preventExit = v,
                         'Press Back 3 times quickly to leave'),
+                    _switch(
+                        'Select by pointing (eye gaze, head mouse)',
+                        s.hoverSelect,
+                        (v) => s.hoverSelect = v,
+                        'Resting the pointer on a button fills the circle and '
+                            'selects it'),
+                    _note('Eye or head control: on iPad use Settings > '
+                        'Accessibility > Eye Tracking or Head Tracking; on '
+                        'Windows use Eye Control or a head mouse. If the '
+                        'device already selects by resting (dwell), keep '
+                        '"Select by pointing" off.'),
                   ]),
                 ]),
             // 5. Offline & backup.
@@ -390,7 +467,7 @@ class _SettingsSheetState extends State<SettingsSheet> {
                       },
                     ),
                   ],
-                  _choice<int>('Words on Home', s.homeLevel, {
+                  _choice<int>('Words shown', s.homeLevel, {
                     1: 'First 10 words',
                     2: '25 words',
                     3: '45 words',
@@ -399,8 +476,12 @@ class _SettingsSheetState extends State<SettingsSheet> {
                     s.homeLevel = v;
                     _changed();
                   }),
-                  _note('Start small and show more as the person learns. '
-                      'Words keep their places; new rows appear below.'),
+                  _note('Start small and show more as the person learns: 10, '
+                      '25 or 45 words on Home and 12, 24 or 48 on other '
+                      'pages. Every word keeps its place, so nothing moves '
+                      'when more are shown.'),
+                  _note('In edit mode, hold a button to hide it for now. It '
+                      'keeps its place.'),
                   _header('Safety'),
                   if (lockController != null) ...[
                     _asyncSwitch('Caregiver lock', s.lockApp,
@@ -458,6 +539,22 @@ class _SettingsSheetState extends State<SettingsSheet> {
                         label: Text(I18n.t('Change code')),
                       ),
                     ),
+                  _header('Progress'),
+                  _switch(
+                      'Keep a word-use record',
+                      s.logWords,
+                      (v) => s.logWords = v,
+                      'Counts the words said, for the speech therapist. Only '
+                          'on this device.'),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.insights, color: Colors.white70),
+                    title: Text(I18n.t('Word-use report'),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 15)),
+                    onTap: () =>
+                        WordUseReport.show(context, recording: s.logWords),
+                  ),
                   _more([
                     if (widget.settingsController != null)
                       Align(

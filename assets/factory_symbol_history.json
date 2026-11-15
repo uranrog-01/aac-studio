@@ -34073,6 +34073,54 @@
     "symbolPack": "modernflat",
     "symbolKey": "vocab-match-pairs"
    }
+  ],
+  "tool_schedule": [
+   {
+    "label": "schedule",
+    "symbol": "📅",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-calendar"
+   }
+  ],
+  "tool_firstthen": [
+   {
+    "label": "first then",
+    "symbol": "➡️",
+    "symbolPack": "mulberry",
+    "symbolKey": "first"
+   }
+  ],
+  "tool_timer": [
+   {
+    "label": "timer",
+    "symbol": "⏲️",
+    "symbolPack": "mulberry",
+    "symbolKey": "timer_2"
+   }
+  ],
+  "tool_pain": [
+   {
+    "label": "where it hurts",
+    "symbol": "🤕",
+    "symbolPack": "mulberry",
+    "symbolKey": "body_outline"
+   }
+  ],
+  "tool_listen": [
+   {
+    "label": "listen",
+    "symbol": "👂",
+    "symbolPack": "modernflat",
+    "symbolKey": "scene-listen"
+   }
+  ],
+  "tool_scenes": [
+   {
+    "label": "my photos",
+    "symbol": "🖼️",
+    "symbolPack": "modernflat",
+    "symbolKey": "fluent-framed-picture"
+   }
   ]
  },
  "folders": {
