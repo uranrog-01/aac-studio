@@ -101,6 +101,10 @@ Word position|Kelime konumu
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Henüz çevrilmemiş kelimeler İngilizce kalır. Cihazda bu dil için ses yoksa kelimeleri varsayılan ses okur. Cihazın metin okuma ayarlarından ses ekleyebilirsin.
 category|kategori
 [words]
+schedule|günlük plan
+first then|önce sonra
+where it hurts|neresi ağrıyor
+my photos|fotoğraflarım
 Actions|Eylemler
 afternoon|öğleden sonra
 again|tekrar

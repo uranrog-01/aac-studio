@@ -153,6 +153,7 @@ class _AppShellState extends State<AppShell> {
       editMode: settings.editMode,
       showOptions: true,
       onSensoryGames: (game) => _openSensory(context, game),
+      onPersist: pack.save,
       onEditButton: (b) => _edit(context, session, pack, b),
       onAddButton: () => _add(context, session, pack),
     );

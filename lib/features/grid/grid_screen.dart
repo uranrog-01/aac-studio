@@ -8,11 +8,14 @@ import 'package:provider/provider.dart';
 import '../../engine/i18n.dart';
 import '../../engine/prediction.dart';
 import '../../engine/settings_controller.dart';
+import '../../engine/smart_words.dart';
 import '../../engine/speech.dart';
 import '../../engine/storage.dart';
 import '../../engine/symbol_library.dart';
+import '../../engine/word_forms.dart';
 import '../../models/domain.dart';
 import '../settings/settings_sheet.dart';
+import '../tools/tools.dart';
 import 'keyboard_view.dart';
 import 'message_bar.dart';
 import 'phrases.dart';
@@ -76,7 +79,8 @@ class GridSession extends ChangeNotifier {
 
   /// Resolves a folder's view; virtual folders (recents/favorites) are
   /// built live from session state.
-  VocabView? viewFor(String folderId, {int maxColumns = 6}) {
+  VocabView? viewFor(String folderId,
+      {int maxColumns = 6, bool levels = true}) {
     if (folderId == recentsFolderId) {
       return VocabView(
           id: folderId,
@@ -111,29 +115,47 @@ class GridSession extends ChangeNotifier {
         best = v;
       }
     }
-    return _homeLevelView(best);
+    return levels ? _levelView(best) : best;
   }
 
-  /// Start small and grow (Settings > Caregiver > Words on Home):
-  /// 0 = everything, 1 = the first 10 words, 2 = 25, 3 = 45. The words
-  /// keep their places; level 1 also hides the categories.
+  /// Start small and grow (Settings > Caregiver > Words shown): 0 = every
+  /// word; 1, 2, 3 = the first 10, 25, 45 words on Home and 12, 24, 48 on
+  /// every other page. A word not shown yet leaves an empty place, so each
+  /// word is always in the same spot as more words are added (motor
+  /// planning). Level 1 Home has no categories yet.
   int homeLevel = 0;
 
-  VocabView _homeLevelView(VocabView view) {
-    final limit = const {1: 10, 2: 25, 3: 45}[homeLevel];
-    if (limit == null || view.folderId != vocabulary.rootFolderId) return view;
+  VocabView _levelView(VocabView view) {
+    final isHome = view.folderId == vocabulary.rootFolderId;
+    final limit = (isHome
+        ? const {1: 10, 2: 25, 3: 45}
+        : const {1: 12, 2: 24, 3: 48})[homeLevel];
+    if (limit == null || !vocabulary.folders.containsKey(view.folderId)) {
+      return view;
+    }
     var words = 0;
     final cells = <GridCell>[];
     for (final c in view.cells) {
-      if (c.button.kind == ButtonKind.folder) {
-        if (homeLevel > 1) cells.add(c);
-      } else if (c.button.kind != ButtonKind.item || words++ < limit) {
-        cells.add(c);
-      }
+      final show = c.button.kind == ButtonKind.folder
+          ? !isHome || homeLevel > 1
+          : c.button.kind != ButtonKind.item || words++ < limit;
+      cells.add(show
+          ? c
+          : GridCell(c.button,
+              col: c.col,
+              row: c.row,
+              span: c.span,
+              hidden: c.hidden,
+              dimmed: c.dimmed,
+              blank: true));
     }
     return VocabView(
         id: view.id, folderId: view.folderId, columns: view.columns, cells: cells);
   }
+
+  /// Called after each board word is added: the word and the word before
+  /// it (English labels), for learning and the word-use record.
+  void Function(VocabButton button, String? previous)? onWordUsed;
 
   void pushFolder(String folderId) {
     _stack.add(folderId);
@@ -162,6 +184,7 @@ class GridSession extends ChangeNotifier {
     }
     var spoke = false;
     var appended = '';
+    final previous = lastWord;
     for (final a in b.actions) {
       switch (a.kind) {
         case ActionKind.addText:
@@ -186,6 +209,7 @@ class GridSession extends ChangeNotifier {
           break;
         case ActionKind.launchUrl:
         case ActionKind.sensoryGames:
+        case ActionKind.openTool:
           break; // handled by the screen
         case ActionKind.gotoFolder:
           if (vocabulary.folders.containsKey(a.data) ||
@@ -199,8 +223,9 @@ class GridSession extends ChangeNotifier {
     if (b.kind == ButtonKind.item) {
       if (!b.actions.any((a) => a.kind == ActionKind.addText)) {
         appended = b.speakText;
-        _append(appended);
+        _append(appended, word: b.label, wordClass: b.wordClass);
       }
+      if (appended.isNotEmpty) onWordUsed?.call(b, previous);
       // Auto-speak unless quiet builder mode is on or an action spoke.
       if (!(f?.quietBuilder ?? false) && !spoke && appended.isNotEmpty) {
         _speak(appended, b, f);
@@ -264,10 +289,134 @@ class GridSession extends ChangeNotifier {
   /// What each symbol tap added, so Delete removes "thank you" as one.
   final List<_Piece> _pieces = [];
 
-  void _append(String text, {String? label}) {
+  void _append(String text,
+      {String? label, String? word, WordClass? wordClass}) {
     if (text.isEmpty) return;
     _message = _message.isEmpty ? text : '$_message $text';
-    _pieces.add(_Piece(text, label));
+    _pieces.add(_Piece(text, label,
+        word: word?.toLowerCase(), wordClass: wordClass));
+  }
+
+  /// The English word of the last symbol in the message (null after
+  /// typing or when the message is empty).
+  String? get lastWord {
+    final text = _message.trimRight();
+    if (_pieces.isEmpty || !text.endsWith(_pieces.last.text)) return null;
+    return _pieces.last.word;
+  }
+
+  /// The words of the message as tapped; empty once the text was typed
+  /// or changed by hand.
+  List<SaidWord> get saidWords {
+    final joined = _pieces.map((p) => p.text).join(' ');
+    if (_pieces.isEmpty || joined != _message.trim()) return const [];
+    return [
+      for (final p in _pieces)
+        SaidWord(p.word ?? p.text.toLowerCase(),
+            p.wordClass ?? WordClass.phrase, p.text),
+    ];
+  }
+
+  /// Replaces the message with a fuller sentence and says it.
+  void useSentence(String sentence) {
+    _message = sentence;
+    _pieces
+      ..clear()
+      ..add(_Piece(sentence, null));
+    _speakAndRemember(sentence);
+    notifyListeners();
+  }
+
+  /// Adds another form of a board word ("eats", "dogs", "bigger").
+  void addWordForm(VocabButton b, String form) {
+    final previous = lastWord;
+    _append(form, word: form, wordClass: b.wordClass);
+    speech.speak(form, style: b.voice);
+    lastSpoken = form;
+    _stampRecent(b);
+    onWordUsed?.call(b, previous);
+    notifyListeners();
+  }
+
+  /// Says [text] at once without changing the message (quick replies).
+  void sayNow(String text) {
+    if (text.trim().isEmpty) return;
+    speech.speak(text);
+    lastSpoken = text;
+    notifyListeners();
+  }
+
+  /// The pages from Home to [folderId] (both included), or null when the
+  /// page cannot be reached.
+  List<String>? pathTo(String folderId) {
+    final root = vocabulary.rootFolderId;
+    if (folderId == root) return [root];
+    final parent = <String, String>{};
+    final seen = <String>{root};
+    final queue = [root];
+    while (queue.isNotEmpty) {
+      final f = queue.removeAt(0);
+      for (final view in vocabulary.viewsByFolder[f] ?? const <VocabView>[]) {
+        for (final cell in view.cells) {
+          if (cell.hidden) continue;
+          for (final a in cell.button.actions) {
+            if (a.kind != ActionKind.gotoFolder ||
+                !vocabulary.folders.containsKey(a.data) ||
+                !seen.add(a.data)) {
+              continue;
+            }
+            parent[a.data] = f;
+            if (a.data == folderId) {
+              final path = [folderId];
+              while (path.first != root) {
+                path.insert(0, parent[path.first]!);
+              }
+              return path;
+            }
+            queue.add(a.data);
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  Map<String, VocabButton>? _byLabel;
+
+  /// The board button for an English word (nearest to Home), if any.
+  VocabButton? buttonForLabel(String label) {
+    final map = _byLabel ??= () {
+      final m = <String, VocabButton>{};
+      for (final e in _searchIndex ??= _buildSearchIndex()) {
+        if (e.button.kind == ButtonKind.item) {
+          m.putIfAbsent(e.button.label.toLowerCase(), () => e.button);
+        }
+      }
+      return m;
+    }();
+    return map[label.toLowerCase()];
+  }
+
+  /// Hides a button for now (it keeps its place), or shows it again.
+  void setHidden(String id, bool hidden, {VoidCallback? persist}) {
+    _searchIndex = null;
+    _byLabel = null;
+    for (final views in vocabulary.viewsByFolder.values) {
+      for (final view in views) {
+        for (var i = 0; i < view.cells.length; i++) {
+          final c = view.cells[i];
+          if (c.button.id != id) continue;
+          view.cells[i] = GridCell(c.button,
+              col: c.col,
+              row: c.row,
+              span: c.span,
+              hidden: hidden,
+              dimmed: c.dimmed);
+        }
+      }
+    }
+    persist?.call();
+    notifyListeners();
   }
 
   /// Adds a board word. After a pronoun it joins into one natural phrase in
@@ -281,12 +430,14 @@ class GridSession extends ChangeNotifier {
       _pieces.removeLast();
       _message = current.substring(0, current.length - last.text.length).trim();
       _message = _message.isEmpty ? phrase : '$_message $phrase';
-      _pieces.add(_Piece(phrase, null, before: last));
+      _pieces.add(_Piece(phrase, null,
+          before: last, word: b.label.toLowerCase(), wordClass: b.wordClass));
       return phrase;
     }
     final isWord = b.wordClass != WordClass.letter &&
         b.wordClass != WordClass.number;
-    _append(text, label: isWord ? b.label : null);
+    _append(text,
+        label: isWord ? b.label : null, word: b.label, wordClass: b.wordClass);
     return text;
   }
 
@@ -441,6 +592,7 @@ class GridSession extends ChangeNotifier {
   /// M5: replace a button (by id) in the current view and persist.
   void replaceButton(VocabButton updated, {VoidCallback? persist}) {
     _searchIndex = null;
+    _byLabel = null;
     for (final views in vocabulary.viewsByFolder.values) {
       for (final view in views) {
         for (var i = 0; i < view.cells.length; i++) {
@@ -465,7 +617,8 @@ class GridSession extends ChangeNotifier {
   /// M5: append a new button cell to the current view.
   void addButton(VocabButton b, {VoidCallback? persist}) {
     _searchIndex = null;
-    final view = viewFor(currentFolderId, maxColumns: 99);
+    _byLabel = null;
+    final view = viewFor(currentFolderId, maxColumns: 99, levels: false);
     if (view == null) return;
     view.cells.add(GridCell(b));
     vocabulary.removedIds.remove(b.id);
@@ -476,6 +629,7 @@ class GridSession extends ChangeNotifier {
   /// M5: remove a button from the current view.
   void removeButton(String id, {VoidCallback? persist}) {
     _searchIndex = null;
+    _byLabel = null;
     for (final views in vocabulary.viewsByFolder.values) {
       for (final view in views) {
         view.cells.removeWhere((cell) => cell.button.id == id);
@@ -535,6 +689,9 @@ class GridScreen extends StatefulWidget {
   /// Opens the sensory games: the menu, or one game named by the button.
   final ValueChanged<String>? onSensoryGames;
 
+  /// Saves the board after a change made on the grid (hide for now).
+  final VoidCallback? onPersist;
+
   const GridScreen({
     super.key,
     required this.session,
@@ -547,6 +704,7 @@ class GridScreen extends StatefulWidget {
     this.onAddButton,
     this.showOptions = false,
     this.onSensoryGames,
+    this.onPersist,
   });
 
   @override
@@ -588,6 +746,54 @@ class _GridScreenState extends State<GridScreen> {
   late AppSettings _settings;
   bool _showingMessage = false;
 
+  // "Show me where": the word to reach and the pages on the way.
+  String? _guideId;
+  String _guideWord = '';
+  List<String> _guidePath = const [];
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(SmartWords.instance.load());
+    unawaited(WordUseLog.instance.load());
+  }
+
+  void _wordUsed(VocabButton b, String? previous) {
+    SmartWords.instance.learn(previous, b.label);
+    if (_settings.logWords) WordUseLog.instance.record(b.label);
+    if (_guideId == b.id) setState(_stopGuide);
+  }
+
+  void _startGuide(VocabButton b, String folderId) {
+    final path = widget.session.pathTo(folderId);
+    if (path == null) return;
+    widget.session.goHome();
+    setState(() {
+      _guideId = b.id;
+      _guideWord = b.shownLabel;
+      _guidePath = path;
+    });
+  }
+
+  void _stopGuide() {
+    _guideId = null;
+    _guideWord = '';
+    _guidePath = const [];
+  }
+
+  /// Whether [c] is the next button to press on the way to the word.
+  bool _isGuideStep(GridCell c) {
+    final target = _guideId;
+    if (target == null || _guidePath.isEmpty) return false;
+    final here = widget.session.currentFolderId;
+    if (here == _guidePath.last) return c.button.id == target;
+    final i = _guidePath.indexOf(here);
+    if (i < 0) return false;
+    final next = _guidePath[i + 1];
+    return c.button.actions
+        .any((a) => a.kind == ActionKind.gotoFolder && a.data == next);
+  }
+
   @override
   void dispose() {
     _scanTimer?.cancel();
@@ -600,6 +806,7 @@ class _GridScreenState extends State<GridScreen> {
   Widget build(BuildContext context) {
     final settings = context.watch<SettingsController>().settings;
     _settings = settings;
+    widget.session.onWordUsed = _wordUsed;
     if (_scanning && !settings.scanningEnabled) _stopScanning();
     return AnimatedBuilder(
       animation: Listenable.merge([widget.session, I18n.changes]),
@@ -631,6 +838,12 @@ class _GridScreenState extends State<GridScreen> {
             onDeleteWord: session.removeLastWord,
             onClear: session.clearMessage,
             onClose: session.toggleSearch,
+            onShowWhere: widget.editMode
+                ? null
+                : (r) {
+                    session.toggleSearch();
+                    _startGuide(r.button, r.folderId);
+                  },
             tileBuilder: (button) => _CellButton(
               button: button,
               settings: settings,
@@ -656,8 +869,11 @@ class _GridScreenState extends State<GridScreen> {
             maxColumns: widget.maxColumns);
         final folder = widget.session.currentFolder ??
             widget.session._virtualFolder(widget.session.currentFolderId);
-        final cols = view?.columns.clamp(1, 12) ?? widget.maxColumns;
-        final body = view == null
+        // Settings > Screen and look > Buttons in a row (0 = automatic).
+        final cols = settings.gridColumns > 0
+            ? settings.gridColumns.clamp(2, 12)
+            : view?.columns.clamp(1, 12) ?? widget.maxColumns;
+        final grid = view == null
             ? Center(
                 child: Text(I18n.t('Nothing here yet'),
                     style: TextStyle(
@@ -665,6 +881,9 @@ class _GridScreenState extends State<GridScreen> {
                             settings.cviMode ? Colors.white : Colors.white54)))
             : _grid(view, cols, settings);
         if (view == null) _layout = const [];
+        final body = _guideId == null
+            ? grid
+            : Column(children: [_guideBanner(), Expanded(child: grid)]);
 
         final messageWindow = _messageWindow(context, settings);
         final toolbar = _toolbar(
@@ -733,6 +952,8 @@ class _GridScreenState extends State<GridScreen> {
         onShow: _showMessage,
         deleteHighlight: _scanHighlightFor('msg:delete'),
       ),
+      if (!widget.editMode) _smartRow(settings),
+      if (!widget.editMode && settings.quickReplies) _quickReplies(),
       ValueListenableBuilder<String?>(
         valueListenable: session.speech.error,
         builder: (context, error, _) => error == null
@@ -744,6 +965,191 @@ class _GridScreenState extends State<GridScreen> {
                         style: const TextStyle(color: Colors.white))),
       ),
     ]);
+  }
+
+  /// The fuller sentence (tap to say it) and the words likely to come
+  /// next, or words for this time of day while the message is empty.
+  Widget _smartRow(AppSettings s) {
+    final session = widget.session;
+    final children = <Widget>[];
+    if (s.betterSentences) {
+      final sentence =
+          SmartWords.betterSentence(session.saidWords, I18n.language.code);
+      if (sentence != null) {
+        children.add(_SmartChip(
+          icon: Icons.auto_fix_high,
+          text: sentence,
+          tooltip: I18n.t('Say the full sentence'),
+          color: const Color(0xFF2E7D32),
+          onTap: () => session.useSentence(sentence),
+        ));
+      }
+    }
+    if (s.suggestNext) {
+      final last = session.lastWord;
+      final labels = session.message.trim().isEmpty
+          ? s.timeSuggestions
+              ? SmartWords.forTime(DateTime.now())
+              : const <String>[]
+          : last == null
+              ? const <String>[]
+              : SmartWords.instance.nextAfter(last);
+      final shown = <String>{};
+      for (final label in labels) {
+        final b = session.buttonForLabel(label);
+        if (b == null || !shown.add(b.id)) continue;
+        children.add(_SuggestTile(
+          button: b,
+          settings: s,
+          onTap: () => _onCellTapExecute(GridCell(b), s),
+        ));
+      }
+    }
+    if (children.isEmpty) return const SizedBox.shrink();
+    return SizedBox(
+      height: 64,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.fromLTRB(6, 2, 6, 4),
+        children: children,
+      ),
+    );
+  }
+
+  /// Yes, no, wait, I don't know, say it again, something else: said at
+  /// once, without changing the message.
+  Widget _quickReplies() {
+    final session = widget.session;
+    const colors = [
+      Color(0xFF2E7D32), // yes
+      Color(0xFFC62828), // no
+      Color(0xFF546E7A),
+      Color(0xFF546E7A),
+      Color(0xFF546E7A),
+      Color(0xFF546E7A),
+    ];
+    return SizedBox(
+      height: 46,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.fromLTRB(6, 0, 6, 4),
+        children: [
+          for (var i = 0; i < SmartWords.quickReplies.length; i++)
+            _SmartChip(
+              text: I18n.t(SmartWords.quickReplies[i]),
+              color: colors[i],
+              onTap: () => session.sayNow(I18n.t(SmartWords.quickReplies[i])),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _guideBanner() {
+    return Material(
+      color: const Color(0xFFFFB300),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 6, 6, 6),
+        child: Row(children: [
+          const Icon(Icons.near_me, color: Colors.black87),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              '${I18n.t('Show me where')}: $_guideWord — '
+              '${I18n.t('press the glowing button')}',
+              style: const TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15),
+            ),
+          ),
+          TextButton(
+            onPressed: () => setState(_stopGuide),
+            child: Text(I18n.t('Stop'),
+                style: const TextStyle(
+                    color: Colors.black87, fontWeight: FontWeight.w800)),
+          ),
+        ]),
+      ),
+    );
+  }
+
+  /// Holding a word offers its other forms (English); in edit mode it
+  /// hides the button for now or shows it again.
+  void _onCellLongPress(GridCell c) {
+    final b = c.button;
+    if (widget.editMode) {
+      showModalBottomSheet(
+        context: context,
+        backgroundColor: const Color(0xFF22262D),
+        builder: (sheet) => SafeArea(
+          child: ListTile(
+            leading: Icon(c.hidden ? Icons.visibility : Icons.visibility_off,
+                color: Colors.white),
+            title: Text(I18n.t(c.hidden ? 'Show again' : 'Hide for now'),
+                style: const TextStyle(color: Colors.white, fontSize: 17)),
+            subtitle: Text(
+                I18n.t('The button keeps its place, so nothing else moves.'),
+                style: const TextStyle(color: Colors.white70)),
+            onTap: () {
+              Navigator.pop(sheet);
+              widget.session
+                  .setHidden(b.id, !c.hidden, persist: widget.onPersist);
+            },
+          ),
+        ),
+      );
+      return;
+    }
+    if (I18n.language.code != 'en' || b.kind != ButtonKind.item) return;
+    final forms = WordForms.of(b.label, b.wordClass);
+    if (forms.isEmpty) return;
+    if (_settings.haptics) HapticFeedback.mediumImpact();
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF22262D),
+      builder: (sheet) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            Text(I18n.t('Word forms'),
+                style: const TextStyle(color: Colors.white70, fontSize: 14)),
+            const SizedBox(height: 10),
+            Wrap(spacing: 10, runSpacing: 10, children: [
+              for (final f in forms)
+                Material(
+                  color: kWordClassColors[b.wordClass] ?? Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () {
+                      Navigator.pop(sheet);
+                      widget.session.addWordForm(b, f);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 18, vertical: 14),
+                      child: Text(f,
+                          style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black87)),
+                    ),
+                  ),
+                ),
+            ]),
+          ]),
+        ),
+      ),
+    );
+  }
+
+  void _openTool(String tool) {
+    final library = widget.library;
+    Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+      fullscreenDialog: true,
+      builder: (_) => ToolScreens.build(tool, widget.session, library),
+    ));
   }
 
   /// Six large controls a communicator uses every day; caregiver and
@@ -845,7 +1251,54 @@ class _GridScreenState extends State<GridScreen> {
             valueListenable: sc.screenPinning,
             builder: (_, pinned, __) =>
                 Column(mainAxisSize: MainAxisSize.min, children: [
+              // The tools, as one row of big picture buttons.
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 8, 8, 4),
+                child: Row(children: [
+                  for (final t in [
+                    (Icons.view_timeline_outlined, 'Schedule', 'schedule'),
+                    (Icons.personal_injury_outlined, 'Where it hurts', 'pain'),
+                    if (sc.settings.listenEnabled)
+                      (Icons.hearing, 'Listen', 'listen'),
+                    (Icons.photo_library_outlined, 'My photos', 'scenes'),
+                  ])
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(3),
+                        child: Material(
+                          color: const Color(0xFF2F343C),
+                          borderRadius: BorderRadius.circular(12),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(12),
+                            onTap: () {
+                              Navigator.pop(context);
+                              _openTool(t.$3);
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: Column(children: [
+                                Icon(t.$1, color: Colors.white, size: 30),
+                                const SizedBox(height: 4),
+                                Text(I18n.t(t.$2),
+                                    textAlign: TextAlign.center,
+                                    maxLines: 2,
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 12.5)),
+                              ]),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ]),
+              ),
               item(Icons.star_outline, 'Phrases', () => _openPhrases(context)),
+              item(
+                  Icons.ios_share,
+                  'Share the message',
+                  session.message.isEmpty
+                      ? null
+                      : () => shareText(session.message)),
               item(Icons.history, 'Recent words',
                   () => session.pushFolder(GridSession.recentsFolderId)),
               item(
@@ -897,8 +1350,24 @@ class _GridScreenState extends State<GridScreen> {
   // ---------------- grid ----------------
 
   Widget _grid(VocabView view, int cols, AppSettings settings) {
-    final visible = view.cells.where((c) => !c.hidden).toList();
-    final usePositions = visible.isNotEmpty &&
+    // A hidden button keeps its place: an empty slot for the person,
+    // dimmed in edit mode so a caregiver can show it again.
+    bool off(GridCell c) =>
+        !settings.listenEnabled &&
+        c.button.actions
+            .any((a) => a.kind == ActionKind.openTool && a.data == 'listen');
+    final visible = [
+      for (final c in view.cells)
+        (c.hidden || off(c)) && !widget.editMode
+            ? GridCell(c.button,
+                col: c.col, row: c.row, span: c.span, hidden: true, blank: true)
+            : c,
+    ];
+    while (visible.isNotEmpty && visible.last.blank) {
+      visible.removeLast();
+    }
+    final usePositions = settings.gridColumns == 0 &&
+        visible.isNotEmpty &&
         visible.every((c) => c.col != null && c.row != null);
     final effCol = <int>[];
     final effRow = <int>[];
@@ -914,7 +1383,8 @@ class _GridScreenState extends State<GridScreen> {
     final nRows = effRow.fold<int>(0, (m, r) => r > m ? r : m);
     _layout = [
       for (var i = 0; i < visible.length; i++)
-        (col: effCol[i], row: effRow[i], cell: visible[i]),
+        if (!visible[i].blank)
+          (col: effCol[i], row: effRow[i], cell: visible[i]),
     ];
 
     return Padding(
@@ -931,21 +1401,25 @@ class _GridScreenState extends State<GridScreen> {
                 width: cons.maxWidth,
                 child: Stack(children: [
                   for (var i = 0; i < visible.length; i++)
-                    Positioned(
-                      left: (effCol[i] - 1) * cellW + 3,
-                      top: (effRow[i] - 1) * cellH + 3,
-                      width: (visible[i].span.clamp(1, cols)) * cellW - 6,
-                      height: cellH - 6,
-                      child: _CellButton(
-                        button: visible[i].button,
-                        dimmed: visible[i].dimmed,
-                        showEditBadge: widget.editMode,
-                        settings: settings,
-                        scanHighlight:
-                            _scanHighlightFor('cell:${effCol[i]}:${effRow[i]}'),
-                        onTap: () => _onCellTapExecute(visible[i], settings),
+                    if (!visible[i].blank)
+                      Positioned(
+                        left: (effCol[i] - 1) * cellW + 3,
+                        top: (effRow[i] - 1) * cellH + 3,
+                        width: (visible[i].span.clamp(1, cols)) * cellW - 6,
+                        height: cellH - 6,
+                        child: _CellButton(
+                          button: visible[i].button,
+                          dimmed: visible[i].dimmed || visible[i].hidden,
+                          hiddenBadge: visible[i].hidden,
+                          guide: _isGuideStep(visible[i]),
+                          showEditBadge: widget.editMode,
+                          settings: settings,
+                          scanHighlight: _scanHighlightFor(
+                              'cell:${effCol[i]}:${effRow[i]}'),
+                          onTap: () => _onCellTapExecute(visible[i], settings),
+                          onLongPress: () => _onCellLongPress(visible[i]),
+                        ),
                       ),
-                    ),
                 ])));
       }),
     );
@@ -1122,6 +1596,17 @@ class _GridScreenState extends State<GridScreen> {
       widget.onEditButton!(btn);
       return;
     }
+    final tool =
+        btn.actions.where((a) => a.kind == ActionKind.openTool).firstOrNull;
+    if (tool != null) {
+      // Listen is opened only when it is turned on in Settings.
+      if (tool.data == 'listen' && !_settings.listenEnabled) return;
+      if (_settings.vocalizeFolders && btn.speakText.isNotEmpty) {
+        widget.session.speech.speak(btn.speakText, style: btn.voice);
+      }
+      _openTool(tool.data);
+      return;
+    }
     if (btn.actions.any((a) => a.kind == ActionKind.sensoryGames)) {
       widget.onSensoryGames?.call(btn.actions
           .firstWhere((a) => a.kind == ActionKind.sensoryGames)
@@ -1139,10 +1624,20 @@ class _CellButton extends StatefulWidget {
   final AppSettings settings;
   final int scanHighlight; // 0 none, 1 row, 2 cell
   final VoidCallback onTap;
+  final VoidCallback? onLongPress;
+
+  /// Hidden for now (shown only in edit mode).
+  final bool hiddenBadge;
+
+  /// The next button on the way to a word ("Show me where").
+  final bool guide;
   const _CellButton({
     required this.button,
     required this.onTap,
+    this.onLongPress,
     this.dimmed = false,
+    this.hiddenBadge = false,
+    this.guide = false,
     this.showEditBadge = false,
     required this.settings,
     this.scanHighlight = 0,
@@ -1161,8 +1656,8 @@ class _CellButtonState extends State<_CellButton> {
   /// Hold to select: the circle starts filling the moment the finger lands
   /// and the button fires only when it is full. Lifting early does nothing,
   /// so brushes and accidental taps are ignored.
-  void _startDwell() {
-    if (!widget.settings.dwellEnabled) return;
+  void _startDwell({bool hover = false}) {
+    if (!widget.settings.dwellEnabled && !hover) return;
     _dwellTimer?.cancel();
     final totalMs = (widget.settings.dwellSeconds * 1000).clamp(100.0, 10000.0);
     const tickMs = 30;
@@ -1249,6 +1744,12 @@ class _CellButtonState extends State<_CellButton> {
           top: 0,
           child: Icon(Icons.edit, size: 13, color: Colors.deepOrange),
         ),
+      if (widget.hiddenBadge)
+        const Positioned(
+          left: 0,
+          top: 0,
+          child: Icon(Icons.visibility_off, size: 16, color: Colors.black87),
+        ),
       if (_dwellProgress > 0)
         Positioned.fill(
           child: Center(
@@ -1265,7 +1766,9 @@ class _CellButtonState extends State<_CellButton> {
         ),
     ]);
 
-    final borderColor = widget.scanHighlight == 2
+    final borderColor = widget.guide
+        ? const Color(0xFFFFB300)
+        : widget.scanHighlight == 2
         ? Colors.lightBlueAccent
         : widget.scanHighlight == 1
             ? Colors.lightGreen
@@ -1274,7 +1777,9 @@ class _CellButtonState extends State<_CellButton> {
                 : s.cviMode
                     ? Colors.black
                     : Colors.black26;
-    final borderWidth = widget.scanHighlight > 0
+    final borderWidth = widget.guide
+        ? 6.0
+        : widget.scanHighlight > 0
         ? 4.0
         : widget.showEditBadge
             ? 2.0
@@ -1286,6 +1791,7 @@ class _CellButtonState extends State<_CellButton> {
       child: InkWell(
         // With hold-to-select on, a quick tap must not activate the button.
         onTap: s.dwellEnabled ? null : widget.onTap,
+        onLongPress: s.dwellEnabled ? null : widget.onLongPress,
         borderRadius: BorderRadius.circular(10),
         child: Container(
           decoration: BoxDecoration(
@@ -1323,9 +1829,123 @@ class _CellButtonState extends State<_CellButton> {
       );
     }
 
+    if (s.hoverSelect) {
+      // Eye-gaze and head pointers move a pointer without touching:
+      // resting on a button fills the circle and then selects it.
+      cell = MouseRegion(
+        onEnter: (_) => _startDwell(hover: true),
+        onExit: (_) => _cancelDwell(),
+        child: cell,
+      );
+    }
+
+    if (widget.guide) {
+      cell = DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: const [
+            BoxShadow(color: Color(0xCCFFB300), blurRadius: 16, spreadRadius: 3)
+          ],
+        ),
+        child: cell,
+      );
+    }
+
     return Opacity(
       opacity: widget.dimmed ? 0.4 : 1,
       child: cell,
+    );
+  }
+}
+
+/// A word chip in the suggestion rows (fuller sentence, quick replies).
+class _SmartChip extends StatelessWidget {
+  final IconData? icon;
+  final String text;
+  final String? tooltip;
+  final Color color;
+  final VoidCallback onTap;
+  const _SmartChip(
+      {this.icon,
+      required this.text,
+      this.tooltip,
+      required this.color,
+      required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final chip = Padding(
+      padding: const EdgeInsets.only(right: 6),
+      child: Material(
+        color: color,
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
+            child: Row(mainAxisSize: MainAxisSize.min, children: [
+              if (icon != null) ...[
+                Icon(icon, color: Colors.white, size: 20),
+                const SizedBox(width: 6),
+              ],
+              Text(text,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700)),
+            ]),
+          ),
+        ),
+      ),
+    );
+    return tooltip == null ? chip : Tooltip(message: tooltip!, child: chip);
+  }
+}
+
+/// A small picture button for a word that may come next.
+class _SuggestTile extends StatelessWidget {
+  final VocabButton button;
+  final AppSettings settings;
+  final VoidCallback onTap;
+  const _SuggestTile(
+      {required this.button, required this.settings, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final bg = settings.cviMode
+        ? Colors.yellow
+        : kWordClassColors[button.wordClass] ?? const Color(0xFFEEEEEE);
+    return Padding(
+      padding: const EdgeInsets.only(right: 6),
+      child: SizedBox(
+        width: 68,
+        child: Material(
+          color: bg,
+          borderRadius: BorderRadius.circular(10),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(10),
+            onTap: onTap,
+            child: Padding(
+              padding: const EdgeInsets.all(3),
+              child: Column(children: [
+                Expanded(
+                  child: LayoutBuilder(
+                      builder: (_, c) => SymbolLibrary.resolve(button.symbol,
+                          size: c.biggest.shortestSide)),
+                ),
+                Text(button.shownLabel,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black87)),
+              ]),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -1336,5 +1956,11 @@ class _Piece {
   final String text;
   final String? label;
   final _Piece? before;
-  const _Piece(this.text, this.label, {this.before});
+
+  /// The English board word behind the text (for suggestions and the
+  /// fuller sentence), and its word class.
+  final String? word;
+  final WordClass? wordClass;
+  const _Piece(this.text, this.label,
+      {this.before, this.word, this.wordClass});
 }

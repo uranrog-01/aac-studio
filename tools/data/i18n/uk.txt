@@ -101,6 +101,10 @@ Word position|Місце слова
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Слова без перекладу поки залишаються англійською. Якщо на пристрої немає голосу для цієї мови, слова читає голос за замовчуванням. Додайте голоси в налаштуваннях синтезу мовлення пристрою.
 category|категорія
 [words]
+schedule|розклад
+first then|спочатку потім
+where it hurts|де болить
+my photos|мої фото
 Actions|Дії
 afternoon|день
 again|ще раз

@@ -101,6 +101,10 @@ Word position|Pozicioni i fjalës
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Fjalët pa përkthim ende mbeten në anglisht. Nëse pajisja nuk ka zë për këtë gjuhë, i lexon zëri i saj i parazgjedhur. Shto zëra te cilësimet e tekst-në-të-folur të pajisjes.
 category|kategori
 [words]
+schedule|orari
+first then|së pari pastaj
+where it hurts|ku më dhemb
+my photos|fotot e mia
 Actions|Veprime
 afternoon|pasdite
 again|përsëri

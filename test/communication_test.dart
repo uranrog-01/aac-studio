@@ -279,7 +279,7 @@ void main() {
     old['views']['home'][0]['cells'].insert(0, firstCell);
     final merged = PackUpgrade.merge(old, fresh, factorySymbolHistory: history);
     final buttons = {for (final b in merged['buttons'] as List) b['id']: b};
-    expect(merged['packVersion'], 16);
+    expect(merged['packVersion'], 17);
     expect(buttons['b1']['symbolKey'], 'scene-i');
     expect(buttons['b1']['favorite'], true);
     expect(buttons['b2']['symbolKey'], '1f431');
@@ -469,7 +469,7 @@ void main() {
     expect(after['symbolPack'], 'modernflat');
     expect(after['symbolKey'], before['symbolKey']);
     expect(after['voice'], {'rate': 0.8});
-    expect(merged['packVersion'], 16);
+    expect(merged['packVersion'], 17);
   });
 
   test('library is child-safe and routines are reachable', () async {
@@ -493,9 +493,12 @@ void main() {
     final pack =
         jsonDecode(File('assets/sample_pack.json').readAsStringSync()) as Map;
     final routines = (pack['views']['routines'] as List).first['cells'] as List;
-    // The 24 modern flat routines first; v11 adds more after them.
-    expect(routines.length, greaterThanOrEqualTo(24));
-    expect(routines.first['btn'], 'routine_wash-hands');
+    // The day's tools (v17: schedule, first then, timer) lead, then the 24
+    // modern flat routines; v11 adds more after them.
+    expect(routines.length, greaterThanOrEqualTo(27));
+    expect([for (final c in routines.take(3)) c['btn']],
+        ['tool_schedule', 'tool_firstthen', 'tool_timer']);
+    expect(routines[3]['btn'], 'routine_wash-hands');
     for (final parent in ['actions', 'body']) {
       expect(
           ((pack['views'][parent] as List).first['cells'] as List)

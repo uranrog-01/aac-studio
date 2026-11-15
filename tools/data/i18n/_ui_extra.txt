@@ -3178,3 +3178,2647 @@ ko|소리
 hi|आवाज़
 ar|الصوت
 ur|آواز
+
+# 1.12: smart board, tools, Wi-Fi copy
+
+@ Say the full sentence
+sq|Thuaj fjalinë e plotë
+fr|Dire la phrase complète
+de|Den ganzen Satz sagen
+es|Decir la frase completa
+it|Di’ la frase completa
+pt|Dizer a frase completa
+nl|De hele zin zeggen
+pl|Powiedz całe zdanie
+ro|Spune propoziția întreagă
+hr|Reci cijelu rečenicu
+tr|Cümlenin tamamını söyle
+el|Πες ολόκληρη την πρόταση
+ru|Сказать всё предложение
+uk|Сказати все речення
+zh|说出完整句子
+ja|文全体を話す
+ko|전체 문장 말하기
+hi|पूरा वाक्य बोलें
+ar|قل الجملة كاملة
+ur|پورا جملہ بولیں
+
+@ Show me where
+sq|Më trego ku është
+fr|Montre-moi où
+de|Zeig mir, wo
+es|Muéstrame dónde
+it|Mostrami dove
+pt|Mostre-me onde
+nl|Laat zien waar
+pl|Pokaż mi gdzie
+ro|Arată-mi unde
+hr|Pokaži mi gdje
+tr|Nerede olduğunu göster
+el|Δείξε μου πού
+ru|Покажи, где
+uk|Покажи, де
+zh|告诉我在哪里
+ja|場所を教えて
+ko|어디 있는지 보여 줘
+hi|मुझे दिखाओ कहाँ
+ar|أرني أين
+ur|مجھے دکھاؤ کہاں
+
+@ press the glowing button
+sq|shtyp butonin që shkëlqen
+fr|appuie sur le bouton qui brille
+de|drück den leuchtenden Knopf
+es|pulsa el botón que brilla
+it|premi il pulsante che si illumina
+pt|toque no botão que brilha
+nl|druk op de knop die oplicht
+pl|naciśnij świecący przycisk
+ro|apasă butonul care strălucește
+hr|pritisni gumb koji svijetli
+tr|parlayan düğmeye bas
+el|πάτα το κουμπί που λάμπει
+ru|нажми на светящуюся кнопку
+uk|натисни кнопку, що світиться
+zh|按发光的按钮
+ja|光っているボタンを押してね
+ko|빛나는 버튼을 눌러
+hi|चमकता बटन दबाएँ
+ar|اضغط الزر المضيء
+ur|چمکتا بٹن دبائیں
+
+@ Stop
+sq|Ndalo
+fr|Arrêter
+de|Stopp
+es|Parar
+it|Ferma
+pt|Parar
+nl|Stop
+pl|Zatrzymaj
+ro|Oprește
+hr|Zaustavi
+tr|Durdur
+el|Σταμάτα
+ru|Стоп
+uk|Стоп
+zh|停止
+ja|とめる
+ko|멈추기
+hi|रोकें
+ar|إيقاف
+ur|روکیں
+
+@ Show again
+sq|Shfaqe përsëri
+fr|Afficher à nouveau
+de|Wieder zeigen
+es|Mostrar otra vez
+it|Mostra di nuovo
+pt|Mostrar de novo
+nl|Weer tonen
+pl|Pokaż ponownie
+ro|Arată din nou
+hr|Ponovno prikaži
+tr|Yeniden göster
+el|Εμφάνιση ξανά
+ru|Показать снова
+uk|Показати знову
+zh|重新显示
+ja|また表示する
+ko|다시 보이기
+hi|फिर से दिखाएँ
+ar|أظهره مرة أخرى
+ur|دوبارہ دکھائیں
+
+@ Hide for now
+sq|Fshihe për tani
+fr|Masquer pour l’instant
+de|Vorerst ausblenden
+es|Ocultar por ahora
+it|Nascondi per ora
+pt|Ocultar por agora
+nl|Voorlopig verbergen
+pl|Ukryj na razie
+ro|Ascunde deocamdată
+hr|Sakrij zasad
+tr|Şimdilik gizle
+el|Απόκρυψη προς το παρόν
+ru|Пока скрыть
+uk|Поки що сховати
+zh|暂时隐藏
+ja|今はかくす
+ko|잠시 숨기기
+hi|अभी के लिए छिपाएँ
+ar|إخفاء مؤقتًا
+ur|فی الحال چھپائیں
+
+@ The button keeps its place, so nothing else moves.
+sq|Butoni e ruan vendin e vet, kështu që asgjë tjetër nuk lëviz.
+fr|Le bouton garde sa place : rien d’autre ne bouge.
+de|Der Knopf behält seinen Platz, nichts anderes verschiebt sich.
+es|El botón conserva su lugar; nada más se mueve.
+it|Il pulsante resta al suo posto: nient’altro si sposta.
+pt|O botão mantém o seu lugar; nada mais se move.
+nl|De knop houdt zijn plek, dus niets anders verschuift.
+pl|Przycisk zostaje na swoim miejscu, nic innego się nie przesuwa.
+ro|Butonul își păstrează locul, nimic altceva nu se mută.
+hr|Gumb zadržava svoje mjesto pa se ništa drugo ne pomiče.
+tr|Düğme yerini korur, başka hiçbir şey kaymaz.
+el|Το κουμπί κρατά τη θέση του, τίποτα άλλο δεν μετακινείται.
+ru|Кнопка остаётся на месте, ничего другого не сдвигается.
+uk|Кнопка лишається на місці, нічого іншого не зсувається.
+zh|按钮保留原位，其他按钮不会移动。
+ja|ボタンの場所はそのままなので、ほかは動きません。
+ko|버튼 자리가 그대로라 다른 것은 움직이지 않아요.
+hi|बटन अपनी जगह रहता है, बाकी कुछ नहीं हिलता।
+ar|يبقى الزر في مكانه، فلا يتحرك شيء آخر.
+ur|بٹن اپنی جگہ رہتا ہے، اس لیے کچھ اور نہیں ہلتا۔
+
+@ Word forms
+sq|Format e fjalës
+fr|Formes du mot
+de|Wortformen
+es|Formas de la palabra
+it|Forme della parola
+pt|Formas da palavra
+nl|Woordvormen
+pl|Formy słowa
+ro|Formele cuvântului
+hr|Oblici riječi
+tr|Kelimenin biçimleri
+el|Μορφές της λέξης
+ru|Формы слова
+uk|Форми слова
+zh|词形
+ja|言葉の形
+ko|낱말 형태
+hi|शब्द के रूप
+ar|صيغ الكلمة
+ur|لفظ کی شکلیں
+
+@ Schedule
+sq|Orari
+fr|Emploi du temps
+de|Tagesplan
+es|Agenda
+it|Programma
+pt|Rotina do dia
+nl|Dagschema
+pl|Plan dnia
+ro|Programul zilei
+hr|Raspored
+tr|Günlük plan
+el|Πρόγραμμα
+ru|Расписание
+uk|Розклад
+zh|日程
+ja|よてい
+ko|일정
+hi|दिनचर्या
+ar|الجدول
+ur|شیڈول
+
+@ Where it hurts
+sq|Ku më dhemb
+fr|Où j’ai mal
+de|Wo es wehtut
+es|Dónde me duele
+it|Dove mi fa male
+pt|Onde dói
+nl|Waar het pijn doet
+pl|Gdzie boli
+ro|Unde mă doare
+hr|Gdje boli
+tr|Neresi ağrıyor
+el|Πού πονάει
+ru|Где болит
+uk|Де болить
+zh|哪里疼
+ja|いたいところ
+ko|아픈 곳
+hi|कहाँ दर्द है
+ar|أين يؤلمني
+ur|کہاں درد ہے
+
+@ Listen
+sq|Dëgjo
+fr|Écouter
+de|Zuhören
+es|Escuchar
+it|Ascolta
+pt|Ouvir
+nl|Luisteren
+pl|Słuchaj
+ro|Ascultă
+hr|Slušaj
+tr|Dinle
+el|Άκου
+ru|Слушать
+uk|Слухати
+zh|听
+ja|きく
+ko|듣기
+hi|सुनें
+ar|استمع
+ur|سنیں
+
+@ Shows what the other person says
+sq|Tregon çfarë thotë personi tjetër
+fr|Affiche ce que dit l’autre personne
+de|Zeigt, was die andere Person sagt
+es|Muestra lo que dice la otra persona
+it|Mostra cosa dice l’altra persona
+pt|Mostra o que a outra pessoa diz
+nl|Toont wat de ander zegt
+pl|Pokazuje, co mówi druga osoba
+ro|Arată ce spune cealaltă persoană
+hr|Prikazuje što govori druga osoba
+tr|Karşıdaki kişinin söylediklerini gösterir
+el|Δείχνει τι λέει ο άλλος
+ru|Показывает, что говорит собеседник
+uk|Показує, що каже співрозмовник
+zh|显示对方说的话
+ja|相手が話したことを表示します
+ko|상대방이 하는 말을 보여 줘요
+hi|दूसरा व्यक्ति जो कहता है वह दिखाता है
+ar|يعرض ما يقوله الشخص الآخر
+ur|دوسرا شخص جو کہتا ہے وہ دکھاتا ہے
+
+@ My photos
+sq|Fotot e mia
+fr|Mes photos
+de|Meine Fotos
+es|Mis fotos
+it|Le mie foto
+pt|As minhas fotos
+nl|Mijn foto’s
+pl|Moje zdjęcia
+ro|Pozele mele
+hr|Moje fotografije
+tr|Fotoğraflarım
+el|Οι φωτογραφίες μου
+ru|Мои фото
+uk|Мої фото
+zh|我的照片
+ja|わたしの写真
+ko|내 사진
+hi|मेरी तस्वीरें
+ar|صوري
+ur|میری تصویریں
+
+@ Share the message
+sq|Ndaj mesazhin
+fr|Partager le message
+de|Nachricht teilen
+es|Compartir el mensaje
+it|Condividi il messaggio
+pt|Partilhar a mensagem
+nl|Bericht delen
+pl|Udostępnij wiadomość
+ro|Trimite mesajul
+hr|Podijeli poruku
+tr|Mesajı paylaş
+el|Κοινοποίηση μηνύματος
+ru|Поделиться сообщением
+uk|Поділитися повідомленням
+zh|分享消息
+ja|メッセージを共有
+ko|메시지 공유
+hi|संदेश साझा करें
+ar|مشاركة الرسالة
+ur|پیغام شیئر کریں
+
+@ Yes
+sq|Po
+fr|Oui
+de|Ja
+es|Sí
+it|Sì
+pt|Sim
+nl|Ja
+pl|Tak
+ro|Da
+hr|Da
+tr|Evet
+el|Ναι
+ru|Да
+uk|Так
+zh|是
+ja|はい
+ko|네
+hi|हाँ
+ar|نعم
+ur|ہاں
+
+@ No
+sq|Jo
+fr|Non
+de|Nein
+es|No
+it|No
+pt|Não
+nl|Nee
+pl|Nie
+ro|Nu
+hr|Ne
+tr|Hayır
+el|Όχι
+ru|Нет
+uk|Ні
+zh|不
+ja|いいえ
+ko|아니요
+hi|नहीं
+ar|لا
+ur|نہیں
+
+@ Wait, please
+sq|Prit, të lutem
+fr|Attends, s’il te plaît
+de|Warte bitte
+es|Espera, por favor
+it|Aspetta, per favore
+pt|Espera, por favor
+nl|Wacht even
+pl|Poczekaj, proszę
+ro|Așteaptă, te rog
+hr|Čekaj, molim te
+tr|Bekle lütfen
+el|Περίμενε, σε παρακαλώ
+ru|Подожди, пожалуйста
+uk|Зачекай, будь ласка
+zh|请等一下
+ja|ちょっと待って
+ko|잠깐만 기다려 줘
+hi|कृपया रुकिए
+ar|انتظر من فضلك
+ur|براہ کرم رکیں
+
+@ I don't know
+sq|Nuk e di
+fr|Je ne sais pas
+de|Ich weiß nicht
+es|No lo sé
+it|Non lo so
+pt|Não sei
+nl|Ik weet het niet
+pl|Nie wiem
+ro|Nu știu
+hr|Ne znam
+tr|Bilmiyorum
+el|Δεν ξέρω
+ru|Я не знаю
+uk|Я не знаю
+zh|我不知道
+ja|わからない
+ko|몰라요
+hi|मुझे नहीं पता
+ar|لا أعرف
+ur|مجھے نہیں پتا
+
+@ Say it again, please
+sq|Thuaje përsëri, të lutem
+fr|Redis-le, s’il te plaît
+de|Sag es bitte noch einmal
+es|Dilo otra vez, por favor
+it|Ripetilo, per favore
+pt|Diz outra vez, por favor
+nl|Zeg het nog eens
+pl|Powiedz to jeszcze raz, proszę
+ro|Spune din nou, te rog
+hr|Ponovi, molim te
+tr|Lütfen tekrar söyle
+el|Πες το ξανά, σε παρακαλώ
+ru|Повтори, пожалуйста
+uk|Повтори, будь ласка
+zh|请再说一遍
+ja|もう一度言って
+ko|다시 말해 줘
+hi|कृपया फिर से कहिए
+ar|قلها مرة أخرى من فضلك
+ur|براہ کرم دوبارہ کہیں
+
+@ Something else
+sq|Diçka tjetër
+fr|Autre chose
+de|Etwas anderes
+es|Otra cosa
+it|Qualcos’altro
+pt|Outra coisa
+nl|Iets anders
+pl|Coś innego
+ro|Altceva
+hr|Nešto drugo
+tr|Başka bir şey
+el|Κάτι άλλο
+ru|Что-то другое
+uk|Щось інше
+zh|别的
+ja|ほかのこと
+ko|다른 것
+hi|कुछ और
+ar|شيء آخر
+ur|کچھ اور
+
+@ Choose a word
+sq|Zgjidh një fjalë
+fr|Choisir un mot
+de|Wort wählen
+es|Elegir una palabra
+it|Scegli una parola
+pt|Escolher uma palavra
+nl|Kies een woord
+pl|Wybierz słowo
+ro|Alege un cuvânt
+hr|Odaberi riječ
+tr|Bir kelime seç
+el|Διάλεξε μια λέξη
+ru|Выбери слово
+uk|Обери слово
+zh|选择一个词
+ja|言葉をえらぶ
+ko|낱말 고르기
+hi|एक शब्द चुनें
+ar|اختر كلمة
+ur|ایک لفظ چنیں
+
+@ Done
+sq|Gati
+fr|Terminé
+de|Fertig
+es|Hecho
+it|Fatto
+pt|Feito
+nl|Klaar
+pl|Gotowe
+ro|Gata
+hr|Gotovo
+tr|Tamam
+el|Έγινε
+ru|Готово
+uk|Готово
+zh|完成
+ja|できた
+ko|완료
+hi|हो गया
+ar|تم
+ur|ہو گیا
+
+@ Edit
+sq|Ndrysho
+fr|Modifier
+de|Bearbeiten
+es|Editar
+it|Modifica
+pt|Editar
+nl|Bewerken
+pl|Edytuj
+ro|Editează
+hr|Uredi
+tr|Düzenle
+el|Επεξεργασία
+ru|Изменить
+uk|Змінити
+zh|编辑
+ja|へんしゅう
+ko|편집
+hi|बदलें
+ar|تعديل
+ur|ترمیم
+
+@ Remove
+sq|Hiq
+fr|Retirer
+de|Entfernen
+es|Quitar
+it|Rimuovi
+pt|Remover
+nl|Verwijderen
+pl|Usuń
+ro|Elimină
+hr|Ukloni
+tr|Kaldır
+el|Αφαίρεση
+ru|Убрать
+uk|Прибрати
+zh|移除
+ja|とりのぞく
+ko|빼기
+hi|हटाएँ
+ar|إزالة
+ur|ہٹائیں
+
+@ Change
+sq|Ndrysho
+fr|Changer
+de|Ändern
+es|Cambiar
+it|Cambia
+pt|Mudar
+nl|Wijzigen
+pl|Zmień
+ro|Schimbă
+hr|Promijeni
+tr|Değiştir
+el|Αλλαγή
+ru|Изменить
+uk|Змінити
+zh|更换
+ja|かえる
+ko|바꾸기
+hi|बदलें
+ar|تغيير
+ur|بدلیں
+
+@ Today
+sq|Sot
+fr|Aujourd’hui
+de|Heute
+es|Hoy
+it|Oggi
+pt|Hoje
+nl|Vandaag
+pl|Dzisiaj
+ro|Azi
+hr|Danas
+tr|Bugün
+el|Σήμερα
+ru|Сегодня
+uk|Сьогодні
+zh|今天
+ja|きょう
+ko|오늘
+hi|आज
+ar|اليوم
+ur|آج
+
+@ Now
+sq|Tani
+fr|Maintenant
+de|Jetzt
+es|Ahora
+it|Adesso
+pt|Agora
+nl|Nu
+pl|Teraz
+ro|Acum
+hr|Sada
+tr|Şimdi
+el|Τώρα
+ru|Сейчас
+uk|Зараз
+zh|现在
+ja|いま
+ko|지금
+hi|अब
+ar|الآن
+ur|اب
+
+@ First – Then
+sq|Së pari – Pastaj
+fr|D’abord – Ensuite
+de|Zuerst – Dann
+es|Primero – Después
+it|Prima – Poi
+pt|Primeiro – Depois
+nl|Eerst – Dan
+pl|Najpierw – Potem
+ro|Întâi – Apoi
+hr|Prvo – Onda
+tr|Önce – Sonra
+el|Πρώτα – Μετά
+ru|Сначала – Потом
+uk|Спочатку – Потім
+zh|先 – 再
+ja|まず – つぎに
+ko|먼저 – 그다음
+hi|पहले – फिर
+ar|أولًا – ثم
+ur|پہلے – پھر
+
+@ Timer
+sq|Kohëmatësi
+fr|Minuteur
+de|Timer
+es|Temporizador
+it|Timer
+pt|Temporizador
+nl|Timer
+pl|Minutnik
+ro|Cronometru
+hr|Mjerač vremena
+tr|Zamanlayıcı
+el|Χρονόμετρο
+ru|Таймер
+uk|Таймер
+zh|计时器
+ja|タイマー
+ko|타이머
+hi|टाइमर
+ar|المؤقت
+ur|ٹائمر
+
+@ No steps yet. A caregiver can add the day in pictures: breakfast, school, lunch, play…
+sq|Ende pa hapa. Kujdestari mund ta shtojë ditën me figura: mëngjes, shkollë, drekë, lojë…
+fr|Pas encore d’étapes. Un aidant peut ajouter la journée en images : petit-déjeuner, école, déjeuner, jeu…
+de|Noch keine Schritte. Eine Betreuungsperson kann den Tag in Bildern anlegen: Frühstück, Schule, Mittagessen, Spielen …
+es|Aún no hay pasos. Un cuidador puede añadir el día en imágenes: desayuno, escuela, comida, jugar…
+it|Ancora nessun passo. Chi assiste può aggiungere la giornata in immagini: colazione, scuola, pranzo, gioco…
+pt|Ainda sem passos. Um cuidador pode juntar o dia em imagens: pequeno-almoço, escola, almoço, brincar…
+nl|Nog geen stappen. Een begeleider kan de dag in plaatjes zetten: ontbijt, school, lunch, spelen…
+pl|Brak kroków. Opiekun może ułożyć dzień w obrazkach: śniadanie, szkoła, obiad, zabawa…
+ro|Încă nu sunt pași. Un însoțitor poate adăuga ziua în imagini: micul dejun, școală, prânz, joacă…
+hr|Još nema koraka. Skrbnik može dodati dan u slikama: doručak, škola, ručak, igra…
+tr|Henüz adım yok. Bakım veren günü resimlerle ekleyebilir: kahvaltı, okul, öğle yemeği, oyun…
+el|Δεν υπάρχουν βήματα ακόμα. Ο φροντιστής μπορεί να βάλει τη μέρα σε εικόνες: πρωινό, σχολείο, μεσημεριανό, παιχνίδι…
+ru|Шагов пока нет. Взрослый может добавить день в картинках: завтрак, школа, обед, игра…
+uk|Кроків ще немає. Дорослий може додати день у картинках: сніданок, школа, обід, гра…
+zh|还没有步骤。照顾者可以用图片排好一天：早餐、上学、午餐、玩耍……
+ja|まだステップがありません。介助者が一日を絵で追加できます：朝ごはん、学校、昼ごはん、あそび…
+ko|아직 단계가 없어요. 보호자가 하루를 그림으로 넣을 수 있어요: 아침, 학교, 점심, 놀이…
+hi|अभी कोई चरण नहीं। देखभालकर्ता दिन को चित्रों में जोड़ सकते हैं: नाश्ता, स्कूल, दोपहर का खाना, खेल…
+ar|لا توجد خطوات بعد. يمكن لمقدّم الرعاية إضافة اليوم بالصور: الفطور، المدرسة، الغداء، اللعب…
+ur|ابھی کوئی مرحلہ نہیں۔ نگہداشت کرنے والا دن تصویروں میں شامل کر سکتا ہے: ناشتہ، اسکول، دوپہر کا کھانا، کھیل…
+
+@ Make the schedule
+sq|Bëj orarin
+fr|Créer l’emploi du temps
+de|Tagesplan erstellen
+es|Crear la agenda
+it|Crea il programma
+pt|Fazer a rotina
+nl|Dagschema maken
+pl|Ułóż plan
+ro|Fă programul
+hr|Napravi raspored
+tr|Planı oluştur
+el|Φτιάξε το πρόγραμμα
+ru|Составить расписание
+uk|Скласти розклад
+zh|制作日程
+ja|よていを作る
+ko|일정 만들기
+hi|दिनचर्या बनाएँ
+ar|أنشئ الجدول
+ur|شیڈول بنائیں
+
+@ Change the schedule
+sq|Ndrysho orarin
+fr|Modifier l’emploi du temps
+de|Tagesplan ändern
+es|Cambiar la agenda
+it|Cambia il programma
+pt|Mudar a rotina
+nl|Dagschema wijzigen
+pl|Zmień plan
+ro|Schimbă programul
+hr|Promijeni raspored
+tr|Planı değiştir
+el|Άλλαξε το πρόγραμμα
+ru|Изменить расписание
+uk|Змінити розклад
+zh|更改日程
+ja|よていを変える
+ko|일정 바꾸기
+hi|दिनचर्या बदलें
+ar|غيّر الجدول
+ur|شیڈول بدلیں
+
+@ Start again
+sq|Fillo përsëri
+fr|Recommencer
+de|Neu beginnen
+es|Empezar de nuevo
+it|Ricomincia
+pt|Recomeçar
+nl|Opnieuw beginnen
+pl|Zacznij od nowa
+ro|Începe din nou
+hr|Počni ponovno
+tr|Baştan başla
+el|Ξεκίνα ξανά
+ru|Начать снова
+uk|Почати знову
+zh|重新开始
+ja|はじめから
+ko|다시 시작
+hi|फिर से शुरू करें
+ar|ابدأ من جديد
+ur|دوبارہ شروع کریں
+
+@ Today's steps
+sq|Hapat e sotëm
+fr|Les étapes du jour
+de|Die Schritte für heute
+es|Los pasos de hoy
+it|I passi di oggi
+pt|Os passos de hoje
+nl|De stappen van vandaag
+pl|Kroki na dziś
+ro|Pașii de azi
+hr|Današnji koraci
+tr|Bugünün adımları
+el|Τα σημερινά βήματα
+ru|Шаги на сегодня
+uk|Кроки на сьогодні
+zh|今天的步骤
+ja|きょうのステップ
+ko|오늘의 단계
+hi|आज के चरण
+ar|خطوات اليوم
+ur|آج کے مراحل
+
+@ Add a step
+sq|Shto një hap
+fr|Ajouter une étape
+de|Schritt hinzufügen
+es|Añadir un paso
+it|Aggiungi un passo
+pt|Juntar um passo
+nl|Stap toevoegen
+pl|Dodaj krok
+ro|Adaugă un pas
+hr|Dodaj korak
+tr|Adım ekle
+el|Πρόσθεσε βήμα
+ru|Добавить шаг
+uk|Додати крок
+zh|添加步骤
+ja|ステップを足す
+ko|단계 추가
+hi|चरण जोड़ें
+ar|أضف خطوة
+ur|مرحلہ شامل کریں
+
+@ Clear all
+sq|Pastroji të gjitha
+fr|Tout effacer
+de|Alles löschen
+es|Borrar todo
+it|Cancella tutto
+pt|Limpar tudo
+nl|Alles wissen
+pl|Wyczyść wszystko
+ro|Șterge tot
+hr|Očisti sve
+tr|Hepsini temizle
+el|Καθαρισμός όλων
+ru|Очистить всё
+uk|Очистити все
+zh|全部清除
+ja|ぜんぶ消す
+ko|모두 지우기
+hi|सब साफ़ करें
+ar|مسح الكل
+ur|سب صاف کریں
+
+@ First
+sq|Së pari
+fr|D’abord
+de|Zuerst
+es|Primero
+it|Prima
+pt|Primeiro
+nl|Eerst
+pl|Najpierw
+ro|Întâi
+hr|Prvo
+tr|Önce
+el|Πρώτα
+ru|Сначала
+uk|Спочатку
+zh|先
+ja|まず
+ko|먼저
+hi|पहले
+ar|أولًا
+ur|پہلے
+
+@ Then
+sq|Pastaj
+fr|Ensuite
+de|Dann
+es|Después
+it|Poi
+pt|Depois
+nl|Dan
+pl|Potem
+ro|Apoi
+hr|Onda
+tr|Sonra
+el|Μετά
+ru|Потом
+uk|Потім
+zh|再
+ja|つぎに
+ko|그다음
+hi|फिर
+ar|ثم
+ur|پھر
+
+@ then
+sq|pastaj
+fr|ensuite
+de|dann
+es|después
+it|poi
+pt|depois
+nl|dan
+pl|potem
+ro|apoi
+hr|onda
+tr|sonra
+el|μετά
+ru|потом
+uk|потім
+zh|再
+ja|つぎに
+ko|그다음
+hi|फिर
+ar|ثم
+ur|پھر
+
+@ Say it
+sq|Thuaje
+fr|Le dire
+de|Sagen
+es|Decirlo
+it|Dillo
+pt|Dizer
+nl|Zeggen
+pl|Powiedz
+ro|Spune
+hr|Reci
+tr|Söyle
+el|Πες το
+ru|Сказать
+uk|Сказати
+zh|说出来
+ja|話す
+ko|말하기
+hi|बोलें
+ar|قلها
+ur|بولیں
+
+@ One more minute
+sq|Edhe një minutë
+fr|Encore une minute
+de|Noch eine Minute
+es|Un minuto más
+it|Ancora un minuto
+pt|Mais um minuto
+nl|Nog één minuut
+pl|Jeszcze minuta
+ro|Încă un minut
+hr|Još jedna minuta
+tr|Bir dakika daha
+el|Ένα λεπτό ακόμα
+ru|Ещё одна минута
+uk|Ще одна хвилина
+zh|还有一分钟
+ja|あと1分
+ko|1분 남았어
+hi|एक मिनट और
+ar|دقيقة واحدة بعد
+ur|ایک منٹ اور
+
+@ Choose a time
+sq|Zgjidh kohën
+fr|Choisis une durée
+de|Zeit wählen
+es|Elige un tiempo
+it|Scegli un tempo
+pt|Escolhe um tempo
+nl|Kies een tijd
+pl|Wybierz czas
+ro|Alege timpul
+hr|Odaberi vrijeme
+tr|Bir süre seç
+el|Διάλεξε χρόνο
+ru|Выбери время
+uk|Обери час
+zh|选择时间
+ja|時間をえらぶ
+ko|시간 고르기
+hi|समय चुनें
+ar|اختر وقتًا
+ur|وقت چنیں
+
+@ 1 minute
+sq|1 minutë
+fr|1 minute
+de|1 Minute
+es|1 minuto
+it|1 minuto
+pt|1 minuto
+nl|1 minuut
+pl|1 minuta
+ro|1 minut
+hr|1 minuta
+tr|1 dakika
+el|1 λεπτό
+ru|1 минута
+uk|1 хвилина
+zh|1 分钟
+ja|1分
+ko|1분
+hi|1 मिनट
+ar|دقيقة واحدة
+ur|1 منٹ
+
+@ {n} minutes
+sq|{n} minuta
+fr|{n} minutes
+de|{n} Minuten
+es|{n} minutos
+it|{n} minuti
+pt|{n} minutos
+nl|{n} minuten
+pl|{n} min
+ro|{n} minute
+hr|{n} min
+tr|{n} dakika
+el|{n} λεπτά
+ru|{n} мин
+uk|{n} хв
+zh|{n} 分钟
+ja|{n}分
+ko|{n}분
+hi|{n} मिनट
+ar|{n} دقائق
+ur|{n} منٹ
+
+@ My {part} hurts
+sq|Më dhemb: {part}
+fr|J’ai mal : {part}
+de|Mir tut weh: {part}
+es|Me duele: {part}
+it|Mi fa male: {part}
+pt|Dói-me: {part}
+nl|Ik heb pijn: {part}
+pl|Boli mnie: {part}
+ro|Mă doare: {part}
+hr|Boli me: {part}
+tr|Ağrıyor: {part}
+el|Με πονάει: {part}
+ru|Болит: {part}
+uk|Болить: {part}
+zh|{part}疼
+ja|{part}がいたい
+ko|{part} 아파요
+hi|{part} में दर्द है
+ar|يؤلمني: {part}
+ur|{part} میں درد ہے
+
+@ My {part} hurt
+sq|Më dhembin: {part}
+fr|J’ai mal : {part}
+de|Mir tun weh: {part}
+es|Me duelen: {part}
+it|Mi fanno male: {part}
+pt|Doem-me: {part}
+nl|Ik heb pijn: {part}
+pl|Bolą mnie: {part}
+ro|Mă dor: {part}
+hr|Bole me: {part}
+tr|Ağrıyor: {part}
+el|Με πονάνε: {part}
+ru|Болят: {part}
+uk|Болять: {part}
+zh|{part}疼
+ja|{part}がいたい
+ko|{part} 아파요
+hi|{part} में दर्द है
+ar|تؤلمني: {part}
+ur|{part} میں درد ہے
+
+@ No pain
+sq|Nuk më dhemb
+fr|Pas de douleur
+de|Keine Schmerzen
+es|No me duele
+it|Nessun dolore
+pt|Sem dor
+nl|Geen pijn
+pl|Nie boli
+ro|Nu mă doare
+hr|Ne boli
+tr|Ağrı yok
+el|Δεν πονάει
+ru|Не болит
+uk|Не болить
+zh|不疼
+ja|いたくない
+ko|안 아파요
+hi|दर्द नहीं
+ar|لا ألم
+ur|درد نہیں
+
+@ It hurts a little
+sq|Më dhemb pak
+fr|Ça fait un peu mal
+de|Es tut ein bisschen weh
+es|Duele un poco
+it|Fa un po’ male
+pt|Dói um pouco
+nl|Het doet een beetje pijn
+pl|Boli trochę
+ro|Doare puțin
+hr|Malo boli
+tr|Biraz ağrıyor
+el|Πονάει λίγο
+ru|Немного болит
+uk|Трохи болить
+zh|有点疼
+ja|すこしいたい
+ko|조금 아파요
+hi|थोड़ा दर्द है
+ar|يؤلم قليلًا
+ur|تھوڑا درد ہے
+
+@ It hurts
+sq|Më dhemb
+fr|Ça fait mal
+de|Es tut weh
+es|Duele
+it|Fa male
+pt|Dói
+nl|Het doet pijn
+pl|Boli
+ro|Doare
+hr|Boli
+tr|Ağrıyor
+el|Πονάει
+ru|Болит
+uk|Болить
+zh|疼
+ja|いたい
+ko|아파요
+hi|दर्द है
+ar|يؤلم
+ur|درد ہے
+
+@ It hurts a lot
+sq|Më dhemb shumë
+fr|Ça fait très mal
+de|Es tut sehr weh
+es|Duele mucho
+it|Fa molto male
+pt|Dói muito
+nl|Het doet veel pijn
+pl|Bardzo boli
+ro|Doare tare
+hr|Jako boli
+tr|Çok ağrıyor
+el|Πονάει πολύ
+ru|Сильно болит
+uk|Дуже болить
+zh|很疼
+ja|とてもいたい
+ko|많이 아파요
+hi|बहुत दर्द है
+ar|يؤلم كثيرًا
+ur|بہت درد ہے
+
+@ It hurts very much
+sq|Më dhemb tepër
+fr|Ça fait vraiment très mal
+de|Es tut ganz schlimm weh
+es|Duele muchísimo
+it|Fa malissimo
+pt|Dói imenso
+nl|Het doet heel erg pijn
+pl|Boli bardzo mocno
+ro|Doare foarte tare
+hr|Boli jako jako
+tr|Çok fazla ağrıyor
+el|Πονάει πάρα πολύ
+ru|Очень сильно болит
+uk|Дуже сильно болить
+zh|非常疼
+ja|すごくいたい
+ko|너무 아파요
+hi|बहुत ज़्यादा दर्द है
+ar|يؤلم جدًا
+ur|بہت زیادہ درد ہے
+
+@ The worst pain
+sq|Dhimbja më e madhe
+fr|La pire douleur
+de|Der schlimmste Schmerz
+es|El peor dolor
+it|Il dolore peggiore
+pt|A pior dor
+nl|De ergste pijn
+pl|Najgorszy ból
+ro|Cea mai rea durere
+hr|Najgora bol
+tr|En kötü ağrı
+el|Ο χειρότερος πόνος
+ru|Самая сильная боль
+uk|Найсильніший біль
+zh|最痛
+ja|いちばんいたい
+ko|가장 심하게 아파요
+hi|सबसे बुरा दर्द
+ar|أسوأ ألم
+ur|سب سے بُرا درد
+
+@ Where does it hurt?
+sq|Ku të dhemb?
+fr|Où as-tu mal ?
+de|Wo tut es weh?
+es|¿Dónde te duele?
+it|Dove ti fa male?
+pt|Onde dói?
+nl|Waar doet het pijn?
+pl|Gdzie boli?
+ro|Unde te doare?
+hr|Gdje te boli?
+tr|Neren ağrıyor?
+el|Πού πονάς;
+ru|Где болит?
+uk|Де болить?
+zh|哪里疼？
+ja|どこがいたい？
+ko|어디가 아파요?
+hi|कहाँ दर्द है?
+ar|أين يؤلمك؟
+ur|کہاں درد ہے؟
+
+@ How much does it hurt?
+sq|Sa të dhemb?
+fr|Tu as mal comment ?
+de|Wie sehr tut es weh?
+es|¿Cuánto te duele?
+it|Quanto ti fa male?
+pt|Quanto dói?
+nl|Hoeveel pijn doet het?
+pl|Jak bardzo boli?
+ro|Cât de tare te doare?
+hr|Koliko boli?
+tr|Ne kadar ağrıyor?
+el|Πόσο πονάει;
+ru|Насколько болит?
+uk|Наскільки болить?
+zh|有多疼？
+ja|どれくらいいたい？
+ko|얼마나 아파요?
+hi|कितना दर्द है?
+ar|ما مدى الألم؟
+ur|کتنا درد ہے؟
+
+@ Add to the message
+sq|Shto në mesazh
+fr|Ajouter au message
+de|Zur Nachricht hinzufügen
+es|Añadir al mensaje
+it|Aggiungi al messaggio
+pt|Juntar à mensagem
+nl|Aan het bericht toevoegen
+pl|Dodaj do wiadomości
+ro|Adaugă la mesaj
+hr|Dodaj u poruku
+tr|Mesaja ekle
+el|Πρόσθεσε στο μήνυμα
+ru|Добавить в сообщение
+uk|Додати до повідомлення
+zh|加入消息
+ja|メッセージに足す
+ko|메시지에 넣기
+hi|संदेश में जोड़ें
+ar|أضف إلى الرسالة
+ur|پیغام میں شامل کریں
+
+@ Add a photo
+sq|Shto një foto
+fr|Ajouter une photo
+de|Foto hinzufügen
+es|Añadir una foto
+it|Aggiungi una foto
+pt|Juntar uma foto
+nl|Foto toevoegen
+pl|Dodaj zdjęcie
+ro|Adaugă o poză
+hr|Dodaj fotografiju
+tr|Fotoğraf ekle
+el|Πρόσθεσε φωτογραφία
+ru|Добавить фото
+uk|Додати фото
+zh|添加照片
+ja|写真を足す
+ko|사진 추가
+hi|तस्वीर जोड़ें
+ar|أضف صورة
+ur|تصویر شامل کریں
+
+@ This photo could not be opened.
+sq|Kjo foto nuk u hap.
+fr|Impossible d’ouvrir cette photo.
+de|Dieses Foto konnte nicht geöffnet werden.
+es|No se pudo abrir esta foto.
+it|Impossibile aprire questa foto.
+pt|Não foi possível abrir esta foto.
+nl|Deze foto kon niet worden geopend.
+pl|Nie udało się otworzyć tego zdjęcia.
+ro|Această poză nu a putut fi deschisă.
+hr|Ova se fotografija ne može otvoriti.
+tr|Bu fotoğraf açılamadı.
+el|Η φωτογραφία δεν άνοιξε.
+ru|Не удалось открыть это фото.
+uk|Не вдалося відкрити це фото.
+zh|无法打开这张照片。
+ja|この写真は開けませんでした。
+ko|이 사진을 열 수 없어요.
+hi|यह तस्वीर खुल नहीं सकी।
+ar|تعذّر فتح هذه الصورة.
+ur|یہ تصویر نہیں کھل سکی۔
+
+@ Name of the photo
+sq|Emri i fotos
+fr|Nom de la photo
+de|Name des Fotos
+es|Nombre de la foto
+it|Nome della foto
+pt|Nome da foto
+nl|Naam van de foto
+pl|Nazwa zdjęcia
+ro|Numele pozei
+hr|Naziv fotografije
+tr|Fotoğrafın adı
+el|Όνομα φωτογραφίας
+ru|Название фото
+uk|Назва фото
+zh|照片名称
+ja|写真の名前
+ko|사진 이름
+hi|तस्वीर का नाम
+ar|اسم الصورة
+ur|تصویر کا نام
+
+@ My photo
+sq|Fotoja ime
+fr|Ma photo
+de|Mein Foto
+es|Mi foto
+it|La mia foto
+pt|A minha foto
+nl|Mijn foto
+pl|Moje zdjęcie
+ro|Poza mea
+hr|Moja fotografija
+tr|Fotoğrafım
+el|Η φωτογραφία μου
+ru|Моё фото
+uk|Моє фото
+zh|我的照片
+ja|わたしの写真
+ko|내 사진
+hi|मेरी तस्वीर
+ar|صورتي
+ur|میری تصویر
+
+@ Delete this photo?
+sq|Ta fshij këtë foto?
+fr|Supprimer cette photo ?
+de|Dieses Foto löschen?
+es|¿Borrar esta foto?
+it|Eliminare questa foto?
+pt|Apagar esta foto?
+nl|Deze foto verwijderen?
+pl|Usunąć to zdjęcie?
+ro|Ștergi această poză?
+hr|Izbrisati ovu fotografiju?
+tr|Bu fotoğraf silinsin mi?
+el|Διαγραφή αυτής της φωτογραφίας;
+ru|Удалить это фото?
+uk|Видалити це фото?
+zh|删除这张照片？
+ja|この写真を消しますか？
+ko|이 사진을 지울까요?
+hi|यह तस्वीर हटाएँ?
+ar|حذف هذه الصورة؟
+ur|یہ تصویر حذف کریں؟
+
+@ Add a real photo (the kitchen, the park, family) and touch spots on it to make them talk.
+sq|Shto një foto të vërtetë (kuzhina, parku, familja) dhe prek vende në të që të flasin.
+fr|Ajoute une vraie photo (la cuisine, le parc, la famille) et touche des endroits pour les faire parler.
+de|Füge ein echtes Foto hinzu (Küche, Park, Familie) und tippe Stellen an, damit sie sprechen.
+es|Añade una foto real (la cocina, el parque, la familia) y toca zonas para que hablen.
+it|Aggiungi una foto vera (la cucina, il parco, la famiglia) e tocca dei punti per farli parlare.
+pt|Junta uma foto real (a cozinha, o parque, a família) e toca em pontos para os fazer falar.
+nl|Voeg een echte foto toe (de keuken, het park, de familie) en tik plekken aan om ze te laten praten.
+pl|Dodaj prawdziwe zdjęcie (kuchnia, park, rodzina) i dotknij miejsc, żeby mówiły.
+ro|Adaugă o poză reală (bucătăria, parcul, familia) și atinge locuri ca să vorbească.
+hr|Dodaj pravu fotografiju (kuhinja, park, obitelj) i dodirni mjesta da progovore.
+tr|Gerçek bir fotoğraf ekle (mutfak, park, aile) ve konuşmaları için üzerindeki yerlere dokun.
+el|Πρόσθεσε μια αληθινή φωτογραφία (κουζίνα, πάρκο, οικογένεια) και άγγιξε σημεία για να μιλήσουν.
+ru|Добавь настоящее фото (кухня, парк, семья) и коснись мест на нём, чтобы они говорили.
+uk|Додай справжнє фото (кухня, парк, родина) і торкнися місць на ньому, щоб вони говорили.
+zh|添加一张真实照片（厨房、公园、家人），点上面的位置让它们说话。
+ja|本物の写真（台所、公園、家族）を足して、場所にふれると話すようにできます。
+ko|진짜 사진(부엌, 공원, 가족)을 넣고 사진의 자리를 누르면 말하게 할 수 있어요.
+hi|एक असली तस्वीर जोड़ें (रसोई, पार्क, परिवार) और उस पर जगहें छूकर उन्हें बोलने वाला बनाएँ।
+ar|أضف صورة حقيقية (المطبخ، الحديقة، العائلة) والمس أماكن عليها لتتكلم.
+ur|ایک اصل تصویر شامل کریں (باورچی خانہ، پارک، خاندان) اور اس پر جگہیں چھو کر انہیں بولنے والا بنائیں۔
+
+@ What does this spot say?
+sq|Çfarë thotë ky vend?
+fr|Que dit cet endroit ?
+de|Was sagt diese Stelle?
+es|¿Qué dice esta zona?
+it|Cosa dice questo punto?
+pt|O que diz este ponto?
+nl|Wat zegt deze plek?
+pl|Co mówi to miejsce?
+ro|Ce spune acest loc?
+hr|Što kaže ovo mjesto?
+tr|Bu nokta ne söylüyor?
+el|Τι λέει αυτό το σημείο;
+ru|Что говорит это место?
+uk|Що каже це місце?
+zh|这个位置说什么？
+ja|ここは何と話しますか？
+ko|이 자리는 뭐라고 말해요?
+hi|यह जगह क्या बोलेगी?
+ar|ماذا يقول هذا المكان؟
+ur|یہ جگہ کیا کہے گی؟
+
+@ Touch the photo to add a talking spot. Touch a spot to change it; leave the text empty to remove it.
+sq|Prek foton për të shtuar një vend që flet. Prek një vend për ta ndryshuar; lëre tekstin bosh për ta hequr.
+fr|Touche la photo pour ajouter un endroit qui parle. Touche un endroit pour le changer ; laisse le texte vide pour le retirer.
+de|Tippe auf das Foto, um eine sprechende Stelle hinzuzufügen. Tippe eine Stelle an, um sie zu ändern; leerer Text entfernt sie.
+es|Toca la foto para añadir una zona que habla. Toca una zona para cambiarla; deja el texto vacío para quitarla.
+it|Tocca la foto per aggiungere un punto che parla. Tocca un punto per cambiarlo; lascia il testo vuoto per toglierlo.
+pt|Toca na foto para juntar um ponto que fala. Toca num ponto para o mudar; deixa o texto vazio para o retirar.
+nl|Tik op de foto om een pratende plek toe te voegen. Tik op een plek om die te wijzigen; laat de tekst leeg om hem te verwijderen.
+pl|Dotknij zdjęcia, aby dodać mówiące miejsce. Dotknij miejsca, aby je zmienić; zostaw pusty tekst, aby je usunąć.
+ro|Atinge poza ca să adaugi un loc care vorbește. Atinge un loc ca să-l schimbi; lasă textul gol ca să-l elimini.
+hr|Dodirni fotografiju da dodaš mjesto koje govori. Dodirni mjesto da ga promijeniš; ostavi tekst prazan da ga ukloniš.
+tr|Konuşan bir nokta eklemek için fotoğrafa dokun. Değiştirmek için noktaya dokun; kaldırmak için metni boş bırak.
+el|Άγγιξε τη φωτογραφία για να προσθέσεις σημείο που μιλά. Άγγιξε ένα σημείο για να το αλλάξεις· άφησε το κείμενο κενό για να το αφαιρέσεις.
+ru|Коснись фото, чтобы добавить говорящее место. Коснись места, чтобы изменить его; оставь текст пустым, чтобы убрать.
+uk|Торкнися фото, щоб додати місце, що говорить. Торкнися місця, щоб змінити його; залиш текст порожнім, щоб прибрати.
+zh|点照片添加会说话的位置。点一个位置可以修改；文字留空即删除。
+ja|写真にふれて話す場所を足します。場所にふれると変えられます。文字を空にすると消えます。
+ko|사진을 눌러 말하는 자리를 넣어요. 자리를 누르면 바꿀 수 있고, 글을 비우면 지워져요.
+hi|बोलने वाली जगह जोड़ने के लिए तस्वीर छुएँ। बदलने के लिए किसी जगह को छुएँ; हटाने के लिए लिखावट खाली छोड़ें।
+ar|المس الصورة لإضافة مكان يتكلم. المس مكانًا لتغييره، واترك النص فارغًا لإزالته.
+ur|بولنے والی جگہ شامل کرنے کے لیے تصویر چھوئیں۔ بدلنے کے لیے جگہ چھوئیں؛ ہٹانے کے لیے متن خالی چھوڑ دیں۔
+
+@ Listening is not available on this device. Type what the other person said instead.
+sq|Dëgjimi nuk është i mundur në këtë pajisje. Shkruaj atë që tha personi tjetër.
+fr|L’écoute n’est pas disponible sur cet appareil. Tape plutôt ce qu’a dit l’autre personne.
+de|Zuhören ist auf diesem Gerät nicht verfügbar. Tippe stattdessen ein, was die andere Person gesagt hat.
+es|Escuchar no está disponible en este dispositivo. Escribe lo que dijo la otra persona.
+it|L’ascolto non è disponibile su questo dispositivo. Scrivi invece cosa ha detto l’altra persona.
+pt|Ouvir não está disponível neste aparelho. Escreve o que a outra pessoa disse.
+nl|Luisteren werkt niet op dit apparaat. Typ wat de ander zei.
+pl|Słuchanie nie działa na tym urządzeniu. Wpisz, co powiedziała druga osoba.
+ro|Ascultarea nu este disponibilă pe acest dispozitiv. Scrie ce a spus cealaltă persoană.
+hr|Slušanje nije dostupno na ovom uređaju. Upiši što je druga osoba rekla.
+tr|Dinleme bu cihazda kullanılamıyor. Karşıdaki kişinin söylediğini yaz.
+el|Η ακρόαση δεν είναι διαθέσιμη σε αυτή τη συσκευή. Γράψε τι είπε ο άλλος.
+ru|Прослушивание недоступно на этом устройстве. Напечатай, что сказал собеседник.
+uk|Слухання недоступне на цьому пристрої. Надрукуй, що сказав співрозмовник.
+zh|此设备无法使用聆听功能。请输入对方说的话。
+ja|この機器では聞きとりが使えません。相手が言ったことを入力してください。
+ko|이 기기에서는 듣기를 쓸 수 없어요. 상대방이 한 말을 입력하세요.
+hi|इस डिवाइस पर सुनना उपलब्ध नहीं है। इसके बजाय दूसरे व्यक्ति ने जो कहा वह लिखें।
+ar|الاستماع غير متاح على هذا الجهاز. اكتب ما قاله الشخص الآخر.
+ur|اس ڈیوائس پر سننا دستیاب نہیں۔ اس کے بجائے دوسرے شخص کی بات لکھیں۔
+
+@ Tap, then let the other person speak. Their words appear here.
+sq|Prek, pastaj lëre personin tjetër të flasë. Fjalët e tij shfaqen këtu.
+fr|Touche, puis laisse l’autre personne parler. Ses mots s’affichent ici.
+de|Tippe und lass dann die andere Person sprechen. Ihre Worte erscheinen hier.
+es|Toca y deja hablar a la otra persona. Sus palabras aparecen aquí.
+it|Tocca, poi lascia parlare l’altra persona. Le sue parole appaiono qui.
+pt|Toca e deixa a outra pessoa falar. As palavras aparecem aqui.
+nl|Tik en laat de ander praten. De woorden verschijnen hier.
+pl|Dotknij i pozwól mówić drugiej osobie. Jej słowa pojawią się tutaj.
+ro|Atinge, apoi lasă cealaltă persoană să vorbească. Cuvintele apar aici.
+hr|Dodirni pa pusti drugu osobu da govori. Njezine riječi pojavljuju se ovdje.
+tr|Dokun, sonra karşıdaki kişi konuşsun. Sözleri burada görünür.
+el|Άγγιξε και άφησε τον άλλον να μιλήσει. Τα λόγια του εμφανίζονται εδώ.
+ru|Нажми и дай собеседнику говорить. Его слова появятся здесь.
+uk|Натисни й дай співрозмовнику говорити. Його слова з’являться тут.
+zh|点一下，然后让对方说话。对方的话会显示在这里。
+ja|タップして、相手に話してもらいます。言葉がここに出ます。
+ko|누른 다음 상대방이 말하게 하세요. 말이 여기에 나와요.
+hi|टैप करें, फिर दूसरे व्यक्ति को बोलने दें। उनके शब्द यहाँ दिखेंगे।
+ar|اضغط، ثم دع الشخص الآخر يتكلم. تظهر كلماته هنا.
+ur|ٹیپ کریں، پھر دوسرے شخص کو بولنے دیں۔ ان کے الفاظ یہاں نظر آئیں گے۔
+
+@ Or type what they said
+sq|Ose shkruaj çfarë tha
+fr|Ou tape ce qui a été dit
+de|Oder tippe ein, was gesagt wurde
+es|O escribe lo que dijo
+it|Oppure scrivi cosa ha detto
+pt|Ou escreve o que disse
+nl|Of typ wat er gezegd is
+pl|Albo wpisz, co powiedział
+ro|Sau scrie ce a spus
+hr|Ili upiši što je rekao
+tr|Ya da söylediğini yaz
+el|Ή γράψε τι είπε
+ru|Или напечатай, что сказали
+uk|Або надрукуй, що сказали
+zh|或输入对方说的话
+ja|または言ったことを入力
+ko|또는 한 말을 입력하세요
+hi|या जो कहा वह लिखें
+ar|أو اكتب ما قيل
+ur|یا جو کہا وہ لکھیں
+
+@ Answer
+sq|Përgjigju
+fr|Répondre
+de|Antworten
+es|Responder
+it|Rispondi
+pt|Responder
+nl|Antwoorden
+pl|Odpowiedz
+ro|Răspunde
+hr|Odgovori
+tr|Cevap ver
+el|Απάντηση
+ru|Ответить
+uk|Відповісти
+zh|回答
+ja|こたえる
+ko|대답하기
+hi|जवाब दें
+ar|أجب
+ur|جواب دیں
+
+@ Word-use report
+sq|Raporti i përdorimit të fjalëve
+fr|Rapport d’utilisation des mots
+de|Bericht zur Wortnutzung
+es|Informe de uso de palabras
+it|Rapporto sull’uso delle parole
+pt|Relatório de uso das palavras
+nl|Rapport woordgebruik
+pl|Raport użycia słów
+ro|Raportul folosirii cuvintelor
+hr|Izvješće o korištenju riječi
+tr|Kelime kullanım raporu
+el|Αναφορά χρήσης λέξεων
+ru|Отчёт об использовании слов
+uk|Звіт про вживання слів
+zh|词语使用报告
+ja|言葉の使用レポート
+ko|낱말 사용 보고서
+hi|शब्द उपयोग रिपोर्ट
+ar|تقرير استخدام الكلمات
+ur|الفاظ کے استعمال کی رپورٹ
+
+@ Last {n} days
+sq|{n} ditët e fundit
+fr|{n} derniers jours
+de|Letzte {n} Tage
+es|Últimos {n} días
+it|Ultimi {n} giorni
+pt|Últimos {n} dias
+nl|Laatste {n} dagen
+pl|Ostatnie {n} dni
+ro|Ultimele {n} zile
+hr|Zadnjih {n} dana
+tr|Son {n} gün
+el|Τελευταίες {n} μέρες
+ru|Последние {n} дн.
+uk|Останні {n} дн.
+zh|最近 {n} 天
+ja|最近{n}日間
+ko|최근 {n}일
+hi|पिछले {n} दिन
+ar|آخر {n} أيام
+ur|پچھلے {n} دن
+
+@ Words said
+sq|Fjalë të thëna
+fr|Mots dits
+de|Gesagte Wörter
+es|Palabras dichas
+it|Parole dette
+pt|Palavras ditas
+nl|Gezegde woorden
+pl|Powiedziane słowa
+ro|Cuvinte spuse
+hr|Izgovorene riječi
+tr|Söylenen kelimeler
+el|Λέξεις που ειπώθηκαν
+ru|Сказано слов
+uk|Сказано слів
+zh|说出的词
+ja|話した言葉
+ko|말한 낱말
+hi|बोले गए शब्द
+ar|الكلمات المقولة
+ur|بولے گئے الفاظ
+
+@ Different words
+sq|Fjalë të ndryshme
+fr|Mots différents
+de|Verschiedene Wörter
+es|Palabras distintas
+it|Parole diverse
+pt|Palavras diferentes
+nl|Verschillende woorden
+pl|Różne słowa
+ro|Cuvinte diferite
+hr|Različite riječi
+tr|Farklı kelimeler
+el|Διαφορετικές λέξεις
+ru|Разных слов
+uk|Різних слів
+zh|不同的词
+ja|ちがう言葉
+ko|서로 다른 낱말
+hi|अलग-अलग शब्द
+ar|كلمات مختلفة
+ur|مختلف الفاظ
+
+@ Days used
+sq|Ditë përdorimi
+fr|Jours d’utilisation
+de|Tage genutzt
+es|Días de uso
+it|Giorni di uso
+pt|Dias de uso
+nl|Dagen gebruikt
+pl|Dni użycia
+ro|Zile de folosire
+hr|Dani korištenja
+tr|Kullanılan gün
+el|Μέρες χρήσης
+ru|Дней использования
+uk|Днів використання
+zh|使用天数
+ja|使った日
+ko|사용한 날
+hi|उपयोग के दिन
+ar|أيام الاستخدام
+ur|استعمال کے دن
+
+@ Share the report
+sq|Ndaj raportin
+fr|Partager le rapport
+de|Bericht teilen
+es|Compartir el informe
+it|Condividi il rapporto
+pt|Partilhar o relatório
+nl|Rapport delen
+pl|Udostępnij raport
+ro|Trimite raportul
+hr|Podijeli izvješće
+tr|Raporu paylaş
+el|Κοινοποίηση αναφοράς
+ru|Поделиться отчётом
+uk|Поділитися звітом
+zh|分享报告
+ja|レポートを共有
+ko|보고서 공유
+hi|रिपोर्ट साझा करें
+ar|مشاركة التقرير
+ur|رپورٹ شیئر کریں
+
+@ Clear the record
+sq|Fshi regjistrin
+fr|Effacer l’historique
+de|Aufzeichnung löschen
+es|Borrar el registro
+it|Cancella il registro
+pt|Apagar o registo
+nl|Registratie wissen
+pl|Wyczyść zapis
+ro|Șterge înregistrarea
+hr|Izbriši zapis
+tr|Kaydı temizle
+el|Διαγραφή καταγραφής
+ru|Очистить запись
+uk|Очистити запис
+zh|清除记录
+ja|記録を消す
+ko|기록 지우기
+hi|रिकॉर्ड साफ़ करें
+ar|مسح السجل
+ur|ریکارڈ صاف کریں
+
+@ Clear the word-use record?
+sq|Ta fshij regjistrin e fjalëve?
+fr|Effacer l’historique des mots ?
+de|Wortaufzeichnung löschen?
+es|¿Borrar el registro de palabras?
+it|Cancellare il registro delle parole?
+pt|Apagar o registo de palavras?
+nl|Registratie van woorden wissen?
+pl|Wyczyścić zapis słów?
+ro|Ștergi înregistrarea cuvintelor?
+hr|Izbrisati zapis riječi?
+tr|Kelime kaydı temizlensin mi?
+el|Διαγραφή της καταγραφής λέξεων;
+ru|Очистить запись слов?
+uk|Очистити запис слів?
+zh|清除词语记录？
+ja|言葉の記録を消しますか？
+ko|낱말 기록을 지울까요?
+hi|शब्दों का रिकॉर्ड साफ़ करें?
+ar|مسح سجل الكلمات؟
+ur|الفاظ کا ریکارڈ صاف کریں؟
+
+@ This cannot be undone.
+sq|Kjo nuk mund të kthehet mbrapsht.
+fr|Cette action est définitive.
+de|Das kann nicht rückgängig gemacht werden.
+es|No se puede deshacer.
+it|Non si può annullare.
+pt|Não é possível desfazer.
+nl|Dit kan niet ongedaan worden gemaakt.
+pl|Tego nie można cofnąć.
+ro|Nu se poate anula.
+hr|Ovo se ne može poništiti.
+tr|Bu geri alınamaz.
+el|Δεν μπορεί να αναιρεθεί.
+ru|Это нельзя отменить.
+uk|Це не можна скасувати.
+zh|此操作无法撤销。
+ja|元に戻せません。
+ko|되돌릴 수 없어요.
+hi|इसे वापस नहीं किया जा सकता।
+ar|لا يمكن التراجع عن هذا.
+ur|اسے واپس نہیں کیا جا سکتا۔
+
+@ The record is off. Turn on "Keep a word-use record" in Settings > Caregiver.
+sq|Regjistri është i fikur. Ndize "Mbaj regjistër të fjalëve" te Cilësimet > Kujdestari.
+fr|L’historique est désactivé. Active « Garder un historique des mots » dans Réglages > Aidant.
+de|Die Aufzeichnung ist aus. Schalte „Wortnutzung aufzeichnen“ unter Einstellungen > Betreuung ein.
+es|El registro está apagado. Activa «Guardar registro de palabras» en Ajustes > Cuidador.
+it|Il registro è spento. Attiva «Tieni un registro delle parole» in Impostazioni > Assistente.
+pt|O registo está desligado. Liga «Guardar registo de palavras» em Definições > Cuidador.
+nl|De registratie staat uit. Zet „Woordgebruik bijhouden” aan in Instellingen > Begeleider.
+pl|Zapis jest wyłączony. Włącz „Zapisuj użycie słów” w Ustawienia > Opiekun.
+ro|Înregistrarea e oprită. Pornește „Păstrează o înregistrare a cuvintelor” în Setări > Însoțitor.
+hr|Zapis je isključen. Uključi „Vodi zapis o riječima” u Postavke > Skrbnik.
+tr|Kayıt kapalı. Ayarlar > Bakım veren bölümünde “Kelime kullanım kaydı tut” seçeneğini aç.
+el|Η καταγραφή είναι κλειστή. Άνοιξε «Κράτα καταγραφή λέξεων» στις Ρυθμίσεις > Φροντιστής.
+ru|Запись выключена. Включи «Вести запись слов» в Настройки > Взрослый.
+uk|Запис вимкнено. Увімкни «Вести запис слів» у Налаштування > Дорослий.
+zh|记录已关闭。请在 设置 > 照顾者 中打开“保留词语使用记录”。
+ja|記録はオフです。設定 > 介助者 で「言葉の使用を記録する」をオンにしてください。
+ko|기록이 꺼져 있어요. 설정 > 보호자에서 "낱말 사용 기록하기"를 켜세요.
+hi|रिकॉर्ड बंद है। सेटिंग्स > देखभालकर्ता में "शब्द उपयोग का रिकॉर्ड रखें" चालू करें।
+ar|السجل متوقف. شغّل «احتفظ بسجل استخدام الكلمات» في الإعدادات > مقدّم الرعاية.
+ur|ریکارڈ بند ہے۔ ترتیبات > نگہداشت کرنے والا میں "الفاظ کے استعمال کا ریکارڈ رکھیں" آن کریں۔
+
+@ {n} days
+sq|{n} ditë
+fr|{n} jours
+de|{n} Tage
+es|{n} días
+it|{n} giorni
+pt|{n} dias
+nl|{n} dagen
+pl|{n} dni
+ro|{n} zile
+hr|{n} dana
+tr|{n} gün
+el|{n} μέρες
+ru|{n} дн.
+uk|{n} дн.
+zh|{n} 天
+ja|{n}日
+ko|{n}일
+hi|{n} दिन
+ar|{n} أيام
+ur|{n} دن
+
+@ No words recorded in this time.
+sq|Asnjë fjalë e regjistruar në këtë kohë.
+fr|Aucun mot enregistré pendant cette période.
+de|In dieser Zeit wurden keine Wörter aufgezeichnet.
+es|No hay palabras registradas en este tiempo.
+it|Nessuna parola registrata in questo periodo.
+pt|Nenhuma palavra registada neste período.
+nl|Geen woorden bijgehouden in deze periode.
+pl|Brak zapisanych słów w tym czasie.
+ro|Niciun cuvânt înregistrat în această perioadă.
+hr|U tom razdoblju nema zapisanih riječi.
+tr|Bu sürede kaydedilen kelime yok.
+el|Καμία λέξη σε αυτό το διάστημα.
+ru|За это время слов нет.
+uk|За цей час слів немає.
+zh|这段时间没有记录的词语。
+ja|この期間の記録はありません。
+ko|이 기간에 기록된 낱말이 없어요.
+hi|इस समय में कोई शब्द दर्ज नहीं हुआ।
+ar|لا توجد كلمات مسجلة في هذه المدة.
+ur|اس مدت میں کوئی لفظ درج نہیں ہوا۔
+
+@ Kept only on this device. Nothing is sent anywhere unless you share it.
+sq|Ruhet vetëm në këtë pajisje. Asgjë nuk dërgohet askund nëse nuk e ndan ti.
+fr|Gardé uniquement sur cet appareil. Rien n’est envoyé, sauf si tu le partages.
+de|Nur auf diesem Gerät gespeichert. Nichts wird gesendet, außer du teilst es.
+es|Solo se guarda en este dispositivo. No se envía nada a menos que lo compartas.
+it|Conservato solo su questo dispositivo. Non viene inviato nulla, a meno che tu non lo condivida.
+pt|Guardado só neste aparelho. Nada é enviado, a não ser que o partilhes.
+nl|Alleen op dit apparaat bewaard. Er wordt niets verstuurd, tenzij je het deelt.
+pl|Przechowywane tylko na tym urządzeniu. Nic nie jest wysyłane, chyba że to udostępnisz.
+ro|Păstrat doar pe acest dispozitiv. Nu se trimite nimic decât dacă îl trimiți tu.
+hr|Čuva se samo na ovom uređaju. Ništa se ne šalje osim ako to podijeliš.
+tr|Yalnızca bu cihazda tutulur. Sen paylaşmadıkça hiçbir yere gönderilmez.
+el|Φυλάσσεται μόνο σε αυτή τη συσκευή. Τίποτα δεν αποστέλλεται, εκτός αν το μοιραστείς.
+ru|Хранится только на этом устройстве. Ничего не отправляется, пока ты сам не поделишься.
+uk|Зберігається лише на цьому пристрої. Нічого не надсилається, доки ти сам не поділишся.
+zh|只保存在此设备上。除非你分享，否则不会发送到任何地方。
+ja|この機器にだけ保存されます。共有しない限りどこにも送られません。
+ko|이 기기에만 저장돼요. 공유하지 않으면 어디에도 보내지지 않아요.
+hi|केवल इसी डिवाइस पर रखा जाता है। जब तक आप साझा न करें, कुछ भी कहीं नहीं भेजा जाता।
+ar|يُحفظ على هذا الجهاز فقط. لا يُرسل شيء إلا إذا شاركته.
+ur|صرف اسی ڈیوائس پر رکھا جاتا ہے۔ جب تک آپ شیئر نہ کریں، کچھ نہیں بھیجا جاتا۔
+
+@ Connect this device to Wi-Fi first.
+sq|Lidhe fillimisht këtë pajisje me Wi-Fi.
+fr|Connecte d’abord cet appareil au Wi-Fi.
+de|Verbinde dieses Gerät zuerst mit dem WLAN.
+es|Conecta primero este dispositivo al wifi.
+it|Collega prima questo dispositivo al Wi-Fi.
+pt|Liga primeiro este aparelho ao Wi-Fi.
+nl|Verbind dit apparaat eerst met wifi.
+pl|Najpierw połącz to urządzenie z Wi-Fi.
+ro|Conectează mai întâi acest dispozitiv la Wi-Fi.
+hr|Najprije spoji ovaj uređaj na Wi-Fi.
+tr|Önce bu cihazı Wi-Fi’ye bağla.
+el|Σύνδεσε πρώτα αυτή τη συσκευή στο Wi-Fi.
+ru|Сначала подключи это устройство к Wi-Fi.
+uk|Спершу підключи цей пристрій до Wi-Fi.
+zh|请先把此设备连接到 Wi-Fi。
+ja|まずこの機器を Wi-Fi につないでください。
+ko|먼저 이 기기를 Wi-Fi에 연결하세요.
+hi|पहले इस डिवाइस को Wi-Fi से जोड़ें।
+ar|صِل هذا الجهاز بشبكة Wi-Fi أولًا.
+ur|پہلے اس ڈیوائس کو Wi-Fi سے جوڑیں۔
+
+@ Send this board
+sq|Dërgo këtë tabelë
+fr|Envoyer ce tableau
+de|Diese Tafel senden
+es|Enviar este tablero
+it|Invia questa tabella
+pt|Enviar este quadro
+nl|Dit bord versturen
+pl|Wyślij tę tablicę
+ro|Trimite această tablă
+hr|Pošalji ovu ploču
+tr|Bu panoyu gönder
+el|Στείλε αυτόν τον πίνακα
+ru|Отправить эту доску
+uk|Надіслати цю дошку
+zh|发送此面板
+ja|このボードを送る
+ko|이 보드 보내기
+hi|यह बोर्ड भेजें
+ar|أرسل هذه اللوحة
+ur|یہ بورڈ بھیجیں
+
+@ On the other device (same Wi-Fi): Settings > Offline and backup > Receive a board, then type:
+sq|Në pajisjen tjetër (i njëjti Wi-Fi): Cilësimet > Pa internet dhe kopje > Merr një tabelë, pastaj shkruaj:
+fr|Sur l’autre appareil (même Wi-Fi) : Réglages > Hors ligne et sauvegarde > Recevoir un tableau, puis tape :
+de|Auf dem anderen Gerät (gleiches WLAN): Einstellungen > Offline und Sicherung > Tafel empfangen, dann eingeben:
+es|En el otro dispositivo (mismo wifi): Ajustes > Sin conexión y copia > Recibir un tablero, y escribe:
+it|Sull’altro dispositivo (stesso Wi-Fi): Impostazioni > Offline e backup > Ricevi una tabella, poi scrivi:
+pt|No outro aparelho (mesmo Wi-Fi): Definições > Offline e cópia > Receber um quadro, depois escreve:
+nl|Op het andere apparaat (zelfde wifi): Instellingen > Offline en back-up > Een bord ontvangen, typ dan:
+pl|Na drugim urządzeniu (ta sama sieć Wi-Fi): Ustawienia > Offline i kopia > Odbierz tablicę, potem wpisz:
+ro|Pe celălalt dispozitiv (același Wi-Fi): Setări > Offline și copie > Primește o tablă, apoi scrie:
+hr|Na drugom uređaju (isti Wi-Fi): Postavke > Izvanmrežno i sigurnosna kopija > Primi ploču, zatim upiši:
+tr|Diğer cihazda (aynı Wi-Fi): Ayarlar > Çevrimdışı ve yedek > Pano al, sonra şunu yaz:
+el|Στην άλλη συσκευή (ίδιο Wi-Fi): Ρυθμίσεις > Εκτός σύνδεσης και αντίγραφο > Λήψη πίνακα, και γράψε:
+ru|На другом устройстве (тот же Wi-Fi): Настройки > Без интернета и копия > Получить доску, затем введи:
+uk|На іншому пристрої (той самий Wi-Fi): Налаштування > Без інтернету і копія > Отримати дошку, потім введи:
+zh|在另一台设备上（同一 Wi-Fi）：设置 > 离线与备份 > 接收面板，然后输入：
+ja|もう一台の機器で（同じ Wi-Fi）：設定 > オフラインとバックアップ > ボードを受け取る、そして入力：
+ko|다른 기기에서(같은 Wi-Fi): 설정 > 오프라인 및 백업 > 보드 받기, 그리고 입력:
+hi|दूसरे डिवाइस पर (वही Wi-Fi): सेटिंग्स > ऑफ़लाइन और बैकअप > बोर्ड प्राप्त करें, फिर लिखें:
+ar|على الجهاز الآخر (نفس شبكة Wi-Fi): الإعدادات > دون إنترنت والنسخ الاحتياطي > استلام لوحة، ثم اكتب:
+ur|دوسری ڈیوائس پر (وہی Wi-Fi): ترتیبات > آف لائن اور بیک اپ > بورڈ وصول کریں، پھر لکھیں:
+
+@ Code
+sq|Kodi
+fr|Code
+de|Code
+es|Código
+it|Codice
+pt|Código
+nl|Code
+pl|Kod
+ro|Cod
+hr|Kôd
+tr|Kod
+el|Κωδικός
+ru|Код
+uk|Код
+zh|代码
+ja|コード
+ko|코드
+hi|कोड
+ar|الرمز
+ur|کوڈ
+
+@ Keep this open until the other device says it is done.
+sq|Mbaje të hapur derisa pajisja tjetër të thotë që mbaroi.
+fr|Laisse ceci ouvert jusqu’à ce que l’autre appareil ait terminé.
+de|Lass dies offen, bis das andere Gerät fertig ist.
+es|Déjalo abierto hasta que el otro dispositivo termine.
+it|Lascia aperto finché l’altro dispositivo non ha finito.
+pt|Deixa isto aberto até o outro aparelho terminar.
+nl|Laat dit open tot het andere apparaat klaar is.
+pl|Zostaw to otwarte, aż drugie urządzenie skończy.
+ro|Lasă deschis până termină celălalt dispozitiv.
+hr|Ostavi otvoreno dok drugi uređaj ne završi.
+tr|Diğer cihaz bitene kadar bunu açık tut.
+el|Κράτα το ανοιχτό μέχρι να τελειώσει η άλλη συσκευή.
+ru|Не закрывай, пока другое устройство не закончит.
+uk|Не закривай, доки інший пристрій не завершить.
+zh|保持打开，直到另一台设备完成。
+ja|もう一台が終わるまで開いたままにしてください。
+ko|다른 기기가 끝날 때까지 열어 두세요.
+hi|दूसरा डिवाइस पूरा होने तक इसे खुला रखें।
+ar|أبقه مفتوحًا حتى ينتهي الجهاز الآخر.
+ur|دوسری ڈیوائس کے مکمل ہونے تک اسے کھلا رکھیں۔
+
+@ The board could not be sent. Please try again.
+sq|Tabela nuk u dërgua. Provo përsëri.
+fr|Le tableau n’a pas pu être envoyé. Réessaie.
+de|Die Tafel konnte nicht gesendet werden. Bitte versuche es erneut.
+es|No se pudo enviar el tablero. Inténtalo de nuevo.
+it|Impossibile inviare la tabella. Riprova.
+pt|Não foi possível enviar o quadro. Tenta outra vez.
+nl|Het bord kon niet worden verstuurd. Probeer het opnieuw.
+pl|Nie udało się wysłać tablicy. Spróbuj ponownie.
+ro|Tabla nu a putut fi trimisă. Încearcă din nou.
+hr|Ploča se nije mogla poslati. Pokušaj ponovno.
+tr|Pano gönderilemedi. Lütfen tekrar dene.
+el|Ο πίνακας δεν στάλθηκε. Δοκίμασε ξανά.
+ru|Не удалось отправить доску. Попробуй ещё раз.
+uk|Не вдалося надіслати дошку. Спробуй ще раз.
+zh|无法发送面板。请重试。
+ja|ボードを送れませんでした。もう一度お試しください。
+ko|보드를 보내지 못했어요. 다시 해 보세요.
+hi|बोर्ड नहीं भेजा जा सका। कृपया फिर से कोशिश करें।
+ar|تعذّر إرسال اللوحة. حاول مرة أخرى.
+ur|بورڈ نہیں بھیجا جا سکا۔ براہ کرم دوبارہ کوشش کریں۔
+
+@ Receive a board
+sq|Merr një tabelë
+fr|Recevoir un tableau
+de|Tafel empfangen
+es|Recibir un tablero
+it|Ricevi una tabella
+pt|Receber um quadro
+nl|Een bord ontvangen
+pl|Odbierz tablicę
+ro|Primește o tablă
+hr|Primi ploču
+tr|Pano al
+el|Λήψη πίνακα
+ru|Получить доску
+uk|Отримати дошку
+zh|接收面板
+ja|ボードを受け取る
+ko|보드 받기
+hi|बोर्ड प्राप्त करें
+ar|استلام لوحة
+ur|بورڈ وصول کریں
+
+@ On the other device choose Send this board. Then type the address and code it shows.
+sq|Në pajisjen tjetër zgjidh "Dërgo këtë tabelë". Pastaj shkruaj adresën dhe kodin që tregon.
+fr|Sur l’autre appareil, choisis « Envoyer ce tableau ». Puis tape l’adresse et le code affichés.
+de|Wähle auf dem anderen Gerät „Diese Tafel senden“. Gib dann die angezeigte Adresse und den Code ein.
+es|En el otro dispositivo elige «Enviar este tablero». Luego escribe la dirección y el código que aparecen.
+it|Sull’altro dispositivo scegli «Invia questa tabella». Poi scrivi l’indirizzo e il codice mostrati.
+pt|No outro aparelho escolhe «Enviar este quadro». Depois escreve o endereço e o código que aparecem.
+nl|Kies op het andere apparaat „Dit bord versturen”. Typ dan het adres en de code die je ziet.
+pl|Na drugim urządzeniu wybierz „Wyślij tę tablicę”. Potem wpisz pokazany adres i kod.
+ro|Pe celălalt dispozitiv alege „Trimite această tablă”. Apoi scrie adresa și codul afișate.
+hr|Na drugom uređaju odaberi „Pošalji ovu ploču”. Zatim upiši prikazanu adresu i kôd.
+tr|Diğer cihazda “Bu panoyu gönder”i seç. Sonra gösterilen adresi ve kodu yaz.
+el|Στην άλλη συσκευή διάλεξε «Στείλε αυτόν τον πίνακα». Μετά γράψε τη διεύθυνση και τον κωδικό που δείχνει.
+ru|На другом устройстве выбери «Отправить эту доску». Затем введи показанные адрес и код.
+uk|На іншому пристрої обери «Надіслати цю дошку». Потім введи показані адресу й код.
+zh|在另一台设备上选择“发送此面板”，然后输入显示的地址和代码。
+ja|もう一台で「このボードを送る」を選び、表示されたアドレスとコードを入力します。
+ko|다른 기기에서 "이 보드 보내기"를 고른 뒤, 나온 주소와 코드를 입력하세요.
+hi|दूसरे डिवाइस पर "यह बोर्ड भेजें" चुनें। फिर दिखाया गया पता और कोड लिखें।
+ar|على الجهاز الآخر اختر «أرسل هذه اللوحة»، ثم اكتب العنوان والرمز الظاهرين.
+ur|دوسری ڈیوائس پر "یہ بورڈ بھیجیں" چنیں۔ پھر دکھایا گیا پتا اور کوڈ لکھیں۔
+
+@ Address
+sq|Adresa
+fr|Adresse
+de|Adresse
+es|Dirección
+it|Indirizzo
+pt|Endereço
+nl|Adres
+pl|Adres
+ro|Adresa
+hr|Adresa
+tr|Adres
+el|Διεύθυνση
+ru|Адрес
+uk|Адреса
+zh|地址
+ja|アドレス
+ko|주소
+hi|पता
+ar|العنوان
+ur|پتا
+
+@ Receive
+sq|Merr
+fr|Recevoir
+de|Empfangen
+es|Recibir
+it|Ricevi
+pt|Receber
+nl|Ontvangen
+pl|Odbierz
+ro|Primește
+hr|Primi
+tr|Al
+el|Λήψη
+ru|Получить
+uk|Отримати
+zh|接收
+ja|受け取る
+ko|받기
+hi|प्राप्त करें
+ar|استلام
+ur|وصول کریں
+
+@ Check the address and the 6-digit code.
+sq|Kontrollo adresën dhe kodin me 6 shifra.
+fr|Vérifie l’adresse et le code à 6 chiffres.
+de|Prüfe die Adresse und den 6-stelligen Code.
+es|Comprueba la dirección y el código de 6 cifras.
+it|Controlla l’indirizzo e il codice di 6 cifre.
+pt|Verifica o endereço e o código de 6 dígitos.
+nl|Controleer het adres en de 6-cijferige code.
+pl|Sprawdź adres i 6-cyfrowy kod.
+ro|Verifică adresa și codul din 6 cifre.
+hr|Provjeri adresu i šesteroznamenkasti kôd.
+tr|Adresi ve 6 haneli kodu kontrol et.
+el|Έλεγξε τη διεύθυνση και τον 6ψήφιο κωδικό.
+ru|Проверь адрес и 6-значный код.
+uk|Перевір адресу й 6-значний код.
+zh|请检查地址和 6 位代码。
+ja|アドレスと6けたのコードを確かめてください。
+ko|주소와 6자리 코드를 확인하세요.
+hi|पता और 6 अंकों का कोड जाँचें।
+ar|تحقق من العنوان والرمز المكوّن من 6 أرقام.
+ur|پتا اور 6 ہندسوں والا کوڈ چیک کریں۔
+
+@ The board could not be received. Both devices must be on the same Wi-Fi.
+sq|Tabela nuk u mor. Të dyja pajisjet duhet të jenë në të njëjtin Wi-Fi.
+fr|Le tableau n’a pas pu être reçu. Les deux appareils doivent être sur le même Wi-Fi.
+de|Die Tafel konnte nicht empfangen werden. Beide Geräte müssen im selben WLAN sein.
+es|No se pudo recibir el tablero. Los dos dispositivos deben estar en el mismo wifi.
+it|Impossibile ricevere la tabella. I due dispositivi devono essere sulla stessa rete Wi-Fi.
+pt|Não foi possível receber o quadro. Os dois aparelhos têm de estar no mesmo Wi-Fi.
+nl|Het bord kon niet worden ontvangen. Beide apparaten moeten op hetzelfde wifi zitten.
+pl|Nie udało się odebrać tablicy. Oba urządzenia muszą być w tej samej sieci Wi-Fi.
+ro|Tabla nu a putut fi primită. Ambele dispozitive trebuie să fie pe același Wi-Fi.
+hr|Ploča se nije mogla primiti. Oba uređaja moraju biti na istoj Wi-Fi mreži.
+tr|Pano alınamadı. İki cihaz da aynı Wi-Fi’de olmalı.
+el|Ο πίνακας δεν παραλήφθηκε. Και οι δύο συσκευές πρέπει να είναι στο ίδιο Wi-Fi.
+ru|Не удалось получить доску. Оба устройства должны быть в одной сети Wi-Fi.
+uk|Не вдалося отримати дошку. Обидва пристрої мають бути в одній мережі Wi-Fi.
+zh|无法接收面板。两台设备必须连接同一个 Wi-Fi。
+ja|ボードを受け取れませんでした。2台とも同じ Wi-Fi につないでください。
+ko|보드를 받지 못했어요. 두 기기가 같은 Wi-Fi에 있어야 해요.
+hi|बोर्ड प्राप्त नहीं हो सका। दोनों डिवाइस एक ही Wi-Fi पर होने चाहिए।
+ar|تعذّر استلام اللوحة. يجب أن يكون الجهازان على نفس شبكة Wi-Fi.
+ur|بورڈ وصول نہیں ہو سکا۔ دونوں ڈیوائسز ایک ہی Wi-Fi پر ہونی چاہئیں۔
+
+@ Copy this board to another phone or tablet on the same Wi-Fi (no internet or account needed).
+sq|Kopjo këtë tabelë në një telefon ose tablet tjetër në të njëjtin Wi-Fi (pa internet dhe pa llogari).
+fr|Copie ce tableau sur un autre téléphone ou une tablette du même Wi-Fi (sans internet ni compte).
+de|Kopiere diese Tafel auf ein anderes Handy oder Tablet im selben WLAN (ohne Internet oder Konto).
+es|Copia este tablero a otro teléfono o tableta del mismo wifi (sin internet ni cuenta).
+it|Copia questa tabella su un altro telefono o tablet della stessa rete Wi-Fi (senza internet né account).
+pt|Copia este quadro para outro telemóvel ou tablet no mesmo Wi-Fi (sem internet nem conta).
+nl|Kopieer dit bord naar een andere telefoon of tablet op hetzelfde wifi (zonder internet of account).
+pl|Skopiuj tę tablicę na inny telefon lub tablet w tej samej sieci Wi-Fi (bez internetu i konta).
+ro|Copiază această tablă pe alt telefon sau tabletă din același Wi-Fi (fără internet sau cont).
+hr|Kopiraj ovu ploču na drugi telefon ili tablet na istoj Wi-Fi mreži (bez interneta i računa).
+tr|Bu panoyu aynı Wi-Fi’deki başka bir telefona veya tablete kopyala (internet ya da hesap gerekmez).
+el|Αντίγραψε αυτόν τον πίνακα σε άλλο κινητό ή tablet στο ίδιο Wi-Fi (χωρίς internet ή λογαριασμό).
+ru|Скопируй эту доску на другой телефон или планшет в той же сети Wi-Fi (без интернета и аккаунта).
+uk|Скопіюй цю дошку на інший телефон чи планшет у тій самій мережі Wi-Fi (без інтернету й облікового запису).
+zh|把此面板复制到同一 Wi-Fi 下的另一部手机或平板（无需互联网或账号）。
+ja|このボードを同じ Wi-Fi の別のスマホやタブレットにコピーします（インターネットもアカウントも不要）。
+ko|이 보드를 같은 Wi-Fi의 다른 휴대폰이나 태블릿으로 복사해요(인터넷이나 계정 필요 없음).
+hi|इस बोर्ड को उसी Wi-Fi पर दूसरे फ़ोन या टैबलेट में कॉपी करें (इंटरनेट या खाते की ज़रूरत नहीं)।
+ar|انسخ هذه اللوحة إلى هاتف أو جهاز لوحي آخر على نفس شبكة Wi-Fi (دون إنترنت أو حساب).
+ur|اس بورڈ کو اسی Wi-Fi پر کسی دوسرے فون یا ٹیبلٹ میں کاپی کریں (انٹرنیٹ یا اکاؤنٹ کی ضرورت نہیں)۔
+
+@ Suggest the next word
+sq|Sugjero fjalën e radhës
+fr|Proposer le mot suivant
+de|Nächstes Wort vorschlagen
+es|Sugerir la siguiente palabra
+it|Suggerisci la parola successiva
+pt|Sugerir a palavra seguinte
+nl|Volgend woord voorstellen
+pl|Podpowiadaj następne słowo
+ro|Sugerează cuvântul următor
+hr|Predloži sljedeću riječ
+tr|Sonraki kelimeyi öner
+el|Πρότεινε την επόμενη λέξη
+ru|Подсказывать следующее слово
+uk|Підказувати наступне слово
+zh|推荐下一个词
+ja|次の言葉をすすめる
+ko|다음 낱말 추천
+hi|अगला शब्द सुझाएँ
+ar|اقتراح الكلمة التالية
+ur|اگلا لفظ تجویز کریں
+
+@ Pictures of words that may come next, and words for this time of day
+sq|Figura të fjalëve që mund të vijnë më pas, dhe fjalë për këtë kohë të ditës
+fr|Images des mots qui peuvent suivre, et mots pour ce moment de la journée
+de|Bilder von Wörtern, die als Nächstes kommen können, und Wörter für diese Tageszeit
+es|Imágenes de palabras que pueden venir después y palabras para este momento del día
+it|Immagini delle parole che possono seguire e parole per questo momento della giornata
+pt|Imagens de palavras que podem vir a seguir e palavras para esta altura do dia
+nl|Plaatjes van woorden die kunnen volgen, en woorden voor dit moment van de dag
+pl|Obrazki słów, które mogą być następne, i słowa na tę porę dnia
+ro|Imagini cu cuvinte care pot urma și cuvinte pentru acest moment al zilei
+hr|Slike riječi koje mogu slijediti i riječi za ovo doba dana
+tr|Sonra gelebilecek kelimelerin resimleri ve günün bu saati için kelimeler
+el|Εικόνες λέξεων που μπορεί να ακολουθούν και λέξεις για αυτή την ώρα της μέρας
+ru|Картинки слов, которые могут идти дальше, и слова для этого времени дня
+uk|Картинки слів, що можуть іти далі, і слова для цього часу дня
+zh|可能接着用的词的图片，以及适合当前时段的词
+ja|次に来そうな言葉の絵と、この時間帯の言葉
+ko|다음에 올 수 있는 낱말 그림과 지금 시간에 맞는 낱말
+hi|आगे आ सकने वाले शब्दों के चित्र, और दिन के इस समय के शब्द
+ar|صور كلمات قد تأتي بعدها، وكلمات لهذا الوقت من اليوم
+ur|آگے آ سکنے والے الفاظ کی تصویریں، اور دن کے اس وقت کے الفاظ
+
+@ Offer a fuller sentence
+sq|Ofro një fjali më të plotë
+fr|Proposer une phrase plus complète
+de|Einen ganzen Satz anbieten
+es|Ofrecer una frase más completa
+it|Proponi una frase più completa
+pt|Sugerir uma frase mais completa
+nl|Een vollere zin aanbieden
+pl|Proponuj pełniejsze zdanie
+ro|Propune o propoziție mai completă
+hr|Ponudi potpuniju rečenicu
+tr|Daha tam bir cümle öner
+el|Πρότεινε πιο ολοκληρωμένη πρόταση
+ru|Предлагать полное предложение
+uk|Пропонувати повніше речення
+zh|提供更完整的句子
+ja|もっと完全な文を提案する
+ko|더 완전한 문장 제안
+hi|पूरा वाक्य सुझाएँ
+ar|اقتراح جملة أكمل
+ur|زیادہ مکمل جملہ تجویز کریں
+
+@ "want drink" becomes "I want to drink." — tap it to say it
+sq|"dua pi" bëhet "Dua të pi." — prekeni për ta thënë
+fr|« vouloir boire » devient une phrase entière — touche-la pour la dire
+de|Aus einzelnen Wörtern wird ein ganzer Satz — tippe ihn an, um ihn zu sagen
+es|Las palabras sueltas se vuelven una frase — tócala para decirla
+it|Le parole sparse diventano una frase — toccala per dirla
+pt|Palavras soltas tornam-se uma frase — toca para a dizer
+nl|Losse woorden worden een zin — tik erop om hem te zeggen
+pl|Pojedyncze słowa stają się zdaniem — dotknij, by je powiedzieć
+ro|Cuvintele separate devin o propoziție — atinge-o ca s-o spui
+hr|Pojedine riječi postaju rečenica — dodirni je da je izgovoriš
+tr|Tek tek kelimeler cümle olur — söylemek için dokun
+el|Οι λέξεις γίνονται πρόταση — άγγιξέ τη για να ειπωθεί
+ru|Отдельные слова становятся предложением — нажми, чтобы сказать
+uk|Окремі слова стають реченням — натисни, щоб сказати
+zh|零散的词变成完整句子——点一下就会说出来
+ja|ばらばらの言葉が文になります — タップすると話します
+ko|낱말들이 문장이 돼요 — 누르면 말해요
+hi|अलग-अलग शब्द पूरा वाक्य बनते हैं — बोलने के लिए छुएँ
+ar|تصبح الكلمات المتفرقة جملة — المسها لتُقال
+ur|الگ الگ الفاظ جملہ بن جاتے ہیں — بولنے کے لیے چھوئیں
+
+@ Quick replies
+sq|Përgjigje të shpejta
+fr|Réponses rapides
+de|Schnelle Antworten
+es|Respuestas rápidas
+it|Risposte rapide
+pt|Respostas rápidas
+nl|Snelle antwoorden
+pl|Szybkie odpowiedzi
+ro|Răspunsuri rapide
+hr|Brzi odgovori
+tr|Hızlı cevaplar
+el|Γρήγορες απαντήσεις
+ru|Быстрые ответы
+uk|Швидкі відповіді
+zh|快速回答
+ja|すぐ使う返事
+ko|빠른 대답
+hi|झटपट जवाब
+ar|ردود سريعة
+ur|فوری جوابات
+
+@ Yes, no, wait, I don't know… always one tap away
+sq|Po, jo, prit, nuk e di… gjithmonë me një prekje
+fr|Oui, non, attends, je ne sais pas… toujours à un toucher
+de|Ja, nein, warte, ich weiß nicht … immer nur einen Tipp entfernt
+es|Sí, no, espera, no lo sé… siempre a un toque
+it|Sì, no, aspetta, non lo so… sempre a un tocco
+pt|Sim, não, espera, não sei… sempre a um toque
+nl|Ja, nee, wacht, weet ik niet… altijd één tik weg
+pl|Tak, nie, czekaj, nie wiem… zawsze jednym dotknięciem
+ro|Da, nu, așteaptă, nu știu… mereu la o atingere
+hr|Da, ne, čekaj, ne znam… uvijek na jedan dodir
+tr|Evet, hayır, bekle, bilmiyorum… hep tek dokunuşta
+el|Ναι, όχι, περίμενε, δεν ξέρω… πάντα με ένα άγγιγμα
+ru|Да, нет, подожди, не знаю… всегда в одно касание
+uk|Так, ні, зачекай, не знаю… завжди в один дотик
+zh|是、不、等一下、我不知道……一点就有
+ja|はい、いいえ、待って、わからない… いつもワンタップ
+ko|네, 아니요, 기다려, 몰라요… 언제나 한 번에
+hi|हाँ, नहीं, रुकिए, मुझे नहीं पता… हमेशा एक टैप पर
+ar|نعم، لا، انتظر، لا أعرف… دائمًا بلمسة واحدة
+ur|ہاں، نہیں، رکیں، مجھے نہیں پتا… ہمیشہ ایک ٹیپ پر
+
+@ Use my Personal Voice
+sq|Përdor Zërin tim Personal
+fr|Utiliser ma Voix personnelle
+de|Meine eigene Stimme verwenden
+es|Usar mi Voz personal
+it|Usa la mia Voce personale
+pt|Usar a minha Voz pessoal
+nl|Mijn Persoonlijke stem gebruiken
+pl|Użyj mojego Głosu osobistego
+ro|Folosește Vocea mea personală
+hr|Koristi moj Osobni glas
+tr|Kişisel Sesimi kullan
+el|Χρήση της Προσωπικής φωνής μου
+ru|Использовать мой Личный голос
+uk|Використати мій Особистий голос
+zh|使用我的个人声音
+ja|わたしのパーソナルボイスを使う
+ko|내 개인 음성 사용
+hi|मेरी पर्सनल वॉइस इस्तेमाल करें
+ar|استخدم صوتي الشخصي
+ur|میری ذاتی آواز استعمال کریں
+
+@ iPhone and iPad (iOS 17+): a voice that sounds like the person
+sq|iPhone dhe iPad (iOS 17+): një zë që tingëllon si personi
+fr|iPhone et iPad (iOS 17+) : une voix qui ressemble à la personne
+de|iPhone und iPad (iOS 17+): eine Stimme, die wie die Person klingt
+es|iPhone y iPad (iOS 17+): una voz que suena como la persona
+it|iPhone e iPad (iOS 17+): una voce che somiglia alla persona
+pt|iPhone e iPad (iOS 17+): uma voz parecida com a da pessoa
+nl|iPhone en iPad (iOS 17+): een stem die klinkt als de persoon
+pl|iPhone i iPad (iOS 17+): głos brzmiący jak ta osoba
+ro|iPhone și iPad (iOS 17+): o voce care sună ca persoana
+hr|iPhone i iPad (iOS 17+): glas koji zvuči kao ta osoba
+tr|iPhone ve iPad (iOS 17+): kişinin kendisi gibi duyulan bir ses
+el|iPhone και iPad (iOS 17+): μια φωνή που μοιάζει με του ατόμου
+ru|iPhone и iPad (iOS 17+): голос, похожий на голос человека
+uk|iPhone і iPad (iOS 17+): голос, схожий на голос людини
+zh|iPhone 和 iPad（iOS 17+）：听起来像本人的声音
+ja|iPhone と iPad（iOS 17 以降）：本人に似た声
+ko|iPhone과 iPad(iOS 17+): 그 사람처럼 들리는 목소리
+hi|iPhone और iPad (iOS 17+): व्यक्ति जैसी सुनाई देने वाली आवाज़
+ar|iPhone وiPad (iOS 17+): صوت يشبه صوت الشخص
+ur|iPhone اور iPad (iOS 17+): ایسی آواز جو اس شخص جیسی لگے
+
+@ Personal Voice is allowed. Close Settings, open it again and choose it in Voice.
+sq|Zëri Personal u lejua. Mbyll Cilësimet, hapi përsëri dhe zgjidhe te Zëri.
+fr|La Voix personnelle est autorisée. Ferme les Réglages, rouvre-les et choisis-la dans Voix.
+de|Die eigene Stimme ist erlaubt. Schließe die Einstellungen, öffne sie erneut und wähle sie unter Stimme.
+es|La Voz personal está permitida. Cierra Ajustes, ábrelos de nuevo y elígela en Voz.
+it|La Voce personale è consentita. Chiudi Impostazioni, riaprile e sceglila in Voce.
+pt|A Voz pessoal está autorizada. Fecha as Definições, abre de novo e escolhe-a em Voz.
+nl|Persoonlijke stem is toegestaan. Sluit Instellingen, open ze opnieuw en kies hem bij Stem.
+pl|Głos osobisty jest dozwolony. Zamknij Ustawienia, otwórz ponownie i wybierz go w Głos.
+ro|Vocea personală este permisă. Închide Setările, deschide-le din nou și alege-o la Voce.
+hr|Osobni glas je dopušten. Zatvori Postavke, ponovno ih otvori i odaberi ga pod Glas.
+tr|Kişisel Ses izinli. Ayarları kapat, yeniden aç ve Ses bölümünden seç.
+el|Η Προσωπική φωνή επιτρέπεται. Κλείσε τις Ρυθμίσεις, άνοιξέ τις ξανά και διάλεξέ τη στη Φωνή.
+ru|Личный голос разрешён. Закрой Настройки, открой снова и выбери его в разделе «Голос».
+uk|Особистий голос дозволено. Закрий Налаштування, відкрий знову й обери його в розділі «Голос».
+zh|已允许个人声音。关闭设置后重新打开，在“声音”中选择它。
+ja|パーソナルボイスが許可されました。設定を閉じて開き直し、「声」で選んでください。
+ko|개인 음성이 허용됐어요. 설정을 닫았다 다시 열고 음성에서 고르세요.
+hi|पर्सनल वॉइस की अनुमति मिल गई। सेटिंग्स बंद करके फिर खोलें और आवाज़ में इसे चुनें।
+ar|تم السماح بالصوت الشخصي. أغلق الإعدادات ثم افتحها مجددًا واختره في الصوت.
+ur|ذاتی آواز کی اجازت مل گئی۔ ترتیبات بند کر کے دوبارہ کھولیں اور آواز میں اسے چنیں۔
+
+@ Personal Voice is not allowed. Allow it in iPhone Settings > Accessibility > Personal Voice.
+sq|Zëri Personal nuk lejohet. Lejoje te iPhone: Settings > Accessibility > Personal Voice.
+fr|La Voix personnelle n’est pas autorisée. Autorise-la dans Réglages de l’iPhone > Accessibilité > Voix personnelle.
+de|Die eigene Stimme ist nicht erlaubt. Erlaube sie in den iPhone-Einstellungen > Bedienungshilfen > Eigene Stimme.
+es|La Voz personal no está permitida. Permítela en Ajustes del iPhone > Accesibilidad > Voz personal.
+it|La Voce personale non è consentita. Consentila in Impostazioni di iPhone > Accessibilità > Voce personale.
+pt|A Voz pessoal não está autorizada. Autoriza-a em Definições do iPhone > Acessibilidade > Voz pessoal.
+nl|Persoonlijke stem is niet toegestaan. Sta hem toe in iPhone-instellingen > Toegankelijkheid > Persoonlijke stem.
+pl|Głos osobisty nie jest dozwolony. Zezwól w Ustawieniach iPhone’a > Dostępność > Głos osobisty.
+ro|Vocea personală nu este permisă. Permite-o în Setările iPhone > Accesibilitate > Voce personală.
+hr|Osobni glas nije dopušten. Dopusti ga u Postavkama iPhonea > Pristupačnost > Osobni glas.
+tr|Kişisel Ses izinli değil. iPhone Ayarlar > Erişilebilirlik > Kişisel Ses bölümünden izin ver.
+el|Η Προσωπική φωνή δεν επιτρέπεται. Επίτρεψέ τη στις Ρυθμίσεις iPhone > Προσβασιμότητα > Προσωπική φωνή.
+ru|Личный голос не разрешён. Разреши его в Настройках iPhone > Универсальный доступ > Личный голос.
+uk|Особистий голос не дозволено. Дозволь його в Параметрах iPhone > Доступність > Особистий голос.
+zh|未允许个人声音。请在 iPhone 设置 > 辅助功能 > 个人声音 中允许。
+ja|パーソナルボイスが許可されていません。iPhone の設定 > アクセシビリティ > パーソナルボイス で許可してください。
+ko|개인 음성이 허용되지 않았어요. iPhone 설정 > 손쉬운 사용 > 개인 음성에서 허용하세요.
+hi|पर्सनल वॉइस की अनुमति नहीं है। iPhone सेटिंग्स > एक्सेसिबिलिटी > पर्सनल वॉइस में अनुमति दें।
+ar|الصوت الشخصي غير مسموح. اسمح به في إعدادات iPhone > تسهيلات الاستخدام > الصوت الشخصي.
+ur|ذاتی آواز کی اجازت نہیں۔ iPhone ترتیبات > رسائی > ذاتی آواز میں اجازت دیں۔
+
+@ Make a Personal Voice first in iPhone Settings > Accessibility > Personal Voice (iOS 17 or later).
+sq|Krijo fillimisht një Zë Personal te iPhone: Settings > Accessibility > Personal Voice (iOS 17 ose më i ri).
+fr|Crée d’abord une Voix personnelle dans Réglages de l’iPhone > Accessibilité > Voix personnelle (iOS 17 ou plus).
+de|Erstelle zuerst eine eigene Stimme in den iPhone-Einstellungen > Bedienungshilfen > Eigene Stimme (ab iOS 17).
+es|Crea primero una Voz personal en Ajustes del iPhone > Accesibilidad > Voz personal (iOS 17 o posterior).
+it|Crea prima una Voce personale in Impostazioni di iPhone > Accessibilità > Voce personale (iOS 17 o successivo).
+pt|Cria primeiro uma Voz pessoal em Definições do iPhone > Acessibilidade > Voz pessoal (iOS 17 ou posterior).
+nl|Maak eerst een Persoonlijke stem in iPhone-instellingen > Toegankelijkheid > Persoonlijke stem (iOS 17 of nieuwer).
+pl|Najpierw utwórz Głos osobisty w Ustawieniach iPhone’a > Dostępność > Głos osobisty (iOS 17 lub nowszy).
+ro|Creează mai întâi o Voce personală în Setările iPhone > Accesibilitate > Voce personală (iOS 17 sau mai nou).
+hr|Najprije napravi Osobni glas u Postavkama iPhonea > Pristupačnost > Osobni glas (iOS 17 ili noviji).
+tr|Önce iPhone Ayarlar > Erişilebilirlik > Kişisel Ses bölümünde bir Kişisel Ses oluştur (iOS 17 veya üstü).
+el|Φτιάξε πρώτα μια Προσωπική φωνή στις Ρυθμίσεις iPhone > Προσβασιμότητα > Προσωπική φωνή (iOS 17 ή νεότερο).
+ru|Сначала создай Личный голос в Настройках iPhone > Универсальный доступ > Личный голос (iOS 17 или новее).
+uk|Спершу створи Особистий голос у Параметрах iPhone > Доступність > Особистий голос (iOS 17 або новіше).
+zh|请先在 iPhone 设置 > 辅助功能 > 个人声音 中创建个人声音（iOS 17 或更高版本）。
+ja|まず iPhone の設定 > アクセシビリティ > パーソナルボイス でパーソナルボイスを作ってください（iOS 17 以降）。
+ko|먼저 iPhone 설정 > 손쉬운 사용 > 개인 음성에서 개인 음성을 만드세요(iOS 17 이상).
+hi|पहले iPhone सेटिंग्स > एक्सेसिबिलिटी > पर्सनल वॉइस में पर्सनल वॉइस बनाएँ (iOS 17 या बाद का)।
+ar|أنشئ صوتًا شخصيًا أولًا في إعدادات iPhone > تسهيلات الاستخدام > الصوت الشخصي (iOS 17 أو أحدث).
+ur|پہلے iPhone ترتیبات > رسائی > ذاتی آواز میں ذاتی آواز بنائیں (iOS 17 یا جدید)۔
+
+@ Buttons in a row
+sq|Butona në një rresht
+fr|Boutons par rangée
+de|Knöpfe pro Reihe
+es|Botones por fila
+it|Pulsanti per riga
+pt|Botões por linha
+nl|Knoppen per rij
+pl|Przyciski w rzędzie
+ro|Butoane pe rând
+hr|Gumbi u redu
+tr|Bir sıradaki düğme
+el|Κουμπιά ανά σειρά
+ru|Кнопок в ряду
+uk|Кнопок у ряду
+zh|每行按钮数
+ja|1列のボタン数
+ko|한 줄 버튼 수
+hi|एक पंक्ति में बटन
+ar|الأزرار في الصف
+ur|ایک قطار میں بٹن
+
+@ 3 — largest
+sq|3 — më të mëdhenjtë
+fr|3 — les plus grands
+de|3 — am größten
+es|3 — los más grandes
+it|3 — i più grandi
+pt|3 — os maiores
+nl|3 — het grootst
+pl|3 — największe
+ro|3 — cele mai mari
+hr|3 — najveći
+tr|3 — en büyük
+el|3 — τα μεγαλύτερα
+ru|3 — самые крупные
+uk|3 — найбільші
+zh|3 — 最大
+ja|3 — いちばん大きい
+ko|3 — 가장 크게
+hi|3 — सबसे बड़े
+ar|3 — الأكبر
+ur|3 — سب سے بڑے
+
+@ 8 — smallest
+sq|8 — më të vegjlit
+fr|8 — les plus petits
+de|8 — am kleinsten
+es|8 — los más pequeños
+it|8 — i più piccoli
+pt|8 — os mais pequenos
+nl|8 — het kleinst
+pl|8 — najmniejsze
+ro|8 — cele mai mici
+hr|8 — najmanji
+tr|8 — en küçük
+el|8 — τα μικρότερα
+ru|8 — самые мелкие
+uk|8 — найменші
+zh|8 — 最小
+ja|8 — いちばん小さい
+ko|8 — 가장 작게
+hi|8 — सबसे छोटे
+ar|8 — الأصغر
+ur|8 — سب سے چھوٹے
+
+@ Select by pointing (eye gaze, head mouse)
+sq|Zgjidh duke treguar (shikim me sy, mi me kokë)
+fr|Choisir en pointant (regard, souris de tête)
+de|Auswählen durch Zeigen (Augensteuerung, Kopfmaus)
+es|Elegir apuntando (mirada, ratón de cabeza)
+it|Scegli puntando (sguardo, mouse con la testa)
+pt|Escolher apontando (olhar, rato de cabeça)
+nl|Kiezen door te wijzen (oogbesturing, hoofdmuis)
+pl|Wybieraj wskazując (wzrok, mysz głowowa)
+ro|Alege prin indicare (privire, mouse de cap)
+hr|Odaberi pokazivanjem (pogled, miš glavom)
+tr|İşaret ederek seç (göz takibi, baş faresi)
+el|Επιλογή με δείκτη (βλέμμα, ποντίκι κεφαλής)
+ru|Выбор наведением (взгляд, головная мышь)
+uk|Вибір наведенням (погляд, головна миша)
+zh|指向即选择（眼控、头控鼠标）
+ja|指して選ぶ（視線、ヘッドマウス）
+ko|가리켜서 고르기(시선, 머리 마우스)
+hi|इशारा करके चुनें (आँखों से, सिर वाला माउस)
+ar|الاختيار بالإشارة (النظر، فأرة الرأس)
+ur|اشارہ کر کے چنیں (آنکھوں سے، سر والا ماؤس)
+
+@ Resting the pointer on a button fills the circle and selects it
+sq|Kur treguesi qëndron mbi buton, rrethi mbushet dhe butoni zgjidhet
+fr|Laisser le pointeur sur un bouton remplit le cercle et le choisit
+de|Bleibt der Zeiger auf einem Knopf, füllt sich der Kreis und der Knopf wird gewählt
+es|Dejar el puntero sobre un botón llena el círculo y lo elige
+it|Tenere il puntatore su un pulsante riempie il cerchio e lo sceglie
+pt|Deixar o ponteiro num botão enche o círculo e escolhe-o
+nl|Blijft de aanwijzer op een knop, dan vult de cirkel zich en wordt hij gekozen
+pl|Gdy wskaźnik zostaje na przycisku, kółko się wypełnia i przycisk zostaje wybrany
+ro|Când indicatorul stă pe un buton, cercul se umple și butonul e ales
+hr|Kad pokazivač ostane na gumbu, krug se ispuni i gumb se odabere
+tr|İmleç bir düğmede durunca daire dolar ve düğme seçilir
+el|Όταν ο δείκτης μένει σε κουμπί, ο κύκλος γεμίζει και το επιλέγει
+ru|Если указатель задержать на кнопке, круг заполнится и кнопка выберется
+uk|Якщо затримати вказівник на кнопці, коло заповниться й кнопку буде вибрано
+zh|指针停在按钮上，圆圈填满后即选中
+ja|ポインターをボタンにとどめると円がたまり、選ばれます
+ko|포인터를 버튼에 두면 원이 차고 선택돼요
+hi|पॉइंटर को बटन पर रोकने से घेरा भरता है और बटन चुना जाता है
+ar|إبقاء المؤشر على زر يملأ الدائرة ويختاره
+ur|پوائنٹر کو بٹن پر روکنے سے دائرہ بھرتا ہے اور بٹن چنا جاتا ہے
+
+@ Eye or head control: on iPad use Settings > Accessibility > Eye Tracking or Head Tracking; on Windows use Eye Control or a head mouse. If the device already selects by resting (dwell), keep "Select by pointing" off.
+sq|Kontroll me sy ose kokë: në iPad përdor Settings > Accessibility > Eye Tracking ose Head Tracking; në Windows përdor Eye Control ose një mi me kokë. Nëse pajisja zgjedh vetë kur treguesi qëndron, mbaje të fikur "Zgjidh duke treguar".
+fr|Contrôle par les yeux ou la tête : sur iPad, Réglages > Accessibilité > Suivi oculaire ou Suivi de la tête ; sur Windows, Contrôle oculaire ou une souris de tête. Si l’appareil choisit déjà en s’attardant, laisse « Choisir en pointant » désactivé.
+de|Augen- oder Kopfsteuerung: auf dem iPad Einstellungen > Bedienungshilfen > Augensteuerung oder Kopfsteuerung; unter Windows Augensteuerung oder eine Kopfmaus. Wählt das Gerät schon durch Verweilen, lass „Auswählen durch Zeigen“ aus.
+es|Control con los ojos o la cabeza: en iPad usa Ajustes > Accesibilidad > Seguimiento ocular o de la cabeza; en Windows, Control ocular o un ratón de cabeza. Si el dispositivo ya elige al detenerse, deja «Elegir apuntando» apagado.
+it|Controllo con occhi o testa: su iPad usa Impostazioni > Accessibilità > Tracciamento oculare o della testa; su Windows, Controllo oculare o un mouse con la testa. Se il dispositivo sceglie già sostando, lascia spento «Scegli puntando».
+pt|Controlo com os olhos ou a cabeça: no iPad usa Definições > Acessibilidade > Rastreio ocular ou da cabeça; no Windows, Controlo ocular ou um rato de cabeça. Se o aparelho já escolhe ao parar, deixa «Escolher apontando» desligado.
+nl|Oog- of hoofdbesturing: op iPad Instellingen > Toegankelijkheid > Oogbesturing of Hoofdbesturing; op Windows Oogbesturing of een hoofdmuis. Kiest het apparaat al door stil te blijven, laat „Kiezen door te wijzen” dan uit.
+pl|Sterowanie wzrokiem lub głową: na iPadzie Ustawienia > Dostępność > Śledzenie wzroku lub głowy; w Windows Sterowanie wzrokiem lub mysz głowowa. Jeśli urządzenie już wybiera przez zatrzymanie, zostaw „Wybieraj wskazując” wyłączone.
+ro|Control cu ochii sau capul: pe iPad folosește Setări > Accesibilitate > Urmărirea ochilor sau a capului; pe Windows, Eye Control sau un mouse de cap. Dacă dispozitivul alege deja prin oprire, lasă „Alege prin indicare” oprit.
+hr|Upravljanje očima ili glavom: na iPadu Postavke > Pristupačnost > Praćenje očiju ili glave; na Windowsu Eye Control ili miš glavom. Ako uređaj već bira zadržavanjem, ostavi „Odaberi pokazivanjem” isključeno.
+tr|Göz veya baş kontrolü: iPad’de Ayarlar > Erişilebilirlik > Göz Takibi ya da Baş Takibi; Windows’ta Göz Kontrolü veya baş faresi kullan. Cihaz zaten bekleyerek seçiyorsa “İşaret ederek seç” kapalı kalsın.
+el|Έλεγχος με μάτια ή κεφάλι: στο iPad Ρυθμίσεις > Προσβασιμότητα > Παρακολούθηση ματιών ή κεφαλιού· στα Windows Έλεγχος ματιών ή ποντίκι κεφαλής. Αν η συσκευή ήδη επιλέγει με παραμονή, άφησε κλειστό το «Επιλογή με δείκτη».
+ru|Управление глазами или головой: на iPad — Настройки > Универсальный доступ > Отслеживание глаз или головы; в Windows — управление глазами или головная мышь. Если устройство уже выбирает задержкой, оставь «Выбор наведением» выключенным.
+uk|Керування очима чи головою: на iPad — Параметри > Доступність > Відстеження очей або голови; у Windows — керування очима чи головна миша. Якщо пристрій уже вибирає затримкою, залиш «Вибір наведенням» вимкненим.
+zh|眼控或头控：iPad 上用 设置 > 辅助功能 > 眼动追踪 或 头部追踪；Windows 上用眼控或头控鼠标。如果设备已能停留选择，请关闭“指向即选择”。
+ja|目や頭での操作：iPad は 設定 > アクセシビリティ > 視線トラッキング／頭部トラッキング、Windows は視線制御やヘッドマウス。機器がとどまるだけで選べるなら「指して選ぶ」はオフのままに。
+ko|눈이나 머리로 조작: iPad는 설정 > 손쉬운 사용 > 시선 추적 또는 머리 추적, Windows는 시선 제어나 머리 마우스를 쓰세요. 기기가 이미 머무르기로 고르면 "가리켜서 고르기"는 꺼 두세요.
+hi|आँख या सिर से नियंत्रण: iPad पर सेटिंग्स > एक्सेसिबिलिटी > आई ट्रैकिंग या हेड ट्रैकिंग; Windows पर आई कंट्रोल या सिर वाला माउस। अगर डिवाइस पहले से रुकने पर चुनता है, तो "इशारा करके चुनें" बंद रखें।
+ar|التحكم بالعين أو الرأس: على iPad استخدم الإعدادات > تسهيلات الاستخدام > تتبع العين أو الرأس؛ وعلى Windows التحكم بالعين أو فأرة الرأس. إذا كان الجهاز يختار بالتوقف أصلًا، فاترك «الاختيار بالإشارة» متوقفًا.
+ur|آنکھ یا سر سے کنٹرول: iPad پر ترتیبات > رسائی > آئی ٹریکنگ یا ہیڈ ٹریکنگ؛ Windows پر آئی کنٹرول یا سر والا ماؤس۔ اگر ڈیوائس پہلے ہی رکنے پر چنتی ہے تو "اشارہ کر کے چنیں" بند رکھیں۔
+
+@ Words shown
+sq|Fjalët që shfaqen
+fr|Mots affichés
+de|Angezeigte Wörter
+es|Palabras que se muestran
+it|Parole mostrate
+pt|Palavras mostradas
+nl|Getoonde woorden
+pl|Widoczne słowa
+ro|Cuvinte afișate
+hr|Prikazane riječi
+tr|Gösterilen kelimeler
+el|Λέξεις που φαίνονται
+ru|Показанные слова
+uk|Показані слова
+zh|显示的词
+ja|表示する言葉
+ko|보이는 낱말
+hi|दिखाए गए शब्द
+ar|الكلمات المعروضة
+ur|دکھائے گئے الفاظ
+
+@ Start small and show more as the person learns: 10, 25 or 45 words on Home and 12, 24 or 48 on other pages. Every word keeps its place, so nothing moves when more are shown.
+sq|Fillo me pak dhe shfaq më shumë ndërsa personi mëson: 10, 25 ose 45 fjalë në Kreu dhe 12, 24 ose 48 në faqet e tjera. Çdo fjalë e ruan vendin e vet, kështu që asgjë nuk lëviz kur shfaqen më shumë.
+fr|Commence petit et montre plus au fil des progrès : 10, 25 ou 45 mots sur l’Accueil et 12, 24 ou 48 sur les autres pages. Chaque mot garde sa place : rien ne bouge quand on en montre plus.
+de|Klein anfangen und mehr zeigen, während die Person lernt: 10, 25 oder 45 Wörter auf Start und 12, 24 oder 48 auf anderen Seiten. Jedes Wort behält seinen Platz, nichts verschiebt sich.
+es|Empieza con poco y muestra más a medida que aprende: 10, 25 o 45 palabras en Inicio y 12, 24 o 48 en otras páginas. Cada palabra conserva su lugar; nada se mueve al mostrar más.
+it|Inizia con poco e mostra di più man mano che impara: 10, 25 o 45 parole nella Home e 12, 24 o 48 nelle altre pagine. Ogni parola resta al suo posto: nulla si sposta.
+pt|Começa com pouco e mostra mais à medida que aprende: 10, 25 ou 45 palavras no Início e 12, 24 ou 48 nas outras páginas. Cada palavra mantém o seu lugar; nada se move.
+nl|Begin klein en toon meer naarmate de persoon leert: 10, 25 of 45 woorden op Start en 12, 24 of 48 op andere pagina’s. Elk woord houdt zijn plek, er verschuift niets.
+pl|Zacznij od małego i pokazuj więcej w miarę nauki: 10, 25 lub 45 słów na Start i 12, 24 lub 48 na innych stronach. Każde słowo zostaje na miejscu, nic się nie przesuwa.
+ro|Începe cu puțin și arată mai mult pe măsură ce persoana învață: 10, 25 sau 45 de cuvinte pe Acasă și 12, 24 sau 48 pe alte pagini. Fiecare cuvânt își păstrează locul.
+hr|Počni s malo i pokazuj više kako osoba uči: 10, 25 ili 45 riječi na Početnoj i 12, 24 ili 48 na drugim stranicama. Svaka riječ zadržava mjesto, ništa se ne pomiče.
+tr|Az başla, kişi öğrendikçe daha fazlasını göster: Ana sayfada 10, 25 veya 45, diğer sayfalarda 12, 24 veya 48 kelime. Her kelime yerini korur, hiçbir şey kaymaz.
+el|Ξεκίνα με λίγες και δείξε περισσότερες όσο μαθαίνει: 10, 25 ή 45 λέξεις στην Αρχική και 12, 24 ή 48 στις άλλες σελίδες. Κάθε λέξη κρατά τη θέση της.
+ru|Начни с малого и показывай больше по мере обучения: 10, 25 или 45 слов на Главной и 12, 24 или 48 на других страницах. Каждое слово остаётся на своём месте.
+uk|Почни з малого й показуй більше під час навчання: 10, 25 або 45 слів на Головній і 12, 24 або 48 на інших сторінках. Кожне слово лишається на своєму місці.
+zh|从少开始，随着学习逐步显示更多：主页 10、25 或 45 个词，其他页面 12、24 或 48 个词。每个词都保持原位，不会移动。
+ja|少しから始めて、覚えるにつれて増やします：ホームは10・25・45語、ほかのページは12・24・48語。どの言葉も場所が変わりません。
+ko|적게 시작해서 배우는 만큼 늘려요: 홈은 10, 25, 45개, 다른 페이지는 12, 24, 48개. 낱말 자리는 그대로라 움직이지 않아요.
+hi|कम से शुरू करें और सीखने के साथ ज़्यादा दिखाएँ: होम पर 10, 25 या 45 शब्द और बाकी पन्नों पर 12, 24 या 48। हर शब्द अपनी जगह रहता है।
+ar|ابدأ بالقليل وأظهر المزيد مع التعلم: 10 أو 25 أو 45 كلمة في الرئيسية و12 أو 24 أو 48 في الصفحات الأخرى. تبقى كل كلمة في مكانها.
+ur|کم سے شروع کریں اور سیکھنے کے ساتھ زیادہ دکھائیں: ہوم پر 10، 25 یا 45 الفاظ اور دوسرے صفحات پر 12، 24 یا 48۔ ہر لفظ اپنی جگہ رہتا ہے۔
+
+@ In edit mode, hold a button to hide it for now. It keeps its place.
+sq|Në modalitetin e redaktimit, mbaj shtypur një buton për ta fshehur për tani. Ai e ruan vendin e vet.
+fr|En mode édition, maintiens un bouton pour le masquer pour l’instant. Il garde sa place.
+de|Im Bearbeitungsmodus einen Knopf gedrückt halten, um ihn vorerst auszublenden. Er behält seinen Platz.
+es|En modo edición, mantén pulsado un botón para ocultarlo por ahora. Conserva su lugar.
+it|In modalità modifica, tieni premuto un pulsante per nasconderlo per ora. Resta al suo posto.
+pt|No modo de edição, mantém um botão premido para o ocultar por agora. Mantém o seu lugar.
+nl|Houd in bewerkmodus een knop vast om hem voorlopig te verbergen. Hij houdt zijn plek.
+pl|W trybie edycji przytrzymaj przycisk, aby go na razie ukryć. Zostaje na swoim miejscu.
+ro|În modul de editare, ține apăsat un buton ca să-l ascunzi deocamdată. Își păstrează locul.
+hr|U načinu uređivanja zadrži gumb da ga zasad sakriješ. Zadržava svoje mjesto.
+tr|Düzenleme modunda bir düğmeyi şimdilik gizlemek için basılı tut. Yerini korur.
+el|Σε λειτουργία επεξεργασίας, κράτα πατημένο ένα κουμπί για να το κρύψεις προς το παρόν. Κρατά τη θέση του.
+ru|В режиме правки удерживай кнопку, чтобы пока скрыть её. Она остаётся на месте.
+uk|У режимі редагування утримуй кнопку, щоб поки що сховати її. Вона лишається на місці.
+zh|在编辑模式下长按按钮可暂时隐藏它，它会保留原位。
+ja|編集モードでボタンを長押しすると、今だけかくせます。場所はそのままです。
+ko|편집 모드에서 버튼을 길게 누르면 잠시 숨길 수 있어요. 자리는 그대로예요.
+hi|संपादन मोड में किसी बटन को अभी के लिए छिपाने हेतु दबाए रखें। वह अपनी जगह रहता है।
+ar|في وضع التعديل، اضغط مطولًا على زر لإخفائه مؤقتًا. يبقى في مكانه.
+ur|ترمیم موڈ میں کسی بٹن کو فی الحال چھپانے کے لیے دبائے رکھیں۔ وہ اپنی جگہ رہتا ہے۔
+
+@ Progress
+sq|Përparimi
+fr|Progrès
+de|Fortschritt
+es|Progreso
+it|Progressi
+pt|Progresso
+nl|Voortgang
+pl|Postępy
+ro|Progres
+hr|Napredak
+tr|İlerleme
+el|Πρόοδος
+ru|Прогресс
+uk|Прогрес
+zh|进展
+ja|あゆみ
+ko|진행 상황
+hi|प्रगति
+ar|التقدم
+ur|پیش رفت
+
+@ Keep a word-use record
+sq|Mbaj regjistër të fjalëve
+fr|Garder un historique des mots
+de|Wortnutzung aufzeichnen
+es|Guardar registro de palabras
+it|Tieni un registro delle parole
+pt|Guardar registo de palavras
+nl|Woordgebruik bijhouden
+pl|Zapisuj użycie słów
+ro|Păstrează o înregistrare a cuvintelor
+hr|Vodi zapis o riječima
+tr|Kelime kullanım kaydı tut
+el|Κράτα καταγραφή λέξεων
+ru|Вести запись слов
+uk|Вести запис слів
+zh|保留词语使用记录
+ja|言葉の使用を記録する
+ko|낱말 사용 기록하기
+hi|शब्द उपयोग का रिकॉर्ड रखें
+ar|احتفظ بسجل استخدام الكلمات
+ur|الفاظ کے استعمال کا ریکارڈ رکھیں
+
+@ Counts the words said, for the speech therapist. Only on this device.
+sq|Numëron fjalët e thëna, për logopedin. Vetëm në këtë pajisje.
+fr|Compte les mots dits, pour l’orthophoniste. Seulement sur cet appareil.
+de|Zählt die gesagten Wörter für die Logopädie. Nur auf diesem Gerät.
+es|Cuenta las palabras dichas, para el logopeda. Solo en este dispositivo.
+it|Conta le parole dette, per il logopedista. Solo su questo dispositivo.
+pt|Conta as palavras ditas, para o terapeuta da fala. Só neste aparelho.
+nl|Telt de gezegde woorden, voor de logopedist. Alleen op dit apparaat.
+pl|Liczy powiedziane słowa dla logopedy. Tylko na tym urządzeniu.
+ro|Numără cuvintele spuse, pentru logoped. Doar pe acest dispozitiv.
+hr|Broji izgovorene riječi za logopeda. Samo na ovom uređaju.
+tr|Söylenen kelimeleri dil ve konuşma terapisti için sayar. Yalnızca bu cihazda.
+el|Μετρά τις λέξεις που ειπώθηκαν, για τον λογοθεραπευτή. Μόνο σε αυτή τη συσκευή.
+ru|Считает сказанные слова для логопеда. Только на этом устройстве.
+uk|Рахує сказані слова для логопеда. Лише на цьому пристрої.
+zh|统计说过的词，供言语治疗师参考。只保存在此设备上。
+ja|話した言葉を言語聴覚士のために数えます。この機器だけに保存。
+ko|언어치료사를 위해 말한 낱말을 세요. 이 기기에만 저장돼요.
+hi|स्पीच थेरेपिस्ट के लिए बोले गए शब्द गिनता है। केवल इसी डिवाइस पर।
+ar|يعدّ الكلمات المقولة لأخصائي النطق. على هذا الجهاز فقط.
+ur|اسپیچ تھراپسٹ کے لیے بولے گئے الفاظ گنتا ہے۔ صرف اسی ڈیوائس پر۔
+
+# 1.12: smart board, tools, Wi-Fi copy
+
+@ Pictures of words that may come next
+sq|Figura të fjalëve që mund të vijnë më pas
+fr|Images des mots qui peuvent suivre
+de|Bilder von Wörtern, die als Nächstes kommen können
+es|Imágenes de palabras que pueden venir después
+it|Immagini delle parole che possono seguire
+pt|Imagens de palavras que podem vir a seguir
+nl|Plaatjes van woorden die kunnen volgen
+pl|Obrazki słów, które mogą być następne
+ro|Imagini cu cuvinte care pot urma
+hr|Slike riječi koje mogu slijediti
+tr|Sonra gelebilecek kelimelerin resimleri
+el|Εικόνες λέξεων που μπορεί να ακολουθούν
+ru|Картинки слов, которые могут идти дальше
+uk|Картинки слів, що можуть іти далі
+zh|可能接着用的词的图片
+ja|次に来そうな言葉の絵
+ko|다음에 올 수 있는 낱말 그림
+hi|आगे आ सकने वाले शब्दों के चित्र
+ar|صور كلمات قد تأتي بعدها
+ur|آگے آ سکنے والے الفاظ کی تصویریں
+
+@ Words for the time of day
+sq|Fjalë për kohën e ditës
+fr|Mots selon le moment de la journée
+de|Wörter für die Tageszeit
+es|Palabras según la hora del día
+it|Parole per il momento della giornata
+pt|Palavras para a altura do dia
+nl|Woorden voor het moment van de dag
+pl|Słowa na porę dnia
+ro|Cuvinte pentru momentul zilei
+hr|Riječi za doba dana
+tr|Günün saatine göre kelimeler
+el|Λέξεις για την ώρα της μέρας
+ru|Слова для времени дня
+uk|Слова для часу дня
+zh|适合当前时段的词
+ja|時間帯に合った言葉
+ko|시간에 맞는 낱말
+hi|दिन के समय के शब्द
+ar|كلمات لوقت اليوم
+ur|دن کے وقت کے الفاظ
+
+@ With an empty message: breakfast in the morning, bath in the evening
+sq|Kur mesazhi është bosh: mëngjes në mëngjes, banjë në mbrëmje
+fr|Quand le message est vide : petit-déjeuner le matin, bain le soir
+de|Bei leerer Nachricht: morgens Frühstück, abends Baden
+es|Con el mensaje vacío: desayuno por la mañana, baño por la noche
+it|Con il messaggio vuoto: colazione al mattino, bagno la sera
+pt|Com a mensagem vazia: pequeno-almoço de manhã, banho à noite
+nl|Bij een leeg bericht: ’s ochtends ontbijt, ’s avonds badderen
+pl|Gdy wiadomość jest pusta: rano śniadanie, wieczorem kąpiel
+ro|Când mesajul e gol: dimineața micul dejun, seara baia
+hr|Kad je poruka prazna: ujutro doručak, navečer kupanje
+tr|Mesaj boşken: sabah kahvaltı, akşam banyo
+el|Με άδειο μήνυμα: πρωινό το πρωί, μπάνιο το βράδυ
+ru|Когда сообщение пустое: утром завтрак, вечером ванна
+uk|Коли повідомлення порожнє: вранці сніданок, увечері ванна
+zh|消息为空时：早上推荐早餐，晚上推荐洗澡
+ja|メッセージが空のとき：朝は朝ごはん、夜はおふろ
+ko|메시지가 비어 있을 때: 아침엔 아침밥, 저녁엔 목욕
+hi|संदेश खाली होने पर: सुबह नाश्ता, शाम को नहाना
+ar|عندما تكون الرسالة فارغة: الفطور صباحًا، والحمّام مساءً
+ur|پیغام خالی ہو تو: صبح ناشتہ، شام کو نہانا
+
+@ Listen to the other person
+sq|Dëgjo personin tjetër
+fr|Écouter l’autre personne
+de|Der anderen Person zuhören
+es|Escuchar a la otra persona
+it|Ascolta l’altra persona
+pt|Ouvir a outra pessoa
+nl|Naar de ander luisteren
+pl|Słuchaj drugiej osoby
+ro|Ascultă cealaltă persoană
+hr|Slušaj drugu osobu
+tr|Karşıdaki kişiyi dinle
+el|Άκου τον άλλον
+ru|Слушать собеседника
+uk|Слухати співрозмовника
+zh|听对方说话
+ja|相手の話をきく
+ko|상대방 말 듣기
+hi|दूसरे व्यक्ति को सुनें
+ar|الاستماع إلى الشخص الآخر
+ur|دوسرے شخص کو سنیں

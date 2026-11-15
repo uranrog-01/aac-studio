@@ -101,6 +101,10 @@ Word position|Position du mot
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Les mots pas encore traduits restent en anglais. Si l'appareil n'a pas de voix pour cette langue, sa voix par défaut lit les mots. Ajoutez des voix dans les réglages de synthèse vocale de l'appareil.
 category|catégorie
 [words]
+schedule|emploi du temps
+first then|d'abord ensuite
+where it hurts|où j'ai mal
+my photos|mes photos
 Actions|Actions
 afternoon|après-midi
 again|encore

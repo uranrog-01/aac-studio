@@ -101,6 +101,10 @@ Word position|Posição da palavra
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|As palavras ainda sem tradução ficam em inglês. Se o aparelho não tiver voz para este idioma, a voz padrão lê as palavras. Adicione vozes nos ajustes de texto para fala do aparelho.
 category|categoria
 [words]
+schedule|rotina do dia
+first then|primeiro depois
+where it hurts|onde dói
+my photos|minhas fotos
 Actions|Ações
 afternoon|tarde
 again|de novo

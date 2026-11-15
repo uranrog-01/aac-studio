@@ -101,6 +101,10 @@ Word position|Poziția cuvântului
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Cuvintele netraduse încă rămân în engleză. Dacă dispozitivul nu are o voce pentru această limbă, cuvintele sunt citite de vocea implicită. Adaugă voci în setările de sinteză vocală ale dispozitivului.
 category|categorie
 [words]
+schedule|programul zilei
+first then|întâi apoi
+where it hurts|unde mă doare
+my photos|pozele mele
 Actions|Acțiuni
 afternoon|după-amiază
 again|din nou

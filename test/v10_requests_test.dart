@@ -16,6 +16,12 @@ import 'package:provider/provider.dart';
 
 /// Requests from November 2026 testing: a delete-word button in the
 /// message bar, speech while typing, and a larger, easier vocabulary.
+/// The board grid (the suggestion rows above it scroll sideways).
+final _gridScroll = find
+    .byWidgetPredicate(
+        (w) => w is Scrollable && w.axisDirection == AxisDirection.down)
+    .first;
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   final spoken = <String>[];
@@ -63,7 +69,7 @@ void main() {
     await tester.tap(find.text('I'));
     await tester.tap(find.text('want'));
     await tester.scrollUntilVisible(find.text('thank you'), 200,
-        scrollable: find.byType(Scrollable).first);
+        scrollable: _gridScroll);
     await tester.tap(find.text('thank you'));
     await tester.pump();
     expect(session.message, 'I want thank you');
@@ -192,14 +198,14 @@ void main() {
 
   testWidgets('a newly opened category starts at its top', (tester) async {
     final session = await pumpGrid(tester);
-    final grid = find.byType(Scrollable).first;
+    final grid = _gridScroll;
     await tester.drag(grid, const Offset(0, -900));
     await tester.pumpAndSettle();
     expect(tester.state<ScrollableState>(grid).position.pixels, greaterThan(0));
     session.pushFolder('actions');
     await tester.pump();
     await tester.pump();
-    expect(tester.state<ScrollableState>(find.byType(Scrollable).first)
+    expect(tester.state<ScrollableState>(_gridScroll)
         .position.pixels, 0);
     expect(tester.takeException(), isNull);
   });

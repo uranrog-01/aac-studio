@@ -101,6 +101,10 @@ Word position|Θέση λέξης
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Οι λέξεις χωρίς μετάφραση μένουν στα αγγλικά. Αν η συσκευή δεν έχει φωνή για αυτή τη γλώσσα, τις διαβάζει η προεπιλεγμένη φωνή. Πρόσθεσε φωνές στις ρυθμίσεις μετατροπής κειμένου σε ομιλία της συσκευής.
 category|κατηγορία
 [words]
+schedule|πρόγραμμα
+first then|πρώτα μετά
+where it hurts|πού πονάει
+my photos|οι φωτογραφίες μου
 Actions|Ενέργειες
 afternoon|απόγευμα
 again|ξανά

@@ -2,7 +2,7 @@
  "id": "studio.basics.autism",
  "label": "My Words",
  "rootFolder": "home",
- "packVersion": 16,
+ "packVersion": 17,
  "folders": [
   {
    "id": "home",
@@ -52212,6 +52212,96 @@
      "data": "pairs"
     }
    ]
+  },
+  {
+   "id": "tool_schedule",
+   "kind": "action",
+   "label": "schedule",
+   "class": "other",
+   "symbol": "📅",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-calendar",
+   "actions": [
+    {
+     "kind": "openTool",
+     "data": "schedule"
+    }
+   ]
+  },
+  {
+   "id": "tool_firstthen",
+   "kind": "action",
+   "label": "first then",
+   "class": "other",
+   "symbol": "➡️",
+   "symbolPack": "mulberry",
+   "symbolKey": "first",
+   "actions": [
+    {
+     "kind": "openTool",
+     "data": "firstthen"
+    }
+   ]
+  },
+  {
+   "id": "tool_timer",
+   "kind": "action",
+   "label": "timer",
+   "class": "other",
+   "symbol": "⏲️",
+   "symbolPack": "mulberry",
+   "symbolKey": "timer_2",
+   "actions": [
+    {
+     "kind": "openTool",
+     "data": "timer"
+    }
+   ]
+  },
+  {
+   "id": "tool_pain",
+   "kind": "action",
+   "label": "where it hurts",
+   "class": "other",
+   "symbol": "🤕",
+   "symbolPack": "mulberry",
+   "symbolKey": "body_outline",
+   "actions": [
+    {
+     "kind": "openTool",
+     "data": "pain"
+    }
+   ]
+  },
+  {
+   "id": "tool_listen",
+   "kind": "action",
+   "label": "listen",
+   "class": "other",
+   "symbol": "👂",
+   "symbolPack": "modernflat",
+   "symbolKey": "scene-listen",
+   "actions": [
+    {
+     "kind": "openTool",
+     "data": "listen"
+    }
+   ]
+  },
+  {
+   "id": "tool_scenes",
+   "kind": "action",
+   "label": "my photos",
+   "class": "other",
+   "symbol": "🖼️",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-framed-picture",
+   "actions": [
+    {
+     "kind": "openTool",
+     "data": "scenes"
+    }
+   ]
   }
  ],
  "views": {
@@ -52472,6 +52562,9 @@
    {
     "columns": 4,
     "cells": [
+     {
+      "btn": "tool_scenes"
+     },
      {
       "btn": "b37"
      },
@@ -57713,6 +57806,9 @@
     "columns": 4,
     "cells": [
      {
+      "btn": "tool_pain"
+     },
+     {
       "btn": "x191"
      },
      {
@@ -59047,6 +59143,15 @@
     "columns": 4,
     "cells": [
      {
+      "btn": "tool_schedule"
+     },
+     {
+      "btn": "tool_firstthen"
+     },
+     {
+      "btn": "tool_timer"
+     },
+     {
       "btn": "routine_wash-hands"
      },
      {
@@ -59448,6 +59553,9 @@
    {
     "columns": 5,
     "cells": [
+     {
+      "btn": "tool_listen"
+     },
      {
       "btn": "v11_chat_ask"
      },

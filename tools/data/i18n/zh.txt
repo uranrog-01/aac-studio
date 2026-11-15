@@ -101,6 +101,10 @@ Word position|文字位置
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|还没有翻译的词会显示英文。如果设备没有这种语言的声音，会用默认声音朗读。可以在设备的文字转语音设置中添加声音。
 category|类别
 [words]
+schedule|日程
+first then|先…再…
+where it hurts|哪里疼
+my photos|我的照片
 Actions|动作
 afternoon|下午
 again|再来

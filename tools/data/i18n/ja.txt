@@ -101,6 +101,10 @@ Word position|言葉の位置
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|まだ翻訳のない言葉は英語のままです。この言語の声が端末にないときは、標準の声で読みます。端末の読み上げ設定で声を追加できます。
 category|カテゴリー
 [words]
+schedule|よてい
+first then|まず つぎに
+where it hurts|いたいところ
+my photos|わたしの写真
 Actions|うごき
 afternoon|ごご
 again|もういっかい

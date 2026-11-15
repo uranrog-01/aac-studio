@@ -38,6 +38,9 @@ class AppStorage {
   BrowserStorageFile get learnedFile =>
       BrowserStorageFile('learned_words.json');
 
+  /// A small data file of its own (schedule, scenes, word-use record).
+  BrowserStorageFile dataFile(String name) => BrowserStorageFile(name);
+
   // Browser boards keep pictures as data URLs; paths need no rewriting.
   String storedPicturePath(String path) => path;
   String resolvePicturePath(String path) => path;
