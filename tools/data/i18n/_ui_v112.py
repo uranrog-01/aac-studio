@@ -632,6 +632,11 @@ T = {
  'इस बोर्ड को उसी Wi-Fi पर दूसरे फ़ोन या टैबलेट में कॉपी करें (इंटरनेट या खाते की ज़रूरत नहीं)।',
  'انسخ هذه اللوحة إلى هاتف أو جهاز لوحي آخر على نفس شبكة Wi-Fi (دون إنترنت أو حساب).',
  'اس بورڈ کو اسی Wi-Fi پر کسی دوسرے فون یا ٹیبلٹ میں کاپی کریں (انٹرنیٹ یا اکاؤنٹ کی ضرورت نہیں)۔'],
+# ---------------------------------------------------------------- games (1.13)
+'Satisfying': [
+ 'Të kënaqshme', 'Satisfaisants', 'Befriedigend', 'Relajantes', 'Rilassanti', 'Relaxantes', 'Voldoening',
+ 'Satysfakcjonujące', 'Relaxante', 'Opuštajuće', 'Rahatlatıcı', 'Ικανοποιητικά', 'Приятные', 'Приємні',
+ '解压', 'きもちいい', '만족감', 'सुकून देने वाले', 'ممتعة ومريحة', 'سکون بخش'],
 # ---------------------------------------------------------------- settings
 'Pictures of words that may come next': [
  'Figura të fjalëve që mund të vijnë më pas', 'Images des mots qui peuvent suivre',

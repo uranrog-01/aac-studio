@@ -233,6 +233,24 @@ void main() {
       expect(session.pathTo('no such page'), isNull);
     });
 
+    test('v18 games page: new games in, tap and hear and match pairs out', () {
+      final raw = jsonDecode(File('assets/sample_pack.json').readAsStringSync())
+          as Map<String, dynamic>;
+      final games = [
+        for (final c in (raw['views']['games'] as List).first['cells'] as List)
+          c['btn'] as String
+      ];
+      expect(games, containsAll(['game_kineticsand', 'game_soap', 'game_beads',
+          'game_wash', 'game_cradle', 'game_tunnel', 'game_aurora', 'game_jellyfish']));
+      expect(games, isNot(contains('game_hear')));
+      expect(games, isNot(contains('game_pairs')));
+      // Boards already installed lose them on the upgrade too.
+      final history = jsonDecode(
+          File('assets/factory_symbol_history.json').readAsStringSync()) as Map;
+      expect((history['retired'] as Map)['games'],
+          containsAll(['game_hear', 'game_pairs']));
+    });
+
     test('board v17 tool buttons open their tools', () {
       final vocabulary = board();
       final tools = <String>{};
@@ -292,8 +310,10 @@ void main() {
       expect(s.listenEnabled, isTrue);
       // Extras stay off until a caregiver turns them on.
       final fresh = AppSettings();
-      expect([fresh.timeSuggestions, fresh.quickReplies, fresh.hoverSelect,
-          fresh.listenEnabled], [false, false, false, false]);
+      expect([fresh.suggestNext, fresh.timeSuggestions, fresh.quickReplies,
+          fresh.hoverSelect, fresh.listenEnabled], [false, false, false, false, false]);
+      expect(AppSettings.fromJson({}).suggestNext, isFalse);
+      expect(AppSettings.fromJson({'suggestNext': true}).suggestNext, isTrue);
       expect(s.gridColumns, 4);
       expect(s.hoverSelect, isTrue);
       expect(s.logWords, isTrue);

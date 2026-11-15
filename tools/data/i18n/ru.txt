@@ -101,6 +101,13 @@ Word position|Место слова
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Слова без перевода пока остаются на английском. Если на устройстве нет голоса для этого языка, слова читает голос по умолчанию. Добавьте голоса в настройках синтеза речи устройства.
 category|категория
 [words]
+kinetic sand|кинетический песок
+soap cutting|резка мыла
+water beads|водные шарики
+pressure wash|мойка под давлением
+swinging balls|качающиеся шары
+light tunnel|световой тоннель
+northern lights|северное сияние
 schedule|расписание
 first then|сначала потом
 where it hurts|где болит

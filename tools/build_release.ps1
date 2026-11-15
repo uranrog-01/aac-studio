@@ -54,7 +54,7 @@ function Build-Ios {
     try {
         $env:GIT_INDEX_FILE = $index
         Invoke-Checked git @('read-tree', '--empty')
-        Invoke-Checked git @('-c', 'core.safecrlf=false', 'add', '-A', '--', 'lib', 'assets', 'ios', 'android', 'web', 'pubspec.yaml', 'pubspec.lock', '.metadata', 'LICENSE', 'THIRD_PARTY_SYMBOLS.md', '.github/workflows/local-ios.yml')
+        Invoke-Checked git @('-c', 'core.safecrlf=false', 'add', '-A', '--', 'lib', 'assets', 'shaders', 'ios', 'android', 'web', 'pubspec.yaml', 'pubspec.lock', '.metadata', 'LICENSE', 'THIRD_PARTY_SYMBOLS.md', '.github/workflows/local-ios.yml')
         # The repository is public: never upload signing keys. They are
         # git-ignored; this stops the build if one is ever staged anyway.
         $staged = Get-Checked git @('ls-files', '--cached', '--', 'android')

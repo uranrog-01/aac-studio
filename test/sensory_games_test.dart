@@ -34,10 +34,8 @@ void main() {
           await tester.pump(const Duration(milliseconds: 100));
         }
         expect(tester.takeException(), isNull);
-        // Moving games keep animating by themselves.
-        if (!const {'hear', 'pairs'}.contains(game.id)) {
-          expect(tester.binding.hasScheduledFrame, isTrue);
-        }
+        // Every game keeps moving by itself.
+        expect(tester.binding.hasScheduledFrame, isTrue);
       });
     }
   }
@@ -45,7 +43,12 @@ void main() {
   testWidgets('the menu lists every game and opens one', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: SensoryGamesScreen()));
     await tester.pump();
-    expect(kSensoryGames.map((g) => g.id), isNot(contains('breathe')));
+    final ids = kSensoryGames.map((g) => g.id).toList();
+    expect(ids, isNot(contains('breathe')));
+    expect(ids, isNot(contains('hear')));
+    expect(ids, isNot(contains('pairs')));
+    expect(ids.toSet(), hasLength(ids.length));
+    expect(kSensoryGames.where((g) => g.section == 'calm'), hasLength(3));
     for (final game in kSensoryGames) {
       await tester.scrollUntilVisible(find.text(game.word), 200,
           scrollable: find.byType(Scrollable).first);

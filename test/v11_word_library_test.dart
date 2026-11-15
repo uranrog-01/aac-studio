@@ -121,9 +121,9 @@ void main() {
     final current = PackController(storage);
     await current.load();
     final saved = (await storage.readJson(file))!;
-    expect(saved['packVersion'], 17);
+    expect(saved['packVersion'], 18);
     expect((saved['buttons'] as List).length, greaterThan(3000));
     await current.save();
-    expect((await storage.readJson(file))!['packVersion'], 17);
+    expect((await storage.readJson(file))!['packVersion'], 18);
   });
 }

@@ -6725,17 +6725,17 @@
    "key": "type-123"
   }
  ],
- "fileCount": 3701,
- "indexNames": 7320,
- "uniqueIndexedPictures": 7116,
+ "fileCount": 3708,
+ "indexNames": 7327,
+ "uniqueIndexedPictures": 7123,
  "counts": {
   "communication": 19,
   "learning": 21,
-  "modernflat": 3399,
+  "modernflat": 3406,
   "twemoji": 262,
   "mulberry": 3436
  },
- "bytes": 45186928,
+ "bytes": 45365506,
  "files": {
   "communication/again.webp": "2cd019e362801e6efe8b6d52cfef02fdf2b5cad29936277cf81428cbb0efc7b0",
   "communication/bedroom.webp": "3ddc89925068894b7cc3e62242c583dbf176cbc8f9d254aca76cf7d8b5eb1cb1",
@@ -10437,7 +10437,14 @@
   "modernflat/vocab-slime.webp": "5e7f5b5f773292584829a635b7336d98764ae8537e6aaf1eb0c7cb905271b6ac",
   "modernflat/vocab-sand-art.webp": "3a4a30b364ecfdb5e1a529b3fe8d1d8cf32099955bdf144dfe8f5d875d945a69",
   "modernflat/vocab-paint-swirl.webp": "8823f7f973a93745c4b55f552a429cff2e015d5f5c61365bca484836f2b889e4",
-  "modernflat/vocab-match-pairs.webp": "e3aacfc935667301821fc45391b24a598a7973454511617862db7dc80ac35c31"
+  "modernflat/vocab-match-pairs.webp": "e3aacfc935667301821fc45391b24a598a7973454511617862db7dc80ac35c31",
+  "modernflat/vocab-kinetic-sand.webp": "1e463e01724ccdfc7df48a26b021d98cec4170e55e086d4ebf34723b5bc9b237",
+  "modernflat/vocab-soap-cutting.webp": "7c578fe060ac689b1af7ebe2c39b87287cccb1a7a979cc1359e16ab3fe5f1ae8",
+  "modernflat/vocab-water-beads.webp": "4b2083974fa053da17157cec21389087c36df2841ebefb9840145ea9ff510fdd",
+  "modernflat/vocab-pressure-wash.webp": "cbd5e0ce33b610376bf6b8f3000a345abae266b343ebc69eac70ca77abf7a155",
+  "modernflat/vocab-swinging-balls.webp": "e8f957d28a4f58e1f5dbd5bf3005b2edf06a5859b70d9427276ed13f7238aa7d",
+  "modernflat/vocab-light-tunnel.webp": "f5df4cc888eea178e2a774876b6b8c1c7b58103e73319bd0c3624d5e59d32c11",
+  "modernflat/vocab-northern-lights.webp": "44bfcf9574f82bb290dc64961de0d7a4c832ecee51d81b38bb4d2101d294532b"
  },
  "rendering": "Original flat vector artwork and exact Fluent Flat variants; at most 340px, smaller raster originals retain native resolution without added padding. Generated scenes exported with LANCZOS resampling. No original 3D images used.",
  "expansionTarget": 10000,
@@ -10632,6 +10639,48 @@
    "label": "match pairs",
    "from": [
     "drawn by tools/add_games_v16.py"
+   ]
+  },
+  "vocab-kinetic-sand": {
+   "label": "kinetic sand",
+   "from": [
+    "drawn by tools/add_games_v18.py"
+   ]
+  },
+  "vocab-soap-cutting": {
+   "label": "soap cutting",
+   "from": [
+    "drawn by tools/add_games_v18.py"
+   ]
+  },
+  "vocab-water-beads": {
+   "label": "water beads",
+   "from": [
+    "drawn by tools/add_games_v18.py"
+   ]
+  },
+  "vocab-pressure-wash": {
+   "label": "pressure wash",
+   "from": [
+    "drawn by tools/add_games_v18.py"
+   ]
+  },
+  "vocab-swinging-balls": {
+   "label": "swinging balls",
+   "from": [
+    "drawn by tools/add_games_v18.py"
+   ]
+  },
+  "vocab-light-tunnel": {
+   "label": "light tunnel",
+   "from": [
+    "drawn by tools/add_games_v18.py"
+   ]
+  },
+  "vocab-northern-lights": {
+   "label": "northern lights",
+   "from": [
+    "drawn by tools/add_games_v18.py"
    ]
   }
  }

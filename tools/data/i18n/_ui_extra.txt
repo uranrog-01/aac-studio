@@ -5822,3 +5822,27 @@ ko|상대방 말 듣기
 hi|दूसरे व्यक्ति को सुनें
 ar|الاستماع إلى الشخص الآخر
 ur|دوسرے شخص کو سنیں
+
+# 1.12: smart board, tools, Wi-Fi copy
+
+@ Satisfying
+sq|Të kënaqshme
+fr|Satisfaisants
+de|Befriedigend
+es|Relajantes
+it|Rilassanti
+pt|Relaxantes
+nl|Voldoening
+pl|Satysfakcjonujące
+ro|Relaxante
+hr|Opuštajuće
+tr|Rahatlatıcı
+el|Ικανοποιητικά
+ru|Приятные
+uk|Приємні
+zh|解压
+ja|きもちいい
+ko|만족감
+hi|सुकून देने वाले
+ar|ممتعة ومريحة
+ur|سکون بخش

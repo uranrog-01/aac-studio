@@ -101,6 +101,13 @@ Word position|Poziția cuvântului
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Cuvintele netraduse încă rămân în engleză. Dacă dispozitivul nu are o voce pentru această limbă, cuvintele sunt citite de vocea implicită. Adaugă voci în setările de sinteză vocală ale dispozitivului.
 category|categorie
 [words]
+kinetic sand|nisip kinetic
+soap cutting|tăiat săpun
+water beads|mărgele de apă
+pressure wash|spălare cu presiune
+swinging balls|bile care se leagănă
+light tunnel|tunel de lumină
+northern lights|aurora boreală
 schedule|programul zilei
 first then|întâi apoi
 where it hurts|unde mă doare

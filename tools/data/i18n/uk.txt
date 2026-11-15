@@ -101,6 +101,13 @@ Word position|Місце слова
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Слова без перекладу поки залишаються англійською. Якщо на пристрої немає голосу для цієї мови, слова читає голос за замовчуванням. Додайте голоси в налаштуваннях синтезу мовлення пристрою.
 category|категорія
 [words]
+kinetic sand|кінетичний пісок
+soap cutting|різання мила
+water beads|водні кульки
+pressure wash|миття під тиском
+swinging balls|кульки, що гойдаються
+light tunnel|світловий тунель
+northern lights|північне сяйво
 schedule|розклад
 first then|спочатку потім
 where it hurts|де болить

@@ -101,6 +101,13 @@ Word position|शब्द की जगह
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|जिन शब्दों का अनुवाद अभी नहीं है, वे अंग्रेज़ी में रहते हैं। अगर डिवाइस में इस भाषा की आवाज़ नहीं है, तो उसकी सामान्य आवाज़ पढ़ती है। डिवाइस की टेक्स्ट-टू-स्पीच सेटिंग्स में आवाज़ें जोड़ें।
 category|श्रेणी
 [words]
+kinetic sand|काइनेटिक रेत
+soap cutting|साबुन काटना
+water beads|पानी के मोती
+pressure wash|प्रेशर वॉश
+swinging balls|झूलती गेंदें
+light tunnel|रोशनी की सुरंग
+northern lights|उत्तरी रोशनी
 schedule|दिनचर्या
 first then|पहले फिर
 where it hurts|कहाँ दर्द है

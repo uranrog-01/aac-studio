@@ -101,6 +101,13 @@ Word position|Pozicioni i fjalës
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Fjalët pa përkthim ende mbeten në anglisht. Nëse pajisja nuk ka zë për këtë gjuhë, i lexon zëri i saj i parazgjedhur. Shto zëra te cilësimet e tekst-në-të-folur të pajisjes.
 category|kategori
 [words]
+kinetic sand|rërë kinetike
+soap cutting|prerje sapuni
+water beads|rruaza uji
+pressure wash|larje me presion
+swinging balls|topat lëkundës
+light tunnel|tunel drite
+northern lights|dritat veriore
 schedule|orari
 first then|së pari pastaj
 where it hurts|ku më dhemb

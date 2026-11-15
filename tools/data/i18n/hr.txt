@@ -101,6 +101,13 @@ Word position|Položaj riječi
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Riječi koje još nisu prevedene ostaju na engleskom. Ako uređaj nema glas za ovaj jezik, riječi čita njegov zadani glas. Glasove dodaj u postavkama pretvaranja teksta u govor na uređaju.
 category|kategorija
 [words]
+kinetic sand|kinetički pijesak
+soap cutting|rezanje sapuna
+water beads|vodene perlice
+pressure wash|pranje pod tlakom
+swinging balls|njihajuće kuglice
+light tunnel|tunel svjetla
+northern lights|polarna svjetlost
 schedule|raspored
 first then|prvo onda
 where it hurts|gdje boli

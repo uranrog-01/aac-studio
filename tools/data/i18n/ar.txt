@@ -101,6 +101,13 @@ Word position|موضع الكلمة
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|الكلمات غير المترجمة بعد تبقى بالإنجليزية. إذا لم يكن في الجهاز صوت لهذه اللغة، يقرأ الصوت الافتراضي الكلمات. أضف أصواتًا من إعدادات تحويل النص إلى كلام في الجهاز.
 category|فئة
 [words]
+kinetic sand|رمل حركي
+soap cutting|تقطيع الصابون
+water beads|خرز الماء
+pressure wash|غسيل بالضغط
+swinging balls|كرات متأرجحة
+light tunnel|نفق الضوء
+northern lights|الشفق القطبي
 schedule|الجدول
 first then|أولًا ثم
 where it hurts|أين يؤلمني

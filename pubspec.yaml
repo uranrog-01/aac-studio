@@ -6,7 +6,7 @@ description: >-
 publish_to: "none"
 # Build number stays above every per-CPU APK ever shipped (they used
 # 1000/2000/4000 + n), so the single universal APK always installs as an update.
-version: 1.12.0+5011
+version: 1.13.0+5012
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
@@ -40,6 +40,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  shaders:
+    - shaders/lava.frag
+    - shaders/water.frag
+    - shaders/tunnel.frag
+    - shaders/aurora.frag
+    - shaders/ocean.frag
   assets:
     - assets/sample_pack.json
     - assets/factory_symbol_history.json

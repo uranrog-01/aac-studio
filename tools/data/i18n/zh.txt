@@ -101,6 +101,13 @@ Word position|文字位置
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|还没有翻译的词会显示英文。如果设备没有这种语言的声音，会用默认声音朗读。可以在设备的文字转语音设置中添加声音。
 category|类别
 [words]
+kinetic sand|动力沙
+soap cutting|切肥皂
+water beads|水晶珠
+pressure wash|高压冲洗
+swinging balls|牛顿摆
+light tunnel|光之隧道
+northern lights|北极光
 schedule|日程
 first then|先…再…
 where it hurts|哪里疼

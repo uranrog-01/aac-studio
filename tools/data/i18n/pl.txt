@@ -101,6 +101,13 @@ Word position|Pozycja słowa
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Słowa bez tłumaczenia zostają po angielsku. Jeśli urządzenie nie ma głosu dla tego języka, słowa czyta głos domyślny. Dodaj głosy w ustawieniach syntezy mowy urządzenia.
 category|kategoria
 [words]
+kinetic sand|piasek kinetyczny
+soap cutting|krojenie mydła
+water beads|kulki wodne
+pressure wash|myjka ciśnieniowa
+swinging balls|kołyska Newtona
+light tunnel|tunel światła
+northern lights|zorza polarna
 schedule|plan dnia
 first then|najpierw potem
 where it hurts|gdzie boli

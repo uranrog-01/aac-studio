@@ -101,6 +101,13 @@ Word position|لفظ کی جگہ
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|جن الفاظ کا ابھی ترجمہ نہیں ہوا وہ انگریزی میں رہیں گے۔ اگر ڈیوائس میں اس زبان کی آواز نہیں تو اس کی ڈیفالٹ آواز الفاظ پڑھے گی۔ ڈیوائس کی ٹیکسٹ ٹو اسپیچ ترتیبات میں آوازیں شامل کریں۔
 category|زمرہ
 [words]
+kinetic sand|کائنیٹک ریت
+soap cutting|صابن کاٹنا
+water beads|پانی کے موتی
+pressure wash|پریشر واش
+swinging balls|جھولتی گیندیں
+light tunnel|روشنی کی سرنگ
+northern lights|شمالی روشنیاں
 schedule|شیڈول
 first then|پہلے پھر
 where it hurts|کہاں درد ہے

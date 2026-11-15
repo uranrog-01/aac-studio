@@ -101,6 +101,13 @@ Word position|Posizione della parola
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Le parole non ancora tradotte restano in inglese. Se il dispositivo non ha una voce per questa lingua, le legge la voce predefinita. Aggiungi voci nelle impostazioni di sintesi vocale del dispositivo.
 category|categoria
 [words]
+kinetic sand|sabbia cinetica
+soap cutting|tagliare il sapone
+water beads|perline d'acqua
+pressure wash|idropulitrice
+swinging balls|palline che oscillano
+light tunnel|tunnel di luce
+northern lights|aurora boreale
 schedule|programma
 first then|prima poi
 where it hurts|dove mi fa male

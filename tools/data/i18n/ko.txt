@@ -101,6 +101,13 @@ Word position|단어 위치
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|아직 번역되지 않은 단어는 영어로 남아요. 기기에 이 언어의 목소리가 없으면 기본 목소리가 단어를 읽어요. 기기의 텍스트 음성 변환 설정에서 목소리를 추가하세요.
 category|분류
 [words]
+kinetic sand|키네틱 샌드
+soap cutting|비누 자르기
+water beads|워터 비즈
+pressure wash|고압 세척
+swinging balls|흔들리는 공
+light tunnel|빛의 터널
+northern lights|오로라
 schedule|일정
 first then|먼저 그다음
 where it hurts|아픈 곳

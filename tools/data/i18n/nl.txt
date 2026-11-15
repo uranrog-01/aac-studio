@@ -101,6 +101,13 @@ Word position|Plaats van het woord
 Words without a translation yet stay in English. If the device has no voice for this language, its default voice reads the words. Add voices in the device's text-to-speech settings.|Woorden die nog niet vertaald zijn, blijven in het Engels. Als het apparaat geen stem voor deze taal heeft, leest de standaardstem de woorden voor. Voeg stemmen toe in de instellingen voor tekst-naar-spraak van het apparaat.
 category|categorie
 [words]
+kinetic sand|kinetisch zand
+soap cutting|zeep snijden
+water beads|waterparels
+pressure wash|hogedrukreiniger
+swinging balls|slingerballen
+light tunnel|lichttunnel
+northern lights|noorderlicht
 schedule|dagschema
 first then|eerst dan
 where it hurts|waar het pijn doet
