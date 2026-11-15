@@ -2,7 +2,7 @@
  "id": "studio.basics.autism",
  "label": "My Words",
  "rootFolder": "home",
- "packVersion": 17,
+ "packVersion": 18,
  "folders": [
   {
    "id": "home",
@@ -52184,36 +52184,6 @@
    ]
   },
   {
-   "id": "game_hear",
-   "kind": "action",
-   "label": "tap and hear",
-   "class": "other",
-   "symbol": "🎮",
-   "symbolPack": "modernflat",
-   "symbolKey": "fluent-speaking-head",
-   "actions": [
-    {
-     "kind": "sensoryGames",
-     "data": "hear"
-    }
-   ]
-  },
-  {
-   "id": "game_pairs",
-   "kind": "action",
-   "label": "match pairs",
-   "class": "other",
-   "symbol": "🎮",
-   "symbolPack": "modernflat",
-   "symbolKey": "vocab-match-pairs",
-   "actions": [
-    {
-     "kind": "sensoryGames",
-     "data": "pairs"
-    }
-   ]
-  },
-  {
    "id": "tool_schedule",
    "kind": "action",
    "label": "schedule",
@@ -52300,6 +52270,126 @@
     {
      "kind": "openTool",
      "data": "scenes"
+    }
+   ]
+  },
+  {
+   "id": "game_kineticsand",
+   "kind": "action",
+   "label": "kinetic sand",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-kinetic-sand",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "kineticsand"
+    }
+   ]
+  },
+  {
+   "id": "game_soap",
+   "kind": "action",
+   "label": "soap cutting",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-soap-cutting",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "soap"
+    }
+   ]
+  },
+  {
+   "id": "game_beads",
+   "kind": "action",
+   "label": "water beads",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-water-beads",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "beads"
+    }
+   ]
+  },
+  {
+   "id": "game_wash",
+   "kind": "action",
+   "label": "pressure wash",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-pressure-wash",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "wash"
+    }
+   ]
+  },
+  {
+   "id": "game_cradle",
+   "kind": "action",
+   "label": "swinging balls",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-swinging-balls",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "cradle"
+    }
+   ]
+  },
+  {
+   "id": "game_tunnel",
+   "kind": "action",
+   "label": "light tunnel",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-light-tunnel",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "tunnel"
+    }
+   ]
+  },
+  {
+   "id": "game_aurora",
+   "kind": "action",
+   "label": "northern lights",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "vocab-northern-lights",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "aurora"
+    }
+   ]
+  },
+  {
+   "id": "game_jellyfish",
+   "kind": "action",
+   "label": "jellyfish",
+   "class": "other",
+   "symbol": "🎮",
+   "symbolPack": "modernflat",
+   "symbolKey": "fluent-jellyfish",
+   "actions": [
+    {
+     "kind": "sensoryGames",
+     "data": "jellyfish"
     }
    ]
   }
@@ -63074,6 +63164,21 @@
     "columns": 4,
     "cells": [
      {
+      "btn": "game_kineticsand"
+     },
+     {
+      "btn": "game_soap"
+     },
+     {
+      "btn": "game_beads"
+     },
+     {
+      "btn": "game_wash"
+     },
+     {
+      "btn": "game_cradle"
+     },
+     {
       "btn": "game_popit"
      },
      {
@@ -63107,10 +63212,13 @@
       "btn": "game_spinner"
      },
      {
-      "btn": "game_hear"
+      "btn": "game_tunnel"
      },
      {
-      "btn": "game_pairs"
+      "btn": "game_aurora"
+     },
+     {
+      "btn": "game_jellyfish"
      }
     ]
    }
